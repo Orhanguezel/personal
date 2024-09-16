@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "gh-pages": "^6.1.1"
+  },
+  "name": "personal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "deploy": "gh-pages -d ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
