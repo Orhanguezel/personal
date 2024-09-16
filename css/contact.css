@@ -1,0 +1,38 @@
+/* Contact Section */
+.contact {
+    padding: 50px 20px;
+    background-color: var(--secondary-color); /* Ana renk */
+    text-align: center;
+}
+
+.contact .section-title {
+    font-size: 2.5em;
+    color: var(--text-color);
+    margin-bottom: 30px;
+}
+
+.contact-description {
+    font-size: 1.2em;
+    color: var(--text-color);
+    margin-bottom: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+    font-family: var(--font-family2);
+}
+
+/* Contact Button */
+.quote-btn {
+    background-color: var(--btn-bg-color);
+    color: var(--btn-text-color);
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 1.2em;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.quote-btn:hover {
+    background-color: var(--highlight-color);
+}

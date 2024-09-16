@@ -1,0 +1,118 @@
+/* Projects Section */
+.projects {
+    padding: 50px 20px;
+    background-color: var(--secondary-color);
+    text-align: center;
+}
+
+.section-title {
+    font-size: var(--h2-font-size);
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+.section-title h2 {
+    font-size: var(--h2-font-size);
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+.section-title h2 span{
+    color: var(--highlight-color);
+}
+
+.section-description {
+    font-size: var(--p-font-size);
+    color: var(--text-color);
+    margin-bottom: 50px;
+    max-width: 800px;
+    margin: 50px auto;
+}
+
+/* Project Grid */
+.project-grid {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+/* Project Item */
+.project-item {
+    position: relative;
+    width: 600px;
+    height: 450px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 50px; /* Resim dışına taşan kartın düzgün görünmesi için altına boşluk eklendi */
+}
+
+/* Image Wrapper */
+.project-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+}
+
+.project-image-wrapper img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+
+/* Project Details */
+.project-details {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    bottom: -10%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 80%;
+    background-color:#000C14;
+    color: var(--text-color);
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    z-index: 10;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5); /* Kartın gölge efektiyle dışarı taşma vurgulandı */
+}
+
+/* Project Details Heading */
+.project-details h3 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.project-details p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+/* Project Link */
+.project-link {
+    font-size: 1.1em;
+    color: var(--highlight-color);
+    text-decoration: none;
+}
+
+.project-details a:hover {
+    color: var(--text-color);
+    transition: color 0.4s ease, transform 0.4s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .project-item {
+        width: 100%;
+    }
+
+    .project-grid {
+        flex-direction: column;
+    }
+
+    .project-details {
+        bottom: -20px; /* Mobilde kartın taşma oranı biraz azaltıldı */
+    }
+}

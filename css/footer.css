@@ -1,0 +1,165 @@
+/* Footer Section */
+.footer {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    padding: 40px 20px;
+    font-family: var(--font-family2);
+    border-top: 0.5px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: var(--secondary-color);
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:5px;
+  
+}
+
+.logo img {  
+    width: 100px;
+    height: auto;
+
+}
+
+.logo h2 {
+    padding-top: 20px;
+    font-size:var(--h2-font-size);
+    font-family: var(--font-family);
+    color: var(--text-color);
+}
+
+/* Footer içerik düzeni */
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 220px;
+}
+
+.footer-section h3 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+    color: var(--highlight-color);
+}
+
+/* Sosyal medya ikonları */
+.social-media {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.social-media a {
+    color: var(--text-color);
+    margin: 0 10px;
+    font-size: 1.5em;
+}
+
+.social-media a:hover {
+    color: var(--highlight-color);
+}
+
+/* Footer alt kısmı */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.copyright {
+    font-size: 0.9em;
+}
+
+/* Scroll to Top Button */
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--text-color);
+    color: var(--btn-text-color);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+}
+
+.scroll-to-top:hover {
+    background-color: var(--btn-bg-color); /* Hover ile rengi değiştir */
+    transform: scale(1.1); /* Hover animasyonu */
+}
+
+.scroll-to-top i {
+    font-size: 20px;
+}
+
+.scroll-to-top.hide {
+    display: none; /* Buton varsayılan olarak gizli */
+}
+
+
+/* Responsive*/
+@media (max-width: 768px) {
+
+    .logo h2 {
+        font-size:24px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section {
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .footer-description {
+        max-width: none;
+    }
+
+    .scroll-to-top {
+        display: none; /* Buton varsayılan olarak gizli */
+    }
+
+}

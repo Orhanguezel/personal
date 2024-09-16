@@ -1,0 +1,71 @@
+/* Skills Section */
+.skills {
+    padding: 50px 20px;
+    background-color: var(--secondary-color);
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5em;
+    color: var(text-color);
+    margin-bottom: 40px;
+}
+
+.section-title span {
+    color: var(--highlight-color);
+    margin-bottom: 40px;
+}
+
+.skill-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    justify-items: center;
+}
+
+/* Skill Item */
+.skill-item {
+    background-color: #1b2838;
+    min-width: 450px;
+    height: auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.skill-item:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.skill-item h3 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+/* Standart hale getirilen Skill Iconlar */
+.skill-icon {
+    width: 60px;
+    height: 60px;
+    margin: 10px;
+    object-fit: contain;
+}
+
+.skill-item img {
+    width: 80px;   /* Standart genişlik */
+    height: 80px;  /* Standart yükseklik */
+    margin: 10px;
+    object-fit: contain; /* Resimlerin bozulmaması için orantıyı korur */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .skill-item h3 {
+        font-size: 1.5em;
+    }
+
+    .skill-item img {
+        width: 50px;
+        height: 50px;
+    }
+}

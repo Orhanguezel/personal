@@ -1,0 +1,139 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    font-size: var(--base-font-size);
+    line-height: 1.6;
+}
+
+h1, h2 {
+    color: var(--highlight-color);
+}
+
+p {
+    font-family: var(--font-family2);
+    font-size: var(--p-font-size);
+    color: var(--text-color);
+}
+
+/* Hamburger Menü Stili - Küçük Ekranlarda */
+.hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+/* Hamburger Menü Barları */
+.hamburger-menu .bar {
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+/* Mobil Menünün Varsayılan Durumu - Gizli */
+.nav-menu {
+    display: none; /* Varsayılan olarak menü gizli */
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.4s ease;
+    transform: translateX(100%); /* Menü kapalı iken ekrandan dışarı */
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Menü Açıldığında Görünür */
+.nav-menu.show {
+    transform: translateX(0); /* Menü açıldığında içeri girer */
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Menü içindeki bağlantılar */
+.nav-menu li {
+    list-style: none;
+    margin: 20px 0;
+}
+
+.nav-menu li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5em;
+    transition: color 0.3s ease;
+}
+
+.nav-menu li a:hover {
+    color: var(--highlight-color);
+}
+
+/* Hamburger Menü Açıldığında X İşaretine Dönüşmesi */
+.hamburger-menu.open .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger-menu.open .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.open .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Büyük Ekranlar için Navbar */
+@media (min-width: 1024px) {
+    .nav-menu {
+        display: flex; /* Büyük ekranlarda menü görünür */
+        flex-direction: row;
+        position: static;
+        background-color: transparent;
+        height: auto;
+        justify-content: flex-end;
+        align-items: center;
+        opacity: 1;
+        visibility: visible;
+        transform: none; /* Büyük ekranlarda translate kaldırılır */
+    }
+
+    /* Hamburger menü büyük ekranlarda gizlenir */
+    .hamburger-menu {
+        display: none;
+    }
+
+    /* Normal navbar bağlantıları için stil */
+    .nav-menu li {
+        list-style: none;
+        margin-left: 20px;
+    }
+
+    .nav-menu li a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.2em;
+        padding: 10px 20px;
+        transition: color 0.3s ease;
+    }
+
+    .nav-menu li a:hover {
+        color: var(--highlight-color);
+    }
+}

@@ -1,0 +1,52 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    font-size: var(--base-font-size);
+    line-height: 1.6;
+}
+
+h1, h2 {
+    color: var(--highlight-color);
+}
+
+p {
+    font-family: var(--font-family2);
+    font-size: var(--p-font-size);
+    color: var(--text-color);
+}
+
+/* Butonlar */
+button, .btn, .explore-btn {
+    background-color: var(--btn-bg-color);
+    color: var(--btn-text-color);
+    padding: var(--btn-padding);
+    border-radius: var(--btn-radius);
+    text-decoration: none;
+    font-size: 1.2em;
+    display: inline-block;
+    cursor: pointer;
+    
+    /* Animasyon geçişi */
+    transition: background-color 0.4s ease, transform 0.3s ease;
+}
+
+button:hover, .btn:hover, .explore-btn:hover {
+    background-color:var(--text-color); /* Renk değişimi */
+    box-shadow: 2px 2px 10px rgba(252, 247, 247, 0.8); /* Buton gölgelendirme */
+    transform: scale(1.05); /* Buton hafif büyür */
+}
+
+/* Flex düzen ve merkezi hizalamalar */
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
