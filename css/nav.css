@@ -1,0 +1,102 @@
+/* Top Bar (üstteki bar) */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--secondary-color);
+    padding: 10px 20px;
+    width: 100%;
+    border-bottom: 0.1px solid rgba(255, 255, 255, 0.4);
+
+}
+
+.contact-info {
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    padding-right: 10px;
+}
+
+/* Küçük ekranlarda sadece ikonlar göster */
+.contact-info span {
+    display: none;
+}
+
+.contact-info i {
+    display: inline-block;
+    font-size: 1.2em;
+    margin-right: 10px;
+    color: var(--text-color);
+}
+
+.contact-info i:hover {
+    color: var(--highlight-color);
+}
+
+/* Sosyal medya ikonları */
+.social-media-icons a {
+    color: var(--text-color);
+    margin-left: 15px;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.social-media-icons a:hover {
+    color: var(--highlight-color);
+}
+
+/* Büyük ekranlarda contact-info'nun (telefon ve email) görünmesi için */
+@media (min-width: 1024px) {
+    .contact-info span{
+        display: inline-block; /* Büyük ekranlarda telefon ve email metni görünür */
+    }
+}
+
+/* Ana Navigasyon */
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--secondary-color);
+}
+
+.main-nav .logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+}
+
+.main-nav .logo img {
+    width: 80px;
+    height: auto;
+}
+
+.main-nav .logo h2 {
+    padding-top: 20px;
+    font-size: 1.5em;
+    font-family: var(--font-family);
+    color: var(--text-color);
+}
+
+.main-nav .logo .highlight {
+    color: var(--highlight-color);
+}
+
+
+.main-nav nav ul {
+    display: flex;
+    list-style-type: none;
+}
+
+.main-nav nav ul li {
+    margin: 0 5px;
+}
+
+.main-nav nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+
