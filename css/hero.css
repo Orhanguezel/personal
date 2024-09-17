@@ -1,20 +1,17 @@
 .hero {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 50px 20px;
-    background-color: rgba(0, 0, 0, 0.5);
-    height: 100vh;
-    background-color: var(--secondary-color);
+    padding: 20px;
+    height: 80vh;
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.1) 0%, var(--secondary-color) 90%);
     position: relative;
 }
 
 .hero-content {
-    max-width: 650px;
-    margin-bottom: 20px;
-    z-index: 1;
+    max-width: 100%;
+    z-index: 2;
     position: relative;
 }
 
@@ -33,14 +30,16 @@
 }
 
 .hero-image {
+    flex: 1 1 40%;
     width: 100%;
-    min-height: 50vh;
+    height: 100%; /* Resim yüksekliği tam kapsar */
+    max-height: 70vh; /* Maximum yüksekliği ayarla */
     background-image: url('../img/logo1.png');
-    background-size: contain;
-    background-position: center;
+    background-size: contain; /* Resim boyutunu kapsayıcıya uydur */
+    background-position: center center; /* Resmin sağ tarafa hizalanması */
     background-repeat: no-repeat;
-    z-index: 2; 
-    object-fit: cover;
+    position: relative;
+    object-fit: contain; /* Resmi kapsayıcıya sığdır */
 }
 
 /* Büyük ekranlar için ayar */
@@ -48,29 +47,36 @@
     .hero {
         flex-direction: row;
         justify-content: space-between;
-        text-align: left;
+        text-align: start;
         padding: 0px;
     }
 
     .hero-content {
-        flex: 1;
+        flex: 1 1 50%;
+        max-width: 60%; /* Yazı alanını sınırla */
         text-align: left;
         padding-left: 40px;
-        align-self: center;
-        z-index: 1;
+        z-index: 2;
+        border: none; /* İsteğe bağlı: Büyük ekranlarda border kaldırılabilir */
     }
 
     .hero-image {
-        flex: 1;
-        height: auto;
-        max-width: 50vw; 
-       max-height: 100vh;
-        background-size: cover;
+        flex: 1 1 30%;
+        width: 20%;
+        height: 90%; /* Resim boyutu orantılı büyür */
+        background-size: contain; /* Kapsayıcı içinde tam görünmesi */
         background-position: center right;
-        position: absolute;
+        position: relative;
         top: 0;
         right: 0;
-        bottom: 0;
-        z-index: 2;
+        z-index: 1;
+    }
+
+    .hero-content > h2 {
+        font-size: 60px !important;
+    }
+
+    .hero-content > p {
+        font-size: 1.7rem;
     }
 }
