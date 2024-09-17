@@ -3,8 +3,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--secondary-color);
-    padding: 10px 20px;
+    background:  rgba(0, 0, 0, 1); 
+    padding: 5px 20px;
     width: 100%;
     border-bottom: 0.1px solid rgba(255, 255, 255, 0.4);
 
@@ -45,10 +45,10 @@
     color: var(--highlight-color);
 }
 
-/* Büyük ekranlarda contact-info'nun (telefon ve email) görünmesi için */
+
 @media (min-width: 1024px) {
     .contact-info span{
-        display: inline-block; /* Büyük ekranlarda telefon ve email metni görünür */
+        display: inline-block; 
     }
 }
 
@@ -58,7 +58,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: var(--secondary-color);
+    background: rgba(0, 0, 0, 0.9);
     height: 80px;
 }
 
