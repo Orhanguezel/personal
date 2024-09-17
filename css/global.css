@@ -4,8 +4,11 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+html{
+    overflow-x: hidden;
+}
 body {
+    overflow-x: hidden;
     font-family: var(--font-family);
     background-color: var(--secondary-color);
     color: var(--text-color);
