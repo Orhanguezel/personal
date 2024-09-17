@@ -12,7 +12,6 @@
 }
 
 .about-content {
-    max-width: 800px;
     margin: 0 auto;
     color: var(--text-color);
     font-size: 1.2em;
