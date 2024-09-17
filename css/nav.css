@@ -59,6 +59,7 @@
     align-items: center;
     padding: 20px;
     background-color: var(--secondary-color);
+    height: 80px;
 }
 
 .main-nav .logo {
