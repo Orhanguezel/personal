@@ -1,7 +1,7 @@
 /* Projects Section */
 .projects {
     padding: 50px 20px;
-    background-color: var(--secondary-color);
+    background: radial-gradient(circle at center, rgb(13, 31, 45, 0.5) 0%, rgba(0, 0, 0, 0.9) 100%);
     text-align: center;
 }
 
@@ -44,7 +44,7 @@
     height: 450px;
     border-radius: 10px;
     overflow: hidden;
-    margin-bottom: 50px; /* Resim dışına taşan kartın düzgün görünmesi için altına boşluk eklendi */
+    margin-bottom: 50px; 
 }
 
 /* Image Wrapper */
@@ -76,7 +76,7 @@
     text-align: center;
     border-radius: 10px;
     z-index: 10;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5); /* Kartın gölge efektiyle dışarı taşma vurgulandı */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5); 
 }
 
 /* Project Details Heading */
@@ -113,6 +113,6 @@
     }
 
     .project-details {
-        bottom: -20px; /* Mobilde kartın taşma oranı biraz azaltıldı */
+        bottom: -20px; 
     }
 }
