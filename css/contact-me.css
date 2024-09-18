@@ -1,0 +1,7 @@
+.contact{
+    padding: 50px 20px;
+    background: radial-gradient(circle at center, rgb(13, 31, 45, 0.5) 0%, rgba(0, 0, 0, 0.9) 100%);
+    text-align: center;
+    height: 350px;
+    border: 1px solid red;
+}

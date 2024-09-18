@@ -35,6 +35,10 @@
     color: var(--text-color);
 }
 
+.logo span {
+    color: var(--highlight-color);
+}
+
 /* Footer içerik düzeni */
 .footer-content {
     max-width: 1200px;
