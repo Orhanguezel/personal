@@ -35,6 +35,10 @@
     color: var(--text-color);
 }
 
+.logo span {
+    color: var(--highlight-color);
+}
+
 /* Footer içerik düzeni */
 .footer-content {
     max-width: 1200px;
@@ -52,6 +56,7 @@
 }
 
 .footer-section h3 {
+    font-family: var(--font-family);
     font-size: 1.2em;
     margin-bottom: 15px;
 }
@@ -59,10 +64,13 @@
 .footer-section ul {
     list-style-type: none;
     padding: 0;
+    
 }
 
 .footer-section ul li {
+    
     margin-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-section ul li a {
