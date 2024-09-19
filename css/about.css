@@ -19,8 +19,36 @@
     font-family: var(--font-family2);
 }
 
+
 .about-content p {
     font-size: var(--p-font-size);
     color: var(--text-color);
+    margin-bottom: 30px;
 }
 
+
+@media (max-width: 768px) {
+    .about-me {
+        padding: 30px 10px;
+    }
+
+    .about-me .section-title {
+        font-size: 2em;
+    }
+
+    .about-content {
+        font-size: 1em;
+        line-height: 1.6;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .about-me .section-title {
+        font-size: 1.8em;
+    }
+
+    .about-content {
+        font-size: 0.9em;
+    }
+}
