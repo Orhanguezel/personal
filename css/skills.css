@@ -73,4 +73,8 @@
     .icon-card p {
         font-size: 0.9em;
     }
+
+    .skill-flex {
+        flex-direction: column;
+    }
 }

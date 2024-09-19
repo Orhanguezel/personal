@@ -1,6 +1,6 @@
 /* Footer Section */
 .footer {
-    background: radial-gradient(circle at center, rgb(13, 31, 45, 0.5) 0%, rgba(0, 0, 0, 0.9) 100%); 
+    background: radial-gradient(circle at center, rgb(13, 31, 45, 0.5) 0%, rgba(0, 0, 0, 0.9) 100%);
     color: var(--text-color);
     padding: 40px 20px;
     font-family: var(--font-family2);
@@ -14,32 +14,7 @@
     padding: 10px;
 }
 
-.logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap:5px;
-  
-}
-
-.logo img {  
-    width: 100px;
-    height: auto;
-
-}
-
-.logo h2 {
-    padding-top: 20px;
-    font-size:var(--h2-font-size);
-    font-family: var(--font-family);
-    color: var(--text-color);
-}
-
-.logo span {
-    color: var(--highlight-color);
-}
-
-/* Footer içerik düzeni */
+/* Footer Content Layout */
 .footer-content {
     max-width: 1200px;
     margin: 0 auto;
@@ -64,11 +39,9 @@
 .footer-section ul {
     list-style-type: none;
     padding: 0;
-    
 }
 
 .footer-section ul li {
-    
     margin-bottom: 10px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -82,7 +55,7 @@
     color: var(--highlight-color);
 }
 
-/* Sosyal medya ikonları */
+/* Social Media Icons */
 .social-media {
     display: flex;
     justify-content: center;
@@ -99,7 +72,7 @@
     color: var(--highlight-color);
 }
 
-/* Footer alt kısmı */
+/* Footer Bottom Section */
 .footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 20px;
@@ -130,43 +103,31 @@
     z-index: 1000;
 }
 
-.scroll-to-top:hover {
-    background-color: var(--btn-bg-color); 
-    transform: scale(1.1); 
+.logo-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
-.scroll-to-top i {
-    font-size: 20px;
+.logo-footer img {
+    width: 150px;
+    height: 150px;
 }
 
-.scroll-to-top.hide {
-    display: none; 
-}
-
-
-/* Responsive*/
+/* Responsive */
 @media (max-width: 768px) {
-
-    .logo h2 {
-        font-size:24px;
-    }
-
     .footer-content {
         flex-direction: column;
         align-items: flex-start;
-
     }
 
     .footer-section {
         margin-bottom: 30px;
     }
 
-    .footer-description {
-        max-width: none;
-    }
-
     .scroll-to-top {
-        display: none; 
+        display: none;
     }
-
 }
