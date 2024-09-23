@@ -74,6 +74,7 @@
     z-index: 10;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
     width: 90%;
+
 }
 
 /* Project Details Heading */
@@ -116,7 +117,6 @@
     }
 
     .project-details {
-        width: 100%;
-        top: 55%;
+        width: 90%;
     }
 }
