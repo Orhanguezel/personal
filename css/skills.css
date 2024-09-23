@@ -39,6 +39,7 @@
 .skill-item h3 {
     font-size: 1.8em;
     margin-bottom: 15px;
+    font-family: var(--font-family);
 }
 
 /* Icon Card */
