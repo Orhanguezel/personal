@@ -7,21 +7,23 @@
 }
     
 body {
-    font-family: var(--font-family);
     background-color: var(--secondary-color);
     color: var(--text-color);
     font-size: var(--base-font-size);
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 h1 {
     font-size: var(--h1-font-size);
     color: var(--highlight-color);
+    font-family: var(--font-family);
 }
 
 h2 {
     font-size: var(--h2-font-size);
     color: var(--highlight-color);
+    font-family: var(--font-family);
 }
 
 h4 {
@@ -64,6 +66,7 @@ h4 {
 
 span{
     color: var(--highlight-color);
+    font-family: var(--font-family);
 }
 
 
@@ -79,6 +82,9 @@ span{
 .main-nav nav ul li a {
     color: white;
     text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+    font-family: var(--font-family);
 }
 
 p {
@@ -89,6 +95,7 @@ p {
 
 /* Butonlar */
 button, .btn, .explore-btn {
+    font-family: var(--font-family);
     background-color: var(--btn-bg-color);
     color: var(--btn-text-color);
     padding: var(--btn-padding);
