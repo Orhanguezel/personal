@@ -11,6 +11,6 @@
     "deploy": "gh-pages -d ."
   },
   "keywords": [],
-  "author": "",
+  "author": "Orhan Guezel",
   "license": "ISC"
 }

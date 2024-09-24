@@ -35,7 +35,7 @@
 }
 
 .contact-hero .contact-image {
-    width: 400px;
+  width: 400px;
   max-width: 900px;
   border-radius: 8px;
   animation: fadeInImage 2s ease-out 0.5s forwards;
@@ -119,6 +119,7 @@
   font-size: var(--h3-font-size);
   margin-bottom: 20px;
   color: var(--text-color);
+  font-family: var(--font-family2);
 }
 
 .contact-form {
@@ -153,7 +154,7 @@
 }
 
 button {
-  width: 120px;
+  width: 140px;
 }
 
 .logo-footer h4 {
