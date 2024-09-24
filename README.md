@@ -1,38 +1,51 @@
+# Guezel Webdesign - Persönliches Portfolio
 
-# Personal Portfolio Website
+Dieses Projekt ist eine persönliche Portfolio-Website von Orhan Güzel, einem Webentwickler, der sich auf die Gestaltung und Entwicklung moderner, responsiver Websites spezialisiert hat. Das Portfolio zeigt Fähigkeiten, abgeschlossene Projekte und Kontaktdaten in einem klaren und professionellen Design.
 
-Welcome to my personal portfolio website! This site showcases my skills, projects, and experience in web development and design.
+### Inhaltsverzeichnis:
+- [Startseite](#startseite)
+- [Über mich](#über-mich)
+- [Portfolio](#portfolio)
+- [Fähigkeiten](#fähigkeiten)
+- [Kontakt](#kontakt)
 
-## Website URL
+## Live-Demo:
+Die Live-Version des Projekts ist [hier verfügbar](https://orhanguezel.github.io/personal/).
 
-You can view the live site here: [https://orhanguezel.github.io/personal/](https://orhanguezel.github.io/personal/)
+## Startseite:
+Die Startseite begrüßt Besucher mit einem einfachen, aber wirkungsvollen Design und dem Slogan „Ideen in digitale Erlebnisse verwandeln“. Diese Sektion fordert Benutzer dazu auf, über die Schaltfläche „Meine Arbeit erkunden“ das Portfolio zu entdecken. Sie können auch direkt von der Startseite auf die Abschnitte **Über mich**, **Portfolio** und **Kontakt** zugreifen.
 
-## About
+## Über mich:
+Im Abschnitt **Über mich** finden Sie Details über Orhans Werdegang, einschließlich seiner Ausbildung, Erfahrungen, sportlichen Aktivitäten und sozialen Medien:
+- **Bildung:** Orhan hat die Erciyes Universität abgeschlossen und die Anatolische Berufsschule besucht.
+- **Erfahrung:** Er arbeitete 12 Jahre lang in der Türkischen Luftwaffe und war danach als Freiberufler tätig, u.a. bei Humintec GmbH und BTU GmbH.
+- **Sport:** Als aktiver Triathlet betont Orhan die Bedeutung von körperlicher Aktivität, insbesondere für Personen mit Schreibtischarbeit.
+- **Soziale Medien:** Professionelle Links zu GitHub, LinkedIn und mehr.
 
-This portfolio site is designed to highlight the following:
+## Portfolio:
+Im Portfolio werden abgeschlossene Projekte von Orhan vorgestellt, darunter:
+- **Antalya Döner & Pizzeria:** Ein Restaurant-Managementsystem mit Online-Bestellfunktionen.
+- **MissEt:** Eine Plattform für Online-Reservierungen und Produktkataloge.
+- **Kuhlturm:** Ein Projekt für die industriellen Kühlungslösungen von Ensotek.
+- **Hazer Piliç:** Eine benutzerfreundliche Website für ein türkisches Geflügelunternehmen.
+- **BTU Holding:** Eine Unternehmenswebsite für ein großes Investmentunternehmen.
 
-- **Skills**: Frontend, Backend, UI/UX design, and more.
-- **Projects**: A collection of projects showcasing my web development expertise.
-- **Contact**: Information on how to get in touch with me.
+## Fähigkeiten:
+Dieser Abschnitt zeigt Orhans Fähigkeiten in der Frontend- und Backend-Entwicklung:
+- **Frontend:** HTML, CSS, JavaScript, React, Bootstrap
+- **Backend:** Node.js, Express, MongoDB, MySQL
+- **Design:** Figma, Canva, Photoshop
 
-## Technologies Used
+## Kontakt:
+Im Abschnitt **Kontakt** können Benutzer über ein Formular direkt Nachrichten an Orhan senden oder sich per E-Mail und Telefon mit ihm in Verbindung setzen.
 
-- **HTML5**
-- **CSS3**
-- **JavaScript**
-- **React.js**
-- **Node.js**
-- **MongoDB**
+### Installation:
+Um das Projekt lokal auszuführen, folgen Sie diesen Schritten:
+1. Klonen Sie das Repository:
+    ```bash
+    git clone https://github.com/Orhanguezel/personal.git
+    ```
+2. Öffnen Sie die Datei `index.html` in Ihrem Browser, um die Website anzuzeigen.
 
-## How to View the Code
-
-You can explore the source code on GitHub: [https://github.com/Orhanguezel/personal](https://github.com/Orhanguezel/personal)
-
-## Deployment
-
-This website is deployed via GitHub Pages.
-
-To deploy any changes, use the following command:
-
-```bash
-npm run deploy
+### Lizenz:
+Dieses Projekt ist Open Source und unter der [MIT License](LICENSE) verfügbar.
