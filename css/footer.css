@@ -80,8 +80,17 @@
     margin-top: 40px;
 }
 
-.copyright {
-    font-size: 0.9em;
+.logo-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo-footer img {
+    width: 150px;
+    height: 150px;
 }
 
 /* Scroll to Top Button */
@@ -101,19 +110,6 @@
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s ease, transform 0.3s ease;
     z-index: 1000;
-}
-
-.logo-footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.logo-footer img {
-    width: 150px;
-    height: 150px;
 }
 
 /* Responsive */

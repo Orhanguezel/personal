@@ -1,0 +1,103 @@
+/* layout.css */
+
+/* Genel Etiket Ayarları */
+
+html, body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    color: var(--primary-color);
+    line-height: 1.2;
+    letter-spacing: 1.2px;
+    background-color: var(--background-color);
+    box-sizing: border-box;
+    position: relative; /* Arka planın üstüne içerik eklemek için konumlandırmayı relative yapıyoruz */
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+    color: var(--primary-color);
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+a { font-size: 1.2rem;}
+
+p {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.2;
+}
+
+button {
+    background-color: var(--button-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-size: var(--font-size-medium);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--highlight-color);
+}
+
+
+.page-header-image img {
+    padding-top: 120px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+img, iframe, table {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Responsive Ayarlar */
+@media (max-width: 768px) {
+
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.75rem; }
+    h4 { font-size: 1.5rem; }
+    
+
+    h1 { font-size: 1.75rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.2rem; }
+    h4 { font-size: 1rem; }
+    a { font-size: 0.8rem;}
+
+    p { font-size: 0.8rem; }
+    button { padding: 0.5rem 1rem; font-size: var(--font-size-small); }
+
+    .page-header-image {
+        
+        max-height: 300px; /* Mobilde belirli bir maksimum yükseklik */
+        overflow: hidden; /* Resmin taşmasını önlemek için */
+    }
+    .page-header-image img {
+        padding-top:50px;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .container {
+        max-width: 100%;
+        padding: 0 10px; /* Yanlarda boşluk bırakmak isterseniz */
+    }
+
+}
