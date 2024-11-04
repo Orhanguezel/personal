@@ -19,14 +19,13 @@
     font-family: var(--font-family2);
 }
 
-
 .about-content p {
     font-size: var(--p-font-size);
     color: var(--text-color);
     margin-bottom: 30px;
 }
 
-
+/* Responsive Design */
 @media (max-width: 768px) {
     .about-me {
         padding: 30px 10px;
@@ -41,7 +40,6 @@
         line-height: 1.6;
     }
 }
-
 
 @media (max-width: 480px) {
     .about-me .section-title {
