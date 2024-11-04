@@ -12,27 +12,24 @@ html, body {
 
 body {
     background-color: var(--secondary-color);
-    color: var(--text-color);
-    font-size: var(--base-font-size);
     line-height: 1.6;
-    overflow-x: hidden;
     line-height: 1.2;
     letter-spacing: 1.2px;
    }
 
 
-h1 { font-size: 2.5rem; font-family: var(--font-family); color: var(--highlight-color);}
-h2 { font-size: 2rem; font-family: var(--font-family); color: var(--highlight-color);}
-h2 { font-size: 1.75rem; font-family: var(--font-family); color: var(--highlight-color);}
-h4 { font-size: 1.5rem; font-family: var(--font-family); color: var(--highlight-color);}
-span { font-size: 1.2rem; font-family: var(--font-family); color: var(--highlight-color);}
-a { font-size: 1.2rem; font-family:var(--font-family2); color: var(--text-color); text-decoration: none; transition: color 0.3s; }
-p { font-size: 1.1rem; font-family: var(--font-family2); color: #555; line-height: 1.2; }
+h1 { font-size: var(--h1-font-size); font-family: var(--font-family); color: var(--highlight-color);}
+h2 { font-size: var(--h2-font-size); font-family: var(--font-family); color: var(--highlight-color);}
+h3 { font-size: var(--h3-font-size); font-family: var(--font-family); color: var(--highlight-color);}
+h4 { font-size: var(--h4-font-size); font-family: var(--font-family); color: var(--highlight-color);}
+span { font-size: var(--a-font-size); font-family: var(--font-family); color: var(--highlight-color);}
+a { font-size: var(--a-font-size); font-family:var(--font-family2); color: var(--text-color); text-decoration: none; transition: color 0.3s; }
+p { font-size: var(--a-font-size); font-family: var(--font-family2); color: #555; line-height: 1.2; }
 
 
 p {
     font-family: var(--font-family2);
-    font-size: var(--p-font-size);
+    font-size: var(--a-font-size);
     color: var(--text-color);
 }
 
@@ -55,7 +52,7 @@ button, .btn, .explore-btn {
     padding: var(--btn-padding);
     border-radius: var(--btn-radius);
     text-decoration: none;
-    font-size: 1.2em;
+    font-size: var(--a-font-size);
     display: inline-block;
     cursor: pointer;
     transition: background-color 0.4s ease, transform 0.3s ease;
@@ -72,19 +69,14 @@ button:hover, .btn:hover, .explore-btn:hover {
 /* Responsive Ayarlar */
 @media (max-width: 768px) {
 
-    h1 { font-size: 2.5rem; }
-    h2 { font-size: 2rem; }
-    h3 { font-size: 1.75rem; }
-    h4 { font-size: 1.5rem; }
-    
-
     h1 { font-size: 1.75rem; }
     h2 { font-size: 1.5rem; }
     h3 { font-size: 1.2rem; }
     h4 { font-size: 1rem; }
+    span { font-size: 0.8rem; }
     a { font-size: 0.8rem;}
-
     p { font-size: 0.8rem; }
-    button { padding: 0.5rem 1rem; font-size: var(--font-size-small); }
+
+    button { padding: 0.5rem 1rem; font-size: 0.8rem; }
 
 }

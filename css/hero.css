@@ -21,6 +21,12 @@
     color: var(--text-color);
 }
 
+.highlight-text {
+    color: var(--highlight-color);
+    font-size: 1.5rem;
+    font-weight: bold; 
+}
+
 .hero-content > p {
     margin-bottom: 20px;
 }
@@ -67,6 +73,10 @@
 
     .hero-content > h2 {
         font-size: 2.5rem;
+    }
+
+    .highlight-text {
+        font-size: var(--h2-font-size);
     }
 
     .hero-content > p {

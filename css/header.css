@@ -4,36 +4,43 @@
     justify-content: space-between;
     align-items: center;
     background: rgba(0, 0, 0, 0.9);
-    width: 100%;
+    margin:0;
     padding: 20px;
     position: relative;
     z-index: 100;
     box-shadow: 0 2px 5px rgba(202, 128, 128, 0.2);
+
 }
 
 
 /* Logo Stili */
 .main-nav .logo {
     display: flex;
-    align-items: center;
+    align-items: center; 
+    justify-content: center;
     height: 50px;
+    border: 1px solid red;
+    gap: 10px; 
 }
 
 .main-nav .logo img {
     width: 50px;
     height: 50px;
+    border: 1px solid red;
 }
 
 .main-nav .logo h4 {
-    font-size: var(--h4-font-size);
+    font-size: var(--p-font-size);
     font-family: var(--font-family);
     color: var(--text-color);
-    margin-left: 10px;
+    margin: 0; 
+    line-height: 1; 
+    border: 1px solid red;
 }
 
+
 .main-nav .logo span {
-    color: var(--highlight-color);
-    font-family: var(--font-family);
+    font-size: var(--p-font-size);
 }
 
 /* Navbar Menü Stili */
