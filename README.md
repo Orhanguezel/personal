@@ -2,6 +2,8 @@
 
 Dieses Projekt ist eine persönliche Portfolio-Website von Orhan Güzel, einem Webentwickler, der sich auf die Gestaltung und Entwicklung moderner, responsiver Websites spezialisiert hat. Das Portfolio zeigt Fähigkeiten, abgeschlossene Projekte und Kontaktdaten in einem klaren und professionellen Design.
 
+
+
 ### Inhaltsverzeichnis:
 - [Startseite](#startseite)
 - [Über mich](#über-mich)
