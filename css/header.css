@@ -1,4 +1,64 @@
-/* Hamburger Menü Stili - Küçük Ekranlarda */
+/* Ana Header ve Navbar Stili */
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.9);
+    width: 100%;
+    padding: 20px;
+    position: relative;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(202, 128, 128, 0.2);
+}
+
+
+/* Logo Stili */
+.main-nav .logo {
+    display: flex;
+    align-items: center;
+    height: 50px;
+}
+
+.main-nav .logo img {
+    width: 50px;
+    height: 50px;
+}
+
+.main-nav .logo h4 {
+    font-size: var(--h4-font-size);
+    font-family: var(--font-family);
+    color: var(--text-color);
+    margin-left: 10px;
+}
+
+.main-nav .logo span {
+    color: var(--highlight-color);
+    font-family: var(--font-family);
+}
+
+/* Navbar Menü Stili */
+.main-nav nav ul {
+    display: flex;
+    list-style-type: none;
+}
+
+.main-nav nav ul li {
+    margin: 0 10px;
+}
+
+.main-nav nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+    font-family: var(--font-family);
+}
+
+.main-nav nav ul li a:hover {
+    color: var(--highlight-color);
+}
+
+/* Hamburger Menü - Küçük Ekranlar için */
 .hamburger-menu {
     display: flex;
     flex-direction: column;
@@ -6,11 +66,10 @@
     width: 30px;
     height: 21px;
     cursor: pointer;
-    z-index: 100;
+    z-index: 101;
     transition: transform 0.3s ease;
 }
 
-/* Hamburger Menü Barları */
 .hamburger-menu .bar {
     height: 3px;
     width: 100%;
@@ -19,11 +78,11 @@
     transition: all 0.3s ease;
 }
 
-/* Mobil Menünün Varsayılan Durumu - Gizli */
+/* Mobil Menü Varsayılan Durumu */
 .nav-menu {
     display: flex;
     flex-direction: column;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(244, 157, 157, 0.9);
     position: fixed;
     top: 0;
     right: 0;
@@ -45,7 +104,7 @@
     visibility: visible;
 }
 
-/* Menü içindeki bağlantılar */
+/* Menü içindeki bağlantılar - Mobil */
 .nav-menu li {
     list-style: none;
     margin: 20px 0;
@@ -111,5 +170,12 @@
 
     .nav-menu li a:hover {
         color: var(--highlight-color);
+    }
+}
+
+/* Responsive için daha küçük padding */
+@media (max-width: 768px) {
+    .main-nav {
+        padding: 10px 15px;
     }
 }
