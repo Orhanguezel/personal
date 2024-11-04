@@ -19,23 +19,20 @@
     align-items: center; 
     justify-content: center;
     height: 50px;
-    border: 1px solid red;
     gap: 10px; 
 }
 
 .main-nav .logo img {
     width: 50px;
     height: 50px;
-    border: 1px solid red;
 }
 
 .main-nav .logo h4 {
-    font-size: var(--p-font-size);
+    font-size: var(--a-font-size);
     font-family: var(--font-family);
     color: var(--text-color);
     margin: 0; 
     line-height: 1; 
-    border: 1px solid red;
 }
 
 
