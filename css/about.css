@@ -5,17 +5,6 @@
     text-align: center;
 }
 
-.about-me .section-title {
-    font-size:var(--h2-font-size);
-    color: var(--text-color);
-    margin-bottom: 30px;
-}
-
-.about-me .highlight {
-    font-size:var(--h2-font-size);
-    color: var(--highlight-color);
-}
-
 
 .about-content {
     margin: 0 auto;
@@ -37,14 +26,6 @@
         padding: 30px 10px;
     }
 
-    .about-me .section-title {
-        font-size: var(--h3-font-size);
-    }
-
-    .about-me .highlight {
-        font-size:var(--h3-font-size);
-    }
-
     .about-content {
         font-size: 1em;
         line-height: 1.6;
@@ -52,9 +33,6 @@
 }
 
 @media (max-width: 480px) {
-    .about-me .section-title {
-        font-size: 1.8em;
-    }
 
     .about-content {
         font-size: 0.9em;

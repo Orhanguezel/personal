@@ -2,8 +2,8 @@ export function loadProjectsSection() {
   const projectsSection = document.getElementById('projects-section');
   projectsSection.innerHTML = `
     <section class="projects" id="projects">
-        <div class="section-title">
-          <h2>My <span class="highlight">Portfolio</span></h2>
+        <h2 class="section-title">
+          My <span class="highlight">Portfolio</span></h2>
           <p class="section-description">
             Explore some of the key projects I've completed, ranging from
             restaurant websites to industrial solutions, helping clients bring
