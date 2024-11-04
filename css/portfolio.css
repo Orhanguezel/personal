@@ -5,16 +5,7 @@
   text-align: center;
 }
 
-.section-title h2 {
-  font-size:var(--h2-font-size);
-  color: var(--text-color);
-  margin-bottom: 10px;
-}
 
-.section-title h2 .highlight {
-  font-size:var(--h2-font-size);
-  color: var(--highlight-color);
-}
 
 .section-description {
   font-size: 1.1rem;
@@ -130,16 +121,6 @@
   .project-item {
       max-width: 100%;
       height: auto;
-  }
-
-
-
-  .section-title h2 {
-    font-size:var(--h3-font-size);
-  }
-  
-  .section-title h2 .highlight {
-    font-size:var(--h3-font-size);
   }
 
   .section-description {
