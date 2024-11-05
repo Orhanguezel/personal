@@ -15,7 +15,7 @@ export function loadHeader() {
       </div>
       <nav>
         <ul class="nav-menu">
-          <li><a href="#">Home</a></li>
+          <li><a href="${linkPrefix}">Home</a></li>
           <li><a href="${linkPrefix}#about-me">About Me</a></li>
           <li><a href="${linkPrefix}#projects">Portfolio</a></li>
           <li><a href="${linkPrefix}#skills">Skills</a></li>
