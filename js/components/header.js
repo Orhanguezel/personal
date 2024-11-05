@@ -1,5 +1,12 @@
 export function loadHeader() {
-  const header = document.getElementById('header');
+  const header = document.getElementById("header");
+
+  // Şu anki sayfanın adını belirleyin
+  const currentPage = window.location.pathname.split("/").pop();
+
+  // Sayfaya göre farklı linkler tanımlayın
+  const linkPrefix = currentPage === "index.html" ? "" : "index.html";
+
   header.innerHTML = `
     <header class="main-nav">
       <div class="logo">
@@ -9,10 +16,10 @@ export function loadHeader() {
       <nav>
         <ul class="nav-menu">
           <li><a href="#">Home</a></li>
-          <li><a href="#about-me">About Me</a></li>
-          <li><a href="#projects">Portfolio</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="${linkPrefix}#about-me">About Me</a></li>
+          <li><a href="${linkPrefix}#projects">Portfolio</a></li>
+          <li><a href="${linkPrefix}#skills">Skills</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
       <div class="hamburger-menu">

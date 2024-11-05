@@ -9,7 +9,7 @@ export function loadProjectsSection() {
             restaurant websites to industrial solutions, helping clients bring
             their online presence to life.
           </p>
-        </div>
+      
 
         <div class="projects-section">
           <!-- Project 1: Antalya Döner Pizzeria -->
