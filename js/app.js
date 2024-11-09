@@ -6,6 +6,7 @@ import { loadSkillsSection } from './components/skillSection.js';
 import { loadContactSection } from './components/contactSection.js';
 import { loadFooter } from './components/footer.js';
 import { loadContactPage } from './components/contactPage.js';
+import { loadAboutPage } from './components/aboutPage.js';
 
 const currentPage = window.location.pathname;
 
@@ -26,3 +27,9 @@ if (currentPage.includes('index.html') || currentPage === '/') {
 if (currentPage.includes('contact.html')) {
   loadContactPage(); // Tam iletişim sayfası sadece `contact.html`de yüklenecek
 }
+
+// Sadece `about-me.html` sayfası için About Me içeriğini yükle
+if (currentPage.includes('about-me.html')) {
+  loadAboutPage();
+}
+

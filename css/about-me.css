@@ -1,0 +1,457 @@
+.about-me-hero {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 80vh;
+  background: radial-gradient(
+    circle at center,
+    rgba(13, 31, 45, 0.8) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+
+.dots {
+  list-style-type: none;
+  padding: 0;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  margin: 40vh auto;
+}
+
+.dots li {
+  font-size: 2em;
+  font-weight: bold;
+  opacity: 0;
+  transform: translateX(-1100px);
+  display: inline-block;
+  animation: loading 1.5s ease forwards;
+}
+
+.dots li:nth-child(1) {
+  animation-delay: 300ms;
+}
+.dots li:nth-child(2) {
+  animation-delay: 600ms;
+}
+.dots li:nth-child(3) {
+  animation-delay: 900ms;
+}
+.dots li:nth-child(4) {
+  animation-delay: 1200ms;
+}
+.dots li:nth-child(5) {
+  animation-delay: 1500ms;
+}
+.dots li:nth-child(6) {
+  animation-delay: 1800ms;
+}
+.dots li:nth-child(7) {
+  animation-delay: 2100ms;
+}
+.dots li:nth-child(8) {
+  animation-delay: 2400ms;
+}
+
+#heros {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-items: center;
+}
+
+.logos img {
+  display: block;
+  margin: 0 auto 20px;
+  border: 0;
+  border-radius: 50%;
+  box-shadow: 0 0 15px var(--highlight-color);
+  object-fit: cover;
+  width: 100px;
+  height: 100px;
+  opacity: 0;
+  animation: bounceIn 450ms linear 6s forwards,
+    neonBox1 1.5s ease-in-out infinite alternate;
+}
+
+.logos .span {
+  display: inline-block;
+  font-family: var(--font-family);
+  font-size: var(--h3-font-size);
+  color: #fff;
+  opacity: 0;
+  text-shadow: 0 0 15px var(--highlight-color);
+  animation: bounceIn 450ms linear 6s forwards,
+    neonText1 1.5s ease-in-out infinite alternate;
+}
+
+/* Grid Pozisyonları */
+.about-mee {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+.sport {
+  grid-column: 3 / 4;
+  grid-row: 1 / 2;
+}
+.education {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+.sosial {
+  grid-column: 3 / 4;
+  grid-row: 3 / 4;
+}
+.experince {
+  grid-column: 1 / 2;
+  grid-row: 3 / 4;
+}
+
+/* Görseller ve Animasyon Gecikmeleri */
+.about-mee img {
+  animation-delay: 4s;
+}
+.sport img {
+  animation-delay: 5s;
+}
+.education img {
+  animation-delay: 6s;
+}
+.sosial img {
+  animation-delay: 7s;
+}
+.experince img {
+  animation-delay: 8s;
+}
+
+/* Icon Size and Animation Delays */
+.about-mee img {
+  width: 200px;
+  height: 200px;
+  animation: bounceIn 450ms linear 4s forwards,
+    neonBox1 1.5s ease-in-out infinite alternate;
+}
+
+.about-mee .span {
+  font-size: 1.7rem;
+  animation-delay: 4s;
+}
+
+.sport img {
+  width: 100px;
+  height: 100px;
+  animation: bounceIn 450ms linear 4s forwards,
+    neonBox2 1.5s ease-in-out infinite alternate;
+  animation-delay: 5s;
+}
+
+.sport .span {
+  animation-delay: 5s;
+}
+
+.education img {
+  width: 100px;
+  height: 100px;
+  animation: bounceIn 450ms linear 4s forwards,
+    neonBox3 1.5s ease-in-out infinite alternate;
+  animation-delay: 6s;
+}
+
+.education .span {
+  animation-delay: 6s;
+}
+
+.sosial img {
+  width: 100px;
+  height: 100px;
+  animation: bounceIn 450ms linear 4s forwards,
+    neonBox4 1.5s ease-in-out infinite alternate;
+  animation-delay: 7s;
+}
+
+.sosial .span {
+  animation-delay: 7s;
+}
+
+.experince img {
+  width: 100px;
+  height: 100px;
+  animation: bounceIn 450ms linear 4s forwards,
+    neonBox5 1.5s ease-in-out infinite alternate;
+  animation-delay: 8s;
+}
+
+.experince .span {
+  animation-delay: 8s;
+}
+
+/* About Me Bölümü */
+.about-me {
+  padding: 40px 0;
+  text-align: center;
+  background: radial-gradient(
+    circle at center,
+    rgb(13, 31, 45, 0.5) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--highlight-color);
+  margin-bottom: 20px;
+}
+
+.content {
+  margin: 30px auto;
+  padding: 40px;
+  line-height: 1.8;
+  overflow: hidden;
+  background-color: var(--background-color);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+/* Tablo Stili */
+.table-section {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--background-color);
+  overflow: hidden;
+}
+
+.table-section th,
+.table-section td {
+  padding: 15px 20px;
+  text-align: center;
+  color: var(--text-color);
+  font-size: 1.1rem;
+  font-family: var(--font-family2);
+}
+
+.table-section th {
+  background-color: var(--background-light);
+  font-weight: bold;
+  color: var(--highlight-color);
+}
+
+.table-section tr:nth-child(even) {
+  background-color: var(--secondary-color);
+}
+.table-section tr:hover {
+  background-color: var(--highlight-color);
+  color: #000;
+}
+
+/* Sport Section */
+
+.sport-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+#sport p {
+  font-size: 1.2rem;
+  color: var(--text-color);
+  font-family: var(--font-family2);
+  text-align:left;
+  padding: 20px;
+}
+
+.sport-card {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sport-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+}
+
+.sport-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.sport-card:hover .sport-img {
+  transform: scale(1.1);
+}
+
+.sport-caption {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 1.2rem;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  font-family: var(--font-family);
+}
+
+.sport-card:hover .sport-caption {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+/* Social Media Section */
+#social-media {
+  margin-top: 30px;
+  line-height: 1.8;
+  overflow: hidden;
+  text-align: center;
+}
+
+#social-media h2 {
+  font-size: var(--h2-font-size);
+  color: var(--highlight-color);
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* Butonlar arasında boşluk */
+  flex-wrap: nowrap;
+}
+
+.btn-sosmed {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e0e0e0;
+  width: 80px;
+  height: 80px;
+  margin: 8px;
+  border-radius: 50%;
+  box-shadow: 0 6px 16px -6px #000;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-sosmed i {
+  font-size: 36px;
+  color: inherit; /* Buton rengini ikon rengine uyarlar */
+  transition: transform 0.3s linear;
+}
+
+.btn-sosmed:hover i {
+  transform: scale(1.2);  /* İkon büyütme efekti */
+  color: #e0e0e0;
+}
+
+.btn-sosmed::before {
+  content: "";
+  position: absolute;
+  width: 105%;
+  height: 150%;
+  transform: rotate(30deg);
+  left: -150%;
+  top: 90%;
+  transition: all 0.6s ease;  /* Hover'da animasyonun daha yumuşak olması için */
+}
+
+.btn-sosmed:hover::before {
+  animation: anim 0.6s forwards;  /* Hover sırasında animasyon */
+  left: 0;
+  top: -30%;
+}
+
+.btn-sosmed.btn-facebook { color: #1a237e; }
+.btn-sosmed.btn-instagram { color: #F50057; }
+.btn-sosmed.btn-youtube { color: #D50000; }
+.btn-sosmed.btn-github { color: #000000; }
+.btn-sosmed.btn-linkedin { color: #0091EA; }
+.btn-sosmed.btn-codepen { color: #000000; }
+
+/* İkonların arka plan renkleri */
+.btn-facebook::before { background: #1a237e; }
+.btn-instagram::before { background: #F50057; }
+.btn-youtube::before { background: #D50000; }
+.btn-github::before { background: #000000; }
+.btn-linkedin::before { background: #0091EA; }
+.btn-codepen::before { background: #000000; }
+
+@keyframes anim {
+  0% { left: -150%; top: 90%; }
+  50% { left: 15%; top: -30%; }
+  100% { left: 0; top: -30%; }
+}
+
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-me-hero {
+    height: 70vh;
+  }
+
+  #heros {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+
+  .about-mee {
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+  }
+
+  .education,
+  .sport,
+  .experince,
+  .sosial {
+    grid-column: span 1;
+  }
+
+  .logos img {
+    width: 80px;
+    height: 80px;
+  }
+  .logos .span {
+    font-size: var(--h4-font-size);
+  }
+  .logo-footer h4 {
+    color: var(--text-color);
+  }
+
+  .sport-gallery {
+    flex-direction: column;
+  }
+  .sport-card {
+    width: 100%;
+    height: auto;
+  }
+  .container {
+    flex-wrap: wrap;
+  }
+  
+  .btn-sosmed {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .btn-sosmed i {
+    font-size: 28px;
+  }
+}
