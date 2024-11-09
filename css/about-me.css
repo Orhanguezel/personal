@@ -193,7 +193,7 @@
 }
 
 /* About Me Bölümü */
-.about-me {
+#about-me {
   padding: 40px 0;
   text-align: center;
   background: radial-gradient(
@@ -211,6 +211,8 @@
   margin-bottom: 20px;
 }
 
+
+
 .content {
   margin: 30px auto;
   padding: 40px;
@@ -219,6 +221,11 @@
   background-color: var(--background-color);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: left;
+}
+
+.about-content p {
+  text-align: left;
+  background-color: var(--background-color);
 }
 
 /* Tablo Stili */
@@ -253,21 +260,19 @@
 }
 
 /* Sport Section */
+#sport p {
+  padding: 40px;
+  text-align: left;
+  background-color: var(--background-color);
+}
 
 .sport-content {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 30px;
+  gap: 20px;
 }
 
-#sport p {
-  font-size: 1.2rem;
-  color: var(--text-color);
-  font-family: var(--font-family2);
-  text-align:left;
-  padding: 20px;
-}
 
 .sport-card {
   position: relative;
@@ -493,6 +498,11 @@
   color: var(--text-color);
 }
 
+.sport-content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* İki sütun */
+  gap: 15px;
+}
 
   /* Sosyal medya simgeleri için konteyner */
   .container {
