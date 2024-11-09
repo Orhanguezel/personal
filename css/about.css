@@ -15,8 +15,6 @@
 }
 
 .about-content p {
-    font-size: var(--p-font-size);
-    color: var(--text-color);
     margin-bottom: 30px;
 }
 
