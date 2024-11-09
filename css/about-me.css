@@ -248,8 +248,8 @@
   background-color: var(--secondary-color);
 }
 .table-section tr:hover {
-  background-color: var(--highlight-color);
-  color: #000;
+  background-color: #19d6e3; /* Daha parlak bir mavi ton */
+  color: #000; /* Siyah yazı rengi */
 }
 
 /* Sport Section */
@@ -401,57 +401,135 @@
 
 
 
-/* Responsive Design */
 @media (max-width: 768px) {
+  /* Ana kahraman bölümü daha küçük boyutta */
   .about-me-hero {
+    padding: 20px;
     height: 70vh;
   }
 
+  /* "Heros" grid yapısı iki sütun ve üç satır */
   #heros {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
+    gap: 15px;
   }
 
+  /* Merkezdeki "About Me" öğesi tam ortada kalır */
   .about-mee {
     grid-column: 1 / 3;
     grid-row: 2 / 3;
   }
 
+  /* Köşelerdeki ikonlar için ayarlamalar */
   .education,
   .sport,
   .experince,
   .sosial {
     grid-column: span 1;
+    justify-self: center;
   }
 
+  /* İkon boyutlarını küçült */
   .logos img {
     width: 80px;
     height: 80px;
   }
+
+  /* İkon etiket boyutları küçültülür */
   .logos .span {
     font-size: var(--h4-font-size);
   }
-  .logo-footer h4 {
-    color: var(--text-color);
+
+   /* İçerik genel olarak mobil için optimize edilir */
+   .content {
+    padding: 20px;
   }
 
-  .sport-gallery {
-    flex-direction: column;
-  }
-  .sport-card {
-    width: 100%;
-    height: auto;
-  }
+  /* Eğitim ve Deneyim Bölümü */
+ /* Education ve Experience Bölümleri için Mobil Uyumluluk Ayarları */
+ .table-section {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #1b2838;
+  margin: 0 auto;
+}
+
+/* Başlıklar gizleniyor ve mobil uyumlu hale getiriliyor */
+.table-section thead {
+  display: none; /* Tablodaki başlıkları gizle */
+}
+
+/* Her satır, mobilde ayrı bir kutu şeklinde görünecek */
+.table-section tr {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #0d1f2d;
+  border-radius: 8px;
+  background-color: #0d1f2d;
+}
+
+/* Her hücre içeriği yatay olarak hizalanır */
+.table-section td {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 10px;
+  font-size: 0.95rem;
+  color: #ffffff;
+  border-bottom: 1px solid #1b2838;
+}
+
+/* Son satırın altındaki çizgiyi kaldırmak için */
+.table-section td:last-child {
+  border-bottom: none;
+}
+
+/* Her hücreye başlıkları eklemek için */
+.table-section td::before {
+  content: attr(data-label); /* "data-label" ile başlık ekle */
+  font-weight: bolder;
+  color: var(--text-color);
+}
+
+
+  /* Sosyal medya simgeleri için konteyner */
   .container {
+    display: flex;
     flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
   }
-  
+
+  /* Sosyal medya düğmeleri için daha küçük boyutlar */
   .btn-sosmed {
     width: 60px;
     height: 60px;
   }
-  
+
   .btn-sosmed i {
     font-size: 28px;
   }
+
+  /* Spor galerisi mobilde tek sütun olarak görünür */
+  .sport-gallery {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .sport-card {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Diğer yazı alanları için hizalama */
+  #social-media h2,
+  #sport p,
+  .section-title {
+    text-align: center;
+  }
+  
+ 
 }
+

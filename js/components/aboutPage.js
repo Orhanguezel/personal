@@ -59,69 +59,61 @@ export function loadAboutPage() {
               constantly strive to learn more to enhance my skills in this dynamic field.
             </p>
           </div>
+<section id="education">
+  <h2 class="section-title">
+    <i class="fas fa-graduation-cap"></i> Education
+  </h2>
+  <div class="content education-content">
+    <table class="table-section">
+      <tbody>
+        <tr>
+          <td data-label="Degree">Vocational School</td>
+          <td data-label="University/Institution">Anatolische Berufsschule, Turkey</td>
+          <td data-label="Period">1994 - 1997</td>
+        </tr>
+        <tr>
+          <td data-label="Degree">Bachelor's Degree</td>
+          <td data-label="University/Institution">Erciyes University, Turkey</td>
+          <td data-label="Period">1998 - 2005</td>
+        </tr>
+        <tr>
+          <td data-label="Degree">Web Development Course</td>
+          <td data-label="University/Institution">DCI, Germany</td>
+          <td data-label="Period">2024 - 2025 </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
   
-          <section class="education" id="education">
-            <h2 class="section-title">
-              <i class="fas fa-graduation-cap"></i> Education
-            </h2>
-             <div class="content education-content">
-            <table class="table-section">
-              <thead>
-                <tr>
-                  <th>Degree</th>
-                  <th>University</th>
-                  <th>Period</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Bachelor's Degree</td>
-                  <td>Erciyes University, Turkey</td>
-                  <td>1998 - 2005</td>
-                </tr>
-                <tr>
-                  <td>Vocational School</td>
-                  <td>Anatolische Berufsschule, Turkey</td>
-                  <td>1994 - 1997</td>
-                </tr>
-              </tbody>
-            </table>
-            </div>
-          </section>
-  
-          <section id="experience">
-            <h2 class="section-title">
-              <i class="fas fa-briefcase"></i> Experience
-            </h2>
-            <div class="content experience-content">
-            <table class="table-section">
-              <thead>
-                <tr>
-                  <th>Position</th>
-                  <th>Company</th>
-                  <th>Period</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Production Worker</td>
-                  <td>Humintec GmbH</td>
-                  <td>Oct 2023 - Jan 2024</td>
-                </tr>
-                <tr>
-                  <td>Freelancer</td>
-                  <td>BTU GmbH</td>
-                  <td>Jul 2018 - Oct 2023</td>
-                </tr>
-                <tr>
-                  <td>Engineer</td>
-                  <td>Turkish Air Force</td>
-                  <td>Jul 2005 - Jul 2018</td>
-                </tr>
-              </tbody>
-            </table>
-            </div>
-          </section>
+         <section id="experience">
+  <h2 class="section-title">
+    <i class="fas fa-briefcase"></i> Experience
+  </h2>
+  <div class="content experience-content">
+    <table class="table-section">
+      <tbody>
+        <tr>
+          <td data-label="Position">Production Worker</td>
+          <td data-label="Company">Humintec GmbH</td>
+          <td data-label="Period">Oct 2023 - Jan 2024</td>
+        </tr>
+        <tr>
+          <td data-label="Position">Freelancer</td>
+          <td data-label="Company">BTU GmbH</td>
+          <td data-label="Period">Jul 2018 - Oct 2023</td>
+        </tr>
+        <tr>
+          <td data-label="Position">Engineer</td>
+          <td data-label="Company">Turkish Air Force</td>
+          <td data-label="Period">Jul 2005 - Jul 2018</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
   
           <!-- Sport Section -->
 <section id="sport">
@@ -198,7 +190,7 @@ export function loadAboutPage() {
       <!-- Social Media Section -->
       <section id="social-media">
         <h2 class="section-title">
-          <i class="fas fa-share-alt"></i> Sosyal Medya
+          <i class="fas fa-share-alt"></i> Social Media
         </h2>
         <div class=" content sosial-content">
         <div class="container">
