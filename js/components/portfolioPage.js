@@ -7,7 +7,7 @@ export function loadPortfolioPage() {
           <div class="overlay"></div>
           <div class="portfolio-content">
             <h2>My Portfolio</h2>
-            <img src="img/portfolio.png" alt="portfolio" class="portfolio-image" />
+            <img src="img/portfolio2.png" alt="portfolio" class="portfolio-image" />
           </div>
         </section>
   
