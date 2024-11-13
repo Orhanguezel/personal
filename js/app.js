@@ -16,7 +16,7 @@ loadHeader();
 loadFooter();
 
 // Ana sayfa (index.html) için bileşenleri yükle
-if (currentPage.includes('index.html') || currentPage === '/') {
+if (currentPage.endsWith('/') || currentPage.endsWith('/index.html') || currentPage === '/personal/') {
   loadHeroSection();
   loadAboutMeSection();
   loadProjectsSection();
@@ -38,4 +38,3 @@ if (currentPage.includes('about-me.html')) {
 if (currentPage.includes('portfolio.html')) {
   loadPortfolioPage();
 }
-
