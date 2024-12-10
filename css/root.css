@@ -1,0 +1,31 @@
+:root {
+    --primary-color: #19d6e3;
+    --secondary-color: #0d1f2d;
+    --background-color: #1b2838;
+    --background-light: #0d1f2d;
+    --black-color:#000000;
+    --text-color: white;
+    --highlight-color: #19d6e3;
+
+    --font-family: 'Orbitron', sans-serif;
+    --font-family2: 'Roboto', sans-serif;
+
+    --base-font-size: 16px;
+    --h1-font-size: 3rem;
+    --h2-font-size: 2.5rem;
+    --h3-font-size: 2rem;
+    --h4-font-size: 1.5rem;
+    --a-font-size: 1.2rem;
+
+    --btn-padding: 10px 20px;
+    --btn-radius: 20px;
+    --btn-bg-color: var(--primary-color);
+    --btn-text-color: black;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--background-light);
+}
