@@ -1,0 +1,26 @@
+name: Sync to Server
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Sync files to server
+      uses: appleboy/ssh-action@v0.1.8
+      with:
+        host: 141.136.36.40
+        username: guzelwebdesign
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: 22
+        script: |
+          cd /root/guezelwebdesign
+          git pull origin main
+
