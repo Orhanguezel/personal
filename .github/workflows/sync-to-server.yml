@@ -21,6 +21,6 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
         script: |
-          cd /root/guezelwebdesign
+          cd /var/www/guezelwebdesign
           git pull origin main
 

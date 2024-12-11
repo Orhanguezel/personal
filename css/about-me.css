@@ -255,8 +255,14 @@
   background-color: var(--secondary-color);
 }
 .table-section tr:hover {
-  background-color: #19d6e3; /* Daha parlak bir mavi ton */
-  color: #000; /* Siyah yazı rengi */
+  background: radial-gradient(circle, rgba(64, 64, 64, 0.6), rgba(0, 0, 0, 0.8));
+  color: var(--highlight-color),!important;
+  z-index: 1001;
+  text-align: center;
+  transform: scale(1.05);
+  box-shadow: 1px 1px 1px 10px solid var(--highlight-color);
+  box-shadow: 1px 1px 10px var(--highlight-color);
+  transition: 1s;
 }
 
 /* Sport Section */
