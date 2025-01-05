@@ -4,7 +4,6 @@ export function loadPortfolioPage() {
     if (mainContent) {
       mainContent.innerHTML = `
         <section class="portfolio-hero" id="portfolio-hero">
-          <div class="overlay"></div>
           <div class="portfolio-content">
             <h2>My Portfolio</h2>
             <img src="img/portfolio3.png" alt="portfolio" class="portfolio-image" />

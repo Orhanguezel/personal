@@ -1,73 +1,47 @@
-/* Portfolio Section Styles */
+/* Portfolio Hero Section */
+/* Portfolio Hero Section */
 .portfolio-hero {
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  height: 20vh;
-  z-index: 1;
   overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .portfolio-hero .portfolio-content {
-  position: relative;
-  z-index: 2; 
-}
-
-.portfolio-hero .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 1; 
-}
-
-.portfolio-hero .portfolio-content {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  animation: fadeInContent 2s ease-out;
+  text-align: center;
+  color: white;
 }
 
 .portfolio-hero .portfolio-image {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  animation: imageFadeIn 2s ease-out, imageScale 2s ease-out 0.5s forwards;
+  height: auto;
+  animation: imageFadeIn 1s ease-in-out, imageScale 1.5s ease-in-out;
 }
 
 .portfolio-hero h2 {
-  font-size: var(--h1-font-size);
-  color: var(--text-color);
-  margin-bottom: 20px;
-  animation: fadeInText 1.5s ease-out forwards;
-  letter-spacing: 2px;
-  z-index: 2;
+  font-size: 2.5em;
+  color: white;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  animation: fadeInContent 1.5s ease-in-out;
 }
 
+
+
+/* Portfolio Section */
 .portfolio-section {
   padding: 50px 20px;
-  background-color: var(--secondary-color);
-  text-align: center;
-  z-index: 1;
   max-width: 1200px;
   margin: 0 auto;
+  background-color: var(--secondary-color);
+  text-align: center;
 }
 
 .section-title {
   font-size: 2.5em;
   color: var(--highlight-color);
   margin-bottom: 20px;
-  color: var(--text-color);
 }
 
 .section-description {
@@ -75,6 +49,9 @@
   color: var(--text-color);
   margin-bottom: 40px;
 }
+
+
+
 
 /* Project Card Styles */
 .projects-card {
@@ -164,21 +141,7 @@
   color: var(--text-color);
 }
 
-/* Responsive Design */
-@media (min-width: 768px) {
-  .project-card {
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
-  }
-
-  .project-image {
-    width: 100%;
-    max-width: 500px;
-    margin-bottom: 20px;
-  }
-}
-
+/* Animations */
 @keyframes imageFadeIn {
   0% {
     opacity: 0;
@@ -207,3 +170,15 @@
     transform: translateY(0);
   }
 }
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .project-card {
+    flex-direction: row;
+  }
+}
+
+
+
+
+
