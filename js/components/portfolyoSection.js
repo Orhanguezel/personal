@@ -26,19 +26,19 @@ export function loadProjectsSection() {
             </div>
           </div>
 
-            <!-- Project 2: Miss Et -->
-            <div class="project-item">
-              <div class="project-image-wrapper">
-                <img src="assets/misset.png"alt="Miss Et Website"/>
-              </div>
-              <div class="project-details">
-                <h3>Miss Et & Balik</h3>
-                <p>
-                  A website developed for a popular restaurant in der Türkei
-                </p>
-                <a href="portfolio.html#misset"class="project-link">View Details →</a>
-              </div>
+            <!-- Project 2: Kino Ticket -->
+          <div class="project-item">
+            <div class="project-image-wrapper">
+              <img src="assets/kino-ticket.png" alt="Kino Ticket Website"/>
             </div>
+            <div class="project-details">
+              <h3>Kino Ticket</h3>
+              <p>
+                An interactive cinema ticket booking and admin panel platform.
+              </p>
+              <a href="portfolio.html#kino-ticket" class="project-link">View Details →</a>
+            </div>
+          </div>
         </div>
       
         <div class="view-all">

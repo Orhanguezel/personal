@@ -1,8 +1,8 @@
 export function loadPortfolioPage() {
-    const mainContent = document.getElementById("portfolio-content");
-  
-    if (mainContent) {
-      mainContent.innerHTML = `
+  const mainContent = document.getElementById("portfolio-content");
+
+  if (mainContent) {
+    mainContent.innerHTML = `
         <section class="portfolio-hero" id="portfolio-hero">
           <div class="portfolio-content">
             <h2>My Portfolio</h2>
@@ -206,12 +206,11 @@ export function loadPortfolioPage() {
           </div>
         </section>
       `;
-    } else {
-      console.error("Element with ID 'portfolio-content' not found.");
-    }
+  } else {
+    console.error("Element with ID 'portfolio-content' not found.");
   }
-  
-  document.addEventListener("DOMContentLoaded", () => {
-    loadPortfolioPage();
-  });
-  
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  loadPortfolioPage();
+});
