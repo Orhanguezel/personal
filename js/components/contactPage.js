@@ -1,7 +1,7 @@
 export function loadContactPage() {
-  const contactSection = document.getElementById('contact');
+  const contactSection = document.getElementById("contact");
   if (contactSection) {
-      contactSection.innerHTML = `
+    contactSection.innerHTML = `
         <section class="contact-page">
             <h2 class="section-title">Get In Touch And Feel Free To <span class="highlight">Contact Us</span></h2>
             <p>
@@ -20,7 +20,7 @@ export function loadContactPage() {
                 </div>
                 <div class="info">
                   <h3>Office Location</h3>
-                  <p>13th Rock Street, San Francisco</p>
+                  <p>Grevenbroich, NRW, Germany</p>
                 </div>
               </div>
               <div class="card">
@@ -29,7 +29,7 @@ export function loadContactPage() {
                 </div>
                 <div class="info">
                   <h3>Phone Number</h3>
-                  <p>+235-569-559-66, +985-365-226-447</p>
+                  <p>+49 172 3846068</p>
                 </div>
               </div>
               <div class="card">
@@ -38,28 +38,28 @@ export function loadContactPage() {
                 </div>
                 <div class="info">
                   <h3>Mail Address</h3>
-                  <p>support@example.com</p>
+                  <p>orhan.guezel@dci-student.org</p>
                 </div>
               </div>
             </div>
       
             <div class="contact-form">
-              <form action="#" method="POST">
-                <input type="text" placeholder="Your Name" required />
-                <input type="email" placeholder="Your Email" required />
-                <input type="text" placeholder="Your Subject" />
-                <textarea placeholder="Your Message (optional)" rows="5"></textarea>
-                <button type="submit">Submit Message</button>
+              <form action="http://localhost:3005/send-email" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required />
+                <input type="email" name="email" placeholder="Your Email" required />
+                <input type="text" name="subject" placeholder="Your Subject" required />
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
               </form>
             </div>
           </div>
         </section>
       `;
   } else {
-      console.log("Element with id 'contact' not found.");
+    console.log("Element with id 'contact' not found.");
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   loadContactPage();
 });
