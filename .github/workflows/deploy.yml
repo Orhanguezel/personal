@@ -1,0 +1,35 @@
+name: GitHub Pages Build and Deploy
+
+on:
+  push:
+    branches:
+      - main # Ana branch'inizin ismini yazın
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Repo'yu Checkout Et
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      # 2. Node.js Kur ve Bağımlılıkları Yükle
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18 # Daha güncel bir sürüm kullanabilirsiniz.
+
+      - name: Install Dependencies
+        run: npm ci # 'npm ci' kullanımı daha temiz ve kararlı bir kurulum sağlar.
+
+      # 3. Projeyi Build Et
+      - name: Build Project
+        run: npm run build
+
+      # 4. Build Dosyalarını GitHub Pages'e Deploy Et
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build # Build dosyalarının olduğu dizin
