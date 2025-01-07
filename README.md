@@ -2,14 +2,17 @@
 
 Dieses Projekt ist eine persönliche Portfolio-Website von Orhan Güzel, einem Webentwickler, der sich auf die Gestaltung und Entwicklung moderner, responsiver Websites spezialisiert hat. Das Portfolio zeigt Fähigkeiten, abgeschlossene Projekte und Kontaktdaten in einem klaren und professionellen Design.
 
-
-
 ### Inhaltsverzeichnis:
-- [Startseite](#startseite)
-- [Über mich](#über-mich)
-- [Portfolio](#portfolio)
-- [Fähigkeiten](#fähigkeiten)
-- [Kontakt](#kontakt)
+- [Guezel Webdesign - Persönliches Portfolio](#guezel-webdesign---persönliches-portfolio)
+    - [Inhaltsverzeichnis:](#inhaltsverzeichnis)
+  - [Live-Demo:](#live-demo)
+  - [Startseite:](#startseite)
+  - [Über mich:](#über-mich)
+  - [Portfolio:](#portfolio)
+  - [Fähigkeiten:](#fähigkeiten)
+  - [Kontakt:](#kontakt)
+    - [Installation:](#installation)
+    - [Lizenz:](#lizenz)
 
 ## Live-Demo:
 Die Live-Version des Projekts ist [hier verfügbar](https://orhanguezel.github.io/personal/).
