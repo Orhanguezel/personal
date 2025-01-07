@@ -181,6 +181,51 @@ export function loadPortfolioPage() {
   </div>
 </div>
 
+ <div class="projects-card">
+            <img src="assets/github-app.png" alt="GitHub User and Repository Search Tool" class="projects-image" id="github-tool" />
+            <div class="projects-details">
+              <h3>GitHub User and Repository Search Tool</h3>
+              <p>A simple web-based tool to search GitHub repositories and user profiles using the GitHub REST API...</p>
+              <h4>Technologies Used:</h4>
+              <ul>
+                <li>Frontend: HTML5, CSS3, JavaScript</li>
+                <li>API: GitHub REST API</li>
+                <li>Responsive Design</li>
+              </ul>
+              <h4>Key Features:</h4>
+              <ul>
+                <li>Search repositories by GitHub username</li>
+                <li>Fetch detailed GitHub user information</li>
+                <li>Error handling for invalid usernames</li>
+                <li>Responsive design for mobile and desktop</li>
+              </ul>
+              <a href="https://orhanguezel.github.io/GitHubRepositorySearch/" target="_blank" class="btn">View Project</a>
+            </div>
+          </div>
+
+
+<div class="projects-card">
+            <img src="assets/harry-potter.png" alt="Harry Potter App Project" class="projects-image" id="harry-potter-app" />
+            <div class="projects-details">
+              <h3>Harry Potter App 🧙‍♂️</h3>
+              <p>An engaging and responsive web application that showcases the magical world of Harry Potter, featuring characters, spells, houses, and books from the franchise.</p>
+              <h4>Technologies Used:</h4>
+              <ul>
+                <li>Frontend: HTML5, CSS3, JavaScript</li>
+                <li>API Integration: hp-api, Potter API</li>
+                <li>Responsive Design: Tailored for all screen sizes</li>
+              </ul>
+              <h4>Key Features:</h4>
+              <ul>
+                <li>Dynamic search for characters, spells, books, and houses</li>
+                <li>Interactive UI with real-time API data</li>
+                <li>Responsive and user-friendly interface</li>
+                <li>Deployed using GitHub Pages</li>
+              </ul>
+              <a href="https://orhanguezel.github.io/Harry-Potter-app/" target="_blank" class="btn">View Project</a>
+            </div>
+          </div>
+
 
   
           <div class="projects-card">
