@@ -1,21 +1,51 @@
 export function loadSkillsSection() {
-  const skillsSection = document.getElementById('skills-section');
+  const skillsSection = document.getElementById("skills-section");
   skillsSection.innerHTML = `
     <section class="skills" id="skills">
       <h2 class="section-title">My <span class="highlight">Skills</span></h2>
       <div class="skill-flex">
         
         <!-- Frontend Development -->
-        <div class="skill-item">
-          <h3>Frontend Development</h3>
-          <div class="icon-card"><img src="assets/html.png" alt="HTML" class="skill-icon" /><p>HTML</p></div>
-          <div class="icon-card"><img src="assets/css.png" alt="CSS" class="skill-icon" /><p>CSS</p></div>
-          <div class="icon-card"><img src="assets/sass.png" alt="Sass" class="skill-icon" /><p>Sass</p></div>
-          <div class="icon-card"><img src="assets/bootstrap.png" alt="Bootstrap" class="skill-icon" /><p>Bootstrap</p></div>
-          <div class="icon-card"><img src="assets/javascript.png" alt="JavaScript" class="skill-icon" /><p>JavaScript</p></div>
-          <div class="icon-card"><img src="assets/react.png" alt="React.js" class="skill-icon" /><p>React.js</p></div>
-          <div class="icon-card"><img src="assets/typescript.png" alt="TypeScript" class="skill-icon" /><p>TypeScript</p></div>
-        </div>
+<div class="skill-item">
+  <h3>Frontend Development</h3>
+  <div class="icon-card">
+    <img src="assets/html.png" alt="HTML" class="skill-icon" />
+    <p>HTML</p>
+  </div>
+  <div class="icon-card">
+    <img src="assets/css.png" alt="CSS" class="skill-icon" />
+    <p>CSS</p>
+  </div>
+  <div class="icon-card">
+    <img src="assets/sass.png" alt="Sass" class="skill-icon" />
+    <p>Sass</p>
+  </div>
+  <div class="icon-card">
+    <img src="assets/bootstrap.png" alt="Bootstrap" class="skill-icon" />
+    <p>Bootstrap</p>
+  </div>
+  <div class="icon-card">
+    <img src="assets/javascript.png" alt="JavaScript" class="skill-icon" />
+    <p>JavaScript</p>
+  </div>
+  <div class="icon-card">
+    <img src="assets/react.png" alt="React.js" class="skill-icon" />
+    <p>React.js</p>
+  </div>
+  <div class="icon-card">
+    <img src="assets/typescript.png" alt="TypeScript" class="skill-icon" />
+    <p>TypeScript</p>
+  </div>
+  <div class="icon-card">
+    <img src="assets/mui.png" alt="Material-UI (MUI)" class="skill-icon" />
+    <p>Material-UI</p>
+  </div>
+  <div class="icon-card">
+    <img src="assets/tailwind.png" alt="Tailwind CSS" class="skill-icon" />
+    <p>Tailwind CSS</p>
+  </div>
+</div>
+
         
         <!-- Backend Development -->
         <div class="skill-item">
