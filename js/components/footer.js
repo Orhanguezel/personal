@@ -5,7 +5,7 @@ export function loadFooter() {
       <div class="logo-container">
         <div class="logo-footer">
           <img src="./img/logo3.png" alt="logo" />
-          <h2 class="section-title">Guezel <span class="highlight-footer">Webdesign</span></h4>
+          <h2 class="section-title">Guezel <span class="highlight-footer">Webdesign</span></h2>
         </div>
       </div>
       
@@ -41,6 +41,14 @@ export function loadFooter() {
             <li><a href="portfolio.html#hazer">Hazer Pilic</a></li>
           </ul>
         </div>
+      </div>
+
+      <!-- Privacy Policy -->
+      <div class="footer-section">
+        <h3>Privacy Policy</h3>
+        <ul>
+          <li><a href="privacy-policy.html">View Privacy Policy</a></li>
+        </ul>
       </div>
 
       <!-- Social Media and Copyright -->
