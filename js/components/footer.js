@@ -1,5 +1,5 @@
 export function loadFooter() {
-  const footer = document.getElementById('footer');
+  const footer = document.getElementById("footer");
   footer.innerHTML = `
     <footer class="footer">
       <div class="logo-container">
@@ -44,15 +44,15 @@ export function loadFooter() {
       </div>
 
       <!-- Privacy Policy -->
-      <div class="footer-section">
+      
+
+      <!-- Social Media and Copyright -->
+      <div class="footer-bottom"><div class="footer-section policy">
         <h3>Privacy Policy</h3>
         <ul>
           <li><a href="privacy-policy.html">View Privacy Policy</a></li>
         </ul>
       </div>
-
-      <!-- Social Media and Copyright -->
-      <div class="footer-bottom">
         <div class="social-media">
           <a href="https://github.com/Orhanguezel" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
           <a href="https://codepen.io/Orhan-G-zel" target="_blank" rel="noopener noreferrer"><i class="fab fa-codepen"></i></a>

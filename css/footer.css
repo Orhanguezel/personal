@@ -53,6 +53,9 @@
     flex: 1;
     min-width: 220px;
 }
+.policy {
+    text-align: center;
+}
 
 .footer-section h3 {
     font-family: var(--font-family);
