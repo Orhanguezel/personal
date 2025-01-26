@@ -1,4 +1,8 @@
-export function loadAboutPage() {
+const currentPage = window.location.pathname;
+console.log("currentPage:", currentPage);
+
+
+export function loadAboutMePage() {
     const mainContent = document.getElementById("about-content");
   
     if (mainContent) {
@@ -206,6 +210,6 @@ export function loadAboutPage() {
   }
   
   document.addEventListener("DOMContentLoaded", () => {
-    loadAboutPage();
+    loadAboutMePage();
   });
   
