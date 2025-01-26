@@ -35,10 +35,10 @@ export function loadFooter() {
           <h3>Our Portfolio</h3>
           <ul>
             <li><a href="portfolio.html#antalya">Antalya Döner Pizzeria</a></li>
+            <li><a href="portfolio.html#kino-ticket">Kino-Ticket und Admin-Panel</a></li>
+            <li><a href="portfolio.html#pastoral-tmgdk">Pastoral TMGDK</a></li>
             <li><a href="portfolio.html#misset">MissEt</a></li>
             <li><a href="portfolio.html#kuhlturm">Kuhlturm</a></li>
-            <li><a href="portfolio.html#btu">BTU Holding</a></li>
-            <li><a href="portfolio.html#hazer">Hazer Pilic</a></li>
           </ul>
         </div>
       </div>
