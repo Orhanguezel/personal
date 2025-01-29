@@ -47,3 +47,5 @@ coverage/
 # Ignore temporary files and folders
 *.swp
 *~
+fullchain.pem
+privkey.pem
