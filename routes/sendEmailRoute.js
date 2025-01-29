@@ -1,12 +1,12 @@
 const express = require("express");
-const transporter = require("./transporter"); 
+const transporter = require("./transporter"); // Güncellenmiş yapı
 const router = express.Router();
 
 router.post("/", async (req, res) => {
   const { name, email, subject, message } = req.body;
 
   if (!name || !email || !subject || !message) {
-    return res.status(400).send("Tüm alanları doldurmanız gerekiyor.");
+    return res.status(400).json({ error: "Lütfen tüm alanları doldurun." });
   }
 
   try {
@@ -22,13 +22,17 @@ router.post("/", async (req, res) => {
         <p><strong>Mesaj:</strong> ${message}</p>
       `,
     });
-    res.status(200).send("E-posta başarıyla gönderildi!");
+    res.status(200).json({ message: "E-posta başarıyla gönderildi!" });
   } catch (error) {
     console.error("E-posta gönderim hatası:", error);
-    res.status(500).send("E-posta gönderiminde hata oluştu.");
+    res.status(500).json({ error: "E-posta gönderiminde hata oluştu." });
   }
 });
 
-module.exports = router;
+// GET isteği için test endpointi
+router.get("/", (req, res) => {
+  res.json({ message: "E-posta API'si çalışıyor! POST isteği ile e-posta gönderebilirsiniz." });
+});
 
+module.exports = router;
 

@@ -14,7 +14,13 @@ const sendEmailRoute = require("./routes/sendEmailRoute");
 
 app.use("/send-email", sendEmailRoute);
 
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`Sunucu ${PORT} portunda çalışıyor.`);
+});
+
+
+
+app.get("/", (req, res) => {
+  res.send("API Çalışıyor! Lütfen /send-email adresine istek at.");
 });
 

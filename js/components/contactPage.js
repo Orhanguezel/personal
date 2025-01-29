@@ -7,9 +7,7 @@ export function loadContactPage() {
             <p>
               Feel free to reach out to us for any inquiries or assistance you may
               need. Our team is dedicated to providing you with top-notch service
-              and answering all your questions. Whether you’re looking for more
-              information about our services, need support, or simply want to give
-              feedback, we’re here to help. Get in touch with us today!
+              and answering all your questions. 
             </p>
       
           <div class="contact-container">
@@ -44,19 +42,37 @@ export function loadContactPage() {
             </div>
       
             <div class="contact-form">
-              <form action="http://localhost:3005/send-email" method="POST">
-                <input type="text" name="name" placeholder="Your Name" required />
-                <input type="email" name="email" placeholder="Your Email" required />
-                <input type="text" name="subject" placeholder="Your Subject" required />
-                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+              <form id="contactForm">
+                <input type="text" id="name" placeholder="Your Name" required />
+                <input type="email" id="email" placeholder="Your Email" required />
+                <input type="text" id="subject" placeholder="Your Subject" required />
+                <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
                 <button type="submit">Send Message</button>
               </form>
             </div>
           </div>
         </section>
       `;
-  } else {
-    console.log("Element with id 'contact' not found.");
+    
+    document.getElementById("contactForm").addEventListener("submit", async function(event) {
+      event.preventDefault();
+      
+      const data = {
+          name: document.getElementById("name").value,
+          email: document.getElementById("email").value,
+          subject: document.getElementById("subject").value,
+          message: document.getElementById("message").value
+      };
+
+      const response = await fetch("https://guezelwebdesign.com/api/send-email", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+      });
+
+      const result = await response.json();
+      alert(result.message);
+    });
   }
 }
 
