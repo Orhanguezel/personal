@@ -1,14 +1,24 @@
 import express from "express";
-import { getProjects, addProject, deleteProject } from "../controllers/projectController.js";
-import protect from "../middleware/authMiddleware.js"; // 🔥 Middleware'i burada kullanacağız
+import {
+  getProjects,
+  getProjectById,  // 🔥 Yeni: Tek proje getir
+  addProject,
+  updateProject, // 🔥 Yeni: Projeyi güncelle
+  deleteProject
+} from "../controllers/projectController.js";
+
+import protect from "../middleware/authMiddleware.js"; // 🔥 Middleware'i ekledik
 
 const router = express.Router();
 
 router.route("/")
-  .get(getProjects)        // 🔥 Projeleri herkes görebilir
-  .post(protect, addProject); // 🔥 Sadece giriş yapan kullanıcı proje ekleyebilir
+  .get(getProjects)        // 🔥 Tüm projeleri listele (herkes görebilir)
+  .post(protect, addProject); // 🔥 Yalnızca giriş yapan kullanıcı ekleyebilir
 
 router.route("/:id")
-  .delete(protect, deleteProject); // 🔥 Sadece giriş yapan kullanıcı silebilir
+  .get(getProjectById)  // 🔥 Yeni: Tek proje getir
+  .put(protect, updateProject) // 🔥 Yeni: Güncelleme işlemi (yetkilendirme var)
+  .delete(protect, deleteProject); // 🔥 Silme işlemi (yetkilendirme var)
 
 export default router;
+

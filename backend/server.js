@@ -11,6 +11,8 @@ import educationRoutes from "./routes/educationRoutes.js";
 import experienceRoutes from "./routes/experienceRoutes.js";
 import sportRoutes from "./routes/sportRoutes.js";
 import socialMediaRoutes from "./routes/socialRoutes.js";
+import blogRoutes from "./routes/blogRoutes.js";
+
 
 dotenv.config();
 const app = express();
@@ -41,6 +43,8 @@ app.use("/api/education", educationRoutes);
 app.use("/api/experience", experienceRoutes);
 app.use("/api/sports", sportRoutes);
 app.use("/api/social", socialMediaRoutes);
+
+app.use("/api/blogs", blogRoutes);
 
 // ✅ Sunucuyu Başlat
 const PORT = process.env.PORT || 5001;
