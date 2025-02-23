@@ -1,0 +1,28 @@
+[
+    {
+      "name": "Triathlon",
+      "description": "A multi-discipline endurance sport consisting of swimming, cycling, and running.",
+      "image": "/assets/sports/triathlon.png"
+    },
+    {
+      "name": "Running",
+      "description": "A fundamental sport for endurance and speed training.",
+      "image": "/assets/sports/running.png"
+    },
+    {
+      "name": "Cycling",
+      "description": "A great way to build endurance while enjoying nature.",
+      "image": "/assets/sports/cycling.png"
+    },
+    {
+      "name": "Swimming",
+      "description": "An essential part of triathlon and a great full-body workout.",
+      "image": "/assets/sports/swimming.png"
+    },
+    {
+      "name": "Duathlon",
+      "description": "A race format that includes running and cycling in a sequence.",
+      "image": "/assets/sports/duathlon.png"
+    }
+  ]
+  

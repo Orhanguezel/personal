@@ -1,0 +1,21 @@
+[
+    {
+      "degree": "Vocational School",
+      "institution": "Anatolische Berufsschule, Turkey",
+      "period": "1994 - 1997",
+      "image": "/assets/education/vocational-school.png"
+    },
+    {
+      "degree": "Bachelor's Degree",
+      "institution": "Erciyes University, Turkey",
+      "period": "1998 - 2005",
+      "image": "/assets/education/erciyes-university.png"
+    },
+    {
+      "degree": "Web Development Course",
+      "institution": "DCI, Germany",
+      "period": "2024 - 2025",
+      "image": "/assets/education/dci.png"
+    }
+  ]
+  

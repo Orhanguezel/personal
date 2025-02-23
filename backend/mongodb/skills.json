@@ -1,0 +1,45 @@
+[
+    {
+      "category": "Frontend Development",
+      "skills": [
+        { "name": "HTML", "image": "/assets/html.png" },
+        { "name": "CSS", "image": "/assets/css.png" },
+        { "name": "Sass", "image": "/assets/sass.png" },
+        { "name": "Bootstrap", "image": "/assets/bootstrap.png" },
+        { "name": "JavaScript", "image": "/assets/javascript.png" },
+        { "name": "React.js", "image": "/assets/react.png" },
+        { "name": "TypeScript", "image": "/assets/typescript.png" },
+        { "name": "Material-UI", "image": "/assets/mui.png" },
+        { "name": "Tailwind CSS", "image": "/assets/tailwind.png" }
+      ]
+    },
+    {
+      "category": "Backend Development",
+      "skills": [
+        { "name": "Node.js", "image": "/assets/nodejs.png" },
+        { "name": "Express.js", "image": "/assets/expressjs.png" },
+        { "name": "MongoDB", "image": "/assets/mongodb.png" },
+        { "name": "MySQL", "image": "/assets/mysql.png" },
+        { "name": "Postman", "image": "/assets/postman.svg" },
+        { "name": "Jest", "image": "/assets/jest.png" }
+      ]
+    },
+    {
+      "category": "UI/UX Design",
+      "skills": [
+        { "name": "Figma", "image": "/assets/figma.png" },
+        { "name": "Canva", "image": "/assets/canva.png" },
+        { "name": "Adobe Photoshop", "image": "/assets/photoshop.png" }
+      ]
+    },
+    {
+      "category": "Other Skills",
+      "skills": [
+        { "name": "SEO", "image": "/assets/seo.jpg" },
+        { "name": "Git", "image": "/assets/git.png" },
+        { "name": "GitHub", "image": "/assets/github.jpg" },
+        { "name": "WordPress", "image": "/assets/wordpress.jpg" }
+      ]
+    }
+  ]
+  
