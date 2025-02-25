@@ -1,24 +1,31 @@
 import express from "express";
 import {
   getProjects,
-  getProjectById,  // 🔥 Yeni: Tek proje getir
+  getProjectById,
+  getProjectsByLanguage,
   addProject,
-  updateProject, // 🔥 Yeni: Projeyi güncelle
-  deleteProject
+  updateProject,
+  deleteProject,
 } from "../controllers/projectController.js";
 
-import protect from "../middleware/authMiddleware.js"; // 🔥 Middleware'i ekledik
+import protect from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
-router.route("/")
-  .get(getProjects)        // 🔥 Tüm projeleri listele (herkes görebilir)
-  .post(protect, addProject); // 🔥 Yalnızca giriş yapan kullanıcı ekleyebilir
+// 📌 **Dil bazlı projeleri getir**
+router.get("/language/:lang", getProjectsByLanguage);
 
+// 📌 **Tek proje getir (dile duyarlı)**
+router.get("/:id/:lang", getProjectById);
+
+// 📌 **Tüm projeleri getir & yeni proje ekle**
+router.route("/")
+  .get(getProjects)  
+  .post(protect, addProject);
+
+// 📌 **Projeyi Güncelle / Sil (ID bazlı)**
 router.route("/:id")
-  .get(getProjectById)  // 🔥 Yeni: Tek proje getir
-  .put(protect, updateProject) // 🔥 Yeni: Güncelleme işlemi (yetkilendirme var)
-  .delete(protect, deleteProject); // 🔥 Silme işlemi (yetkilendirme var)
+  .put(protect, updateProject) 
+  .delete(protect, deleteProject);
 
 export default router;
-

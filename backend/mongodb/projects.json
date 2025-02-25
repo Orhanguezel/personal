@@ -1,0 +1,242 @@
+[
+  {
+    "title": {
+      "tr": "Antalya Döner & Pizzeria",
+      "en": "Antalya Döner & Pizzeria",
+      "de": "Antalya Döner & Pizzeria"
+    },
+    "description": {
+      "tr": "Bu web uygulaması, Antalya Döner & Pizzeria için restoran yönetim sürecini kolaylaştırır.",
+      "en": "This web application streamlines the restaurant management process for Antalya Döner & Pizzeria.",
+      "de": "Diese Webanwendung optimiert den Restaurantverwaltungsprozess für Antalya Döner & Pizzeria."
+    },
+    "image": "/assets/antalya-logo1.png",
+    "technologies": ["React", "Bootstrap", "Node.js", "Express.js", "MongoDB"],
+    "features": {
+      "tr": ["Gerçek zamanlı sipariş yönetimi", "Kullanıcı kaydı", "Admin paneli", "Mobil uyumlu tasarım"],
+      "en": ["Real-time order management", "User registration", "Admin dashboard", "Mobile-friendly design"],
+      "de": ["Echtzeit-Bestellverwaltung", "Benutzerregistrierung", "Admin-Dashboard", "Mobilfreundliches Design"]
+    },
+    "link": "https://www.antalya-doner-pizzeria.de"
+  },
+  {
+    "title": {
+      "tr": "Kino Bilet ve Yönetim Paneli",
+      "en": "Kino-Ticket and Admin Panel",
+      "de": "Kino-Ticket und Admin-Panel"
+    },
+    "description": {
+      "tr": "Sinema bilet rezervasyonu ve yönetim panelleri için interaktif bir platform.",
+      "en": "An interactive platform for booking cinema tickets and managing cinemas, movies, and showtimes.",
+      "de": "Eine interaktive Plattform für die Buchung von Kinokarten und die Verwaltung von Kinos, Filmen und Vorführzeiten."
+    },
+    "image": "/assets/kino-ticket.png",
+    "technologies": ["HTML5", "CSS3", "SASS", "JavaScript (ES6)", "Node.js"],
+    "features": {
+      "tr": ["Bilet rezervasyonu", "Yönetici paneli", "Duyarlı tasarım", "LocalStorage ile sepet entegrasyonu"],
+      "en": ["Ticket booking", "Admin panel", "Responsive design", "Cart system with LocalStorage"],
+      "de": ["Ticketbuchung", "Admin-Panel", "Responsives Design", "Warenkorbsystem mit LocalStorage"]
+    },
+    "link": "https://orhanguezel.github.io/Kino-Ticket/"
+  },
+  {
+    "title": {
+      "tr": "Pastoral TMGDK",
+      "en": "Pastoral TMGDK",
+      "de": "Pastoral TMGDK"
+    },
+    "description": {
+      "tr": "Tehlikeli madde yönetim danışmanlığı için web tabanlı bir uygulama.",
+      "en": "A web-based application for hazardous material management consultancy services.",
+      "de": "Eine webbasierte Anwendung für die Beratung im Bereich Gefahrstoffmanagement."
+    },
+    "image": "/assets/pastoral.png",
+    "technologies": ["HTML5", "CSS3", "JavaScript"],
+    "features": {
+      "tr": ["Gerçek zamanlı veri yükleme", "Danışmanlık araçları", "Dinamik bileşenler"],
+      "en": ["Real-time data loading", "Consultancy tools", "Dynamic components"],
+      "de": ["Echtzeit-Datenladung", "Beratungswerkzeuge", "Dynamische Komponenten"]
+    },
+    "link": "https://www.pastoraltmgdk.com"
+  },
+  {
+    "title": {
+      "tr": "MissEt",
+      "en": "MissEt",
+      "de": "MissEt"
+    },
+    "description": {
+      "tr": "Et severler için mükemmel bir çevrimiçi çözüm sunan web tabanlı bir proje.",
+      "en": "A web-based project designed to offer a seamless solution for meat lovers.",
+      "de": "Ein webbasiertes Projekt, das eine nahtlose Lösung für Fleischliebhaber bietet."
+    },
+    "image": "/assets/misset.png",
+    "technologies": ["HTML", "CSS", "JavaScript"],
+    "features": {
+      "tr": ["Ürün kataloğu", "Online rezervasyon", "Duyarlı tasarım"],
+      "en": ["Product catalog", "Online reservation", "Responsive design"],
+      "de": ["Produktkatalog", "Online-Reservierung", "Responsives Design"]
+    },
+    "link": "https://orhanguezel.github.io/MissEt/"
+  },
+  {
+    "title": {
+      "tr": "Kuhlturm",
+      "en": "Kuhlturm",
+      "de": "Kuhlturm"
+    },
+    "description": {
+      "tr": "Ensotek için geliştirilen endüstriyel soğutma çözümleri sunan bir web projesi.",
+      "en": "Developed for Ensotek, a refrigeration company specializing in industrial cooling solutions.",
+      "de": "Für Ensotek entwickelte Website, ein Unternehmen für industrielle Kühlungslösungen."
+    },
+    "image": "/assets/kuhlturm-logo.png",
+    "technologies": ["HTML", "CSS", "JavaScript"],
+    "features": {
+      "tr": ["Modern ve profesyonel arayüz", "Sektöre özel çözümler"],
+      "en": ["Modern and professional interface", "Industry-specific solutions"],
+      "de": ["Modernes und professionelles Interface", "Branchenspezifische Lösungen"]
+    },
+    "link": "https://orhanguezel.github.io/Ensotek/"
+  },
+  {
+    "title": {
+      "tr": "Cinema-House",
+      "en": "Cinema-House",
+      "de": "Cinema-House"
+    },
+    "description": {
+      "tr": "Film tarama ve keşfetme için dinamik ve duyarlı bir web uygulaması.",
+      "en": "A dynamic and responsive web application for browsing and exploring movies.",
+      "de": "Eine dynamische und responsive Webanwendung zur Durchsuchung und Erkundung von Filmen."
+    },
+    "image": "/assets/cinema-house.png",
+    "technologies": ["HTML5", "CSS3", "JavaScript", "The Movie Database API"],
+    "features": {
+      "tr": ["Film arama ve filtreleme", "Ayrıntılı film bilgisi", "Duyarlı tasarım"],
+      "en": ["Movie search and filtering", "Detailed movie information", "Responsive design"],
+      "de": ["Filmsuche und Filterung", "Detaillierte Filminformationen", "Responsives Design"]
+    },
+    "link": "https://orhanguezel.github.io/Cinema-House/"
+  },
+  {
+    "title": {
+      "tr": "Pokémon Arama ve Yakalama Oyunu",
+      "en": "Pokémon Search and Catch Game",
+      "de": "Pokémon Such- und Fangspiel"
+    },
+    "description": {
+      "tr": "Kullanıcıların Pokémon arayıp yakalayabileceği eğlenceli bir web uygulaması.",
+      "en": "A fun and interactive web application where users can search, display, and catch Pokémon.",
+      "de": "Eine unterhaltsame Webanwendung, in der Benutzer Pokémon suchen und fangen können."
+    },
+    "image": "/assets/pokemon.png",
+    "technologies": ["HTML5", "CSS3", "JavaScript", "PokeAPI"],
+    "features": {
+      "tr": ["Pokémon arama", "Yakalama animasyonları", "Mobil uyumlu tasarım"],
+      "en": ["Pokémon search", "Catch animations", "Mobile-friendly design"],
+      "de": ["Pokémon-Suche", "Fang-Animationen", "Mobilfreundliches Design"]
+    },
+    "link": "https://orhanguezel.github.io/Pokemon/"
+  },
+  {
+    "title": {
+      "tr": "Hava Durumu Uygulaması",
+      "en": "Weather App",
+      "de": "Wetter App"
+    },
+    "description": {
+      "tr": "Kullanıcıların istedikleri şehrin hava durumunu öğrenebileceği duyarlı bir web uygulaması.",
+      "en": "A responsive web application that allows users to search for the current weather of any city.",
+      "de": "Eine responsive Webanwendung, die es Benutzern ermöglicht, das aktuelle Wetter einer Stadt zu suchen."
+    },
+    "image": "/assets/weather-app.png",
+    "technologies": ["HTML5", "CSS3", "JavaScript", "OpenWeatherMap API"],
+    "features": {
+      "tr": ["Şehir ismine göre hava durumu sorgulama", "Hava durumu ikonları", "Kullanıcı dostu arayüz"],
+      "en": ["Search weather by city name", "Weather icons", "User-friendly interface"],
+      "de": ["Wetter nach Stadt suchen", "Wetter-Symbole", "Benutzerfreundliches Interface"]
+    },
+    "link": "https://orhanguezel.github.io/WeatherApp/"
+  },
+  {
+    "title": {
+      "tr": "GitHub Arama Aracı",
+      "en": "GitHub User and Repository Search Tool",
+      "de": "GitHub Benutzer- und Repository-Suchtool"
+    },
+    "description": {
+      "tr": "GitHub kullanıcılarını ve depolarını arayabileceğiniz bir web uygulaması.",
+      "en": "A web-based tool to search GitHub repositories and user profiles using the GitHub REST API.",
+      "de": "Ein webbasiertes Tool zum Durchsuchen von GitHub-Repositories und Benutzerprofilen mit der GitHub REST API."
+    },
+    "image": "/assets/github-app.png",
+    "technologies": ["HTML5", "CSS3", "JavaScript", "GitHub REST API"],
+    "features": {
+      "tr": ["GitHub kullanıcılarını ve repoları arama", "Detaylı profil bilgisi", "Mobil uyumlu tasarım"],
+      "en": ["Search GitHub users and repositories", "Detailed profile info", "Mobile-friendly design"],
+      "de": ["GitHub Benutzer und Repositories suchen", "Detaillierte Profilinfos", "Mobilfreundliches Design"]
+    },
+    "link": "https://orhanguezel.github.io/GitHubRepositorySearch/"
+  },
+  {
+    "title": {
+      "tr": "Harry Potter Uygulaması",
+      "en": "Harry Potter App",
+      "de": "Harry Potter App"
+    },
+    "description": {
+      "tr": "Harry Potter dünyasını keşfedebileceğiniz interaktif bir web uygulaması.",
+      "en": "An engaging and responsive web application that showcases the magical world of Harry Potter.",
+      "de": "Eine interaktive Webanwendung, die die magische Welt von Harry Potter zeigt."
+    },
+    "image": "/assets/harry-potter.png",
+    "technologies": ["HTML5", "CSS3", "JavaScript", "hp-api"],
+    "features": {
+      "tr": ["Karakterler, büyüler, evler hakkında bilgi", "Etkileşimli kullanıcı arayüzü", "Duyarlı tasarım"],
+      "en": ["Info about characters, spells, houses", "Interactive UI", "Responsive design"],
+      "de": ["Infos über Charaktere, Zauber, Häuser", "Interaktive UI", "Responsives Design"]
+    },
+    "link": "https://orhanguezel.github.io/Harry-Potter-app/"
+  },
+  {
+    "title": {
+      "tr": "Hazer Piliç",
+      "en": "Hazer Piliç",
+      "de": "Hazer Piliç"
+    },
+    "description": {
+      "tr": "Hazer Piliç için oluşturulmuş kurumsal bir e-ticaret sitesi.",
+      "en": "A website created for Hazer Piliç, a Turkish poultry company known for its fresh chicken products.",
+      "de": "Eine für Hazer Piliç erstellte Unternehmensseite."
+    },
+    "image": "/assets/hazer-logo.png",
+    "technologies": ["HTML", "CSS", "WordPress"],
+    "features": {
+      "tr": ["Ürün tanıtımı", "Kurumsal bilgi sayfası"],
+      "en": ["Product showcase", "Corporate information"],
+      "de": ["Produktpräsentation", "Unternehmensinformationen"]
+    },
+    "link": "https://hazerpilic.com.tr/"
+  },
+  {
+    "title": {
+      "tr": "BTU Holding",
+      "en": "BTU Holding",
+      "de": "BTU Holding"
+    },
+    "description": {
+      "tr": "BTU Holding için yatırım portföyü sunan bir kurumsal web sitesi.",
+      "en": "A website designed for BTU Holding, a major investment firm.",
+      "de": "Eine Unternehmensseite für BTU Holding, eine große Investmentfirma."
+    },
+    "image": "/assets/btu-logo.png",
+    "technologies": ["HTML", "CSS", "WordPress"],
+    "features": {
+      "tr": ["Yatırım portföyü", "Kurumsal detaylar"],
+      "en": ["Investment portfolio", "Corporate details"],
+      "de": ["Investitionsportfolio", "Unternehmensdetails"]
+    },
+    "link": "https://btuholding.com.tr/"
+  }
+]
