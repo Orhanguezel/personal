@@ -1,27 +1,18 @@
 import express from "express";
-import Sport from "../models/Sport.js";
+import {
+  getSport,
+  getSportById,
+  addSport,
+  updateSport,
+  deleteSport,
+} from "../controllers/sportController.js";
+
 
 const router = express.Router();
 
-// Get Sports
-router.get("/", async (req, res) => {
-  try {
-    const sports = await Sport.find();
-    res.json(sports);
-  } catch (error) {
-    res.status(500).json({ message: "Error fetching sports", error });
-  }
-});
+router.route("/").get(getSport).post(addSport);
+router.route("/:id").get(getSportById).put(updateSport).delete(deleteSport);
 
-// Add New Sport
-router.post("/", async (req, res) => {
-  try {
-    const newSport = new Sport(req.body);
-    await newSport.save();
-    res.json(newSport);
-  } catch (error) {
-    res.status(500).json({ message: "Error adding sport", error });
-  }
-});
+
 
 export default router;

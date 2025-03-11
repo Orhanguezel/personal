@@ -1,0 +1,290 @@
+openapi: "3.0.0"
+info:
+  title: "Personal Portfolio API"
+  version: "1.0.0"
+  description: "Kişisel portföy projesi için API dokümantasyonu"
+
+servers:
+  - url: "http://localhost:5001/api"
+    description: "Local Server"
+  - url: "https://your-deployment-url.com/api"
+    description: "Production Server"
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: "http"
+      scheme: "bearer"
+      bearerFormat: "JWT"
+
+security:
+  - bearerAuth: []
+
+paths:
+  /users/register:
+    post:
+      summary: "Yeni kullanıcı kaydı oluştur"
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+                - email
+                - password
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        "201":
+          description: "Kullanıcı başarıyla oluşturuldu"
+        "400":
+          description: "Eksik veya hatalı veri"
+
+  /users/login:
+    post:
+      summary: "Kullanıcı girişi yap"
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+                - password
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        "200":
+          description: "Giriş başarılı, JWT döndü"
+        "401":
+          description: "Hatalı giriş bilgileri"
+
+  /users/profile:
+    get:
+      summary: "Kullanıcı profilini getir"
+      tags:
+        - Users
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: "Kullanıcı bilgileri döndü"
+        "401":
+          description: "Yetkisiz erişim"
+
+  /projects:
+    get:
+      summary: "Tüm projeleri getir"
+      tags:
+        - Projects
+      responses:
+        "200":
+          description: "Projeler başarıyla listelendi"
+
+    post:
+      summary: "Yeni proje ekle"
+      tags:
+        - Projects
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+                - description
+                - language
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                language:
+                  type: string
+      responses:
+        "201":
+          description: "Proje başarıyla eklendi"
+        "400":
+          description: "Eksik veya hatalı veri"
+
+  /projects/{id}/{lang}:
+    get:
+      summary: "Proje detaylarını getir (dile duyarlı)"
+      tags:
+        - Projects
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: lang
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: "Proje bilgileri döndü"
+        "404":
+          description: "Proje bulunamadı"
+
+  /skills:
+    get:
+      summary: "Tüm becerileri getir"
+      tags:
+        - Skills
+      responses:
+        "200":
+          description: "Beceriler başarıyla listelendi"
+
+    post:
+      summary: "Yeni beceri ekle"
+      tags:
+        - Skills
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+              properties:
+                name:
+                  type: string
+      responses:
+        "201":
+          description: "Beceri başarıyla eklendi"
+        "400":
+          description: "Eksik veya hatalı veri"
+
+  /about/{lang}:
+    get:
+      summary: "'Hakkımda' bilgisini getir"
+      tags:
+        - About
+      parameters:
+        - name: lang
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: "'Hakkımda' bilgisi getirildi"
+        "404":
+          description: "Veri bulunamadı"
+
+  /education:
+    get:
+      summary: "Eğitim bilgilerini getir"
+      tags:
+        - Education
+      responses:
+        "200":
+          description: "Eğitim bilgileri listelendi"
+
+  /experience:
+    get:
+      summary: "Deneyim bilgilerini getir"
+      tags:
+        - Experience
+      responses:
+        "200":
+          description: "Deneyim bilgileri listelendi"
+
+  /sports:
+    get:
+      summary: "Spor aktivitelerini getir"
+      tags:
+        - Sports
+      responses:
+        "200":
+          description: "Spor bilgileri listelendi"
+
+  /social:
+    get:
+      summary: "Sosyal medya bilgilerini getir"
+      tags:
+        - Social
+      responses:
+        "200":
+          description: "Sosyal medya bilgileri getirildi"
+
+  /blogs:
+    get:
+      summary: "Tüm blog yazılarını getir"
+      tags:
+        - Blogs
+      responses:
+        "200":
+          description: "Bloglar başarıyla listelendi"
+
+    post:
+      summary: "Yeni blog yazısı ekle"
+      tags:
+        - Blogs
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - title
+                - content
+              properties:
+                title:
+                  type: string
+                content:
+                  type: string
+      responses:
+        "201":
+          description: "Blog başarıyla eklendi"
+        "400":
+          description: "Eksik veya hatalı veri"
+
+  /blogs/{id}/comments:
+    post:
+      summary: "Blog yazısına yorum ekle"
+      tags:
+        - Blogs
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - comment
+              properties:
+                comment:
+                  type: string
+      responses:
+        "201":
+          description: "Yorum başarıyla eklendi"
+        "400":
+          description: "Eksik veya hatalı veri"

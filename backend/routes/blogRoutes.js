@@ -10,12 +10,8 @@ import {
 
 const router = express.Router();
 
-// ✅ Bloglar için API Endpointleri
-router.get("/", getAllBlogs); // Tüm blogları getir
-router.get("/:id", getBlogById); // ID'ye göre blog getir
-router.post("/", createBlog); // Yeni blog ekle
-router.put("/:id", updateBlog); // Blog güncelle
-router.delete("/:id", deleteBlog); // Blog sil
-router.post("/:id/comments", addComment); // Bloga yorum ekle
+router.route("/").get(getAllBlogs).post(createBlog);
+router.route("/:id").get(getBlogById).put(updateBlog).delete(deleteBlog);
+router.route("/:id/comments").post(addComment);
 
 export default router;

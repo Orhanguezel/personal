@@ -1,16 +1,19 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
+import logger from "./logger.js"; // Eğer loglama varsa ekleyelim
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-    console.log('MongoDB connected');
+    mongoose.set("strictQuery", false);
+    const conn = await mongoose.connect(process.env.MONGO_URI);
+    logger.info(`✅ MongoDB Bağlantısı Başarılı: ${conn.connection.host}`);
   } catch (error) {
-    console.error('DB Connection Error:', error);
+    logger.error(`❌ MongoDB Bağlantı Hatası: ${error.message}`);
     process.exit(1);
   }
 };
 
-module.exports = connectDB;
+export default connectDB;
+

@@ -9,10 +9,7 @@ import {
 
 const router = express.Router();
 
-router.get("/", getAllSkills);
-router.post("/", addSkill);
-router.get("/:id", getSkillById);
-router.put("/:id", updateSkill);
-router.delete("/:id", deleteSkill);
+router.route("/").get(getAllSkills).post(addSkill);
+router.route("/:id").get(getSkillById).put(updateSkill).delete(deleteSkill);
 
 export default router;

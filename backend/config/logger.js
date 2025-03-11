@@ -1,4 +1,10 @@
 import winston from "winston";
+import fs from "fs";
+
+// ✅ Log klasörü yoksa oluştur
+if (!fs.existsSync("logs")) {
+  fs.mkdirSync("logs");
+}
 
 const logger = winston.createLogger({
   level: "info",
@@ -16,3 +22,4 @@ const logger = winston.createLogger({
 });
 
 export default logger;
+
