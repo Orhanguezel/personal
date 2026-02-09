@@ -38,7 +38,10 @@ CREATE TABLE IF NOT EXISTS `site_settings` (
 SET @OG_DEFAULT := COALESCE(
   (
     SELECT COALESCE(
-      JSON_UNQUOTE(JSON_EXTRACT(`value`, '$.url')),
+      CASE
+        WHEN JSON_VALID(`value`) THEN JSON_UNQUOTE(JSON_EXTRACT(`value`, '$.url'))
+        ELSE NULL
+      END,
       NULLIF(`value`, '')
     )
     FROM `site_settings`
