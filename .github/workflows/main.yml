@@ -44,6 +44,30 @@ jobs:
           remote_key: ${{ secrets.VPS_KEY }}
 
       # ----------------------------
+      # Admin Panel (Next.js)
+      # ----------------------------
+      - name: Build admin panel (bun)
+        working-directory: admin_panel
+        run: |
+          bun install --frozen-lockfile || bun install
+          bun run build
+
+      - name: Deploy admin panel to VPS (rsync)
+        uses: burnett01/rsync-deployments@v8
+        with:
+          switches: >-
+            -avz --delete
+            --exclude=node_modules
+            --exclude=.git
+            --exclude=.env
+            --exclude=.DS_Store
+          path: admin_panel/
+          remote_path: /var/www/guezelwebdesign/admin_panel
+          remote_host: ${{ secrets.VPS_HOST }}
+          remote_user: ${{ secrets.VPS_USER }}
+          remote_key: ${{ secrets.VPS_KEY }}
+
+      # ----------------------------
       # Frontend (Next.js)
       # ----------------------------
       - name: Setup Node (for frontend build)
@@ -82,9 +106,9 @@ jobs:
           remote_key: ${{ secrets.VPS_KEY }}
 
       # ----------------------------
-      # PM2 reload (backend + frontend) + bind check
+      # PM2 reload (backend + admin_panel + frontend) + bind check
       # ----------------------------
-      - name: Reload PM2 (backend + frontend)
+      - name: Reload PM2 (backend + admin_panel + frontend)
         uses: appleboy/ssh-action@v1.0.0
         with:
           host: ${{ secrets.VPS_HOST }}
@@ -94,10 +118,13 @@ jobs:
             set -e
 
             cd /var/www/guezelwebdesign/backend
-            pm2 reload guezelwebdesign-backend || pm2 start ecosystem.config.cjs --only guezelwebdesign-backend
+            pm2 startOrReload ecosystem.config.cjs --update-env
+
+            cd /var/www/guezelwebdesign/admin_panel
+            pm2 startOrReload ecosystem.config.cjs --update-env
 
             cd /var/www/guezelwebdesign/frontend
-            pm2 reload guezelwebdesign-frontend || pm2 start ecosystem.config.cjs --only guezelwebdesign-frontend
+            pm2 startOrReload ecosystem.config.cjs --update-env
 
             pm2 save
 
