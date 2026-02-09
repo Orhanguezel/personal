@@ -34,13 +34,20 @@ export default function PricingClient({ locale }: Props) {
 
   // ---- Faqs (public) ----
   // ✅ locale gönderiyoruz (toPublicQuery bunu querystring'e basacak)
+  const faqParams = {
+    locale,
+    limit: 50,
+    offset: 0,
+    is_active: true,
+  };
+
   const {
     data: faqsData,
     isLoading: faqsLoading,
     isFetching: faqsFetching,
     isError: faqsError,
   } = useListFaqsQuery(
-    { locale, limit: 50, offset: 0, is_active: true },
+    faqParams,
     { skip: !locale }, // ✅ guard
   );
 
