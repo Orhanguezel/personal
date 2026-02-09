@@ -1,0 +1,3 @@
+{
+  "/(main)/admin/(admin)/custompage/[id]/page": "app/(main)/admin/(admin)/custompage/[id]/page.js"
+}

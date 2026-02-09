@@ -1,0 +1,20 @@
+{
+  "node": {
+    "7082032138ddca92a0bd727b3b75733026089f4d27": {
+      "workers": {
+        "app/(main)/admin/(admin)/reports/page": {
+          "moduleId": 12880,
+          "async": false,
+          "exportedName": "setValueToCookie",
+          "filename": "src/server/server-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(main)/admin/(admin)/reports/page": "action-browser"
+      },
+      "exportedName": "setValueToCookie",
+      "filename": "src/server/server-actions.ts"
+    }
+  },
+  "edge": {}
+}

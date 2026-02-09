@@ -16,7 +16,7 @@ import { toast } from 'sonner';
 import { ArrowLeft, Save, Trash2, Loader2, Code2, Mail } from 'lucide-react';
 
 import { useAdminLocales } from '@/app/(main)/admin/_components/common/useAdminLocales';
-import { localeShortClient } from '@/i18n/localeShortClient';
+import { localeShortClient, localeShortClientOr } from '@/i18n/localeShortClient';
 
 import { cn } from '@/lib/utils';
 
@@ -125,7 +125,10 @@ export default function AdminEmailTemplatesDetailClient({ id }: { id: string }) 
     content: '',
     variables: '',
     is_active: true,
-    locale: defaultLocaleFromDb || localeShortClient() || '',
+    locale:
+      defaultLocaleFromDb ||
+      localeShortClientOr(typeof window !== 'undefined' ? navigator.language : 'de', 'de') ||
+      '',
   });
 
   // Delete dialog state
@@ -145,7 +148,11 @@ export default function AdminEmailTemplatesDetailClient({ id }: { id: string }) 
         content: firstTranslation?.content || '',
         variables: stringifyVariables(existingItem.variables),
         is_active: existingItem.is_active,
-        locale: firstTranslation?.locale || defaultLocaleFromDb || localeShortClient() || '',
+        locale:
+          firstTranslation?.locale ||
+          defaultLocaleFromDb ||
+          localeShortClientOr(typeof window !== 'undefined' ? navigator.language : 'de', 'de') ||
+          '',
       });
     }
   }, [existingItem, isNew, defaultLocaleFromDb]);
@@ -492,11 +499,11 @@ export default function AdminEmailTemplatesDetailClient({ id }: { id: string }) 
             </div>
 
             {/* Show detected variables if editing */}
-            {!isNew && existingItem?.translations?.[0]?.detected_variables?.length > 0 && (
+            {!isNew && (existingItem?.translations?.[0]?.detected_variables ?? []).length > 0 && (
               <div className="space-y-2">
                 <Label className="text-sm">İçerikte Tespit Edilen Değişkenler</Label>
                 <div className="flex flex-wrap gap-1">
-                  {existingItem.translations[0].detected_variables.map((v) => (
+                  {(existingItem?.translations?.[0]?.detected_variables ?? []).map((v) => (
                     <Badge key={v} variant="secondary">
                       {v}
                     </Badge>

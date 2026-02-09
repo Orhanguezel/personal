@@ -1,0 +1,18 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(main)/layout,_N_T_/(main)/admin/layout,_N_T_/(main)/admin/(admin)/layout,_N_T_/(main)/admin/(admin)/faqs/layout,_N_T_/(main)/admin/(admin)/faqs/page,_N_T_/admin/faqs"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KG1haW4p/admin/!KGFkbWluKQ/faqs/__PAGE__",
+    "/!KG1haW4p/admin/!KGFkbWluKQ/faqs",
+    "/!KG1haW4p/admin/!KGFkbWluKQ",
+    "/!KG1haW4p/admin",
+    "/!KG1haW4p",
+    "/_index",
+    "/_head"
+  ]
+}

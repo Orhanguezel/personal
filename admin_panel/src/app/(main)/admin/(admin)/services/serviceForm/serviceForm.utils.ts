@@ -77,6 +77,8 @@ export const buildInitialValues = (
       // i18n
       name: '',
       slug: '',
+      summary: '',
+      content: '',
       description: '',
 
       material: '',
@@ -89,6 +91,7 @@ export const buildInitialValues = (
       is_active: true,
       featured: false,
       display_order: '0',
+      type: 'other',
 
       // cover (UI keeps both mirrored)
       featured_image: '',
@@ -121,6 +124,8 @@ export const buildInitialValues = (
     // i18n
     name: toStr(initial.name),
     slug: toStr(initial.slug),
+    summary: toStr(initial.summary),
+    content: toStr(initial.content),
     description: toStr(initial.description),
 
     material: toStr(initial.material),
@@ -133,6 +138,7 @@ export const buildInitialValues = (
     is_active: !!initial.is_active,
     featured: !!initial.featured,
     display_order: Number.isFinite(initial.display_order) ? String(initial.display_order) : '0',
+    type: toStr(initial.type) || 'other',
 
     // cover
     featured_image: toStr(initial.featured_image),

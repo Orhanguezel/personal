@@ -3,7 +3,7 @@
 // FINAL — Admin Resources Page
 // =============================================================
 
-import AdminResourcesClient from './admin-resources-client';
+import AdminResourcesClient from './_components/admin-resources-client';
 
 export default function Page() {
   return <AdminResourcesClient />;

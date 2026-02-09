@@ -88,7 +88,7 @@ export const UiHeaderStructuredForm: React.FC<UiHeaderStructuredFormProps> = ({
             <Label htmlFor={`ui-header-${k}`} className="text-sm">{label}</Label>
             <Input
               id={`ui-header-${k}`}
-              size="sm"
+              className="h-8"
               value={(form as any)[k] || ''}
               onChange={(e) => onChange({ ...(form as any), [k]: e.target.value })}
               disabled={disabled}

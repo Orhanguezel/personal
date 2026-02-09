@@ -1,0 +1,451 @@
+{
+  "version": 3,
+  "pages404": true,
+  "appType": "app",
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "priority": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [
+      {
+        "source": "/api/:path*",
+        "destination": "http://localhost:8044/api/:path*",
+        "regex": "^/api(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(?:/)?$"
+      }
+    ],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/admin/availability/[id]",
+      "regex": "^/admin/availability/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/availability/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/admin/custompage/[id]",
+      "regex": "^/admin/custompage/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/custompage/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/admin/dashboard/[...not-found]",
+      "regex": "^/admin/dashboard/(.+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPnotfound": "nxtPnot-found"
+      },
+      "namedRegex": "^/admin/dashboard/(?<nxtPnotfound>.+?)(?:/)?$"
+    },
+    {
+      "page": "/admin/email-templates/[id]",
+      "regex": "^/admin/email\\-templates/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/email\\-templates/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/admin/faqs/[id]",
+      "regex": "^/admin/faqs/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/faqs/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/admin/footer-sections/[id]",
+      "regex": "^/admin/footer\\-sections/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/footer\\-sections/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/admin/menuitem/[id]",
+      "regex": "^/admin/menuitem/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/menuitem/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/admin/notifications/[id]",
+      "regex": "^/admin/notifications/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/notifications/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/admin/offers/[id]",
+      "regex": "^/admin/offers/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/offers/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/admin/pricing/[id]",
+      "regex": "^/admin/pricing/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/pricing/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/admin/projects/[id]",
+      "regex": "^/admin/projects/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/projects/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/admin/resume/[id]",
+      "regex": "^/admin/resume/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/resume/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/admin/reviews/[id]",
+      "regex": "^/admin/reviews/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/reviews/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/admin/services/[id]",
+      "regex": "^/admin/services/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/services/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/admin/site-settings/[id]",
+      "regex": "^/admin/site\\-settings/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/site\\-settings/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/admin/skills/counters/[id]",
+      "regex": "^/admin/skills/counters/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/skills/counters/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/admin/skills/logos/[id]",
+      "regex": "^/admin/skills/logos/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/skills/logos/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/admin/slider/[id]",
+      "regex": "^/admin/slider/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/slider/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/admin/storage/[id]",
+      "regex": "^/admin/storage/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/storage/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/admin/users/[id]",
+      "regex": "^/admin/users/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/users/(?<nxtPid>[^/]+?)(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_global-error",
+      "regex": "^/_global\\-error(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_global\\-error(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/admin",
+      "regex": "^/admin(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin(?:/)?$"
+    },
+    {
+      "page": "/admin/audit",
+      "regex": "^/admin/audit(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/audit(?:/)?$"
+    },
+    {
+      "page": "/admin/availability",
+      "regex": "^/admin/availability(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/availability(?:/)?$"
+    },
+    {
+      "page": "/admin/bookings",
+      "regex": "^/admin/bookings(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/bookings(?:/)?$"
+    },
+    {
+      "page": "/admin/brands",
+      "regex": "^/admin/brands(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/brands(?:/)?$"
+    },
+    {
+      "page": "/admin/contacts",
+      "regex": "^/admin/contacts(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/contacts(?:/)?$"
+    },
+    {
+      "page": "/admin/custompage",
+      "regex": "^/admin/custompage(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/custompage(?:/)?$"
+    },
+    {
+      "page": "/admin/dashboard",
+      "regex": "^/admin/dashboard(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/dashboard(?:/)?$"
+    },
+    {
+      "page": "/admin/dashboard/coming-soon",
+      "regex": "^/admin/dashboard/coming\\-soon(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/dashboard/coming\\-soon(?:/)?$"
+    },
+    {
+      "page": "/admin/dashboard/default",
+      "regex": "^/admin/dashboard/default(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/dashboard/default(?:/)?$"
+    },
+    {
+      "page": "/admin/db",
+      "regex": "^/admin/db(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/db(?:/)?$"
+    },
+    {
+      "page": "/admin/email-templates",
+      "regex": "^/admin/email\\-templates(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/email\\-templates(?:/)?$"
+    },
+    {
+      "page": "/admin/faqs",
+      "regex": "^/admin/faqs(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/faqs(?:/)?$"
+    },
+    {
+      "page": "/admin/footer-sections",
+      "regex": "^/admin/footer\\-sections(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/footer\\-sections(?:/)?$"
+    },
+    {
+      "page": "/admin/mail",
+      "regex": "^/admin/mail(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/mail(?:/)?$"
+    },
+    {
+      "page": "/admin/menuitem",
+      "regex": "^/admin/menuitem(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/menuitem(?:/)?$"
+    },
+    {
+      "page": "/admin/newsletter",
+      "regex": "^/admin/newsletter(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/newsletter(?:/)?$"
+    },
+    {
+      "page": "/admin/notifications",
+      "regex": "^/admin/notifications(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/notifications(?:/)?$"
+    },
+    {
+      "page": "/admin/offers",
+      "regex": "^/admin/offers(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/offers(?:/)?$"
+    },
+    {
+      "page": "/admin/popups",
+      "regex": "^/admin/popups(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/popups(?:/)?$"
+    },
+    {
+      "page": "/admin/pricing",
+      "regex": "^/admin/pricing(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/pricing(?:/)?$"
+    },
+    {
+      "page": "/admin/projects",
+      "regex": "^/admin/projects(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/projects(?:/)?$"
+    },
+    {
+      "page": "/admin/reports",
+      "regex": "^/admin/reports(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/reports(?:/)?$"
+    },
+    {
+      "page": "/admin/resources",
+      "regex": "^/admin/resources(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/resources(?:/)?$"
+    },
+    {
+      "page": "/admin/resume",
+      "regex": "^/admin/resume(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/resume(?:/)?$"
+    },
+    {
+      "page": "/admin/reviews",
+      "regex": "^/admin/reviews(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/reviews(?:/)?$"
+    },
+    {
+      "page": "/admin/services",
+      "regex": "^/admin/services(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/services(?:/)?$"
+    },
+    {
+      "page": "/admin/site-settings",
+      "regex": "^/admin/site\\-settings(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/site\\-settings(?:/)?$"
+    },
+    {
+      "page": "/admin/skills",
+      "regex": "^/admin/skills(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/skills(?:/)?$"
+    },
+    {
+      "page": "/admin/slider",
+      "regex": "^/admin/slider(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/slider(?:/)?$"
+    },
+    {
+      "page": "/admin/storage",
+      "regex": "^/admin/storage(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/storage(?:/)?$"
+    },
+    {
+      "page": "/admin/user-roles",
+      "regex": "^/admin/user\\-roles(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/user\\-roles(?:/)?$"
+    },
+    {
+      "page": "/admin/users",
+      "regex": "^/admin/users(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/users(?:/)?$"
+    },
+    {
+      "page": "/auth/login",
+      "regex": "^/auth/login(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/auth/login(?:/)?$"
+    },
+    {
+      "page": "/auth/register",
+      "regex": "^/auth/register(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/auth/register(?:/)?$"
+    },
+    {
+      "page": "/favicon.ico",
+      "regex": "^/favicon\\.ico(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/favicon\\.ico(?:/)?$"
+    },
+    {
+      "page": "/unauthorized",
+      "regex": "^/unauthorized(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/unauthorized(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments",
+    "clientParamParsing": false,
+    "dynamicRSCPrerender": false
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

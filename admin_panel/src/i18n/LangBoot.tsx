@@ -10,7 +10,7 @@ import HtmlLangSync from './HtmlLangSync';
 import { KNOWN_RTL } from './config';
 import { FALLBACK_LOCALE } from '@/i18n/config';
 import { normLocaleTag } from '@/i18n/localeUtils';
-import { useGetAppLocalesPublicQuery, useGetDefaultLocalePublicQuery } from '@/integrations/hooks';
+import { useGetAppLocalesAdminQuery, useGetDefaultLocaleAdminQuery } from '@/integrations/hooks';
 
 function readLocaleFromPath(asPath?: string): string {
   const p = String(asPath || '/').trim();
@@ -38,8 +38,8 @@ function computeActiveLocales(meta: any[] | undefined): string[] {
 export default function LangBoot() {
   const router = useRouter();
 
-  const { data: appLocalesMeta } = useGetAppLocalesPublicQuery();
-  const { data: defaultLocaleMeta } = useGetDefaultLocalePublicQuery();
+  const { data: appLocalesMeta } = useGetAppLocalesAdminQuery();
+  const { data: defaultLocaleMeta } = useGetDefaultLocaleAdminQuery();
 
   const activeLocales = useMemo(
     () => computeActiveLocales(appLocalesMeta as any),

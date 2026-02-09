@@ -1,6 +1,4 @@
-import * as Mod from '@/app/(main)/admin/(admin)/site-settings/tabs/structured/CompanyProfileStructuredForm';
-const AnyMod = Mod as any;
-const C = AnyMod.default ?? AnyMod.CompanyProfileStructuredForm;
-export const CompanyProfileStructuredForm = AnyMod.CompanyProfileStructuredForm ?? C;
-export default C;
-export * from '@/app/(main)/admin/(admin)/site-settings/tabs/structured/CompanyProfileStructuredForm';
+import { CompanyProfileStructuredForm as CompanyProfileStructuredFormComponent } from '@/app/(main)/admin/(admin)/site-settings/tabs/structured/company-profile-structured-form';
+
+export const CompanyProfileStructuredForm = CompanyProfileStructuredFormComponent;
+export default CompanyProfileStructuredFormComponent;

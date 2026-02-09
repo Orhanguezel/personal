@@ -1,0 +1,3 @@
+module.exports=[32497,a=>{"use strict";var b=a.i(87924);function c(){return(0,b.jsxs)("div",{className:"flex h-full flex-col items-center justify-center space-y-2 text-center",children:[(0,b.jsx)("h1",{className:"font-semibold text-2xl",children:"Page not found."}),(0,b.jsx)("p",{className:"text-muted-foreground",children:"This section will be added in future updates."})]})}a.s(["default",()=>c])}];
+
+//# sourceMappingURL=src_app_%28main%29_admin_dashboard_%5B___not-found%5D_page_tsx_5ba3fa67._.js.map

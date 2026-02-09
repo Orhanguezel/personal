@@ -1,3 +1,21 @@
 # Environment files
 .env
 backend/.env
+# Node modules
+node_modules/
+backend/node_modules/
+# Build files
+dist/
+build/
+# Logs
+logs/
+*.log
+# OS files
+.DS_Store
+Thumbs.db
+# IDE files
+.vscode/
+.idea/
+# Miscellaneous
+*.bak
+*.tmp

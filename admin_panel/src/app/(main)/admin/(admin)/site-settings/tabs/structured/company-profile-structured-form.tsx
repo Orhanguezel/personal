@@ -65,7 +65,7 @@ export const CompanyProfileStructuredForm: React.FC<CompanyProfileStructuredForm
         <Label htmlFor="company-name" className="text-sm">Şirket Adı</Label>
         <Input
           id="company-name"
-          size="sm"
+          className="h-8"
           value={form.company_name || ''}
           onChange={(e) => onChange({ ...form, company_name: e.target.value })}
           disabled={disabled}
@@ -77,7 +77,7 @@ export const CompanyProfileStructuredForm: React.FC<CompanyProfileStructuredForm
         <Label htmlFor="company-slogan" className="text-sm">Slogan</Label>
         <Input
           id="company-slogan"
-          size="sm"
+          className="h-8"
           value={form.slogan || ''}
           onChange={(e) => onChange({ ...form, slogan: e.target.value })}
           disabled={disabled}

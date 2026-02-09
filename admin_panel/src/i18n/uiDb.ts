@@ -443,7 +443,7 @@ export function useUiSection(section: UiSectionKey, localeOverride?: string): Ui
   const locale = useResolvedLocale(localeOverride);
 
   // 1) section bazlı JSON override (ui_header, ui_footer, ...)
-  const { data: uiSetting } = useGetSiteSettingByKeyQuery({ key: section, locale });
+  const { data: uiSetting } = useGetSiteSettingByKeyQuery(section);
 
   const json = useMemo<Record<string, unknown>>(() => {
     return tryParseJsonObject(uiSetting?.value);

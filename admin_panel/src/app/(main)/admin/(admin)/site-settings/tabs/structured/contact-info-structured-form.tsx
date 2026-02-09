@@ -72,7 +72,7 @@ export const ContactInfoStructuredForm: React.FC<ContactInfoStructuredFormProps>
           <Label htmlFor="contact-phone" className="text-sm">Telefon</Label>
           <Input
             id="contact-phone"
-            size="sm"
+            className="h-8"
             value={form.phone || ""}
             onChange={(e) => onChange({ ...form, phone: e.target.value })}
             disabled={disabled}
@@ -84,7 +84,7 @@ export const ContactInfoStructuredForm: React.FC<ContactInfoStructuredFormProps>
           <Label htmlFor="contact-email" className="text-sm">E-posta</Label>
           <Input
             id="contact-email"
-            size="sm"
+            className="h-8"
             value={form.email || ""}
             onChange={(e) => onChange({ ...form, email: e.target.value })}
             disabled={disabled}
@@ -96,7 +96,7 @@ export const ContactInfoStructuredForm: React.FC<ContactInfoStructuredFormProps>
           <Label htmlFor="contact-whatsapp" className="text-sm">WhatsApp</Label>
           <Input
             id="contact-whatsapp"
-            size="sm"
+            className="h-8"
             value={form.whatsapp || ""}
             onChange={(e) => onChange({ ...form, whatsapp: e.target.value })}
             disabled={disabled}

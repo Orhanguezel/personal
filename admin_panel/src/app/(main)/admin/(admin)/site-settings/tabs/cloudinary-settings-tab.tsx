@@ -141,7 +141,7 @@ export const CloudinarySettingsTab: React.FC<CloudinarySettingsTabProps> = ({ lo
         toast.success(
           t('admin.siteSettings.cloudinary.testSuccess', {
             cloud: res.cloud,
-            publicId: res.uploaded?.public_id
+            publicId: res.uploaded?.public_id || ''
           })
         );
       } else {

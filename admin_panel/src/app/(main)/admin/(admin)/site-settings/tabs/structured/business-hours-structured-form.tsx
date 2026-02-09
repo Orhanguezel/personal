@@ -170,8 +170,7 @@ export const BusinessHoursStructuredForm: React.FC<BusinessHoursStructuredFormPr
 
                 <TableCell>
                   <Input
-                    size="sm"
-                    className="font-mono"
+                    className="h-8 font-mono"
                     value={r.open}
                     onChange={(e) => setRow(idx, { open: e.target.value })}
                     placeholder="09:00"
@@ -184,8 +183,7 @@ export const BusinessHoursStructuredForm: React.FC<BusinessHoursStructuredFormPr
 
                 <TableCell>
                   <Input
-                    size="sm"
-                    className="font-mono"
+                    className="h-8 font-mono"
                     value={r.close}
                     onChange={(e) => setRow(idx, { close: e.target.value })}
                     placeholder="18:00"

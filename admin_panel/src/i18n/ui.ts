@@ -98,14 +98,7 @@ function normalizeValueToLabel(value: unknown): SettingsValueRecord {
 export function useUIStrings(keys: readonly string[], locale?: SupportedLocale) {
   const keysForQuery = useMemo(() => keys.map((k) => String(k)), [keys]);
 
-  const { data } = useListSiteSettingsQuery(
-    keysForQuery.length
-      ? {
-          keys: keysForQuery,
-          locale,
-        }
-      : undefined,
-  );
+  const { data } = useListSiteSettingsQuery();
 
   const map = useMemo(() => {
     const out: Record<string, SettingsValueRecord> = {};
@@ -115,11 +108,13 @@ export function useUIStrings(keys: readonly string[], locale?: SupportedLocale) 
       const k = String(item?.key || '').trim();
       if (!k) continue;
 
+      if (keysForQuery.length && !keysForQuery.includes(k)) continue;
+
       out[k] = normalizeValueToLabel(item?.value);
     }
 
     return out;
-  }, [data]);
+  }, [data, keysForQuery]);
 
   const t = (key: string): string => {
     const k = String(key || '').trim();

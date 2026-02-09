@@ -16,7 +16,7 @@ import { toast } from 'sonner';
 import { Plus, RefreshCcw, Search, Trash2, Pencil, Loader2, Code2, Mail } from 'lucide-react';
 
 import { useAdminLocales } from '@/app/(main)/admin/_components/common/useAdminLocales';
-import { localeShortClient } from '@/i18n/localeShortClient';
+import { localeShortClient, localeShortClientOr } from '@/i18n/localeShortClient';
 
 import { cn } from '@/lib/utils';
 
@@ -112,7 +112,11 @@ export default function AdminEmailTemplatesClient() {
   const { localeOptions, defaultLocaleFromDb, coerceLocale, loading: localesLoading } = useAdminLocales();
 
   const urlLocale = searchParams.get('locale') || '';
-  const initialLocale = urlLocale || defaultLocaleFromDb || localeShortClient() || '';
+  const initialLocale =
+    urlLocale ||
+    defaultLocaleFromDb ||
+    localeShortClientOr(typeof window !== 'undefined' ? navigator.language : 'de', 'de') ||
+    '';
 
   const [filters, setFilters] = React.useState<Filters>({
     search: '',

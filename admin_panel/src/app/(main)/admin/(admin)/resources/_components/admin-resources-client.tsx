@@ -9,8 +9,8 @@ import * as React from 'react';
 import { useAdminUiCopy } from '@/app/(main)/admin/_components/common/useAdminUiCopy';
 import { useListResourcesAdminQuery } from '@/integrations/hooks';
 
-import { ResourcesHeader, type ResourcesFilters } from './ResourcesHeader';
-import { ResourcesList } from './ResourcesList';
+import { ResourcesHeader, type ResourcesFilters } from '../ResourcesHeader';
+import { ResourcesList } from '../ResourcesList';
 
 export default function AdminResourcesClient() {
   const { copy } = useAdminUiCopy();

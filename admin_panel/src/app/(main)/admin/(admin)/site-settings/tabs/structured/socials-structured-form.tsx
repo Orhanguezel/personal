@@ -83,7 +83,7 @@ export const SocialsStructuredForm: React.FC<SocialsStructuredFormProps> = ({
             <Label htmlFor={`social-${k}`} className="text-sm">{label}</Label>
             <Input
               id={`social-${k}`}
-              size="sm"
+              className="h-8"
               value={(form as any)[k] || ""}
               onChange={(e) => onChange({ ...(form as any), [k]: e.target.value })}
               disabled={disabled}
