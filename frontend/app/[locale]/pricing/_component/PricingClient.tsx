@@ -40,7 +40,7 @@ export default function PricingClient({ locale }: Props) {
     isFetching: faqsFetching,
     isError: faqsError,
   } = useListFaqsQuery(
-    { locale, limit: 50, offset: 0, active: true },
+    { locale, limit: 50, offset: 0, is_active: true },
     { skip: !locale }, // ✅ guard
   );
 
