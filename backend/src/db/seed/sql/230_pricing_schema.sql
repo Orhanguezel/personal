@@ -64,7 +64,7 @@ CREATE TABLE `pricing_plans_i18n` (
   `title`         VARCHAR(255)            DEFAULT NULL,
   `description`   VARCHAR(1000)           DEFAULT NULL,
 
-  `features`      LONGTEXT       NOT NULL DEFAULT '[]',
+  `features`      LONGTEXT       DEFAULT NULL,
 
   `cta_label`     VARCHAR(100)            DEFAULT NULL,
   `cta_href`      VARCHAR(500)            DEFAULT NULL,
