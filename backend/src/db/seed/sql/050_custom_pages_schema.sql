@@ -37,8 +37,8 @@ CREATE TABLE IF NOT EXISTS `custom_pages` (
   `alt`                      VARCHAR(255)  DEFAULT NULL,
 
   -- gallery as JSON-string
-  `images`                   LONGTEXT      NOT NULL DEFAULT '[]',
-  `storage_image_ids`        LONGTEXT      NOT NULL DEFAULT '[]',
+  `images`                   LONGTEXT      DEFAULT NULL,
+  `storage_image_ids`        LONGTEXT      DEFAULT NULL,
 
   `created_at`               DATETIME(3)   NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
   `updated_at`               DATETIME(3)   NOT NULL DEFAULT CURRENT_TIMESTAMP(3)
