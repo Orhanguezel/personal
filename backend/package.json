@@ -1,5 +1,5 @@
 {
-  "name": "ensotek-backend",
+  "name": "guezelwebdesign-backend",
   "version": "0.1.0",
   "type": "module",
   "scripts": {
@@ -7,13 +7,16 @@
     "build": "bun x tsc -p tsconfig.json && bun x tsc-alias -p tsconfig.json && node scripts/fix-esm-extensions.mjs",
     "start": "node --experimental-specifier-resolution=node dist/index.js",
     "start:bun": "bun dist/index.js",
+    "projects:validate": "node scripts/validate-project-portfolios.mjs",
+    "db:seed:generate": "node scripts/validate-project-portfolios.mjs && node scripts/generate-dynamic-portfolio-seeds.mjs",
+    "projects:sync:weekly": "node scripts/weekly-portfolio-sync.mjs",
     "db:seed": "node --experimental-specifier-resolution=node dist/db/seed/index.js",
     "db:seed:nodrop": "node --experimental-specifier-resolution=node dist/db/seed/index.js --no-drop",
     "db:seed:only": "node --experimental-specifier-resolution=node dist/db/seed/index.js --only="
   },
   "dependencies": {
     "@fastify/cookie": "^11",
-    "@fastify/cors": "^11",
+    "@fastify/cors": "^11.2.0",
     "@fastify/jwt": "^10",
     "@fastify/multipart": "^9",
     "@fastify/mysql": "^5.0.2",
@@ -24,6 +27,7 @@
     "dotenv": "^16.6.1",
     "drizzle-orm": "^0.44.6",
     "fastify": "^5",
+    "fastify-plugin": "^5.1.0",
     "google-auth-library": "^10.4.1",
     "mysql2": "^3.15.3",
     "nodemailer": "^7.0.11",
