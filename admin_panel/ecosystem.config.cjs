@@ -3,8 +3,7 @@ module.exports = {
     {
       name: 'guezelwebdesign-admin-panel',
       cwd: '/var/www/guezelwebdesign/admin_panel',
-      interpreter: '/home/orhan/.bun/bin/bun',
-      script: 'run',
+      script: 'npm',
       args: 'start -- -p 3045 -H 127.0.0.1',
       exec_mode: 'fork',
       instances: 1,

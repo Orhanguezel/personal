@@ -3,10 +3,7 @@ module.exports = {
     {
       name: 'guezelwebdesign-frontend',
       cwd: '/var/www/guezelwebdesign/frontend',
-
-      // Bun ile Next start
-      interpreter: '/home/orhan/.bun/bin/bun',
-      script: 'run',
+      script: 'npm',
       args: 'start -- -p 3044 -H 127.0.0.1',
 
       exec_mode: 'fork',
