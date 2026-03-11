@@ -11,6 +11,8 @@ import { getUiHomeServer, getServicesListServer } from '@/utils/publicLists.serv
 import { buildMetadata, getSeoPage, SEO_PAGE_KEYS } from '@/seo';
 import { unwrapRouteParams, normalizeLocaleParam } from '@/i18n';
 
+export const dynamic = 'force-dynamic';
+
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const [uiHome, services] = await Promise.all([
@@ -41,12 +43,4 @@ export async function generateMetadata({
     canonicalPath: `/${locale}`,
     ogType: 'website',
   });
-}
-
-export async function generateStaticParams() {
-  return [
-    { locale: 'en' },
-    { locale: 'de' },
-    { locale: 'tr' },
-  ];
 }

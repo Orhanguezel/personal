@@ -9,6 +9,8 @@ import { unwrapRouteParams, normalizeLocaleParam } from '@/i18n/localeParam';
 import { getSeoPage, SEO_PAGE_KEYS, buildMetadata } from '@/seo';
 import { getProductsListServer } from '@/utils/publicLists.server';
 
+export const dynamic = 'force-dynamic';
+
 export default async function ProductsPage({
   params,
 }: {

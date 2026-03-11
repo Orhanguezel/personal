@@ -11,6 +11,8 @@ import { unwrapRouteParams, normalizeLocaleParam } from '@/i18n/localeParam';
 import { getSeoPage, SEO_PAGE_KEYS, buildMetadata } from '@/seo';
 import { getBlogListServer } from '@/utils/publicLists.server';
 
+export const dynamic = 'force-dynamic';
+
 export default async function BlogPage({
   params,
 }: {
