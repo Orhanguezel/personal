@@ -159,6 +159,6 @@ jobs:
 
             ss -ltnp | grep -E "127\.0\.0\.1:8044|127\.0\.0\.1:3045|127\.0\.0\.1:3044" >/dev/null
 
-            curl -fsS http://127.0.0.1:8044/health >/dev/null
+            curl -fsS http://127.0.0.1:8044/api/health >/dev/null
             curl -fsS http://127.0.0.1:3044/ >/dev/null
             curl -fsS http://127.0.0.1:3045/ >/dev/null
