@@ -11,9 +11,10 @@
 import Link from 'next/link';
 import { useMemo } from 'react';
 
-import { useGetSiteSettingByKeyQuery, useListCustomPagesQuery } from '@/integrations/hooks';
+import { useListCustomPagesQuery } from '@/integrations/hooks';
 import type { CustomPageView } from '@/integrations/shared';
 import { normalizeUiBlogSettingValue } from '@/integrations/shared';
+import { useStaticSiteSetting } from '@/utils/staticSiteSettings';
 
 const BLOG_MODULE_KEY = 'blog' as const;
 
@@ -38,7 +39,7 @@ function pickCardImage(p: any, fallback: string) {
 export default function Blog1({ locale = 'en' }: { locale?: string }) {
   const safeLocale = locale || 'en';
 
-  const { data: uiSetting } = useGetSiteSettingByKeyQuery({
+  const { data: uiSetting } = useStaticSiteSetting({
     key: 'ui_blog',
     locale: safeLocale,
   });
@@ -87,11 +88,11 @@ export default function Blog1({ locale = 'en' }: { locale?: string }) {
         <div className="container">
           <div className="row align-items-end">
             <div className="col-lg-7 me-auto">
-              <h3 className="ds-3 mt-3 mb-3 text-primary-1">{ui.blog1.heading}</h3>
+              <h2 className="ds-3 mt-3 mb-3 text-primary-1">{ui.blog1.heading}</h2>
               <span className="fs-5 fw-medium text-200">{ui.blog1.intro}</span>
             </div>
             <div className="col-lg-auto">
-              <Link href={blogListHref} className="btn btn-gradient mt-lg-0 mt-5 ms-lg-auto">
+              <Link href={blogListHref} className="btn btn-gradient mt-lg-0 mt-5 ms-lg-auto" aria-label="View all blog posts">
                 {ui.blog1.cta_label}
                 <i className="ri-arrow-right-up-line" />
               </Link>
@@ -159,11 +160,12 @@ export default function Blog1({ locale = 'en' }: { locale?: string }) {
                         <span className="blog-card__date fs-7">
                           {dateLabel} • {ui.blog1.read_time}
                         </span>
-                        <h5 className="blog-card__title">{title}</h5>
+                        <h3 className="blog-card__title h5">{title}</h3>
                         <p className="blog-card__description fs-6">{desc}</p>
                         <Link
                           href={href}
                           className="link-overlay position-absolute top-0 start-0 w-100 h-100"
+                          aria-label={title || 'Read full post'}
                         />
                       </div>
                     </div>

@@ -5,10 +5,12 @@ import Layout from '@/components/layout/Layout';
 import WorkClient from './_component/Work.client';
 import { normalizeLocaleParam, unwrapRouteParams } from '@/i18n/localeParam';
 import { getSeoPage, SEO_PAGE_KEYS, buildMetadata } from '@/seo';
+import { getProjectsListServer } from '@/utils/publicLists.server';
 
 export default async function Work({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const safeLocale = normalizeLocaleParam(locale);
+  const initialItems = await getProjectsListServer({ locale: safeLocale, limit: 200 });
 
   return (
     <>
@@ -16,7 +18,7 @@ export default async function Work({ params }: { params: Promise<{ locale: strin
         <div>
           <section className="section-work pt-120 pb-150">
             {/* header + cards (client) */}
-            <WorkClient locale={safeLocale} />
+            <WorkClient locale={safeLocale} initialItems={initialItems} />
           </section>
 
           {/* Static 1 + Contact aynı kalsın (istersen sonra dinamikleştiririz) */}

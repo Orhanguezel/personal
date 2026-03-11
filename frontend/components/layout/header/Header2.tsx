@@ -4,8 +4,8 @@ import { useMemo } from 'react'
 import ThemeSwitch from '@/components/elements/ThemeSwitch'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useGetSiteSettingByKeyQuery } from '@/integrations/hooks'
-import { pickSettingValue, pickSocialUrl, resolveLocaleForApi, resolveLocaleForLinks } from '@/integrations/shared'
+import { useStaticSiteSetting } from '@/utils/staticSiteSettings'
+import { pickSocialUrl, resolveLocaleForApi, resolveLocaleForLinks } from '@/integrations/shared'
 import OffCanvas from '../OffCanvas'
 import MobileMenu from '../MobileMenu'
 import SiteLogo from '../SiteLogo'
@@ -19,12 +19,12 @@ export default function Header2({ scroll, isMobileMenu, handleMobileMenu,isOffCa
 	const { brandName, brandShort } = useSiteMedia({ locale: localeForApi ?? localeForLinks })
 	const brandLabel = brandShort || brandName
 
-	const { data: socialsRow } = useGetSiteSettingByKeyQuery({
+	const { value: socialsRowValue } = useStaticSiteSetting({
 		key: 'socials',
 		locale: localeForApi ?? localeForLinks,
-	} as any)
+	});
 
-	const socialsValue = useMemo(() => pickSettingValue(socialsRow), [socialsRow])
+	const socialsValue = socialsRowValue;
 	const socials = useMemo(() => {
 		const facebook = pickSocialUrl(socialsValue, 'facebook')
 		const x = pickSocialUrl(socialsValue, 'x') || pickSocialUrl(socialsValue, 'twitter')

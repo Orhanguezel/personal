@@ -3,15 +3,15 @@
 import { useMemo } from 'react';
 import CountUp from 'react-countup';
 
-import { useGetSiteSettingByKeyQuery } from '@/integrations/hooks';
 import { normalizeUiStaticSettingValue, safeLocale } from '@/integrations/shared';
+import { useStaticSiteSetting } from '@/utils/staticSiteSettings';
 
 type Props = { locale?: string };
 
 export default function Static2({ locale }: Props) {
   const loc = safeLocale(locale);
 
-  const { data: uiSetting } = useGetSiteSettingByKeyQuery({
+  const { data: uiSetting } = useStaticSiteSetting({
     key: 'ui_static',
     locale: loc,
   });
@@ -64,7 +64,7 @@ export default function Static2({ locale }: Props) {
             </div>
             <div
               className="background position-absolute top-0 start-0 w-100 h-100 filter-invert"
-              data-background={ui.static2.background_image}
+              style={{ backgroundImage: `url(${ui.static2.background_image})` }}
             />
           </div>
         </div>

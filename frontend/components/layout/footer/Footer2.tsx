@@ -6,16 +6,15 @@ import { usePathname } from 'next/navigation';
 
 import {
   useListMenuItemsQuery,
-  useGetSiteSettingByKeyQuery,
   useListFooterSectionsQuery,
 } from '@/integrations/hooks';
+import { useStaticSiteSetting } from '@/utils/staticSiteSettings';
 import type { PublicMenuItemDto } from '@/integrations/shared';
 import {
   cx,
   resolveLocaleForApi,
   resolveLocaleForLinks,
   withLocalePrefix,
-  pickSettingValue,
   pickBrandName,
   pickSocialUrl,
   groupFooterMenuSections,
@@ -28,18 +27,18 @@ export default function Footer2() {
   const localeForApi = useMemo(() => resolveLocaleForApi(pathname), [pathname]);
 
   // settings
-  const { data: brandRow } = useGetSiteSettingByKeyQuery({
+  const { value: brandRowValue } = useStaticSiteSetting({
     key: 'company_brand',
     locale: localeForApi ?? localeForLinks,
-  } as any);
+  });
 
-  const { data: socialsRow } = useGetSiteSettingByKeyQuery({
+  const { value: socialsRowValue } = useStaticSiteSetting({
     key: 'socials',
     locale: localeForApi ?? localeForLinks,
-  } as any);
+  });
 
-  const brandValue = useMemo(() => pickSettingValue(brandRow), [brandRow]);
-  const socialsValue = useMemo(() => pickSettingValue(socialsRow), [socialsRow]);
+  const brandValue = brandRowValue;
+  const socialsValue = socialsRowValue;
 
   const brandName = useMemo(() => pickBrandName(brandValue, 'guezelwebdesign'), [brandValue]);
 

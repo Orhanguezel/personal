@@ -6,19 +6,21 @@ import Link from 'next/link'
 import Marquee from 'react-fast-marquee'
 import { useMemo } from 'react';
 
-import { useGetSiteSettingByKeyQuery } from '@/integrations/hooks';
+import { useStaticSiteSetting } from '@/utils/staticSiteSettings';
 import { normalizeUiHomeSettingValue } from '@/integrations/shared';
+import { getCvAssetPath } from '@/utils/cv';
 
 export default function Home2({ locale = 'en' }: { locale?: string }) {
 	const safeLocale = (locale || 'en').trim() || 'en';
 
-	const { data: uiSetting } = useGetSiteSettingByKeyQuery({
+	const { data: uiSetting } = useStaticSiteSetting({
 		key: 'ui_home',
 		locale: safeLocale,
 	});
 
 	const ui = useMemo(() => normalizeUiHomeSettingValue(uiSetting?.value), [uiSetting?.value]);
 	const copy = ui.home2;
+	const cvHref = getCvAssetPath(safeLocale);
 
 	return (
 		<>
@@ -92,7 +94,7 @@ export default function Home2({ locale = 'en' }: { locale?: string }) {
 												<span className="fs-6 text-300 mb-2">{copy.more_label}</span>
 											</div>
 										</div>
-										<Link href="assets/resume.pdf" className="btn me-2 text-300 ps-0 mt-4" target="_blank">
+										<Link href={cvHref} className="btn me-2 text-300 ps-0 mt-4" target="_blank" rel="noopener noreferrer">
 											<i className="ri-download-line text-primary-2" />
 											{copy.cv_label}
 										</Link>

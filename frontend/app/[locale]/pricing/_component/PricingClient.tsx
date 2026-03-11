@@ -6,20 +6,20 @@ import { useMemo, useState } from 'react';
 import {
   useGetPricingQuery,
   useListFaqsQuery,
-  useGetSiteSettingByKeyQuery,
 } from '@/integrations/hooks';
+import { useStaticSiteSetting } from '@/utils/staticSiteSettings';
 import type { PricingPlan, Faq } from '@/integrations/shared';
 import { safeArr, money, unitText, normalizePricingPageCopy } from '@/integrations/shared';
 
 export type Props = { locale: string };
 
 export default function PricingClient({ locale }: Props) {
-  const { data: pageSetting } = useGetSiteSettingByKeyQuery({
+  const { value: pageSettingValue } = useStaticSiteSetting({
     key: 'page_pricing',
     locale,
   });
 
-  const copy = useMemo(() => normalizePricingPageCopy(pageSetting?.value), [pageSetting?.value]);
+  const copy = useMemo(() => normalizePricingPageCopy(pageSettingValue), [pageSettingValue]);
 
   // ---- Pricing (public) ----
   const {

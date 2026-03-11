@@ -8,13 +8,13 @@ import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import {
-  useGetSiteSettingByKeyQuery,
   useListProjectsPublicQuery,
   useListServicesPublicQuery,
   useGetResumeQuery,
   useListCustomPagesQuery,
   useListReviewsPublicQuery,
 } from '@/integrations/hooks';
+import { useStaticSiteSetting } from '@/utils/staticSiteSettings';
 import {
   normalizeUiHome3SettingValue,
   normalizeContactInfoSettingValue,
@@ -33,6 +33,7 @@ import {
   toMailHref,
   toSkypeHref,
 } from '@/integrations/shared';
+import { getCvAssetPath } from '@/utils/cv';
 
 const swiperOptions = {
   modules: [Autoplay, Pagination, Navigation],
@@ -89,40 +90,40 @@ export default function Home3Client() {
     [pathname, localeForLinks],
   );
 
-  const { data: uiHome3Row } = useGetSiteSettingByKeyQuery({
+  const { value: uiHome3RowValue } = useStaticSiteSetting({
     key: 'ui_home3',
     locale: localeForApi,
-  } as any);
+  });
   const ui = useMemo(
-    () => normalizeUiHome3SettingValue(uiHome3Row?.value),
-    [uiHome3Row?.value],
+    () => normalizeUiHome3SettingValue(uiHome3RowValue),
+    [uiHome3RowValue],
   );
 
-  const { data: contactInfoRow } = useGetSiteSettingByKeyQuery({
+  const { value: contactInfoRowValue } = useStaticSiteSetting({
     key: 'contact_info',
     locale: localeForApi,
-  } as any);
+  });
   const contactInfo = useMemo(
-    () => normalizeContactInfoSettingValue(contactInfoRow?.value),
-    [contactInfoRow?.value],
+    () => normalizeContactInfoSettingValue(contactInfoRowValue),
+    [contactInfoRowValue],
   );
 
-  const { data: contactSectionRow } = useGetSiteSettingByKeyQuery({
+  const { value: contactSectionRowValue } = useStaticSiteSetting({
     key: 'contact_section',
     locale: localeForApi,
-  } as any);
+  });
   const contactSection = useMemo(
-    () => normalizeContactSectionSettingValue(contactSectionRow?.value),
-    [contactSectionRow?.value],
+    () => normalizeContactSectionSettingValue(contactSectionRowValue),
+    [contactSectionRowValue],
   );
 
-  const { data: testimonialsRow } = useGetSiteSettingByKeyQuery({
+  const { value: testimonialsRowValue } = useStaticSiteSetting({
     key: 'ui_testimonials',
     locale: localeForApi,
-  } as any);
+  });
   const testimonialsUI = useMemo(
-    () => normalizeTestimonialsSectionSettingValue(testimonialsRow?.value),
-    [testimonialsRow?.value],
+    () => normalizeTestimonialsSectionSettingValue(testimonialsRowValue),
+    [testimonialsRowValue],
   );
 
   const {
@@ -234,7 +235,7 @@ export default function Home3Client() {
   const heroImage = normalizeAssetPath(ui.hero.hero_image);
   const signatureImage = normalizeAssetPath(ui.hero.signature_image);
 
-  const cvHref = normalizeAssetPath(ui.hero.cv_href);
+  const cvHref = getCvAssetPath(localeForApi);
 
   const form = contactSection.form || {};
 
@@ -289,9 +290,10 @@ export default function Home3Client() {
                   />
                   <p className="mb-8">{ui.hero.description}</p>
                   <Link
-                    href={cvHref || '/assets/resume.pdf'}
+                    href={cvHref}
                     className="btn btn-secondary-3 me-2"
                     target="_blank"
+                    rel="noopener noreferrer"
                   >
                     {ui.hero.cv_label}
                     <i className="ri-download-line ms-2" />

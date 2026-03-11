@@ -48,6 +48,9 @@ export const SEO_KEYS = {
     news: 'seo_pages_news',
     newsDetail: 'seo_pages_news_detail',
 
+    products: 'seo_pages_products',
+    productDetail: 'seo_pages_product_detail',
+
     // legacy keys you already use elsewhere
     properties: 'seo_pages_properties',
     propertyDetail: 'seo_pages_property_detail',

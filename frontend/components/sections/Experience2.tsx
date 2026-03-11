@@ -3,10 +3,11 @@
 import { useMemo } from 'react';
 import { skipToken } from '@reduxjs/toolkit/query';
 
-import { useGetResumeQuery, useGetSiteSettingByKeyQuery } from '@/integrations/hooks';
+import { useGetResumeQuery } from '@/integrations/hooks';
 import type { ResumeListParams } from '@/integrations/shared';
 import { safeLocale, splitResume, yearRange, normalizeUiResumeSettingValue } from '@/integrations/shared';
 import { useActiveLocales } from '@/i18n';
+import { useStaticSiteSetting } from '@/utils/staticSiteSettings';
 
 type Props = { locale?: string };
 
@@ -15,7 +16,7 @@ export default function Education2({ locale }: Props) {
 
   const { defaultLocale, isLoading: localesLoading } = useActiveLocales();
 
-  const { data: uiSetting } = useGetSiteSettingByKeyQuery({
+  const { data: uiSetting } = useStaticSiteSetting({
     key: 'ui_resume',
     locale: loc,
   });

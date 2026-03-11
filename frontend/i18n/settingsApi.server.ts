@@ -5,7 +5,7 @@
 // - Else falls back to request origin via next/headers
 // =============================================================
 
-import { headers } from 'next/headers';
+// import { headers } from 'next/headers';
 import { SETTINGS_ENDPOINTS, fetchJson, stripTrailingSlash } from './settingsApi.shared';
 
 function withApiSuffix(base: string) {
@@ -16,16 +16,17 @@ function withApiSuffix(base: string) {
 
 async function getRequestOrigin(): Promise<string> {
   // Works behind proxies too (host header)
-  const h = await headers();
+  // const h = await headers();
 
-  const xfProto = h.get('x-forwarded-proto');
-  const proto = (xfProto || 'https').split(',')[0]!.trim();
+  // const xfProto = h.get('x-forwarded-proto');
+  // const proto = (xfProto || 'https').split(',')[0]!.trim();
 
-  const xfHost = h.get('x-forwarded-host');
-  const host = (xfHost || h.get('host') || '').split(',')[0]!.trim();
+  // const xfHost = h.get('x-forwarded-host');
+  // const host = (xfHost || h.get('host') || '').split(',')[0]!.trim();
 
-  if (!host) return '';
-  return `${proto}://${host}`;
+  // if (!host) return '';
+  // return `${proto}://${host}`;
+  return '';
 }
 
 /**

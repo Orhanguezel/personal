@@ -14,7 +14,7 @@ import { useAnalyticsSettings } from './useAnalyticsSettings';
 
 declare global {
   interface Window {
-    dataLayer?: any[];
+    dataLayer?: Object[];
     gtag?: (...args: any[]) => void;
 
     __setAnalyticsConsent?: (c: { analytics_storage: 'granted' | 'denied' } | boolean) => void;

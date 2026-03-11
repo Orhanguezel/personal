@@ -5,29 +5,31 @@
 // ---------------------------------------------------------------------
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { useMemo } from 'react';
 
 import {
   useGetProjectBySlugPublicQuery,
-  useGetSiteSettingByKeyQuery,
   useListProjectImagesPublicQuery,
 } from '@/integrations/hooks';
+import { useStaticSiteSetting } from '@/utils/staticSiteSettings';
 
 import type { Project, ProjectImage } from '@/integrations/shared';
 import { normalizeProjectDetail, normalizeUiProjectSettingValue } from '@/integrations/shared';
+import { shouldUnoptimizeImage } from '@/utils/nextImage';
 
 export default function WorkSingleClient({ locale }: { locale: string }) {
   const params = useParams<{ slug?: string; locale?: string }>();
   const slug = (params?.slug ?? '').trim();
 
-  const { data: uiSetting } = useGetSiteSettingByKeyQuery({
+  const { value: uiSettingValue } = useStaticSiteSetting({
     key: 'ui_project',
     locale,
   });
 
-  const ui = useMemo(() => normalizeUiProjectSettingValue(uiSetting?.value), [uiSetting?.value]);
+  const ui = useMemo(() => normalizeUiProjectSettingValue(uiSettingValue), [uiSettingValue]);
   const copy = ui.detail;
 
   const {
@@ -138,7 +140,15 @@ export default function WorkSingleClient({ locale }: { locale: string }) {
               </div>
             </div>
 
-            <img src={detail.cover} alt={detail.coverAlt} />
+            <Image
+              src={detail.cover}
+              alt={detail.coverAlt}
+              width={1400}
+              height={900}
+              sizes="(max-width: 992px) 100vw, 66vw"
+              priority
+              unoptimized={shouldUnoptimizeImage(detail.cover)}
+            />
 
             <div className="col-lg-8 mx-lg-auto mt-8">
               <h5 className="fs-5 fw-medium">{copy.description_label}</h5>
@@ -213,10 +223,14 @@ export default function WorkSingleClient({ locale }: { locale: string }) {
                   <div className="row g-3">
                     {gallery.map((img) => (
                       <div className="col-md-4" key={img.id}>
-                        <img
+                        <Image
                           src={img.image_url ?? detail.cover}
                           alt={(img.alt ?? detail.title) as any}
+                          width={800}
+                          height={600}
+                          sizes="(max-width: 992px) 100vw, 33vw"
                           style={{ width: '100%', height: 'auto', borderRadius: 12 }}
+                          unoptimized={shouldUnoptimizeImage(img.image_url ?? detail.cover)}
                         />
                       </div>
                     ))}

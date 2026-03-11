@@ -12,16 +12,17 @@ import Link from 'next/link';
 import { useMemo } from 'react';
 import CountUp from 'react-countup';
 
-import { useGetSiteSettingByKeyQuery, useGetSkillsQuery } from '@/integrations/hooks';
+import { useGetSkillsQuery } from '@/integrations/hooks';
 import type { SkillCounterMerged, SkillListParams } from '@/integrations/shared';
 import { safeLocale, splitSkillsCounters, normalizeUiSkillsSettingValue } from '@/integrations/shared';
+import { useStaticSiteSetting } from '@/utils/staticSiteSettings';
 
 type Props = { locale?: string };
 
 export default function Skills1({ locale }: Props) {
   const loc = safeLocale(locale);
 
-  const { data: uiSetting } = useGetSiteSettingByKeyQuery({
+  const { data: uiSetting } = useStaticSiteSetting({
     key: 'ui_skills',
     locale: loc,
   });
@@ -65,7 +66,7 @@ export default function Skills1({ locale }: Props) {
         <div className="container">
           <div className="row">
             <div className="text-center mb-7">
-              <h3 className="ds-3 mt-3 mb-3 text-primary-1">{copy.heading}</h3>
+              <h2 className="ds-3 mt-3 mb-3 text-primary-1">{copy.heading}</h2>
               <span
                 className="fs-5 fw-medium text-200"
                 dangerouslySetInnerHTML={{ __html: copy.intro_html }}
@@ -116,7 +117,7 @@ export default function Skills1({ locale }: Props) {
                 counters.map((item) => (
                   <div className="skills" key={item.id}>
                     <div className="skills-icon mb-5">
-                      <img src={item.image_url || ''} alt={item.title || ''} />
+                      <img src={item.image_url || ''} alt={item.title || ''} loading="lazy" decoding="async" />
                     </div>
                     <div className="skills-ratio text-center">
                       <h3 className="count fw-semibold my-0">

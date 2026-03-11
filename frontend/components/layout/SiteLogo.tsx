@@ -13,7 +13,7 @@
 import * as React from 'react';
 import Image, { type StaticImageData } from 'next/image';
 
-import { useGetSiteSettingByKeyQuery } from '@/integrations/hooks';
+import { useStaticSiteSetting } from '@/utils/staticSiteSettings';
 import type { SettingValue } from '@/integrations/shared';
 
 import {
@@ -33,6 +33,7 @@ export type SiteLogoProps = {
   className?: string;
   priority?: boolean;
   sizes?: string;
+  locale?: string;
 };
 
 const FALLBACK_URL = SITE_MEDIA_FALLBACKS.logo;
@@ -53,16 +54,18 @@ const SiteLogo: React.FC<SiteLogoProps> = ({
   className,
   priority = true,
   sizes,
+  locale,
 }) => {
   const key = variantKeyMap[variant];
 
-  const { data: setting } = useGetSiteSettingByKeyQuery(key, {
-    refetchOnMountOrArgChange: true,
+  const { value: settingValue } = useStaticSiteSetting({
+    key,
+    locale,
   });
 
   const media = React.useMemo(
-    () => parseSiteLogoMedia((setting?.value as SettingValue) ?? null),
-    [setting?.value],
+    () => parseSiteLogoMedia(settingValue),
+    [settingValue],
   );
 
   const resolved = React.useMemo(() => {
@@ -109,6 +112,7 @@ const SiteLogo: React.FC<SiteLogoProps> = ({
       sizes={resolved.finalSizes}
       priority={priority}
       unoptimized={unoptimized}
+      style={{ height: 'auto' }}
     />
   );
 };

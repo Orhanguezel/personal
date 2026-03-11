@@ -13,9 +13,9 @@ import { useEffect, useMemo, useState } from 'react';
 
 import {
   useLazyGetCustomPageByModuleSlugQuery,
-  useGetSiteSettingByKeyQuery,
   useListCustomPagesQuery,
 } from '@/integrations/hooks';
+import { useStaticSiteSetting } from '@/utils/staticSiteSettings';
 import type { CustomPageView } from '@/integrations/shared';
 import { normalizeUiBlogSettingValue } from '@/integrations/shared';
 
@@ -38,14 +38,14 @@ export default function BlogDetail({ locale, slug }: Props) {
   const safeLocale = locale || 'en';
   const safeSlug = (slug || '').toString();
 
-  const { data: uiSetting } = useGetSiteSettingByKeyQuery({
+  const { value: uiSettingValue } = useStaticSiteSetting({
     key: 'ui_blog',
     locale: safeLocale,
   });
 
   const ui = useMemo(
-    () => normalizeUiBlogSettingValue(uiSetting?.value),
-    [uiSetting?.value],
+    () => normalizeUiBlogSettingValue(uiSettingValue),
+    [uiSettingValue],
   );
   const copy = ui.detail;
 

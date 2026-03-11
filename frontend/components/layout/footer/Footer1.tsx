@@ -6,9 +6,9 @@ import { usePathname } from 'next/navigation';
 
 import {
   useListMenuItemsQuery,
-  useGetSiteSettingByKeyQuery,
   useListFooterSectionsQuery,
 } from '@/integrations/hooks';
+import { useStaticSiteSetting } from '@/utils/staticSiteSettings';
 import type { PublicMenuItemDto } from '@/integrations/shared';
 import {
   cx,
@@ -17,7 +17,6 @@ import {
   resolveLocaleForLinks,
   withLocalePrefix,
   pickTextFromSettingValue,
-  pickSettingValue,
   groupFooterMenuSections,
 } from '@/integrations/shared';
 import SiteLogo from '../SiteLogo';
@@ -93,12 +92,12 @@ export default function Footer1() {
   }, [groups.length, ungrouped.length, headerMenuRes?.items]);
 
   // Brand name / URL (settings)
-  const { data: brandRow } = useGetSiteSettingByKeyQuery({
+  const { value: brandRowValue } = useStaticSiteSetting({
     key: 'company_brand',
     locale: localeForApi ?? localeForLinks,
-  } as any);
+  });
 
-  const brandValue = useMemo(() => pickSettingValue(brandRow), [brandRow]);
+  const brandValue = brandRowValue;
   const brandName = useMemo(
     () => pickTextFromSettingValue(brandValue, 'guezelwebdesign'),
     [brandValue],
@@ -141,7 +140,7 @@ export default function Footer1() {
               <div className="row mt-5 text-start justify-content-center">
                 {groups.map((group) => (
                   <div className="col-6 col-md-3 mb-4" key={group.section.id}>
-                    <h6 className="text-white-keep mb-3">{group.section.title}</h6>
+                    <h3 className="text-white-keep h6 mb-3">{group.section.title}</h3>
                     <div className="d-flex flex-column gap-2">{group.items.map(renderItem)}</div>
                   </div>
                 ))}
@@ -151,9 +150,9 @@ export default function Footer1() {
                 {menuLoading && !fallbackItems.length ? (
                   <span className="fs-5 text-white-keep">…</span>
                 ) : (
-                  <div className="d-flex flex-wrap gap-4 justify-content-center">
+                  <nav aria-label="Footer Menu" className="d-flex flex-wrap gap-4 justify-content-center">
                     {fallbackItems.map(renderItem)}
-                  </div>
+                  </nav>
                 )}
               </div>
             )}
@@ -168,6 +167,7 @@ export default function Footer1() {
                   className="text-primary-1"
                   target={brandWebsite.startsWith('http') ? '_blank' : undefined}
                   rel={brandWebsite.startsWith('http') ? 'noreferrer' : undefined}
+                  aria-label={brandName || 'Brand Website'}
                 >
                   {brandName}
                 </Link>
@@ -179,7 +179,7 @@ export default function Footer1() {
         {/* ✅ FIX: /assets ile başlat => locale prefix yemesin */}
         <div
           className="position-absolute top-0 start-0 w-100 h-100 z-0"
-          data-background="/assets/imgs/footer-1/background.png"
+          style={{ backgroundImage: 'url(/assets/imgs/footer-1/background.png)' }}
         />
       </div>
     </footer>

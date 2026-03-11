@@ -7,6 +7,7 @@
 
 import React from 'react';
 import Script from 'next/script';
+import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
 
 import { getAnalyticsConfig } from './seo.server';
 
@@ -20,39 +21,15 @@ export async function GlobalScripts() {
   return (
     <>
       {/* Google Analytics (gtag) */}
-      {GA_ID ? (
-        <>
-          <Script
-            src={`https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(GA_ID)}`}
-            strategy="afterInteractive"
-          />
-          <Script id="gtag-init" strategy="afterInteractive">
-            {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${GA_ID}', { anonymize_ip: true });
-            `}
-          </Script>
-        </>
-      ) : null}
+      {GA_ID ? <GoogleAnalytics gaId={GA_ID} /> : null}
 
       {/* Google Tag Manager */}
-      {GTM_ID ? (
-        <Script id="gtm-init" strategy="afterInteractive">
-          {`
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','${GTM_ID}');
-          `}
-        </Script>
-      ) : null}
+      {GTM_ID ? <GoogleTagManager gtmId={GTM_ID} /> : null}
 
-      {/* Meta Pixel (optional) */}
+      {/* Meta Pixel (low priority) */}
       {META_PIXEL_ID ? (
-        <Script id="meta-pixel" strategy="afterInteractive">
+        <Script id="meta-pixel" strategy="lazyOnload">
+
           {`
             !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?

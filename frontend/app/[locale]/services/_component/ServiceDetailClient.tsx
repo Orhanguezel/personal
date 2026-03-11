@@ -9,14 +9,15 @@
 
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { useMemo } from 'react';
 
 import {
   useGetServiceBySlugPublicQuery,
   useListServiceImagesPublicQuery,
-  useGetSiteSettingByKeyQuery,
 } from '@/integrations/hooks';
+import { useStaticSiteSetting } from '@/utils/staticSiteSettings';
 
 import {
   safeParseServiceContent,
@@ -24,6 +25,7 @@ import {
   normalizeServiceImage,
   normalizeUiServicesSettingValue,
 } from '@/integrations/shared';
+import { shouldUnoptimizeImage } from '@/utils/nextImage';
 
 function stripHtmlToText(input: string) {
   return input
@@ -33,14 +35,14 @@ function stripHtmlToText(input: string) {
 }
 
 export default function ServiceDetailClient({ locale, slug }: { locale: string; slug: string }) {
-  const { data: uiSetting } = useGetSiteSettingByKeyQuery({
+  const { value: uiSettingValue } = useStaticSiteSetting({
     key: 'ui_services',
     locale,
   });
 
   const ui = useMemo(
-    () => normalizeUiServicesSettingValue(uiSetting?.value),
-    [uiSetting?.value],
+    () => normalizeUiServicesSettingValue(uiSettingValue),
+    [uiSettingValue],
   );
 
   const {
@@ -86,6 +88,7 @@ export default function ServiceDetailClient({ locale, slug }: { locale: string; 
     if (!svc) return '/assets/imgs/services-list/img-1.png';
     return pickCardImageUrl(svc as any, 0);
   }, [svc]);
+  const coverAlt = svc?.image_alt ?? title;
 
   const highlights = useMemo(() => {
     const arr = parsed?.highlights;
@@ -151,7 +154,16 @@ export default function ServiceDetailClient({ locale, slug }: { locale: string; 
                       </div>
 
                       <div className="card__image-container zoom-img position-relative">
-                        <img className="card__image" src={coverUrl} alt={svc?.image_alt ?? ''} />
+                        <Image
+                          className="card__image"
+                          src={coverUrl}
+                          alt={coverAlt}
+                          width={1200}
+                          height={800}
+                          sizes="(max-width: 992px) 100vw, 800px"
+                          priority
+                          unoptimized={shouldUnoptimizeImage(coverUrl)}
+                        />
                         <Link
                           href="#details"
                           className="card-image-overlay position-absolute start-0 end-0 w-100 h-100"
@@ -221,11 +233,20 @@ export default function ServiceDetailClient({ locale, slug }: { locale: string; 
                                   g.image_url ||
                                   // storage url mapping’in varsa burada kullan
                                   '/assets/imgs/services-list/img-2.png';
+                                const alt = g.alt ?? title;
 
                                 return (
                                   <div key={g.id} className="col-md-6 col-lg-4 mb-3">
                                     <div className="card__image-container zoom-img position-relative">
-                                      <img className="card__image" src={img} alt={g.alt ?? ''} />
+                                      <Image
+                                        className="card__image"
+                                        src={img}
+                                        alt={alt}
+                                        width={800}
+                                        height={600}
+                                        sizes="(max-width: 992px) 100vw, 33vw"
+                                        unoptimized={shouldUnoptimizeImage(img)}
+                                      />
                                       <span className="card-image-overlay position-absolute start-0 end-0 w-100 h-100" />
                                     </div>
                                   </div>

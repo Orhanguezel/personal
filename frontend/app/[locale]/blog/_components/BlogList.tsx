@@ -10,12 +10,14 @@
 import Link from 'next/link';
 import { useMemo } from 'react';
 
-import { useListCustomPagesQuery, useGetSiteSettingByKeyQuery } from '@/integrations/hooks';
+import { useListCustomPagesQuery } from '@/integrations/hooks';
+import { useStaticSiteSetting } from '@/utils/staticSiteSettings';
 import type { CustomPageView } from '@/integrations/shared';
 import { normalizeUiBlogSettingValue } from '@/integrations/shared';
 
 type Props = {
   locale: string;
+  initialPosts?: CustomPageView[];
 };
 
 const formatDate = (iso?: string) => {
@@ -35,17 +37,17 @@ const pickCardImage = (p: CustomPageView, fallback: string) => {
   );
 };
 
-export default function BlogList({ locale }: Props) {
+export default function BlogList({ locale, initialPosts = [] }: Props) {
   const safeLocale = locale || 'en';
 
-  const { data: uiSetting } = useGetSiteSettingByKeyQuery({
+  const { value: uiSettingValue } = useStaticSiteSetting({
     key: 'ui_blog',
     locale: safeLocale,
   });
 
   const ui = useMemo(
-    () => normalizeUiBlogSettingValue(uiSetting?.value),
-    [uiSetting?.value],
+    () => normalizeUiBlogSettingValue(uiSettingValue),
+    [uiSettingValue],
   );
   const copy = ui.list;
 
@@ -62,8 +64,9 @@ export default function BlogList({ locale }: Props) {
   });
 
   const list = useMemo(() => {
-    return (posts || []).filter((p) => p.module_key === 'blog' && p.is_published);
-  }, [posts]);
+    const src = posts.length ? posts : initialPosts;
+    return (src || []).filter((p) => p.module_key === 'blog' && p.is_published);
+  }, [posts, initialPosts]);
 
   return (
     <>

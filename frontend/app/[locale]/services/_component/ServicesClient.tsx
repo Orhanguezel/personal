@@ -10,25 +10,35 @@
 
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { useMemo } from 'react';
 
-import { useGetSiteSettingByKeyQuery, useListServicesPublicQuery } from '@/integrations/hooks';
+import { useListServicesPublicQuery } from '@/integrations/hooks';
+import { useStaticSiteSetting } from '@/utils/staticSiteSettings';
 import {
   safeParseServiceContent,
   pickCardImageUrl,
   normalizeUiServicesSettingValue,
+  type ServiceDto,
 } from '@/integrations/shared';
+import { shouldUnoptimizeImage } from '@/utils/nextImage';
 
-export default function ServicesClient({ locale }: { locale: string }) {
-  const { data: pageSetting } = useGetSiteSettingByKeyQuery({
+export default function ServicesClient({
+  locale,
+  initialItems = [],
+}: {
+  locale: string;
+  initialItems?: ServiceDto[];
+}) {
+  const { value: pageSettingValue } = useStaticSiteSetting({
     key: 'ui_services',
     locale,
   });
 
   const ui = useMemo(
-    () => normalizeUiServicesSettingValue(pageSetting?.value),
-    [pageSetting?.value],
+    () => normalizeUiServicesSettingValue(pageSettingValue),
+    [pageSettingValue],
   );
 
   const { data, isLoading, isFetching, isError } = useListServicesPublicQuery({
@@ -39,7 +49,7 @@ export default function ServicesClient({ locale }: { locale: string }) {
     order: 'display_order.asc',
   });
 
-  const items = data?.items ?? [];
+  const items = data?.items && data.items.length ? data.items : initialItems;
 
   const cards = useMemo(() => {
     return items.map((svc, idx) => {
@@ -57,11 +67,12 @@ export default function ServicesClient({ locale }: { locale: string }) {
         tagline,
         highlights,
         img: pickCardImageUrl(svc as any, idx),
+        alt: (svc as any).image_alt ?? (svc as any).name ?? '',
       };
     });
   }, [items, ui]);
 
-  const showBusy = isLoading || isFetching;
+  const showBusy = (isLoading || isFetching) && items.length === 0;
 
   return (
     <div>
@@ -111,7 +122,16 @@ export default function ServicesClient({ locale }: { locale: string }) {
                           </div>
 
                           <div className="card__image-container zoom-img position-relative">
-                            <img className="card__image" src={c.img} alt="" />
+                            <Image
+                              className="card__image"
+                              src={c.img}
+                              alt={c.alt}
+                              width={1200}
+                              height={400}
+                              sizes="(max-width: 767px) 100vw, (max-width: 1200px) 100vw, 900px"
+                              priority={idx < 2}
+                              unoptimized={shouldUnoptimizeImage(c.img)}
+                            />
                             <Link
                               href={href}
                               className="card-image-overlay position-absolute start-0 end-0 w-100 h-100"

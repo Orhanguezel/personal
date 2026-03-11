@@ -46,3 +46,5 @@ export * from '@/integrations/shared/brand';
 export * from '@/integrations/shared/pageCopies';
 export * from '@/integrations/shared/footer_sections.types';
 export * from '@/integrations/shared/home';
+export * from '@/integrations/shared/products.types';
+export * from '@/integrations/shared/checkout.types';

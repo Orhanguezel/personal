@@ -44,6 +44,8 @@ export * from '@/integrations/endpoints/public/skill.endpoints';
 export * from '@/integrations/endpoints/public/brands.endpoints';
 export * from '@/integrations/endpoints/public/seo.endpoints';
 export * from '@/integrations/endpoints/public/footer_sections.endpoints';
+export * from '@/integrations/endpoints/public/products.endpoints';
+export * from '@/integrations/endpoints/public/checkout.endpoints';
 
 // =========================
 // Admin endpoints

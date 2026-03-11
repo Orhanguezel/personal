@@ -11,12 +11,14 @@
 
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 import { useListProjectsPublicQuery } from '@/integrations/hooks';
 import type { Project } from '@/integrations/shared';
 import { localeFromPathname, slugifyClass } from '@/integrations/shared';
+import { shouldUnoptimizeImage } from '@/utils/nextImage';
 
 // Dynamic import type for Isotope
 type IsotopeType = any;
@@ -69,6 +71,8 @@ export default function PortfolioFilter() {
   // --- Load Isotope dynamically (client-side only) ---
   useEffect(() => {
     if (typeof window === 'undefined') return;
+    // Mobile optimization: Disable Isotope on small screens (save 30KB+ execution)
+    if (window.innerWidth < 992) return;
 
     import('isotope-layout').then((module) => {
       setIsotopeConstructor(() => module.default);
@@ -185,10 +189,11 @@ export default function PortfolioFilter() {
             ))}
           </>
         ) : items.length ? (
-          items.map((p) => {
+          items.map((p, index) => {
             const catClass = slugifyClass(p.category);
             const href = `/${locale}/work/${p.slug}`;
             const img = p.featured_image ?? '/assets/imgs/work/img-1.png';
+            const imgSrc = String(img || '').trim() || '/assets/imgs/work/img-1.png';
             const alt = p.featured_image_alt ?? p.title ?? '';
 
             // Optional: if you want multi-tag filter (services -> extra classes)
@@ -200,7 +205,16 @@ export default function PortfolioFilter() {
               <div key={p.id} className={`filter-item col-lg-6 col-12 ${classes}`}>
                 <div className="project-item rounded-4 overflow-hidden position-relative p-md-4 p-3 bg-white">
                   <Link href={href}>
-                    <img className="rounded-3 w-100 zoom-img" src={img} alt={alt} />
+                    <Image
+                      className="rounded-3 w-100 zoom-img"
+                      src={imgSrc}
+                      alt={alt}
+                      width={800}
+                      height={600}
+                      sizes="(max-width: 992px) 100vw, 50vw"
+                      priority={index < 2}
+                      unoptimized={shouldUnoptimizeImage(imgSrc)}
+                    />
                   </Link>
 
                   <div className="d-flex align-items-center mt-4">
@@ -212,6 +226,7 @@ export default function PortfolioFilter() {
                     <Link
                       href={href}
                       className="project-card-icon icon-shape ms-auto icon-md rounded-circle"
+                      aria-label={`View project: ${p.title}`}
                     >
                       <i className="ri-arrow-right-up-line" />
                     </Link>

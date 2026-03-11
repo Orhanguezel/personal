@@ -12,7 +12,7 @@ import Link from 'next/link';
 import { useMemo } from 'react';
 import Marquee from 'react-fast-marquee';
 
-import { useGetSiteSettingByKeyQuery, useGetSkillsQuery } from '@/integrations/hooks';
+import { useGetSkillsQuery } from '@/integrations/hooks';
 import type { SkillLogoMerged, SkillListParams } from '@/integrations/shared';
 import {
   safeLocale,
@@ -20,13 +20,14 @@ import {
   splitSkillsLogosRight,
   normalizeUiSkillsSettingValue,
 } from '@/integrations/shared';
+import { useStaticSiteSetting } from '@/utils/staticSiteSettings';
 
 type Props = { locale?: string };
 
 export default function Skills2({ locale }: Props) {
   const loc = safeLocale(locale);
 
-  const { data: uiSetting } = useGetSiteSettingByKeyQuery({
+  const { data: uiSetting } = useStaticSiteSetting({
     key: 'ui_skills',
     locale: loc,
   });

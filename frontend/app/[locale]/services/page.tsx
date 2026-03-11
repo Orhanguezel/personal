@@ -10,14 +10,16 @@ import Layout from '@/components/layout/Layout';
 import ServicesClient from './_component/ServicesClient';
 import { normalizeLocaleParam, unwrapRouteParams } from '@/i18n/localeParam';
 import { getSeoPage, SEO_PAGE_KEYS, buildMetadata } from '@/seo';
+import { getServicesListServer } from '@/utils/publicLists.server';
 
 export default async function ServicesPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const safeLocale = normalizeLocaleParam(locale);
+  const initialItems = await getServicesListServer({ locale: safeLocale, limit: 20 });
 
   return (
     <Layout headerStyle={1} footerStyle={1}>
-      <ServicesClient locale={safeLocale} />
+      <ServicesClient locale={safeLocale} initialItems={initialItems} />
     </Layout>
   );
 }

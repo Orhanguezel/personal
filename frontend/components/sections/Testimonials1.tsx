@@ -3,12 +3,14 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useMemo } from 'react';
 import { skipToken } from '@reduxjs/toolkit/query';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { useGetSiteSettingByKeyQuery, useListReviewsPublicQuery } from '@/integrations/hooks';
+import { useListReviewsPublicQuery } from '@/integrations/hooks';
+import { useStaticSiteSetting } from '@/utils/staticSiteSettings';
 import {
   mapReviewToTestimonialCard,
   normalizeTestimonialsSectionSettingValue,
@@ -61,14 +63,14 @@ function renderStars(rating: number) {
 export default function Testimonials1({ locale = 'en' }: { locale?: string }) {
   const safeLocale = (locale || 'en').trim() || 'en';
 
-  const { data: uiSetting } = useGetSiteSettingByKeyQuery({
+  const { value: uiSettingValue } = useStaticSiteSetting({
     key: 'ui_testimonials',
     locale: safeLocale,
   });
 
   const ui = useMemo(
-    () => normalizeTestimonialsSectionSettingValue(uiSetting?.value),
-    [uiSetting?.value],
+    () => normalizeTestimonialsSectionSettingValue(uiSettingValue),
+    [uiSettingValue],
   );
 
   const listParams: ReviewListQueryParams | undefined = ui.target_type && ui.bucket
@@ -101,19 +103,23 @@ export default function Testimonials1({ locale = 'en' }: { locale?: string }) {
         <div className="container">
           <div className="row">
             <div className="col-lg-8">
-              <h3 className="ds-3 mt-3 mb-3 text-primary-1">{ui.headline}</h3>
+              <h2 className="ds-3 mt-3 mb-3 text-primary-1">{ui.headline}</h2>
               <span className="fs-5 fw-medium text-200">
                 {ui.intro_line_1}
                 <br />
                 {ui.intro_line_2}
               </span>
               <div className="row mt-8">
-                <Swiper {...swiperOptions} className="swiper slider-2 pt-2 pb-3">
+                <Swiper 
+                  {...swiperOptions} 
+                  loop={!busy && !isError && cards.length > 2}
+                  className="swiper slider-2 pt-2 pb-3"
+                >
                   <div className="swiper-wrapper">
                     {busy && (
                       <SwiperSlide>
                         <div className="bg-white card-testimonial-1 p-lg-7 p-md-5 mx-3 mx-md-0 p-4 border-2 rounded-4 position-relative">
-                          <h6 className="mb-0">{ui.loading}</h6>
+                          <p className="mb-0 h6">{ui.loading}</p>
                         </div>
                       </SwiperSlide>
                     )}
@@ -121,7 +127,7 @@ export default function Testimonials1({ locale = 'en' }: { locale?: string }) {
                     {!busy && isError && (
                       <SwiperSlide>
                         <div className="bg-white card-testimonial-1 p-lg-7 p-md-5 mx-3 mx-md-0 p-4 border-2 rounded-4 position-relative">
-                          <h6 className="mb-0">{ui.error}</h6>
+                          <p className="mb-0 h6">{ui.error}</p>
                         </div>
                       </SwiperSlide>
                     )}
@@ -129,7 +135,7 @@ export default function Testimonials1({ locale = 'en' }: { locale?: string }) {
                     {showEmpty && (
                       <SwiperSlide>
                         <div className="bg-white card-testimonial-1 p-lg-7 p-md-5 mx-3 mx-md-0 p-4 border-2 rounded-4 position-relative">
-                          <h6 className="mb-0">{ui.empty}</h6>
+                          <p className="mb-0 h6">{ui.empty}</p>
                         </div>
                       </SwiperSlide>
                     )}
@@ -139,16 +145,28 @@ export default function Testimonials1({ locale = 'en' }: { locale?: string }) {
                         <SwiperSlide key={card.id}>
                           <div className="bg-white card-testimonial-1 p-lg-7 p-md-5 mx-3 mx-md-0 p-4 border-2 rounded-4 position-relative">
                             <div className="mb-6 logo">
-                              <img src={card.logo} alt="logo" />
+                              <Image 
+                                src={card.logo} 
+                                alt={card.company || 'Partner'} 
+                                width={100} 
+                                height={40} 
+                                style={{ height: 'auto', width: 'auto', maxHeight: '40px' }}
+                              />
                             </div>
                             <div className="d-flex mb-5">{renderStars(card.rating)}</div>
-                            <h6 className="mb-7">“{card.comment}”</h6>
+                            <p className="mb-7 h6">“{card.comment}”</p>
                             <Link href={card.href} className="d-flex align-items-center">
-                              <img className="icon_65 avatar" src={card.avatar} alt={card.name} />
-                              <h6 className="ms-2 mb-0">
+                              <Image 
+                                className="icon_65 avatar" 
+                                src={card.avatar} 
+                                alt={card.name} 
+                                width={65} 
+                                height={65} 
+                              />
+                              <h3 className="ms-2 mb-0 h6">
                                 {card.name}
                                 <span className="fs-6 fw-regular">{card.meta}</span>
-                              </h6>
+                              </h3>
                             </Link>
                             <div className="position-absolute top-0 end-0 m-5">
                               <svg

@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { useMemo } from 'react';
 import Marquee from 'react-fast-marquee';
 
-import { useGetSiteSettingByKeyQuery } from '@/integrations/hooks';
+import { useStaticSiteSetting } from '@/utils/staticSiteSettings';
 import { normalizeUiCoporationSettingValue, safeLocale } from '@/integrations/shared';
 
 type Props = { locale?: string };
@@ -14,14 +14,14 @@ type Props = { locale?: string };
 export default function Coporation2({ locale }: Props) {
 	const loc = safeLocale(locale);
 
-	const { data: uiSetting } = useGetSiteSettingByKeyQuery({
+	const { value: uiSettingValue } = useStaticSiteSetting({
 		key: 'ui_coporation',
 		locale: loc,
 	});
 
 	const ui = useMemo(
-		() => normalizeUiCoporationSettingValue(uiSetting?.value),
-		[uiSetting?.value],
+		() => normalizeUiCoporationSettingValue(uiSettingValue),
+		[uiSettingValue],
 	);
 
 	const journalItems = ui.journal.items;

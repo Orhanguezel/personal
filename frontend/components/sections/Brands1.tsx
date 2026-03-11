@@ -9,8 +9,10 @@
 
 import { useMemo } from 'react';
 import Marquee from 'react-fast-marquee';
+import Image from 'next/image';
 
-import { useGetSiteSettingByKeyQuery, useGetBrandsQuery } from '@/integrations/hooks';
+import { useGetBrandsQuery } from '@/integrations/hooks';
+import { useStaticSiteSetting } from '@/utils/staticSiteSettings';
 import type { BrandListParams, BrandLogoMerged } from '@/integrations/shared';
 import {
   normalizeUiBrandsSettingValue,
@@ -25,12 +27,12 @@ type Props = { locale?: string };
 export default function Brands1({ locale }: Props) {
   const loc = safeLocale(locale);
 
-  const { data: uiSetting } = useGetSiteSettingByKeyQuery({
+  const { value: uiSettingValue } = useStaticSiteSetting({
     key: 'ui_brands',
     locale: loc,
   });
 
-  const ui = useMemo(() => normalizeUiBrandsSettingValue(uiSetting?.value), [uiSetting?.value]);
+  const ui = useMemo(() => normalizeUiBrandsSettingValue(uiSettingValue), [uiSettingValue]);
 
   const params: BrandListParams = useMemo(() => {
     const track = ui.track === 'left' ? 'left' : ui.track === 'right' ? 'right' : undefined;
@@ -114,7 +116,13 @@ export default function Brands1({ locale }: Props) {
               {!busy && !isError &&
                 logos.map((item) => (
                   <li className="carouselTicker__item" key={item.id}>
-                    <img src={item.image_url || ''} alt={item.label || 'brand'} />
+                    <Image
+                      src={item.image_url || ''} 
+                      alt={item.label || 'Brand Logo'} 
+                      height={60}
+                      width={150}
+                      style={{ height: '60px', width: 'auto', objectFit: 'contain' }}
+                    />
                   </li>
                 ))}
             </ul>

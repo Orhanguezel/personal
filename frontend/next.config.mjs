@@ -1,12 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  compress: true,
+  poweredByHeader: false,
+  reactStrictMode: true,
   images: {
+    formats: ['image/avif', 'image/webp'],
     remotePatterns: [
       { protocol: 'https', hostname: 'images.unsplash.com', pathname: '/**' },
 
-      { protocol: 'https', hostname: 'cdn.gzltemizlik.com', pathname: '/**' },
-      { protocol: 'https', hostname: 'gzltemizlik.com', pathname: '/**' },
-      { protocol: 'https', hostname: 'www.gzltemizlik.com', pathname: '/**' },
+      { protocol: 'https', hostname: 'guezelwebdesign.com', pathname: '/**' },
+      { protocol: 'https', hostname: 'www.guezelwebdesign.com', pathname: '/**' },
 
       { protocol: 'https', hostname: 'res.cloudinary.com', pathname: '/dbozv7wqd/**' },
 

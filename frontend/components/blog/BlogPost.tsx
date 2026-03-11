@@ -11,7 +11,8 @@
 
 import React, { useEffect, useMemo, useState } from 'react';
 
-import { useGetSiteSettingByKeyQuery, useListCustomPagesQuery } from '@/integrations/hooks';
+import { useListCustomPagesQuery } from '@/integrations/hooks';
+import { useStaticSiteSetting } from '@/utils/staticSiteSettings';
 import type { CustomPageView } from '@/integrations/shared';
 import { normalizeUiBlogSettingValue } from '@/integrations/shared';
 
@@ -35,14 +36,14 @@ export default function BlogPost({
   showPagination = true,
   locale = 'en',
 }: BlogPostProps) {
-  const { data: uiSetting } = useGetSiteSettingByKeyQuery({
+  const { value: uiSettingValue } = useStaticSiteSetting({
     key: 'ui_blog',
     locale,
   });
 
   const ui = useMemo(
-    () => normalizeUiBlogSettingValue(uiSetting?.value),
-    [uiSetting?.value],
+    () => normalizeUiBlogSettingValue(uiSettingValue),
+    [uiSettingValue],
   );
   const copy = ui.post;
 

@@ -4,15 +4,15 @@
 import { useMemo } from 'react';
 import CountUp from 'react-countup';
 
-import { useGetSiteSettingByKeyQuery } from '@/integrations/hooks';
 import { normalizeUiStaticSettingValue, safeLocale } from '@/integrations/shared';
+import { useStaticSiteSetting } from '@/utils/staticSiteSettings';
 
 type Props = { locale?: string };
 
 export default function Static1({ locale }: Props) {
   const loc = safeLocale(locale);
 
-  const { data: uiSetting } = useGetSiteSettingByKeyQuery({
+  const { data: uiSetting } = useStaticSiteSetting({
     key: 'ui_static',
     locale: loc,
   });

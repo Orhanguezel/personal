@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react';
 
 import AddClassBody from '../elements/AddClassBody';
 import BackToTop from '../elements/BackToTop';
-import DataBg from '../elements/DataBg';
 import ImageHoverEffects from '../elements/ImageHoverEffects';
 
 import Breadcrumb from './Breadcrumb';
@@ -58,7 +57,9 @@ export default function Layout({
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
-    const t = window.setTimeout(() => {
+    if (!document.querySelector('.wow')) return;
+
+    const start = () => {
       import('wowjs')
         .then((m: any) => {
           const WOWCtor =
@@ -67,8 +68,12 @@ export default function Layout({
             (m?.WOW && typeof m.WOW === 'function' && m.WOW) ||
             (window as any).WOW;
 
+          // Check if disabled by reduced motion or small screen
+          const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          if (reduceMotion || window.innerWidth < 768) return;
+
           if (typeof WOWCtor === 'function') {
-            (window as any).wow = new WOWCtor({ live: false });
+            (window as any).wow = new WOWCtor({ live: false, mobile: false });
             (window as any).wow.init();
             return;
           }
@@ -84,18 +89,37 @@ export default function Layout({
             (window as any).wow.init();
           }
         });
-    }, 100);
+    };
 
-    return () => window.clearTimeout(t);
+    const ric = (window as any).requestIdleCallback as
+      | ((cb: () => void, opts?: { timeout: number }) => number)
+      | undefined;
+
+    let handle: number | undefined;
+    if (ric) handle = ric(start, { timeout: 1500 });
+    else handle = window.setTimeout(start, 600);
+
+    return () => {
+      if (ric && handle) (window as any).cancelIdleCallback?.(handle);
+      else if (handle) window.clearTimeout(handle);
+    };
   }, []);
 
   // 2) Scroll listener — deps DAİMA []
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
+    let ticking = false;
+
     const onScroll = (): void => {
-      const next = window.scrollY > 100;
-      setScroll((prev) => (prev === next ? prev : next));
+      if (ticking) return;
+      ticking = true;
+
+      window.requestAnimationFrame(() => {
+        const next = window.scrollY > 100;
+        setScroll((prev) => (prev === next ? prev : next));
+        ticking = false;
+      });
     };
 
     onScroll();
@@ -121,7 +145,6 @@ export default function Layout({
     <>
       <div id="top" />
       <AddClassBody />
-      <DataBg />
       <ImageHoverEffects />
 
       {header === 1 ? (

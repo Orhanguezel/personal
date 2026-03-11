@@ -4,19 +4,29 @@
 // ---------------------------------------------------------------------
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { useMemo } from 'react';
 
-import { useGetSiteSettingByKeyQuery, useListProjectsPublicQuery } from '@/integrations/hooks';
+import { useListProjectsPublicQuery } from '@/integrations/hooks';
+import { useStaticSiteSetting } from '@/utils/staticSiteSettings';
+import type { Project } from '@/integrations/shared';
 import { normalizeStringArray, contentToSummary, normalizeUiProjectSettingValue } from '@/integrations/shared';
+import { shouldUnoptimizeImage } from '@/utils/nextImage';
 
-export default function WorkClient({ locale }: { locale: string }) {
-  const { data: uiSetting } = useGetSiteSettingByKeyQuery({
+export default function WorkClient({
+  locale,
+  initialItems = [],
+}: {
+  locale: string;
+  initialItems?: Project[];
+}) {
+  const { value: uiSettingValue } = useStaticSiteSetting({
     key: 'ui_project',
     locale,
   });
 
-  const ui = useMemo(() => normalizeUiProjectSettingValue(uiSetting?.value), [uiSetting?.value]);
+  const ui = useMemo(() => normalizeUiProjectSettingValue(uiSettingValue), [uiSettingValue]);
   const copy = ui.work;
 
   const { data, isLoading, isFetching } = useListProjectsPublicQuery({
@@ -27,7 +37,10 @@ export default function WorkClient({ locale }: { locale: string }) {
     locale,
   });
 
-  const items = useMemo(() => (Array.isArray(data) ? data : []), [data]);
+  const items = useMemo(
+    () => (Array.isArray(data) && data.length ? data : initialItems),
+    [data, initialItems],
+  );
 
   return (
     <>
@@ -93,7 +106,16 @@ export default function WorkClient({ locale }: { locale: string }) {
                       <div key={p.id} className="card-custom" data-index={idx}>
                         <div className="card__inner bg-6 p-lg-6 p-md-4 p-3">
                           <div className="card__image-container zoom-img position-relative">
-                            <img className="card__image" src={img} alt={alt} />
+                            <Image
+                              className="card__image"
+                              src={img}
+                              alt={alt}
+                              width={800}
+                              height={800}
+                              sizes="(max-width: 992px) 100vw, 50vw"
+                              priority={idx < 2}
+                              unoptimized={shouldUnoptimizeImage(img)}
+                            />
                             <Link
                               href={href}
                               className="card-image-overlay position-absolute start-0 end-0 w-100 h-100"

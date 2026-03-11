@@ -6,16 +6,15 @@ import { usePathname } from 'next/navigation';
 
 import {
   useListMenuItemsQuery,
-  useGetSiteSettingByKeyQuery,
   useListFooterSectionsQuery,
 } from '@/integrations/hooks';
+import { useStaticSiteSetting } from '@/utils/staticSiteSettings';
 import type { PublicMenuItemDto } from '@/integrations/shared';
 import {
   cx,
   resolveLocaleForApi,
   resolveLocaleForLinks,
   withLocalePrefix,
-  pickSettingValue,
   pickBrandName,
   pickSocialUrl,
   groupFooterMenuSections,
@@ -28,27 +27,27 @@ export default function Footer3() {
   const localeForApi = useMemo(() => resolveLocaleForApi(pathname), [pathname]);
 
   // settings
-  const { data: brandRow } = useGetSiteSettingByKeyQuery({
+  const { value: brandRowValue } = useStaticSiteSetting({
     key: 'company_brand',
     locale: localeForApi ?? localeForLinks,
-  } as any);
+  });
 
-  const { data: socialsRow } = useGetSiteSettingByKeyQuery({
+  const { value: socialsRowValue } = useStaticSiteSetting({
     key: 'socials',
     locale: localeForApi ?? localeForLinks,
-  } as any);
+  });
 
   // OPTIONAL: footer3 config (yoksa sorun değil)
   // site_settings key: footer3_settings (locale'li)
   // value: { brandLabel?: string, favicon?: string, home_path?: string }
-  const { data: footer3Row } = useGetSiteSettingByKeyQuery({
+  const { value: footer3RowValue } = useStaticSiteSetting({
     key: 'footer3_settings',
     locale: localeForApi ?? localeForLinks,
-  } as any);
+  });
 
-  const brandValue = useMemo(() => pickSettingValue(brandRow), [brandRow]);
-  const socialsValue = useMemo(() => pickSettingValue(socialsRow), [socialsRow]);
-  const footer3Value = useMemo(() => pickSettingValue(footer3Row), [footer3Row]);
+  const brandValue = brandRowValue;
+  const socialsValue = socialsRowValue;
+  const footer3Value = footer3RowValue;
 
   const brandName = useMemo(() => {
     // footer3_settings.brandLabel override; yoksa company_brand

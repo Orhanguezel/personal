@@ -179,6 +179,7 @@ export type TestimonialCard = {
 
   name: string;
   meta: string; // " - role, company" (template format)
+  company?: string;
 
   avatar: string;
   logo: string;
@@ -214,6 +215,7 @@ export function mapReviewToTestimonialCard(r: ReviewDto): TestimonialCard {
     comment,
     name,
     meta,
+    company,
     avatar,
     logo,
     href,

@@ -2,13 +2,13 @@
 import Link from "next/link";
 import { useMemo } from "react";
 
-import { useGetSiteSettingByKeyQuery } from "@/integrations/hooks";
+import { useStaticSiteSetting } from "@/utils/staticSiteSettings";
 import { normalizeUiBlogSettingValue } from "@/integrations/shared";
 
 export default function Blog2({ locale = 'en' }: { locale?: string }) {
     const safeLocale = locale || 'en';
 
-    const { data: uiSetting } = useGetSiteSettingByKeyQuery({
+    const { data: uiSetting } = useStaticSiteSetting({
         key: 'ui_blog',
         locale: safeLocale,
     });

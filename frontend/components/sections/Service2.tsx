@@ -9,8 +9,9 @@
 import Link from 'next/link';
 import { useMemo } from 'react';
 
-import { useGetSiteSettingByKeyQuery, useListServicesPublicQuery } from '@/integrations/hooks';
+import { useListServicesPublicQuery } from '@/integrations/hooks';
 import { safeParseServiceContent, normalizeUiServicesSettingValue } from '@/integrations/shared';
+import { useStaticSiteSetting } from '@/utils/staticSiteSettings';
 
 type CardVM = {
   id: string;
@@ -136,7 +137,7 @@ function pickIcon(idx: number) {
 }
 
 export default function Service2({ locale }: { locale: string }) {
-  const { data: uiSetting } = useGetSiteSettingByKeyQuery({
+  const { data: uiSetting } = useStaticSiteSetting({
     key: 'ui_services',
     locale,
   });

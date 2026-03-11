@@ -3,14 +3,14 @@
 "use client";
 // frontend/components/sections/Projects1.tsx
 import Link from "next/link";
-import { useMemo } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
-import { useGetSiteSettingByKeyQuery } from "@/integrations/hooks";
+import { useStaticSiteSetting } from "@/utils/staticSiteSettings";
 import { normalizeUiProjectSettingValue } from "@/integrations/shared";
 import PortfolioFilter from "../elements/PortfolioFilter";
 
 export default function Projects1({ locale }: { locale: string }) {
-    const { data: uiSetting } = useGetSiteSettingByKeyQuery({
+    const { data: uiSetting } = useStaticSiteSetting({
         key: "ui_project",
         locale,
     });
@@ -20,13 +20,34 @@ export default function Projects1({ locale }: { locale: string }) {
         [uiSetting?.value],
     );
 
+    const containerRef = useRef<HTMLDivElement | null>(null);
+    const [isInView, setIsInView] = useState(false);
+
+    useEffect(() => {
+        const el = containerRef.current;
+        if (!el) return;
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                if (entries.some((entry) => entry.isIntersecting)) {
+                    setIsInView(true);
+                    observer.disconnect();
+                }
+            },
+            { rootMargin: "200px 0px" },
+        );
+
+        observer.observe(el);
+        return () => observer.disconnect();
+    }, []);
+
     return (
         <>
             <div id="projects" className="section-projects-1 position-relative pt-120 pb-6 bg-900">
                 <div className="container">
                     <div className="row align-items-end">
                         <div className="col-lg-7 me-auto">
-                            <h3 className="ds-3 mt-3 mb-3 text-primary-1">{ui.projects1.heading}</h3>
+                            <h2 className="ds-3 mt-3 mb-3 text-primary-1">{ui.projects1.heading}</h2>
                             <span
                                 className="fs-5 fw-medium text-200"
                                 dangerouslySetInnerHTML={{ __html: ui.projects1.intro_html }}
@@ -44,8 +65,12 @@ export default function Projects1({ locale }: { locale: string }) {
                     </div>
                 </div>
             </div>
-            <div className="bg-900 fillter-project" data-background="/assets/imgs/projects/projects-1/background.png">
-                <PortfolioFilter />
+            <div
+                ref={containerRef}
+                className="bg-900 fillter-project"
+                style={{ backgroundImage: 'url(/assets/imgs/projects/projects-1/background.png)' }}
+            >
+                {isInView ? <PortfolioFilter /> : <div style={{ minHeight: 420 }} />}
             </div>
             <div className="contairer overflow-hidden">
                 <div className="row justify-content-center position-relative button-project pb-160 bg-900 pt-1">
