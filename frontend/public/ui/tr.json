@@ -1,0 +1,1047 @@
+{
+  "ui_brands": {
+    "heading": "Sektör liderlerinin tercihi",
+    "intro_html": "Birçok büyük kurum, şirket ve ajans ile dünyanın dört bir yanında<br />tasarım ve danışmanlık alanlarında çalıştım",
+    "track": "right",
+    "loading": "Yükleniyor...",
+    "error": "Markalar yüklenemedi.",
+    "empty": "Marka bulunamadı."
+  },
+  "site_logo": {
+    "url": "/assets/imgs/landing-page/logo.svg",
+    "alt": "Guezel Web Design",
+    "width": 66,
+    "height": 65
+  },
+  "site_logo_dark": {
+    "url": "/assets/imgs/landing-page/logo.svg",
+    "alt": "Guezel Web Design",
+    "width": 66,
+    "height": 65
+  },
+  "site_logo_light": {
+    "url": "/assets/imgs/landing-page/logo.svg",
+    "alt": "Guezel Web Design",
+    "width": 66,
+    "height": 65
+  },
+  "site_favicon": {
+    "url": "/assets/imgs/template/favicon.svg",
+    "alt": "Guezel Web Design"
+  },
+  "site_apple_touch_icon": {
+    "url": "/assets/imgs/template/favicon.svg",
+    "alt": "Guezel Web Design"
+  },
+  "site_app_icon_512": {
+    "url": "/assets/imgs/template/favicon.svg",
+    "alt": "Guezel Web Design"
+  },
+  "site_og_default_image": {
+    "url": "/assets/imgs/home-page-3/hero/img-1.png",
+    "alt": "Guezel Web Design"
+  },
+  "ui_static": {
+    "static1": {
+      "items": [
+        {
+          "value": 12,
+          "prefix": "+",
+          "label_top": "Deneyim",
+          "label_bottom": "Yılı"
+        },
+        {
+          "value": 250,
+          "prefix": "+",
+          "label_top": "Proje",
+          "label_bottom": "Tamamlandı"
+        },
+        {
+          "value": 680,
+          "prefix": "+",
+          "label_top": "Memnun",
+          "label_bottom": "Müşteriler"
+        },
+        {
+          "value": 18,
+          "prefix": "+",
+          "label_top": "Ödül",
+          "label_bottom": "Kazanıldı"
+        }
+      ]
+    },
+    "static2": {
+      "background_image": "assets/imgs/home-page-2/static/bg.png",
+      "items": [
+        {
+          "value": 12,
+          "suffix": "+",
+          "label": "Yıl Deneyim",
+          "icon": "ri-shape-line"
+        },
+        {
+          "value": 250,
+          "suffix": "+",
+          "label": "Projeler Tamamlandı",
+          "icon": "ri-computer-line"
+        },
+        {
+          "value": 680,
+          "suffix": "+",
+          "label": "Memnun Müşteriler",
+          "icon": "ri-service-line"
+        },
+        {
+          "value": 18,
+          "suffix": "+",
+          "label": "Ödül Kazanan",
+          "icon": "ri-award-line"
+        }
+      ]
+    }
+  },
+  "ui_coporation": {
+    "badge": "İş Birliği",
+    "heading_html": "+168'den fazla <span class=\"text-300\">şirket <br /></span> <span class=\"text-300\">dünya çapında_</span> güveniyor",
+    "contact": {
+      "avatar": "assets/imgs/coporation/avatar.png",
+      "avatar_alt": "Orhan Guzel",
+      "skype_label": "[skype]",
+      "skype_value": "",
+      "skype_href": "#",
+      "phone_label": "[telefon]",
+      "phone_value": "",
+      "phone_href": "tel:+490000000000",
+      "email_label": "[eposta]",
+      "email_value": "orhanguzell@gmail.com",
+      "email_href": "mailto:orhanguzell@gmail.com"
+    },
+    "journal": {
+      "badge": "Git Günlüğü",
+      "items": [
+        {
+          "date": "15 Tem:",
+          "title": "Muzzilla-streaming-API-services-for-Python"
+        },
+        {
+          "date": "30 Haz:",
+          "title": "ChatHub-Chat-application-VueJs-Mongodb"
+        },
+        {
+          "date": "26 May:",
+          "title": "DineEasy-coffee-tea-reservation-system"
+        },
+        {
+          "date": "17 Nis:",
+          "title": "FinanceBuddy-Personal-finance-tracker"
+        },
+        {
+          "date": "05 Mar:",
+          "title": "TuneStream-Music-streaming-service-API"
+        }
+      ]
+    }
+  },
+  "ui_home3": {
+    "hero": {
+      "badge": "Deneyimler Tasarlıyor, Markaları Büyütüyoruz",
+      "title_html": "Amaç Odaklı <span class=\"text-dark\">Dijital Ürünler</span> — Orhan",
+      "description": "GWD dünyasına hoş geldiniz. Hızlı, şık ve dönüşüm odaklı web deneyimleri tasarlıyorum.",
+      "cv_label": "CV İndir",
+      "cv_href": "/assets/resume.pdf",
+      "hire_label": "Beni işe al",
+      "hire_href": "#contact",
+      "hero_image": "/assets/imgs/home-page-3/hero/img-1.png",
+      "hero_image_alt": "Orhan Guzel",
+      "signature_image": "/assets/imgs/home-page-3/hero/signature.png",
+      "signature_image_alt": "İmza"
+    },
+    "typical": {
+      "heading": "Öne Çıkan İşler",
+      "empty": "Henüz proje yok."
+    },
+    "services": {
+      "heading": "Hizmetlerim",
+      "empty": "Henüz hizmet yok."
+    },
+    "resume": {
+      "education_heading": "Eğitim",
+      "awards_heading": "Ödüller",
+      "empty_education": "Eğitim kaydı bulunamadı.",
+      "empty_awards": "Henüz ödül yok."
+    },
+    "blog": {
+      "heading": "Blogdan",
+      "empty": "Henüz içerik yok.",
+      "default_category": "İlham"
+    },
+    "testimonials": {
+      "heading": "Yorumlar",
+      "empty": "Henüz yorum yok."
+    },
+    "contact": {
+      "heading": "İletişim",
+      "form_title": "Hadi Tanışalım",
+      "phone": "",
+      "email": "orhanguzell@gmail.com",
+      "skype": "",
+      "address": "Grevenbroich, Almanya",
+      "map_href": "https://www.google.com/maps?q=Grevenbroich"
+    }
+  },
+  "ui_admin": {
+    "app_name": "GuezelWebDesign",
+    "nav": {
+      "labels": {
+        "general": "General",
+        "content": "Content",
+        "marketing": "Marketing",
+        "communication": "Communication",
+        "system": "System"
+      },
+      "items": {
+        "dashboard": "Dashboard",
+        "site_settings": "Site Settings",
+        "custom_pages": "Custom Pages",
+        "services": "Services",
+        "projects": "Projects",
+        "offers": "Offers",
+        "pricing": "Pricing",
+        "brands": "Brands",
+        "resume": "Resume",
+        "skills": "Skills",
+        "sliders": "Sliders",
+        "menu_items": "Menu Items",
+        "footer_sections": "Footer Sections",
+        "popups": "Popups",
+        "newsletter": "Newsletter",
+        "contacts": "Contacts",
+        "reviews": "Reviews",
+        "users": "Users",
+        "email_templates": "Email Templates",
+        "notifications": "Notifications",
+        "storage": "Storage",
+        "db": "Database"
+      }
+    },
+    "common": {
+      "actions": {
+        "create": "Create",
+        "edit": "Edit",
+        "delete": "Delete",
+        "save": "Save",
+        "cancel": "Cancel",
+        "refresh": "Refresh",
+        "search": "Search",
+        "filter": "Filter",
+        "close": "Close",
+        "back": "Back",
+        "confirm": "Confirm"
+      },
+      "states": {
+        "loading": "Loading",
+        "error": "An error occurred",
+        "empty": "No records found",
+        "updating": "Updating",
+        "saving": "Saving"
+      }
+    },
+    "pages": {
+      "dashboard": {
+        "title": "Dashboard",
+        "subtitle": "Overview and quick totals.",
+        "label_services": "Services",
+        "label_faqs": "FAQs",
+        "label_contacts": "Contacts",
+        "label_newsletter": "Newsletter",
+        "label_email_templates": "Email Templates",
+        "label_site_settings": "Site Settings",
+        "label_custom_pages": "Custom Pages",
+        "label_menuitem": "Menu Items",
+        "label_slider": "Sliders",
+        "label_footer_sections": "Footer Sections",
+        "label_reviews": "Reviews",
+        "label_support": "Support",
+        "label_users": "Users",
+        "label_storage": "Storage",
+        "label_projects": "Projects",
+        "label_pricing_plans": "Pricing Plans",
+        "label_skillCounters": "Skills",
+        "label_brandLogos": "Brands"
+      },
+      "contacts": {
+        "title": "Contacts",
+        "subtitle": "Manage incoming contact messages.",
+        "filters_title": "Filters",
+        "filters_desc": "Search and filter messages.",
+        "search_ph": "Name, email, subject...",
+        "status_label": "Status",
+        "status_all": "All",
+        "status_new": "New",
+        "status_in_progress": "In progress",
+        "status_closed": "Closed",
+        "order_by_label": "Order by",
+        "order_by_created": "Created at",
+        "order_by_updated": "Updated at",
+        "order_by_status": "Status",
+        "order_by_name": "Name",
+        "order_label": "Order",
+        "order_desc": "Newest",
+        "order_asc": "Oldest",
+        "only_unresolved": "Only unresolved",
+        "list_title": "Messages",
+        "list_desc": "All contact messages.",
+        "col_name": "Name",
+        "col_email": "Email",
+        "col_subject": "Subject",
+        "col_status": "Status",
+        "col_created": "Created",
+        "col_actions": "Actions",
+        "edit_title": "Edit Contact",
+        "edit_desc": "Update status or admin note.",
+        "resolved_label": "Resolved",
+        "admin_note_label": "Admin note",
+        "admin_note_ph": "Internal note...",
+        "delete_confirm": "Delete this contact message?"
+      },
+      "brands": {
+        "title": "Brands",
+        "subtitle": "Manage brand logos.",
+        "filters_title": "Filters",
+        "filters_desc": "Locale, track and active filters.",
+        "locale_label": "Locale",
+        "track_label": "Track",
+        "track_all": "All",
+        "track_left": "Left",
+        "track_right": "Right",
+        "active_only": "Only active",
+        "list_title": "Brand logos",
+        "list_desc": "All logos.",
+        "col_label": "Label",
+        "col_track": "Track",
+        "col_locale": "Locale",
+        "col_order": "Order",
+        "col_active": "Active",
+        "col_actions": "Actions",
+        "active_yes": "Yes",
+        "active_no": "No",
+        "edit_title": "Edit logo",
+        "create_title": "Create logo",
+        "label_label": "Label",
+        "label_ph": "Brand label",
+        "image_url_label": "Image URL",
+        "image_url_ph": "https://...",
+        "asset_id_label": "Asset ID",
+        "asset_id_ph": "Storage asset id",
+        "order_label": "Display order",
+        "active_label": "Active",
+        "label_required": "Label is required.",
+        "delete_confirm": "Delete this brand logo?"
+      },
+      "newsletter": {
+        "title": "Newsletter",
+        "subtitle": "Manage newsletter subscribers.",
+        "filters_title": "Filters",
+        "filters_desc": "Search and filter subscribers.",
+        "search_ph": "Email...",
+        "verified_label": "Verified",
+        "subscribed_label": "Subscribed",
+        "filter_all": "All",
+        "filter_yes": "Yes",
+        "filter_no": "No",
+        "order_label": "Order",
+        "order_desc": "Newest",
+        "order_asc": "Oldest",
+        "list_title": "Subscribers",
+        "list_desc": "All newsletter subscribers.",
+        "col_email": "Email",
+        "col_verified": "Verified",
+        "col_subscribed": "Subscribed",
+        "col_created": "Created",
+        "col_actions": "Actions",
+        "edit_title": "Edit subscriber",
+        "meta_label": "Meta (JSON)",
+        "meta_help": "Optional metadata payload.",
+        "delete_confirm": "Delete this subscriber?"
+      },
+      "popups": {
+        "title": "Popups",
+        "subtitle": "Manage marketing popups.",
+        "list_title": "Popup list",
+        "list_desc": "All popups.",
+        "col_title": "Title",
+        "col_active": "Active",
+        "col_frequency": "Frequency",
+        "col_dates": "Dates",
+        "col_actions": "Actions",
+        "active_yes": "Yes",
+        "active_no": "No",
+        "edit_title": "Edit popup",
+        "create_title": "Create popup",
+        "title_label": "Title",
+        "title_ph": "Popup title",
+        "content_label": "Content",
+        "frequency_label": "Display frequency",
+        "frequency_always": "Always",
+        "frequency_once": "Once",
+        "frequency_daily": "Daily",
+        "frequency_weekly": "Weekly",
+        "active_label": "Active",
+        "start_date_label": "Start date",
+        "end_date_label": "End date",
+        "delay_label": "Delay (seconds)",
+        "duration_label": "Duration (seconds)",
+        "display_pages_label": "Display pages",
+        "display_pages_ph": "all or /path",
+        "priority_label": "Priority",
+        "services_id_label": "Service ID",
+        "services_id_ph": "service_id",
+        "image_url_label": "Image URL",
+        "image_url_ph": "https://...",
+        "asset_id_label": "Asset ID",
+        "asset_id_ph": "Storage asset id",
+        "image_alt_label": "Image alt",
+        "image_alt_ph": "Alt text",
+        "button_text_label": "Button text",
+        "button_text_ph": "CTA",
+        "button_link_label": "Button link",
+        "button_link_ph": "https://...",
+        "title_required": "Title is required.",
+        "delete_confirm": "Delete this popup?"
+      },
+      "offers": {
+        "title": "Offers",
+        "subtitle": "Quotes and offer requests.",
+        "filters_title": "Filters",
+        "filters_desc": "Search and filter offers.",
+        "search_ph": "Search...",
+        "status_label": "Status",
+        "status_all": "All",
+        "status_new": "New",
+        "status_in_review": "In review",
+        "status_quoted": "Quoted",
+        "status_sent": "Sent",
+        "status_accepted": "Accepted",
+        "status_rejected": "Rejected",
+        "status_cancelled": "Cancelled",
+        "email_label": "Email",
+        "email_ph": "customer@email",
+        "order_label": "Order",
+        "order_desc": "Newest",
+        "order_asc": "Oldest",
+        "list_title": "Offers",
+        "list_desc": "All offers.",
+        "col_offer_no": "Offer No",
+        "col_status": "Status",
+        "col_customer": "Customer",
+        "col_email": "Email",
+        "col_total": "Total",
+        "col_created": "Created",
+        "col_actions": "Actions"
+      },
+      "offers_detail": {
+        "create_title": "Create Offer",
+        "edit_title": "Edit Offer",
+        "subtitle": "Manage offer details.",
+        "required_error": "Customer name and email are required.",
+        "form_title": "Offer",
+        "form_desc": "Main offer details.",
+        "status_label": "Status",
+        "status_new": "New",
+        "status_in_review": "In review",
+        "status_quoted": "Quoted",
+        "status_sent": "Sent",
+        "status_accepted": "Accepted",
+        "status_rejected": "Rejected",
+        "status_cancelled": "Cancelled",
+        "customer_label": "Customer",
+        "company_label": "Company",
+        "email_label": "Email",
+        "phone_label": "Phone",
+        "subject_label": "Subject",
+        "message_label": "Message",
+        "meta_title": "Amounts",
+        "meta_desc": "Totals and pricing fields.",
+        "service_id_label": "Service ID",
+        "service_title_label": "Service title",
+        "currency_label": "Currency",
+        "net_total_label": "Net total",
+        "vat_rate_label": "VAT rate",
+        "vat_total_label": "VAT total",
+        "shipping_total_label": "Shipping total",
+        "gross_total_label": "Gross total",
+        "offer_no_label": "Offer No",
+        "valid_until_label": "Valid until",
+        "admin_notes_label": "Admin notes",
+        "consent_marketing_label": "Marketing consent",
+        "consent_terms_label": "Terms consent",
+        "form_data_label": "Form data",
+        "form_data_help": "Optional form payload as JSON.",
+        "actions_title": "Actions",
+        "actions_desc": "PDF and email actions.",
+        "action_pdf": "Generate PDF",
+        "action_email": "Send email",
+        "action_send": "Send (PDF + Email)",
+        "pdf_ok": "PDF generated.",
+        "email_ok": "Email sent.",
+        "send_ok": "Offer sent."
+      },
+      "pricing": {
+        "title": "Pricing",
+        "subtitle": "Pricing plans.",
+        "list_title": "Plans",
+        "list_desc": "All pricing plans.",
+        "col_code": "Code",
+        "col_currency": "Currency",
+        "col_price": "Price",
+        "col_active": "Active",
+        "col_featured": "Featured",
+        "col_order": "Order",
+        "col_actions": "Actions",
+        "active_yes": "Yes",
+        "active_no": "No",
+        "featured_yes": "Yes",
+        "featured_no": "No"
+      },
+      "pricing_detail": {
+        "create_title": "Create Plan",
+        "edit_title": "Edit Plan",
+        "subtitle": "Manage pricing plan.",
+        "code_required": "Code is required.",
+        "i18n_required": "At least one i18n entry is required.",
+        "form_title": "Plan",
+        "form_desc": "Base fields.",
+        "code_label": "Code",
+        "currency_label": "Currency",
+        "price_amount_label": "Amount",
+        "price_unit_label": "Unit",
+        "cta_href_label": "CTA link",
+        "order_label": "Display order",
+        "active_label": "Active",
+        "featured_label": "Featured",
+        "i18n_title": "Translations",
+        "i18n_desc": "Locale-based texts.",
+        "i18n_label": "i18n JSON",
+        "i18n_help": "Array of translations with locale, title, badge, features..."
+      },
+      "projects": {
+        "title": "Projects",
+        "subtitle": "Manage portfolio projects.",
+        "filters_title": "Filters",
+        "filters_desc": "Locale and status filters.",
+        "locale_label": "Locale",
+        "search_ph": "Search...",
+        "published_label": "Published",
+        "featured_label": "Featured",
+        "filter_all": "All",
+        "filter_yes": "Yes",
+        "filter_no": "No",
+        "list_title": "Projects",
+        "list_desc": "All projects.",
+        "col_title": "Title",
+        "col_locale": "Locale",
+        "col_published": "Published",
+        "col_featured": "Featured",
+        "col_order": "Order",
+        "col_actions": "Actions"
+      },
+      "projects_detail": {
+        "create_title": "Create Project",
+        "edit_title": "Edit Project",
+        "subtitle": "Project details.",
+        "required_error": "Title and slug are required.",
+        "form_title": "Project",
+        "form_desc": "Main content fields.",
+        "locale_label": "Locale",
+        "title_label": "Title",
+        "slug_label": "Slug",
+        "summary_label": "Summary",
+        "content_label": "Content",
+        "meta_title": "Settings",
+        "meta_desc": "Publish, media and meta fields.",
+        "published_label": "Published",
+        "featured_label": "Featured",
+        "order_label": "Display order",
+        "category_label": "Category",
+        "client_label": "Client",
+        "featured_image_label": "Featured image",
+        "featured_image_asset_label": "Featured image asset",
+        "featured_image_alt_label": "Featured image alt",
+        "demo_url_label": "Demo URL",
+        "repo_url_label": "Repo URL",
+        "website_url_label": "Website URL",
+        "start_date_label": "Start date",
+        "complete_date_label": "Complete date",
+        "completion_time_label": "Completion time label",
+        "services_label": "Services JSON",
+        "services_help": "Array of service names.",
+        "techs_label": "Techs JSON",
+        "techs_help": "Array of technologies.",
+        "meta_title_label": "Meta title",
+        "meta_description_label": "Meta description"
+      },
+      "resume": {
+        "title": "Resume",
+        "subtitle": "Education and experience entries.",
+        "filters_title": "Filters",
+        "filters_desc": "Locale and type filters.",
+        "locale_label": "Locale",
+        "search_ph": "Search...",
+        "type_label": "Type",
+        "type_education": "Education",
+        "type_experience": "Experience",
+        "active_label": "Active",
+        "filter_all": "All",
+        "filter_yes": "Yes",
+        "filter_no": "No",
+        "list_title": "Entries",
+        "list_desc": "All resume entries.",
+        "col_title": "Title",
+        "col_type": "Type",
+        "col_dates": "Dates",
+        "col_active": "Active",
+        "col_actions": "Actions",
+        "present_label": "Present"
+      },
+      "resume_detail": {
+        "create_title": "Create Entry",
+        "edit_title": "Edit Entry",
+        "subtitle": "Resume entry details.",
+        "required_error": "Title and slug are required.",
+        "form_title": "Entry",
+        "form_desc": "Main content fields.",
+        "locale_label": "Locale",
+        "type_label": "Type",
+        "type_education": "Education",
+        "type_experience": "Experience",
+        "title_label": "Title",
+        "subtitle_label": "Subtitle",
+        "slug_label": "Slug",
+        "description_label": "Description",
+        "meta_title": "Settings",
+        "meta_desc": "Dates and meta fields.",
+        "active_label": "Active",
+        "order_label": "Display order",
+        "start_date_label": "Start date",
+        "end_date_label": "End date",
+        "current_label": "Current",
+        "location_label": "Location",
+        "organization_label": "Organization",
+        "score_value_label": "Score value",
+        "score_scale_label": "Score scale",
+        "highlights_label": "Highlights JSON",
+        "highlights_help": "Array of highlight strings."
+      },
+      "skills": {
+        "title": "Skills",
+        "subtitle": "Counters and logos.",
+        "filters_title": "Filters",
+        "filters_desc": "Locale and track filters.",
+        "locale_label": "Locale",
+        "track_label": "Track",
+        "track_all": "All",
+        "track_left": "Left",
+        "track_right": "Right",
+        "active_only": "Only active",
+        "counters_title": "Counters",
+        "counters_desc": "Skill counters.",
+        "logos_title": "Logos",
+        "logos_desc": "Skill logos.",
+        "col_title": "Title",
+        "col_percent": "Percent",
+        "col_locale": "Locale",
+        "col_active": "Active",
+        "col_actions": "Actions",
+        "col_label": "Label",
+        "col_track": "Track",
+        "active_yes": "Yes",
+        "active_no": "No",
+        "counter_create_title": "Create counter",
+        "counter_edit_title": "Edit counter",
+        "logo_create_title": "Create logo",
+        "logo_edit_title": "Edit logo",
+        "title_label": "Title",
+        "slug_label": "Slug",
+        "percent_label": "Percent",
+        "image_url_label": "Image URL",
+        "asset_id_label": "Asset ID",
+        "order_label": "Display order",
+        "active_label": "Active",
+        "label_label": "Label",
+        "delete_confirm": "Delete this item?",
+        "counter_required": "Title and slug are required.",
+        "logo_required": "Label is required."
+      }
+    }
+  },
+  "contact_section": {
+    "headline": "İletişime Geç",
+    "intro": "Yeni projeler ve markalarla çalışmak beni her zaman heyecanlandırır. Aklında bir proje varsa ya da sadece konuşmak istersen bana yaz!",
+    "marquee": "guezelwebdesign",
+    "cards": {
+      "phone_label": "Telefon",
+      "email_label": "E-posta",
+      "skype_label": "Skype",
+      "address_label": "Adres"
+    },
+    "form": {
+      "title": "Mesaj Bırak",
+      "name_label": "Adın",
+      "email_label": "E-posta",
+      "phone_label": "Telefon",
+      "subject_label": "Konu",
+      "message_label": "Mesaj",
+      "name_ph": "Ad Soyad",
+      "email_ph": "ornek@mail.com",
+      "phone_ph": "Opsiyonel",
+      "subject_ph": "Şunun için iletişime geçmek istiyorum…",
+      "message_ph": "Mesajını yaz…",
+      "submit": "Mesaj Gönder"
+    }
+  },
+  "ui_services": {
+    "page": {
+      "badge": "Hizmetlerim",
+      "title_html": "Fikirleri <span class=\"text-300\">sezgisel tasarımlarla</span> etkileyici kullanıcı <span class=\"text-300\">deneyimlerine</span> dönüştürüyorum",
+      "intro_html": "Mobil uygulama ve web tasarımındaki uzmanlığımla fikirleri görsel açıdan etkileyici <br /> ve kullanıcı dostu arayüzlere dönüştürüyorum. <br /> Çalışmalarımı keşfedin ve tasarımı aksiyonda görün.",
+      "tagline_fallback": "Yaratıcı. Özgün. Gerçek.",
+      "card_fallback_title": "Başlıksız",
+      "loading": "Yükleniyor...",
+      "error": "Hizmetler yüklenemedi.",
+      "empty": "Hizmet bulunamadı.",
+      "highlight_label": "Öne Çıkan",
+      "details_label": "Detaylar"
+    },
+    "section1": {
+      "heading": "Neler sunuyorum?",
+      "intro_html": "Tasarım ve teknolojiye olan ilgimle başlayan yolculuğum<br />beni UI/UX tasarımında uzmanlaşmaya yönlendirdi",
+      "error": "Hizmetler yüklenemedi.",
+      "cta_label": "Teklif Al",
+      "empty": "Hizmet bulunamadı.",
+      "loading_title": "Yükleniyor...",
+      "loading_text": "Lütfen bekleyin",
+      "card_fallback_title": "Başlıksız"
+    },
+    "section2": {
+      "badge": "İş Birliği",
+      "title_html": "İhtiyaçlarınıza uygun <span class=\"text-300\">özel tasarlanmış<br />çözümler</span>",
+      "error": "Hizmetler yüklenemedi.",
+      "learn_more": "Detaylar",
+      "empty": "Hizmet bulunamadı.",
+      "loading_title": "Yükleniyor...",
+      "loading_text": "Lütfen bekleyin",
+      "card_fallback_title": "Başlıksız",
+      "footer_text_html": "Yeni <span class=\"text-dark\">projeler</span> ve iş birlikleri için heyecanlıyım.<br />Fikirlerini konuşalım.",
+      "footer_link_label": "İletişime geç!"
+    },
+    "detail": {
+      "back_label": "Hizmetlere Dön",
+      "loading": "Yükleniyor...",
+      "error": "Hizmet yüklenemedi.",
+      "highlight_label": "Öne Çıkan",
+      "details_label": "Detaylar",
+      "description_label": "Açıklama",
+      "gallery_label": "Galeri",
+      "gallery_loading": "Yükleniyor...",
+      "gallery_empty": "Galeride görsel yok.",
+      "not_found": "Hizmet bulunamadı.",
+      "title_fallback": "Hizmet",
+      "tagline_fallback": "Yaratıcı. Özgün. Gerçek."
+    }
+  },
+  "ui_project": {
+    "projects1": {
+      "heading": "En Son Çalışmalarım",
+      "intro_html": "Çok çalışmanın ve her gün öğrenmeye çalışmanın<br />müşterilerimi memnun etme konusunda beni geliştireceğine inanıyorum.",
+      "cta_label": "Tüm Projeleri Gör",
+      "cta_short_label": "Tümünü Gör"
+    },
+    "projects2": {
+      "badge": "Projeler",
+      "heading": "Son Çalışmalarım",
+      "slide_title_html": "E-ticaret sistemine <br />Yapay Zeka entegre et",
+      "slide_description": "Kurs yönetimi, sınavlar ve ilerleme takibi içeren çevrim içi öğrenme platformu geliştirildi.",
+      "info_label": "Proje Bilgisi",
+      "client_label": "Müşteri",
+      "completion_label": "Tamamlanma Süresi",
+      "technologies_label": "Teknolojiler",
+      "live_demo_label": "Canlı Demo",
+      "github_label": "GitHub'da Gör",
+      "sample_client": "Conceptual JSC",
+      "sample_completion": "6 ay",
+      "sample_technologies": "Node.js, React, MongoDB, Stripe"
+    },
+    "work": {
+      "badge": "Son Çalışmalar",
+      "title_html": "<span class=\"text-300\">En Son Çalışmalarımı ve</span> Her Tasarımın Arkasındaki <span class=\"text-300\">İşçiliği</span> Keşfedin",
+      "intro_html": "En son çalışmalarımı ve her tasarımın arkasındaki işçiliği keşfedin: <br />yenilik ve yaratıcılığı nasıl hayata geçirdiğime detaylı bir bakış",
+      "loading_title": "Yükleniyor...",
+      "label_client": "Müşteri",
+      "label_completion_time": "Tamamlanma Süresi",
+      "label_tools": "Araçlar",
+      "updating": "Güncelleniyor...",
+      "empty_title": "Proje bulunamadı",
+      "empty_text": "Lütfen admin panelinden proje ekleyin."
+    },
+    "detail": {
+      "loading": "Yükleniyor...",
+      "not_found": "Bulunamadı",
+      "slug_prefix": "slug:",
+      "slug_missing": "slug yok",
+      "badge": "proje detayları",
+      "label_client": "Müşteri",
+      "label_start": "Başlangıç",
+      "label_complete": "Bitiş",
+      "label_services": "Hizmetler",
+      "label_website": "Web Sitesi",
+      "description_label": "Açıklama",
+      "tools_label": "Araçlar",
+      "key_features_label": "Öne Çıkan Özellikler",
+      "technologies_used_label": "Kullanılan Teknolojiler",
+      "design_highlights_label": "Tasarım Öne Çıkanları",
+      "details_label": "Detaylar",
+      "gallery_label": "Galeri"
+    }
+  },
+  "ui_blog": {
+    "blog1": {
+      "heading": "Son Blog",
+      "intro": "Sektörümüzü şekillendiren içgörüleri ve trendleri keşfedin",
+      "cta_label": "Daha fazlası",
+      "loading": "Yükleniyor...",
+      "error": "Bir şeyler ters gitti.",
+      "empty": "Yazı bulunamadı.",
+      "read_time": "3 dk okuma",
+      "category_fallback": "Blog"
+    },
+    "blog2": {
+      "badge": "Son Yazılar",
+      "heading": "Blogdan",
+      "card1_category": "CEO",
+      "card1_title": "Web Uygulamanızı Hız için Optimize Edin",
+      "card1_description": "UI/UX tasarımındaki yükselen trendlerle öne geçin.",
+      "card2_category": "Geliştirme",
+      "card2_title": "Güvenli Web Geliştirme için En İyi Uygulamalar",
+      "card2_description": "UI/UX tasarımındaki yükselen trendlerle öne geçin.",
+      "card3_category": "Trend",
+      "card3_title": "2026'da Web Geliştirme için 10 JavaScript Framework'ü",
+      "card3_description": "UI/UX tasarımındaki yükselen trendlerle öne geçin.",
+      "sample_date": "28 Mart 2026",
+      "read_time": "3 dk okuma"
+    },
+    "list": {
+      "badge": "Son Blog",
+      "title_html": "Sektörümüzü şekillendiren <span class=\"text-dark\">içgörüleri ve trendleri</span> keşfedin",
+      "intro_html": "Tasarımın geleceğini şekillendiren önemli içgörüleri ve yükselen trendleri keşfedin: <br />bu yeniliklerin sektörümüzü nasıl dönüştürdüğüne dair ayrıntılı bir bakış",
+      "loading": "Yükleniyor...",
+      "error": "Yazılar yüklenemedi.",
+      "read_time": "3 dk okuma",
+      "default_category": "Blog",
+      "empty": "Yazı bulunamadı."
+    },
+    "post": {
+      "loading": "Yükleniyor...",
+      "error": "Bir hata oluştu",
+      "empty": "Yazı bulunamadı"
+    },
+    "detail": {
+      "loading_title": "Yükleniyor...",
+      "loading_text": "Lütfen bekleyin",
+      "not_found_title": "Yazı bulunamadı",
+      "not_found_text_prefix": "Geçersiz slug:",
+      "error_title": "Bir hata oluştu",
+      "error_text": "Lütfen tekrar deneyin.",
+      "read_time_label": "16 dk okuma",
+      "by_label": "Yazar",
+      "share_label": "Paylaş",
+      "related_title": "İlgili yazılar",
+      "view_more_label": "Daha fazlası",
+      "related_empty": "İlgili yazı bulunamadı.",
+      "category_fallback": "Blog",
+      "read_time": "3 dk okuma"
+    }
+  },
+  "ui_resume": {
+    "resume1": {
+      "heading": "Özgeçmişim",
+      "intro_html": "Her gün çalışıp öğrenmenin<br />müşterilerimi memnun etme konusunda beni geliştireceğine inanıyorum.",
+      "cta_label": "İletişime geç",
+      "education_label": "Eğitim",
+      "experience_label": "Deneyim",
+      "loading": "Yükleniyor...",
+      "error": "Özgeçmiş verileri yüklenemedi.",
+      "empty_education": "Eğitim kaydı bulunamadı.",
+      "empty_experience": "Deneyim kaydı bulunamadı.",
+      "marquee_text": "Markalama . Pazarlama . Kullanıcı Arayüzü"
+    },
+    "education2": {
+      "heading": "Eğitim",
+      "loading_label": "Yükleniyor...",
+      "loading_text": "Lütfen bekleyin",
+      "error_label": "Başarısız",
+      "error_text": "Eğitim verileri yüklenemedi.",
+      "empty_label": "Kayıt yok",
+      "empty_text": "Eğitim kaydı bulunamadı.",
+      "research_heading": "Araştırmalar",
+      "research_items": [
+        {
+          "year": "2023-2024:",
+          "title": "Büyük Veri Araçlarıyla Gelişmiş Veri Analitiği",
+          "description": "Gelişmiş analizler ve içgörüler için büyük veri araçları kullanıldı."
+        },
+        {
+          "year": "2021-2013:",
+          "title": "Bulut Yerel Uygulama Mimarileri",
+          "description": "Bulut yerel uygulamaları tasarlamak için en iyi uygulamalar incelendi."
+        },
+        {
+          "year": "2019-2020:",
+          "title": "Yapay Zeka Destekli Kullanıcı Deneyimi Kişiselleştirme",
+          "description": "Davranışlara göre kullanıcı deneyimini kişiselleştirmek için yapay zeka kullanıldı."
+        }
+      ]
+    },
+    "experience2": {
+      "heading": "Eğitim",
+      "loading_label": "Yükleniyor...",
+      "loading_text": "Lütfen bekleyin",
+      "error_label": "Başarısız",
+      "error_text": "Eğitim verileri yüklenemedi.",
+      "empty_label": "Kayıt yok",
+      "empty_text": "Eğitim kaydı bulunamadı.",
+      "research_heading": "Araştırmalar",
+      "research_items": [
+        {
+          "year": "2023-2024:",
+          "title": "Büyük Veri Araçlarıyla Gelişmiş Veri Analitiği",
+          "description": "Gelişmiş analizler ve içgörüler için büyük veri araçları kullanıldı."
+        },
+        {
+          "year": "2021-2013:",
+          "title": "Bulut Yerel Uygulama Mimarileri",
+          "description": "Bulut yerel uygulamaları tasarlamak için en iyi uygulamalar incelendi."
+        },
+        {
+          "year": "2019-2020:",
+          "title": "Yapay Zeka Destekli Kullanıcı Deneyimi Kişiselleştirme",
+          "description": "Davranışlara göre kullanıcı deneyimini kişiselleştirmek için yapay zeka kullanıldı."
+        }
+      ]
+    }
+  },
+  "ui_home": {
+    "home1": {
+      "greeting": "👋 Merhaba, ben Orhan Guzel",
+      "title_html": "<span class=\"text-primary-1\">GWD</span> için dijital deneyimler",
+      "description": "GWD (guezelwebdesign.com) kurucusuyum. Bireylerin ve markaların kullanıcı odaklı dijital ürünler ve etkileşimli deneyimler oluşturmasına yardımcı oluyorum.",
+      "cta_primary": "CV indir",
+      "cta_secondary": "Beni işe al",
+      "experience_label": "+ 12 yıl profesyonel tasarım yazılımlarıyla",
+      "hero_image": "/assets/imgs/hero/hero-1/man.png",
+      "hero_image_alt": "Orhan Guzel",
+      "decor_image": "/assets/imgs/hero/hero-1/decorate.png",
+      "decor_image_alt": "Dekor"
+    },
+    "home2": {
+      "greeting": "Selam, ben Orhan Guzel",
+      "title_html": "<span class=\"text-linear-4\">GWD</span> Web &amp; App Studio kurucusu<span class=\"flicker\">_</span>",
+      "description_html": "&lt;p&gt;<span class=\"text-dark\">guezelwebdesign.com</span><span class=\"text-dark\"> altında hızlı ve güvenilir web/app deneyimleri geliştiriyorum;</span> <span class=\"text-secondary-2\">NodeJS</span>, <span class=\"text-secondary-2\">React</span>, <span class=\"text-secondary-2\">Angular</span> ve <span class=\"text-secondary-2\">Laravel</span><span class=\"text-dark\">.</span>&lt;/p&gt;",
+      "more_label": "...ve daha fazlası",
+      "cv_label": "[ CV indir ]",
+      "hero_image": "assets/imgs/home-page-2/hero-1/people.png",
+      "hero_image_alt": "Orhan Guzel",
+      "icon_image": "assets/imgs/home-page-2/hero-1/icon.svg",
+      "icon_image_alt": "Dekor"
+    }
+  },
+  "ui_skills": {
+    "skills1": {
+      "heading": "Yeteneklerim",
+      "intro_html": "Karmaşık problemleri basit ve estetik<br />çözümlere dönüştürmeyi seviyorum.",
+      "loading": "Yükleniyor...",
+      "error": "Yetenekler yüklenemedi.",
+      "empty": "Yetenek bulunamadı.",
+      "extra_intro": "Ayrıca şu programlama bilgilerine sahibim:",
+      "extra_items": [
+        "HTML",
+        "CSS",
+        "Javascript",
+        "Bootstrap",
+        "TailwindCSS"
+      ]
+    },
+    "skills2": {
+      "badge": "Yetenekler",
+      "heading": "Yeteneklerim",
+      "loading": "Yükleniyor...",
+      "error": "Yüklenemedi.",
+      "list_items": [
+        {
+          "label": "Ön Yüz:",
+          "value": "HTML, CSS, JavaScript, React, Angular"
+        },
+        {
+          "label": "Arka Uç:",
+          "value": "Node.js, Express, Python, Django"
+        },
+        {
+          "label": "Veritabanları:",
+          "value": "MySQL, PostgreSQL, MongoDB"
+        },
+        {
+          "label": "Araçlar ve Platformlar:",
+          "value": "Git, Docker, AWS, Heroku"
+        },
+        {
+          "label": "Diğerleri:",
+          "value": "RESTful API'ler, GraphQL, Agile Metodolojiler"
+        }
+      ]
+    }
+  },
+  "ui_testimonials": {
+    "headline": "Müşteri Yorumları",
+    "intro_line_1": "Her gün çalışıp öğrenmenin beni",
+    "intro_line_2": "müşterilerimi memnun etme konusunda geliştireceğine inanıyorum.",
+    "target_type": "testimonial",
+    "bucket": "11111111-1111-1111-1111-111111111111",
+    "cta_label": "",
+    "cta_href": "#",
+    "loading": "Yükleniyor...",
+    "error": "Yorumlar yüklenemedi.",
+    "empty": "Henüz yorum yok.",
+    "man_img": "/assets/imgs/testimonials/testimonials-1/man.png",
+    "decorate_img": "/assets/imgs/testimonials/testimonials-1/decorate.png"
+  },
+  "offer_pdf_labels": {
+    "title": "Teklif",
+    "quoteNo": "Teklif No",
+    "date": "Tarih",
+    "validity": "Geçerlilik",
+    "status": "Durum",
+    "customerInfo": "Müşteri Bilgileri",
+    "name": "Ad Soyad",
+    "company": "Firma",
+    "email": "E-posta",
+    "phone": "Telefon",
+    "country": "Ülke",
+    "formLanguage": "Form dili",
+    "product": "Ürün",
+    "service": "Hizmet",
+    "summary": "Teklif Özeti",
+    "subject": "Konu",
+    "noMessage": "Müşteri mesajı bulunmamaktadır.",
+    "pricing": "Fiyatlandırma",
+    "net": "Net Tutar",
+    "vat": "KDV",
+    "shipping": "Nakliye",
+    "total": "Genel Toplam",
+    "pricingEmpty": "Fiyatlandırma henüz eklenmemiştir; bu belge ön teklif niteliğindedir.",
+    "notes": "Notlar",
+    "notesLegalTemplate": "Bu belge bilgilendirme amaçlıdır. Nihai fiyat ve ticari koşullar, {{validUntilPart}}Ensotek tarafından yazılı olarak onaylandığında geçerli olacaktır.",
+    "validUntilPartTemplate": "{{validUntil}} tarihine kadar geçerli olup ",
+    "internalNotes": "İdari not (dahili kullanım)",
+    "footerLeftTemplate": "{{siteName}} – Otomatik Teklif Sistemi",
+    "footerRight": "Bu PDF sistem tarafından oluşturulmuştur, imza gerektirmez."
+  }
+}

@@ -70,7 +70,7 @@ VALUES
       '<h3>4. Your Rights</h3>',
       '<p>You may request access, correction, or deletion of your data at any time.</p>',
       '<h3>5. Contact</h3>',
-      '<p>For privacy requests, contact us at contact@guezelwebdesign.com.</p>'
+      '<p>For privacy requests, contact us at orhanguzell@gmail.com.</p>'
     ), '"', '\"'), '\n', '\\n'), '\r', ''),
     '"}'
   ),
@@ -109,7 +109,7 @@ VALUES
       '<h3>4. Haklarınız</h3>',
       '<p>Verilerinize erişim, düzeltme veya silme talep edebilirsiniz.</p>',
       '<h3>5. İletişim</h3>',
-      '<p>Gizlilik talepleri için contact@guezelwebdesign.com adresiyle iletişime geçin.</p>'
+      '<p>Gizlilik talepleri için orhanguzell@gmail.com adresiyle iletişime geçin.</p>'
     ), '"', '\"'), '\n', '\\n'), '\r', ''),
     '"}'
   ),
@@ -148,7 +148,7 @@ VALUES
       '<h3>4. Ihre Rechte</h3>',
       '<p>Sie können Auskunft, Berichtigung oder Löschung Ihrer Daten verlangen.</p>',
       '<h3>5. Kontakt</h3>',
-      '<p>Für Datenschutzanfragen: contact@guezelwebdesign.com</p>'
+      '<p>Für Datenschutzanfragen: orhanguzell@gmail.com</p>'
     ), '"', '\"'), '\n', '\\n'), '\r', ''),
     '"}'
   ),

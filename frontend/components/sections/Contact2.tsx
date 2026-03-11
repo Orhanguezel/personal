@@ -5,7 +5,8 @@ import React, { useMemo, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import { useGetSiteSettingByKeyQuery, useCreateContactMutation } from '@/integrations/hooks';
+import { useCreateContactMutation } from '@/integrations/hooks';
+import { useStaticSiteSetting } from '@/utils/staticSiteSettings';
 
 import {
   cx,
@@ -22,24 +23,24 @@ export default function Contact2() {
   const localeForApi = useMemo(() => resolveLocaleForApi(pathname), [pathname]);
 
   // settings: contact_info + contact_section
-  const { data: contactInfoSetting } = useGetSiteSettingByKeyQuery({
+  const { value: contactInfoSettingValue } = useStaticSiteSetting({
     key: 'contact_info',
     ...(localeForApi ? { locale: localeForApi } : {}),
   });
 
-  const { data: contactSectionSetting } = useGetSiteSettingByKeyQuery({
+  const { value: contactSectionSettingValue } = useStaticSiteSetting({
     key: 'contact_section',
     ...(localeForApi ? { locale: localeForApi } : {}),
   });
 
   const contactInfo: ContactInfo = useMemo(
-    () => normalizeContactInfoSettingValue(contactInfoSetting?.value),
-    [contactInfoSetting?.value],
+    () => normalizeContactInfoSettingValue(contactInfoSettingValue),
+    [contactInfoSettingValue],
   );
 
   const section: ContactSection = useMemo(
-    () => normalizeContactSectionSettingValue(contactSectionSetting?.value),
-    [contactSectionSetting?.value],
+    () => normalizeContactSectionSettingValue(contactSectionSettingValue),
+    [contactSectionSettingValue],
   );
 
   // values (fallbacks)
@@ -209,26 +210,26 @@ export default function Contact2() {
             </div>
 
             <div className="col-lg-5 d-flex flex-column ps-lg-8">
-              <div className="d-flex align-items-center mb-3 position-relative d-inline-flex">
-                <div className="d-inline-block">
-                  <div className="icon-flip flex-nowrap icon-shape icon-xxl border border-1 rounded-3 bg-3">
-                    <i className="ri-phone-fill text-primary-2 fs-26" />
+              {phone ? (
+                <div className="d-flex align-items-center mb-3 position-relative d-inline-flex">
+                  <div className="d-inline-block">
+                    <div className="icon-flip flex-nowrap icon-shape icon-xxl border border-1 rounded-3 bg-3">
+                      <i className="ri-phone-fill text-primary-2 fs-26" />
+                    </div>
                   </div>
-                </div>
-                <div className="ps-3 h-100">
-                  <span className="text-400 fs-6">
-                    {section.cards?.phone_label || 'Phone Number'}
-                  </span>
-                  <h6 className="mb-0">{phone || '-'}</h6>
-                </div>
-                {phone ? (
+                  <div className="ps-3 h-100">
+                    <span className="text-400 fs-6">
+                      {section.cards?.phone_label || 'Phone Number'}
+                    </span>
+                    <h6 className="mb-0">{phone}</h6>
+                  </div>
                   <Link
                     href={`tel:${phone}`}
                     className="position-absolute top-0 start-0 w-100 h-100"
                     aria-label="Phone"
                   />
-                ) : null}
-              </div>
+                </div>
+              ) : null}
 
               <div className="d-flex align-items-center mb-3 position-relative d-inline-flex">
                 <div className="d-inline-block">
@@ -249,24 +250,24 @@ export default function Contact2() {
                 ) : null}
               </div>
 
-              <div className="d-flex align-items-center mb-3 position-relative d-inline-flex">
-                <div className="d-inline-block">
-                  <div className="icon-flip flex-nowrap icon-shape icon-xxl border border-1 rounded-3 bg-3">
-                    <i className="ri-skype-fill text-primary-2 fs-26" />
+              {skype ? (
+                <div className="d-flex align-items-center mb-3 position-relative d-inline-flex">
+                  <div className="d-inline-block">
+                    <div className="icon-flip flex-nowrap icon-shape icon-xxl border border-1 rounded-3 bg-3">
+                      <i className="ri-skype-fill text-primary-2 fs-26" />
+                    </div>
                   </div>
-                </div>
-                <div className="ps-3 h-100">
-                  <span className="text-400 fs-6">{section.cards?.skype_label || 'Skype'}</span>
-                  <h6 className="mb-0">{skype || '-'}</h6>
-                </div>
-                {skype ? (
+                  <div className="ps-3 h-100">
+                    <span className="text-400 fs-6">{section.cards?.skype_label || 'Skype'}</span>
+                    <h6 className="mb-0">{skype}</h6>
+                  </div>
                   <Link
                     href={`skype:${encodeURIComponent(skype)}?chat`}
                     className="position-absolute top-0 start-0 w-100 h-100"
                     aria-label="Skype"
                   />
-                ) : null}
-              </div>
+                </div>
+              ) : null}
 
               <div className="d-flex align-items-center mb-3 position-relative d-inline-flex">
                 <div className="d-inline-block">

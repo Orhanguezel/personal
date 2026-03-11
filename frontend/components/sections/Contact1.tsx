@@ -5,7 +5,8 @@ import React, { useMemo, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import { useGetSiteSettingByKeyQuery, useCreateContactMutation } from '@/integrations/hooks';
+import { useCreateContactMutation } from '@/integrations/hooks';
+import { useStaticSiteSetting } from '@/utils/staticSiteSettings';
 
 import {
   cx,
@@ -23,24 +24,24 @@ export default function Contact1() {
   const localeForLinks = useMemo(() => resolveLocaleForLinks(pathname, 'de'), [pathname]);
   const localeForApi = useMemo(() => resolveLocaleForApi(pathname), [pathname]);
 
-  const { data: contactInfoSetting } = useGetSiteSettingByKeyQuery({
+  const { value: contactInfoSettingValue } = useStaticSiteSetting({
     key: 'contact_info',
     ...(localeForApi ? { locale: localeForApi } : {}),
   });
 
-  const { data: contactSectionSetting } = useGetSiteSettingByKeyQuery({
+  const { value: contactSectionSettingValue } = useStaticSiteSetting({
     key: 'contact_section',
     ...(localeForApi ? { locale: localeForApi } : {}),
   });
 
   const contactInfo: ContactInfo = useMemo(
-    () => normalizeContactInfoSettingValue(contactInfoSetting?.value),
-    [contactInfoSetting?.value],
+    () => normalizeContactInfoSettingValue(contactInfoSettingValue),
+    [contactInfoSettingValue],
   );
 
   const section: ContactSection = useMemo(
-    () => normalizeContactSectionSettingValue(contactSectionSetting?.value),
-    [contactSectionSetting?.value],
+    () => normalizeContactSectionSettingValue(contactSectionSettingValue),
+    [contactSectionSettingValue],
   );
 
   const phone = (contactInfo.phone || contactInfo.phones?.[0] || '').trim();
@@ -94,7 +95,7 @@ export default function Contact1() {
       className="section-contact-1 bg-900 position-relative pt-150 pb-lg-250 pb-150 overflow-hidden"
     >
       <div className="container position-relative z-1">
-        <h3 className="ds-3 mt-3 mb-3 text-primary-1">{section.headline || 'Get in touch'}</h3>
+        <h2 className="ds-3 mt-3 mb-3 text-primary-1">{section.headline || 'Get in touch'}</h2>
 
         <span className="fs-5 fw-medium text-200">
           {section.intro ||
@@ -104,24 +105,24 @@ export default function Contact1() {
         <div className="row mt-8">
           <div className="col-lg-4 d-flex flex-column">
             {/* PHONE */}
-            <div className="d-flex align-items-center mb-4 position-relative d-inline-flex">
-              <div className="bg-white icon-flip position-relative icon-shape icon-xxl border-linear-2 border-2 rounded-4">
-                <i className="ri-phone-fill text-primary-1 fs-26" />
-              </div>
-              <div className="ps-3">
-                <span className="text-400 fs-5">
-                  {section.cards?.phone_label || 'Phone Number'}
-                </span>
-                <h6 className="mb-0">{phone || '-'}</h6>
-              </div>
-              {phone ? (
+            {phone ? (
+              <div className="d-flex align-items-center mb-4 position-relative d-inline-flex">
+                <div className="bg-white icon-flip position-relative icon-shape icon-xxl border-linear-2 border-2 rounded-4">
+                  <i className="ri-phone-fill text-primary-1 fs-26" />
+                </div>
+                <div className="ps-3">
+                  <span className="text-400 fs-5">
+                    {section.cards?.phone_label || 'Phone Number'}
+                  </span>
+                  <h3 className="h6 mb-0">{phone}</h3>
+                </div>
                 <Link
                   href={`tel:${phone}`}
                   className="position-absolute top-0 start-0 w-100 h-100"
                   aria-label="Phone"
                 />
-              ) : null}
-            </div>
+              </div>
+            ) : null}
 
             {/* EMAIL */}
             <div className="d-flex align-items-center mb-4 position-relative d-inline-flex">
@@ -130,7 +131,7 @@ export default function Contact1() {
               </div>
               <div className="ps-3">
                 <span className="text-400 fs-5">{section.cards?.email_label || 'Email'}</span>
-                <h6 className="mb-0">{email || '-'}</h6>
+                <h3 className="h6 mb-0">{email || '-'}</h3>
               </div>
               {email ? (
                 <Link
@@ -142,22 +143,22 @@ export default function Contact1() {
             </div>
 
             {/* SKYPE */}
-            <div className="d-flex align-items-center mb-4 position-relative d-inline-flex">
-              <div className="bg-white icon-flip position-relative icon-shape icon-xxl border-linear-2 border-2 rounded-4">
-                <i className="ri-skype-fill text-primary-1 fs-26" />
-              </div>
-              <div className="ps-3">
-                <span className="text-400 fs-5">{section.cards?.skype_label || 'Skype'}</span>
-                <h6 className="mb-0">{skype || '-'}</h6>
-              </div>
-              {skype ? (
+            {skype ? (
+              <div className="d-flex align-items-center mb-4 position-relative d-inline-flex">
+                <div className="bg-white icon-flip position-relative icon-shape icon-xxl border-linear-2 border-2 rounded-4">
+                  <i className="ri-skype-fill text-primary-1 fs-26" />
+                </div>
+                <div className="ps-3">
+                  <span className="text-400 fs-5">{section.cards?.skype_label || 'Skype'}</span>
+                  <h3 className="h6 mb-0">{skype}</h3>
+                </div>
                 <Link
                   href={`skype:${encodeURIComponent(skype)}?chat`}
                   className="position-absolute top-0 start-0 w-100 h-100"
                   aria-label="Skype"
                 />
-              ) : null}
-            </div>
+              </div>
+            ) : null}
 
             {/* ADDRESS */}
             <div className="d-flex align-items-center mb-4 position-relative d-inline-flex">
@@ -166,7 +167,7 @@ export default function Contact1() {
               </div>
               <div className="ps-3">
                 <span className="text-400 fs-5">{section.cards?.address_label || 'Address'}</span>
-                <h6 className="mb-0">{address || '-'}</h6>
+                <h3 className="h6 mb-0">{address || '-'}</h3>
               </div>
               {address ? (
                 <Link
@@ -239,7 +240,7 @@ export default function Contact1() {
                         className="form-control border rounded-3"
                         id="phone"
                         name="phone"
-                        placeholder={section.form?.phone_ph || '+49 000 000 00 00'}
+                        placeholder={section.form?.phone_ph || 'Optional'}
                         value={phoneInput}
                         onChange={(e) => setPhoneInput(e.target.value)}
                       />

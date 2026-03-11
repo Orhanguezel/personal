@@ -4,7 +4,7 @@ import React, { useMemo } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import { useGetSiteSettingByKeyQuery } from '@/integrations/hooks';
+import { useStaticSiteSetting } from '@/utils/staticSiteSettings';
 import {
   cx,
   isRemoteUrl,
@@ -35,25 +35,25 @@ export default function OffCanvas({ isOffCanvas, handleOffCanvas }: OffCanvasPro
     [brandShort, mediaBrandName],
   );
 
-  const { data: contactSetting } = useGetSiteSettingByKeyQuery(
-    { key: 'contact_info', locale: localeForApi, default_locale: 'de' },
-    { skip: !localeForApi },
-  );
+  const { value: contactSettingValue } = useStaticSiteSetting({
+    key: 'contact_info',
+    locale: localeForApi,
+  });
 
-  const { data: socialsSetting } = useGetSiteSettingByKeyQuery(
-    { key: 'socials', locale: localeForApi, default_locale: 'de' },
-    { skip: !localeForApi },
-  );
+  const { value: socialsSettingValue } = useStaticSiteSetting({
+    key: 'socials',
+    locale: localeForApi,
+  });
 
   // İsteğe bağlı: panel metinleri için ayrı key (yoksa fallback)
-  const { data: panelSetting } = useGetSiteSettingByKeyQuery(
-    { key: 'offcanvas_panel', locale: localeForApi, default_locale: 'de' },
-    { skip: !localeForApi },
-  );
+  const { value: panelSettingValue } = useStaticSiteSetting({
+    key: 'offcanvas_panel',
+    locale: localeForApi,
+  });
 
-  const contact = useMemo(() => parseJsonObject(contactSetting?.value), [contactSetting?.value]);
-  const socials = useMemo(() => parseJsonObject(socialsSetting?.value), [socialsSetting?.value]);
-  const panel = useMemo(() => parseJsonObject(panelSetting?.value), [panelSetting?.value]);
+  const contact = useMemo(() => parseJsonObject(contactSettingValue), [contactSettingValue]);
+  const socials = useMemo(() => parseJsonObject(socialsSettingValue), [socialsSettingValue]);
+  const panel = useMemo(() => parseJsonObject(panelSettingValue), [panelSettingValue]);
 
   const headline = useMemo(
     () => safeText(pickStr(panel, ['headline', 'title'], ''), 'Get in touch'),
@@ -71,23 +71,17 @@ export default function OffCanvas({ isOffCanvas, handleOffCanvas }: OffCanvasPro
 
   const phone = useMemo(() => {
     const raw = pickStr(contact, ['phone', 'phoneNumber', 'whatsappNumber'], '');
-    return safeText(raw, '+1-234-567-8901');
+    return safeText(raw);
   }, [contact]);
 
   const email = useMemo(() => {
     const raw = pickStr(contact, ['email'], '');
-    return safeText(raw, 'contact@guezelwebdesign.com');
+    return safeText(raw, 'orhanguzell@gmail.com');
   }, [contact]);
 
-  const skype = useMemo(
-    () => safeText(pickStr(contact, ['skype'], ''), 'GuezelWebDesign'),
-    [contact],
-  );
+  const skype = useMemo(() => safeText(pickStr(contact, ['skype'], '')), [contact]);
 
-  const address = useMemo(
-    () => safeText(pickStr(contact, ['address'], ''), 'Berlin, Germany'),
-    [contact],
-  );
+  const address = useMemo(() => safeText(pickStr(contact, ['address'], ''), 'Grevenbroich, Germany'), [contact]);
 
   const socialLinks = useMemo(() => {
     const entries: Array<{ key: string; url: string; icon: string; label: string }> = [
@@ -135,9 +129,13 @@ export default function OffCanvas({ isOffCanvas, handleOffCanvas }: OffCanvasPro
   return (
     <>
       {/* offCanvas-menu */}
-      <div className={cx('offCanvas__info', isOffCanvas && 'active')}>
+      <div
+        id="offCanvas__info"
+        className={cx('offCanvas__info', isOffCanvas && 'active')}
+        aria-hidden={!isOffCanvas}
+      >
         <div className="offCanvas__close-icon menu-close" onClick={handleOffCanvas}>
-          <button>
+          <button aria-label="Close menu">
             <i className="ri-close-line" />
           </button>
         </div>
@@ -151,32 +149,38 @@ export default function OffCanvas({ isOffCanvas, handleOffCanvas }: OffCanvasPro
             <SiteLogo className="me-2" alt={brandLabel} sizes="36px" />
             <span className="fs-4 ms-2 text-white-keep">{brandLabel}</span>
           </Link>
-          <h3 className="mb-0">{headline}</h3>
+          <p className="h3 mb-0">{headline}</p>
         </div>
 
         <div className="offCanvas__side-info mb-30">
           <div className="contact-list mb-30">
             <p className="fs-6 fw-medium text-200 mb-5">{intro}</p>
 
-            <div className="mb-3">
-              <span className="text-400 fs-5">Phone Number</span>
-              <p className="mb-0">{phone}</p>
-            </div>
+            {phone ? (
+              <div className="mb-3">
+                <span className="text-400 fs-5">Phone Number</span>
+                <p className="mb-0">{phone}</p>
+              </div>
+            ) : null}
 
             <div className="mb-3">
               <span className="text-400 fs-5">Email</span>
               <p className="mb-0">{email}</p>
             </div>
 
-            <div className="mb-3">
-              <span className="text-400 fs-5">Skype</span>
-              <p className="mb-0">{skype}</p>
-            </div>
+            {skype ? (
+              <div className="mb-3">
+                <span className="text-400 fs-5">Skype</span>
+                <p className="mb-0">{skype}</p>
+              </div>
+            ) : null}
 
-            <div className="mb-3">
-              <span className="text-400 fs-5">Address</span>
-              <p className="mb-0">{address}</p>
-            </div>
+            {address ? (
+              <div className="mb-3">
+                <span className="text-400 fs-5">Address</span>
+                <p className="mb-0">{address}</p>
+              </div>
+            ) : null}
           </div>
 
           <div className="contact-list">

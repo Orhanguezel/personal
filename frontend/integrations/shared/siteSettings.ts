@@ -1253,14 +1253,14 @@ export function normalizeUiHome3SettingValue(value: unknown): UiHome3Copy {
     contact: {
       heading: pick(contact, 'heading', 'Contact me', 'contact_heading'),
       form_title: pick(contact, 'form_title', "Let's connect", 'contact_form_title'),
-      phone: pick(contact, 'phone', '+49 000 000 00 00', 'contact_phone'),
-      email: pick(contact, 'email', 'contact@guezelwebdesign.com', 'contact_email'),
-      skype: pick(contact, 'skype', 'GuezelWebDesign', 'contact_skype'),
-      address: pick(contact, 'address', 'Berlin, Germany', 'contact_address'),
+      phone: pick(contact, 'phone', '', 'contact_phone'),
+      email: pick(contact, 'email', 'orhanguzell@gmail.com', 'contact_email'),
+      skype: pick(contact, 'skype', '', 'contact_skype'),
+      address: pick(contact, 'address', 'Grevenbroich, Germany', 'contact_address'),
       map_href: pick(
         contact,
         'map_href',
-        'https://www.google.com/maps?q=Berlin',
+        'https://www.google.com/maps?q=Grevenbroich',
         'contact_map_href',
       ),
     },
@@ -1488,24 +1488,24 @@ export function normalizeUiCoporationSettingValue(value: unknown): UiCoporationC
   const avatar_alt = pick(contact, 'avatar_alt', 'Orhan Guzel', 'contact_avatar_alt');
 
   const skype_label = pick(contact, 'skype_label', '[skype]', 'contact_skype_label');
-  const skype_value = pick(contact, 'skype_value', 'GuezelWebDesign', 'contact_skype_value');
+  const skype_value = pick(contact, 'skype_value', '', 'contact_skype_value');
   const skype_href = pick(contact, 'skype_href', '#', 'contact_skype_href');
 
   const phone_label = pick(contact, 'phone_label', '[phone]', 'contact_phone_label');
-  const phone_value = pick(contact, 'phone_value', '+49 000 000 00 00', 'contact_phone_value');
-  const phone_href = pick(contact, 'phone_href', 'tel:+490000000000', 'contact_phone_href');
+  const phone_value = pick(contact, 'phone_value', '', 'contact_phone_value');
+  const phone_href = pick(contact, 'phone_href', '#', 'contact_phone_href');
 
   const email_label = pick(contact, 'email_label', '[email]', 'contact_email_label');
   const email_value = pick(
     contact,
     'email_value',
-    'contact@guezelwebdesign.com',
+    'orhanguzell@gmail.com',
     'contact_email_value',
   );
   const email_href = pick(
     contact,
     'email_href',
-    'mailto:contact@guezelwebdesign.com',
+    'mailto:orhanguzell@gmail.com',
     'contact_email_href',
   );
 
