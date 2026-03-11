@@ -7,6 +7,8 @@ import { normalizeLocaleParam, unwrapRouteParams } from '@/i18n/localeParam';
 import { getSeoPage, SEO_PAGE_KEYS, buildMetadata } from '@/seo';
 import { getProjectsListServer } from '@/utils/publicLists.server';
 
+export const dynamic = 'force-dynamic';
+
 export default async function Work({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const safeLocale = normalizeLocaleParam(locale);
