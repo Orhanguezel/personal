@@ -3,7 +3,8 @@ module.exports = {
     {
       name: 'guezelwebdesign-frontend',
       cwd: '/var/www/guezelwebdesign/frontend',
-      script: 'npm',
+      interpreter: 'none',
+      script: '/usr/bin/npm',
       args: 'start -- -p 3044 -H 127.0.0.1',
 
       exec_mode: 'fork',
