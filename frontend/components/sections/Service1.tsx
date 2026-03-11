@@ -10,8 +10,12 @@
 import Link from 'next/link';
 import { useEffect, useMemo } from 'react';
 
-import { useGetSiteSettingByKeyQuery, useListServicesPublicQuery } from '@/integrations/hooks';
+import { useListServicesPublicQuery } from '@/integrations/hooks';
 import { safeParseServiceContent, normalizeUiServicesSettingValue } from '@/integrations/shared';
+import { ServiceDto } from '@/integrations/shared';
+import { useStaticSiteSetting } from '@/utils/staticSiteSettings';
+
+import ServiceCard from './ServiceCard';
 
 type CardVM = {
   key: string;
@@ -72,8 +76,8 @@ function normalizeHoverImgUrl(raw: string | null | undefined, fallbackIdx: numbe
   return `${apiBase}/${s0}`;
 }
 
-export default function Service1({ locale }: { locale: string }) {
-  const { data: uiSetting } = useGetSiteSettingByKeyQuery({
+export default function Service1({ locale, initialData }: { locale: string; initialData?: ServiceDto[] }) {
+  const { data: uiSetting } = useStaticSiteSetting({
     key: 'ui_services',
     locale,
   });
@@ -89,10 +93,10 @@ export default function Service1({ locale }: { locale: string }) {
     limit: 4,
     offset: 0,
     order: 'display_order.asc',
-  });
+  }, { skip: !!initialData && initialData.length > 0 });
 
-  const items = data?.items ?? [];
-  const showBusy = isLoading || isFetching;
+  const items = initialData && initialData.length > 0 ? initialData : (data?.items ?? []);
+  const showBusy = !initialData && (isLoading || isFetching);
 
   const cards: CardVM[] = useMemo(() => {
     // Placeholder 4 kart (stil bozulmasın)
@@ -134,20 +138,45 @@ export default function Service1({ locale }: { locale: string }) {
     });
   }, [items, locale, showBusy, ui]);
 
-  // Hover wrapper background'larını data-img'e senkronla (data load sonrası)
+  // Hover gorsellerini idle zamanda hafifce prefetch et (ilk 4 kart)
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    const t = window.setTimeout(() => {
-      const els = document.querySelectorAll<HTMLElement>('.tg-img-reveal-item[data-fx="1"]');
-      els.forEach((el) => {
-        const imgEl = el.querySelector<HTMLElement>('.tg-img-reveal-wrapper__img');
-        if (!imgEl) return;
-        const dataImg = el.dataset.img || '';
-        imgEl.style.backgroundImage = dataImg ? `url(${dataImg})` : '';
-      });
-    }, 0);
 
-    return () => window.clearTimeout(t);
+    const urls = cards
+      .map((c) => String(c.img || '').trim())
+      .filter(Boolean)
+      .slice(0, 4);
+
+    if (!urls.length) return;
+
+    let cancelled = false;
+
+    const preload = () => {
+      if (cancelled) return;
+      urls.forEach((src) => {
+        const img = new Image();
+        img.decoding = 'async';
+        img.src = src;
+      });
+    };
+
+    const ric = (window as any).requestIdleCallback as
+      | ((cb: () => void, opts?: { timeout: number }) => number)
+      | undefined;
+
+    let handle: number | undefined;
+
+    if (ric) {
+      handle = ric(preload, { timeout: 1500 });
+    } else {
+      handle = window.setTimeout(preload, 600);
+    }
+
+    return () => {
+      cancelled = true;
+      if (ric && handle) (window as any).cancelIdleCallback?.(handle);
+      else if (handle) window.clearTimeout(handle);
+    };
   }, [cards]);
 
   return (
@@ -156,7 +185,7 @@ export default function Service1({ locale }: { locale: string }) {
         <div className="container">
           <div className="row align-items-end">
             <div className="col-lg-7 me-auto">
-              <h3 className="ds-3 mt-3 mb-3 text-primary-1">{ui.section1.heading}</h3>
+              <h2 className="ds-3 mt-3 mb-3 text-primary-1">{ui.section1.heading}</h2>
               <span
                 className="fs-5 fw-medium text-200"
                 dangerouslySetInnerHTML={{ __html: ui.section1.intro_html }}
@@ -185,40 +214,15 @@ export default function Service1({ locale }: { locale: string }) {
               const isLast = idx === cards.length - 1;
 
               return (
-                <div key={c.key} className="col-12">
-                  <div
-                    className={[
-                      'single-service-card-1',
-                      'tg-img-reveal-item',
-                      'w-100',
-                      'border-top',
-                      'border-900',
-                      'p-3',
-                      isLast ? 'border-bottom' : '',
-                    ].join(' ')}
-                    data-fx={1}
-                    data-img={c.img}
-                  >
-                    <div className="service-card-details d-lg-flex align-items-center">
-                      <h3 className="service-card-title w-lg-50 w-100 mb-0">
-                        <Link href={c.href}>
-                          <span className="service-number">{c.numberText}</span>
-                          {c.title}
-                        </Link>
-                      </h3>
-
-                      <Link
-                        href={c.href}
-                        className="d-md-flex d-block ps-lg-10 align-items-center justify-content-end w-100"
-                      >
-                        <p className="service-card-text my-3">{c.text}</p>
-                        <div className="service-card-icon icon-shape ms-auto icon-md rounded-circle border">
-                          <i className="ri-arrow-right-up-line" />
-                        </div>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
+                <ServiceCard
+                  key={c.key}
+                  href={c.href}
+                  numberText={c.numberText}
+                  title={c.title}
+                  text={c.text}
+                  img={c.img}
+                  isLast={isLast}
+                />
               );
             })}
 
