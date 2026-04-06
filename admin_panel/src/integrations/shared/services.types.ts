@@ -62,6 +62,10 @@ export interface ApiServiceBase {
   is_active: 0 | 1;
   display_order: number;
 
+  price_onetime: string | null;
+  currency: string;
+  is_purchasable: 0 | 1;
+
   // cover (legacy + storage)
   featured_image: string | null;
   image_url: string | null;
@@ -99,6 +103,10 @@ export interface ServiceDto {
   featured: boolean;
   is_active: boolean;
   display_order: number;
+
+  price_onetime: string | null;
+  currency: string;
+  is_purchasable: boolean;
 
   featured_image: string | null;
   image_url: string | null;
@@ -195,6 +203,10 @@ export interface ServiceCreatePayload {
   is_active?: BoolLike;
   display_order?: number;
 
+  price_onetime?: string | number | null;
+  currency?: string;
+  is_purchasable?: BoolLike;
+
   featured_image?: string | null;
   image_url?: string | null;
   image_asset_id?: string | null;
@@ -220,6 +232,10 @@ export interface ServiceUpdatePayload {
   featured?: BoolLike;
   is_active?: BoolLike;
   display_order?: number;
+
+  price_onetime?: string | number | null;
+  currency?: string;
+  is_purchasable?: BoolLike;
 
   featured_image?: string | null;
   image_url?: string | null;
@@ -293,6 +309,8 @@ export type ServiceFormValues = {
 
   // Service-specific form fields (optional)
   price?: string;
+  currency: string;
+  is_purchasable: boolean;
   material?: string;
   includes?: string;
   warranty?: string;
@@ -344,6 +362,10 @@ export const normalizeService = (row: ApiServiceBase): ServiceDto => ({
   featured: row.featured === 1,
   is_active: row.is_active === 1,
   display_order: row.display_order,
+
+  price_onetime: row.price_onetime ?? null,
+  currency: row.currency ?? 'EUR',
+  is_purchasable: row.is_purchasable === 1,
 
   featured_image: row.featured_image,
   image_url: row.image_url,

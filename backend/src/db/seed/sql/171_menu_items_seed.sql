@@ -46,6 +46,8 @@ SET @m_services := UUID();
 SET @m_work     := UUID();
 SET @m_pricing  := UUID();
 SET @m_blog     := UUID();
+SET @m_faq      := UUID();
+SET @m_testimonials := UUID();
 SET @m_contact  := UUID();
 
 INSERT INTO menu_items
@@ -56,6 +58,8 @@ VALUES
   (@m_work,     NULL, 'custom', NULL, 'header', NULL, NULL, 30, 1, NOW(3), NOW(3)),
   (@m_pricing,  NULL, 'custom', NULL, 'header', NULL, NULL, 40, 1, NOW(3), NOW(3)),
   (@m_blog,     NULL, 'custom', NULL, 'header', NULL, NULL, 50, 1, NOW(3), NOW(3)),
+  (@m_faq,      NULL, 'custom', NULL, 'header', NULL, NULL, 55, 1, NOW(3), NOW(3)),
+  (@m_testimonials, NULL, 'custom', NULL, 'header', NULL, NULL, 57, 1, NOW(3), NOW(3)),
   (@m_contact,  NULL, 'custom', NULL, 'header', NULL, NULL, 60, 1, NOW(3), NOW(3));
 
 -- -------------------------------------------------------------
@@ -89,6 +93,16 @@ VALUES
   (UUID(), @m_blog, 'de', 'Blog', '/blog', NOW(3), NOW(3)),
   (UUID(), @m_blog, 'tr', 'Blog', '/blog', NOW(3), NOW(3)),
 
+  -- FAQ
+  (UUID(), @m_faq, 'en', 'FAQ', '/faq', NOW(3), NOW(3)),
+  (UUID(), @m_faq, 'de', 'FAQ', '/faq', NOW(3), NOW(3)),
+  (UUID(), @m_faq, 'tr', 'SSS', '/faq', NOW(3), NOW(3)),
+
+  -- TESTIMONIALS (reviews)
+  (UUID(), @m_testimonials, 'en', 'Reviews', '/testimonials', NOW(3), NOW(3)),
+  (UUID(), @m_testimonials, 'de', 'Kundenstimmen', '/testimonials', NOW(3), NOW(3)),
+  (UUID(), @m_testimonials, 'tr', 'Yorumlar', '/testimonials', NOW(3), NOW(3)),
+
   -- CONTACT (hash)
   (UUID(), @m_contact, 'en', 'Contact', '/#contact', NOW(3), NOW(3)),
   (UUID(), @m_contact, 'de', 'Kontakt', '/#contact', NOW(3), NOW(3)),
@@ -107,12 +121,15 @@ SET @f_services := UUID();
 SET @f_work     := UUID();
 SET @f_pricing  := UUID();
 SET @f_blog     := UUID();
+SET @f_faq      := UUID();
+SET @f_testimonials := UUID();
 SET @f_contact  := UUID();
 
 SET @f_svc_uiux   := UUID();
 SET @f_svc_mobile := UUID();
 SET @f_svc_web    := UUID();
 
+SET @f_legal_impressum := UUID();
 SET @f_legal_privacy := UUID();
 SET @f_legal_kvkk    := UUID();
 SET @f_legal_terms   := UUID();
@@ -126,6 +143,8 @@ VALUES
   (@f_work,     NULL, 'custom', NULL, 'footer', @sec_quick, NULL, 30, 1, NOW(3), NOW(3)),
   (@f_pricing,  NULL, 'custom', NULL, 'footer', @sec_quick, NULL, 40, 1, NOW(3), NOW(3)),
   (@f_blog,     NULL, 'custom', NULL, 'footer', @sec_quick, NULL, 50, 1, NOW(3), NOW(3)),
+  (@f_faq,      NULL, 'custom', NULL, 'footer', @sec_quick, NULL, 55, 1, NOW(3), NOW(3)),
+  (@f_testimonials, NULL, 'custom', NULL, 'footer', @sec_quick, NULL, 57, 1, NOW(3), NOW(3)),
   (@f_contact,  NULL, 'custom', NULL, 'footer', @sec_quick, NULL, 60, 1, NOW(3), NOW(3)),
 
   -- Services
@@ -134,6 +153,7 @@ VALUES
   (@f_svc_web,    NULL, 'custom', NULL, 'footer', @sec_services, NULL, 30, 1, NOW(3), NOW(3)),
 
   -- Legal
+  (@f_legal_impressum, NULL, 'custom', NULL, 'footer', @sec_legal, NULL, 5, 1, NOW(3), NOW(3)),
   (@f_legal_privacy, NULL, 'custom', NULL, 'footer', @sec_legal, NULL, 10, 1, NOW(3), NOW(3)),
   (@f_legal_kvkk,    NULL, 'custom', NULL, 'footer', @sec_legal, NULL, 20, 1, NOW(3), NOW(3)),
   (@f_legal_terms,   NULL, 'custom', NULL, 'footer', @sec_legal, NULL, 30, 1, NOW(3), NOW(3));
@@ -162,6 +182,14 @@ VALUES
   (UUID(), @f_blog, 'de', 'Blog', '/blog', NOW(3), NOW(3)),
   (UUID(), @f_blog, 'tr', 'Blog', '/blog', NOW(3), NOW(3)),
 
+  (UUID(), @f_faq, 'en', 'FAQ', '/faq', NOW(3), NOW(3)),
+  (UUID(), @f_faq, 'de', 'FAQ', '/faq', NOW(3), NOW(3)),
+  (UUID(), @f_faq, 'tr', 'SSS', '/faq', NOW(3), NOW(3)),
+
+  (UUID(), @f_testimonials, 'en', 'Reviews', '/testimonials', NOW(3), NOW(3)),
+  (UUID(), @f_testimonials, 'de', 'Kundenstimmen', '/testimonials', NOW(3), NOW(3)),
+  (UUID(), @f_testimonials, 'tr', 'Yorumlar', '/testimonials', NOW(3), NOW(3)),
+
   (UUID(), @f_contact, 'en', 'Contact', '/#contact', NOW(3), NOW(3)),
   (UUID(), @f_contact, 'de', 'Kontakt', '/#contact', NOW(3), NOW(3)),
   (UUID(), @f_contact, 'tr', 'İletişim','/#contact', NOW(3), NOW(3)),
@@ -180,6 +208,10 @@ VALUES
   (UUID(), @f_svc_web, 'tr', 'Web Geliştirme', '/services/web-gelistirme', NOW(3), NOW(3)),
 
   -- Legal / Policy
+  (UUID(), @f_legal_impressum, 'en', 'Legal Notice', '/impressum', NOW(3), NOW(3)),
+  (UUID(), @f_legal_impressum, 'de', 'Impressum', '/impressum', NOW(3), NOW(3)),
+  (UUID(), @f_legal_impressum, 'tr', 'Yasal Bildirim', '/impressum', NOW(3), NOW(3)),
+
   (UUID(), @f_legal_privacy, 'en', 'Privacy Policy', '/custompages/policy/privacy-policy', NOW(3), NOW(3)),
   (UUID(), @f_legal_privacy, 'de', 'Datenschutzrichtlinie', '/custompages/policy/datenschutz', NOW(3), NOW(3)),
   (UUID(), @f_legal_privacy, 'tr', 'Gizlilik Politikası', '/custompages/policy/gizlilik-politikasi', NOW(3), NOW(3)),

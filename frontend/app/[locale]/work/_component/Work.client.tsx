@@ -8,8 +8,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useMemo } from 'react';
 
-import { useListProjectsPublicQuery } from '@/integrations/hooks';
-import { useStaticSiteSetting } from '@/utils/staticSiteSettings';
+import { useGetSiteSettingByKeyQuery, useListProjectsPublicQuery } from '@/integrations/hooks';
 import type { Project } from '@/integrations/shared';
 import { normalizeStringArray, contentToSummary, normalizeUiProjectSettingValue } from '@/integrations/shared';
 import { shouldUnoptimizeImage } from '@/utils/nextImage';
@@ -21,21 +20,26 @@ export default function WorkClient({
   locale: string;
   initialItems?: Project[];
 }) {
-  const { value: uiSettingValue } = useStaticSiteSetting({
+  const { data: uiSetting } = useGetSiteSettingByKeyQuery({
     key: 'ui_project',
     locale,
   });
 
-  const ui = useMemo(() => normalizeUiProjectSettingValue(uiSettingValue), [uiSettingValue]);
+  const ui = useMemo(() => normalizeUiProjectSettingValue(uiSetting?.value), [uiSetting?.value]);
   const copy = ui.work;
 
-  const { data, isLoading, isFetching } = useListProjectsPublicQuery({
-    orderBy: 'display_order',
-    orderDir: 'asc',
-    view: 'card',
-    limit: 200,
-    locale,
-  });
+  const hasServerList = initialItems.length > 0;
+
+  const { data, isLoading, isFetching } = useListProjectsPublicQuery(
+    {
+      orderBy: 'display_order',
+      orderDir: 'asc',
+      view: 'card',
+      limit: 200,
+      locale,
+    },
+    { skip: hasServerList },
+  );
 
   const items = useMemo(
     () => (Array.isArray(data) && data.length ? data : initialItems),

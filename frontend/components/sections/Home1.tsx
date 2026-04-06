@@ -51,33 +51,33 @@ export default function Home1({
 								dangerouslySetInnerHTML={{ __html: copy.title_html }}
 							/>
 							<p className="text-300 mb-6">{copy.description}</p>
-							<Link href={cvHref} className="btn btn-gradient me-2" target="_blank" rel="noopener noreferrer" aria-label="Download CV">
+							<Link href={cvHref} className="btn btn-gradient me-2" target="_blank" rel="noopener noreferrer" aria-label={copy.cta_primary}>
 								{copy.cta_primary}
 								<i className="ri-download-line ms-2" />
 							</Link>
-							<Link href="/#contact" className="btn btn-outline-secondary d-inline-flex align-items-center" aria-label="Contact Me">
+							<Link href="/#contact" className="btn btn-outline-secondary d-inline-flex align-items-center" aria-label={copy.cta_secondary}>
 								<span>{copy.cta_secondary}</span>
 								<i className="ri-arrow-right-line ms-2" />
 							</Link>
 							<p className="text-400 mt-6 mb-3">{copy.experience_label}</p>
 							<div className="d-flex gap-3">
 								<div className="brand-logo icon-xl icon-shape rounded-3 bg-900">
-									<Image src="/assets/imgs/hero/hero-1/brand-1.png" alt="Partner brand 1" width={64} height={64} sizes="64px" style={{ objectFit: 'contain', height: 'auto' }} />
+									<Image src="/assets/imgs/hero/hero-1/brand-1.png" alt="Next.js logo" width={64} height={64} sizes="64px" style={{ objectFit: 'contain', height: 'auto' }} />
 								</div>
 								<div className="brand-logo icon-xl icon-shape rounded-3 bg-900">
-									<Image src="/assets/imgs/hero/hero-1/brand-2.png" alt="Partner brand 2" width={64} height={64} sizes="64px" style={{ objectFit: 'contain', height: 'auto' }} />
+									<Image src="/assets/imgs/hero/hero-1/brand-2.png" alt="React logo" width={64} height={64} sizes="64px" style={{ objectFit: 'contain', height: 'auto' }} />
 								</div>
 								<div className="brand-logo icon-xl icon-shape rounded-3 bg-900">
-									<Image src="/assets/imgs/hero/hero-1/brand-3.png" alt="Partner brand 3" width={64} height={64} sizes="64px" style={{ objectFit: 'contain', height: 'auto' }} />
+									<Image src="/assets/imgs/hero/hero-1/brand-3.png" alt="TypeScript logo" width={64} height={64} sizes="64px" style={{ objectFit: 'contain', height: 'auto' }} />
 								</div>
 								<div className="brand-logo icon-xl icon-shape rounded-3 bg-900">
-									<Image src="/assets/imgs/hero/hero-1/brand-4.png" alt="Partner brand 4" width={64} height={64} sizes="64px" style={{ objectFit: 'contain', height: 'auto' }} />
+									<Image src="/assets/imgs/hero/hero-1/brand-4.png" alt="Laravel logo" width={64} height={64} sizes="64px" style={{ objectFit: 'contain', height: 'auto' }} />
 								</div>
 								<div className="brand-logo icon-xl icon-shape rounded-3 bg-900">
-									<Image src="/assets/imgs/hero/hero-1/brand-5.png" alt="Partner brand 5" width={64} height={64} sizes="64px" style={{ objectFit: 'contain', height: 'auto' }} />
+									<Image src="/assets/imgs/hero/hero-1/brand-5.png" alt="Flutter logo" width={64} height={64} sizes="64px" style={{ objectFit: 'contain', height: 'auto' }} />
 								</div>
 								<div className="brand-logo icon-xl icon-shape rounded-3 bg-900 d-none d-md-flex">
-									<Image src="/assets/imgs/hero/hero-1/brand-6.png" alt="Partner brand 6" width={64} height={64} sizes="64px" style={{ objectFit: 'contain', height: 'auto' }} />
+									<Image src="/assets/imgs/hero/hero-1/brand-6.png" alt="MySQL logo" width={64} height={64} sizes="64px" style={{ objectFit: 'contain', height: 'auto' }} />
 								</div>
 							</div>
 						</div>
@@ -103,7 +103,7 @@ export default function Home1({
 							src={decorSrc}
 							alt={decorAlt}
 							width={220}
-							height={220}
+							height={209}
 							sizes="220px"
 							unoptimized={shouldUnoptimizeImage(decorSrc)}
 						/>

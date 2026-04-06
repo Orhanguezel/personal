@@ -207,7 +207,7 @@ export default function Contact1() {
                         className="form-control border rounded-3"
                         id="name"
                         name="name"
-                        placeholder={section.form?.name_ph || 'John Doe'}
+                        placeholder={section.form?.name_ph || 'Orhan Güzel'}
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         required
@@ -224,7 +224,7 @@ export default function Contact1() {
                         className="form-control border rounded-3"
                         id="email"
                         name="email"
-                        placeholder={section.form?.email_ph || 'contact.john@gmail.com'}
+                        placeholder={section.form?.email_ph || 'orhanguzell@gmail.com'}
                         value={emailInput}
                         onChange={(e) => setEmailInput(e.target.value)}
                         required
@@ -240,7 +240,7 @@ export default function Contact1() {
                         className="form-control border rounded-3"
                         id="phone"
                         name="phone"
-                        placeholder={section.form?.phone_ph || 'Optional'}
+                        placeholder={section.form?.phone_ph || '+49 172 384 6068'}
                         value={phoneInput}
                         onChange={(e) => setPhoneInput(e.target.value)}
                       />
@@ -255,7 +255,7 @@ export default function Contact1() {
                         className="form-control border rounded-3"
                         id="subject"
                         name="subject"
-                        placeholder={section.form?.subject_ph || 'I want to contact about…'}
+                        placeholder={section.form?.subject_ph ?? ''}
                         value={subject}
                         onChange={(e) => setSubject(e.target.value)}
                       />
@@ -270,7 +270,7 @@ export default function Contact1() {
                         className="form-control border rounded-3 pb-10"
                         id="message"
                         name="message"
-                        placeholder={section.form?.message_ph || 'Your message here…'}
+                        placeholder={section.form?.message_ph ?? ''}
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
                         required

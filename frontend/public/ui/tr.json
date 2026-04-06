@@ -71,7 +71,7 @@
       ]
     },
     "static2": {
-      "background_image": "assets/imgs/home-page-2/static/bg.png",
+      "background_image": "/assets/imgs/home-page-2/static/bg.png",
       "items": [
         {
           "value": 12,
@@ -104,7 +104,7 @@
     "badge": "İş Birliği",
     "heading_html": "+168'den fazla <span class=\"text-300\">şirket <br /></span> <span class=\"text-300\">dünya çapında_</span> güveniyor",
     "contact": {
-      "avatar": "assets/imgs/coporation/avatar.png",
+      "avatar": "/assets/imgs/coporation/avatar.png",
       "avatar_alt": "Orhan Guzel",
       "skype_label": "[skype]",
       "skype_value": "",
@@ -182,10 +182,10 @@
     "contact": {
       "heading": "İletişim",
       "form_title": "Hadi Tanışalım",
-      "phone": "",
+      "phone": "+49 172 384 6068",
       "email": "orhanguzell@gmail.com",
       "skype": "",
-      "address": "Grevenbroich, Almanya",
+      "address": "Grevenbroich",
       "map_href": "https://www.google.com/maps?q=Grevenbroich"
     }
   },
@@ -691,11 +691,11 @@
       "phone_label": "Telefon",
       "subject_label": "Konu",
       "message_label": "Mesaj",
-      "name_ph": "Ad Soyad",
-      "email_ph": "ornek@mail.com",
-      "phone_ph": "Opsiyonel",
-      "subject_ph": "Şunun için iletişime geçmek istiyorum…",
-      "message_ph": "Mesajını yaz…",
+      "name_ph": "Orhan Güzel",
+      "email_ph": "orhanguzell@gmail.com",
+      "phone_ph": "+49 172 384 6068",
+      "subject_ph": "",
+      "message_ph": "",
       "submit": "Mesaj Gönder"
     }
   },
@@ -800,7 +800,11 @@
       "technologies_used_label": "Kullanılan Teknolojiler",
       "design_highlights_label": "Tasarım Öne Çıkanları",
       "details_label": "Detaylar",
-      "gallery_label": "Galeri"
+      "gallery_label": "Galeri",
+      "case_study_title": "Vaka çalışması",
+      "case_study_challenge_label": "Challenge",
+      "case_study_approach_label": "Yaklaşım",
+      "case_study_outcome_label": "Sonuç"
     }
   },
   "ui_blog": {
@@ -858,7 +862,9 @@
       "view_more_label": "Daha fazlası",
       "related_empty": "İlgili yazı bulunamadı.",
       "category_fallback": "Blog",
-      "read_time": "3 dk okuma"
+      "read_time": "3 dk okuma",
+      "author_section_title": "Yazar hakkında",
+      "author_bio_html": "<p>Orhan Güzel, Next.js, Fastify ve Laravel ile üretime hazır web platformları ve iş yazılımları geliştiriyor; Grevenbroich, Almanya.</p>"
     }
   },
   "ui_resume": {
@@ -932,7 +938,7 @@
   "ui_home": {
     "home1": {
       "greeting": "👋 Merhaba, ben Orhan Guzel",
-      "title_html": "<span class=\"text-primary-1\">GWD</span> için dijital deneyimler",
+      "title_html": "Orhan Güzel — <span class=\"text-primary-1\">Full-Stack Web Geliştirici</span>",
       "description": "GWD (guezelwebdesign.com) kurucusuyum. Bireylerin ve markaların kullanıcı odaklı dijital ürünler ve etkileşimli deneyimler oluşturmasına yardımcı oluyorum.",
       "cta_primary": "CV indir",
       "cta_secondary": "Beni işe al",
@@ -948,9 +954,9 @@
       "description_html": "&lt;p&gt;<span class=\"text-dark\">guezelwebdesign.com</span><span class=\"text-dark\"> altında hızlı ve güvenilir web/app deneyimleri geliştiriyorum;</span> <span class=\"text-secondary-2\">NodeJS</span>, <span class=\"text-secondary-2\">React</span>, <span class=\"text-secondary-2\">Angular</span> ve <span class=\"text-secondary-2\">Laravel</span><span class=\"text-dark\">.</span>&lt;/p&gt;",
       "more_label": "...ve daha fazlası",
       "cv_label": "[ CV indir ]",
-      "hero_image": "assets/imgs/home-page-2/hero-1/people.png",
+      "hero_image": "/assets/imgs/home-page-2/hero-1/people.png",
       "hero_image_alt": "Orhan Guzel",
-      "icon_image": "assets/imgs/home-page-2/hero-1/icon.svg",
+      "icon_image": "/assets/imgs/home-page-2/hero-1/icon.svg",
       "icon_image_alt": "Dekor"
     }
   },
@@ -1043,5 +1049,12 @@
     "internalNotes": "İdari not (dahili kullanım)",
     "footerLeftTemplate": "{{siteName}} – Otomatik Teklif Sistemi",
     "footerRight": "Bu PDF sistem tarafından oluşturulmuştur, imza gerektirmez."
+  },
+  "contact_info": {
+    "companyName": "Orhan Guzel — Guezel Web Design",
+    "phone": "+49 172 384 6068",
+    "email": "orhanguzell@gmail.com",
+    "address": "Grevenbroich",
+    "website": "https://www.guezelwebdesign.com"
   }
 }

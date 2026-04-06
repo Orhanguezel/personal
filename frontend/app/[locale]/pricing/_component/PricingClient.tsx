@@ -1,39 +1,88 @@
 'use client';
 
 import Link from 'next/link';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
+import { useGetPricingQuery, useListFaqsQuery } from '@/integrations/hooks';
+import type { Faq, PricingPageCopy, PricingPlan, PricingPublicResponse } from '@/integrations/shared';
+import { safeArr } from '@/integrations/shared';
+import type { UsdFxRates } from '@/utils/usdFx.server';
 import {
-  useGetPricingQuery,
-  useListFaqsQuery,
-} from '@/integrations/hooks';
-import { useStaticSiteSetting } from '@/utils/staticSiteSettings';
-import type { PricingPlan, Faq } from '@/integrations/shared';
-import { safeArr, money, unitText, normalizePricingPageCopy } from '@/integrations/shared';
+  displayPriceForPlan,
+  fxDisclaimer,
+  unitLabelForLocale,
+} from '@/utils/pricingDisplay';
 
-export type Props = { locale: string };
+export type Props = {
+  locale: string;
+  /** From server (`public/ui` + fallbacks). */
+  initialCopy: PricingPageCopy;
+  /** `null` = server fetch failed → RTK fallback. */
+  initialPricing: PricingPublicResponse | null;
+  /** `null` = server fetch failed → RTK fallback. */
+  initialFaqs: Faq[] | null;
+  /** USD→TRY/EUR kurları (Frankfurter veya yedek). */
+  initialFxRates: UsdFxRates;
+};
 
-export default function PricingClient({ locale }: Props) {
-  const { value: pageSettingValue } = useStaticSiteSetting({
-    key: 'page_pricing',
-    locale,
+export default function PricingClient({
+  locale,
+  initialCopy,
+  initialPricing,
+  initialFaqs,
+  initialFxRates,
+}: Props) {
+  const copy = initialCopy;
+
+  const [fxRates, setFxRates] = useState<{
+    TRY: number;
+    EUR: number;
+    source: UsdFxRates['source'];
+  }>({
+    TRY: initialFxRates.TRY,
+    EUR: initialFxRates.EUR,
+    source: initialFxRates.source,
   });
 
-  const copy = useMemo(() => normalizePricingPageCopy(pageSettingValue), [pageSettingValue]);
+  useEffect(() => {
+    if (initialFxRates.source === 'live') return;
+    let cancelled = false;
+    (async () => {
+      try {
+        const res = await fetch('/api/fx', { cache: 'no-store' });
+        if (!res.ok || cancelled) return;
+        const j = (await res.json()) as {
+          rates?: { TRY?: number; EUR?: number };
+          source?: string;
+        };
+        const t = j.rates?.TRY;
+        const e = j.rates?.EUR;
+        if (typeof t === 'number' && typeof e === 'number' && t > 0 && e > 0) {
+          setFxRates({
+            TRY: t,
+            EUR: e,
+            source: j.source === 'live' ? 'live' : 'fallback',
+          });
+        }
+      } catch {
+        /* keep SSR fallback */
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [initialFxRates.source]);
 
-  // ---- Pricing (public) ----
+  const usePricingFallback = initialPricing === null;
+  const useFaqsFallback = initialFaqs === null;
+
   const {
-    data: pricingData,
+    data: pricingRemote,
     isLoading: pricingLoading,
     isFetching: pricingFetching,
     isError: pricingError,
-  } = useGetPricingQuery(
-    { locale, plans_limit: 10 },
-    { skip: !locale }, // ✅ guard
-  );
+  } = useGetPricingQuery({ locale, plans_limit: 10 }, { skip: !usePricingFallback || !locale });
 
-  // ---- Faqs (public) ----
-  // ✅ locale gönderiyoruz (toPublicQuery bunu querystring'e basacak)
   const faqParams = {
     locale,
     limit: 50,
@@ -42,14 +91,14 @@ export default function PricingClient({ locale }: Props) {
   };
 
   const {
-    data: faqsData,
+    data: faqsRemote,
     isLoading: faqsLoading,
     isFetching: faqsFetching,
     isError: faqsError,
-  } = useListFaqsQuery(
-    faqParams,
-    { skip: !locale }, // ✅ guard
-  );
+  } = useListFaqsQuery(faqParams, { skip: !useFaqsFallback || !locale });
+
+  const pricingData = usePricingFallback ? pricingRemote : initialPricing;
+  const faqsRaw = useFaqsFallback ? faqsRemote : initialFaqs;
 
   const plans = useMemo(() => {
     const raw = safeArr<PricingPlan>(pricingData?.plans);
@@ -67,15 +116,18 @@ export default function PricingClient({ locale }: Props) {
   }, [pricingData]);
 
   const faqs = useMemo(() => {
-    const raw = safeArr<Faq>(faqsData);
+    const raw = safeArr<Faq>(faqsRaw);
     return raw.filter((x) => !!x && x.is_active).slice(0, 10);
-  }, [faqsData]);
+  }, [faqsRaw]);
 
-  const isBusy = pricingLoading || faqsLoading || pricingFetching || faqsFetching;
-  const hasError = pricingError || faqsError;
+  const isBusy =
+    (usePricingFallback && (pricingLoading || pricingFetching)) ||
+    (useFaqsFallback && (faqsLoading || faqsFetching));
 
-  // React accordion state
-  const [openIdx, setOpenIdx] = useState<number>(0);
+  const hasError =
+    (usePricingFallback && pricingError) || (useFaqsFallback && faqsError);
+
+  const contactHref = `/${locale}/#contact`;
 
   return (
     <>
@@ -84,7 +136,7 @@ export default function PricingClient({ locale }: Props) {
           <div className="row">
             <div className="col-lg-10 mx-lg-auto mb-8">
               <div className="text-center">
-                <Link href="#" className="btn btn-gradient d-inline-block text-uppercase">
+                <Link href={contactHref} className="btn btn-gradient d-inline-block text-uppercase">
                   {copy.badge}
                 </Link>
 
@@ -97,9 +149,9 @@ export default function PricingClient({ locale }: Props) {
                   className="text-300 fs-5 mb-0"
                   dangerouslySetInnerHTML={{ __html: copy.intro_html }}
                 />
+                <p className="text-300 fs-7 mt-3 mb-0 opacity-75">{fxDisclaimer(locale)}</p>
               </div>
 
-              {/* ---- Plans ---- */}
               <div className="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 justify-content-center mt-8">
                 {isBusy && (
                   <div className="col">
@@ -122,9 +174,10 @@ export default function PricingClient({ locale }: Props) {
                 {!isBusy &&
                   !hasError &&
                   plans.map((p) => {
-                    const ctaHref = p.cta_href || '#';
+                    const ctaHref = p.cta_href || contactHref;
                     const ctaLabel = p.cta_label || copy.cta_default_label;
                     const features = safeArr<string>(p.features);
+                    const { text: priceText } = displayPriceForPlan(p, locale, fxRates);
 
                     return (
                       <div className="col pricing-plan-col" key={p.id}>
@@ -133,8 +186,10 @@ export default function PricingClient({ locale }: Props) {
                           <br />
 
                           <h3 className="ds-3 fw-medium text-primary-1 mb-5">
-                            {money(p.price_amount, p.currency)}
-                            <span className="text-300 fs-4">{unitText(p.price_unit)}</span>
+                            {priceText}
+                            <span className="text-300 fs-4">
+                              {unitLabelForLocale(p.price_unit, locale)}
+                            </span>
                           </h3>
 
                           <ul className="ps-3 border-top border-600 pt-5 mb-auto">
@@ -160,44 +215,30 @@ export default function PricingClient({ locale }: Props) {
             </div>
           </div>
 
-          {/* ---- FAQ ---- */}
           <div className="row mt-8">
             <div className="col-lg-8 mx-auto text-center">
               <h2 className="text-300 mb-8">{copy.faq_title}</h2>
 
-              <div className="accordion">
+              <div className="accordion text-start">
                 {!isBusy &&
                   !hasError &&
-                  faqs.map((f, idx) => {
-                    const isOpen = openIdx === idx;
-
-                    return (
-                      <div className="mb-3 card border-2 rounded-4 overflow-hidden" key={f.id}>
-                        <div className="card-header p-0 border-0">
-                          <button
-                            type="button"
-                            className="w-100 p-3 d-flex align-items-center bg-transparent border-0"
-                            onClick={() => setOpenIdx(isOpen ? -1 : idx)}
-                            aria-expanded={isOpen}
-                          >
-                            <p className="fs-5 mb-0 text-dark text-start">{f.question}</p>
-
-                            <span className="ms-auto me-2 icon-shape d-inline-flex align-items-center">
-                              <i
-                                className={`${isOpen ? 'ri-subtract-line' : 'ri-add-line'} fs-4 text-primary-1`}
-                              />
-                            </span>
-                          </button>
-                        </div>
-
-                        {isOpen && (
-                          <div className="px-4 pb-4 text-start card-body">
-                            <p className="text-300 mb-0">{f.answer}</p>
-                          </div>
-                        )}
+                  faqs.map((f, idx) => (
+                    <details
+                      key={f.id}
+                      className="mb-3 card border-2 rounded-4 overflow-hidden"
+                      open={idx === 0}
+                    >
+                      <summary
+                        className="p-3 cursor-pointer"
+                        style={{ listStylePosition: 'outside' }}
+                      >
+                        <span className="fs-5 text-dark">{f.question}</span>
+                      </summary>
+                      <div className="px-4 pb-4 card-body">
+                        <p className="text-300 mb-0">{f.answer}</p>
                       </div>
-                    );
-                  })}
+                    </details>
+                  ))}
 
                 {!isBusy && !hasError && faqs.length === 0 && (
                   <div className="mb-3 card border-2 rounded-4">

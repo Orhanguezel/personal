@@ -3,6 +3,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { execFileSync } from 'child_process';
 import mysql from 'mysql2/promise';
 import bcrypt from 'bcryptjs';
 import { env } from '@/core/env';
@@ -155,6 +156,19 @@ async function main() {
   try {
     // 3) Admin değişkenlerini hazırla (tek sefer)
     const ADMIN = getAdminVars();
+
+    // 3.1) Dinamik portfolio seedlerini kaynaktan yeniden uret
+    const validatorPath = path.resolve(__dirname, '../../../scripts/validate-project-portfolios.mjs');
+    if (fs.existsSync(validatorPath)) {
+      logStep('🔎 Proje metadata standartlari kontrol ediliyor');
+      execFileSync('node', [validatorPath], { stdio: 'inherit' });
+    }
+
+    const generatorPath = path.resolve(__dirname, '../../../scripts/generate-dynamic-portfolio-seeds.mjs');
+    if (fs.existsSync(generatorPath)) {
+      logStep('♻️ Dinamik portfolio seedleri guncelleniyor');
+      execFileSync('node', [generatorPath], { stdio: 'inherit' });
+    }
 
     // 4) SQL klasörünü bul (öncelik env, sonra dist/sql, yoksa src/sql)
     const envDir = process.env.SEED_SQL_DIR && process.env.SEED_SQL_DIR.trim();

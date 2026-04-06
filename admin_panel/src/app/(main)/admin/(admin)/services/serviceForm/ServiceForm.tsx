@@ -224,7 +224,9 @@ export const ServiceForm: React.FC<ServiceFormProps> = ({
 
       image_alt: toNull(values.image_alt),
       material: toNull(values.material),
-      price: toNull(values.price),
+      price_onetime: toNull(values.price),
+      currency: norm(values.currency) || 'USD',
+      is_purchasable: !!values.is_purchasable,
       includes: toNull(values.includes),
       warranty: toNull(values.warranty),
 
@@ -399,7 +401,7 @@ export const ServiceForm: React.FC<ServiceFormProps> = ({
                   </div>
 
                   {/* i18n fields */}
-                  <div className="grid gap-4 md:grid-cols-2">
+                  <div className="grid gap-4 md:grid-cols-3">
                     <div className="space-y-2">
                       <Label>{t('admin.services.form.materialLabel')}</Label>
                       <Input
@@ -414,8 +416,34 @@ export const ServiceForm: React.FC<ServiceFormProps> = ({
                         value={values.price}
                         onChange={(e) => setValues((p) => ({ ...p, price: e.target.value }))}
                         disabled={disabled}
+                        inputMode="decimal"
                       />
                     </div>
+                    <div className="space-y-2">
+                      <Label>{t('admin.services.form.currencyLabel')}</Label>
+                      <Input
+                        value={values.currency}
+                        onChange={(e) =>
+                          setValues((p) => ({ ...p, currency: e.target.value.toUpperCase() }))
+                        }
+                        disabled={disabled}
+                        placeholder="USD"
+                        maxLength={10}
+                      />
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Checkbox
+                      checked={!!values.is_purchasable}
+                      onCheckedChange={(v) =>
+                        setValues((p) => ({ ...p, is_purchasable: v === true }))
+                      }
+                      disabled={disabled}
+                      id="svc-purchasable"
+                    />
+                    <Label htmlFor="svc-purchasable" className="cursor-pointer font-normal">
+                      {t('admin.services.form.isPurchasableLabel')}
+                    </Label>
                   </div>
 
                   <div className="space-y-2">

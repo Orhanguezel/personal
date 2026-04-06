@@ -498,6 +498,13 @@ export type UiProjectCopy = {
     design_highlights_label: string;
     details_label: string;
     gallery_label: string;
+    case_study_title: string;
+    case_study_challenge_label: string;
+    case_study_approach_label: string;
+    case_study_outcome_label: string;
+    /** Portfolio detay — PayPal satın alma */
+    price_label: string;
+    purchase_label: string;
   };
 };
 
@@ -639,6 +646,27 @@ export function normalizeUiProjectSettingValue(value: unknown): UiProjectCopy {
       ),
       details_label: pick(detail, 'details_label', 'Details', 'detail_details_label'),
       gallery_label: pick(detail, 'gallery_label', 'Gallery', 'detail_gallery_label'),
+      case_study_title: pick(detail, 'case_study_title', 'Case study', 'detail_case_study_title'),
+      case_study_challenge_label: pick(
+        detail,
+        'case_study_challenge_label',
+        'Challenge',
+        'detail_case_study_challenge_label',
+      ),
+      case_study_approach_label: pick(
+        detail,
+        'case_study_approach_label',
+        'Approach',
+        'detail_case_study_approach_label',
+      ),
+      case_study_outcome_label: pick(
+        detail,
+        'case_study_outcome_label',
+        'Outcome',
+        'detail_case_study_outcome_label',
+      ),
+      price_label: pick(detail, 'price_label', 'Price', 'detail_price_label'),
+      purchase_label: pick(detail, 'purchase_label', 'Buy now', 'detail_purchase_label'),
     },
   };
 }
@@ -703,6 +731,8 @@ export type UiBlogCopy = {
     related_empty: string;
     category_fallback: string;
     read_time: string;
+    author_section_title: string;
+    author_bio_html: string;
   };
 };
 
@@ -824,6 +854,13 @@ export function normalizeUiBlogSettingValue(value: unknown): UiBlogCopy {
       related_empty: pick(detail, 'related_empty', 'No related posts.', 'detail_related_empty'),
       category_fallback: pick(detail, 'category_fallback', 'Blog', 'detail_category_fallback'),
       read_time: pick(detail, 'read_time', '3 min read', 'detail_read_time'),
+      author_section_title: pick(detail, 'author_section_title', 'About the author', 'detail_author_section_title'),
+      author_bio_html: pick(
+        detail,
+        'author_bio_html',
+        '<p>Orhan Güzel builds production-ready web platforms and business software with Next.js, Fastify, and Laravel — based in Grevenbroich, Germany.</p>',
+        'detail_author_bio_html',
+      ),
     },
   };
 }
@@ -1066,13 +1103,13 @@ export function normalizeUiHomeSettingValue(value: unknown): UiHomeCopy {
       title_html: pick(
         home1,
         'title_html',
-        'Building <span class="text-primary-1">GWD</span> digital experiences',
+        'Building <span class="text-primary-1">production-ready</span> web platforms',
         'home1_title_html',
       ),
       description: pick(
         home1,
         'description',
-        'Founder of GWD (guezelwebdesign.com). I help individuals and brands create user-focused digital products and interactive experiences.',
+        'Founder of Guezel Web Design. I help businesses and brands create user-focused digital products and interactive web experiences.',
         'home1_description',
       ),
       cta_primary: pick(home1, 'cta_primary', 'Download CV', 'home1_cta_primary'),
@@ -1098,7 +1135,7 @@ export function normalizeUiHomeSettingValue(value: unknown): UiHomeCopy {
       title_html: pick(
         home2,
         'title_html',
-        'Founder of <span class="text-linear-4">GWD</span> Web &amp; App Studio<span class="flicker">_</span>',
+        'Founder of <span class="text-linear-4">Guezel Web Design</span> Studio<span class="flicker">_</span>',
         'home2_title_html',
       ),
       description_html: pick(
@@ -1112,14 +1149,14 @@ export function normalizeUiHomeSettingValue(value: unknown): UiHomeCopy {
       hero_image: pick(
         home2,
         'hero_image',
-        'assets/imgs/home-page-2/hero-1/people.png',
+        '/assets/imgs/home-page-2/hero-1/people.png',
         'home2_hero_image',
       ),
       hero_image_alt: pick(home2, 'hero_image_alt', 'Orhan Guzel', 'home2_hero_image_alt'),
       icon_image: pick(
         home2,
         'icon_image',
-        'assets/imgs/home-page-2/hero-1/icon.svg',
+        '/assets/imgs/home-page-2/hero-1/icon.svg',
         'home2_icon_image',
       ),
       icon_image_alt: pick(home2, 'icon_image_alt', 'Decor', 'home2_icon_image_alt'),
@@ -1205,7 +1242,7 @@ export function normalizeUiHome3SettingValue(value: unknown): UiHome3Copy {
       description: pick(
         hero,
         'description',
-        'Welcome to GWD. I design and build modern web experiences that are fast, elegant, and conversion-focused.',
+        'Welcome to Guezel Web Design. I design and build modern web experiences that are fast, elegant, and conversion-focused.',
         'hero_description',
       ),
       cv_label: pick(hero, 'cv_label', 'Download CV', 'hero_cv_label'),
@@ -1403,7 +1440,7 @@ export function normalizeUiStaticSettingValue(value: unknown): UiStaticCopy {
   const background_image =
     uiText((static2 as any).background_image) ||
     uiText((root as any).static2_background_image) ||
-    'assets/imgs/home-page-2/static/bg.png';
+    '/assets/imgs/home-page-2/static/bg.png';
 
   return {
     static1: { items: items1 },
@@ -1484,7 +1521,7 @@ export function normalizeUiCoporationSettingValue(value: unknown): UiCoporationC
     uiText((root as any).heading_html) ||
     'More than +168 <span class="text-300">companies <br /></span> trusted <span class="text-300">worldwide_</span>';
 
-  const avatar = pick(contact, 'avatar', 'assets/imgs/coporation/avatar.png', 'contact_avatar');
+  const avatar = pick(contact, 'avatar', '/assets/imgs/coporation/avatar.png', 'contact_avatar');
   const avatar_alt = pick(contact, 'avatar_alt', 'Orhan Guzel', 'contact_avatar_alt');
 
   const skype_label = pick(contact, 'skype_label', '[skype]', 'contact_skype_label');

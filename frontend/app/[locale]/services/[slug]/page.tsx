@@ -1,14 +1,29 @@
 // =============================================================
 // FILE: src/app/[locale]/services/[slug]/page.tsx
-// FINAL — Service detail (server wrapper)
-// FIX: params Promise -> await
+// Service detail (server) — ServiceJsonLd + BreadcrumbJsonLd
 // =============================================================
 
 import Layout from '@/components/layout/Layout';
 import ServiceDetailClient from '../_component/ServiceDetailClient';
+import BreadcrumbJsonLd from '@/seo/BreadcrumbJsonLd';
+import ServiceJsonLd from '@/seo/ServiceJsonLd';
 import { mergeSeoPage } from '@/integrations/shared';
 import { normalizeLocaleParam, unwrapRouteParams } from '@/i18n/localeParam';
 import { getServiceSeoPageBySlug, getSeoPage, SEO_PAGE_KEYS, buildMetadata } from '@/seo';
+import { getServicesListServer, getServiceDetailServer } from '@/utils/publicLists.server';
+import { safeGenerateStaticSlugParams } from '@/utils/safeGenerateStaticSlugParams';
+
+export async function generateStaticParams() {
+  return safeGenerateStaticSlugParams({
+    fetchForLocale: (locale) => getServicesListServer({ locale, limit: 100 }),
+  });
+}
+
+const BREADCRUMB_LABELS: Record<string, { home: string; services: string }> = {
+  de: { home: 'Startseite', services: 'Leistungen' },
+  en: { home: 'Home', services: 'Services' },
+  tr: { home: 'Anasayfa', services: 'Hizmetler' },
+};
 
 export default async function ServiceDetailPage({
   params,
@@ -16,10 +31,33 @@ export default async function ServiceDetailPage({
   params: Promise<{ locale: string; slug: string }>;
 }) {
   const { locale, slug } = await params;
+  const safeLocale = normalizeLocaleParam(locale);
+
+  const svc = await getServiceDetailServer({ locale: safeLocale, slug });
+  const labels = BREADCRUMB_LABELS[safeLocale] ?? BREADCRUMB_LABELS.en;
 
   return (
     <Layout headerStyle={1} footerStyle={1}>
-      <ServiceDetailClient locale={locale} slug={slug} />
+      <BreadcrumbJsonLd
+        items={[
+          { name: labels.home, url: `/${safeLocale}` },
+          { name: labels.services, url: `/${safeLocale}/services` },
+          ...(svc
+            ? [{ name: (svc as any).name || slug, url: `/${safeLocale}/services/${slug}` }]
+            : []),
+        ]}
+      />
+      {svc && (
+        <ServiceJsonLd
+          name={(svc as any).name || slug}
+          description={(svc as any).summary || undefined}
+          serviceType={(svc as any).name || undefined}
+          providerName="Guezel Web Design"
+          areaServed={['Germany', 'Europe']}
+          url={`/${safeLocale}/services/${slug}`}
+        />
+      )}
+      <ServiceDetailClient locale={safeLocale} slug={slug} />
     </Layout>
   );
 }

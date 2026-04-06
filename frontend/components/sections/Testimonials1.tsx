@@ -3,19 +3,21 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { useMemo } from 'react';
 import { skipToken } from '@reduxjs/toolkit/query';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+import { TestimonialCardView } from '@/components/testimonials/TestimonialCardView';
 import { useListReviewsPublicQuery } from '@/integrations/hooks';
 import { useStaticSiteSetting } from '@/utils/staticSiteSettings';
+import { withLocalePath } from '@/utils/localeHref';
 import {
   mapReviewToTestimonialCard,
   normalizeTestimonialsSectionSettingValue,
   type ReviewDto,
   type ReviewListQueryParams,
+  type TestimonialsSection,
 } from '@/integrations/shared';
 
 const swiperOptions = {
@@ -50,17 +52,15 @@ const swiperOptions = {
   },
 };
 
-function renderStars(rating: number) {
-  const safe = Number.isFinite(rating) ? Math.max(0, Math.min(5, Math.round(rating))) : 0;
-  return Array.from({ length: 5 }).map((_, i) => (
-    <i
-      key={i}
-      className={`ri-star-fill fs-7 ${i < safe ? 'text-primary-1' : 'text-500'}`}
-    />
-  ));
-}
+type Props = {
+  locale?: string;
+  /** Server `ui_testimonials` — avoids empty first paint when set. */
+  initialUi?: TestimonialsSection;
+  /** `null` = API error on server → RTK fallback. */
+  initialReviews?: ReviewDto[] | null;
+};
 
-export default function Testimonials1({ locale = 'en' }: { locale?: string }) {
+export default function Testimonials1({ locale = 'en', initialUi, initialReviews }: Props) {
   const safeLocale = (locale || 'en').trim() || 'en';
 
   const { value: uiSettingValue } = useStaticSiteSetting({
@@ -68,10 +68,12 @@ export default function Testimonials1({ locale = 'en' }: { locale?: string }) {
     locale: safeLocale,
   });
 
-  const ui = useMemo(
+  const uiFromHook = useMemo(
     () => normalizeTestimonialsSectionSettingValue(uiSettingValue),
     [uiSettingValue],
   );
+
+  const ui = initialUi ?? uiFromHook;
 
   const listParams: ReviewListQueryParams | undefined = ui.target_type && ui.bucket
     ? {
@@ -85,17 +87,27 @@ export default function Testimonials1({ locale = 'en' }: { locale?: string }) {
       }
     : undefined;
 
+  const useRemoteReviews = initialReviews === undefined || initialReviews === null;
+
   const {
-    data: reviews,
+    data: reviewsRemote,
     isLoading,
     isFetching,
     isError,
-  } = useListReviewsPublicQuery(listParams ?? skipToken);
+  } = useListReviewsPublicQuery(listParams ?? skipToken, {
+    skip: !useRemoteReviews || !listParams,
+  });
 
-  const busy = isLoading || isFetching;
-  const items = useMemo(() => (Array.isArray(reviews) ? (reviews as ReviewDto[]) : []), [reviews]);
+  const items = useMemo((): ReviewDto[] => {
+    if (!useRemoteReviews) return Array.isArray(initialReviews) ? initialReviews : [];
+    return Array.isArray(reviewsRemote) ? (reviewsRemote as ReviewDto[]) : [];
+  }, [useRemoteReviews, initialReviews, reviewsRemote]);
+
+  const busy = useRemoteReviews && (isLoading || isFetching);
   const cards = useMemo(() => items.map(mapReviewToTestimonialCard), [items]);
   const showEmpty = !busy && !isError && cards.length === 0;
+
+  const ctaHref = withLocalePath(safeLocale, ui.cta_href);
 
   return (
     <>
@@ -110,8 +122,8 @@ export default function Testimonials1({ locale = 'en' }: { locale?: string }) {
                 {ui.intro_line_2}
               </span>
               <div className="row mt-8">
-                <Swiper 
-                  {...swiperOptions} 
+                <Swiper
+                  {...swiperOptions}
                   loop={!busy && !isError && cards.length > 2}
                   className="swiper slider-2 pt-2 pb-3"
                 >
@@ -140,59 +152,12 @@ export default function Testimonials1({ locale = 'en' }: { locale?: string }) {
                       </SwiperSlide>
                     )}
 
-                    {!busy && !isError &&
+                    {!busy &&
+                      !isError &&
                       cards.map((card) => (
                         <SwiperSlide key={card.id}>
-                          <div className="bg-white card-testimonial-1 p-lg-7 p-md-5 mx-3 mx-md-0 p-4 border-2 rounded-4 position-relative">
-                            <div className="mb-6 logo">
-                              <Image 
-                                src={card.logo} 
-                                alt={card.company || 'Partner'} 
-                                width={100} 
-                                height={40} 
-                                style={{ height: 'auto', width: 'auto', maxHeight: '40px' }}
-                              />
-                            </div>
-                            <div className="d-flex mb-5">{renderStars(card.rating)}</div>
-                            <p className="mb-7 h6">“{card.comment}”</p>
-                            <Link href={card.href} className="d-flex align-items-center">
-                              <Image 
-                                className="icon_65 avatar" 
-                                src={card.avatar} 
-                                alt={card.name} 
-                                width={65} 
-                                height={65} 
-                              />
-                              <h3 className="ms-2 mb-0 h6">
-                                {card.name}
-                                <span className="fs-6 fw-regular">{card.meta}</span>
-                              </h3>
-                            </Link>
-                            <div className="position-absolute top-0 end-0 m-5">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width={52}
-                                height={52}
-                                viewBox="0 0 52 52"
-                                fill="none"
-                              >
-                                <g clipPath="url(#clip0_551_13914)">
-                                  <path
-                                    d="M0 29.7144H11.1428L3.71422 44.5715H14.8571L22.2857 29.7144V7.42871H0V29.7144Z"
-                                    fill="#D1D5DB"
-                                  />
-                                  <path
-                                    d="M29.7148 7.42871V29.7144H40.8577L33.4291 44.5715H44.5719L52.0005 29.7144V7.42871H29.7148Z"
-                                    fill="#D1D5DB"
-                                  />
-                                </g>
-                                <defs>
-                                  <clipPath>
-                                    <rect width={52} height={52} fill="white" />
-                                  </clipPath>
-                                </defs>
-                              </svg>
-                            </div>
+                          <div className="mx-3 mx-md-0">
+                            <TestimonialCardView card={card} locale={safeLocale} />
                           </div>
                         </SwiperSlide>
                       ))}
@@ -200,7 +165,7 @@ export default function Testimonials1({ locale = 'en' }: { locale?: string }) {
                   <div className="swiper-pagination" />
                   <div className="text-center mt-8 position-relative z-3">
                     {ui.cta_label ? (
-                      <Link href={ui.cta_href || '#'} className="btn btn-gradient">
+                      <Link href={ctaHref} className="btn btn-gradient">
                         {ui.cta_label}
                         <i className="ri-arrow-right-up-line" />
                       </Link>
@@ -212,9 +177,23 @@ export default function Testimonials1({ locale = 'en' }: { locale?: string }) {
           </div>
         </div>
         <div className="shape-1 position-absolute bottom-0 start-50 z-1 ms-10 ps-10 d-none d-md-block">
-          <img className="position-relative z-1" src={ui.man_img} alt="man" />
+          <img
+            className="position-relative z-1"
+            src={ui.man_img}
+            alt="Testimonials illustration"
+            width={400}
+            height={500}
+            loading="lazy"
+          />
           <div className="position-absolute top-50 start-50 translate-middle z-0 mt-5">
-            <img className="ribbonRotate" src={ui.decorate_img} alt="" />
+            <img
+              className="ribbonRotate"
+              src={ui.decorate_img}
+              alt=""
+              width={220}
+              height={209}
+              loading="lazy"
+            />
           </div>
         </div>
       </section>

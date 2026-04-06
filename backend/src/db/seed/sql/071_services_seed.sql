@@ -18,7 +18,7 @@ START TRANSACTION;
 -- DELETE FROM services;
 
 -- =============================================================
--- SERVICE 1 — UI/UX Design
+-- SERVICE 1 — Full-Stack Web Development
 -- =============================================================
 
 SET @svc1 := UUID();
@@ -45,22 +45,22 @@ INSERT INTO `services_i18n` (
   `created_at`, `updated_at`
 ) VALUES (
   UUID(), @svc1, 'en',
-  'ui-ux-design',
-  'UI/UX Design',
-  'Transforming ideas into intuitive, engaging user experiences through research, prototyping, and iterative testing.',
+  'full-stack-web-development',
+  'Full-Stack Web Development',
+  'Production-ready web applications with Next.js, Fastify or Laravel, covering architecture, frontend, backend and database flows.',
   '{
-    "tagline": "Creative. Unique. Reality.",
+    "tagline": "Architecture. Delivery. Reliability.",
     "highlights": [
-      { "title": "User Research", "description": "Conducting thorough user research through surveys, interviews, and usability studies to understand target audiences and their needs, ensuring designs are user-centric and effective." },
-      { "title": "Wireframing and Prototyping", "description": "Designing detailed wireframes and interactive prototypes to visualize and test user flows and interactions, allowing for early feedback and iterative improvements." },
-      { "title": "User Testing", "description": "Implementing comprehensive user testing sessions to gather feedback, identify pain points, and make data-driven design improvements, ensuring a seamless user experience." }
+      { "title": "Frontend and Admin Panels", "description": "Building maintainable customer-facing applications and admin dashboards with modern React and Next.js patterns." },
+      { "title": "Backend and API Delivery", "description": "Designing secure backend services, data models and REST APIs with Fastify or Laravel for real business workflows." },
+      { "title": "Database and Workflow Modeling", "description": "Structuring relational data, validation rules and process flows for commerce, booking, ERP and service platforms." }
     ],
-    "html": "<p>With expertise in mobile app and web design, I transform ideas into visually stunning and user-friendly interfaces that captivate and retain users.</p>"
+    "html": "<p>I deliver full-stack web systems from architecture to production, with a focus on clarity, maintainability and real operational use.</p>"
   }',
-  'UI/UX Design cover image',
-  'UI/UX Design — Creative. Unique. Reality.',
-  'User-centric UI/UX design services: research, wireframing, prototyping, and testing for engaging experiences.',
-  'uiux, ux, ui, user research, prototyping, usability testing',
+  'Full-Stack Web Development cover image',
+  'Full-Stack Web Development — Architecture. Delivery. Reliability.',
+  'Full-stack web development with Next.js, Fastify, Laravel, database modeling and admin workflows.',
+  'full-stack development, next.js, fastify, laravel, admin panel, mysql',
   CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 );
 
@@ -72,22 +72,22 @@ INSERT INTO `services_i18n` (
   `created_at`, `updated_at`
 ) VALUES (
   UUID(), @svc1, 'tr',
-  'ui-ux-tasarim',
-  'UI/UX Tasarım',
-  'Araştırma, prototipleme ve iteratif testlerle fikirleri sezgisel ve etkileyici kullanıcı deneyimlerine dönüştürür.',
+  'full-stack-web-gelistirme',
+  'Full-Stack Web Geliştirme',
+  'Next.js, Fastify veya Laravel ile mimariden frontend, backend ve veritabanı akışlarına kadar üretime hazır web uygulamaları.',
   '{
-    "tagline": "Yaratıcı. Özgün. Gerçek.",
+    "tagline": "Mimari. Teslimat. Güvenilirlik.",
     "highlights": [
-      { "title": "Kullanıcı Araştırması", "description": "Anketler, görüşmeler ve kullanılabilirlik çalışmalarıyla hedef kitleyi ve ihtiyaçlarını anlayarak kullanıcı odaklı ve etkili tasarımlar üretir." },
-      { "title": "Wireframe ve Prototipleme", "description": "Kullanıcı akışlarını ve etkileşimleri görselleştirmek ve test etmek için detaylı wireframe ve etkileşimli prototipler hazırlar; erken geri bildirimle iyileştirme sağlar." },
-      { "title": "Kullanıcı Testleri", "description": "Geri bildirim toplamak, sorun noktalarını tespit etmek ve veriye dayalı iyileştirmeler yapmak için kapsamlı kullanıcı testleri uygular; akıcı bir deneyim sunar." }
+      { "title": "Frontend ve Admin Panel", "description": "Modern React ve Next.js yaklaşımlarıyla müşteri arayüzleri ve yönetim panelleri geliştiririm." },
+      { "title": "Backend ve API Teslimi", "description": "Gerçek iş süreçleri için Fastify veya Laravel ile güvenli backend servisleri, veri modelleri ve REST API''ler kurarım." },
+      { "title": "Veritabanı ve Süreç Modellemesi", "description": "Ticaret, booking, ERP ve service platformları için ilişkisel veri yapıları ve operasyon akışları tasarlarım." }
     ],
-    "html": "<p>Mobil ve web tasarım deneyimiyle, fikirleri görsel olarak güçlü ve kullanıcı dostu arayüzlere dönüştürürüm.</p>"
+    "html": "<p>Mimariden production ortama kadar full-stack sistemler teslim ederim; odak noktam sürdürülebilirlik, açıklık ve gerçek operasyonel kullanımdır.</p>"
   }',
-  'UI/UX Tasarım kapak görseli',
-  'UI/UX Tasarım — Yaratıcı. Özgün. Gerçek.',
-  'UI/UX tasarım hizmetleri: kullanıcı araştırması, wireframe, prototip ve testlerle güçlü deneyimler.',
-  'uiux, ux, ui, kullanici arastirmasi, prototip, kullanilabilirlik testi',
+  'Full-Stack Web Geliştirme kapak görseli',
+  'Full-Stack Web Geliştirme — Mimari. Teslimat. Güvenilirlik.',
+  'Next.js, Fastify, Laravel, veritabanı modelleme ve admin workflow odaklı full-stack web geliştirme.',
+  'full-stack gelistirme, next.js, fastify, laravel, admin panel, mysql',
   CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 );
 
@@ -99,22 +99,22 @@ INSERT INTO `services_i18n` (
   `created_at`, `updated_at`
 ) VALUES (
   UUID(), @svc1, 'de',
-  'ui-ux-design',
-  'UI/UX Design',
-  'Ideen werden durch Recherche, Prototyping und iteratives Testing in intuitive und überzeugende Nutzererlebnisse verwandelt.',
+  'full-stack-webentwicklung',
+  'Full-Stack Webentwicklung',
+  'Produktionsreife Webanwendungen mit Next.js, Fastify oder Laravel von Architektur über Frontend bis Backend und Datenmodell.',
   '{
-    "tagline": "Kreativ. Einzigartig. Real.",
+    "tagline": "Architektur. Delivery. Verlässlichkeit.",
     "highlights": [
-      { "title": "User Research", "description": "Gründliche Nutzerforschung durch Umfragen, Interviews und Usability-Studien, um Zielgruppen zu verstehen und nutzerzentrierte Designs zu liefern." },
-      { "title": "Wireframes und Prototypen", "description": "Detaillierte Wireframes und interaktive Prototypen zur Visualisierung und zum Testen von Flows und Interaktionen, um früh Feedback zu integrieren." },
-      { "title": "User Testing", "description": "Umfassende Tests zur Identifikation von Pain Points und zur datenbasierten Optimierung für ein reibungsloses Nutzererlebnis." }
+      { "title": "Frontend und Admin Panels", "description": "Wartbare Kundenanwendungen und Admin Dashboards mit modernen React- und Next.js-Patterns." },
+      { "title": "Backend und API Delivery", "description": "Sichere Backend-Services, Datenmodelle und REST APIs mit Fastify oder Laravel für reale Geschäftsprozesse." },
+      { "title": "Datenbank- und Prozessmodellierung", "description": "Relationale Datenstrukturen und Workflows für Commerce-, Booking-, ERP- und Service-Plattformen." }
     ],
-    "html": "<p>Ich verwandle Ideen in visuell starke und benutzerfreundliche Interfaces, die Nutzer begeistern und binden.</p>"
+    "html": "<p>Ich liefere Full-Stack-Websysteme von der Architektur bis zur produktiven Umgebung mit Fokus auf Wartbarkeit und echten operativen Nutzen.</p>"
   }',
-  'UI/UX Design Titelbild',
-  'UI/UX Design — Kreativ. Einzigartig. Real.',
-  'UI/UX Design: Research, Wireframes, Prototypen und Testing für überzeugende Nutzererlebnisse.',
-  'uiux, ux, ui, user research, prototyping, usability testing',
+  'Full-Stack Webentwicklung Titelbild',
+  'Full-Stack Webentwicklung — Architektur. Delivery. Verlässlichkeit.',
+  'Full-Stack Webentwicklung mit Next.js, Fastify, Laravel, Datenmodellierung und Admin-Workflows.',
+  'full-stack entwicklung, next.js, fastify, laravel, admin panel, mysql',
   CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 );
 
@@ -136,14 +136,14 @@ INSERT INTO `service_images` (
 -- image i18n: EN/TR/DE
 INSERT INTO `service_images_i18n` (`id`, `image_id`, `locale`, `title`, `alt`, `caption`, `created_at`, `updated_at`)
 VALUES
-  (UUID(), @img1, 'en', 'UI/UX Design', 'UI/UX Design cover image', 'Creative. Unique. Reality.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
-  (UUID(), @img1, 'tr', 'UI/UX Tasarım', 'UI/UX Tasarım kapak görseli', 'Yaratıcı. Özgün. Gerçek.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
-  (UUID(), @img1, 'de', 'UI/UX Design', 'UI/UX Design Titelbild', 'Kreativ. Einzigartig. Real.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
+  (UUID(), @img1, 'en', 'Full-Stack Web Development', 'Full-Stack Web Development cover image', 'Architecture. Delivery. Reliability.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+  (UUID(), @img1, 'tr', 'Full-Stack Web Geliştirme', 'Full-Stack Web Geliştirme kapak görseli', 'Mimari. Teslimat. Güvenilirlik.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+  (UUID(), @img1, 'de', 'Full-Stack Webentwicklung', 'Full-Stack Webentwicklung Titelbild', 'Architektur. Delivery. Verlässlichkeit.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
 
 
 
 -- =============================================================
--- SERVICE 2 — Mobile App Design
+-- SERVICE 2 — E-Commerce and Platform Delivery
 -- =============================================================
 
 SET @svc2 := UUID();
@@ -170,22 +170,22 @@ INSERT INTO `services_i18n` (
   `created_at`, `updated_at`
 ) VALUES (
   UUID(), @svc2, 'en',
-  'mobile-app-design',
-  'Mobile App Design',
-  'Cross-platform mobile app design with interactive prototypes and consistent branding across iOS and Android.',
+  'ecommerce-platform-delivery',
+  'E-Commerce and Platform Delivery',
+  'End-to-end implementation for commerce platforms, marketplace workflows, admin operations and customer-facing applications.',
   '{
-    "tagline": "Creative. Unique. Reality.",
+    "tagline": "Commerce. Workflow. Scale.",
     "highlights": [
-      { "title": "Cross-Platform Design", "description": "Creating designs that work smoothly on both iOS and Android platforms, ensuring a consistent and high-quality user experience regardless of the device." },
-      { "title": "Interactive Prototypes", "description": "Developing interactive prototypes to demonstrate app functionality and help stakeholders experience the app before development begins." },
-      { "title": "Consistent Branding", "description": "Ensuring the app design remains consistent with your brand identity across all touchpoints to build recognition and trust." }
+      { "title": "Commerce Workflows", "description": "Implementing catalog, cart, checkout, order and backoffice flows for real e-commerce operations." },
+      { "title": "Admin and Customer Apps", "description": "Delivering admin panels, storefronts and customer experiences that share a consistent system architecture." },
+      { "title": "Multi-Application Delivery", "description": "Connecting web, admin and mobile layers when the platform requires more than one application surface." }
     ],
-    "html": "<p>I design mobile experiences that feel native, perform well, and remain visually consistent across platforms.</p>"
+    "html": "<p>I build commerce and platform products that connect operations, customer journeys and internal management into one coherent system.</p>"
   }',
-  'Mobile App Design cover image',
-  'Mobile App Design — Cross-platform, consistent, engaging',
-  'Mobile app UI/UX design: cross-platform design, interactive prototypes, and consistent branding.',
-  'mobile design, ios, android, prototype, branding, ux',
+  'E-Commerce and Platform Delivery cover image',
+  'E-Commerce and Platform Delivery — Commerce. Workflow. Scale.',
+  'E-commerce and platform delivery for storefronts, admin panels, backoffice workflows and multi-application products.',
+  'e-commerce development, platform delivery, admin panel, storefront, marketplace',
   CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 );
 
@@ -197,22 +197,22 @@ INSERT INTO `services_i18n` (
   `created_at`, `updated_at`
 ) VALUES (
   UUID(), @svc2, 'tr',
-  'mobil-uygulama-tasarim',
-  'Mobil Uygulama Tasarımı',
-  'iOS ve Android için çapraz platform tasarım; etkileşimli prototipler ve her noktada tutarlı marka dili.',
+  'ecommerce-ve-platform-teslimi',
+  'E-Commerce ve Platform Teslimi',
+  'Ticaret platformları, marketplace akışları, admin operasyonları ve müşteri uygulamaları için uçtan uca geliştirme.',
   '{
-    "tagline": "Yaratıcı. Özgün. Gerçek.",
+    "tagline": "Commerce. Süreç. Ölçek.",
     "highlights": [
-      { "title": "Çapraz Platform Tasarım", "description": "iOS ve Android cihazlarda sorunsuz çalışan tasarımlar üreterek cihazdan bağımsız tutarlı ve yüksek kaliteli bir deneyim sağlar." },
-      { "title": "Etkileşimli Prototipler", "description": "Uygulama işlevlerini göstermek ve geliştirme öncesi deneyimletmek için etkileşimli prototipler hazırlar." },
-      { "title": "Tutarlı Markalama", "description": "Tasarımı marka kimliğinize uyumlu kurgulayarak tüm temas noktalarında tanınırlık ve güven oluşturur." }
+      { "title": "Commerce Akışları", "description": "Katalog, sepet, checkout, sipariş ve backoffice akışlarını gerçek e-ticaret operasyonlarına uygun şekilde kurarım." },
+      { "title": "Admin ve Müşteri Uygulamaları", "description": "Admin panel, storefront ve müşteri deneyimini ortak sistem mimarisiyle birlikte teslim ederim." },
+      { "title": "Çoklu Uygulama Teslimi", "description": "İhtiyaç olduğunda web, admin ve mobil katmanlarını tek platform mantığıyla bağlarım." }
     ],
-    "html": "<p>Native hissiyat veren, hızlı ve platformlar arasında görsel tutarlılığı koruyan mobil deneyimler tasarlarım.</p>"
+    "html": "<p>Operasyon, müşteri yolculuğu ve iç yönetim süreçlerini tek bir sistem altında birleştiren commerce ve platform ürünleri geliştiririm.</p>"
   }',
-  'Mobil Uygulama Tasarımı kapak görseli',
-  'Mobil Uygulama Tasarımı — Çapraz platform ve tutarlı',
-  'Mobil uygulama UI/UX tasarımı: çapraz platform, prototipler ve marka tutarlılığı.',
-  'mobil tasarim, ios, android, prototip, marka, ux',
+  'E-Commerce ve Platform Teslimi kapak görseli',
+  'E-Commerce ve Platform Teslimi — Commerce. Süreç. Ölçek.',
+  'Storefront, admin panel, backoffice süreçleri ve çoklu uygulama ürünleri için e-commerce ve platform geliştirme.',
+  'e-commerce gelistirme, platform teslimi, admin panel, storefront, marketplace',
   CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 );
 
@@ -224,22 +224,22 @@ INSERT INTO `services_i18n` (
   `created_at`, `updated_at`
 ) VALUES (
   UUID(), @svc2, 'de',
-  'mobile-app-design',
-  'Mobile App Design',
-  'Cross-Platform App-Design mit interaktiven Prototypen und konsistentem Branding für iOS und Android.',
+  'ecommerce-und-plattform-delivery',
+  'E-Commerce und Plattform Delivery',
+  'End-to-End Umsetzung für Commerce-Plattformen, Marketplace-Workflows, Admin-Operationen und kundennahe Anwendungen.',
   '{
-    "tagline": "Kreativ. Einzigartig. Real.",
+    "tagline": "Commerce. Workflow. Skalierung.",
     "highlights": [
-      { "title": "Cross-Platform Design", "description": "Designs, die auf iOS und Android reibungslos funktionieren und eine konsistente, hochwertige User Experience bieten." },
-      { "title": "Interaktive Prototypen", "description": "Interaktive Prototypen zur Demonstration der App-Funktionalität, damit Stakeholder die App vor der Entwicklung erleben können." },
-      { "title": "Konsistentes Branding", "description": "Visuelle Konsistenz mit der Markenidentität über alle Touchpoints hinweg für Wiedererkennung und Vertrauen." }
+      { "title": "Commerce Workflows", "description": "Katalog-, Warenkorb-, Checkout-, Bestell- und Backoffice-Flows für reale E-Commerce-Prozesse." },
+      { "title": "Admin- und Customer-Apps", "description": "Admin Panels, Storefronts und Customer Experiences mit konsistenter Systemarchitektur." },
+      { "title": "Multi-Application Delivery", "description": "Verbindung von Web-, Admin- und Mobile-Layern, wenn die Plattform mehrere Anwendungen benötigt." }
     ],
-    "html": "<p>Ich gestalte mobile Experiences, die sich nativen anfühlen, performant sind und plattformübergreifend konsistent bleiben.</p>"
+    "html": "<p>Ich entwickle Commerce- und Plattform-Produkte, die Operations, Customer Journeys und internes Management in einem System verbinden.</p>"
   }',
-  'Mobile App Design Titelbild',
-  'Mobile App Design — Plattformübergreifend und konsistent',
-  'Mobile App UI/UX: Cross-Platform Design, interaktive Prototypen und konsistentes Branding.',
-  'mobile design, ios, android, prototype, branding, ux',
+  'E-Commerce und Plattform Delivery Titelbild',
+  'E-Commerce und Plattform Delivery — Commerce. Workflow. Skalierung.',
+  'E-Commerce- und Plattform-Delivery für Storefronts, Admin Panels, Backoffice-Workflows und Multi-Application-Produkte.',
+  'e-commerce entwicklung, plattform delivery, admin panel, storefront, marketplace',
   CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 );
 
@@ -260,14 +260,14 @@ INSERT INTO `service_images` (
 
 INSERT INTO `service_images_i18n` (`id`, `image_id`, `locale`, `title`, `alt`, `caption`, `created_at`, `updated_at`)
 VALUES
-  (UUID(), @img2, 'en', 'Mobile App Design', 'Mobile App Design cover image', 'Creative. Unique. Reality.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
-  (UUID(), @img2, 'tr', 'Mobil Uygulama Tasarımı', 'Mobil Uygulama Tasarımı kapak görseli', 'Yaratıcı. Özgün. Gerçek.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
-  (UUID(), @img2, 'de', 'Mobile App Design', 'Mobile App Design Titelbild', 'Kreativ. Einzigartig. Real.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
+  (UUID(), @img2, 'en', 'E-Commerce and Platform Delivery', 'E-Commerce and Platform Delivery cover image', 'Commerce. Workflow. Scale.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+  (UUID(), @img2, 'tr', 'E-Commerce ve Platform Teslimi', 'E-Commerce ve Platform Teslimi kapak görseli', 'Commerce. Süreç. Ölçek.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+  (UUID(), @img2, 'de', 'E-Commerce und Plattform Delivery', 'E-Commerce und Plattform Delivery Titelbild', 'Commerce. Workflow. Skalierung.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
 
 
 
 -- =============================================================
--- SERVICE 3 — Brand Identity Design
+-- SERVICE 3 — API and Backend Engineering
 -- =============================================================
 
 SET @svc3 := UUID();
@@ -294,22 +294,22 @@ INSERT INTO `services_i18n` (
   `created_at`, `updated_at`
 ) VALUES (
   UUID(), @svc3, 'en',
-  'brand-identity-design',
-  'Brand Identity Design',
-  'Brand identity systems that stay consistent across platforms: logos, guidelines, and key visual assets.',
+  'api-backend-engineering',
+  'API and Backend Engineering',
+  'Backend services, authentication, data modeling and integration layers for scalable products and internal systems.',
   '{
-    "tagline": "Creative. Unique. Reality.",
+    "tagline": "Data. Security. Integration.",
     "highlights": [
-      { "title": "Logo Design", "description": "Creating memorable and impactful logos that represent your brand essence and values, helping you stand out in a crowded marketplace." },
-      { "title": "Brand Guidelines", "description": "Developing comprehensive guidelines including typography, color, and visual styles to keep consistency across all platforms and media." },
-      { "title": "Visual Assets", "description": "Designing assets such as business cards and letterheads to ensure communications are cohesive and professional." }
+      { "title": "REST API Design", "description": "Structuring endpoints, validation and data contracts for maintainable product and business workflows." },
+      { "title": "Authentication and Permissions", "description": "Implementing JWT-based auth, role checks and secure access flows for admin and customer systems." },
+      { "title": "Integrations and Documentation", "description": "Connecting third-party services, payment providers and generating clear API documentation for teams." }
     ],
-    "html": "<p>From logo to full visual system, I help brands look coherent, modern, and trustworthy across every touchpoint.</p>"
+    "html": "<p>I build backend foundations that keep products stable, secure and easier to extend as the business grows.</p>"
   }',
-  'Brand Identity Design cover image',
-  'Brand Identity Design — Logo, guidelines, assets',
-  'Brand identity: logo design, brand guidelines, and visual assets for cohesive communication.',
-  'brand identity, logo, brand guidelines, visual assets, design system',
+  'API and Backend Engineering cover image',
+  'API and Backend Engineering — Data. Security. Integration.',
+  'Backend engineering with authentication, REST APIs, integrations, validation and database-first implementation.',
+  'api development, backend engineering, jwt, mysql, fastify, laravel',
   CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 );
 
@@ -321,22 +321,22 @@ INSERT INTO `services_i18n` (
   `created_at`, `updated_at`
 ) VALUES (
   UUID(), @svc3, 'tr',
-  'marka-kimligi-tasarim',
-  'Marka Kimliği Tasarımı',
-  'Platformlar arasında tutarlılığı koruyan marka kimliği: logo, kılavuzlar ve temel görsel materyaller.',
+  'api-backend-muhendisligi',
+  'API ve Backend Mühendisliği',
+  'Ölçeklenebilir ürünler ve iç sistemler için backend servisleri, kimlik doğrulama, veri modelleme ve entegrasyon katmanları.',
   '{
-    "tagline": "Yaratıcı. Özgün. Gerçek.",
+    "tagline": "Veri. Güvenlik. Entegrasyon.",
     "highlights": [
-      { "title": "Logo Tasarımı", "description": "Markanızın özünü ve değerlerini yansıtan akılda kalıcı logolar tasarlayarak rekabette öne çıkmanıza yardımcı olur." },
-      { "title": "Marka Kılavuzu", "description": "Tipografi, renk ve görsel stil standartlarını içeren kapsamlı kılavuzlar oluşturarak tüm mecralarda tutarlılık sağlar." },
-      { "title": "Görsel Materyaller", "description": "Kartvizit, antetli kağıt gibi görsel materyaller tasarlayarak iletişiminizin profesyonel ve bütüncül görünmesini sağlar." }
+      { "title": "REST API Tasarımı", "description": "Bakımı kolay ürün ve iş akışları için endpoint yapısı, validasyon ve veri kontratları kurarım." },
+      { "title": "Kimlik Doğrulama ve Yetkilendirme", "description": "Admin ve müşteri sistemleri için JWT tabanlı auth, rol kontrolleri ve güvenli erişim akışları uygularım." },
+      { "title": "Entegrasyon ve Dokümantasyon", "description": "Üçüncü parti servisleri, ödeme sağlayıcılarını bağlar ve ekipler için net API dokümantasyonu üretirim." }
     ],
-    "html": "<p>Logodan görsel sisteme kadar, markanızın her temas noktasında modern ve güven veren görünmesini sağlarım.</p>"
+    "html": "<p>Ürünün büyüdükçe stabil, güvenli ve geliştirilebilir kalmasını sağlayan backend temellerini kurarım.</p>"
   }',
-  'Marka Kimliği Tasarımı kapak görseli',
-  'Marka Kimliği Tasarımı — Logo, kılavuz, materyaller',
-  'Marka kimliği tasarımı: logo, marka kılavuzu ve görsel materyallerle bütüncül iletişim.',
-  'marka kimligi, logo, marka kilavuzu, kurumsal kimlik, tasarim sistemi',
+  'API ve Backend Mühendisliği kapak görseli',
+  'API ve Backend Mühendisliği — Veri. Güvenlik. Entegrasyon.',
+  'Kimlik doğrulama, REST API, entegrasyon, validasyon ve veritabanı odaklı backend mühendisliği.',
+  'api gelistirme, backend muhendisligi, jwt, mysql, fastify, laravel',
   CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 );
 
@@ -348,22 +348,22 @@ INSERT INTO `services_i18n` (
   `created_at`, `updated_at`
 ) VALUES (
   UUID(), @svc3, 'de',
-  'brand-identity-design',
-  'Brand Identity Design',
-  'Markenidentität, die über alle Plattformen konsistent bleibt: Logos, Guidelines und zentrale Visual Assets.',
+  'api-backend-engineering',
+  'API und Backend Engineering',
+  'Backend-Services, Authentifizierung, Datenmodellierung und Integrationsschichten für skalierbare Produkte und interne Systeme.',
   '{
-    "tagline": "Kreativ. Einzigartig. Real.",
+    "tagline": "Daten. Sicherheit. Integration.",
     "highlights": [
-      { "title": "Logo Design", "description": "Einprägsame Logos, die Werte und Charakter Ihrer Marke transportieren und Sie im Wettbewerb differenzieren." },
-      { "title": "Brand Guidelines", "description": "Umfassende Guidelines mit Typografie, Farben und visuellen Standards für Konsistenz über alle Kanäle." },
-      { "title": "Visual Assets", "description": "Visual Assets wie Visitenkarten und Briefpapier, damit jede Kommunikation professionell und stimmig wirkt." }
+      { "title": "REST API Design", "description": "Endpoints, Validierung und Datenverträge für wartbare Produkt- und Business-Workflows." },
+      { "title": "Authentifizierung und Berechtigungen", "description": "JWT-basierte Authentifizierung, Rollenprüfungen und sichere Zugriffspfade für Admin- und Customer-Systeme." },
+      { "title": "Integrationen und Dokumentation", "description": "Anbindung externer Services, Payment Provider und klare API-Dokumentation für Teams." }
     ],
-    "html": "<p>Vom Logo bis zum visuellen System: Ich helfe Marken, modern, konsistent und vertrauenswürdig aufzutreten.</p>"
+    "html": "<p>Ich baue Backend-Fundamente, die Produkte stabil, sicher und mit dem Unternehmen mitwachsend halten.</p>"
   }',
-  'Brand Identity Design Titelbild',
-  'Brand Identity Design — Logo, Guidelines, Assets',
-  'Markenidentität: Logo Design, Brand Guidelines und Visual Assets für konsistente Kommunikation.',
-  'brand identity, logo, brand guidelines, visual assets, design system',
+  'API und Backend Engineering Titelbild',
+  'API und Backend Engineering — Daten. Sicherheit. Integration.',
+  'Backend Engineering mit Authentifizierung, REST APIs, Integrationen, Validierung und datenbankorientierter Umsetzung.',
+  'api entwicklung, backend engineering, jwt, mysql, fastify, laravel',
   CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 );
 
@@ -384,14 +384,14 @@ INSERT INTO `service_images` (
 
 INSERT INTO `service_images_i18n` (`id`, `image_id`, `locale`, `title`, `alt`, `caption`, `created_at`, `updated_at`)
 VALUES
-  (UUID(), @img3, 'en', 'Brand Identity Design', 'Brand Identity Design cover image', 'Creative. Unique. Reality.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
-  (UUID(), @img3, 'tr', 'Marka Kimliği Tasarımı', 'Marka Kimliği Tasarımı kapak görseli', 'Yaratıcı. Özgün. Gerçek.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
-  (UUID(), @img3, 'de', 'Brand Identity Design', 'Brand Identity Design Titelbild', 'Kreativ. Einzigartig. Real.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
+  (UUID(), @img3, 'en', 'API and Backend Engineering', 'API and Backend Engineering cover image', 'Data. Security. Integration.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+  (UUID(), @img3, 'tr', 'API ve Backend Mühendisliği', 'API ve Backend Mühendisliği kapak görseli', 'Veri. Güvenlik. Entegrasyon.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+  (UUID(), @img3, 'de', 'API und Backend Engineering', 'API und Backend Engineering Titelbild', 'Daten. Sicherheit. Integration.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
 
 
 
 -- =============================================================
--- SERVICE 4 — Web Development
+-- SERVICE 4 — Maintenance and Deployment
 -- =============================================================
 
 SET @svc4 := UUID();
@@ -418,22 +418,22 @@ INSERT INTO `services_i18n` (
   `created_at`, `updated_at`
 ) VALUES (
   UUID(), @svc4, 'en',
-  'web-development',
-  'Web Development',
-  'Modern web development with responsive front-end, robust back-end, and CMS integration for easy content management.',
+  'maintenance-and-deployment',
+  'Maintenance and Deployment',
+  'Production maintenance, server delivery, environment setup and iterative improvements for active applications.',
   '{
-    "tagline": "Creative. Unique. Reality.",
+    "tagline": "Stability. Updates. Continuity.",
     "highlights": [
-      { "title": "Front-End Development", "description": "Utilizing modern technologies like HTML, CSS, and JavaScript to create responsive and interactive web pages that provide an engaging user experience." },
-      { "title": "Back-End Development", "description": "Implementing server-side logic and database management to ensure seamless performance and data integrity." },
-      { "title": "Content Management Systems", "description": "Integrating user-friendly CMS platforms or custom solutions for easy content updates, enabling non-technical users to manage content efficiently." }
+      { "title": "Deployment and Release Flow", "description": "Preparing production environments, process management and rollout steps for stable releases." },
+      { "title": "Bug Fixing and Iteration", "description": "Handling post-launch issues, feature refinements and operational improvements without disrupting core workflows." },
+      { "title": "Infrastructure Awareness", "description": "Working with PM2, Nginx, Docker and CI/CD-oriented delivery patterns where the product needs operational continuity." }
     ],
-    "html": "<p>I build fast, maintainable websites with clean architecture: front-end, back-end, and content workflows.</p>"
+    "html": "<p>I support live systems after launch with careful updates, environment management and pragmatic technical maintenance.</p>"
   }',
-  'Web Development cover image',
-  'Web Development — Front-end, back-end, CMS',
-  'Web development: responsive front-end, scalable back-end, and CMS integration for content management.',
-  'web development, frontend, backend, cms, responsive, performance',
+  'Maintenance and Deployment cover image',
+  'Maintenance and Deployment — Stability. Updates. Continuity.',
+  'Production maintenance, deployment flow, PM2, Nginx, Docker and ongoing improvement for active systems.',
+  'maintenance, deployment, pm2, nginx, docker, production support',
   CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 );
 
@@ -445,22 +445,22 @@ INSERT INTO `services_i18n` (
   `created_at`, `updated_at`
 ) VALUES (
   UUID(), @svc4, 'tr',
-  'web-gelistirme',
-  'Web Geliştirme',
-  'Responsive arayüz, sağlam back-end ve kolay içerik yönetimi için CMS entegrasyonu ile modern web geliştirme.',
+  'bakim-ve-deploy',
+  'Bakım ve Deploy',
+  'Canlı uygulamalar için production bakımı, sunucu teslimi, ortam kurulumu ve iteratif iyileştirme süreçleri.',
   '{
-    "tagline": "Yaratıcı. Özgün. Gerçek.",
+    "tagline": "Stabilite. Güncelleme. Süreklilik.",
     "highlights": [
-      { "title": "Front-End Geliştirme", "description": "HTML, CSS ve JavaScript gibi modern teknolojilerle responsive ve etkileşimli arayüzler geliştirerek güçlü bir kullanıcı deneyimi sunar." },
-      { "title": "Back-End Geliştirme", "description": "Sunucu tarafı iş mantığını ve veri yönetimini kurarak performans ve veri bütünlüğünü güvence altına alır." },
-      { "title": "İçerik Yönetim Sistemleri", "description": "WordPress benzeri CMS veya özel çözümler entegre ederek teknik olmayan kullanıcıların içeriği kolayca yönetmesini sağlar." }
+      { "title": "Deploy ve Release Akışı", "description": "Stabil sürümler için production ortamı, process yönetimi ve release adımlarını hazırlarım." },
+      { "title": "Hata Düzeltme ve İterasyon", "description": "Yayın sonrası hataları, iyileştirmeleri ve operasyonel geliştirmeleri temel akışı bozmadan yönetirim." },
+      { "title": "Altyapı Farkındalığı", "description": "Ürün ihtiyaç duyduğunda PM2, Nginx, Docker ve CI/CD odaklı teslim kalıplarıyla çalışırım." }
     ],
-    "html": "<p>Hızlı ve sürdürülebilir web siteleri geliştiririm: front-end, back-end ve içerik akışları dahil.</p>"
+    "html": "<p>Canlı sistemleri yayın sonrası dikkatli güncellemeler, ortam yönetimi ve pragmatik teknik bakım ile desteklerim.</p>"
   }',
-  'Web Geliştirme kapak görseli',
-  'Web Geliştirme — Front-end, back-end, CMS',
-  'Web geliştirme: responsive arayüz, ölçeklenebilir back-end ve içerik yönetimi için CMS entegrasyonu.',
-  'web gelistirme, frontend, backend, cms, responsive, performans',
+  'Bakım ve Deploy kapak görseli',
+  'Bakım ve Deploy — Stabilite. Güncelleme. Süreklilik.',
+  'Production bakım, deploy akışı, PM2, Nginx, Docker ve aktif sistemler için sürekli iyileştirme.',
+  'bakim, deploy, pm2, nginx, docker, production support',
   CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 );
 
@@ -472,22 +472,22 @@ INSERT INTO `services_i18n` (
   `created_at`, `updated_at`
 ) VALUES (
   UUID(), @svc4, 'de',
-  'web-development',
-  'Web Development',
-  'Moderne Webentwicklung mit responsive Front-End, robustem Back-End und CMS-Integration für einfache Inhaltsverwaltung.',
+  'maintenance-und-deployment',
+  'Maintenance und Deployment',
+  'Produktionswartung, Server-Delivery, Environment-Setup und iterative Verbesserungen für aktive Anwendungen.',
   '{
-    "tagline": "Kreativ. Einzigartig. Real.",
+    "tagline": "Stabilität. Updates. Kontinuität.",
     "highlights": [
-      { "title": "Front-End Development", "description": "Responsive und interaktive Oberflächen mit modernen Technologien für eine überzeugende User Experience." },
-      { "title": "Back-End Development", "description": "Serverlogik und Datenmanagement für zuverlässige Performance und Datenintegrität." },
-      { "title": "Content Management Systems", "description": "CMS-Integration oder individuelle Lösungen für einfache Content-Updates, auch für nicht-technische Nutzer." }
+      { "title": "Deployment und Release Flow", "description": "Produktionsumgebungen, Prozessmanagement und Rollout-Schritte für stabile Releases." },
+      { "title": "Bugfixing und Iteration", "description": "Post-Launch-Probleme, Feature-Anpassungen und operative Verbesserungen ohne Störung der Kernprozesse." },
+      { "title": "Infrastructure Awareness", "description": "Arbeit mit PM2, Nginx, Docker und CI/CD-orientierten Delivery-Mustern für operative Kontinuität." }
     ],
-    "html": "<p>Ich baue schnelle, wartbare Websites mit sauberer Architektur: Front-End, Back-End und Content-Workflows.</p>"
+    "html": "<p>Ich begleite Live-Systeme nach dem Launch mit sorgfältigen Updates, Environment-Management und pragmatischer technischer Wartung.</p>"
   }',
-  'Web Development Titelbild',
-  'Web Development — Front-End, Back-End, CMS',
-  'Webentwicklung: responsives Front-End, skalierbares Back-End und CMS-Integration für Content Management.',
-  'web development, frontend, backend, cms, responsive, performance',
+  'Maintenance und Deployment Titelbild',
+  'Maintenance und Deployment — Stabilität. Updates. Kontinuität.',
+  'Produktionswartung, Deployment-Flows, PM2, Nginx, Docker und kontinuierliche Verbesserung aktiver Systeme.',
+  'wartung, deployment, pm2, nginx, docker, production support',
   CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 );
 
@@ -508,9 +508,9 @@ INSERT INTO `service_images` (
 
 INSERT INTO `service_images_i18n` (`id`, `image_id`, `locale`, `title`, `alt`, `caption`, `created_at`, `updated_at`)
 VALUES
-  (UUID(), @img4, 'en', 'Web Development', 'Web Development cover image', 'Creative. Unique. Reality.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
-  (UUID(), @img4, 'tr', 'Web Geliştirme', 'Web Geliştirme kapak görseli', 'Yaratıcı. Özgün. Gerçek.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
-  (UUID(), @img4, 'de', 'Web Development', 'Web Development Titelbild', 'Kreativ. Einzigartig. Real.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
+  (UUID(), @img4, 'en', 'Maintenance and Deployment', 'Maintenance and Deployment cover image', 'Stability. Updates. Continuity.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+  (UUID(), @img4, 'tr', 'Bakım ve Deploy', 'Bakım ve Deploy kapak görseli', 'Stabilite. Güncelleme. Süreklilik.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+  (UUID(), @img4, 'de', 'Maintenance und Deployment', 'Maintenance und Deployment Titelbild', 'Stabilität. Updates. Kontinuität.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
 
 
 COMMIT;

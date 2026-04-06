@@ -71,7 +71,7 @@
       ]
     },
     "static2": {
-      "background_image": "assets/imgs/home-page-2/static/bg.png",
+      "background_image": "/assets/imgs/home-page-2/static/bg.png",
       "items": [
         {
           "value": 12,
@@ -104,7 +104,7 @@
     "badge": "Kooperation",
     "heading_html": "Mehr als +168 <span class=\"text-300\">Unternehmen <br /></span> vertrauen <span class=\"text-300\">weltweit_</span>",
     "contact": {
-      "avatar": "assets/imgs/coporation/avatar.png",
+      "avatar": "/assets/imgs/coporation/avatar.png",
       "avatar_alt": "Orhan Guzel",
       "skype_label": "[skype]",
       "skype_value": "",
@@ -182,10 +182,10 @@
     "contact": {
       "heading": "Kontakt",
       "form_title": "Lass uns verbinden",
-      "phone": "",
+      "phone": "+49 172 384 6068",
       "email": "orhanguzell@gmail.com",
       "skype": "",
-      "address": "Grevenbroich, Deutschland",
+      "address": "Grevenbroich",
       "map_href": "https://www.google.com/maps?q=Grevenbroich"
     }
   },
@@ -691,11 +691,11 @@
       "phone_label": "Telefon",
       "subject_label": "Betreff",
       "message_label": "Nachricht",
-      "name_ph": "Max Mustermann",
-      "email_ph": "kontakt@beispiel.de",
-      "phone_ph": "Optional",
-      "subject_ph": "Ich möchte sprechen über…",
-      "message_ph": "Deine Nachricht…",
+      "name_ph": "Orhan Güzel",
+      "email_ph": "orhanguzell@gmail.com",
+      "phone_ph": "+49 172 384 6068",
+      "subject_ph": "",
+      "message_ph": "",
       "submit": "Senden"
     }
   },
@@ -800,7 +800,11 @@
       "technologies_used_label": "Verwendete Technologien",
       "design_highlights_label": "Design-Highlights",
       "details_label": "Details",
-      "gallery_label": "Galerie"
+      "gallery_label": "Galerie",
+      "case_study_title": "Fallstudie",
+      "case_study_challenge_label": "Challenge",
+      "case_study_approach_label": "Vorgehen",
+      "case_study_outcome_label": "Ergebnis"
     }
   },
   "ui_blog": {
@@ -858,7 +862,9 @@
       "view_more_label": "Mehr anzeigen",
       "related_empty": "Keine ähnlichen Beiträge.",
       "category_fallback": "Blog",
-      "read_time": "3 Min. Lesezeit"
+      "read_time": "3 Min. Lesezeit",
+      "author_section_title": "Über den Autor",
+      "author_bio_html": "<p>Orhan Güzel entwickelt produktionsreife Webplattformen und Business-Software mit Next.js, Fastify und Laravel — in Grevenbroich, Deutschland.</p>"
     }
   },
   "ui_resume": {
@@ -932,7 +938,7 @@
   "ui_home": {
     "home1": {
       "greeting": "👋 Hallo, ich bin Orhan Guzel",
-      "title_html": "Digitale Erlebnisse für <span class=\"text-primary-1\">GWD</span>",
+      "title_html": "Orhan Guzel — <span class=\"text-primary-1\">Full-Stack Webentwickler</span> aus Grevenbroich",
       "description": "Gründer von GWD (guezelwebdesign.com). Ich helfe Einzelpersonen und Marken, nutzerzentrierte digitale Produkte und interaktive Erlebnisse zu entwickeln.",
       "cta_primary": "CV herunterladen",
       "cta_secondary": "Kontakt aufnehmen",
@@ -948,9 +954,9 @@
       "description_html": "&lt;p&gt;<span class=\"text-dark\">Bei</span> <span class=\"text-secondary-2\">guezelwebdesign.com</span><span class=\"text-dark\"> entwickle ich schnelle, zuverlässige Web- und App-Erlebnisse mit</span> <span class=\"text-secondary-2\">NodeJS</span>, <span class=\"text-secondary-2\">React</span>, <span class=\"text-secondary-2\">Angular</span> und <span class=\"text-secondary-2\">Laravel</span><span class=\"text-dark\">.</span>&lt;/p&gt;",
       "more_label": "...und mehr",
       "cv_label": "[ CV herunterladen ]",
-      "hero_image": "assets/imgs/home-page-2/hero-1/people.png",
+      "hero_image": "/assets/imgs/home-page-2/hero-1/people.png",
       "hero_image_alt": "Orhan Guzel",
-      "icon_image": "assets/imgs/home-page-2/hero-1/icon.svg",
+      "icon_image": "/assets/imgs/home-page-2/hero-1/icon.svg",
       "icon_image_alt": "Dekor"
     }
   },
@@ -1043,5 +1049,12 @@
     "internalNotes": "Interne Notiz",
     "footerLeftTemplate": "{{siteName}} – Automatisiertes Angebotssystem",
     "footerRight": "Dieses PDF wurde automatisch erstellt und benötigt keine Unterschrift."
+  },
+  "contact_info": {
+    "companyName": "Orhan Guzel — Guezel Web Design",
+    "phone": "+49 172 384 6068",
+    "email": "orhanguzell@gmail.com",
+    "address": "Grevenbroich",
+    "website": "https://www.guezelwebdesign.com"
   }
 }

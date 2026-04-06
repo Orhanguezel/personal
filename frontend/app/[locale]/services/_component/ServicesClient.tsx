@@ -41,13 +41,18 @@ export default function ServicesClient({
     [pageSettingValue],
   );
 
-  const { data, isLoading, isFetching, isError } = useListServicesPublicQuery({
-    locale,
-    default_locale: locale,
-    limit: 100,
-    offset: 0,
-    order: 'display_order.asc',
-  });
+  const hasServerList = initialItems.length > 0;
+
+  const { data, isLoading, isFetching, isError } = useListServicesPublicQuery(
+    {
+      locale,
+      default_locale: locale,
+      limit: 100,
+      offset: 0,
+      order: 'display_order.asc',
+    },
+    { skip: hasServerList },
+  );
 
   const items = data?.items && data.items.length ? data.items : initialItems;
 

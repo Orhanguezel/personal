@@ -1,0 +1,3010 @@
+
+> zelio@3.0.0 dev
+> next dev --webpack --port 3001
+
+▲ Next.js 16.1.1 (webpack)
+- Local:         http://localhost:3001
+- Network:       http://172.20.10.6:3001
+- Environments: .env
+
+✓ Starting...
+✓ Ready in 1507ms
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /de 500 in 3.5s (compile: 3.0s, generate-params: 698ms, render: 523ms)
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:46:15)
+    at async getServicesListServer (utils/publicLists.server.ts:68:16)
+    at async Home (app/[locale]/page.tsx:19:30)
+  44 |   const url = buildApiUrl(path, params);
+  45 |
+> 46 |   const res = await fetch(url, {
+     |               ^
+  47 |     next: { revalidate: REVALIDATE_SECONDS },
+  48 |     headers: { Accept: 'application/json' },
+  49 |   }); {
+  digest: '2318414690',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /sw.js 500 in 133ms (compile: 28ms, generate-params: 18ms, render: 104ms)
+TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /de 500 in 97ms (compile: 4ms, generate-params: 41µs, render: 93ms)
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /de 500 in 429ms (compile: 154ms, generate-params: 19ms, render: 275ms)
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:53:15)
+    at async getServicesListServer (utils/publicLists.server.ts:75:16)
+    at async Home (app/[locale]/page.tsx:19:30)
+  51 |   const url = buildApiUrl(path, params);
+  52 |
+> 53 |   const res = await fetch(url, {
+     |               ^
+  54 |     next: { revalidate: REVALIDATE_SECONDS },
+  55 |     headers: { Accept: 'application/json' },
+  56 |   }); {
+  digest: '2318414690',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /sw.js 500 in 119ms (compile: 23ms, generate-params: 19ms, render: 95ms)
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /de 500 in 365ms (compile: 93ms, generate-params: 22ms, render: 271ms)
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:53:15)
+    at async getServicesListServer (utils/publicLists.server.ts:75:16)
+    at async Home (app/[locale]/page.tsx:19:30)
+  51 |   const url = buildApiUrl(path, params);
+  52 |
+> 53 |   const res = await fetch(url, {
+     |               ^
+  54 |     next: { revalidate: REVALIDATE_SECONDS },
+  55 |     headers: { Accept: 'application/json' },
+  56 |   }); {
+  digest: '1388008964',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /sw.js 500 in 117ms (compile: 23ms, generate-params: 19ms, render: 93ms)
+TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /de 500 in 102ms (compile: 26ms, generate-params: 23ms, render: 76ms)
+⚠ Found a change in next.config.mjs. Restarting the server to apply the changes...
+▲ Next.js 16.1.1 (webpack)
+- Local:         http://localhost:3001
+- Network:       http://172.20.10.6:3001
+- Environments: .env
+
+✓ Starting...
+✓ Ready in 1726ms
+○ Compiling /[locale] ...
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /de 500 in 7.6s (compile: 7.4s, generate-params: 372ms, render: 212ms)
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:53:15)
+    at async getServicesListServer (utils/publicLists.server.ts:75:16)
+    at async Home (app/[locale]/page.tsx:19:30)
+  51 |   const url = buildApiUrl(path, params);
+  52 |
+> 53 |   const res = await fetch(url, {
+     |               ^
+  54 |     next: { revalidate: REVALIDATE_SECONDS },
+  55 |     headers: { Accept: 'application/json' },
+  56 |   }); {
+  digest: '1388008964',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /sw.js 500 in 216ms (compile: 44ms, generate-params: 33ms, render: 172ms)
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:53:15)
+    at async getServicesListServer (utils/publicLists.server.ts:75:16)
+    at async Home (app/[locale]/page.tsx:19:30)
+  51 |   const url = buildApiUrl(path, params);
+  52 |
+> 53 |   const res = await fetch(url, {
+     |               ^
+  54 |     next: { revalidate: REVALIDATE_SECONDS },
+  55 |     headers: { Accept: 'application/json' },
+  56 |   }); {
+  digest: '1388008964',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /sw.js 500 in 179ms (compile: 34ms, generate-params: 28ms, render: 145ms)
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /de 500 in 338ms (compile: 131ms, generate-params: 17ms, render: 207ms)
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /de 500 in 353ms (compile: 75ms, generate-params: 21ms, render: 278ms)
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:53:15)
+    at async getServicesListServer (utils/publicLists.server.ts:75:16)
+    at async Home (app/[locale]/page.tsx:20:30)
+  51 |   const url = buildApiUrl(path, params);
+  52 |
+> 53 |   const res = await fetch(url, {
+     |               ^
+  54 |     next: { revalidate: REVALIDATE_SECONDS },
+  55 |     headers: { Accept: 'application/json' },
+  56 |   }); {
+  digest: '4199235650',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /sw.js 500 in 127ms (compile: 26ms, generate-params: 23ms, render: 101ms)
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:53:15)
+    at async getServicesListServer (utils/publicLists.server.ts:75:16)
+    at async Home (app/[locale]/page.tsx:20:30)
+  51 |   const url = buildApiUrl(path, params);
+  52 |
+> 53 |   const res = await fetch(url, {
+     |               ^
+  54 |     next: { revalidate: REVALIDATE_SECONDS },
+  55 |     headers: { Accept: 'application/json' },
+  56 |   }); {
+  digest: '4199235650',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /sw.js 500 in 117ms (compile: 25ms, generate-params: 21ms, render: 92ms)
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /de 500 in 261ms (compile: 86ms, generate-params: 20ms, render: 175ms)
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:53:15)
+    at async getServicesListServer (utils/publicLists.server.ts:75:16)
+    at async Home (app/[locale]/page.tsx:20:30)
+  51 |   const url = buildApiUrl(path, params);
+  52 |
+> 53 |   const res = await fetch(url, {
+     |               ^
+  54 |     next: { revalidate: REVALIDATE_SECONDS },
+  55 |     headers: { Accept: 'application/json' },
+  56 |   }); {
+  digest: '4199235650',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /sw.js 500 in 76ms (compile: 21ms, generate-params: 17ms, render: 56ms)
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /de 500 in 175ms (compile: 45ms, generate-params: 18ms, render: 130ms)
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:53:15)
+    at async getServicesListServer (utils/publicLists.server.ts:75:16)
+    at async Home (app/[locale]/page.tsx:20:30)
+  51 |   const url = buildApiUrl(path, params);
+  52 |
+> 53 |   const res = await fetch(url, {
+     |               ^
+  54 |     next: { revalidate: REVALIDATE_SECONDS },
+  55 |     headers: { Accept: 'application/json' },
+  56 |   }); {
+  digest: '4199235650',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /sw.js 500 in 62ms (compile: 22ms, generate-params: 19ms, render: 41ms)
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:53:15)
+    at async getServicesListServer (utils/publicLists.server.ts:75:16)
+    at async Home (app/[locale]/page.tsx:20:30)
+  51 |   const url = buildApiUrl(path, params);
+  52 |
+> 53 |   const res = await fetch(url, {
+     |               ^
+  54 |     next: { revalidate: REVALIDATE_SECONDS },
+  55 |     headers: { Accept: 'application/json' },
+  56 |   }); {
+  digest: '4199235650',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /sw.js 500 in 77ms (compile: 19ms, generate-params: 16ms, render: 58ms)
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /de 500 in 229ms (compile: 96ms, generate-params: 25ms, render: 133ms)
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:53:15)
+    at async getServicesListServer (utils/publicLists.server.ts:75:16)
+    at async Home (app/[locale]/page.tsx:20:30)
+  51 |   const url = buildApiUrl(path, params);
+  52 |
+> 53 |   const res = await fetch(url, {
+     |               ^
+  54 |     next: { revalidate: REVALIDATE_SECONDS },
+  55 |     headers: { Accept: 'application/json' },
+  56 |   }); {
+  digest: '4199235650',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /sw.js 500 in 75ms (compile: 28ms, generate-params: 25ms, render: 47ms)
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /de 500 in 203ms (compile: 81ms, generate-params: 27ms, render: 122ms)
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:53:15)
+    at async getServicesListServer (utils/publicLists.server.ts:75:16)
+    at async Home (app/[locale]/page.tsx:20:30)
+  51 |   const url = buildApiUrl(path, params);
+  52 |
+> 53 |   const res = await fetch(url, {
+     |               ^
+  54 |     next: { revalidate: REVALIDATE_SECONDS },
+  55 |     headers: { Accept: 'application/json' },
+  56 |   }); {
+  digest: '4199235650',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /sw.js 500 in 70ms (compile: 24ms, generate-params: 22ms, render: 46ms)
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /de 500 in 199ms (compile: 89ms, generate-params: 39ms, render: 111ms)
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:53:15)
+    at async getServicesListServer (utils/publicLists.server.ts:75:16)
+    at async Home (app/[locale]/page.tsx:20:30)
+  51 |   const url = buildApiUrl(path, params);
+  52 |
+> 53 |   const res = await fetch(url, {
+     |               ^
+  54 |     next: { revalidate: REVALIDATE_SECONDS },
+  55 |     headers: { Accept: 'application/json' },
+  56 |   }); {
+  digest: '4199235650',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /sw.js 500 in 67ms (compile: 20ms, generate-params: 18ms, render: 47ms)
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:53:15)
+    at async getServicesListServer (utils/publicLists.server.ts:75:16)
+    at async Home (app/[locale]/page.tsx:20:30)
+  51 |   const url = buildApiUrl(path, params);
+  52 |
+> 53 |   const res = await fetch(url, {
+     |               ^
+  54 |     next: { revalidate: REVALIDATE_SECONDS },
+  55 |     headers: { Accept: 'application/json' },
+  56 |   }); {
+  digest: '4199235650',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /sw.js 500 in 113ms (compile: 30ms, generate-params: 26ms, render: 84ms)
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /de 500 in 378ms (compile: 119ms, generate-params: 31ms, render: 259ms)
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:53:15)
+    at async getServicesListServer (utils/publicLists.server.ts:75:16)
+    at async Home (app/[locale]/page.tsx:20:30)
+  51 |   const url = buildApiUrl(path, params);
+  52 |
+> 53 |   const res = await fetch(url, {
+     |               ^
+  54 |     next: { revalidate: REVALIDATE_SECONDS },
+  55 |     headers: { Accept: 'application/json' },
+  56 |   }); {
+  digest: '4199235650',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /sw.js 500 in 123ms (compile: 33ms, generate-params: 31ms, render: 90ms)
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:53:15)
+    at async getServicesListServer (utils/publicLists.server.ts:75:16)
+    at async Home (app/[locale]/page.tsx:20:30)
+  51 |   const url = buildApiUrl(path, params);
+  52 |
+> 53 |   const res = await fetch(url, {
+     |               ^
+  54 |     next: { revalidate: REVALIDATE_SECONDS },
+  55 |     headers: { Accept: 'application/json' },
+  56 |   }); {
+  digest: '4199235650',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /sw.js 500 in 102ms (compile: 30ms, generate-params: 27ms, render: 72ms)
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /de 500 in 736ms (compile: 552ms, generate-params: 41ms, render: 184ms)
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:53:15)
+    at async getServicesListServer (utils/publicLists.server.ts:75:16)
+    at async Home (app/[locale]/page.tsx:20:30)
+  51 |   const url = buildApiUrl(path, params);
+  52 |
+> 53 |   const res = await fetch(url, {
+     |               ^
+  54 |     next: { revalidate: REVALIDATE_SECONDS },
+  55 |     headers: { Accept: 'application/json' },
+  56 |   }); {
+  digest: '4199235650',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /sw.js 500 in 133ms (compile: 38ms, generate-params: 35ms, render: 95ms)
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /de 500 in 257ms (compile: 88ms, generate-params: 37ms, render: 169ms)
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:53:15)
+    at async getServicesListServer (utils/publicLists.server.ts:75:16)
+    at async Home (app/[locale]/page.tsx:20:30)
+  51 |   const url = buildApiUrl(path, params);
+  52 |
+> 53 |   const res = await fetch(url, {
+     |               ^
+  54 |     next: { revalidate: REVALIDATE_SECONDS },
+  55 |     headers: { Accept: 'application/json' },
+  56 |   }); {
+  digest: '4199235650',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /sw.js 500 in 131ms (compile: 39ms, generate-params: 36ms, render: 92ms)
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /de 500 in 250ms (compile: 88ms, generate-params: 38ms, render: 162ms)
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:56:15)
+    at async getServicesListServer (utils/publicLists.server.ts:78:16)
+    at async Home (app/[locale]/page.tsx:20:30)
+  54 |   const url = buildApiUrl(path, params);
+  55 |
+> 56 |   const res = await fetch(url, {
+     |               ^
+  57 |     next: { revalidate: REVALIDATE_SECONDS },
+  58 |     headers: { Accept: 'application/json' },
+  59 |   }); {
+  digest: '4199235650',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /sw.js 500 in 108ms (compile: 38ms, generate-params: 36ms, render: 69ms)
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /de 500 in 418ms (compile: 175ms, generate-params: 34ms, render: 243ms)
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:56:15)
+    at async getServicesListServer (utils/publicLists.server.ts:78:16)
+    at async Home (app/[locale]/page.tsx:20:30)
+  54 |   const url = buildApiUrl(path, params);
+  55 |
+> 56 |   const res = await fetch(url, {
+     |               ^
+  57 |     next: { revalidate: REVALIDATE_SECONDS },
+  58 |     headers: { Accept: 'application/json' },
+  59 |   }); {
+  digest: '1271869326',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /sw.js 500 in 123ms (compile: 35ms, generate-params: 32ms, render: 88ms)
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:56:15)
+    at async getServicesListServer (utils/publicLists.server.ts:78:16)
+    at async Home (app/[locale]/page.tsx:20:30)
+  54 |   const url = buildApiUrl(path, params);
+  55 |
+> 56 |   const res = await fetch(url, {
+     |               ^
+  57 |     next: { revalidate: REVALIDATE_SECONDS },
+  58 |     headers: { Accept: 'application/json' },
+  59 |   }); {
+  digest: '1271869326',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /sw.js 500 in 155ms (compile: 35ms, generate-params: 31ms, render: 121ms)
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /de 500 in 409ms (compile: 123ms, generate-params: 40ms, render: 286ms)
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:56:15)
+    at async getServicesListServer (utils/publicLists.server.ts:78:16)
+    at async Home (app/[locale]/page.tsx:20:30)
+  54 |   const url = buildApiUrl(path, params);
+  55 |
+> 56 |   const res = await fetch(url, {
+     |               ^
+  57 |     next: { revalidate: REVALIDATE_SECONDS },
+  58 |     headers: { Accept: 'application/json' },
+  59 |   }); {
+  digest: '1271869326',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /sw.js 500 in 112ms (compile: 26ms, generate-params: 23ms, render: 87ms)
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /de 500 in 162ms (compile: 58ms, generate-params: 29ms, render: 105ms)
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:56:15)
+    at async getServicesListServer (utils/publicLists.server.ts:78:16)
+    at async Home (app/[locale]/page.tsx:20:30)
+  54 |   const url = buildApiUrl(path, params);
+  55 |
+> 56 |   const res = await fetch(url, {
+     |               ^
+  57 |     next: { revalidate: REVALIDATE_SECONDS },
+  58 |     headers: { Accept: 'application/json' },
+  59 |   }); {
+  digest: '1271869326',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /sw.js 500 in 79ms (compile: 30ms, generate-params: 27ms, render: 50ms)
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /de 500 in 358ms (compile: 84ms, generate-params: 32ms, render: 274ms)
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /de 500 in 186ms (compile: 71ms, generate-params: 25ms, render: 115ms)
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:56:15)
+    at async getServicesListServer (utils/publicLists.server.ts:78:16)
+    at async Home (app/[locale]/page.tsx:20:30)
+  54 |   const url = buildApiUrl(path, params);
+  55 |
+> 56 |   const res = await fetch(url, {
+     |               ^
+  57 |     next: { revalidate: REVALIDATE_SECONDS },
+  58 |     headers: { Accept: 'application/json' },
+  59 |   }); {
+  digest: '1271869326',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /sw.js 500 in 92ms (compile: 33ms, generate-params: 30ms, render: 59ms)
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /_next/_next/static/chunks/f9d19_next_dist_client_components_builtin_global-error_72efc73b.js 404 in 836ms (compile: 757ms, render: 79ms)
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /_next/_next/static/chunks/f8fc7_axios_lib_5f904d9f._.js 404 in 836ms (compile: 754ms, render: 82ms)
+ GET /_next/_next/static/chunks/de_frontend_1c560f9a._.js 404 in 838ms (compile: 755ms, render: 83ms)
+ GET /_next/_next/static/chunks/fa75a_zod_v4_1466a3f0._.js 404 in 35ms (compile: 5ms, render: 30ms)
+ GET /de 500 in 774ms (compile: 508ms, generate-params: 25ms, render: 266ms)
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:56:15)
+    at async getServicesListServer (utils/publicLists.server.ts:78:16)
+    at async Home (app/[locale]/page.tsx:20:30)
+  54 |   const url = buildApiUrl(path, params);
+  55 |
+> 56 |   const res = await fetch(url, {
+     |               ^
+  57 |     next: { revalidate: REVALIDATE_SECONDS },
+  58 |     headers: { Accept: 'application/json' },
+  59 |   }); {
+  digest: '1271869326',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /sw.js 500 in 82ms (compile: 29ms, generate-params: 27ms, render: 53ms)
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /de 500 in 275ms (compile: 94ms, generate-params: 25ms, render: 181ms)
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:56:15)
+    at async getServicesListServer (utils/publicLists.server.ts:78:16)
+    at async Home (app/[locale]/page.tsx:25:30)
+  54 |   const url = buildApiUrl(path, params);
+  55 |
+> 56 |   const res = await fetch(url, {
+     |               ^
+  57 |     next: { revalidate: REVALIDATE_SECONDS },
+  58 |     headers: { Accept: 'application/json' },
+  59 |   }); {
+  digest: '1271869326',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /sw.js 500 in 472ms (compile: 312ms, generate-params: 957µs, render: 160ms)
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /de 500 in 341ms (compile: 170ms, generate-params: 28ms, render: 171ms)
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /de 500 in 244ms (compile: 73ms, generate-params: 34ms, render: 170ms)
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:56:15)
+    at async getServicesListServer (utils/publicLists.server.ts:78:16)
+    at async Home (app/[locale]/page.tsx:25:30)
+  54 |   const url = buildApiUrl(path, params);
+  55 |
+> 56 |   const res = await fetch(url, {
+     |               ^
+  57 |     next: { revalidate: REVALIDATE_SECONDS },
+  58 |     headers: { Accept: 'application/json' },
+  59 |   }); {
+  digest: '1271869326',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /sw.js 500 in 79ms (compile: 26ms, generate-params: 25ms, render: 52ms)
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:56:15)
+    at async getServicesListServer (utils/publicLists.server.ts:78:16)
+    at async Home (app/[locale]/page.tsx:25:30)
+  54 |   const url = buildApiUrl(path, params);
+  55 |
+> 56 |   const res = await fetch(url, {
+     |               ^
+  57 |     next: { revalidate: REVALIDATE_SECONDS },
+  58 |     headers: { Accept: 'application/json' },
+  59 |   }); {
+  digest: '1271869326',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /sw.js 500 in 78ms (compile: 27ms, generate-params: 24ms, render: 52ms)
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /de 500 in 249ms (compile: 67ms, generate-params: 26ms, render: 182ms)
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:56:15)
+    at async getServicesListServer (utils/publicLists.server.ts:78:16)
+    at async Home (app/[locale]/page.tsx:25:45)
+  54 |   const url = buildApiUrl(path, params);
+  55 |
+> 56 |   const res = await fetch(url, {
+     |               ^
+  57 |     next: { revalidate: REVALIDATE_SECONDS },
+  58 |     headers: { Accept: 'application/json' },
+  59 |   }); {
+  digest: '3295101932',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /sw.js 500 in 118ms (compile: 34ms, generate-params: 31ms, render: 85ms)
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:56:15)
+    at async getServicesListServer (utils/publicLists.server.ts:78:16)
+    at async Home (app/[locale]/page.tsx:25:45)
+  54 |   const url = buildApiUrl(path, params);
+  55 |
+> 56 |   const res = await fetch(url, {
+     |               ^
+  57 |     next: { revalidate: REVALIDATE_SECONDS },
+  58 |     headers: { Accept: 'application/json' },
+  59 |   }); {
+  digest: '3295101932',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /sw.js 500 in 113ms (compile: 30ms, generate-params: 26ms, render: 83ms)
+TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /de 500 in 120ms (compile: 29ms, generate-params: 26ms, render: 91ms)
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:56:15)
+    at async getServicesListServer (utils/publicLists.server.ts:78:16)
+    at async Home (app/[locale]/page.tsx:25:45)
+  54 |   const url = buildApiUrl(path, params);
+  55 |
+> 56 |   const res = await fetch(url, {
+     |               ^
+  57 |     next: { revalidate: REVALIDATE_SECONDS },
+  58 |     headers: { Accept: 'application/json' },
+  59 |   }); {
+  digest: '3295101932',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+⨯ TypeError: fetch failed
+    at ignore-listed frames {
+  digest: '542444009',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+ GET /sw.js 500 in 75ms (compile: 25ms, generate-params: 23ms, render: 50ms)
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[SEO] site_settings unreachable locale='de' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='de' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+⨯ Error: [SEO] Missing REQUIRED site_settings keys for locale='de': default_locale, seo_defaults, seo_app_icons
+    at fetchSiteSettingsStrict (integrations/shared/seo.types.ts:744:11)
+    at async getSeoAll (seo/seo.server.ts:26:16)
+    at async Module.generateMetadata (app/[locale]/layout.tsx:81:15)
+  742 |   if (missing.length) {
+  743 |     // better diagnostic with locale + notes
+> 744 |     throw new Error(
+      |           ^
+  745 |       `[SEO] Missing REQUIRED site_settings keys for locale='${locale}': ${missing.join(', ')}`,
+  746 |     );
+  747 |   } {
+  digest: '2971213253'
+}
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:56:15)
+    at async getServicesListServer (utils/publicLists.server.ts:78:16)
+    at async Home (app/[locale]/page.tsx:25:45)
+  54 |   const url = buildApiUrl(path, params);
+  55 |
+> 56 |   const res = await fetch(url, {
+     |               ^
+  57 |     next: { revalidate: REVALIDATE_SECONDS },
+  58 |     headers: { Accept: 'application/json' },
+  59 |   }); {
+  digest: '3295101932',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+⨯ Error: [SEO] Missing REQUIRED site_settings keys for locale='tr': default_locale, seo_defaults, seo_app_icons
+    at fetchSiteSettingsStrict (integrations/shared/seo.types.ts:744:11)
+    at async getSeoAll (seo/seo.server.ts:26:16)
+    at async getSiteJsonLdGraph (seo/seo.server.ts:61:15)
+    at async LocaleLayout (app/[locale]/layout.tsx:60:22)
+  742 |   if (missing.length) {
+  743 |     // better diagnostic with locale + notes
+> 744 |     throw new Error(
+      |           ^
+  745 |       `[SEO] Missing REQUIRED site_settings keys for locale='${locale}': ${missing.join(', ')}`,
+  746 |     );
+  747 |   } {
+  digest: '2696105066'
+}
+[SEO] site_settings unreachable locale='de' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='de' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+ GET /de 500 in 532ms (compile: 232ms, generate-params: 53ms, render: 300ms)
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[SEO] site_settings unreachable locale='de' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='de' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:56:15)
+    at async getServicesListServer (utils/publicLists.server.ts:78:16)
+    at async Home (app/[locale]/page.tsx:25:45)
+  54 |   const url = buildApiUrl(path, params);
+  55 |
+> 56 |   const res = await fetch(url, {
+     |               ^
+  57 |     next: { revalidate: REVALIDATE_SECONDS },
+  58 |     headers: { Accept: 'application/json' },
+  59 |   }); {
+  digest: '3295101932',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='de' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='de' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+ GET /de 500 in 504ms (compile: 118ms, generate-params: 39ms, render: 387ms)
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:56:15)
+    at async getServicesListServer (utils/publicLists.server.ts:78:16)
+    at async Home (app/[locale]/page.tsx:25:45)
+  54 |   const url = buildApiUrl(path, params);
+  55 |
+> 56 |   const res = await fetch(url, {
+     |               ^
+  57 |     next: { revalidate: REVALIDATE_SECONDS },
+  58 |     headers: { Accept: 'application/json' },
+  59 |   }); {
+  digest: '3295101932',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+ GET /sw.js 500 in 233ms (compile: 59ms, generate-params: 54ms, render: 174ms)
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:56:15)
+    at async getServicesListServer (utils/publicLists.server.ts:78:16)
+    at async Home (app/[locale]/page.tsx:25:45)
+  54 |   const url = buildApiUrl(path, params);
+  55 |
+> 56 |   const res = await fetch(url, {
+     |               ^
+  57 |     next: { revalidate: REVALIDATE_SECONDS },
+  58 |     headers: { Accept: 'application/json' },
+  59 |   }); {
+  digest: '3295101932',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+ GET /sw.js 500 in 111ms (compile: 32ms, generate-params: 29ms, render: 79ms)
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:56:15)
+    at async getServicesListServer (utils/publicLists.server.ts:78:16)
+    at async Home (app/[locale]/page.tsx:25:45)
+  54 |   const url = buildApiUrl(path, params);
+  55 |
+> 56 |   const res = await fetch(url, {
+     |               ^
+  57 |     next: { revalidate: REVALIDATE_SECONDS },
+  58 |     headers: { Accept: 'application/json' },
+  59 |   }); {
+  digest: '3295101932',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+ GET /sw.js 500 in 123ms (compile: 33ms, generate-params: 31ms, render: 90ms)
+[SEO] site_settings unreachable locale='de' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='de' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:56:15)
+    at async getServicesListServer (utils/publicLists.server.ts:78:16)
+    at async Home (app/[locale]/page.tsx:25:45)
+  54 |   const url = buildApiUrl(path, params);
+  55 |
+> 56 |   const res = await fetch(url, {
+     |               ^
+  57 |     next: { revalidate: REVALIDATE_SECONDS },
+  58 |     headers: { Accept: 'application/json' },
+  59 |   }); {
+  digest: '3295101932',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='de' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='de' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+ GET /de 500 in 147ms (compile: 38ms, generate-params: 34ms, render: 109ms)
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:56:15)
+    at async getServicesListServer (utils/publicLists.server.ts:78:16)
+    at async Home (app/[locale]/page.tsx:25:45)
+  54 |   const url = buildApiUrl(path, params);
+  55 |
+> 56 |   const res = await fetch(url, {
+     |               ^
+  57 |     next: { revalidate: REVALIDATE_SECONDS },
+  58 |     headers: { Accept: 'application/json' },
+  59 |   }); {
+  digest: '3295101932',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+ GET /sw.js 500 in 135ms (compile: 43ms, generate-params: 38ms, render: 92ms)
+[SEO] site_settings unreachable locale='de' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='de' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:56:15)
+    at async getServicesListServer (utils/publicLists.server.ts:78:16)
+    at async Home (app/[locale]/page.tsx:25:45)
+  54 |   const url = buildApiUrl(path, params);
+  55 |
+> 56 |   const res = await fetch(url, {
+     |               ^
+  57 |     next: { revalidate: REVALIDATE_SECONDS },
+  58 |     headers: { Accept: 'application/json' },
+  59 |   }); {
+  digest: '3295101932',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='de' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='de' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+ GET /de 500 in 148ms (compile: 36ms, generate-params: 32ms, render: 113ms)
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:56:15)
+    at async getServicesListServer (utils/publicLists.server.ts:78:16)
+    at async Home (app/[locale]/page.tsx:25:45)
+  54 |   const url = buildApiUrl(path, params);
+  55 |
+> 56 |   const res = await fetch(url, {
+     |               ^
+  57 |     next: { revalidate: REVALIDATE_SECONDS },
+  58 |     headers: { Accept: 'application/json' },
+  59 |   }); {
+  digest: '3295101932',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+ GET /sw.js 500 in 91ms (compile: 27ms, generate-params: 24ms, render: 64ms)
+[SEO] site_settings unreachable locale='de' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='de' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:56:15)
+    at async getServicesListServer (utils/publicLists.server.ts:78:16)
+    at async Home (app/[locale]/page.tsx:25:45)
+  54 |   const url = buildApiUrl(path, params);
+  55 |
+> 56 |   const res = await fetch(url, {
+     |               ^
+  57 |     next: { revalidate: REVALIDATE_SECONDS },
+  58 |     headers: { Accept: 'application/json' },
+  59 |   }); {
+  digest: '3295101932',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='de' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='de' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+ GET /de 500 in 124ms (compile: 30ms, generate-params: 28ms, render: 94ms)
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:56:15)
+    at async getServicesListServer (utils/publicLists.server.ts:78:16)
+    at async Home (app/[locale]/page.tsx:25:45)
+  54 |   const url = buildApiUrl(path, params);
+  55 |
+> 56 |   const res = await fetch(url, {
+     |               ^
+  57 |     next: { revalidate: REVALIDATE_SECONDS },
+  58 |     headers: { Accept: 'application/json' },
+  59 |   }); {
+  digest: '3295101932',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+ GET /sw.js 500 in 112ms (compile: 34ms, generate-params: 31ms, render: 78ms)
+[SEO] site_settings unreachable locale='de' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='de' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:56:15)
+    at async getServicesListServer (utils/publicLists.server.ts:78:16)
+    at async Home (app/[locale]/page.tsx:25:45)
+  54 |   const url = buildApiUrl(path, params);
+  55 |
+> 56 |   const res = await fetch(url, {
+     |               ^
+  57 |     next: { revalidate: REVALIDATE_SECONDS },
+  58 |     headers: { Accept: 'application/json' },
+  59 |   }); {
+  digest: '3295101932',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='de' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='de' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+ GET /de 500 in 142ms (compile: 35ms, generate-params: 32ms, render: 107ms)
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:56:15)
+    at async getServicesListServer (utils/publicLists.server.ts:78:16)
+    at async Home (app/[locale]/page.tsx:25:45)
+  54 |   const url = buildApiUrl(path, params);
+  55 |
+> 56 |   const res = await fetch(url, {
+     |               ^
+  57 |     next: { revalidate: REVALIDATE_SECONDS },
+  58 |     headers: { Accept: 'application/json' },
+  59 |   }); {
+  digest: '3295101932',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+ GET /sw.js 500 in 116ms (compile: 26ms, generate-params: 23ms, render: 90ms)
+[SEO] site_settings unreachable locale='de' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='de' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:56:15)
+    at async getServicesListServer (utils/publicLists.server.ts:78:16)
+    at async Home (app/[locale]/page.tsx:25:45)
+  54 |   const url = buildApiUrl(path, params);
+  55 |
+> 56 |   const res = await fetch(url, {
+     |               ^
+  57 |     next: { revalidate: REVALIDATE_SECONDS },
+  58 |     headers: { Accept: 'application/json' },
+  59 |   }); {
+  digest: '3295101932',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='de' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='de' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+ GET /de 500 in 134ms (compile: 29ms, generate-params: 26ms, render: 105ms)
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+⨯ TypeError: fetch failed
+    at async fetchList (utils/publicLists.server.ts:56:15)
+    at async getServicesListServer (utils/publicLists.server.ts:78:16)
+    at async Home (app/[locale]/page.tsx:25:45)
+  54 |   const url = buildApiUrl(path, params);
+  55 |
+> 56 |   const res = await fetch(url, {
+     |               ^
+  57 |     next: { revalidate: REVALIDATE_SECONDS },
+  58 |     headers: { Accept: 'application/json' },
+  59 |   }); {
+  digest: '3295101932',
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8044
+      at <unknown> (Error: connect ECONNREFUSED 127.0.0.1:8044) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8044
+  }
+}
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='tr' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+[SEO] site_settings unreachable locale='*' — using empty map (dev). fetch failed
+ GET /sw.js 500 in 78ms (compile: 25ms, generate-params: 23ms, render: 53ms)
+[?25h

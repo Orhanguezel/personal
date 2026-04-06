@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from 'react';
 
+import { FALLBACK_LOCALE, SUPPORTED_LOCALES } from '@/i18n/config';
+
 type StaticSettingsMap = Record<string, unknown>;
 
 export type StaticSettingRow = {
@@ -18,13 +20,14 @@ type StaticSettingState = {
 };
 
 const DEFAULT_LOCALE = 'en';
+const LOCALE_SET = new Set<string>(SUPPORTED_LOCALES);
 const localeCache = new Map<string, Promise<StaticSettingsMap>>();
 
 function normalizeLocale(input?: string) {
   const raw = String(input || DEFAULT_LOCALE).trim();
   if (!raw) return DEFAULT_LOCALE;
-  const base = raw.toLowerCase().split('-')[0];
-  return base || DEFAULT_LOCALE;
+  const base = raw.toLowerCase().split('-')[0] || DEFAULT_LOCALE;
+  return LOCALE_SET.has(base) ? base : FALLBACK_LOCALE;
 }
 
 async function fetchLocaleMap(locale: string): Promise<StaticSettingsMap> {

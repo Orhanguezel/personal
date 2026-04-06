@@ -2,7 +2,11 @@
 // Checkout / order types
 
 export interface CreateOrderRequest {
-  product_id: string;
+  /** Varsayılan: site_packages ürünü */
+  sellable_type?: 'product' | 'service' | 'project';
+  product_id?: string;
+  service_id?: string;
+  project_id?: string;
   payment_type: 'onetime' | 'subscription';
   customer_email: string;
   customer_name: string;

@@ -7,7 +7,8 @@
 
 import { useMemo } from 'react';
 
-import { useGetSiteSettingAdminByKeyQuery } from '@/integrations/hooks';
+import { normLocaleTag } from '@/i18n/localeUtils';
+import { useGetDefaultLocaleAdminQuery, useGetSiteSettingAdminByKeyQuery } from '@/integrations/hooks';
 import type { AdminUiCopy } from '@/integrations/shared';
 import { normalizeAdminUiCopy } from '@/integrations/shared';
 
@@ -19,7 +20,16 @@ type UseAdminUiCopyResult = {
 };
 
 export function useAdminUiCopy(): UseAdminUiCopyResult {
-  const q = useGetSiteSettingAdminByKeyQuery('ui_admin');
+  const defaultLocaleQ = useGetDefaultLocaleAdminQuery();
+  const locale = useMemo(
+    () => normLocaleTag(defaultLocaleQ.data) || undefined,
+    [defaultLocaleQ.data],
+  );
+
+  const q = useGetSiteSettingAdminByKeyQuery(
+    { key: 'ui_admin', ...(locale ? { locale } : {}) },
+    { skip: defaultLocaleQ.isLoading },
+  );
 
   const copy = useMemo(() => {
     const val = (q.data as any)?.value;
@@ -28,8 +38,8 @@ export function useAdminUiCopy(): UseAdminUiCopyResult {
 
   return {
     copy,
-    loading: q.isLoading,
+    loading: defaultLocaleQ.isLoading || q.isLoading,
     fetching: q.isFetching,
-    error: q.error,
+    error: q.error ?? defaultLocaleQ.error,
   };
 }

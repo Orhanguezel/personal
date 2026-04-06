@@ -25,6 +25,10 @@ CREATE TABLE `services` (
   `is_active`        TINYINT(1)   NOT NULL DEFAULT 1,
   `display_order`    INT          NOT NULL DEFAULT 0,
 
+  `price_onetime`    DECIMAL(12,2)         DEFAULT NULL,
+  `currency`         VARCHAR(10)  NOT NULL DEFAULT 'EUR',
+  `is_purchasable`   TINYINT(1)   NOT NULL DEFAULT 0,
+
   -- cover (legacy + storage)
   `featured_image`   VARCHAR(500)          DEFAULT NULL,
   `image_url`        VARCHAR(500)          DEFAULT NULL,

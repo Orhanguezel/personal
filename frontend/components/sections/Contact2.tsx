@@ -121,7 +121,7 @@ export default function Contact2() {
                           id="name"
                           name="name"
                           placeholder={
-                            section.form?.name_ph || section.form?.name_label || 'Your name'
+                            section.form?.name_ph || section.form?.name_label || 'Orhan Güzel'
                           }
                           aria-label="username"
                           value={name}
@@ -137,7 +137,7 @@ export default function Contact2() {
                           id="phone"
                           name="phone"
                           placeholder={
-                            section.form?.phone_ph || section.form?.phone_label || 'Phone'
+                            section.form?.phone_ph || section.form?.phone_label || '+49 172 384 6068'
                           }
                           aria-label="phone"
                           value={phoneInput}
@@ -152,7 +152,7 @@ export default function Contact2() {
                           id="email"
                           name="email"
                           placeholder={
-                            section.form?.email_ph || section.form?.email_label || 'Email'
+                            section.form?.email_ph || section.form?.email_label || 'orhanguzell@gmail.com'
                           }
                           aria-label="email"
                           value={emailInput}
@@ -167,9 +167,7 @@ export default function Contact2() {
                           className="form-control bg-3 border border-1 rounded-3"
                           id="subject"
                           name="subject"
-                          placeholder={
-                            section.form?.subject_ph || section.form?.subject_label || 'Subject'
-                          }
+                          placeholder={section.form?.subject_ph ?? section.form?.subject_label ?? ''}
                           aria-label="subject"
                           value={subject}
                           onChange={(e) => setSubject(e.target.value)}
@@ -181,9 +179,7 @@ export default function Contact2() {
                           className="form-control bg-3 border border-1 rounded-3"
                           id="message"
                           name="message"
-                          placeholder={
-                            section.form?.message_ph || section.form?.message_label || 'Message'
-                          }
+                          placeholder={section.form?.message_ph ?? section.form?.message_label ?? ''}
                           aria-label="With textarea"
                           value={message}
                           onChange={(e) => setMessage(e.target.value)}

@@ -20,6 +20,27 @@ export async function GlobalScripts() {
 
   return (
     <>
+      {/* dataLayer — GTM/GA4 ve custom event'ler için (her zaman) */}
+      <Script id="data-layer-init" strategy="beforeInteractive">
+        {`window.dataLayer = window.dataLayer || [];`}
+      </Script>
+
+      {/* Consent Mode v2 defaults (GDPR) — update after cookie banner grants */}
+      {GA_ID || GTM_ID ? (
+        <Script id="consent-mode-default" strategy="beforeInteractive">
+          {`
+            function gtag(){dataLayer.push(arguments);}
+            gtag('consent', 'default', {
+              ad_storage: 'denied',
+              analytics_storage: 'denied',
+              ad_user_data: 'denied',
+              ad_personalization: 'denied',
+              wait_for_update: 500
+            });
+          `}
+        </Script>
+      ) : null}
+
       {/* Google Analytics (gtag) */}
       {GA_ID ? <GoogleAnalytics gaId={GA_ID} /> : null}
 

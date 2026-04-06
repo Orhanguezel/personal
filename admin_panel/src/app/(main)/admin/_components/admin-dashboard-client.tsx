@@ -53,6 +53,9 @@ const ROUTE_MAP: Record<string, string> = {
   availability: '/admin/availability',
   reports: '/admin/reports',
   resources: '/admin/resources',
+  products: '/admin/products',
+  orders: '/admin/orders',
+  subscriptions: '/admin/orders',
 };
 
 function getErrMessage(err: unknown): string {

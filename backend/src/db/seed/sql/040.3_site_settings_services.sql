@@ -10,9 +10,9 @@ VALUES
   'en',
   CAST(JSON_OBJECT(
     'page', JSON_OBJECT(
-      'badge','My Services',
-      'title_html','Transforming Ideas <span class="text-300">into Intuitive Designs for</span> Engaging User <span class="text-300">Experiences</span>',
-      'intro_html','With expertise in mobile app and web design, I transform ideas into visually <br /> stunning and user-friendly interfaces that captivate and retain users. <br /> Explore my work and see design in action.',
+      'badge','Services',
+      'title_html','From <span class="text-300">idea and architecture</span> to production-ready <span class="text-300">web platforms</span>',
+      'intro_html','I build full-stack systems for commerce, operations and business workflows. <br /> The focus is clean architecture, reliable APIs, maintainable frontends and real delivery.',
       'tagline_fallback','Creative. Unique. Reality.',
       'card_fallback_title','Untitled',
       'loading','Loading...',
@@ -23,7 +23,7 @@ VALUES
     ),
     'section1', JSON_OBJECT(
       'heading','What do I offer?',
-      'intro_html','My journey started with a fascination for design and technology,<br />leading me to specialize in UI/UX design',
+      'intro_html','End-to-end product delivery for web applications, admin panels, APIs,<br />e-commerce and internal business systems',
       'error','Failed to load services.',
       'cta_label','Get a Quote',
       'empty','No services found.',
@@ -32,15 +32,15 @@ VALUES
       'card_fallback_title','Untitled'
     ),
     'section2', JSON_OBJECT(
-      'badge','Cooperation',
-      'title_html','Designing solutions <span class="text-300">customized<br />to meet your requirements</span>',
+      'badge','Collaboration',
+      'title_html','Building solutions <span class="text-300">tailored<br />to your real workflow</span>',
       'error','Failed to load services.',
       'learn_more','Learn more',
       'empty','No services found.',
       'loading_title','Loading...',
       'loading_text','Please wait',
       'card_fallback_title','Untitled',
-      'footer_text_html','Excited to take on <span class="text-dark">new projects</span> and collaborate.<br />Let''s chat about your ideas.',
+      'footer_text_html','Open to <span class="text-dark">remote and hybrid projects</span> across Germany and Europe.<br />Let''s discuss scope, stack and delivery.',
       'footer_link_label','Reach out!'
     ),
     'detail', JSON_OBJECT(
@@ -66,9 +66,9 @@ VALUES
   'de',
   CAST(JSON_OBJECT(
     'page', JSON_OBJECT(
-      'badge','Meine Leistungen',
-      'title_html','Ich verwandle Ideen <span class="text-300">in intuitive Designs</span> für fesselnde <span class="text-300">Nutzererlebnisse</span>',
-      'intro_html','Mit Erfahrung in Mobile- und Webdesign verwandle ich Ideen in visuell <br /> ansprechende und benutzerfreundliche Interfaces, die begeistern. <br /> Entdecken Sie meine Arbeiten und sehen Sie Design in Aktion.',
+      'badge','Leistungen',
+      'title_html','Von <span class="text-300">Idee und Architektur</span> bis zur produktionsreifen <span class="text-300">Web-Plattform</span>',
+      'intro_html','Ich entwickle Full-Stack-Systeme für Commerce, Operations und Business-Workflows. <br /> Im Fokus stehen saubere Architektur, verlässliche APIs und wartbare Frontends.',
       'tagline_fallback','Kreativ. Einzigartig. Echt.',
       'card_fallback_title','Ohne Titel',
       'loading','Wird geladen...',
@@ -79,7 +79,7 @@ VALUES
     ),
     'section1', JSON_OBJECT(
       'heading','Was biete ich an?',
-      'intro_html','Meine Reise begann mit einer Faszination für Design und Technologie,<br />was mich zur Spezialisierung auf UI/UX-Design führte',
+      'intro_html','End-to-End Umsetzung für Webanwendungen, Admin Panels, APIs,<br />E-Commerce und interne Business-Systeme',
       'error','Services konnten nicht geladen werden.',
       'cta_label','Angebot anfordern',
       'empty','Keine Services gefunden.',
@@ -89,14 +89,14 @@ VALUES
     ),
     'section2', JSON_OBJECT(
       'badge','Zusammenarbeit',
-      'title_html','Lösungen gestalten <span class="text-300">maßgeschneidert<br />für Ihre Anforderungen</span>',
+      'title_html','Lösungen entwickeln <span class="text-300">passend<br />zu Ihrem realen Workflow</span>',
       'error','Services konnten nicht geladen werden.',
       'learn_more','Mehr erfahren',
       'empty','Keine Services gefunden.',
       'loading_title','Wird geladen...',
       'loading_text','Bitte warten',
       'card_fallback_title','Ohne Titel',
-      'footer_text_html','Ich freue mich auf <span class="text-dark">neue Projekte</span> und Zusammenarbeit.<br />Lassen Sie uns über Ihre Ideen sprechen.',
+      'footer_text_html','Offen für <span class="text-dark">Remote- und Hybrid-Projekte</span> in Deutschland und Europa.<br />Lassen Sie uns über Scope, Stack und Delivery sprechen.',
       'footer_link_label','Kontakt aufnehmen!'
     ),
     'detail', JSON_OBJECT(
@@ -122,9 +122,9 @@ VALUES
   'tr',
   CAST(JSON_OBJECT(
     'page', JSON_OBJECT(
-      'badge','Hizmetlerim',
-      'title_html','Fikirleri <span class="text-300">sezgisel tasarımlarla</span> etkileyici kullanıcı <span class="text-300">deneyimlerine</span> dönüştürüyorum',
-      'intro_html','Mobil uygulama ve web tasarımındaki uzmanlığımla fikirleri görsel açıdan etkileyici <br /> ve kullanıcı dostu arayüzlere dönüştürüyorum. <br /> Çalışmalarımı keşfedin ve tasarımı aksiyonda görün.',
+      'badge','Hizmetler',
+      'title_html','<span class="text-300">Fikir ve mimariden</span> üretime hazır <span class="text-300">web platformlarına</span>',
+      'intro_html','Ticaret, operasyon ve iş süreçleri için full-stack sistemler geliştiriyorum. <br /> Odak noktam temiz mimari, güvenilir API katmanı ve sürdürülebilir frontend yapısı.',
       'tagline_fallback','Yaratıcı. Özgün. Gerçek.',
       'card_fallback_title','Başlıksız',
       'loading','Yükleniyor...',
@@ -135,7 +135,7 @@ VALUES
     ),
     'section1', JSON_OBJECT(
       'heading','Neler sunuyorum?',
-      'intro_html','Tasarım ve teknolojiye olan ilgimle başlayan yolculuğum<br />beni UI/UX tasarımında uzmanlaşmaya yönlendirdi',
+      'intro_html','Web uygulamaları, admin panelleri, API''ler,<br />e-ticaret altyapıları ve iç operasyon sistemleri için uçtan uca geliştirme',
       'error','Hizmetler yüklenemedi.',
       'cta_label','Teklif Al',
       'empty','Hizmet bulunamadı.',
@@ -145,14 +145,14 @@ VALUES
     ),
     'section2', JSON_OBJECT(
       'badge','İş Birliği',
-      'title_html','İhtiyaçlarınıza uygun <span class="text-300">özel tasarlanmış<br />çözümler</span>',
+      'title_html','Gerçek iş akışınıza uygun <span class="text-300">özelleştirilmiş<br />çözümler</span>',
       'error','Hizmetler yüklenemedi.',
       'learn_more','Detaylar',
       'empty','Hizmet bulunamadı.',
       'loading_title','Yükleniyor...',
       'loading_text','Lütfen bekleyin',
       'card_fallback_title','Başlıksız',
-      'footer_text_html','Yeni <span class="text-dark">projeler</span> ve iş birlikleri için heyecanlıyım.<br />Fikirlerini konuşalım.',
+      'footer_text_html','Almanya ve Avrupa genelinde <span class="text-dark">remote ve hybrid projelere</span> açığım.<br />Kapsamı, teknolojiyi ve teslim planını konuşalım.',
       'footer_link_label','İletişime geç!'
     ),
     'detail', JSON_OBJECT(

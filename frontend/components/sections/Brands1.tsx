@@ -118,7 +118,7 @@ export default function Brands1({ locale }: Props) {
                   <li className="carouselTicker__item" key={item.id}>
                     <Image
                       src={item.image_url || ''} 
-                      alt={item.label || 'Brand Logo'} 
+                      alt={item.label || `Partner logo ${item.id}`}
                       height={60}
                       width={150}
                       style={{ height: '60px', width: 'auto', objectFit: 'contain' }}

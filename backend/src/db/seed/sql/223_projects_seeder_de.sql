@@ -1,5 +1,5 @@
 -- AUTO-GENERATED FILE. Source: /home/orhan/Documents/Projeler project metadata files
--- Generated at 2026-03-11T20:44:39.074Z
+-- Generated at 2026-04-06T18:12:50.926Z
 SET NAMES utf8mb4;
 SET time_zone = '+00:00';
 
@@ -59,15 +59,15 @@ ON DUPLICATE KEY UPDATE
   caption = VALUES(caption),
   updated_at = CURRENT_TIMESTAMP(3);
 
-SET @p3 := (SELECT project_id FROM projects_i18n WHERE locale='en' AND slug='konig-massage' LIMIT 1);
+SET @p3 := (SELECT project_id FROM projects_i18n WHERE locale='en' AND slug='karbonkompozit' LIMIT 1);
 SET @img3 := (SELECT id FROM project_images WHERE project_id=@p3 ORDER BY display_order ASC, created_at ASC LIMIT 1);
 
 INSERT INTO `projects_i18n` (
   `id`, `project_id`, `locale`, `title`, `slug`, `summary`, `content`,
   `featured_image_alt`, `meta_title`, `meta_description`, `created_at`, `updated_at`
 ) VALUES (
-  UUID(), @p3, 'de', 'Konig Massage', 'konig-massage', 'Multi-language massage and wellness booking platform with customer site, admin panel and Fastify backend.',
-  CAST('{"html":"<p>Multi-language massage and wellness booking platform with customer site, admin panel and Fastify backend.</p>","description":null,"key_features":["Online booking system","Admin management","Multi-language support","SEO optimization","Cloudinary media management"],"technologies_used":["Next.js","React","TypeScript","Tailwind CSS","Fastify","Drizzle ORM","MySQL","Bun","Zod","Cloudinary","Nodemailer","JWT","React Query","Zustand","Node.js","Redux Toolkit","Radix UI","PM2","CI/CD","i18n","SEO","GitHub Actions","Framer Motion","Sass"],"design_highlights":["Service and booking focused UX","Headless architecture","Operational admin tooling"]}' AS CHAR), 'Konig Massage cover image', 'Konig Massage', 'Multi-language massage and wellness booking platform with customer site, admin panel and Fastify backend.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
+  UUID(), @p3, 'de', 'Karbonkompozit', 'karbonkompozit', 'MOE Kompozit markasi icin gelistirilen Next.js tabanli kurumsal tanitim ve teklif toplama platformu. TR/EN cok dilli yapi, teknik SEO altyapisi, urun katalogu, galeri, blog ve iletisim/teklif formu.',
+  CAST('{"html":"<p>MOE Kompozit markasi icin gelistirilen Next.js tabanli kurumsal tanitim ve teklif toplama platformu. TR/EN cok dilli yapi, teknik SEO altyapisi, urun katalogu, galeri, blog ve iletisim/teklif formu.</p>","description":null,"key_features":["TR/EN multilingual (next-intl)","Product catalog with categories","Gallery system","Blog","Contact and offer form","Technical SEO (canonical, hreflang, JSON-LD, sitemap)","Token-based theme system","SEO monitoring","Newsletter"],"technologies_used":["Next.js","TypeScript","Tailwind CSS","next-intl","React Query","Zod","React Hook Form","Zustand","Embla Carousel","Radix UI","Fastify","Drizzle ORM","MySQL"],"design_highlights":["Token-first industrial theme (moe-carbon-industrial)","Dark surface contract for hero and CTA sections","Semantic color system with neutral/primary/accent tokens"]}' AS CHAR), 'Karbonkompozit cover image', 'Karbonkompozit', 'MOE Kompozit markasi icin gelistirilen Next.js tabanli kurumsal tanitim ve teklif toplama platformu. TR/EN cok dilli yapi, teknik SEO altyapisi, urun katalogu, galeri, blog ve iletisim/teklif formu.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 )
 ON DUPLICATE KEY UPDATE
   title = VALUES(title),
@@ -80,7 +80,7 @@ ON DUPLICATE KEY UPDATE
   updated_at = CURRENT_TIMESTAMP(3);
 
 INSERT INTO `project_images_i18n` (`id`, `image_id`, `locale`, `alt`, `caption`, `created_at`, `updated_at`) VALUES
-(UUID(), @img3, 'de', 'Konig Massage', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
+(UUID(), @img3, 'de', 'Karbonkompozit', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
 ON DUPLICATE KEY UPDATE
   alt = VALUES(alt),
   caption = VALUES(caption),
@@ -113,15 +113,15 @@ ON DUPLICATE KEY UPDATE
   caption = VALUES(caption),
   updated_at = CURRENT_TIMESTAMP(3);
 
-SET @p5 := (SELECT project_id FROM projects_i18n WHERE locale='en' AND slug='tarifin-tarifi' LIMIT 1);
+SET @p5 := (SELECT project_id FROM projects_i18n WHERE locale='en' AND slug='vista-insaat' LIMIT 1);
 SET @img5 := (SELECT id FROM project_images WHERE project_id=@p5 ORDER BY display_order ASC, created_at ASC LIMIT 1);
 
 INSERT INTO `projects_i18n` (
   `id`, `project_id`, `locale`, `title`, `slug`, `summary`, `content`,
   `featured_image_alt`, `meta_title`, `meta_description`, `created_at`, `updated_at`
 ) VALUES (
-  UUID(), @p5, 'de', 'Tarifin Tarifi', 'tarifin-tarifi', 'AI-powered multi-language recipe discovery and sharing platform with Groq LLM integration, reCAPTCHA spam protection and Express/MongoDB backend.',
-  CAST('{"html":"<p>AI-powered multi-language recipe discovery and sharing platform with Groq LLM integration, reCAPTCHA spam protection and Express/MongoDB backend.</p>","description":null,"key_features":["AI recipe generation (Groq LLM)","Multi-language (TR/EN/DE)","reCAPTCHA spam protection","Cloudinary media","User accounts","Comment system","SEO optimized"],"technologies_used":["Next.js","TypeScript","Redux Toolkit","Styled Components","next-intl","Zod","Express","MongoDB","Mongoose","Cloudinary","JWT","Groq LLM","SEO","i18n","Node.js","React"],"design_highlights":["Groq LLM content generation","Styled Components theming","Multi-language SSR"]}' AS CHAR), 'Tarifin Tarifi cover image', 'Tarifin Tarifi', 'AI-powered multi-language recipe discovery and sharing platform with Groq LLM integration, reCAPTCHA spam protection and Express/MongoDB backend.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
+  UUID(), @p5, 'de', 'Vista İnşaat', 'vista-insaat', 'İnşaat ve proje geliştirme sektöründe faaliyet gösteren Vista İnşaat firması için geliştirilen Next.js tabanlı kurumsal tanıtım ve müşteri kazanım platformu. TR/EN çok dilli yapı, proje galerisi, blog, iletişim/teklif formu ve teknik SEO altyapısı içermektedir.',
+  CAST('{"html":"<p>İnşaat ve proje geliştirme sektöründe faaliyet gösteren Vista İnşaat firması için geliştirilen Next.js tabanlı kurumsal tanıtım ve müşteri kazanım platformu. TR/EN çok dilli yapı, proje galerisi, blog, iletişim/teklif formu ve teknik SEO altyapısı içermektedir.</p>","description":null,"key_features":["TR/EN multilingual (next-intl)","Project catalog with galleries","Blog","Contact and offer form","Technical SEO (canonical, hreflang, JSON-LD, sitemap)","Admin panel (content management)","Token-based theme system","SSL + Nginx deployment"],"technologies_used":["Next.js","TypeScript","Tailwind CSS","next-intl","React Query","Zod","React Hook Form","Zustand","Radix UI","Node.js","Fastify","MySQL","Drizzle ORM","React","PM2","Nginx","i18n","SEO","JWT","Cloudinary","Nodemailer","Bun"],"design_highlights":["Portfolio metadata standard is enforced","Tech stack is merged with repository scan results","Content is generated dynamically for portfolio seeds"]}' AS CHAR), 'Vista İnşaat cover image', 'Vista İnşaat', 'İnşaat ve proje geliştirme sektöründe faaliyet gösteren Vista İnşaat firması için geliştirilen Next.js tabanlı kurumsal tanıtım ve müşteri kazanım platformu. TR/EN çok dilli yapı, proje galerisi, blog, iletişim/teklif formu ve teknik SEO altyapısı içermektedir.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 )
 ON DUPLICATE KEY UPDATE
   title = VALUES(title),
@@ -134,21 +134,21 @@ ON DUPLICATE KEY UPDATE
   updated_at = CURRENT_TIMESTAMP(3);
 
 INSERT INTO `project_images_i18n` (`id`, `image_id`, `locale`, `alt`, `caption`, `created_at`, `updated_at`) VALUES
-(UUID(), @img5, 'de', 'Tarifin Tarifi', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
+(UUID(), @img5, 'de', 'Vista İnşaat', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
 ON DUPLICATE KEY UPDATE
   alt = VALUES(alt),
   caption = VALUES(caption),
   updated_at = CURRENT_TIMESTAMP(3);
 
-SET @p6 := (SELECT project_id FROM projects_i18n WHERE locale='en' AND slug='kaman-social' LIMIT 1);
+SET @p6 := (SELECT project_id FROM projects_i18n WHERE locale='en' AND slug='paketjet' LIMIT 1);
 SET @img6 := (SELECT id FROM project_images WHERE project_id=@p6 ORDER BY display_order ASC, created_at ASC LIMIT 1);
 
 INSERT INTO `projects_i18n` (
   `id`, `project_id`, `locale`, `title`, `slug`, `summary`, `content`,
   `featured_image_alt`, `meta_title`, `meta_description`, `created_at`, `updated_at`
 ) VALUES (
-  UUID(), @p6, 'de', 'Kaman Social', 'kaman-social', 'Social media management system with monorepo architecture, Fastify backend, Next.js dashboard and scheduled job processing.',
-  CAST('{"html":"<p>Social media management system with monorepo architecture, Fastify backend, Next.js dashboard and scheduled job processing.</p>","description":null,"key_features":["Social content management","Scheduled jobs (node-cron)","Admin dashboard","Monorepo workspace","REST API"],"technologies_used":["TypeScript","Fastify","Drizzle ORM","MySQL","Bun","Zod","JWT","node-cron","Next.js","React","React Query","Tailwind CSS"],"design_highlights":["Modular monorepo setup","Scheduled automation","Tooling-first architecture"]}' AS CHAR), 'Kaman Social cover image', 'Kaman Social', 'Social media management system with monorepo architecture, Fastify backend, Next.js dashboard and scheduled job processing.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
+  UUID(), @p6, 'de', 'PaketJet', 'paketjet', 'P2P cargo freight marketplace — carriers post route & capacity listings, customers book cargo space. BlaBlaCar model applied to freight logistics.',
+  CAST('{"html":"<p>P2P cargo freight marketplace — carriers post route & capacity listings, customers book cargo space. BlaBlaCar model applied to freight logistics.</p>","description":null,"key_features":["P2P cargo listing & booking","Real-time capacity management","Wallet & payment system","Carrier & customer dashboards","Multi-step listing wizard","Admin panel with revenue stats","JWT cookie auth with role guards"],"technologies_used":["TypeScript","Next.js 15","React 19","Fastify v5","MySQL 8","Drizzle ORM","Bun","Zod","Zustand","Tailwind CSS v4","Next.js","React","Fastify","MySQL","Tailwind CSS","Radix UI","JWT","Cloudinary","Nodemailer"],"design_highlights":["Token-based Tailwind v4 design system","Dark mode with data-theme attribute","Mobile-first responsive panel UI","Capacity bar visualization"]}' AS CHAR), 'PaketJet cover image', 'PaketJet', 'P2P cargo freight marketplace — carriers post route & capacity listings, customers book cargo space. BlaBlaCar model applied to freight logistics.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 )
 ON DUPLICATE KEY UPDATE
   title = VALUES(title),
@@ -161,21 +161,21 @@ ON DUPLICATE KEY UPDATE
   updated_at = CURRENT_TIMESTAMP(3);
 
 INSERT INTO `project_images_i18n` (`id`, `image_id`, `locale`, `alt`, `caption`, `created_at`, `updated_at`) VALUES
-(UUID(), @img6, 'de', 'Kaman Social', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
+(UUID(), @img6, 'de', 'PaketJet', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
 ON DUPLICATE KEY UPDATE
   alt = VALUES(alt),
   caption = VALUES(caption),
   updated_at = CURRENT_TIMESTAMP(3);
 
-SET @p7 := (SELECT project_id FROM projects_i18n WHERE locale='en' AND slug='kamanilan' LIMIT 1);
+SET @p7 := (SELECT project_id FROM projects_i18n WHERE locale='en' AND slug='katalog-ai' LIMIT 1);
 SET @img7 := (SELECT id FROM project_images WHERE project_id=@p7 ORDER BY display_order ASC, created_at ASC LIMIT 1);
 
 INSERT INTO `projects_i18n` (
   `id`, `project_id`, `locale`, `title`, `slug`, `summary`, `content`,
   `featured_image_alt`, `meta_title`, `meta_description`, `created_at`, `updated_at`
 ) VALUES (
-  UUID(), @p7, 'de', 'Kamanilan', 'kamanilan', 'Real estate listing and property management platform with customer web, admin panel, multi-language support and integrated payment.',
-  CAST('{"html":"<p>Real estate listing and property management platform with customer web, admin panel, multi-language support and integrated payment.</p>","description":null,"key_features":["Property listings","Admin management","Multi-language support","Iyzipay payment integration","Google OAuth","Email notifications"],"technologies_used":["Next.js","React","TypeScript","Radix UI","Tailwind CSS","Framer Motion","next-intl","React Query","Fastify","Drizzle ORM","MySQL","Bun","Zod","Cloudinary","Nodemailer","JWT","Iyzipay","Google OAuth","i18n","Zustand"],"design_highlights":["Property-focused UX","Multi-language routing","Headless architecture"]}' AS CHAR), 'Kamanilan cover image', 'Kamanilan', 'Real estate listing and property management platform with customer web, admin panel, multi-language support and integrated payment.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
+  UUID(), @p7, 'de', 'KatalogAI', 'katalog-ai', 'Multi-database product catalog creator — pull products from different project databases, design catalogs with templates, export as PDF or send via email.',
+  CAST('{"html":"<p>Multi-database product catalog creator — pull products from different project databases, design catalogs with templates, export as PDF or send via email.</p>","description":null,"key_features":["Multi-database product sourcing","Catalog template & layout system","Drag & drop catalog builder","PDF export & email delivery","AI-powered descriptions & translations","Color theme & font customization","Admin panel with catalog management"],"technologies_used":["TypeScript","Next.js 15","React 19","Fastify v5","MySQL 8","Drizzle ORM","Bun","Zod","Redux Toolkit","Tailwind CSS v4","Shadcn UI","Next.js","React","Fastify","MySQL","Zustand","Cloudinary","Docker","Tailwind CSS","Radix UI","JWT","Nodemailer"],"design_highlights":["Token-based Tailwind v4 design system","Dark mode with data-theme attribute","A4 print-ready catalog preview","Mobile-first responsive panel UI"]}' AS CHAR), 'KatalogAI cover image', 'KatalogAI', 'Multi-database product catalog creator — pull products from different project databases, design catalogs with templates, export as PDF or send via email.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 )
 ON DUPLICATE KEY UPDATE
   title = VALUES(title),
@@ -188,21 +188,21 @@ ON DUPLICATE KEY UPDATE
   updated_at = CURRENT_TIMESTAMP(3);
 
 INSERT INTO `project_images_i18n` (`id`, `image_id`, `locale`, `alt`, `caption`, `created_at`, `updated_at`) VALUES
-(UUID(), @img7, 'de', 'Kamanilan', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
+(UUID(), @img7, 'de', 'KatalogAI', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
 ON DUPLICATE KEY UPDATE
   alt = VALUES(alt),
   caption = VALUES(caption),
   updated_at = CURRENT_TIMESTAMP(3);
 
-SET @p8 := (SELECT project_id FROM projects_i18n WHERE locale='en' AND slug='mezar-tasi' LIMIT 1);
+SET @p8 := (SELECT project_id FROM projects_i18n WHERE locale='en' AND slug='vistaseed' LIMIT 1);
 SET @img8 := (SELECT id FROM project_images WHERE project_id=@p8 ORDER BY display_order ASC, created_at ASC LIMIT 1);
 
 INSERT INTO `projects_i18n` (
   `id`, `project_id`, `locale`, `title`, `slug`, `summary`, `content`,
   `featured_image_alt`, `meta_title`, `meta_description`, `created_at`, `updated_at`
 ) VALUES (
-  UUID(), @p8, 'de', 'Mezar Tasi', 'mezar-tasi', 'Memorial construction and grave care platform for the Istanbul market with model catalog, service pages, quote flows and admin management.',
-  CAST('{"html":"<p>Memorial construction and grave care platform for the Istanbul market with model catalog, service pages, quote flows and admin management.</p>","description":null,"key_features":["Model and service catalog","Quote and contact flows","Admin dashboard","Cloudinary media","Email notifications","SEO optimized"],"technologies_used":["React","TypeScript","Vite","Redux Toolkit","React Query","Radix UI","Shadcn UI","Tailwind CSS","React Hook Form","Fastify","Drizzle ORM","MySQL","Bun","Zod","Cloudinary","Nodemailer","JWT","Google OAuth"],"design_highlights":["Service-led catalog UX","Shadcn UI components","Production deployed at mezarisim.com"]}' AS CHAR), 'Mezar Tasi cover image', 'Mezar Tasi', 'Memorial construction and grave care platform for the Istanbul market with model catalog, service pages, quote flows and admin management.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
+  UUID(), @p8, 'de', 'VistaSeed', 'vistaseed', 'Corporate seed brand website with product showcase, multilingual-ready content management, and a Fastify-backed admin workflow.',
+  CAST('{"html":"<p>Corporate seed brand website with product showcase, multilingual-ready content management, and a Fastify-backed admin workflow.</p>","description":null,"key_features":["Corporate marketing pages","Seed product catalog","Admin-managed content workflow","Contact and FAQ management","Career page foundation","SEO-ready page structure"],"technologies_used":["Next.js","React","TypeScript","Fastify","MySQL","Drizzle ORM","Bun","Tailwind CSS","Zustand","Radix UI","Zod","JWT","Cloudinary","Nodemailer"],"design_highlights":["Agriculture-focused brand presentation","Responsive public site and admin experience","Structured content planning under doc/"]}' AS CHAR), 'VistaSeed cover image', 'VistaSeed', 'Corporate seed brand website with product showcase, multilingual-ready content management, and a Fastify-backed admin workflow.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 )
 ON DUPLICATE KEY UPDATE
   title = VALUES(title),
@@ -215,21 +215,21 @@ ON DUPLICATE KEY UPDATE
   updated_at = CURRENT_TIMESTAMP(3);
 
 INSERT INTO `project_images_i18n` (`id`, `image_id`, `locale`, `alt`, `caption`, `created_at`, `updated_at`) VALUES
-(UUID(), @img8, 'de', 'Mezar Tasi', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
+(UUID(), @img8, 'de', 'VistaSeed', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
 ON DUPLICATE KEY UPDATE
   alt = VALUES(alt),
   caption = VALUES(caption),
   updated_at = CURRENT_TIMESTAMP(3);
 
-SET @p9 := (SELECT project_id FROM projects_i18n WHERE locale='en' AND slug='products-park' LIMIT 1);
+SET @p9 := (SELECT project_id FROM projects_i18n WHERE locale='en' AND slug='bereketfide' LIMIT 1);
 SET @img9 := (SELECT id FROM project_images WHERE project_id=@p9 ORDER BY display_order ASC, created_at ASC LIMIT 1);
 
 INSERT INTO `projects_i18n` (
   `id`, `project_id`, `locale`, `title`, `slug`, `summary`, `content`,
   `featured_image_alt`, `meta_title`, `meta_description`, `created_at`, `updated_at`
 ) VALUES (
-  UUID(), @p9, 'de', 'Products Park', 'products-park', 'Commerce management platform with admin dashboard, product and catalog workflows, order flows and Fastify backend.',
-  CAST('{"html":"<p>Commerce management platform with admin dashboard, product and catalog workflows, order flows and Fastify backend.</p>","description":null,"key_features":["Product and catalog management","Cart and order flows","Stripe payments","Admin dashboard","Media management","Google OAuth"],"technologies_used":["React","TypeScript","Vite","Redux Toolkit","React Query","Radix UI","Shadcn UI","Tailwind CSS","React Hook Form","dnd-kit","Fastify","Drizzle ORM","MySQL","Bun","Zod","Cloudinary","Stripe","JWT","Google OAuth","Nodemailer","Next.js"],"design_highlights":["Drag-and-drop merchandising UX","Shadcn UI components","Stripe integration"]}' AS CHAR), 'Products Park cover image', 'Products Park', 'Commerce management platform with admin dashboard, product and catalog workflows, order flows and Fastify backend.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
+  UUID(), @p9, 'de', 'Bereket Fide', 'bereketfide', 'Bereket Fide markasi icin planlanan, urun katalogu, kurumsal tanitim, bilgi merkezi ve iletisim akislari iceren modern web platformu.',
+  CAST('{"html":"<p>Bereket Fide markasi icin planlanan, urun katalogu, kurumsal tanitim, bilgi merkezi ve iletisim akislari iceren modern web platformu.</p>","description":null,"key_features":["Multilingual corporate website structure","Product catalog and category pages","Corporate content and policy pages","Contact and demand collection forms","Admin panel for content management","Technical SEO foundation","Reusable token-based theme system"],"technologies_used":["Next.js","TypeScript","Tailwind CSS","next-intl","React Query","Zod","React Hook Form","Zustand","Node.js","Fastify","MySQL","Drizzle ORM","React","Radix UI","PM2","Nginx","i18n","SEO","Framer Motion","JWT","Cloudinary","Nodemailer","Bun"],"design_highlights":["Wheat-gold and natural neutral color direction","Structured for product-first corporate presentation","SEO-first content model with scalable admin architecture"]}' AS CHAR), 'Bereket Fide cover image', 'Bereket Fide', 'Bereket Fide markasi icin planlanan, urun katalogu, kurumsal tanitim, bilgi merkezi ve iletisim akislari iceren modern web platformu.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 )
 ON DUPLICATE KEY UPDATE
   title = VALUES(title),
@@ -242,61 +242,7 @@ ON DUPLICATE KEY UPDATE
   updated_at = CURRENT_TIMESTAMP(3);
 
 INSERT INTO `project_images_i18n` (`id`, `image_id`, `locale`, `alt`, `caption`, `created_at`, `updated_at`) VALUES
-(UUID(), @img9, 'de', 'Products Park', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
-ON DUPLICATE KEY UPDATE
-  alt = VALUES(alt),
-  caption = VALUES(caption),
-  updated_at = CURRENT_TIMESTAMP(3);
-
-SET @p10 := (SELECT project_id FROM projects_i18n WHERE locale='en' AND slug='gzl-temizlik' LIMIT 1);
-SET @img10 := (SELECT id FROM project_images WHERE project_id=@p10 ORDER BY display_order ASC, created_at ASC LIMIT 1);
-
-INSERT INTO `projects_i18n` (
-  `id`, `project_id`, `locale`, `title`, `slug`, `summary`, `content`,
-  `featured_image_alt`, `meta_title`, `meta_description`, `created_at`, `updated_at`
-) VALUES (
-  UUID(), @p10, 'de', 'GZL Temizlik', 'gzl-temizlik', 'Cleaning company management platform with customer website, admin panel, booking system and Fastify backend.',
-  CAST('{"html":"<p>Cleaning company management platform with customer website, admin panel, booking system and Fastify backend.</p>","description":null,"key_features":["Service booking","Admin management","Customer portal","Email notifications","Media management"],"technologies_used":["Next.js","React","TypeScript","Redux Toolkit","Sass","Fastify","Drizzle ORM","MySQL","Bun","Zod","Cloudinary","Nodemailer","JWT"],"design_highlights":["Turkish-focused service UX","Operational admin tooling"]}' AS CHAR), 'GZL Temizlik cover image', 'GZL Temizlik', 'Cleaning company management platform with customer website, admin panel, booking system and Fastify backend.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
-)
-ON DUPLICATE KEY UPDATE
-  title = VALUES(title),
-  slug = VALUES(slug),
-  summary = VALUES(summary),
-  content = VALUES(content),
-  featured_image_alt = VALUES(featured_image_alt),
-  meta_title = VALUES(meta_title),
-  meta_description = VALUES(meta_description),
-  updated_at = CURRENT_TIMESTAMP(3);
-
-INSERT INTO `project_images_i18n` (`id`, `image_id`, `locale`, `alt`, `caption`, `created_at`, `updated_at`) VALUES
-(UUID(), @img10, 'de', 'GZL Temizlik', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
-ON DUPLICATE KEY UPDATE
-  alt = VALUES(alt),
-  caption = VALUES(caption),
-  updated_at = CURRENT_TIMESTAMP(3);
-
-SET @p11 := (SELECT project_id FROM projects_i18n WHERE locale='en' AND slug='paketjet' LIMIT 1);
-SET @img11 := (SELECT id FROM project_images WHERE project_id=@p11 ORDER BY display_order ASC, created_at ASC LIMIT 1);
-
-INSERT INTO `projects_i18n` (
-  `id`, `project_id`, `locale`, `title`, `slug`, `summary`, `content`,
-  `featured_image_alt`, `meta_title`, `meta_description`, `created_at`, `updated_at`
-) VALUES (
-  UUID(), @p11, 'de', 'PaketJet', 'paketjet', 'Logistics and cargo delivery management platform with shipment tracking, customer portal and operations dashboard.',
-  CAST('{"html":"<p>Logistics and cargo delivery management platform with shipment tracking, customer portal and operations dashboard.</p>","description":null,"key_features":["Shipment tracking","Customer portal","Operations dashboard","Logistics workflows"],"technologies_used":["TypeScript","Next.js","React","Fastify","MySQL","Drizzle ORM","Bun","Zod"],"design_highlights":["Operations-focused UX"]}' AS CHAR), 'PaketJet cover image', 'PaketJet', 'Logistics and cargo delivery management platform with shipment tracking, customer portal and operations dashboard.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
-)
-ON DUPLICATE KEY UPDATE
-  title = VALUES(title),
-  slug = VALUES(slug),
-  summary = VALUES(summary),
-  content = VALUES(content),
-  featured_image_alt = VALUES(featured_image_alt),
-  meta_title = VALUES(meta_title),
-  meta_description = VALUES(meta_description),
-  updated_at = CURRENT_TIMESTAMP(3);
-
-INSERT INTO `project_images_i18n` (`id`, `image_id`, `locale`, `alt`, `caption`, `created_at`, `updated_at`) VALUES
-(UUID(), @img11, 'de', 'PaketJet', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
+(UUID(), @img9, 'de', 'Bereket Fide', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
 ON DUPLICATE KEY UPDATE
   alt = VALUES(alt),
   caption = VALUES(caption),

@@ -44,11 +44,17 @@ export const siteSettingsAdminApi = extendedApi.injectEndpoints({
       keepUnusedDataFor: 60,
     }),
 
-    getSiteSettingAdminByKey: b.query<AdminSiteSetting | null, string>({
-      query: (key) => ({ url: `${ADMIN_BASE}/${encodeURIComponent(key)}` }),
+    getSiteSettingAdminByKey: b.query<
+      AdminSiteSetting | null,
+      { key: string; locale?: string }
+    >({
+      query: ({ key, locale }) => ({
+        url: `${ADMIN_BASE}/${encodeURIComponent(key)}`,
+        ...(locale ? { params: { locale } } : {}),
+      }),
       transformResponse: (res: unknown): AdminSiteSetting | null =>
         res ? (normalizeAdminSiteSettingRow(res as SiteSettingRow) as AdminSiteSetting) : null,
-      providesTags: (_r, _e, key) => [{ type: 'SiteSettings', id: key }],
+      providesTags: (_r, _e, arg) => [{ type: 'SiteSettings', id: arg.key }],
     }),
 
     // /admin/site_settings/app-locales

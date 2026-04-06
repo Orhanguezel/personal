@@ -57,6 +57,9 @@ const emptyForm: FormState = {
   featured_image_alt: '',
   meta_title: '',
   meta_description: '',
+  price_onetime: '',
+  currency: 'USD',
+  is_purchasable: false,
 };
 
 export default function AdminProjectDetailClient({ id }: { id: string }) {
@@ -114,6 +117,10 @@ export default function AdminProjectDetailClient({ id }: { id: string }) {
         featured_image_alt: p.featured_image_alt ?? '',
         meta_title: p.meta_title ?? '',
         meta_description: p.meta_description ?? '',
+        price_onetime: p.price_onetime != null ? String(p.price_onetime) : '',
+        currency: (p.currency as string) || 'USD',
+        is_purchasable:
+          p.is_purchasable === true || (p as { is_purchasable?: number }).is_purchasable === 1,
       });
     }
     if (isCreate) setForm({ ...emptyForm, locale: defaultLocaleFromDb || '' });
@@ -150,6 +157,12 @@ export default function AdminProjectDetailClient({ id }: { id: string }) {
       featured_image_alt: form.featured_image_alt?.trim() || null,
       meta_title: form.meta_title?.trim() || null,
       meta_description: form.meta_description?.trim() || null,
+      price_onetime: (() => {
+        const s = String(form.price_onetime ?? '').trim();
+        return s ? s : null;
+      })(),
+      currency: form.currency?.trim() || 'USD',
+      is_purchasable: !!form.is_purchasable,
     };
 
     try {
@@ -247,6 +260,33 @@ export default function AdminProjectDetailClient({ id }: { id: string }) {
             <div className="space-y-2">
               <Label>{page?.order_label}</Label>
               <Input type="number" value={form.display_order ?? 0} onChange={(e) => setForm((p) => ({ ...p, display_order: Number(e.target.value) }))} />
+            </div>
+
+            <div className="space-y-2">
+              <Label>{page?.price_onetime_label ?? 'Tek seferlik fiyat (PayPal)'}</Label>
+              <Input
+                type="text"
+                inputMode="decimal"
+                value={form.price_onetime ?? ''}
+                onChange={(e) => setForm((p) => ({ ...p, price_onetime: e.target.value }))}
+                placeholder="1000"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label>{page?.currency_label ?? 'Para birimi'}</Label>
+              <Input
+                value={form.currency ?? 'USD'}
+                onChange={(e) => setForm((p) => ({ ...p, currency: e.target.value.toUpperCase() }))}
+                placeholder="USD"
+                maxLength={10}
+              />
+            </div>
+            <div className="flex items-center gap-2">
+              <Switch
+                checked={!!form.is_purchasable}
+                onCheckedChange={(v) => setForm((p) => ({ ...p, is_purchasable: v }))}
+              />
+              <Label>{page?.is_purchasable_label ?? 'Satışa aç (portföy checkout)'}</Label>
             </div>
 
             <div className="space-y-2">

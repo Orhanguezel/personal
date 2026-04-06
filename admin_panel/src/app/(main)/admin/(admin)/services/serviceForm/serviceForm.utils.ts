@@ -83,6 +83,8 @@ export const buildInitialValues = (
 
       material: '',
       price: '',
+      currency: 'USD',
+      is_purchasable: false,
       includes: '',
       warranty: '',
       image_alt: '',
@@ -129,7 +131,9 @@ export const buildInitialValues = (
     description: toStr(initial.description),
 
     material: toStr(initial.material),
-    price: toStr(initial.price),
+    price: toStr(initial.price_onetime ?? initial.price),
+    currency: toStr((initial as { currency?: string }).currency) || 'USD',
+    is_purchasable: !!initial.is_purchasable,
     includes: toStr(initial.includes),
     warranty: toStr(initial.warranty),
     image_alt: toStr(initial.image_alt),

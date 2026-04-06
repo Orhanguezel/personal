@@ -503,6 +503,8 @@ export type UiProjectCopy = {
     design_highlights_label: string;
     details_label: string;
     gallery_label: string;
+    price_label: string;
+    purchase_label: string;
   };
 };
 
@@ -644,6 +646,8 @@ export function normalizeUiProjectSettingValue(value: unknown): UiProjectCopy {
       ),
       details_label: pick(detail, 'details_label', 'Details', 'detail_details_label'),
       gallery_label: pick(detail, 'gallery_label', 'Gallery', 'detail_gallery_label'),
+      price_label: pick(detail, 'price_label', 'Price', 'detail_price_label'),
+      purchase_label: pick(detail, 'purchase_label', 'Buy now', 'detail_purchase_label'),
     },
   };
 }

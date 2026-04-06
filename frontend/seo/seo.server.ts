@@ -9,7 +9,8 @@
 import type { SeoAll, SeoPage, AnalyticsConfig } from '@/integrations/shared';
 
 import type { Thing } from './jsonld';
-import { graph, org, website } from './jsonld';
+import { graph, org, website, person, professionalService } from './jsonld';
+import { joinUrl } from '@/integrations/shared';
 import { SEO_KEY_LIST_ALL, SEO_KEYS } from './seo.keys';
 import { buildSeoAllFromSettings } from './seo.mapper';
 
@@ -66,6 +67,10 @@ export async function getSiteJsonLdGraph(): Promise<Thing> {
   const orgId = `${canonicalBase}/#org`;
   const websiteId = `${canonicalBase}/#website`;
   const localBusinessId = `${canonicalBase}/#localbusiness`;
+  const founderId = `${canonicalBase}/#founder`;
+  const professionalServiceId = `${canonicalBase}/#professional-service`;
+
+  const founderImage = joinUrl(canonicalBase, '/assets/imgs/hero/hero-1/man.png');
 
   const items: Thing[] = [];
 
@@ -79,6 +84,64 @@ export async function getSiteJsonLdGraph(): Promise<Thing> {
           ? String((localBusinessRaw as any).logo).trim()
           : undefined,
       sameAs: sameAs.length ? sameAs : undefined,
+      description:
+        'Full-Stack Web Development Agency specializing in production-ready business platforms, e-commerce systems, and web applications using Next.js, Fastify, Laravel, and Flutter.',
+      founderId: founderId,
+      foundingDate: '2020',
+      areaServed: ['Germany', 'Europe'],
+      knowsAbout: [
+        'Next.js',
+        'React',
+        'TypeScript',
+        'Fastify',
+        'Laravel',
+        'Flutter',
+        'MySQL',
+        'E-Commerce',
+        'Full-Stack Web Development',
+        'UI/UX Design',
+      ],
+      email: 'info@guezelwebdesign.com',
+    }),
+  );
+
+  items.push(
+    person({
+      id: founderId,
+      name: 'Orhan Guzel',
+      jobTitle: 'Full-Stack Developer & Founder',
+      url: canonicalBase,
+      image: founderImage,
+      sameAs: [
+        'https://github.com/Orhanguezel',
+        'https://www.linkedin.com/in/orhan-g%C3%BCzel-53b47b11a',
+      ],
+      knowsAbout: [
+        'Next.js',
+        'React',
+        'TypeScript',
+        'Fastify',
+        'Laravel',
+        'Flutter',
+        'MySQL',
+        'E-Commerce',
+        'Full-Stack Development',
+      ],
+      worksForId: orgId,
+      alumniOf: 'IHK Aachen',
+      address: { locality: 'Grevenbroich', region: 'Nordrhein-Westfalen', country: 'DE' },
+    }),
+  );
+
+  items.push(
+    professionalService({
+      id: professionalServiceId,
+      name: siteName,
+      url: canonicalBase,
+      founderId,
+      areaServed: ['Germany', 'Europe'],
+      knowsLanguage: ['de', 'en', 'tr'],
+      priceRange: '$$',
     }),
   );
 

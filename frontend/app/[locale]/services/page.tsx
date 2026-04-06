@@ -8,9 +8,16 @@
 
 import Layout from '@/components/layout/Layout';
 import ServicesClient from './_component/ServicesClient';
+import BreadcrumbJsonLd from '@/seo/BreadcrumbJsonLd';
 import { normalizeLocaleParam, unwrapRouteParams } from '@/i18n/localeParam';
 import { getSeoPage, SEO_PAGE_KEYS, buildMetadata } from '@/seo';
 import { getServicesListServer } from '@/utils/publicLists.server';
+
+const BREADCRUMB_LABELS: Record<string, { home: string; services: string }> = {
+  de: { home: 'Startseite', services: 'Leistungen' },
+  en: { home: 'Home', services: 'Services' },
+  tr: { home: 'Anasayfa', services: 'Hizmetler' },
+};
 
 export const dynamic = 'force-dynamic';
 
@@ -19,8 +26,16 @@ export default async function ServicesPage({ params }: { params: Promise<{ local
   const safeLocale = normalizeLocaleParam(locale);
   const initialItems = await getServicesListServer({ locale: safeLocale, limit: 20 });
 
+  const labels = BREADCRUMB_LABELS[safeLocale] ?? BREADCRUMB_LABELS.en;
+
   return (
     <Layout headerStyle={1} footerStyle={1}>
+      <BreadcrumbJsonLd
+        items={[
+          { name: labels.home, url: `/${safeLocale}` },
+          { name: labels.services, url: `/${safeLocale}/services` },
+        ]}
+      />
       <ServicesClient locale={safeLocale} initialItems={initialItems} />
     </Layout>
   );

@@ -10,8 +10,8 @@ VALUES
   'en',
   CAST(JSON_OBJECT(
     'resume1', JSON_OBJECT(
-      'heading','My Resume',
-      'intro_html','I believe that working hard and trying to learn every day will<br />make me improve in satisfying my customers.',
+      'heading','Experience',
+      'intro_html','Full-Stack Developer focused on production-ready platforms, business systems<br />and real delivery across web, API and mobile products.',
       'cta_label','Get in touch',
       'education_label','Education',
       'experience_label','Experience',
@@ -19,7 +19,7 @@ VALUES
       'error','Failed to load resume data.',
       'empty_education','No education entries found.',
       'empty_experience','No experience entries found.',
-      'marquee_text','Branding . Marketing . User Interface'
+      'marquee_text','Next.js . Fastify . Laravel . Flutter'
     ),
     'education2', JSON_OBJECT(
       'heading','Education',
@@ -84,8 +84,8 @@ VALUES
   'de',
   CAST(JSON_OBJECT(
     'resume1', JSON_OBJECT(
-      'heading','Mein Lebenslauf',
-      'intro_html','Ich glaube, dass hartes Arbeiten und tägliches Lernen<br />mich darin verbessern, meine Kunden zufriedenzustellen.',
+      'heading','Erfahrung',
+      'intro_html','Full-Stack Developer mit Fokus auf produktionsreife Plattformen, Business-Systeme<br />und reale Delivery über Web, API und mobile Produkte.',
       'cta_label','Kontakt aufnehmen',
       'education_label','Ausbildung',
       'experience_label','Erfahrung',
@@ -93,7 +93,7 @@ VALUES
       'error','Lebenslaufdaten konnten nicht geladen werden.',
       'empty_education','Keine Ausbildungseinträge gefunden.',
       'empty_experience','Keine Erfahrungseinträge gefunden.',
-      'marquee_text','Branding . Marketing . Benutzeroberfläche'
+      'marquee_text','Next.js . Fastify . Laravel . Flutter'
     ),
     'education2', JSON_OBJECT(
       'heading','Ausbildung',
@@ -158,8 +158,8 @@ VALUES
   'tr',
   CAST(JSON_OBJECT(
     'resume1', JSON_OBJECT(
-      'heading','Özgeçmişim',
-      'intro_html','Her gün çalışıp öğrenmenin<br />müşterilerimi memnun etme konusunda beni geliştireceğine inanıyorum.',
+      'heading','Deneyim',
+      'intro_html','Üretime hazır platformlar, iş sistemleri ve gerçek teslimat süreçlerine odaklanan<br />bir Full-Stack Developer olarak web, API ve mobil ürünler geliştiriyorum.',
       'cta_label','İletişime geç',
       'education_label','Eğitim',
       'experience_label','Deneyim',
@@ -167,7 +167,7 @@ VALUES
       'error','Özgeçmiş verileri yüklenemedi.',
       'empty_education','Eğitim kaydı bulunamadı.',
       'empty_experience','Deneyim kaydı bulunamadı.',
-      'marquee_text','Markalama . Pazarlama . Kullanıcı Arayüzü'
+      'marquee_text','Next.js . Fastify . Laravel . Flutter'
     ),
     'education2', JSON_OBJECT(
       'heading','Eğitim',

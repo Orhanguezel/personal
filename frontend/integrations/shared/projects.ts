@@ -2,12 +2,20 @@
 // FILE: src/integrations/types/projects.ts
 // ---------------------------------------------------------------------
 
+import { formatPrice } from '@/integrations/shared/products.types';
+
 export type ProjectContentJson = {
   html?: string;
   description?: string;
   key_features?: string[];
   technologies_used?: string[];
   design_highlights?: string[];
+  /** Optional case-study blocks for portfolio detail (filled per project in admin/seed). */
+  case_study?: {
+    challenge?: string;
+    approach?: string;
+    outcome?: string;
+  };
 };
 
 /**
@@ -22,6 +30,11 @@ export interface Project {
   is_published: boolean;
   is_featured: boolean;
   display_order: number;
+
+  /** PayPal tek seferlik satış (admin’de açıldıysa) */
+  price_onetime?: string | null;
+  currency?: string;
+  is_purchasable?: boolean;
 
   featured_image?: string | null;
   featured_image_asset_id?: string | null;
@@ -129,6 +142,10 @@ export type UpsertProjectInput = {
   is_published?: boolean;
   is_featured?: boolean;
   display_order?: number;
+
+  price_onetime?: string | number | null;
+  currency?: string;
+  is_purchasable?: boolean;
 
   featured_image?: string | null;
   featured_image_asset_id?: string | null;
@@ -257,6 +274,11 @@ export type NormalizedProjectContent = {
   key_features: string[];
   technologies_used: string[];
   design_highlights: string[];
+  case_study: {
+    challenge: string | null;
+    approach: string | null;
+    outcome: string | null;
+  } | null;
 };
 
 export type NormalizedProjectDetail = {
@@ -282,9 +304,21 @@ export type NormalizedProjectDetail = {
   coverAlt: string;
 
   content: NormalizedProjectContent;
+
+  /** Parsed from `content.case_study` when present. */
+  caseStudy: NormalizedProjectContent['case_study'];
+
+  /** Satın alma (PayPal checkout) — DB’de price + is_purchasable gerekir */
+  canPurchase: boolean;
+  priceFormatted: string;
 };
 
-export type GetProjectBySlugArgs = { slug: string; include?: 'images' };
+export type GetProjectBySlugArgs = {
+  slug: string;
+  include?: 'images';
+  locale?: string;
+  default_locale?: string;
+};
 
 // ---------- primitives ----------
 export function asStr(v: unknown): string {
@@ -367,6 +401,19 @@ export function stripHtml(html: string): string {
  * - string (JSON-string or raw html string)
  * - or object (ProjectContentJson)
  */
+function parseCaseStudyBlock(raw: ProjectContentJson['case_study']): NormalizedProjectContent['case_study'] {
+  if (!raw || typeof raw !== 'object') return null;
+  const challenge = typeof raw.challenge === 'string' ? raw.challenge.trim() : '';
+  const approach = typeof raw.approach === 'string' ? raw.approach.trim() : '';
+  const outcome = typeof raw.outcome === 'string' ? raw.outcome.trim() : '';
+  if (!challenge && !approach && !outcome) return null;
+  return {
+    challenge: challenge || null,
+    approach: approach || null,
+    outcome: outcome || null,
+  };
+}
+
 export function parseProjectContent(input: Project['content']): NormalizedProjectContent {
   const empty: NormalizedProjectContent = {
     html: '',
@@ -374,6 +421,7 @@ export function parseProjectContent(input: Project['content']): NormalizedProjec
     key_features: [],
     technologies_used: [],
     design_highlights: [],
+    case_study: null,
   };
 
   if (!input) return empty;
@@ -393,6 +441,7 @@ export function parseProjectContent(input: Project['content']): NormalizedProjec
       design_highlights: Array.isArray(obj.design_highlights)
         ? obj.design_highlights.filter((x) => typeof x === 'string' && x.trim())
         : [],
+      case_study: parseCaseStudyBlock(obj.case_study),
     };
   }
 
@@ -454,6 +503,17 @@ export function normalizeProjectDetail(p: Project): NormalizedProjectDetail {
   const descriptionText =
     (content.description ?? '').trim() || (p.summary ?? '').trim() || htmlText || '';
 
+  const rawPrice =
+    p.price_onetime != null && String(p.price_onetime).trim() !== ''
+      ? String(p.price_onetime).trim()
+      : '';
+  const currency = (p.currency ?? 'USD').trim() || 'USD';
+  const isPurchasableFlag =
+    p.is_purchasable === true || (p as { is_purchasable?: number }).is_purchasable === 1;
+
+  const priceFormatted = rawPrice !== '' ? formatPrice(rawPrice, currency) : '';
+  const canPurchase = Boolean(isPurchasableFlag && rawPrice !== '');
+
   return {
     id: p.id,
     slug: p.slug,
@@ -461,6 +521,7 @@ export function normalizeProjectDetail(p: Project): NormalizedProjectDetail {
     category,
     summaryTop,
     descriptionText,
+    caseStudy: content.case_study,
     client,
     startPretty,
     completePretty,
@@ -470,6 +531,8 @@ export function normalizeProjectDetail(p: Project): NormalizedProjectDetail {
     cover,
     coverAlt,
     content,
+    canPurchase,
+    priceFormatted,
   };
 }
 

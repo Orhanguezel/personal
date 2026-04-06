@@ -1,0 +1,57 @@
+# Guzel Web Design
+
+> Full-Stack Web Development Agency based in Grevenbroich, Germany. Founded by Orhan Guzel — 12+ years of experience building production-ready business platforms, e-commerce systems, and web applications.
+
+## About
+
+Guzel Web Design is a professional web development agency delivering end-to-end digital solutions. We specialize in modern, scalable architectures using Next.js, Fastify, Laravel, Flutter, and MySQL. Our services span from UI/UX design through backend architecture to deployment and maintenance. We serve clients across Germany and Europe in three languages: German, English, and Turkish.
+
+- Founder: Orhan Guzel — Full-Stack Developer
+- Location: Grevenbroich, Nordrhein-Westfalen, Germany
+- Education: IHK Aachen
+- Active live projects: 11+
+- Tech Stack: Next.js 16, React 19, TypeScript, Fastify, Laravel 12, Flutter, MySQL, Drizzle ORM, Docker, Nginx
+
+## Services
+
+- [Full-Stack Web Development](https://guezelwebdesign.com/en/services/full-stack-web-development): Complete web application development from frontend to backend, database design, API architecture, and DevOps
+- [E-Commerce Solutions](https://guezelwebdesign.com/en/services/e-commerce-solutions): Custom online shops, marketplace platforms, payment integrations (Stripe, Iyzipay), inventory management
+- [UI/UX Design](https://guezelwebdesign.com/en/services/ui-ux-design): User-centered interface design, responsive layouts, accessibility, Figma-to-code implementation
+- [Mobile App Development](https://guezelwebdesign.com/en/services/mobile-app-development): Cross-platform mobile applications with Flutter and Dart
+
+## Portfolio — Live Projects
+
+- [Ensotek](https://guezelwebdesign.com/en/work/ensotek): Industrial automation platform — Next.js, Fastify, Drizzle ORM, Docker
+- [Vista Insaat](https://guezelwebdesign.com/en/work/vista-insaat): Construction company website — Next.js 16, Fastify, Tailwind v4
+- [QuickEcommerce](https://guezelwebdesign.com/en/work/quickecommerce): E-commerce admin panel — Laravel 12, Next.js 16, Flutter
+- [Konig Massage](https://guezelwebdesign.com/en/work/konig-massage): Booking and wellness service — Next.js, Fastify, Drizzle ORM
+- [Karbonkompozit](https://guezelwebdesign.com/en/work/karbonkompozit): Carbon fiber manufacturing — Next.js 16, Tailwind v4, next-intl
+- [Bereket Fide](https://guezelwebdesign.com/en/work/bereket-fide): Agricultural seedling platform — Next.js, Fastify, MySQL
+- [PaketJet](https://guezelwebdesign.com/en/work/paketjet): Logistics and delivery platform — Next.js, Fastify, Drizzle ORM
+- [Kamanilan](https://guezelwebdesign.com/en/work/kamanilan): E-commerce with Iyzipay payment — Next.js, Fastify, MySQL
+- [GZL Temizlik](https://guezelwebdesign.com/en/work/gzl-temizlik): Professional cleaning service — Next.js, Redux, Fastify
+- [Kuhlturm](https://guezelwebdesign.com/en/work/kuhlturm): kuhlturm.com — Next.js, Fastify
+- [KatalogAI](https://guezelwebdesign.com/en/work/katalog-ai): AI-powered multi-database catalog creator with PDF export — Next.js, Fastify, Drizzle ORM
+- [Hava Durumu](https://guezelwebdesign.com/en/work/hava-durumu-don-uyarisi): Weather forecast and frost alert service for agriculture — Next.js, Fastify
+- [VistaSeed](https://guezelwebdesign.com/en/work/vistaseed): Agricultural seed distribution — Next.js, Fastify, MySQL
+
+## Blog
+
+- [Technical Articles (EN)](https://guezelwebdesign.com/en/blog): Web development tutorials, architecture insights, and industry best practices
+- [Technische Artikel (DE)](https://guezelwebdesign.com/de/blog)
+- [Teknik Yazilar (TR)](https://guezelwebdesign.com/tr/blog)
+
+## Multilingual
+
+This site is available in three languages:
+- [German (Deutsch)](https://guezelwebdesign.com/de) — Primary language
+- [English](https://guezelwebdesign.com/en)
+- [Turkish (Turkce)](https://guezelwebdesign.com/tr)
+
+## Contact
+
+- Website: https://guezelwebdesign.com
+- Email: info@guezelwebdesign.com
+- Location: Grevenbroich, Nordrhein-Westfalen, Germany
+- GitHub: https://github.com/Orhanguezel
+- LinkedIn: https://linkedin.com/in/orhan-güzel-53b47b11a

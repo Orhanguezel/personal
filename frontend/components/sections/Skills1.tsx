@@ -117,7 +117,7 @@ export default function Skills1({ locale }: Props) {
                 counters.map((item) => (
                   <div className="skills" key={item.id}>
                     <div className="skills-icon mb-5">
-                      <img src={item.image_url || ''} alt={item.title || ''} loading="lazy" decoding="async" />
+                      <img src={item.image_url || ''} alt={item.title || ''} width={64} height={64} loading="lazy" decoding="async" />
                     </div>
                     <div className="skills-ratio text-center">
                       <h3 className="count fw-semibold my-0">

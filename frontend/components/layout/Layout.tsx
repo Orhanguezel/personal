@@ -96,8 +96,8 @@ export default function Layout({
       | undefined;
 
     let handle: number | undefined;
-    if (ric) handle = ric(start, { timeout: 1500 });
-    else handle = window.setTimeout(start, 600);
+    if (ric) handle = ric(start, { timeout: 3000 });
+    else handle = window.setTimeout(start, 1500);
 
     return () => {
       if (ric && handle) (window as any).cancelIdleCallback?.(handle);

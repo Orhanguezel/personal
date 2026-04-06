@@ -15,6 +15,7 @@
     "db:seed:only": "node --experimental-specifier-resolution=node dist/db/seed/index.js --only="
   },
   "dependencies": {
+    "@vps/shared-backend": "workspace:*",
     "@fastify/cookie": "^11",
     "@fastify/cors": "^11.2.0",
     "@fastify/jwt": "^10",

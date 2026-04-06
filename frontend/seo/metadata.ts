@@ -20,6 +20,47 @@ import {
   safeText,
 } from '@/integrations/shared';
 
+const SITE_LOCALES = ['de', 'en', 'tr'] as const;
+const DEFAULT_SITE_LOCALE = 'de';
+
+const OG_LOCALE_BY_ROUTE: Record<string, string> = {
+  de: 'de_DE',
+  en: 'en_US',
+  tr: 'tr_TR',
+};
+
+function normalizeCanonicalPathForAlternates(path: string | undefined): string | undefined {
+  if (!path) return undefined;
+  const t = safeText(path).trim();
+  if (!t) return undefined;
+  return t.startsWith('/') ? t : `/${t}`;
+}
+
+function inferRouteLocaleFromPath(path: string | undefined): string | undefined {
+  if (!path) return undefined;
+  const first = path.split('/').filter(Boolean)[0];
+  return first && (SITE_LOCALES as readonly string[]).includes(first) ? first : undefined;
+}
+
+/** DE/EN/TR + x-default alternate URLs for hreflang. */
+function buildHreflangLanguages(
+  canonicalBase: string,
+  pathWithLocale: string | undefined,
+): Record<string, string> | undefined {
+  const p = normalizeCanonicalPathForAlternates(pathWithLocale);
+  if (!p) return undefined;
+  const segments = p.split('/').filter(Boolean);
+  if (segments.length < 1) return undefined;
+  if (!(SITE_LOCALES as readonly string[]).includes(segments[0])) return undefined;
+  const suffix = segments.length > 1 ? `/${segments.slice(1).join('/')}` : '';
+  const languages: Record<string, string> = {};
+  for (const loc of SITE_LOCALES) {
+    languages[loc] = joinUrl(canonicalBase, `/${loc}${suffix}`);
+  }
+  languages['x-default'] = joinUrl(canonicalBase, `/${DEFAULT_SITE_LOCALE}${suffix}`);
+  return languages;
+}
+
 export function buildMetadata(args: {
   seo: SeoAll;
   page?: SeoPage | null;
@@ -63,6 +104,26 @@ export function buildMetadata(args: {
         ? joinUrl(canonicalBase, canonicalPath)
         : canonicalBase;
 
+  const pathForAlternates = normalizeCanonicalPathForAlternates(
+    page?.canonicalPath && safeText(page.canonicalPath).trim()
+      ? safeText(page.canonicalPath).trim()
+      : canonicalPath && safeText(canonicalPath).trim()
+        ? safeText(canonicalPath).trim()
+        : undefined,
+  );
+
+  const hreflangLanguages = buildHreflangLanguages(canonicalBase, pathForAlternates);
+  const routeLocale = inferRouteLocaleFromPath(pathForAlternates);
+  const primaryOgLocale = routeLocale
+    ? OG_LOCALE_BY_ROUTE[routeLocale]
+    : d.ogLocale
+      ? d.ogLocale
+      : undefined;
+  const allOgLocales = ['de_DE', 'en_US', 'tr_TR'];
+  const alternateOgLocales = primaryOgLocale
+    ? allOgLocales.filter((l) => l !== primaryOgLocale)
+    : allOgLocales;
+
   const robots = buildRobots(Boolean(page?.noindex), d.robots);
 
   const ogImage = toAbsUrl(canonicalBase, page?.ogImage ?? null);
@@ -76,14 +137,18 @@ export function buildMetadata(args: {
     ...(pageKeywords ? { keywords: pageKeywords } : {}),
 
     metadataBase: new URL(canonicalBase),
-    alternates: { canonical },
+    alternates: {
+      canonical,
+      ...(hreflangLanguages ? { languages: hreflangLanguages } : {}),
+    },
 
     ...(robots ? { robots } : {}),
     ...(d.author ? { authors: [{ name: d.author }] } : {}),
 
     openGraph: {
       type: finalOgType,
-      ...(d.ogLocale ? { locale: d.ogLocale } : {}),
+      ...(primaryOgLocale ? { locale: primaryOgLocale } : {}),
+      ...(alternateOgLocales.length ? { alternateLocale: alternateOgLocales } : {}),
       siteName,
       title: pageTitle,
       ...(pageDesc ? { description: pageDesc } : {}),

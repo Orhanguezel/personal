@@ -29,6 +29,19 @@ export function registerErrorHandlers(app: any) {
       payload.error.stack = err.stack;
     }
 
+    // mysql2 / Drizzle: kolay teşhis (ör. ER_NO_SUCH_TABLE, bağlantı hatası)
+    const errno = err?.errno ?? err?.cause?.errno;
+    const sqlState = err?.sqlState ?? err?.cause?.sqlState;
+    const sqlMessage = err?.sqlMessage ?? err?.cause?.sqlMessage;
+    if (errno != null || sqlMessage) {
+      payload.error.mysql = {
+        ...(errno != null ? { errno: Number(errno) } : {}),
+        ...(sqlState ? { sqlState: String(sqlState) } : {}),
+        ...(sqlMessage ? { sqlMessage: String(sqlMessage) } : {}),
+        ...(err?.code ? { code: String(err.code) } : {}),
+      };
+    }
+
     req.log?.error?.(err, 'request_failed');
     reply.code(status).send(payload);
   });

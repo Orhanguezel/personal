@@ -64,27 +64,27 @@ export default function Home2({ locale = 'en' }: { locale?: string }) {
 													<ul className="carouselTicker__list ">
 														<li className="carouselTicker__item">
 															<Link href="#" className="brand-logo icon_60 icon-shape rounded-3">
-																<img src="assets/imgs/home-page-2/hero-1/icon-1.svg" alt="brand" />
+																<img src="/assets/imgs/home-page-2/hero-1/icon-1.svg" alt="brand" />
 															</Link>
 														</li>
 														<li className="carouselTicker__item">
 															<Link href="#" className="brand-logo icon_60 icon-shape rounded-3">
-																<img src="assets/imgs/home-page-2/hero-1/icon-2.svg" alt="brand" />
+																<img src="/assets/imgs/home-page-2/hero-1/icon-2.svg" alt="brand" />
 															</Link>
 														</li>
 														<li className="carouselTicker__item">
 															<Link href="#" className="brand-logo icon_60 icon-shape rounded-3">
-																<img src="assets/imgs/home-page-2/hero-1/icon-3.svg" alt="brand" />
+																<img src="/assets/imgs/home-page-2/hero-1/icon-3.svg" alt="brand" />
 															</Link>
 														</li>
 														<li className="carouselTicker__item">
 															<Link href="#" className="brand-logo icon_60 icon-shape rounded-3">
-																<img src="assets/imgs/home-page-2/hero-1/icon-4.svg" alt="brand" />
+																<img src="/assets/imgs/home-page-2/hero-1/icon-4.svg" alt="brand" />
 															</Link>
 														</li>
 														<li className="carouselTicker__item">
 															<Link href="#" className="brand-logo icon_60 icon-shape rounded-3">
-																<img src="assets/imgs/home-page-2/hero-1/icon-5.svg" alt="brand" />
+																<img src="/assets/imgs/home-page-2/hero-1/icon-5.svg" alt="brand" />
 															</Link>
 														</li>
 													</ul>
@@ -105,8 +105,8 @@ export default function Home2({ locale = 'en' }: { locale?: string }) {
 					</div>
 				</div>
 				<div className="background position-absolute top-0 start-0 w-100 h-100">
-					<img className="bg-w" src="assets/imgs/home-page-2/hero-1/bg.png" alt="zelio" />
-					<img className="bg-d" src="assets/imgs/home-page-2/hero-1/bg-dark.png" alt="zelio" />
+					<img className="bg-w" src="/assets/imgs/home-page-2/hero-1/bg.png" alt="zelio" />
+					<img className="bg-d" src="/assets/imgs/home-page-2/hero-1/bg-dark.png" alt="zelio" />
 				</div>
 			</section>
 

@@ -36,6 +36,10 @@ CREATE TABLE IF NOT EXISTS `projects` (
   `is_featured`             TINYINT(1)    NOT NULL DEFAULT 0,
   `display_order`           INT           NOT NULL DEFAULT 0,
 
+  `price_onetime`           DECIMAL(12,2)         DEFAULT NULL,
+  `currency`                VARCHAR(10)   NOT NULL DEFAULT 'EUR',
+  `is_purchasable`          TINYINT(1)    NOT NULL DEFAULT 0,
+
   -- main visual
   `featured_image`          VARCHAR(500)  DEFAULT NULL,
   `featured_image_asset_id` CHAR(36)      DEFAULT NULL,

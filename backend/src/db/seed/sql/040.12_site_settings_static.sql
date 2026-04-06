@@ -18,7 +18,7 @@ VALUES
       )
     ),
     'static2', JSON_OBJECT(
-      'background_image', 'assets/imgs/home-page-2/static/bg.png',
+      'background_image', '/assets/imgs/home-page-2/static/bg.png',
       'items', JSON_ARRAY(
         JSON_OBJECT('value', 12, 'suffix', '+', 'label', 'Year Experience', 'icon', 'ri-shape-line'),
         JSON_OBJECT('value', 250, 'suffix', '+', 'label', 'Projects Completed', 'icon', 'ri-computer-line'),
@@ -43,7 +43,7 @@ VALUES
       )
     ),
     'static2', JSON_OBJECT(
-      'background_image', 'assets/imgs/home-page-2/static/bg.png',
+      'background_image', '/assets/imgs/home-page-2/static/bg.png',
       'items', JSON_ARRAY(
         JSON_OBJECT('value', 12, 'suffix', '+', 'label', 'Jahre Erfahrung', 'icon', 'ri-shape-line'),
         JSON_OBJECT('value', 250, 'suffix', '+', 'label', 'Projekte Abgeschlossen', 'icon', 'ri-computer-line'),
@@ -68,7 +68,7 @@ VALUES
       )
     ),
     'static2', JSON_OBJECT(
-      'background_image', 'assets/imgs/home-page-2/static/bg.png',
+      'background_image', '/assets/imgs/home-page-2/static/bg.png',
       'items', JSON_ARRAY(
         JSON_OBJECT('value', 12, 'suffix', '+', 'label', 'Yıl Deneyim', 'icon', 'ri-shape-line'),
         JSON_OBJECT('value', 250, 'suffix', '+', 'label', 'Projeler Tamamlandı', 'icon', 'ri-computer-line'),

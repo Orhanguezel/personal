@@ -51,17 +51,22 @@ export default function BlogList({ locale, initialPosts = [] }: Props) {
   );
   const copy = ui.list;
 
+  const hasServerList = initialPosts.length > 0;
+
   const {
     data: posts = [],
     isLoading,
     isError,
-  } = useListCustomPagesQuery({
-    module_key: 'blog',
-    is_published: 1,
-    limit: 60,
-    offset: 0,
-    locale: safeLocale,
-  });
+  } = useListCustomPagesQuery(
+    {
+      module_key: 'blog',
+      is_published: 1,
+      limit: 60,
+      offset: 0,
+      locale: safeLocale,
+    },
+    { skip: hasServerList },
+  );
 
   const list = useMemo(() => {
     const src = posts.length ? posts : initialPosts;
@@ -119,7 +124,7 @@ export default function BlogList({ locale, initialPosts = [] }: Props) {
                       <div className="blog-card rounded-4 mb-lg-3 mb-md-5 mb-3">
                         <div className="blog-card__image position-relative">
                           <div className="zoom-img rounded-3 overflow-hidden">
-                            <img className="w-100" src={img} alt={p.alt || p.title || ''} />
+                            <img className="w-100" src={img} alt={p.alt || p.title || ''} width={400} height={260} loading="lazy" />
 
                             <Link
                               className="position-absolute bottom-0 start-0 m-3 text-white-keep btn btn-gradient fw-medium rounded-3 px-3 py-2"
@@ -131,6 +136,7 @@ export default function BlogList({ locale, initialPosts = [] }: Props) {
                             <Link
                               href={href}
                               className="blog-card__link position-absolute top-50 start-50 translate-middle icon-md icon-shape bg-linear-1 rounded-circle"
+                              aria-label={p.title || 'Read article'}
                             >
                               <i className="ri-arrow-right-up-line text-dark" />
                             </Link>

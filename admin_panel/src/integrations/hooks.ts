@@ -56,3 +56,5 @@ export * from '@/integrations/endpoints/admin/brands.admin.endpoints';
 export * from '@/integrations/endpoints/admin/footer_sections_admin.endpoints';
 export * from '@/integrations/endpoints/admin/resources_admin.endpoints';
 export * from '@/integrations/endpoints/admin/availability_admin.endpoints';
+export * from '@/integrations/endpoints/admin/products_admin.endpoints';
+export * from '@/integrations/endpoints/admin/orders_admin.endpoints';

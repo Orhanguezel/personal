@@ -53,3 +53,5 @@ export * from '@/integrations/shared/users/admin_users.types';
 export * from '@/integrations/shared/audit.types';
 export * from '@/integrations/shared/availability.types';
 export * from '@/integrations/shared/resources.types';
+export * from '@/integrations/shared/products.types';
+export * from '@/integrations/shared/orders.types';

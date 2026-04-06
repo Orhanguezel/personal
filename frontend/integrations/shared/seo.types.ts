@@ -503,32 +503,55 @@ async function fetchSiteSettingsLocaleRaw(
     `&limit=${keys.length}` +
     `&locale=${encodeURIComponent(locale)}`;
 
-  const res = await fetch(url, {
-    method: 'GET',
-    headers: { Accept: 'application/json' },
-    cache: 'no-store',
-  });
+  const isDev = process.env.NODE_ENV === 'development';
 
-  if (!res.ok) {
-    throw new Error(`[SEO] site_settings fetch failed (${res.status}) locale='${locale}': ${url}`);
-  }
-
-  let json: unknown;
   try {
-    json = await res.json();
-  } catch {
-    throw new Error(`[SEO] site_settings invalid JSON response (locale='${locale}')`);
-  }
+    const res = await fetch(url, {
+      method: 'GET',
+      headers: { Accept: 'application/json' },
+      cache: 'no-store',
+    });
 
-  const rows = extractRows(json);
+    if (!res.ok) {
+      if (isDev) {
+        console.warn(
+          `[SEO] site_settings HTTP ${res.status} locale='${locale}' — using empty map (dev). ${url}`,
+        );
+        return {};
+      }
+      throw new Error(`[SEO] site_settings fetch failed (${res.status}) locale='${locale}': ${url}`);
+    }
 
-  const map: Record<string, unknown> = {};
-  for (const r of rows) {
-    const k = rowKey(r);
-    if (!k) continue;
-    map[k] = rowValue(r);
+    let json: unknown;
+    try {
+      json = await res.json();
+    } catch {
+      if (isDev) {
+        console.warn(`[SEO] site_settings invalid JSON locale='${locale}' — using empty map (dev)`);
+        return {};
+      }
+      throw new Error(`[SEO] site_settings invalid JSON response (locale='${locale}')`);
+    }
+
+    const rows = extractRows(json);
+
+    const map: Record<string, unknown> = {};
+    for (const r of rows) {
+      const k = rowKey(r);
+      if (!k) continue;
+      map[k] = rowValue(r);
+    }
+    return map;
+  } catch (e) {
+    if (isDev) {
+      const msg = e instanceof Error ? e.message : String(e);
+      console.warn(
+        `[SEO] site_settings unreachable locale='${locale}' — using empty map (dev). ${msg}`,
+      );
+      return {};
+    }
+    throw e;
   }
-  return map;
 }
 
 function pickMediaUrl(v: unknown): string | null {
@@ -711,6 +734,30 @@ export async function fetchSiteSettingsStrict(
   if (wantsSameAs && out['seo_social_same_as'] === undefined) {
     const sameAs = buildSameAsFromSocials(localMap);
     if (sameAs) out['seo_social_same_as'] = sameAs;
+  }
+
+  // 4b) Dev-only: backend kapalı veya site_settings boşken sayfa 500 vermesin
+  if (process.env.NODE_ENV === 'development') {
+    const siteUrl = trimSlash(String(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'));
+    const defaultLoc =
+      String(process.env.NEXT_PUBLIC_DEFAULT_LOCALE || 'en')
+        .trim()
+        .toLowerCase()
+        .split('-')[0] || 'en';
+
+    if (requested.includes('default_locale') && out['default_locale'] === undefined) {
+      out['default_locale'] = defaultLoc;
+    }
+    if (wantsSeoDefaults && out['seo_defaults'] === undefined) {
+      out['seo_defaults'] = {
+        canonicalBase: siteUrl,
+        siteName: 'Guezel Web Design',
+      };
+    }
+    if (wantsSeoAppIcons && out['seo_app_icons'] === undefined) {
+      const fav = `${siteUrl}/assets/imgs/template/favicon.svg`;
+      out['seo_app_icons'] = { favicon32: fav, favicon16: fav };
+    }
   }
 
   // 5) Strict check (only for non-optional)

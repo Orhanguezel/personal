@@ -25,9 +25,13 @@ export const projectsApi = baseApi.injectEndpoints({
 
     // ✅ object args + include
     getProjectBySlugPublic: b.query<Project, GetProjectBySlugArgs>({
-      query: ({ slug, include }) => ({
+      query: ({ slug, include, locale, default_locale }) => ({
         url: `/projects/by-slug/${encodeURIComponent(slug)}`,
-        params: include ? { include } : undefined,
+        params: {
+          ...(include ? { include } : {}),
+          ...(locale ? { locale } : {}),
+          ...(default_locale ? { default_locale } : {}),
+        },
       }),
       providesTags: (_res, _e, arg) => [{ type: 'Projects' as const, id: `slug:${arg.slug}` }],
     }),

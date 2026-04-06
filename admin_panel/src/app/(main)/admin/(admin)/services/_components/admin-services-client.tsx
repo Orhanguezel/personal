@@ -67,6 +67,21 @@ function isUuidLike(v?: string) {
   return /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(v);
 }
 
+function formatPriceWithCurrency(
+  amount: string | number | null | undefined,
+  currency: string | undefined,
+): string {
+  if (amount == null || amount === '') return '—';
+  const num = Number(String(amount).replace(',', '.'));
+  const cur = (currency || 'USD').trim().toUpperCase() || 'USD';
+  if (!Number.isFinite(num)) return `${String(amount)} ${cur}`;
+  try {
+    return new Intl.NumberFormat(undefined, { style: 'currency', currency: cur }).format(num);
+  } catch {
+    return `${num} ${cur}`;
+  }
+}
+
 export default function AdminServicesClient() {
   const t = useAdminT();
   const router = useRouter();
@@ -418,6 +433,7 @@ export default function AdminServicesClient() {
                   <TableHead>{t('admin.services.list.nameColumn')}</TableHead>
                   <TableHead>{t('admin.services.list.slugColumn')}</TableHead>
                   <TableHead>{t('admin.services.list.featuredColumn')}</TableHead>
+                  <TableHead>{t('admin.services.list.oneTimePriceColumn')}</TableHead>
                   <TableHead>{t('admin.services.list.statusColumn')}</TableHead>
                   <TableHead className="text-right">{t('admin.services.list.actionsColumn')}</TableHead>
                 </TableRow>
@@ -430,6 +446,7 @@ export default function AdminServicesClient() {
                   const slug = String(p?.slug ?? '').trim() || '—';
                   const active = !!p?.is_active;
                   const featured = !!p?.featured;
+                  const purchasable = !!p?.is_purchasable;
 
                   return (
                     <TableRow key={id || `${idx}`}>
@@ -444,6 +461,19 @@ export default function AdminServicesClient() {
                             disabled={busy || !isUuidLike(id)}
                           />
                           <Badge variant="secondary">{featured ? t('admin.services.list.featuredYes') : t('admin.services.list.featuredNo')}</Badge>
+                        </div>
+                      </TableCell>
+
+                      <TableCell className="align-top">
+                        <div className="space-y-1">
+                          <div className="whitespace-nowrap text-sm tabular-nums">
+                            {formatPriceWithCurrency(p?.price_onetime, p?.currency)}
+                          </div>
+                          {purchasable ? (
+                            <Badge variant="outline" className="text-xs font-normal">
+                              {t('admin.services.list.saleEnabledShort')}
+                            </Badge>
+                          ) : null}
                         </div>
                       </TableCell>
 
@@ -515,7 +545,7 @@ export default function AdminServicesClient() {
 
                 {showEmpty ? (
                   <TableRow>
-                    <TableCell colSpan={5} className="py-10 text-center text-muted-foreground">
+                    <TableCell colSpan={6} className="py-10 text-center text-muted-foreground">
                       {t('admin.services.list.noRecords')}
                     </TableCell>
                   </TableRow>
@@ -533,6 +563,7 @@ export default function AdminServicesClient() {
                 const slug = String(p?.slug ?? '').trim() || '—';
                 const active = !!p?.is_active;
                 const featured = !!p?.featured;
+                const purchasable = !!p?.is_purchasable;
 
                 return (
                   <div key={id || `${idx}`} className="p-4">
@@ -550,6 +581,18 @@ export default function AdminServicesClient() {
                       <div className="text-muted-foreground">
                         <span className="font-medium text-foreground">{t('admin.services.list.slugLabel')}</span>{' '}
                         <span className="wrap-break-word">{slug}</span>
+                      </div>
+
+                      <div className="flex flex-wrap items-center gap-2 text-muted-foreground">
+                        <span className="font-medium text-foreground">{t('admin.services.list.oneTimePriceColumn')}:</span>
+                        <span className="tabular-nums text-foreground">
+                          {formatPriceWithCurrency(p?.price_onetime, p?.currency)}
+                        </span>
+                        {purchasable ? (
+                          <Badge variant="outline" className="text-xs font-normal">
+                            {t('admin.services.list.saleEnabledShort')}
+                          </Badge>
+                        ) : null}
                       </div>
 
                       <div className="flex items-center justify-between rounded-md border p-3">

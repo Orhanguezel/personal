@@ -35,6 +35,7 @@ export const SEO_KEYS = {
     about: 'seo_pages_about',
     faq: 'seo_pages_faq',
     team: 'seo_pages_team',
+    testimonials: 'seo_pages_testimonials',
 
     blog: 'seo_pages_blog',
     blogDetail: 'seo_pages_blog_detail',

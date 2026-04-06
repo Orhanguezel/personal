@@ -12,7 +12,9 @@ import { SETTINGS_ENDPOINTS, fetchJson, stripTrailingSlash } from './settingsApi
 function withApiSuffix(base: string) {
   const b = stripTrailingSlash(base);
   if (!b) return '';
-  return /\/api$/i.test(b) ? b : `${b}/api`;
+  // Already has /api or /api/v* suffix
+  if (/\/api(\/v\d+)?$/i.test(b)) return b;
+  return `${b}/api`;
 }
 
 /**

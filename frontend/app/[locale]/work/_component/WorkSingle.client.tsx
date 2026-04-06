@@ -11,10 +11,10 @@ import { useParams } from 'next/navigation';
 import { useMemo } from 'react';
 
 import {
+  useGetSiteSettingByKeyQuery,
   useGetProjectBySlugPublicQuery,
   useListProjectImagesPublicQuery,
 } from '@/integrations/hooks';
-import { useStaticSiteSetting } from '@/utils/staticSiteSettings';
 
 import type { Project, ProjectImage } from '@/integrations/shared';
 import { normalizeProjectDetail, normalizeUiProjectSettingValue } from '@/integrations/shared';
@@ -24,19 +24,19 @@ export default function WorkSingleClient({ locale }: { locale: string }) {
   const params = useParams<{ slug?: string; locale?: string }>();
   const slug = (params?.slug ?? '').trim();
 
-  const { value: uiSettingValue } = useStaticSiteSetting({
+  const { data: uiSetting } = useGetSiteSettingByKeyQuery({
     key: 'ui_project',
     locale,
   });
 
-  const ui = useMemo(() => normalizeUiProjectSettingValue(uiSettingValue), [uiSettingValue]);
+  const ui = useMemo(() => normalizeUiProjectSettingValue(uiSetting?.value), [uiSetting?.value]);
   const copy = ui.detail;
 
   const {
     data: detailRaw,
     isLoading: isDetailLoading,
     error: detailError,
-  } = useGetProjectBySlugPublicQuery({ slug, include: 'images' } as any, { skip: !slug });
+  } = useGetProjectBySlugPublicQuery({ slug, include: 'images', locale } as any, { skip: !slug });
 
   const detail = useMemo(() => {
     if (!detailRaw) return null;
@@ -110,6 +110,19 @@ export default function WorkSingleClient({ locale }: { locale: string }) {
                 ) : (
                   <p className="text-300 fs-5 mb-0" />
                 )}
+
+                {detail.canPurchase && detail.priceFormatted ? (
+                  <div className="mt-5 border-linear-3 rounded-4 px-4 py-4 d-inline-block text-center">
+                    <p className="text-300 fs-7 text-uppercase mb-1">{copy.price_label}</p>
+                    <p className="ds-4 text-dark fw-bold mb-3">{detail.priceFormatted}</p>
+                    <Link
+                      href={`/${locale}/checkout?project=${encodeURIComponent(detail.id)}`}
+                      className="btn btn-gradient d-inline-block text-uppercase"
+                    >
+                      {copy.purchase_label}
+                    </Link>
+                  </div>
+                ) : null}
               </div>
             </div>
 
@@ -153,6 +166,33 @@ export default function WorkSingleClient({ locale }: { locale: string }) {
             <div className="col-lg-8 mx-lg-auto mt-8">
               <h5 className="fs-5 fw-medium">{copy.description_label}</h5>
               <p className="text-300">{detail.descriptionText}</p>
+
+              {detail.caseStudy &&
+              (detail.caseStudy.challenge ||
+                detail.caseStudy.approach ||
+                detail.caseStudy.outcome) ? (
+                <div className="mt-4 border-linear-3 rounded-4 p-lg-5 p-4">
+                  <h5 className="fs-5 fw-medium mb-3">{copy.case_study_title}</h5>
+                  {detail.caseStudy.challenge ? (
+                    <>
+                      <p className="text-300 fs-7 text-uppercase mb-1">{copy.case_study_challenge_label}</p>
+                      <p className="text-300 mb-3">{detail.caseStudy.challenge}</p>
+                    </>
+                  ) : null}
+                  {detail.caseStudy.approach ? (
+                    <>
+                      <p className="text-300 fs-7 text-uppercase mb-1">{copy.case_study_approach_label}</p>
+                      <p className="text-300 mb-3">{detail.caseStudy.approach}</p>
+                    </>
+                  ) : null}
+                  {detail.caseStudy.outcome ? (
+                    <>
+                      <p className="text-300 fs-7 text-uppercase mb-1">{copy.case_study_outcome_label}</p>
+                      <p className="text-300 mb-0">{detail.caseStudy.outcome}</p>
+                    </>
+                  ) : null}
+                </div>
+              ) : null}
 
               {detail.toolsArr.length > 0 ? (
                 <>

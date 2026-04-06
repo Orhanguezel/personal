@@ -81,7 +81,7 @@ export default function OffCanvas({ isOffCanvas, handleOffCanvas }: OffCanvasPro
 
   const skype = useMemo(() => safeText(pickStr(contact, ['skype'], '')), [contact]);
 
-  const address = useMemo(() => safeText(pickStr(contact, ['address'], ''), 'Grevenbroich, Germany'), [contact]);
+  const address = useMemo(() => safeText(pickStr(contact, ['address'], ''), 'Grevenbroich'), [contact]);
 
   const socialLinks = useMemo(() => {
     const entries: Array<{ key: string; url: string; icon: string; label: string }> = [

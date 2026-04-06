@@ -100,6 +100,12 @@ export const env = {
   SMTP_USER: process.env.SMTP_USER || '',
   SMTP_PASS: process.env.SMTP_PASS || '',
   MAIL_FROM: process.env.MAIL_FROM || '',
+
+  // PayPal
+  PAYPAL_CLIENT_ID: process.env.PAYPAL_CLIENT_ID || '',
+  PAYPAL_CLIENT_SECRET: process.env.PAYPAL_CLIENT_SECRET || '',
+  PAYPAL_BASE_URL: process.env.PAYPAL_BASE_URL || 'https://api-m.sandbox.paypal.com',
+  PAYPAL_WEBHOOK_ID: process.env.PAYPAL_WEBHOOK_ID || '',
 } as const;
 
 export type AppEnv = typeof env;

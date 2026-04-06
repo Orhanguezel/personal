@@ -92,7 +92,7 @@ export default function Blog1({ locale = 'en' }: { locale?: string }) {
               <span className="fs-5 fw-medium text-200">{ui.blog1.intro}</span>
             </div>
             <div className="col-lg-auto">
-              <Link href={blogListHref} className="btn btn-gradient mt-lg-0 mt-5 ms-lg-auto" aria-label="View all blog posts">
+              <Link href={blogListHref} className="btn btn-gradient mt-lg-0 mt-5 ms-lg-auto" aria-label={ui.blog1.cta_label}>
                 {ui.blog1.cta_label}
                 <i className="ri-arrow-right-up-line" />
               </Link>
@@ -138,7 +138,7 @@ export default function Blog1({ locale = 'en' }: { locale?: string }) {
                     <div className="blog-card rounded-4 mb-lg-3 mb-md-5 mb-3">
                       <div className="blog-card__image position-relative">
                         <div className="zoom-img rounded-3 overflow-hidden">
-                          <img className="w-100" src={img} alt={(p as any)?.alt || title || ''} />
+                          <img className="w-100" src={img} alt={(p as any)?.alt || title || ''} width={400} height={260} loading="lazy" />
 
                           <Link
                             className="position-absolute bottom-0 start-0 m-3 text-white-keep btn btn-gradient fw-medium rounded-3 px-3 py-2"
@@ -150,6 +150,7 @@ export default function Blog1({ locale = 'en' }: { locale?: string }) {
                           <Link
                             href={href}
                             className="blog-card__link position-absolute top-50 start-50 translate-middle icon-md icon-shape bg-linear-1 rounded-circle"
+                            aria-label={title || 'Read article'}
                           >
                             <i className="ri-arrow-right-up-line text-dark" />
                           </Link>

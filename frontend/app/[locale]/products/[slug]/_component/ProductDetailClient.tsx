@@ -1,12 +1,57 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import type { ProductDto } from '@/integrations/shared/products.types';
 import { formatPrice } from '@/integrations/shared/products.types';
 
 type PaymentType = 'onetime' | 'subscription';
+
+const COPY: Record<string, Record<string, string>> = {
+  de: {
+    home: 'Startseite',
+    products: 'Pakete',
+    onetime: 'Einmalzahlung',
+    subscription: 'Monatliches Abonnement',
+    buyNow: 'Jetzt kaufen',
+    liveDemo: 'Live Demo ansehen',
+    technologies: 'Technologien',
+    type: 'Typ',
+    typeDigital: 'Digitales Produkt (Quellcode-Lieferung)',
+    typeService: 'Dienstleistung',
+    features: 'Funktionen & Features',
+    description: 'Beschreibung',
+  },
+  en: {
+    home: 'Home',
+    products: 'Products',
+    onetime: 'One-time payment',
+    subscription: 'Monthly subscription',
+    buyNow: 'Buy now',
+    liveDemo: 'View live demo',
+    technologies: 'Technologies',
+    type: 'Type',
+    typeDigital: 'Digital product (source code delivery)',
+    typeService: 'Service',
+    features: 'Features',
+    description: 'Description',
+  },
+  tr: {
+    home: 'Anasayfa',
+    products: 'Paketler',
+    onetime: 'Tek seferlik odeme',
+    subscription: 'Aylik abonelik',
+    buyNow: 'Satin al',
+    liveDemo: 'Canli demo',
+    technologies: 'Teknolojiler',
+    type: 'Tip',
+    typeDigital: 'Dijital urun (kaynak kodu teslimi)',
+    typeService: 'Hizmet',
+    features: 'Ozellikler',
+    description: 'Aciklama',
+  },
+};
 
 export default function ProductDetailClient({
   locale,
@@ -15,6 +60,8 @@ export default function ProductDetailClient({
   locale: string;
   product: ProductDto;
 }) {
+  const t = useMemo(() => COPY[locale] ?? COPY.en, [locale]);
+
   const [paymentType, setPaymentType] = useState<PaymentType>(
     product.price_onetime ? 'onetime' : 'subscription',
   );
@@ -34,10 +81,10 @@ export default function ProductDetailClient({
         <nav aria-label="breadcrumb" className="mb-4">
           <ol className="breadcrumb">
             <li className="breadcrumb-item">
-              <Link href={`/${locale}`}>Home</Link>
+              <Link href={`/${locale}`}>{t.home}</Link>
             </li>
             <li className="breadcrumb-item">
-              <Link href={`/${locale}/products`}>Pakete</Link>
+              <Link href={`/${locale}/products`}>{t.products}</Link>
             </li>
             <li className="breadcrumb-item active" aria-current="page">
               {product.title}
@@ -104,7 +151,7 @@ export default function ProductDetailClient({
                       className="form-check-input"
                     />
                     <div>
-                      <strong>Einmalzahlung</strong>
+                      <strong>{t.onetime}</strong>
                       <div className="text-primary fs-4 fw-bold">{priceOnetime}</div>
                     </div>
                   </label>
@@ -123,7 +170,7 @@ export default function ProductDetailClient({
                       className="form-check-input"
                     />
                     <div>
-                      <strong>Monatliches Abonnement</strong>
+                      <strong>{t.subscription}</strong>
                       <div className="text-success fs-4 fw-bold">{priceMonthly}/mo</div>
                     </div>
                   </label>
@@ -134,7 +181,7 @@ export default function ProductDetailClient({
             {/* CTA Buttons */}
             <div className="d-grid gap-2 mb-4">
               <Link href={checkoutHref} className="btn btn-primary btn-lg">
-                Jetzt kaufen
+                {t.buyNow}
               </Link>
               {product.demo_url && (
                 <a
@@ -143,7 +190,7 @@ export default function ProductDetailClient({
                   rel="noopener noreferrer"
                   className="btn btn-outline-secondary btn-lg"
                 >
-                  Live Demo ansehen
+                  {t.liveDemo}
                 </a>
               )}
             </div>
@@ -151,7 +198,7 @@ export default function ProductDetailClient({
             {/* Tech Stack */}
             {techStack.length > 0 && (
               <div className="mb-4">
-                <h6 className="fw-bold mb-2">Technologien</h6>
+                <h6 className="fw-bold mb-2">{t.technologies}</h6>
                 <div className="d-flex flex-wrap gap-2">
                   {techStack.map((tech) => (
                     <span key={tech} className="badge bg-soft-primary text-primary px-3 py-2">
@@ -164,8 +211,8 @@ export default function ProductDetailClient({
 
             {/* Product Type */}
             <div className="text-muted small">
-              <strong>Typ:</strong>{' '}
-              {product.product_type === 'digital' ? 'Digitales Produkt (Quellcode-Lieferung)' : 'Dienstleistung'}
+              <strong>{t.type}:</strong>{' '}
+              {product.product_type === 'digital' ? t.typeDigital : t.typeService}
             </div>
           </div>
         </div>
@@ -173,7 +220,7 @@ export default function ProductDetailClient({
         {/* Features */}
         {features.length > 0 && (
           <div className="mt-5">
-            <h3 className="fw-bold mb-4">Funktionen & Features</h3>
+            <h3 className="fw-bold mb-4">{t.features}</h3>
             <div className="row g-3">
               {features.map((feature, i) => (
                 <div key={i} className="col-md-6 col-lg-4">
@@ -190,7 +237,7 @@ export default function ProductDetailClient({
         {/* Description */}
         {product.description && (
           <div className="mt-5">
-            <h3 className="fw-bold mb-4">Beschreibung</h3>
+            <h3 className="fw-bold mb-4">{t.description}</h3>
             <div
               className="text-300 lh-lg"
               dangerouslySetInnerHTML={{ __html: product.description }}

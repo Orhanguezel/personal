@@ -26,7 +26,7 @@ export default function BlogCard3({
   return (
     <>
       <Link href={href}>
-        <img src={img} alt={alt} className="img-fluid" loading="lazy" decoding="async" />
+        <img src={img} alt={alt} className="img-fluid" width={400} height={260} loading="lazy" decoding="async" />
       </Link>
       <Link href={href} rel="bookmark">
         {(item as any)?.title}

@@ -28,24 +28,4 @@ CREATE TABLE `contact_messages` (
   KEY `contact_status_resolved_created_idx` (`status`, `is_resolved`, `created_at`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO `contact_messages`
-(`id`,`name`,`email`,`phone`,`subject`,`message`,`status`,`is_resolved`,`admin_note`,`ip`,`user_agent`,`website`,`created_at`,`updated_at`)
-VALUES
-
-(UUID(),
- 'Elif Koç','elif@example.com','+90 530 333 33 44','Özel tasarım mezar',
- 'Modern tasarım granit mezar için görsel ve fiyat bilgisi rica ediyorum.',
- 'new',0,NULL,NULL,NULL,NULL,'2024-01-05 14:20:00.000','2024-01-05 14:20:00.000')
-ON DUPLICATE KEY UPDATE
- `name`=VALUES(`name`),
- `email`=VALUES(`email`),
- `phone`=VALUES(`phone`),
- `subject`=VALUES(`subject`),
- `message`=VALUES(`message`),
- `status`=VALUES(`status`),
- `is_resolved`=VALUES(`is_resolved`),
- `admin_note`=VALUES(`admin_note`),
- `ip`=VALUES(`ip`),
- `user_agent`=VALUES(`user_agent`),
- `website`=VALUES(`website`),
- `updated_at`=VALUES(`updated_at`);
+-- Örnek iletişim mesajı yok; canlı mesajlar formdan gelir.

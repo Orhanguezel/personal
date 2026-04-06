@@ -23,6 +23,10 @@ export interface Project {
   is_featured: boolean;
   display_order: number;
 
+  price_onetime?: string | null;
+  currency?: string;
+  is_purchasable?: boolean;
+
   featured_image?: string | null;
   featured_image_asset_id?: string | null;
 
@@ -129,6 +133,10 @@ export type UpsertProjectInput = {
   is_published?: boolean;
   is_featured?: boolean;
   display_order?: number;
+
+  price_onetime?: string | number | null;
+  currency?: string;
+  is_purchasable?: boolean;
 
   featured_image?: string | null;
   featured_image_asset_id?: string | null;

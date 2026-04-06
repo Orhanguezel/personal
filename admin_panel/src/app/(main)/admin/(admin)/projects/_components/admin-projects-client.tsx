@@ -39,6 +39,21 @@ import { useAdminUiCopy } from '@/app/(main)/admin/_components/common/useAdminUi
 import type { Project } from '@/integrations/shared';
 import { useListProjectsAdminQuery } from '@/integrations/hooks';
 
+function formatPriceWithCurrency(
+  amount: string | number | null | undefined,
+  currency: string | undefined,
+): string {
+  if (amount == null || amount === '') return '—';
+  const num = Number(String(amount).replace(',', '.'));
+  const cur = (currency || 'USD').trim().toUpperCase() || 'USD';
+  if (!Number.isFinite(num)) return `${String(amount)} ${cur}`;
+  try {
+    return new Intl.NumberFormat(undefined, { style: 'currency', currency: cur }).format(num);
+  } catch {
+    return `${num} ${cur}`;
+  }
+}
+
 type Filters = {
   locale: string;
   q: string;
@@ -186,6 +201,8 @@ export default function AdminProjectsClient() {
                 <TableHead>{page?.col_locale}</TableHead>
                 <TableHead>{page?.col_published}</TableHead>
                 <TableHead>{page?.col_featured}</TableHead>
+                <TableHead>{page?.col_price}</TableHead>
+                <TableHead>{page?.col_sale}</TableHead>
                 <TableHead>{page?.col_order}</TableHead>
                 <TableHead className="text-right">{page?.col_actions}</TableHead>
               </TableRow>
@@ -193,7 +210,7 @@ export default function AdminProjectsClient() {
             <TableBody>
               {rows.length === 0 && !listQ.isFetching && (
                 <TableRow>
-                  <TableCell colSpan={6} className="text-center text-sm text-muted-foreground">
+                  <TableCell colSpan={8} className="text-center text-sm text-muted-foreground">
                     {common?.states?.empty}
                   </TableCell>
                 </TableRow>
@@ -210,6 +227,14 @@ export default function AdminProjectsClient() {
                   <TableCell>
                     <Badge variant={item.is_featured ? 'secondary' : 'outline'}>
                       {item.is_featured ? page?.filter_yes : page?.filter_no}
+                    </Badge>
+                  </TableCell>
+                  <TableCell className="whitespace-nowrap text-sm tabular-nums">
+                    {formatPriceWithCurrency(item.price_onetime, item.currency)}
+                  </TableCell>
+                  <TableCell>
+                    <Badge variant={item.is_purchasable ? 'secondary' : 'outline'}>
+                      {item.is_purchasable ? page?.filter_yes : page?.filter_no}
                     </Badge>
                   </TableCell>
                   <TableCell>{item.display_order}</TableCell>

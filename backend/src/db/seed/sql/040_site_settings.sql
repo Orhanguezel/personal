@@ -83,11 +83,11 @@ VALUES
   'contact_info',
   'tr',
   CAST(JSON_OBJECT(
-    'companyName','Güzel Web Design',
-    'phone','+49 000 000 00 00',
-    'email','contact@guezelwebdesign.com',
-    'skype','GuezelWebDesign',
-    'address','Berlin, Germany',
+    'companyName','Orhan Guzel — Guezel Web Design',
+    'phone','+49 172 384 6068',
+    'email','orhanguzell@gmail.com',
+    'skype','',
+    'address','Grevenbroich',
     'website','https://www.guezelwebdesign.com'
   ) AS CHAR CHARACTER SET utf8mb4),
   NOW(3),
@@ -98,11 +98,11 @@ VALUES
   'contact_info',
   'en',
   CAST(JSON_OBJECT(
-    'companyName','Guezel Web Design',
-    'phone','+49 000 000 00 00',
-    'email','contact@guezelwebdesign.com',
-    'skype','GuezelWebDesign',
-    'address','Berlin, Germany',
+    'companyName','Orhan Guzel — Guezel Web Design',
+    'phone','+49 172 384 6068',
+    'email','orhanguzell@gmail.com',
+    'skype','',
+    'address','Grevenbroich',
     'website','https://www.guezelwebdesign.com'
   ) AS CHAR CHARACTER SET utf8mb4),
   NOW(3),
@@ -113,11 +113,11 @@ VALUES
   'contact_info',
   'de',
   CAST(JSON_OBJECT(
-    'companyName','Güzel Webdesign',
-    'phone','+49 000 000 00 00',
-    'email','contact@guezelwebdesign.com',
-    'skype','GuezelWebDesign',
-    'address','Berlin, Deutschland',
+    'companyName','Orhan Guzel — Guezel Web Design',
+    'phone','+49 172 384 6068',
+    'email','orhanguzell@gmail.com',
+    'skype','',
+    'address','Grevenbroich',
     'website','https://www.guezelwebdesign.com'
   ) AS CHAR CHARACTER SET utf8mb4),
   NOW(3),
@@ -137,11 +137,11 @@ VALUES
   'socials',
   'tr',
   CAST(JSON_OBJECT(
-    'facebook','https://facebook.com/guezelwebdesign',
-    'instagram','https://instagram.com/guezelwebdesign',
-    'linkedin','https://linkedin.com/company/guezelwebdesign',
-    'github','https://github.com/guezelwebdesign',
-    'x','https://x.com/guezelwebdesign'
+    'facebook','',
+    'instagram','',
+    'linkedin','https://www.linkedin.com/in/orhan-güzel-53b47b11a',
+    'github','https://github.com/Orhanguezel',
+    'x',''
   ) AS CHAR CHARACTER SET utf8mb4),
   NOW(3),
   NOW(3)
@@ -151,11 +151,11 @@ VALUES
   'socials',
   'en',
   CAST(JSON_OBJECT(
-    'facebook','https://facebook.com/guezelwebdesign',
-    'instagram','https://instagram.com/guezelwebdesign',
-    'linkedin','https://linkedin.com/company/guezelwebdesign',
-    'github','https://github.com/guezelwebdesign',
-    'x','https://x.com/guezelwebdesign'
+    'facebook','',
+    'instagram','',
+    'linkedin','https://www.linkedin.com/in/orhan-güzel-53b47b11a',
+    'github','https://github.com/Orhanguezel',
+    'x',''
   ) AS CHAR CHARACTER SET utf8mb4),
   NOW(3),
   NOW(3)
@@ -165,11 +165,11 @@ VALUES
   'socials',
   'de',
   CAST(JSON_OBJECT(
-    'facebook','https://facebook.com/guezelwebdesign',
-    'instagram','https://instagram.com/guezelwebdesign',
-    'linkedin','https://linkedin.com/company/guezelwebdesign',
-    'github','https://github.com/guezelwebdesign',
-    'x','https://x.com/guezelwebdesign'
+    'facebook','',
+    'instagram','',
+    'linkedin','https://www.linkedin.com/in/orhan-güzel-53b47b11a',
+    'github','https://github.com/Orhanguezel',
+    'x',''
   ) AS CHAR CHARACTER SET utf8mb4),
   NOW(3),
   NOW(3)
@@ -200,7 +200,7 @@ VALUES
   'en',
   CAST(JSON_OBJECT(
     'headline','Get in touch',
-    'intro','I’m always excited to take on new projects and collaborate with ambitious brands. Drop a quick message.'
+    'intro','I build production-ready platforms, e-commerce systems and operational web applications. Drop a short message if you need full-stack delivery support.'
   ) AS CHAR CHARACTER SET utf8mb4),
   NOW(3),
   NOW(3)
@@ -211,7 +211,7 @@ VALUES
   'de',
   CAST(JSON_OBJECT(
     'headline','Kontakt',
-    'intro','Ich freue mich immer auf neue Projekte und die Zusammenarbeit mit ambitionierten Marken. Schreib mir kurz.'
+    'intro','Ich entwickle produktionsreife Plattformen, E-Commerce-Systeme und operative Webanwendungen. Schreiben Sie mir kurz, wenn Sie Full-Stack Delivery Support brauchen.'
   ) AS CHAR CHARACTER SET utf8mb4),
   NOW(3),
   NOW(3)
@@ -247,7 +247,7 @@ VALUES
   'tr',
   CAST(JSON_OBJECT(
     'name','Güzel Web Design',
-    'shortName','GWD',
+    'shortName','Guezel Web Design',
     'website','https://www.guezelwebdesign.com',
     'logo',JSON_OBJECT(
       'url','https://www.guezelwebdesign.com/uploads/site/logo.png',
@@ -264,7 +264,7 @@ VALUES
   'en',
   CAST(JSON_OBJECT(
     'name','Guezel Web Design',
-    'shortName','GWD',
+    'shortName','Guezel Web Design',
     'website','https://www.guezelwebdesign.com',
     'logo',JSON_OBJECT(
       'url','https://www.guezelwebdesign.com/uploads/site/logo.png',
@@ -281,7 +281,7 @@ VALUES
   'de',
   CAST(JSON_OBJECT(
     'name','Güzel Webdesign',
-    'shortName','GWD',
+    'shortName','Guezel Web Design',
     'website','https://www.guezelwebdesign.com',
     'logo',JSON_OBJECT(
       'url','https://www.guezelwebdesign.com/uploads/site/logo.png',
@@ -307,8 +307,8 @@ VALUES
   'tr',
   CAST(JSON_OBJECT(
     'badge','Hizmetlerim',
-    'title_html','Fikirleri <span class="text-300">sezgisel tasarımlarla</span> etkileyici kullanıcı <span class="text-300">deneyimlerine</span> dönüştürüyorum',
-    'intro_html','Mobil uygulama ve web tasarımındaki uzmanlığımla fikirleri görsel açıdan etkileyici <br /> ve kullanıcı dostu arayüzlere dönüştürüyorum. <br /> Çalışmalarımı keşfedin ve tasarımı aksiyonda görün.',
+    'title_html','<span class="text-300">Fikir ve mimariden</span> üretime hazır <span class="text-300">web platformlarına</span>',
+    'intro_html','Ticaret, operasyon ve iş süreçleri için full-stack sistemler geliştiriyorum. <br /> Odak noktam temiz mimari, güvenilir API katmanı ve sürdürülebilir frontend yapısı.',
     'cta_label','Teklif Al',
     'loading','Yükleniyor...',
     'error','Hizmetler yüklenemedi.',
@@ -325,8 +325,8 @@ VALUES
   'en',
   CAST(JSON_OBJECT(
     'badge','My Services',
-    'title_html','Transforming Ideas <span class="text-300">into Intuitive Designs for</span> Engaging User <span class="text-300">Experiences</span>',
-    'intro_html','With expertise in mobile app and web design, I transform ideas into visually <br /> stunning and user-friendly interfaces that captivate and retain users. <br /> Explore my work and see design in action.',
+    'title_html','From <span class="text-300">idea and architecture</span> to production-ready <span class="text-300">web platforms</span>',
+    'intro_html','I build full-stack systems for commerce, operations and business workflows. <br /> The focus is clean architecture, reliable APIs, maintainable frontends and real delivery.',
     'cta_label','Get a Quote',
     'loading','Loading...',
     'error','Failed to load services.',
@@ -343,8 +343,8 @@ VALUES
   'de',
   CAST(JSON_OBJECT(
     'badge','Meine Leistungen',
-    'title_html','Ich verwandle Ideen <span class="text-300">in intuitive Designs</span> für fesselnde <span class="text-300">Nutzererlebnisse</span>',
-    'intro_html','Mit Erfahrung in Mobile- und Webdesign verwandle ich Ideen in visuell <br /> ansprechende und benutzerfreundliche Interfaces, die begeistern. <br /> Entdecken Sie meine Arbeiten und sehen Sie Design in Aktion.',
+    'title_html','Von <span class="text-300">Idee und Architektur</span> bis zur produktionsreifen <span class="text-300">Web-Plattform</span>',
+    'intro_html','Ich entwickle Full-Stack-Systeme für Commerce, Operations und Business-Workflows. <br /> Im Fokus stehen saubere Architektur, verlässliche APIs und wartbare Frontends.',
     'cta_label','Angebot anfordern',
     'loading','Wird geladen...',
     'error','Services konnten nicht geladen werden.',
@@ -389,8 +389,8 @@ VALUES
   'en',
   CAST(JSON_OBJECT(
     'badge','Recent Work',
-    'title_html','Explore <span class="text-300">My Latest Work and Discover the</span> Craftsmanship Behind <span class="text-300">Each Design</span>',
-    'intro_html','Explore my latest work and discover the craftsmanship behind each design: <br />a detailed look into how I bring innovation and creativity to life',
+    'title_html','Explore <span class="text-300">production-ready systems</span> across commerce, operations and <span class="text-300">business workflows</span>',
+    'intro_html','Selected case studies and active products covering e-commerce, B2B, ERP, booking, logistics and service operations.',
     'loading_title','Loading...',
     'label_client','Client',
     'label_completion_time','Completion Time',
@@ -408,8 +408,8 @@ VALUES
   'de',
   CAST(JSON_OBJECT(
     'badge','Aktuelle Arbeiten',
-    'title_html','Entdecken Sie <span class="text-300">meine neuesten Arbeiten und</span> die Handwerkskunst hinter <span class="text-300">jedem Design</span>',
-    'intro_html','Entdecken Sie meine neuesten Arbeiten und die Handwerkskunst hinter jedem Design: <br /> ein genauer Blick darauf, wie ich Innovation und Kreativität zum Leben erwecke',
+    'title_html','Entdecken Sie <span class="text-300">produktionsreife Systeme</span> für Commerce, Operations und <span class="text-300">Business-Workflows</span>',
+    'intro_html','Ausgewählte Case Studies und aktive Produkte aus E-Commerce, B2B, ERP, Booking, Logistik und Service-Operations.',
     'loading_title','Wird geladen...',
     'label_client','Kunde',
     'label_completion_time','Fertigstellungszeit',

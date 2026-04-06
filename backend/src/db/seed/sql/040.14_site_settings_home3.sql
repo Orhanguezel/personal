@@ -10,12 +10,12 @@ VALUES
   'en',
   CAST(JSON_OBJECT(
     'hero', JSON_OBJECT(
-      'badge','Designing Experiences, Building Brands',
-      'title_html','Crafting Products <span class="text-dark">with Purpose</span> — Orhan',
-      'description','Welcome to GWD. I design and build modern web experiences that are fast, elegant, and conversion-focused.',
+      'badge','Full-Stack Delivery',
+      'title_html','Building <span class="text-dark">production-ready systems</span> — Orhan',
+      'description','Welcome to Guezel Web Design. I build business platforms, e-commerce systems and operational applications with a focus on clean architecture and reliable delivery.',
       'cv_label','Download CV',
       'cv_href','/assets/resume.pdf',
-      'hire_label','Hire me',
+      'hire_label','Get in touch',
       'hire_href','#contact',
       'hero_image','/assets/imgs/home-page-3/hero/img-1.png',
       'hero_image_alt','Orhan Guzel',
@@ -23,11 +23,11 @@ VALUES
       'signature_image_alt','Signature'
     ),
     'typical', JSON_OBJECT(
-      'heading','Typical Works',
+      'heading','Selected Projects',
       'empty','No projects yet.'
     ),
     'services', JSON_OBJECT(
-      'heading','My Services',
+      'heading','Core Services',
       'empty','No services yet.'
     ),
     'resume', JSON_OBJECT(
@@ -48,11 +48,11 @@ VALUES
     'contact', JSON_OBJECT(
       'heading','Contact me',
       'form_title','Let''s connect',
-      'phone','+49 000 000 00 00',
-      'email','contact@guezelwebdesign.com',
-      'skype','GuezelWebDesign',
-      'address','Berlin, Germany',
-      'map_href','https://www.google.com/maps?q=Berlin'
+      'phone','+49 172 384 6068',
+      'email','orhanguzell@gmail.com',
+      'skype','',
+      'address','Grevenbroich',
+      'map_href','https://www.google.com/maps?q=Grevenbroich'
     )
   ) AS CHAR CHARACTER SET utf8mb4),
   NOW(3), NOW(3)
@@ -63,10 +63,10 @@ VALUES
   'de',
   CAST(JSON_OBJECT(
     'hero', JSON_OBJECT(
-      'badge','Erlebnisse gestalten, Marken aufbauen',
-      'title_html','Produkte mit <span class="text-dark">Purpose</span> — Orhan',
-      'description','Willkommen bei GWD. Ich entwickle moderne Web-Erlebnisse, die schnell, elegant und conversion-stark sind.',
-      'cv_label','Lebenslauf herunterladen',
+      'badge','Full-Stack Delivery',
+      'title_html','Produktionsreife <span class="text-dark">Systeme entwickeln</span> — Orhan',
+      'description','Willkommen bei Guezel Web Design. Ich entwickle Business-Plattformen, E-Commerce-Systeme und operative Anwendungen mit Fokus auf saubere Architektur und verlässliche Delivery.',
+      'cv_label','CV herunterladen',
       'cv_href','/assets/resume.pdf',
       'hire_label','Kontakt aufnehmen',
       'hire_href','#contact',
@@ -76,11 +76,11 @@ VALUES
       'signature_image_alt','Signatur'
     ),
     'typical', JSON_OBJECT(
-      'heading','Typische Arbeiten',
+      'heading','Ausgewählte Projekte',
       'empty','Noch keine Projekte.'
     ),
     'services', JSON_OBJECT(
-      'heading','Meine Services',
+      'heading','Kernleistungen',
       'empty','Noch keine Services.'
     ),
     'resume', JSON_OBJECT(
@@ -101,11 +101,11 @@ VALUES
     'contact', JSON_OBJECT(
       'heading','Kontakt',
       'form_title','Lass uns verbinden',
-      'phone','+49 000 000 00 00',
-      'email','contact@guezelwebdesign.com',
-      'skype','GuezelWebDesign',
-      'address','Berlin, Deutschland',
-      'map_href','https://www.google.com/maps?q=Berlin'
+      'phone','+49 172 384 6068',
+      'email','orhanguzell@gmail.com',
+      'skype','',
+      'address','Grevenbroich',
+      'map_href','https://www.google.com/maps?q=Grevenbroich'
     )
   ) AS CHAR CHARACTER SET utf8mb4),
   NOW(3), NOW(3)
@@ -116,12 +116,12 @@ VALUES
   'tr',
   CAST(JSON_OBJECT(
     'hero', JSON_OBJECT(
-      'badge','Deneyimler Tasarlıyor, Markaları Büyütüyoruz',
-      'title_html','Amaç Odaklı <span class="text-dark">Dijital Ürünler</span> — Orhan',
-      'description','GWD dünyasına hoş geldiniz. Hızlı, şık ve dönüşüm odaklı web deneyimleri tasarlıyorum.',
+      'badge','Full-Stack Delivery',
+      'title_html','Üretime hazır <span class="text-dark">sistemler geliştiriyorum</span> — Orhan',
+      'description','Guezel Web Design''e hoş geldin. Temiz mimari ve güvenilir teslimat odağıyla iş platformları, e-ticaret sistemleri ve operasyonel uygulamalar geliştiriyorum.',
       'cv_label','CV İndir',
       'cv_href','/assets/resume.pdf',
-      'hire_label','Beni işe al',
+      'hire_label','İletişime geç',
       'hire_href','#contact',
       'hero_image','/assets/imgs/home-page-3/hero/img-1.png',
       'hero_image_alt','Orhan Guzel',
@@ -129,11 +129,11 @@ VALUES
       'signature_image_alt','İmza'
     ),
     'typical', JSON_OBJECT(
-      'heading','Öne Çıkan İşler',
+      'heading','Seçilmiş Projeler',
       'empty','Henüz proje yok.'
     ),
     'services', JSON_OBJECT(
-      'heading','Hizmetlerim',
+      'heading','Temel Hizmetler',
       'empty','Henüz hizmet yok.'
     ),
     'resume', JSON_OBJECT(
@@ -154,11 +154,11 @@ VALUES
     'contact', JSON_OBJECT(
       'heading','İletişim',
       'form_title','Hadi Tanışalım',
-      'phone','+49 000 000 00 00',
-      'email','contact@guezelwebdesign.com',
-      'skype','GuezelWebDesign',
-      'address','Berlin, Almanya',
-      'map_href','https://www.google.com/maps?q=Berlin'
+      'phone','+49 172 384 6068',
+      'email','orhanguzell@gmail.com',
+      'skype','',
+      'address','Grevenbroich',
+      'map_href','https://www.google.com/maps?q=Grevenbroich'
     )
   ) AS CHAR CHARACTER SET utf8mb4),
   NOW(3), NOW(3)

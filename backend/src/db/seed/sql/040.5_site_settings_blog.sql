@@ -24,13 +24,13 @@ VALUES
       'heading','From Blog',
       'card1_category','CEO',
       'card1_title','Optimize Your Web Application for Speed',
-      'card1_description','Stay ahead of the curve with these emerging trends in UI/UX design.',
+      'card1_description','Notes from production delivery, platform architecture and implementation decisions.',
       'card2_category','Development',
       'card2_title','Best Practices for Secure Web Development',
-      'card2_description','Stay ahead of the curve with these emerging trends in UI/UX design.',
+      'card2_description','Practical lessons from building business platforms, APIs and admin systems.',
       'card3_category','Trending',
       'card3_title','10 JavaScript Frameworks for Web Development in 2026',
-      'card3_description','Stay ahead of the curve with these emerging trends in UI/UX design.',
+      'card3_description','Selected technical notes around e-commerce, B2B systems and operational software.',
       'sample_date','March 28, 2026',
       'read_time','3 min read'
     ),
@@ -63,7 +63,9 @@ VALUES
       'view_more_label','View more',
       'related_empty','No related posts.',
       'category_fallback','Blog',
-      'read_time','3 min read'
+      'read_time','3 min read',
+      'author_section_title','About the author',
+      'author_bio_html','<p>Orhan Güzel builds production-ready web platforms and business software with Next.js, Fastify, and Laravel — based in Grevenbroich, Germany.</p>'
     )
   ) AS CHAR CHARACTER SET utf8mb4),
   NOW(3), NOW(3)
@@ -88,13 +90,13 @@ VALUES
       'heading','Aus dem Blog',
       'card1_category','CEO',
       'card1_title','Optimieren Sie Ihre Webanwendung für Geschwindigkeit',
-      'card1_description','Bleiben Sie mit diesen neuen UI/UX-Trends einen Schritt voraus.',
+      'card1_description','Notizen aus produktiver Delivery, Plattform-Architektur und technischen Entscheidungen.',
       'card2_category','Entwicklung',
       'card2_title','Best Practices für sichere Webentwicklung',
-      'card2_description','Bleiben Sie mit diesen neuen UI/UX-Trends einen Schritt voraus.',
+      'card2_description','Praktische Learnings aus Business-Plattformen, APIs und Admin-Systemen.',
       'card3_category','Trend',
       'card3_title','10 JavaScript-Frameworks für die Webentwicklung 2026',
-      'card3_description','Bleiben Sie mit diesen neuen UI/UX-Trends einen Schritt voraus.',
+      'card3_description','Ausgewählte technische Notizen zu E-Commerce, B2B-Systemen und operativer Software.',
       'sample_date','28. März 2026',
       'read_time','3 Min. Lesezeit'
     ),
@@ -127,7 +129,9 @@ VALUES
       'view_more_label','Mehr anzeigen',
       'related_empty','Keine ähnlichen Beiträge.',
       'category_fallback','Blog',
-      'read_time','3 Min. Lesezeit'
+      'read_time','3 Min. Lesezeit',
+      'author_section_title','Über den Autor',
+      'author_bio_html','<p>Orhan Güzel entwickelt produktionsreife Webplattformen und Business-Software mit Next.js, Fastify und Laravel — in Grevenbroich, Deutschland.</p>'
     )
   ) AS CHAR CHARACTER SET utf8mb4),
   NOW(3), NOW(3)
@@ -152,13 +156,13 @@ VALUES
       'heading','Blogdan',
       'card1_category','CEO',
       'card1_title','Web Uygulamanızı Hız için Optimize Edin',
-      'card1_description','UI/UX tasarımındaki yükselen trendlerle öne geçin.',
+      'card1_description','Production teslimatı, platform mimarisi ve teknik kararlar üzerine notlar.',
       'card2_category','Geliştirme',
       'card2_title','Güvenli Web Geliştirme için En İyi Uygulamalar',
-      'card2_description','UI/UX tasarımındaki yükselen trendlerle öne geçin.',
+      'card2_description','İş platformları, API katmanı ve admin sistemlerinden pratik çıkarımlar.',
       'card3_category','Trend',
       'card3_title','2026''da Web Geliştirme için 10 JavaScript Framework''ü',
-      'card3_description','UI/UX tasarımındaki yükselen trendlerle öne geçin.',
+      'card3_description','E-ticaret, B2B sistemler ve operasyon yazılımları üzerine seçilmiş teknik notlar.',
       'sample_date','28 Mart 2026',
       'read_time','3 dk okuma'
     ),
@@ -191,7 +195,9 @@ VALUES
       'view_more_label','Daha fazlası',
       'related_empty','İlgili yazı bulunamadı.',
       'category_fallback','Blog',
-      'read_time','3 dk okuma'
+      'read_time','3 dk okuma',
+      'author_section_title','Yazar hakkında',
+      'author_bio_html','<p>Orhan Güzel, Next.js, Fastify ve Laravel ile üretime hazır web platformları ve iş yazılımları geliştiriyor; Grevenbroich, Almanya.</p>'
     )
   ) AS CHAR CHARACTER SET utf8mb4),
   NOW(3), NOW(3)

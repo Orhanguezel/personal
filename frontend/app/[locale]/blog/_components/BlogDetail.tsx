@@ -156,6 +156,7 @@ export default function BlogDetail({ locale, slug }: Props) {
 
   const { src: coverSrc, alt: coverAlt } = pickCover(post as any);
   const blogListHref = `/${safeLocale}/blog`;
+  const aboutHref = `/${safeLocale}#about`;
 
   const showNotFound = !detailLoading && !post && detailError404;
   const showError = !detailLoading && !post && !detailError404 && detailErrorOther;
@@ -206,7 +207,7 @@ export default function BlogDetail({ locale, slug }: Props) {
               </div>
             </div>
 
-            <img src={coverSrc} alt={coverAlt} loading="lazy" />
+            <img src={coverSrc} alt={coverAlt} width={1200} height={600} loading="lazy" style={{ width: '100%', height: 'auto' }} />
 
             <div className="col-lg-10 mx-lg-auto mt-8">
               <div className="row">
@@ -230,7 +231,7 @@ export default function BlogDetail({ locale, slug }: Props) {
                       <i className="ri-user-line fs-6" />
                       <span className="ms-2 fs-6">
                         {copy.by_label}{' '}
-                        <Link className="fw-bold" href="#">
+                        <Link className="fw-bold" href={aboutHref}>
                           {authorName}
                         </Link>
                       </span>
@@ -260,6 +261,18 @@ export default function BlogDetail({ locale, slug }: Props) {
                 </div>
                 {/* /SIDEBAR */}
               </div>
+
+              {!detailLoading && !showNotFound && !showError && post ? (
+                <div className="col-12 mt-6">
+                  <div className="border-linear-3 rounded-4 p-lg-6 p-md-4 p-4">
+                    <h2 className="fs-6 text-uppercase text-300 mb-3">{copy.author_section_title}</h2>
+                    <div
+                      className="blog-prose text-300 fs-6 mb-0"
+                      dangerouslySetInnerHTML={{ __html: copy.author_bio_html }}
+                    />
+                  </div>
+                </div>
+              ) : null}
             </div>
           </div>
         </div>
@@ -305,6 +318,7 @@ export default function BlogDetail({ locale, slug }: Props) {
                         <Link
                           href={href}
                           className="blog-card__link position-absolute top-50 start-50 translate-middle icon-md icon-shape bg-linear-1 rounded-circle"
+                          aria-label={p.title || 'Read article'}
                         >
                           <i className="ri-arrow-right-up-line text-dark" />
                         </Link>

@@ -624,7 +624,7 @@ export default function Home3Client() {
                             className="form-control bg-3 border border-secondary-3 rounded-3"
                             id="name"
                             name="name"
-                            placeholder={form.name_ph || 'Your name'}
+                            placeholder={form.name_ph || 'Orhan Güzel'}
                             aria-label="username"
                           />
                         </div>
@@ -634,7 +634,7 @@ export default function Home3Client() {
                             className="form-control bg-3 border border-secondary-3 rounded-3"
                             id="phone"
                             name="phone"
-                            placeholder={form.phone_ph || 'Phone'}
+                            placeholder={form.phone_ph || '+49 172 384 6068'}
                             aria-label="phone"
                           />
                         </div>
@@ -644,7 +644,7 @@ export default function Home3Client() {
                             className="form-control bg-3 border border-secondary-3 rounded-3"
                             id="email"
                             name="email"
-                            placeholder={form.email_ph || 'Email'}
+                            placeholder={form.email_ph || 'orhanguzell@gmail.com'}
                             aria-label="email"
                           />
                         </div>
@@ -654,7 +654,7 @@ export default function Home3Client() {
                             className="form-control bg-3 border border-secondary-3 rounded-3"
                             id="subject"
                             name="subject"
-                            placeholder={form.subject_ph || 'Subject'}
+                            placeholder={form.subject_ph ?? ''}
                             aria-label="subject"
                           />
                         </div>
@@ -663,7 +663,7 @@ export default function Home3Client() {
                             className="form-control bg-3 border border-secondary-3 rounded-3"
                             id="message"
                             name="message"
-                            placeholder={form.message_ph || 'Message'}
+                            placeholder={form.message_ph ?? ''}
                             aria-label="With textarea"
                             defaultValue={''}
                           />
