@@ -159,6 +159,8 @@ frontend/.cache/
 /*.jpeg
 /*.pdf
 /guezelwebdesign.com-*.json
+/guezelwebdesign.com-*.zip
+/*.zip
 
 # node/build
 **/node_modules/

@@ -5,6 +5,6 @@
 
 import AdminEmailTemplatesDetailClient from './admin-email-templates-detail-client';
 
-export default function Page({ params }: { params: { id: string } }) {
-  return <AdminEmailTemplatesDetailClient id={params.id} />;
+export default async function Page({ params }: { params: Promise<{ id: string }> }) {
+  return <AdminEmailTemplatesDetailClient id={(await params).id} />;
 }
