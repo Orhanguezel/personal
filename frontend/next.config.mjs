@@ -1,14 +1,17 @@
-import { dirname } from 'node:path';
+import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const appDir = dirname(fileURLToPath(import.meta.url));
+// node_modules/next monorepo kökünde (vps-guezel): frontend -> guezelwebdesign -> vps-guezel
+const workspaceRoot = resolve(appDir, '../..');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   compress: true,
   poweredByHeader: false,
   reactStrictMode: true,
-  outputFileTracingRoot: appDir,
+  outputFileTracingRoot: workspaceRoot,
+  turbopack: { root: workspaceRoot },
 
   async headers() {
     const isProd = process.env.NODE_ENV === 'production';
