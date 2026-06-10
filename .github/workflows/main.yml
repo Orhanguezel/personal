@@ -1,0 +1,224 @@
+name: guezelwebdesign Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  quality-gates:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Frontend quality gate
+        working-directory: frontend
+        run: |
+          bun install --frozen-lockfile || bun install
+          bun run lint
+          bun run typecheck
+          bun run build
+
+      - name: Admin panel quality gate
+        working-directory: admin_panel
+        run: |
+          bun install --frozen-lockfile || bun install
+          bun run check
+          bun x tsc --noEmit
+          bun run build
+
+      - name: Backend quality gate
+        working-directory: backend
+        run: |
+          bun install --frozen-lockfile || bun install
+          bun x tsc --noEmit
+          bun run check
+          bun run build
+
+  deploy:
+    needs: quality-gates
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Validate deploy secrets
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+          VPS_KEY: ${{ secrets.VPS_KEY }}
+        run: |
+          test -n "$VPS_HOST"
+          test -n "$VPS_USER"
+          test -n "$VPS_KEY"
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # ----------------------------
+      # Backend (Bun)
+      # ----------------------------
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Build backend (bun)
+        working-directory: backend
+        run: |
+          rm -rf dist .tsbuildinfo || true
+          bun install --frozen-lockfile || bun install
+          bun run build
+
+      # ----------------------------
+      # SSH key setup
+      # ----------------------------
+      - name: Setup SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.VPS_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -T 10 -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts 2>/dev/null || true
+
+      - name: Deploy backend to VPS (rsync with retry)
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+        run: |
+          SSH_OPTS="-o ConnectTimeout=30 -o ServerAliveInterval=15 -o ServerAliveCountMax=3 -o StrictHostKeyChecking=no -i ~/.ssh/deploy_key"
+          success=0
+          for i in 1 2 3; do
+            rsync -avz --delete \
+              --exclude=node_modules --exclude=.git --exclude=.env --exclude=.DS_Store \
+              -e "ssh $SSH_OPTS" \
+              backend/ "${VPS_USER}@${VPS_HOST}:/var/www/guezelwebdesign/backend" \
+              && success=1 && break
+            echo "⚠ Attempt $i failed, retrying in 10s..."
+            sleep 10
+          done
+          test "$success" -eq 1
+
+      # ----------------------------
+      # Admin Panel (Next.js)
+      # ----------------------------
+      - name: Build admin panel (bun)
+        working-directory: admin_panel
+        run: |
+          bun install --frozen-lockfile || bun install
+          bun run build
+
+      - name: Deploy admin panel to VPS (rsync with retry)
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+        run: |
+          SSH_OPTS="-o ConnectTimeout=30 -o ServerAliveInterval=15 -o ServerAliveCountMax=3 -o StrictHostKeyChecking=no -i ~/.ssh/deploy_key"
+          success=0
+          for i in 1 2 3; do
+            rsync -avz --delete \
+              --exclude=node_modules --exclude=.git --exclude=.env --exclude=.DS_Store \
+              -e "ssh $SSH_OPTS" \
+              admin_panel/ "${VPS_USER}@${VPS_HOST}:/var/www/guezelwebdesign/admin_panel" \
+              && success=1 && break
+            echo "⚠ Attempt $i failed, retrying in 10s..."
+            sleep 10
+          done
+          test "$success" -eq 1
+
+      # ----------------------------
+      # Frontend (Next.js)
+      # ----------------------------
+      - name: Build frontend (bun)
+        working-directory: frontend
+        run: |
+          bun install --frozen-lockfile || bun install
+          bun run build
+
+      - name: Deploy frontend to VPS (rsync with retry)
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+        run: |
+          SSH_OPTS="-o ConnectTimeout=30 -o ServerAliveInterval=15 -o ServerAliveCountMax=3 -o StrictHostKeyChecking=no -i ~/.ssh/deploy_key"
+          success=0
+          for i in 1 2 3; do
+            rsync -avz --delete \
+              --exclude=node_modules --exclude=.git --exclude=.env --exclude=.DS_Store \
+              -e "ssh $SSH_OPTS" \
+              frontend/ "${VPS_USER}@${VPS_HOST}:/var/www/guezelwebdesign/frontend" \
+              && success=1 && break
+            echo "⚠ Attempt $i failed, retrying in 10s..."
+            sleep 10
+          done
+          test "$success" -eq 1
+
+      # ----------------------------
+      # PM2 reload (backend + admin_panel + frontend) + bind check
+      # ----------------------------
+      - name: Reload PM2 (backend + admin_panel + frontend)
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_KEY }}
+          timeout: 60s
+          command_timeout: 120s
+          script: |
+            set -e
+
+            cd /var/www/guezelwebdesign/backend
+            pm2 startOrReload ecosystem.config.cjs --update-env
+
+            cd /var/www/guezelwebdesign/admin_panel
+            pm2 startOrReload ecosystem.config.cjs --update-env
+
+            cd /var/www/guezelwebdesign/frontend
+            pm2 startOrReload ecosystem.config.cjs --update-env
+
+            pm2 save
+
+            pm2 status
+
+            ss -ltnp | grep -E "127\.0\.0\.1:8044|127\.0\.0\.1:3045|127\.0\.0\.1:3044" >/dev/null
+
+            curl -fsS http://127.0.0.1:8044/api/health >/dev/null
+
+            smoke_page() {
+              url="$1"
+              required_pattern="$2"
+              label="$3"
+              tmp_file="$(mktemp)"
+
+              curl -fsSL "$url" -o "$tmp_file"
+
+              if ! grep -E "$required_pattern" "$tmp_file" >/dev/null; then
+                echo "Smoke failed: $label did not contain expected marker"
+                sed -n '1,40p' "$tmp_file"
+                rm -f "$tmp_file"
+                exit 1
+              fi
+
+              if grep -E "Application error|This page could not be found|Internal Server Error|NEXT_NOT_FOUND" "$tmp_file" >/dev/null; then
+                echo "Smoke failed: $label contains an error marker"
+                sed -n '1,40p' "$tmp_file"
+                rm -f "$tmp_file"
+                exit 1
+              fi
+
+              rm -f "$tmp_file"
+            }
+
+            smoke_page "http://127.0.0.1:3044/" "<html[^>]*lang=\"(de|en|tr)\"" "frontend root"
+            smoke_page "http://127.0.0.1:3044/de" "<html[^>]*lang=\"de\"" "frontend /de"
+            smoke_page "http://127.0.0.1:3044/en" "<html[^>]*lang=\"en\"" "frontend /en"
+            smoke_page "http://127.0.0.1:3044/tr" "<html[^>]*lang=\"tr\"" "frontend /tr"
+            smoke_page "http://127.0.0.1:3044/de/services" "<html[^>]*lang=\"de\"" "frontend /de/services"
+            smoke_page "http://127.0.0.1:3044/de/work" "<html[^>]*lang=\"de\"" "frontend /de/work"
+            smoke_page "http://127.0.0.1:3045/auth/login" "name=\"email\"|type=\"email\"" "admin login"

@@ -1,0 +1,352 @@
+// frontend/components/sections/Contact1.tsx
+'use client';
+
+import React, { useMemo, useState } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+
+import { useCreateContactMutation } from '@/integrations/hooks';
+import { useStaticSiteSetting } from '@/utils/staticSiteSettings';
+
+import {
+  cx,
+  resolveLocaleForApi,
+  resolveLocaleForLinks,
+  normalizeContactInfoSettingValue,
+  normalizeContactSectionSettingValue,
+  type ContactInfo,
+  type ContactSection,
+  type ContactCreateInput,
+} from '@/integrations/shared';
+
+const CONTACT_COPY = {
+  de: {
+    headline: 'Kontakt aufnehmen',
+    intro:
+      'Beschreiben Sie kurz Ihr Projekt, Ziel und den aktuellen Stand. Ich melde mich mit einer realistischen technischen Einschaetzung.',
+    phone: 'Telefon',
+    email: 'E-Mail',
+    address: 'Adresse',
+    formTitle: 'Nachricht senden',
+    name: 'Ihr Name',
+    emailAddress: 'E-Mail-Adresse',
+    phoneField: 'Telefon',
+    subject: 'Betreff',
+    submit: 'Nachricht senden',
+  },
+  en: {
+    headline: 'Get in touch',
+    intro:
+      'Tell me briefly about your project, goal, and current state. I will reply with a realistic technical assessment.',
+    phone: 'Phone',
+    email: 'Email',
+    address: 'Address',
+    formTitle: 'Leave a message',
+    name: 'Your name',
+    emailAddress: 'Email address',
+    phoneField: 'Your phone',
+    subject: 'Subject',
+    submit: 'Send Message',
+  },
+  tr: {
+    headline: 'Iletisime gec',
+    intro:
+      'Projenizi, hedefinizi ve mevcut durumu kısaca anlatın. Size gerçekçi bir teknik değerlendirme ile dönüş yaparım.',
+    phone: 'Telefon',
+    email: 'E-posta',
+    address: 'Adres',
+    formTitle: 'Mesaj gönder',
+    name: 'Adınız',
+    emailAddress: 'E-posta adresi',
+    phoneField: 'Telefon',
+    subject: 'Konu',
+    submit: 'Mesaj gönder',
+  },
+} as const;
+
+export default function Contact1() {
+  const pathname = usePathname() || '/';
+  const localeForLinks = useMemo(() => resolveLocaleForLinks(pathname, 'de'), [pathname]);
+  const localeForApi = useMemo(() => resolveLocaleForApi(pathname), [pathname]);
+  const copy = CONTACT_COPY[localeForLinks as keyof typeof CONTACT_COPY] ?? CONTACT_COPY.de;
+
+  const { value: contactInfoSettingValue } = useStaticSiteSetting({
+    key: 'contact_info',
+    ...(localeForApi ? { locale: localeForApi } : {}),
+  });
+
+  const { value: contactSectionSettingValue } = useStaticSiteSetting({
+    key: 'contact_section',
+    ...(localeForApi ? { locale: localeForApi } : {}),
+  });
+
+  const contactInfo: ContactInfo = useMemo(
+    () => normalizeContactInfoSettingValue(contactInfoSettingValue),
+    [contactInfoSettingValue],
+  );
+
+  const section: ContactSection = useMemo(
+    () => normalizeContactSectionSettingValue(contactSectionSettingValue),
+    [contactSectionSettingValue],
+  );
+
+  const phone = (contactInfo.phone || contactInfo.phones?.[0] || '').trim();
+  const email = (contactInfo.email || '').trim();
+  const skype = (contactInfo.skype || '').trim();
+  const address = (contactInfo.address || '').trim();
+
+  const [createContact, { isLoading }] = useCreateContactMutation();
+
+  const [name, setName] = useState('');
+  const [emailInput, setEmailInput] = useState('');
+  const [phoneInput, setPhoneInput] = useState('');
+  const [subject, setSubject] = useState('');
+  const [message, setMessage] = useState('');
+
+  // honeypot (BE: website)
+  const [website, setWebsite] = useState('');
+
+  const onSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const payload: ContactCreateInput = {
+      name: name.trim(),
+      email: emailInput.trim(),
+      phone: phoneInput.trim(),
+      subject: subject.trim(),
+      message: message.trim(),
+      ...(website.trim() ? { website: website.trim() } : {}),
+    };
+
+    // minimal sanity (BE zaten validate eder)
+    if (!payload.name || !payload.email || !payload.message) return;
+
+    try {
+      await createContact(payload).unwrap();
+
+      setName('');
+      setEmailInput('');
+      setPhoneInput('');
+      setSubject('');
+      setMessage('');
+      setWebsite('');
+    } catch {
+      // toast bağlamak istersen burada
+    }
+  };
+
+  return (
+    <section
+      id="contact"
+      className="section-contact-1 bg-900 position-relative pt-150 pb-lg-250 pb-150 overflow-hidden"
+    >
+      <div className="container position-relative z-1">
+        <h2 className="ds-3 mt-3 mb-3 text-primary-1">{section.headline || copy.headline}</h2>
+
+        <span className="fs-5 fw-medium text-200">{section.intro || copy.intro}</span>
+
+        <div className="row mt-8">
+          <div className="col-lg-4 d-flex flex-column">
+            {/* PHONE */}
+            {phone ? (
+              <div className="d-flex align-items-center mb-4 position-relative d-inline-flex">
+                <div className="bg-white icon-flip position-relative icon-shape icon-xxl border-linear-2 border-2 rounded-4">
+                  <i className="ri-phone-fill text-primary-1 fs-26" />
+                </div>
+                <div className="ps-3">
+                  <span className="text-400 fs-5">
+                    {section.cards?.phone_label || copy.phone}
+                  </span>
+                  <h3 className="h6 mb-0">{phone}</h3>
+                </div>
+                <Link
+                  href={`tel:${phone}`}
+                  className="position-absolute top-0 start-0 w-100 h-100"
+                  aria-label="Phone"
+                />
+              </div>
+            ) : null}
+
+            {/* EMAIL */}
+            <div className="d-flex align-items-center mb-4 position-relative d-inline-flex">
+              <div className="bg-white icon-flip position-relative icon-shape icon-xxl border-linear-2 border-2 rounded-4">
+                <i className="ri-mail-fill text-primary-1 fs-26" />
+              </div>
+              <div className="ps-3">
+                <span className="text-400 fs-5">{section.cards?.email_label || copy.email}</span>
+                <h3 className="h6 mb-0">{email || '-'}</h3>
+              </div>
+              {email ? (
+                <Link
+                  href={`mailto:${email}`}
+                  className="position-absolute top-0 start-0 w-100 h-100"
+                  aria-label="Email"
+                />
+              ) : null}
+            </div>
+
+            {/* SKYPE */}
+            {skype ? (
+              <div className="d-flex align-items-center mb-4 position-relative d-inline-flex">
+                <div className="bg-white icon-flip position-relative icon-shape icon-xxl border-linear-2 border-2 rounded-4">
+                  <i className="ri-skype-fill text-primary-1 fs-26" />
+                </div>
+                <div className="ps-3">
+                  <span className="text-400 fs-5">{section.cards?.skype_label || 'Skype'}</span>
+                  <h3 className="h6 mb-0">{skype}</h3>
+                </div>
+                <Link
+                  href={`skype:${encodeURIComponent(skype)}?chat`}
+                  className="position-absolute top-0 start-0 w-100 h-100"
+                  aria-label="Skype"
+                />
+              </div>
+            ) : null}
+
+            {/* ADDRESS */}
+            <div className="d-flex align-items-center mb-4 position-relative d-inline-flex">
+              <div className="bg-white icon-flip position-relative icon-shape icon-xxl border-linear-2 border-2 rounded-4">
+                <i className="ri-map-2-fill text-primary-1 fs-26" />
+              </div>
+              <div className="ps-3">
+                <span className="text-400 fs-5">{section.cards?.address_label || copy.address}</span>
+                <h3 className="h6 mb-0">{address || '-'}</h3>
+              </div>
+              {address ? (
+                <Link
+                  href={`https://www.google.com/maps?q=${encodeURIComponent(address)}`}
+                  className="position-absolute top-0 start-0 w-100 h-100"
+                  aria-label="Address"
+                />
+              ) : null}
+            </div>
+          </div>
+
+          <div className="col-lg-7 offset-lg-1 ps-lg-0 pt-5 pt-lg-0">
+            <div className="position-relative">
+              <div className="position-relative z-2">
+                <h3>{section.form?.title || copy.formTitle}</h3>
+
+                <form onSubmit={onSubmit}>
+                  <div className="row mt-3">
+                    {/* honeypot hidden */}
+                    <input
+                      type="text"
+                      value={website}
+                      onChange={(e) => setWebsite(e.target.value)}
+                      className="d-none"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      aria-hidden="true"
+                    />
+
+                    <div className="col-md-6">
+                      <label className="mb-1 mt-3 text-dark" htmlFor="name">
+                        {section.form?.name_label || copy.name}{' '}
+                        <span className="text-primary-1">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        className="form-control border rounded-3"
+                        id="name"
+                        name="name"
+                        placeholder={section.form?.name_ph || 'Orhan Güzel'}
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        required
+                      />
+                    </div>
+
+                    <div className="col-md-6">
+                      <label className="mb-1 mt-3 text-dark" htmlFor="email">
+                        {section.form?.email_label || copy.emailAddress}{' '}
+                        <span className="text-primary-1">*</span>
+                      </label>
+                      <input
+                        type="email"
+                        className="form-control border rounded-3"
+                        id="email"
+                        name="email"
+                        placeholder={section.form?.email_ph || 'orhanguzell@gmail.com'}
+                        value={emailInput}
+                        onChange={(e) => setEmailInput(e.target.value)}
+                        required
+                      />
+                    </div>
+
+                    <div className="col-md-6">
+                      <label className="mb-1 mt-3 text-dark" htmlFor="phone">
+                        {section.form?.phone_label || copy.phoneField}
+                      </label>
+                      <input
+                        type="text"
+                        className="form-control border rounded-3"
+                        id="phone"
+                        name="phone"
+                        placeholder={section.form?.phone_ph || '+49 172 384 6068'}
+                        value={phoneInput}
+                        onChange={(e) => setPhoneInput(e.target.value)}
+                      />
+                    </div>
+
+                    <div className="col-md-6">
+                      <label className="mb-1 mt-3 text-dark" htmlFor="subject">
+                        {section.form?.subject_label || copy.subject}
+                      </label>
+                      <input
+                        type="text"
+                        className="form-control border rounded-3"
+                        id="subject"
+                        name="subject"
+                        placeholder={section.form?.subject_ph ?? ''}
+                        value={subject}
+                        onChange={(e) => setSubject(e.target.value)}
+                      />
+                    </div>
+
+                    <div className="col-12">
+                      <label className="mb-1 mt-3 text-dark" htmlFor="message">
+                        {section.form?.message_label || 'Message'}{' '}
+                        <span className="text-primary-1">*</span>
+                      </label>
+                      <textarea
+                        className="form-control border rounded-3 pb-10"
+                        id="message"
+                        name="message"
+                        placeholder={section.form?.message_ph ?? ''}
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
+                        required
+                      />
+                    </div>
+
+                    <div className="col-12">
+                      <button
+                        type="submit"
+                        className={cx('btn btn-gradient mt-3', isLoading && 'disabled')}
+                        disabled={isLoading}
+                      >
+                        {section.form?.submit || copy.submit}
+                        <i className="ri-arrow-right-up-line" />
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+
+              <div className="z-0 bg-primary-dark rectangle-bg z-1 rounded-3" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="scroll-move-right position-absolute bottom-0 start-50 translate-middle-x bg-900 overflow-hidden">
+        <div className="img-custom-anim-top">
+          <h3 className="stroke fs-280 text-lowercase text-900 mb-0 lh-1">
+            {section.marquee || 'guezelwebdesign'}
+          </h3>
+        </div>
+      </div>
+    </section>
+  );
+}

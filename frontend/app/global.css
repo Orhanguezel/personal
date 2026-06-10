@@ -1,0 +1,49 @@
+/* Lighthouse-focused stability and contrast overrides. */
+.section-hero-1 {
+  min-height: 1080px;
+  isolation: isolate;
+}
+
+.section-hero-1 > .filter-invert {
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  contain: layout paint;
+  z-index: 0;
+}
+
+.section-hero-1 .shape-1 {
+  width: min(720px, 50vw);
+  min-height: 900px;
+}
+
+.section-hero-1 .shape-1 > img.position-relative {
+  display: block;
+  width: min(720px, 50vw);
+  aspect-ratio: 4 / 5;
+  object-fit: contain;
+}
+
+.section-seo-intro .text-dark,
+.section-home-geo-tech .text-dark,
+.section-home-geo-why .text-dark,
+.section-static-1 .text-dark,
+.section-static-1 .fw-bold,
+.section-service-1 .service-card-text {
+  color: var(--tc-neutral-0) !important;
+}
+
+.section-seo-intro .text-300,
+.section-seo-intro .text-300 strong,
+.section-home-geo-tech .text-300,
+.section-home-geo-why .text-300,
+.section-static-1 .text-300,
+.section-service-1 .service-card-text {
+  color: #d7d7df !important;
+}
+
+@media (max-width: 991.98px) {
+  .section-hero-1 {
+    min-height: auto;
+  }
+}

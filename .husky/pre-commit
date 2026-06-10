@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+set -e
+
+(cd admin_panel && bunx lint-staged)
+(cd frontend && bun run lint && bun run typecheck)
+(cd admin_panel && bun run check)
+(cd admin_panel && bunx tsc --noEmit)
+(cd backend && bun run check)
+(cd backend && bunx tsc --noEmit)

@@ -1,0 +1,105 @@
+# Guzel Web Design — Full AI Index
+
+> Complete site reference for AI crawlers and language models. See /llms.txt for the summary version.
+
+## Owner & Founder
+
+- Name: Orhan Güzel
+- Role: Full-Stack Developer & Founder
+- Germany location: Daimlerstraße 50, 41516 Grevenbroich, Nordrhein-Westfalen, Germany
+- Türkiye company: GZL Teknoloji ve Danışmanlık Hizmetleri Ltd. Şti., Cumhuriyet Mah. Hastahane Cad. 12/C Şahinler Sitesi D:14, Gemlik/Bursa, Türkiye
+- Education: IHK Aachen (Fachinformatiker Anwendungsentwicklung)
+- Experience: 15+ live production platforms; 12+ years in professional software development
+- Primary Stack: Next.js, React, TypeScript, Fastify, Laravel, Flutter, MySQL, Drizzle ORM
+- GitHub: https://github.com/Orhanguezel
+- LinkedIn: https://linkedin.com/in/orhan-güzel-53b47b11a
+
+## Locales
+
+Default (x-default): German (de). Also: English (en), Turkish (tr).
+All content pages are available in all three languages.
+
+## Core Pages
+
+### Homepage
+- https://www.guezelwebdesign.com/de/
+- https://www.guezelwebdesign.com/en/
+- https://www.guezelwebdesign.com/tr/
+
+### Services
+- https://www.guezelwebdesign.com/de/services
+- https://www.guezelwebdesign.com/en/services
+- https://www.guezelwebdesign.com/tr/services
+
+#### Service Detail Pages
+- https://www.guezelwebdesign.com/en/services/full-stack-web-development
+- https://www.guezelwebdesign.com/en/services/e-commerce-solutions
+- https://www.guezelwebdesign.com/en/services/ui-ux-design
+- https://www.guezelwebdesign.com/en/services/mobile-app-development
+
+### Portfolio / Work
+- https://www.guezelwebdesign.com/de/work
+- https://www.guezelwebdesign.com/en/work
+- https://www.guezelwebdesign.com/tr/work
+
+#### Project Detail Pages (English)
+- https://www.guezelwebdesign.com/en/work/ensotek — Industrial automation platform (Next.js, Fastify, Docker)
+- https://www.guezelwebdesign.com/en/work/vista-insaat — Construction company (Next.js 16, Fastify, Tailwind v4)
+- https://www.guezelwebdesign.com/en/work/quickecommerce — E-commerce admin (Laravel 12, Next.js 16, Flutter)
+- https://www.guezelwebdesign.com/en/work/konig-massage — Wellness booking (Next.js, Fastify, Drizzle ORM)
+- https://www.guezelwebdesign.com/en/work/karbonkompozit — Carbon fiber manufacturing (Next.js 16, next-intl)
+- https://www.guezelwebdesign.com/en/work/bereket-fide — Agricultural seedling platform (Next.js, MySQL)
+- https://www.guezelwebdesign.com/en/work/paketjet — Logistics platform (Next.js, Fastify, Drizzle ORM)
+- https://www.guezelwebdesign.com/en/work/kamanilan — E-commerce with Iyzipay (Next.js, Fastify)
+- https://www.guezelwebdesign.com/en/work/gzl-temizlik — Cleaning service (Next.js, Redux, Fastify)
+- https://www.guezelwebdesign.com/en/work/kuhlturm — kuhlturm.com (Next.js, Fastify)
+- https://www.guezelwebdesign.com/en/work/katalog-ai — KatalogAI: AI-powered catalog creator (Next.js, Fastify, Drizzle ORM)
+- https://www.guezelwebdesign.com/en/work/hava-durumu-don-uyarisi — Weather forecast and frost alert for agriculture (Next.js, Fastify)
+- https://www.guezelwebdesign.com/en/work/vistaseed — Agricultural seed distribution (Next.js, Fastify)
+
+### Blog
+- https://www.guezelwebdesign.com/de/blog
+- https://www.guezelwebdesign.com/en/blog
+- https://www.guezelwebdesign.com/tr/blog
+
+### Pricing
+- https://www.guezelwebdesign.com/de/pricing
+- https://www.guezelwebdesign.com/en/pricing
+- https://www.guezelwebdesign.com/tr/pricing
+
+### FAQ
+- https://www.guezelwebdesign.com/de/faq
+- https://www.guezelwebdesign.com/en/faq
+- https://www.guezelwebdesign.com/tr/faq
+
+## Technology Stack
+
+### Frontend
+- Next.js 16, React 19, TypeScript
+- Tailwind CSS v4, Shadcn UI, Radix UI
+- Redux Toolkit, Zustand, React Query
+- Framer Motion, GSAP
+- next-intl for internationalization
+
+### Backend
+- Fastify, Laravel 12
+- Bun runtime
+- Drizzle ORM, Sequelize, Prisma
+- MySQL, PostgreSQL, MongoDB
+
+### DevOps
+- Docker, Nginx, PM2
+- GitHub Actions CI/CD
+- VPS deployment
+
+### Mobile
+- Flutter, Dart
+
+### Integrations
+- Stripe, Iyzipay (payments)
+- Cloudinary (media)
+- Nodemailer (email)
+- Groq/OpenAI (AI features)
+
+## Sitemap
+- https://www.guezelwebdesign.com/sitemap.xml (120 URLs across 3 languages)
