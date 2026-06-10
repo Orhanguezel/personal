@@ -17,6 +17,9 @@ import { ThemeSwitcher } from './_components/sidebar/theme-switcher';
 
 import AdminAuthGate from './_components/admin-auth-gate';
 
+// Admin auth-gated + dinamik veri — statik prerender yok (Next 16 route-group manifest hatasını da önler)
+export const dynamic = 'force-dynamic';
+
 export default function Layout({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <AdminAuthGate>
