@@ -14353,3 +14353,19 @@ strong {
 }
 
 /*# sourceMappingURL=main.css.map */
+
+/* === Work kart düzeni fix: görsel sabit %50, açıklama kalan alan (taşma/kesilme önlenir) === */
+.section-work .card-scroll .cards .card-custom .card__inner .card__image-container {
+  width: 50%;
+  max-width: 50%;
+}
+.section-work .card-scroll .cards .card-custom .card__inner .card__content {
+  flex: 1 1 0;
+  min-width: 0;
+}
+@media (max-width: 991.98px) {
+  .section-work .card-scroll .cards .card-custom .card__inner .card__image-container {
+    width: 100%;
+    max-width: 100%;
+  }
+}
