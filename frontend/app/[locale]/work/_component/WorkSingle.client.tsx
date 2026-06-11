@@ -154,6 +154,7 @@ export default function WorkSingleClient({ locale }: { locale: string }) {
             </div>
 
             <Image
+              className="w-100 h-auto rounded-4 mt-4"
               src={detail.cover}
               alt={detail.coverAlt}
               width={1400}
