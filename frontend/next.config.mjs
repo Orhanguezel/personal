@@ -12,6 +12,8 @@ const nextConfig = {
   reactStrictMode: true,
   outputFileTracingRoot: workspaceRoot,
   turbopack: { root: workspaceRoot },
+  // jsdom (isomorphic-dompurify) webpack ile bundle edilmesin — asset'leri (default-stylesheet.css) node_modules'tan çözülsün (sitemap SSG fix)
+  serverExternalPackages: ['jsdom', 'isomorphic-dompurify'],
 
   async headers() {
     const isProd = process.env.NODE_ENV === 'production';
