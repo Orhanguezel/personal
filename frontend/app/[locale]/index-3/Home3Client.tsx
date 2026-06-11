@@ -12,20 +12,17 @@ import {
   useListServicesPublicQuery,
   useGetResumeQuery,
   useListCustomPagesQuery,
-  useListReviewsPublicQuery,
 } from '@/integrations/hooks';
 import { useStaticSiteSetting } from '@/utils/staticSiteSettings';
 import {
   normalizeUiHome3SettingValue,
   normalizeContactInfoSettingValue,
   normalizeContactSectionSettingValue,
-  normalizeTestimonialsSectionSettingValue,
   resolveLocaleForApi,
   resolveLocaleForLinks,
   contentToSummary,
   splitResume,
   yearRange,
-  mapReviewToTestimonialCard,
   normalizeAssetPath,
   chunk,
   toTelHref,
@@ -35,35 +32,6 @@ import {
   sanitizeHtml,
 } from '@/integrations/shared';
 import { getCvAssetPath } from '@/utils/cv';
-
-const swiperOptions = {
-  modules: [Autoplay, Pagination, Navigation],
-  slidesPerView: 2,
-  spaceBetween: 20,
-  slidesPerGroup: 1,
-  centeredSlides: false,
-  loop: true,
-  autoplay: {
-    delay: 4000,
-  },
-  breakpoints: {
-    1200: {
-      slidesPerView: 2,
-    },
-    992: {
-      slidesPerView: 2,
-    },
-    768: {
-      slidesPerView: 2,
-    },
-    576: {
-      slidesPerView: 1,
-    },
-    0: {
-      slidesPerView: 1,
-    },
-  },
-};
 
 const swiperOptions2 = {
   modules: [Autoplay, Pagination, Navigation],
@@ -116,15 +84,6 @@ export default function Home3Client() {
   const contactSection = useMemo(
     () => normalizeContactSectionSettingValue(contactSectionRowValue),
     [contactSectionRowValue],
-  );
-
-  const { value: testimonialsRowValue } = useStaticSiteSetting({
-    key: 'ui_testimonials',
-    locale: localeForApi,
-  });
-  const testimonialsUI = useMemo(
-    () => normalizeTestimonialsSectionSettingValue(testimonialsRowValue),
-    [testimonialsRowValue],
   );
 
   const {
@@ -203,30 +162,6 @@ export default function Home3Client() {
     [blogPosts],
   );
   const blogSlides = useMemo(() => chunk(blogList, 2), [blogList]);
-
-  const reviewParams = useMemo(
-    () => ({
-      target_type: testimonialsUI.target_type,
-      target_id: testimonialsUI.bucket,
-      approved: 1,
-      active: 1,
-      limit: 8,
-      orderBy: 'display_order',
-      order: 'asc',
-      ...(localeForApi ? { locale: localeForApi } : {}),
-    }),
-    [testimonialsUI.target_type, testimonialsUI.bucket, localeForApi],
-  );
-
-  const {
-    data: reviews = [],
-    isLoading: reviewsLoading,
-  } = useListReviewsPublicQuery(reviewParams as any);
-
-  const testimonialCards = useMemo(
-    () => (reviews || []).map(mapReviewToTestimonialCard),
-    [reviews],
-  );
 
   const phone = contactInfo.phone || ui.contact.phone;
   const email = contactInfo.email || ui.contact.email;
@@ -546,40 +481,6 @@ export default function Home3Client() {
                       </div>
                     )}
                     <div className="swiper-pagination" />
-                  </div>
-                </div>
-
-                <div id="portfolio" className="testimonials pt-60 border-bottom pb-80">
-                  <h3>{ui.testimonials.heading}</h3>
-                  <div className="position-relative pt-4">
-                    {reviewsLoading && testimonialCards.length === 0 ? (
-                      <div className="testimonials-block pe-5">
-                        <p className="text-300 mb-0">Loading...</p>
-                      </div>
-                    ) : testimonialCards.length ? (
-                      <Swiper {...swiperOptions} className="swiper slider-one pb-3 position-relative">
-                        <div className="swiper-wrapper">
-                          {testimonialCards.map((t) => (
-                            <SwiperSlide key={t.id}>
-                              <div className="testimonials-block pe-5">
-                                <img className="rounded-circle mb-2" src={t.avatar} alt={t.name} />
-                                <p className="fs-5 text-dark">"{t.comment}"</p>
-                                <div className="information ">
-                                  <p className="fs-6 text-primary-3">
-                                    {t.name}
-                                    <span className="text-300">{t.meta}</span>
-                                  </p>
-                                </div>
-                              </div>
-                            </SwiperSlide>
-                          ))}
-                        </div>
-                      </Swiper>
-                    ) : (
-                      <div className="testimonials-block pe-5">
-                        <p className="text-300 mb-0">{ui.testimonials.empty}</p>
-                      </div>
-                    )}
                   </div>
                 </div>
 

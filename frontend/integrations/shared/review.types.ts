@@ -1,7 +1,6 @@
 // =============================================================
 // FILE: src/integrations/types/review.types.ts
-// FINAL — Public Reviews + Testimonials UI helpers in ONE place
-// - Component içinde helper yok
+// FINAL — Public Reviews shared types
 // =============================================================
 
 import type { BoolLike } from '@/integrations/shared';
@@ -83,7 +82,7 @@ export type ReviewCreatePayload = {
   comment: string;
   title?: string;
 
-  // Testimonials extras (optional)
+  // Optional reviewer profile extras
   role?: string;
   company?: string;
   avatar_url?: string;
@@ -102,122 +101,3 @@ export type ReviewUpdatePayload = Partial<ReviewCreatePayload> & {
 export type ReviewReactionPayload = {
   type: 'like' | 'dislike';
 };
-
-// ===============================
-// Testimonials UI (site_settings)
-// ===============================
-
-export type TestimonialsSection = {
-  headline: string;
-  intro_line_1: string; // <br/> bozulmasın diye iki satır
-  intro_line_2: string;
-  target_type: string;
-  bucket: string; // reviews target_id filter
-
-  // (opsiyonel) cta
-  cta_label: string;
-  cta_href: string;
-
-  loading: string;
-  error: string;
-  empty: string;
-
-  // decorate images
-  man_img: string;
-  decorate_img: string;
-};
-
-export function normalizeTestimonialsSectionSettingValue(val: unknown): TestimonialsSection {
-  const o = parseJsonObject(val);
-
-  const headline = uiText(o.headline) || "Client's Testimonials";
-
-  const intro_line_1 =
-    uiText(o.intro_line_1) ||
-    'I believe that working hard and trying to learn every day will make me';
-  const intro_line_2 = uiText(o.intro_line_2) || 'improve in satisfying my customers.';
-
-  const target_type = uiText((o as any).target_type) || 'testimonial';
-  const bucket = uiText(o.bucket) || '11111111-1111-1111-1111-111111111111';
-
-  const cta_label = uiText(o.cta_label);
-  const cta_href = uiText(o.cta_href);
-
-  const loading = uiText(o.loading) || 'Loading...';
-  const error = uiText(o.error) || 'Failed to load testimonials.';
-  const empty = uiText(o.empty) || 'No testimonials yet.';
-
-  const man_img = uiText(o.man_img) || '/assets/imgs/guezel-showcase/developer_hands_coding.webp';
-  const decorate_img =
-    uiText(o.decorate_img) || '/assets/imgs/testimonials/testimonials-1/decorate.webp';
-
-  return {
-    headline,
-    intro_line_1,
-    intro_line_2,
-    target_type,
-    bucket,
-    cta_label,
-    cta_href,
-    loading,
-    error,
-    empty,
-    man_img,
-    decorate_img,
-  };
-}
-
-// ===============================
-// Testimonials item mapper (from ReviewDto)
-// ===============================
-
-export type TestimonialCard = {
-  id: string;
-
-  rating: number; // 0..5
-  comment: string;
-
-  name: string;
-  meta: string; // " - role, company" (template format)
-  company?: string;
-
-  avatar: string;
-  logo: string;
-  href: string;
-};
-
-const clampRating = (n: unknown): number => {
-  const x = typeof n === 'number' ? n : Number(String(n ?? '0'));
-  if (!Number.isFinite(x)) return 0;
-  return Math.max(0, Math.min(5, Math.round(x)));
-};
-
-export function mapReviewToTestimonialCard(r: ReviewDto): TestimonialCard {
-  const name = uiText(r.name) || '—';
-  const role = uiText((r as any).role);
-  const company = uiText((r as any).company);
-  let metaRaw = uiText((r as any).title);
-  if (!metaRaw) metaRaw = [role, company].filter(Boolean).join(', ');
-  const meta = metaRaw ? ` - ${metaRaw}` : '';
-
-  const comment = uiText(r.comment) || '…';
-
-  const avatar =
-    uiText((r as any).avatar_url) || '/assets/imgs/testimonials/testimonials-1/avatar-1.webp';
-
-  const logo = uiText((r as any).logo_url) || '/assets/imgs/testimonials/testimonials-1/logo-1.webp';
-
-  const href = uiText((r as any).profile_href) || '#';
-
-  return {
-    id: uiText(r.id),
-    rating: clampRating(r.rating),
-    comment,
-    name,
-    meta,
-    company,
-    avatar,
-    logo,
-    href,
-  };
-}

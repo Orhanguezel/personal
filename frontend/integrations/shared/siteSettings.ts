@@ -1201,10 +1201,6 @@ export type UiHome3Copy = {
     empty: string;
     default_category: string;
   };
-  testimonials: {
-    heading: string;
-    empty: string;
-  };
   contact: {
     heading: string;
     form_title: string;
@@ -1224,7 +1220,6 @@ export function normalizeUiHome3SettingValue(value: unknown): UiHome3Copy {
   const services = parseJsonObject((root as any).services);
   const resume = parseJsonObject((root as any).resume);
   const blog = parseJsonObject((root as any).blog);
-  const testimonials = parseJsonObject((root as any).testimonials);
   const contact = parseJsonObject((root as any).contact);
 
   const pick = (obj: Record<string, unknown>, key: string, fallback: string, rootKey?: string) =>
@@ -1282,10 +1277,6 @@ export function normalizeUiHome3SettingValue(value: unknown): UiHome3Copy {
       heading: pick(blog, 'heading', 'Aus dem Blog', 'blog_heading'),
       empty: pick(blog, 'empty', 'Noch keine Beitraege.', 'blog_empty'),
       default_category: pick(blog, 'default_category', 'Praxis', 'blog_default_category'),
-    },
-    testimonials: {
-      heading: pick(testimonials, 'heading', 'Kundenstimmen', 'testimonials_heading'),
-      empty: pick(testimonials, 'empty', 'Noch keine Kundenstimmen.', 'testimonials_empty'),
     },
     contact: {
       heading: pick(contact, 'heading', 'Kontakt aufnehmen', 'contact_heading'),

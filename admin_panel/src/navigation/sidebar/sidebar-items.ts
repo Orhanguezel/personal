@@ -8,9 +8,6 @@
 import {
   BarChart,
   Bell,
-  Briefcase,
-  Calendar,
-  Clock,
   Contact2,
   Database,
   FileSearch,
@@ -19,10 +16,8 @@ import {
   HelpCircle,
   LayoutDashboard,
   Mail,
-  Megaphone,
   Menu,
   MessageSquare,
-  Newspaper,
   Package,
   Receipt,
   Send,
@@ -65,7 +60,6 @@ export type AdminNavItemKey =
   | 'custom_pages'
   | 'services'
   | 'projects'
-  | 'offers'
   | 'pricing'
   | 'brands'
   | 'resume'
@@ -73,14 +67,12 @@ export type AdminNavItemKey =
   | 'menu_items'
   | 'footer_sections'
   | 'faqs'
-  | 'popups'
   | 'social_posts'
   | 'newsletter'
   | 'contacts'
   | 'reviews'
   | 'support'
   | 'chat'
-  | 'bookings'
   | 'mail'
   | 'users'
   | 'email_templates'
@@ -88,9 +80,7 @@ export type AdminNavItemKey =
   | 'storage'
   | 'db'
   | 'audit'
-  | 'availability'
-  | 'reports'
-  | 'resources';
+  | 'reports';
 
 export type AdminNavGroupKey = 'general' | 'content' | 'marketing' | 'communication' | 'system';
 
@@ -121,7 +111,6 @@ export const adminNavConfig: AdminNavConfigGroup[] = [
       { key: 'services', url: '/admin/services', icon: Wrench },
       { key: 'projects', url: '/admin/projects', icon: Package },
       { key: 'pricing', url: '/admin/pricing', icon: Receipt },
-      { key: 'offers', url: '/admin/offers', icon: Newspaper },
       { key: 'brands', url: '/admin/brands', icon: Star },
       { key: 'resume', url: '/admin/resume', icon: FileText },
       { key: 'skills', url: '/admin/skills', icon: Shield },
@@ -134,7 +123,6 @@ export const adminNavConfig: AdminNavConfigGroup[] = [
     id: 3,
     key: 'marketing',
     items: [
-      { key: 'popups', url: '/admin/popups', icon: Megaphone },
       { key: 'social_posts', url: '/admin/social', icon: Send },
       { key: 'newsletter', url: '/admin/newsletter', icon: Mail },
     ],
@@ -147,7 +135,6 @@ export const adminNavConfig: AdminNavConfigGroup[] = [
       { key: 'reviews', url: '/admin/reviews', icon: MessageSquare },
       { key: 'support', url: '/admin/support', icon: HelpCircle },
       { key: 'chat', url: '/admin/chat', icon: MessageSquare },
-      { key: 'bookings', url: '/admin/bookings', icon: Calendar },
       { key: 'mail', url: '/admin/mail', icon: Send },
     ],
   },
@@ -161,9 +148,7 @@ export const adminNavConfig: AdminNavConfigGroup[] = [
       { key: 'storage', url: '/admin/storage', icon: HardDrive },
       { key: 'db', url: '/admin/db', icon: Database },
       { key: 'audit', url: '/admin/audit', icon: FileSearch },
-      { key: 'availability', url: '/admin/availability', icon: Clock },
       { key: 'reports', url: '/admin/reports', icon: BarChart },
-      { key: 'resources', url: '/admin/resources', icon: Briefcase },
     ],
   },
 ];
@@ -180,7 +165,6 @@ const FALLBACK_TITLES: Record<AdminNavItemKey, string> = {
   custom_pages: 'Custom Pages',
   services: 'Services',
   projects: 'Projects',
-  offers: 'Offers',
   pricing: 'Pricing',
   brands: 'Brands',
   resume: 'Resume',
@@ -188,14 +172,12 @@ const FALLBACK_TITLES: Record<AdminNavItemKey, string> = {
   menu_items: 'Menu Items',
   footer_sections: 'Footer Sections',
   faqs: 'FAQs',
-  popups: 'Popups',
   social_posts: 'Social Posts',
   newsletter: 'Newsletter',
   contacts: 'Contacts',
   reviews: 'Reviews',
   support: 'Support',
   chat: 'Chat',
-  bookings: 'Bookings',
   mail: 'Mail',
   users: 'Users',
   email_templates: 'Email Templates',
@@ -203,9 +185,7 @@ const FALLBACK_TITLES: Record<AdminNavItemKey, string> = {
   storage: 'Storage',
   db: 'Database',
   audit: 'Audit',
-  availability: 'Availability',
   reports: 'Reports',
-  resources: 'Resources',
 };
 
 export function buildAdminSidebarItems(copy?: Partial<AdminNavCopy> | null): NavGroup[] {

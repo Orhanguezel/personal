@@ -41,10 +41,6 @@ VALUES
       'empty','No posts yet.',
       'default_category','Inspiration'
     ),
-    'testimonials', JSON_OBJECT(
-      'heading','Testimonials',
-      'empty','No testimonials yet.'
-    ),
     'contact', JSON_OBJECT(
       'heading','Contact me',
       'form_title','Let''s connect',
@@ -94,10 +90,6 @@ VALUES
       'empty','Noch keine Beiträge.',
       'default_category','Inspiration'
     ),
-    'testimonials', JSON_OBJECT(
-      'heading','Testimonials',
-      'empty','Noch keine Testimonials.'
-    ),
     'contact', JSON_OBJECT(
       'heading','Kontakt',
       'form_title','Lass uns verbinden',
@@ -146,10 +138,6 @@ VALUES
       'heading','Blogdan',
       'empty','Henüz içerik yok.',
       'default_category','İlham'
-    ),
-    'testimonials', JSON_OBJECT(
-      'heading','Yorumlar',
-      'empty','Henüz yorum yok.'
     ),
     'contact', JSON_OBJECT(
       'heading','İletişim',

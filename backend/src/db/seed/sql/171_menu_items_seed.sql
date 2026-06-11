@@ -45,10 +45,8 @@ SET @m_home     := UUID();
 SET @m_services := UUID();
 SET @m_work     := UUID();
 SET @m_pricing  := UUID();
-SET @m_booking  := UUID();
 SET @m_blog     := UUID();
 SET @m_faq      := UUID();
-SET @m_testimonials := UUID();
 SET @m_contact  := UUID();
 
 INSERT INTO menu_items
@@ -58,10 +56,8 @@ VALUES
   (@m_services, NULL, 'custom', NULL, 'header', NULL, NULL, 20, 1, NOW(3), NOW(3)),
   (@m_work,     NULL, 'custom', NULL, 'header', NULL, NULL, 30, 1, NOW(3), NOW(3)),
   (@m_pricing,  NULL, 'custom', NULL, 'header', NULL, NULL, 40, 1, NOW(3), NOW(3)),
-  (@m_booking,  NULL, 'custom', NULL, 'header', NULL, NULL, 45, 1, NOW(3), NOW(3)),
   (@m_blog,     NULL, 'custom', NULL, 'header', NULL, NULL, 50, 1, NOW(3), NOW(3)),
   (@m_faq,      NULL, 'custom', NULL, 'header', NULL, NULL, 55, 1, NOW(3), NOW(3)),
-  (@m_testimonials, NULL, 'custom', NULL, 'header', NULL, NULL, 57, 1, NOW(3), NOW(3)),
   (@m_contact,  NULL, 'custom', NULL, 'header', NULL, NULL, 60, 1, NOW(3), NOW(3));
 
 -- -------------------------------------------------------------
@@ -90,11 +86,6 @@ VALUES
   (UUID(), @m_pricing, 'de', 'Preise',   '/pricing', NOW(3), NOW(3)),
   (UUID(), @m_pricing, 'tr', 'Fiyatlar', '/pricing', NOW(3), NOW(3)),
 
-  -- BOOKING
-  (UUID(), @m_booking, 'en', 'Book Call', '/booking', NOW(3), NOW(3)),
-  (UUID(), @m_booking, 'de', 'Termin',    '/booking', NOW(3), NOW(3)),
-  (UUID(), @m_booking, 'tr', 'Randevu',   '/booking', NOW(3), NOW(3)),
-
   -- BLOG
   (UUID(), @m_blog, 'en', 'Blog', '/blog', NOW(3), NOW(3)),
   (UUID(), @m_blog, 'de', 'Blog', '/blog', NOW(3), NOW(3)),
@@ -104,11 +95,6 @@ VALUES
   (UUID(), @m_faq, 'en', 'FAQ', '/faq', NOW(3), NOW(3)),
   (UUID(), @m_faq, 'de', 'FAQ', '/faq', NOW(3), NOW(3)),
   (UUID(), @m_faq, 'tr', 'SSS', '/faq', NOW(3), NOW(3)),
-
-  -- TESTIMONIALS (reviews)
-  (UUID(), @m_testimonials, 'en', 'Reviews', '/testimonials', NOW(3), NOW(3)),
-  (UUID(), @m_testimonials, 'de', 'Kundenstimmen', '/testimonials', NOW(3), NOW(3)),
-  (UUID(), @m_testimonials, 'tr', 'Yorumlar', '/testimonials', NOW(3), NOW(3)),
 
   -- CONTACT (hash)
   (UUID(), @m_contact, 'en', 'Contact', '/#contact', NOW(3), NOW(3)),
@@ -127,10 +113,8 @@ SET @f_home     := UUID();
 SET @f_services := UUID();
 SET @f_work     := UUID();
 SET @f_pricing  := UUID();
-SET @f_booking  := UUID();
 SET @f_blog     := UUID();
 SET @f_faq      := UUID();
-SET @f_testimonials := UUID();
 SET @f_contact  := UUID();
 
 SET @f_svc_uiux   := UUID();
@@ -150,10 +134,8 @@ VALUES
   (@f_services, NULL, 'custom', NULL, 'footer', @sec_quick, NULL, 20, 1, NOW(3), NOW(3)),
   (@f_work,     NULL, 'custom', NULL, 'footer', @sec_quick, NULL, 30, 1, NOW(3), NOW(3)),
   (@f_pricing,  NULL, 'custom', NULL, 'footer', @sec_quick, NULL, 40, 1, NOW(3), NOW(3)),
-  (@f_booking,  NULL, 'custom', NULL, 'footer', @sec_quick, NULL, 45, 1, NOW(3), NOW(3)),
   (@f_blog,     NULL, 'custom', NULL, 'footer', @sec_quick, NULL, 50, 1, NOW(3), NOW(3)),
   (@f_faq,      NULL, 'custom', NULL, 'footer', @sec_quick, NULL, 55, 1, NOW(3), NOW(3)),
-  (@f_testimonials, NULL, 'custom', NULL, 'footer', @sec_quick, NULL, 57, 1, NOW(3), NOW(3)),
   (@f_contact,  NULL, 'custom', NULL, 'footer', @sec_quick, NULL, 60, 1, NOW(3), NOW(3)),
 
   -- Services
@@ -187,10 +169,6 @@ VALUES
   (UUID(), @f_pricing, 'de', 'Preise',   '/pricing', NOW(3), NOW(3)),
   (UUID(), @f_pricing, 'tr', 'Fiyatlar', '/pricing', NOW(3), NOW(3)),
 
-  (UUID(), @f_booking, 'en', 'Book Call', '/booking', NOW(3), NOW(3)),
-  (UUID(), @f_booking, 'de', 'Termin',    '/booking', NOW(3), NOW(3)),
-  (UUID(), @f_booking, 'tr', 'Randevu',   '/booking', NOW(3), NOW(3)),
-
   (UUID(), @f_blog, 'en', 'Blog', '/blog', NOW(3), NOW(3)),
   (UUID(), @f_blog, 'de', 'Blog', '/blog', NOW(3), NOW(3)),
   (UUID(), @f_blog, 'tr', 'Blog', '/blog', NOW(3), NOW(3)),
@@ -198,10 +176,6 @@ VALUES
   (UUID(), @f_faq, 'en', 'FAQ', '/faq', NOW(3), NOW(3)),
   (UUID(), @f_faq, 'de', 'FAQ', '/faq', NOW(3), NOW(3)),
   (UUID(), @f_faq, 'tr', 'SSS', '/faq', NOW(3), NOW(3)),
-
-  (UUID(), @f_testimonials, 'en', 'Reviews', '/testimonials', NOW(3), NOW(3)),
-  (UUID(), @f_testimonials, 'de', 'Kundenstimmen', '/testimonials', NOW(3), NOW(3)),
-  (UUID(), @f_testimonials, 'tr', 'Yorumlar', '/testimonials', NOW(3), NOW(3)),
 
   (UUID(), @f_contact, 'en', 'Contact', '/#contact', NOW(3), NOW(3)),
   (UUID(), @f_contact, 'de', 'Kontakt', '/#contact', NOW(3), NOW(3)),

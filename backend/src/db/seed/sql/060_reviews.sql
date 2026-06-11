@@ -82,6 +82,5 @@ CREATE TABLE IF NOT EXISTS `review_i18n` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- =============================================================
--- Testimonials: demo yorum yok — gerçek kayıtlar admin panelden eklenir.
--- ui_testimonials.bucket: 11111111-1111-1111-1111-111111111111
+-- Demo yorum yok — gerçek kayıtlar admin panelden eklenir.
 -- =============================================================

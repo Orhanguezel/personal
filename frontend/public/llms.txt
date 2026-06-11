@@ -25,7 +25,6 @@ Guzel Web Design is a professional web development agency delivering end-to-end 
 - [Ensotek](https://www.guezelwebdesign.com/en/work/ensotek): Industrial automation platform — Next.js, Fastify, Drizzle ORM, Docker
 - [Vista Insaat](https://www.guezelwebdesign.com/en/work/vista-insaat): Construction company website — Next.js 16, Fastify, Tailwind v4
 - [QuickEcommerce](https://www.guezelwebdesign.com/en/work/quickecommerce): E-commerce admin panel — Laravel 12, Next.js 16, Flutter
-- [Konig Massage](https://www.guezelwebdesign.com/en/work/konig-massage): Booking and wellness service — Next.js, Fastify, Drizzle ORM
 - [Karbonkompozit](https://www.guezelwebdesign.com/en/work/karbonkompozit): Carbon fiber manufacturing — Next.js 16, Tailwind v4, next-intl
 - [Bereket Fide](https://www.guezelwebdesign.com/en/work/bereket-fide): Agricultural seedling platform — Next.js, Fastify, MySQL
 - [PaketJet](https://www.guezelwebdesign.com/en/work/paketjet): Logistics and delivery platform — Next.js, Fastify, Drizzle ORM

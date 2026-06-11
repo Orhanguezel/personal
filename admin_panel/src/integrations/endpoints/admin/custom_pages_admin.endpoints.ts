@@ -1,6 +1,6 @@
 // =============================================================
 // FILE: src/integrations/rtk/endpoints/admin/custom_pages_admin.endpoints.ts
-// konigsmassage – Admin Custom Pages RTK Endpoints (FINAL)
+// GuezelWebDesign - Admin Custom Pages RTK Endpoints (FINAL)
 // Base URL: /api (baseApi üzerinden)
 // Backend: src/modules/customPages/admin.routes.ts
 // =============================================================

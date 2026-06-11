@@ -92,7 +92,7 @@ VALUES
  'en',
  'Quick Access',
  'quick-access',
- 'Quick links to corporate pages and frequently used resources.',
+ 'Quick links to corporate pages and frequently used links.',
  '2024-01-01 00:00:00.000',
  '2024-01-01 00:00:00.000'),
 

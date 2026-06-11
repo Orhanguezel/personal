@@ -27,13 +27,9 @@ import { registerPricing } from '@vps/shared-backend/modules/pricing/router';
 import { registerResume } from '@vps/shared-backend/modules/resume/router';
 import { registerSkill } from '@vps/shared-backend/modules/skill/router';
 import { registerBrands } from '@vps/shared-backend/modules/brand/router';
-import { registerAvailability } from '@vps/shared-backend/modules/availability/router';
-import { registerResources } from '@vps/shared-backend/modules/resources/router';
-import { registerBookings } from '@vps/shared-backend/modules/bookings/router';
 import { registerCheckout } from '@vps/shared-backend/modules/checkout/router';
 import { registerOrders } from '@vps/shared-backend/modules/orders/router';
 import { registerWallet } from '@vps/shared-backend/modules/wallet/router';
-import { registerPopups } from '@vps/shared-backend/modules/popups/router';
 import { registerAnnouncements } from '@vps/shared-backend/modules/announcements/router';
 import { registerFlashSale } from '@vps/shared-backend/modules/flashSale/router';
 import { registerCoupons } from '@vps/shared-backend/modules/coupons/router';
@@ -64,12 +60,8 @@ import { registerPricingAdmin } from '@vps/shared-backend/modules/pricing/admin.
 import { registerResumeAdmin } from '@vps/shared-backend/modules/resume/admin.routes';
 import { registerSkillAdmin } from '@vps/shared-backend/modules/skill/admin.routes';
 import { registerBrandsAdmin } from '@vps/shared-backend/modules/brand/admin.routes';
-import { registerAvailabilityAdmin } from '@vps/shared-backend/modules/availability/admin.routes';
-import { registerResourcesAdmin } from '@vps/shared-backend/modules/resources/admin.routes';
-import { registerBookingsAdmin } from '@vps/shared-backend/modules/bookings/admin.routes';
 import { registerCheckoutAdmin } from '@vps/shared-backend/modules/checkout/admin.routes';
 import { registerWalletAdmin } from '@vps/shared-backend/modules/wallet/admin.routes';
-import { registerPopupsAdmin } from '@vps/shared-backend/modules/popups/admin.routes';
 import { registerAnnouncementsAdmin } from '@vps/shared-backend/modules/announcements/admin.routes';
 import { registerFlashSaleAdmin } from '@vps/shared-backend/modules/flashSale/admin.routes';
 import { registerCouponsAdmin } from '@vps/shared-backend/modules/coupons/admin.routes';
@@ -108,13 +100,9 @@ export async function registerSharedPublic(api: FastifyInstance) {
   await registerResume(api);
   await registerSkill(api);
   await registerBrands(api);
-  await registerAvailability(api);
-  await registerResources(api);
-  await registerBookings(api);
   await registerCheckout(api);
   await registerOrders(api);
   await registerWallet(api);
-  await registerPopups(api);
   await registerAnnouncements(api);
   await registerFlashSale(api);
   await registerCoupons(api);
@@ -146,12 +134,8 @@ export async function registerSharedAdmin(adminApi: FastifyInstance) {
     registerResumeAdmin,
     registerSkillAdmin,
     registerBrandsAdmin,
-    registerAvailabilityAdmin,
-    registerResourcesAdmin,
-    registerBookingsAdmin,
     registerCheckoutAdmin,
     registerWalletAdmin,
-    registerPopupsAdmin,
     registerAnnouncementsAdmin,
     registerFlashSaleAdmin,
     registerCouponsAdmin,

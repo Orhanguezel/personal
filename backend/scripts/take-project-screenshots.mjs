@@ -11,7 +11,6 @@ const SITES = [
   { slug: 'ensotek', url: 'https://www.ensotek.de' },
   { slug: 'karbonkompozit', url: 'https://karbonkompozit.com.tr' },
   { slug: 'vistainsaat', url: 'https://www.vistainsaat.com' },
-  { slug: 'konigsmassage', url: 'https://energetische-massage-bonn.de' },
   { slug: 'kamanilan', url: 'https://www.kamanilan.com' },
   { slug: 'gzltemizlik', url: 'https://gzltemizlik.com' },
   { slug: 'paketjet', url: 'https://paketjet.com' },

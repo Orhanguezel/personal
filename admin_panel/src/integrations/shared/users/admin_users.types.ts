@@ -1,6 +1,6 @@
 // =============================================================
 // FILE: src/integrations/types/admin_users.types.ts
-// konigsmassage – Admin Users tipleri
+// GuezelWebDesign - Admin Users tipleri
 // =============================================================
 
 import type { UserRoleName } from '@/integrations/shared';

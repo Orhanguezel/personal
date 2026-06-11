@@ -46,7 +46,6 @@ All content pages are available in all three languages.
 - https://www.guezelwebdesign.com/en/work/ensotek — Industrial automation platform (Next.js, Fastify, Docker)
 - https://www.guezelwebdesign.com/en/work/vista-insaat — Construction company (Next.js 16, Fastify, Tailwind v4)
 - https://www.guezelwebdesign.com/en/work/quickecommerce — E-commerce admin (Laravel 12, Next.js 16, Flutter)
-- https://www.guezelwebdesign.com/en/work/konig-massage — Wellness booking (Next.js, Fastify, Drizzle ORM)
 - https://www.guezelwebdesign.com/en/work/karbonkompozit — Carbon fiber manufacturing (Next.js 16, next-intl)
 - https://www.guezelwebdesign.com/en/work/bereket-fide — Agricultural seedling platform (Next.js, MySQL)
 - https://www.guezelwebdesign.com/en/work/paketjet — Logistics platform (Next.js, Fastify, Drizzle ORM)

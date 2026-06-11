@@ -12,7 +12,6 @@ import type {
   FaqDto,
   Faq,
   ReviewDto,
-  TestimonialsSection,
   ResumeGroupedResponse,
   BrandsGroupedResponse,
 } from '@/integrations/shared';
@@ -23,7 +22,6 @@ import {
   normalizeProduct,
   normalizePricingPageCopy,
   normalizeFaq,
-  normalizeTestimonialsSectionSettingValue,
   splitResume,
   splitBrands,
 } from '@/integrations/shared';
@@ -278,11 +276,6 @@ export async function getFaqsListServer(args: {
   } catch {
     return null;
   }
-}
-
-export async function getTestimonialsUiServer(locale: string): Promise<TestimonialsSection> {
-  const value = await getStaticSiteSettingValue('ui_testimonials', locale);
-  return normalizeTestimonialsSectionSettingValue(value ?? null);
 }
 
 export async function getReviewsListServer(args: {

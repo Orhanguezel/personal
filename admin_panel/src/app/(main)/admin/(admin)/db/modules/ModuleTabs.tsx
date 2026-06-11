@@ -26,7 +26,6 @@ const MODULE_OPTIONS = [
   'reviews',
   'support',
   'users',
-  'offers',
   'storage',
 ] as const;
 

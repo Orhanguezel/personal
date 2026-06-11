@@ -482,26 +482,6 @@ VALUES
   'ogImage', @OG_DEFAULT
 ) AS CHAR CHARACTER SET utf8mb4), NOW(3), NOW(3)),
 
--- Testimonials / reviews
-(UUID(), 'seo_pages_testimonials', 'tr', CAST(JSON_OBJECT(
-  'title','Musteri Yorumlari',
-  'description','Is birligi, teslim kalitesi ve iletisim hakkinda secilmis geri bildirimler.',
-  'keywords','yorum, referans, musteri, full-stack',
-  'ogImage', @OG_DEFAULT
-) AS CHAR CHARACTER SET utf8mb4), NOW(3), NOW(3)),
-(UUID(), 'seo_pages_testimonials', 'en', CAST(JSON_OBJECT(
-  'title','Client Reviews',
-  'description','Selected feedback on collaboration, delivery quality, and communication.',
-  'keywords','reviews, testimonials, clients, full-stack developer',
-  'ogImage', @OG_DEFAULT
-) AS CHAR CHARACTER SET utf8mb4), NOW(3), NOW(3)),
-(UUID(), 'seo_pages_testimonials', 'de', CAST(JSON_OBJECT(
-  'title','Kundenstimmen',
-  'description','Ausgewaehlte Rueckmeldungen zu Zusammenarbeit, Lieferqualitaet und Kommunikation.',
-  'keywords','bewertung, referenzen, kunden, full-stack',
-  'ogImage', @OG_DEFAULT
-) AS CHAR CHARACTER SET utf8mb4), NOW(3), NOW(3)),
-
 -- Custom Page Detail
 (UUID(), 'seo_pages_custompage_detail', 'tr', CAST(JSON_OBJECT(
   'title','Sayfa Detayi',

@@ -122,7 +122,7 @@ SET
     JSON_OBJECT(
       'challenge', 'PaketJet needed a freight marketplace MVP where carriers could publish route capacity and customers could book available cargo space through a clear, mobile-first workflow.',
       'approach', 'The product was delivered with Next.js, Fastify, MySQL, Drizzle ORM and Bun. Carrier dashboards, customer booking flows, route capacity management and admin revenue views were designed around a compact marketplace model.',
-      'outcome', 'A production-oriented marketplace foundation was delivered in a two-week build window, ready for iteration around listings, bookings, wallet and operational reporting.'
+      'outcome', 'A production-oriented marketplace foundation was delivered in a two-week build window, ready for iteration around listings, checkout, wallet and operational reporting.'
     )
   ) AS CHAR CHARACTER SET utf8mb4),
   `updated_at` = CURRENT_TIMESTAMP(3)

@@ -8,7 +8,6 @@ SITES=(
   "ensotek|https://www.ensotek.de"
   "karbonkompozit|https://karbonkompozit.com.tr"
   "vistainsaat|https://www.vistainsaat.com"
-  "konigsmassage|https://energetische-massage-bonn.de"
   "kamanilan|https://www.kamanilan.com"
   "gzltemizlik|https://gzltemizlik.com"
   "paketjet|https://paketjet.com"

@@ -143,7 +143,7 @@ export default function AdminReviewsDetailClient({ id }: { id: string }) {
 
   // Form state
   const [formData, setFormData] = React.useState<FormData>({
-    target_type: 'testimonial',
+    target_type: 'review',
     target_id: '11111111-1111-1111-1111-111111111111',
     name: '',
     email: '',
@@ -169,7 +169,7 @@ export default function AdminReviewsDetailClient({ id }: { id: string }) {
   React.useEffect(() => {
     if (!isNew && existingItem) {
       setFormData({
-        target_type: existingItem.target_type || 'testimonial',
+        target_type: existingItem.target_type || 'review',
         target_id: existingItem.target_id || '11111111-1111-1111-1111-111111111111',
         name: existingItem.name || '',
         email: existingItem.email || '',
@@ -486,7 +486,7 @@ export default function AdminReviewsDetailClient({ id }: { id: string }) {
                   onChange={(e) =>
                     setFormData((prev) => ({ ...prev, target_type: e.target.value }))
                   }
-                  placeholder="Örn: testimonial, product, service"
+                  placeholder="Örn: review, product, service"
                   disabled={busy}
                   required
                 />
@@ -608,7 +608,7 @@ export default function AdminReviewsDetailClient({ id }: { id: string }) {
           <CardHeader>
             <CardTitle className="text-base">Testimonial Ek Bilgileri</CardTitle>
             <CardDescription>
-              Bu alanlar testimonial görünümü için kullanılır (opsiyonel)
+              Bu alanlar yorum kartı görünümü için kullanılır (opsiyonel)
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">

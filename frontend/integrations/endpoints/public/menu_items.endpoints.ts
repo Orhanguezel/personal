@@ -1,6 +1,6 @@
 // =============================================================
 // FILE: src/integrations/endpoints/menu_items.endpoints.ts
-// konigsmassage – Public Menu Items RTK endpoints
+// GuezelWebDesign - Public Menu Items RTK endpoints
 // =============================================================
 
 import { baseApi } from '@/integrations/baseApi';

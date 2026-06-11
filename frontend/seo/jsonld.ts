@@ -85,29 +85,6 @@ export function website(input: {
   return base;
 }
 
-export function product(input: {
-  name: string;
-  description?: string;
-  image?: string | string[];
-  sku?: string;
-  brand?: string;
-  offers?:
-    | {
-        price: number;
-        priceCurrency: string;
-        availability?: string;
-        url?: string;
-      }
-    | Array<{
-        price: number;
-        priceCurrency: string;
-        availability?: string;
-        url?: string;
-      }>;
-}): Thing {
-  return { '@context': 'https://schema.org', '@type': 'Product', ...input };
-}
-
 export function article(input: {
   headline: string;
   description?: string;
@@ -260,60 +237,4 @@ export function professionalService(input: {
     ...(input.knowsLanguage?.length ? { knowsLanguage: input.knowsLanguage } : {}),
     ...(input.priceRange ? { priceRange: input.priceRange } : {}),
   };
-}
-
-/** ProfessionalService @id + AggregateRating + Review nodes (same @id merges with site graph). */
-export function testimonialsReviewGraph(input: {
-  professionalServiceId: string;
-  siteName: string;
-  canonicalBase: string;
-  reviews: Array<{
-    authorName: string;
-    reviewBody: string;
-    ratingValue: number;
-    datePublished?: string;
-  }>;
-}): Thing | null {
-  const { professionalServiceId, siteName, canonicalBase, reviews } = input;
-  if (!reviews.length) {
-    return null;
-  }
-
-  const ratingSum = reviews.reduce((s, r) => s + r.ratingValue, 0);
-  const count = reviews.length;
-  const avg = Math.round((ratingSum / count) * 10) / 10;
-
-  const nodes: Thing[] = [
-    {
-      '@type': 'ProfessionalService',
-      '@id': professionalServiceId,
-      name: siteName,
-      url: canonicalBase,
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: String(avg),
-        reviewCount: String(count),
-        bestRating: '5',
-        worstRating: '1',
-      },
-    },
-  ];
-
-  for (const r of reviews) {
-    nodes.push({
-      '@type': 'Review',
-      author: { '@type': 'Person', name: r.authorName },
-      reviewRating: {
-        '@type': 'Rating',
-        ratingValue: r.ratingValue,
-        bestRating: 5,
-        worstRating: 1,
-      },
-      reviewBody: r.reviewBody,
-      itemReviewed: { '@id': professionalServiceId },
-      ...(r.datePublished ? { datePublished: r.datePublished } : {}),
-    });
-  }
-
-  return graph(nodes);
 }

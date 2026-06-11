@@ -5,9 +5,7 @@ import dynamic from 'next/dynamic';
 import type {
   BrandsGroupedResponse,
   ResumeGroupedResponse,
-  ReviewDto,
   ServiceDto,
-  TestimonialsSection,
 } from '@/integrations/shared';
 
 type Props = {
@@ -15,8 +13,6 @@ type Props = {
   initialServices?: ServiceDto[];
   initialResume?: ResumeGroupedResponse | null;
   initialBrands?: BrandsGroupedResponse | null;
-  testimonialUi: TestimonialsSection;
-  testimonialReviews: ReviewDto[] | null;
 };
 
 const SectionPlaceholder = ({ minHeight }: { minHeight: number }) => (
@@ -43,9 +39,6 @@ const Skills1 = dynamic(() => import('@/components/sections/Skills1'), {
 const Brands1 = dynamic(() => import('@/components/sections/Brands1'), {
   loading: () => <SectionPlaceholder minHeight={200} />,
 });
-const Testimonials1 = dynamic(() => import('@/components/sections/Testimonials1'), {
-  loading: () => <SectionPlaceholder minHeight={260} />,
-});
 const Blog1 = dynamic(() => import('@/components/sections/Blog1'), {
   loading: () => <SectionPlaceholder minHeight={280} />,
 });
@@ -59,8 +52,6 @@ export default function HomeSections({
   initialServices,
   initialResume,
   initialBrands,
-  testimonialUi,
-  testimonialReviews,
 }: Props) {
   return (
     <>
@@ -70,11 +61,6 @@ export default function HomeSections({
       <Resume1 locale={locale} initialData={initialResume} />
       <Skills1 locale={locale} />
       <Brands1 locale={locale} initialData={initialBrands} />
-      <Testimonials1
-        locale={locale}
-        initialUi={testimonialUi}
-        initialReviews={testimonialReviews}
-      />
       <Blog1 locale={locale} />
       <Contact1 />
     </>

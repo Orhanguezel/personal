@@ -12,8 +12,6 @@ import HomeSections from './HomeSections.client';
 import {
   getUiHomeServer,
   getServicesListServer,
-  getTestimonialsUiServer,
-  getReviewsListServer,
   getResumeListServer,
   getBrandsListServer,
 } from '@/utils/publicLists.server';
@@ -24,21 +22,12 @@ export const revalidate = 60;
 
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  const [uiHome, services, testimonialUi, resume, brands] = await Promise.all([
+  const [uiHome, services, resume, brands] = await Promise.all([
     getUiHomeServer({ locale }),
     getServicesListServer({ locale, limit: 4 }),
-    getTestimonialsUiServer(locale),
     getResumeListServer({ locale, limit: 50 }),
     getBrandsListServer({ locale, limit: 200 }),
   ]);
-
-  const testimonialReviews = await getReviewsListServer({
-    locale,
-    target_type: testimonialUi.target_type,
-    target_id: testimonialUi.bucket,
-    limit: 20,
-    offset: 0,
-  });
 
   return (
     <Layout headerStyle={1} footerStyle={1}>
@@ -52,8 +41,6 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         initialServices={services}
         initialResume={resume}
         initialBrands={brands}
-        testimonialUi={testimonialUi}
-        testimonialReviews={testimonialReviews}
       />
     </Layout>
   );

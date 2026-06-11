@@ -22,7 +22,6 @@ export type UiSectionKey =
   | 'ui_about'
   | 'ui_about_stats'
   | 'ui_pricing'
-  | 'ui_testimonials'
   | 'ui_faq'
   | 'ui_features'
   | 'ui_cta'
@@ -101,7 +100,6 @@ const SECTION_KEYS: Record<UiSectionKey, readonly string[]> = {
     'ui_footer_company',
     'ui_footer_about',
     'ui_footer_blog',
-    'ui_footer_resources',
     'ui_footer_free_tools',
     'ui_footer_contact_us',
     'ui_footer_services',
@@ -185,16 +183,6 @@ const SECTION_KEYS: Record<UiSectionKey, readonly string[]> = {
   ],
 
   ui_pricing: [],
-
-  ui_testimonials: [
-    'ui_feedback_subprefix',
-    'ui_feedback_sublabel',
-    'ui_feedback_title',
-    'ui_feedback_paragraph',
-    'ui_feedback_prev',
-    'ui_feedback_next',
-    'ui_feedback_role_customer',
-  ],
 
   ui_faq: [],
   ui_features: [],

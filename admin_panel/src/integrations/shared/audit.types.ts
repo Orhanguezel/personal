@@ -1,6 +1,6 @@
 // =============================================================
 // FILE: src/integrations/types/audit.types.ts
-// konigsmassage – Audit Types (Frontend DTO + Query Params)
+// GuezelWebDesign - Audit Types (Frontend DTO + Query Params)
 // =============================================================
 
 import type { BoolLike } from '@/integrations/shared/common';

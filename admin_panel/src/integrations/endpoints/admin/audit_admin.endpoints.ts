@@ -1,6 +1,6 @@
 // =============================================================
 // FILE: src/integrations/rtk/endpoints/admin/audit_admin.endpoints.ts
-// konigsmassage – Admin Audit (RTK Query)
+// GuezelWebDesign - Admin Audit (RTK Query)
 // FIX:
 //  - List endpoints return { items, total }
 //  - Daily endpoint returns { days, ...meta }
