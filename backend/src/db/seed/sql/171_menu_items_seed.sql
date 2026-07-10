@@ -116,6 +116,7 @@ SET @f_pricing  := UUID();
 SET @f_blog     := UUID();
 SET @f_faq      := UUID();
 SET @f_contact  := UUID();
+SET @f_turkiye  := UUID();
 
 SET @f_svc_uiux   := UUID();
 SET @f_svc_mobile := UUID();
@@ -137,6 +138,7 @@ VALUES
   (@f_blog,     NULL, 'custom', NULL, 'footer', @sec_quick, NULL, 50, 1, NOW(3), NOW(3)),
   (@f_faq,      NULL, 'custom', NULL, 'footer', @sec_quick, NULL, 55, 1, NOW(3), NOW(3)),
   (@f_contact,  NULL, 'custom', NULL, 'footer', @sec_quick, NULL, 60, 1, NOW(3), NOW(3)),
+  (@f_turkiye,  NULL, 'custom', NULL, 'footer', @sec_quick, NULL, 70, 1, NOW(3), NOW(3)),
 
   -- Services
   (@f_svc_uiux,   NULL, 'custom', NULL, 'footer', @sec_services, NULL, 10, 1, NOW(3), NOW(3)),
@@ -180,6 +182,10 @@ VALUES
   (UUID(), @f_contact, 'en', 'Contact', '/#contact', NOW(3), NOW(3)),
   (UUID(), @f_contact, 'de', 'Kontakt', '/#contact', NOW(3), NOW(3)),
   (UUID(), @f_contact, 'tr', 'İletişim','/#contact', NOW(3), NOW(3)),
+
+  (UUID(), @f_turkiye, 'en', 'Türkiye operations are carried out by GZL Teknoloji Ltd.', 'https://gzlteknoloji.com/en', NOW(3), NOW(3)),
+  (UUID(), @f_turkiye, 'de', 'Das Türkiye-Geschäft wird von GZL Teknoloji Ltd. geführt.', 'https://gzlteknoloji.com/tr', NOW(3), NOW(3)),
+  (UUID(), @f_turkiye, 'tr', 'Türkiye operasyonları GZL Danışmanlık Hizmetleri ve Teknoloji Ltd. Şti. tarafından yürütülmektedir.', 'https://gzlteknoloji.com/tr', NOW(3), NOW(3)),
 
   -- Services
   (UUID(), @f_svc_uiux, 'en', 'UI/UX Design', '/services/ui-ux-design', NOW(3), NOW(3)),
