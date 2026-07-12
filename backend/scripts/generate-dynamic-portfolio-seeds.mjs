@@ -28,6 +28,9 @@ const EXCLUDED_DIRS = new Set([
   'guezelwebdesign',
   'ayarlar',
   'sablon_proje',
+  // Ic isler — portfolyoda musteriye gosterilmez
+  'gelir-motoru',
+  'youtube-belgesel',
   'node_modules',
   'dist',
   'build',

@@ -1,5 +1,5 @@
 -- AUTO-GENERATED FILE. Source: /home/orhan/Documents/Projeler project metadata files
--- Generated at 2026-06-09T23:37:13.764Z
+-- Generated at 2026-07-12T17:08:13.778Z
 SET NAMES utf8mb4;
 SET time_zone = '+00:00';
 
@@ -67,7 +67,7 @@ INSERT INTO `projects_i18n` (
   `featured_image_alt`, `meta_title`, `meta_description`, `created_at`, `updated_at`
 ) VALUES (
   UUID(), @p3, 'de', 'Paspas ERP', 'paspas-erp', 'Production planning and operations ERP workspace with Bun backend and Next.js admin panel.',
-  CAST('{"html":"<p>Production planning and operations ERP workspace with Bun backend and Next.js admin panel.</p>","description":null,"key_features":["Production planning","Operations management","Admin dashboard","ERP workflows","Reporting"],"technologies_used":["Bun","TypeScript","Fastify","Drizzle ORM","MySQL","Next.js","React","React Query","Redux Toolkit","JWT","Nginx","CI/CD","Zustand","Tailwind CSS","Radix UI","Zod","Cloudinary","Nodemailer"],"design_highlights":["Operational data flows","Machine planning focus","Admin-first workflow design"]}' AS CHAR), 'Paspas ERP cover image', 'Paspas ERP', 'Production planning and operations ERP workspace with Bun backend and Next.js admin panel.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
+  CAST('{"html":"<p>Production planning and operations ERP workspace with Bun backend and Next.js admin panel.</p>","description":null,"key_features":["Production planning","Operations management","Admin dashboard","ERP workflows","Reporting"],"technologies_used":["Bun","TypeScript","Fastify","Drizzle ORM","MySQL","Next.js","React","React Query","Redux Toolkit","JWT","Nginx","CI/CD","Zustand","Tailwind CSS","Radix UI","Zod","Cloudinary","Nodemailer","Sass"],"design_highlights":["Operational data flows","Machine planning focus","Admin-first workflow design"]}' AS CHAR), 'Paspas ERP cover image', 'Paspas ERP', 'Production planning and operations ERP workspace with Bun backend and Next.js admin panel.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 )
 ON DUPLICATE KEY UPDATE
   title = VALUES(title),
@@ -121,7 +121,7 @@ INSERT INTO `projects_i18n` (
   `featured_image_alt`, `meta_title`, `meta_description`, `created_at`, `updated_at`
 ) VALUES (
   UUID(), @p5, 'de', 'SUNPLEX Üretim Yönetim Sistemi', 'sunplex-uretim-yonetim', 'Stoğa üretim yapan plastik enjeksiyon fabrikası için üretim yönetim sistemi; Logo Wings ERP ve makine veri entegrasyonları ile.',
-  CAST('{"html":"<p>Stoğa üretim yapan plastik enjeksiyon fabrikası için üretim yönetim sistemi; Logo Wings ERP ve makine veri entegrasyonları ile.</p>","description":null,"key_features":["Stoğa üretim planlama","Logo Wings ERP entegrasyonu","Makine veri entegrasyonu","Sipariş paketleme ve sevkiyat","Haftalık makine bazlı planlama","Personel devam takibi"],"technologies_used":["Bun","TypeScript","Fastify","Drizzle ORM","MySQL","Next.js","React","React Query","Redux Toolkit","JWT","Zod","Nginx","CI/CD","Zustand","Tailwind CSS","Radix UI","Cloudinary","Nodemailer"],"design_highlights":["Stok odaklı üretim akışı","Haftalık ve makine bazlı planlama","Admin-first workflow design"]}' AS CHAR), 'SUNPLEX Üretim Yönetim Sistemi cover image', 'SUNPLEX Üretim Yönetim Sistemi', 'Stoğa üretim yapan plastik enjeksiyon fabrikası için üretim yönetim sistemi; Logo Wings ERP ve makine veri entegrasyonları ile.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
+  CAST('{"html":"<p>Stoğa üretim yapan plastik enjeksiyon fabrikası için üretim yönetim sistemi; Logo Wings ERP ve makine veri entegrasyonları ile.</p>","description":null,"key_features":["Stoğa üretim planlama","Logo Wings ERP entegrasyonu","Makine veri entegrasyonu","Sipariş paketleme ve sevkiyat","Haftalık makine bazlı planlama","Personel devam takibi"],"technologies_used":["Bun","TypeScript","Fastify","Drizzle ORM","MySQL","Next.js","React","React Query","Redux Toolkit","JWT","Zod","PM2","Nginx","CI/CD","Zustand","Tailwind CSS","Radix UI","Cloudinary","Nodemailer"],"design_highlights":["Stok odaklı üretim akışı","Haftalık ve makine bazlı planlama","Admin-first workflow design"]}' AS CHAR), 'SUNPLEX Üretim Yönetim Sistemi cover image', 'SUNPLEX Üretim Yönetim Sistemi', 'Stoğa üretim yapan plastik enjeksiyon fabrikası için üretim yönetim sistemi; Logo Wings ERP ve makine veri entegrasyonları ile.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 )
 ON DUPLICATE KEY UPDATE
   title = VALUES(title),
@@ -175,7 +175,7 @@ INSERT INTO `projects_i18n` (
   `featured_image_alt`, `meta_title`, `meta_description`, `created_at`, `updated_at`
 ) VALUES (
   UUID(), @p7, 'de', 'Tahmin Motoru', 'tahmin-motoru', 'Tarım Dijital Ekosistemi''nin merkezi tahmin mikroservisi. Geçmiş istatistikler ve o yılki şartları gözeterek 12 aya kadar hava durumu, hal fiyatı, enflasyon ve tarla verimi tahmini üretir; ekosistemdeki diğer projelere API ile servis eder.',
-  CAST('{"html":"<p>Tarım Dijital Ekosistemi''nin merkezi tahmin mikroservisi. Geçmiş istatistikler ve o yılki şartları gözeterek 12 aya kadar hava durumu, hal fiyatı, enflasyon ve tarla verimi tahmini üretir; ekosistemdeki diğer projelere API ile servis eder.</p>","description":null,"key_features":["12 aya kadar hava durumu (iklim istatistiği + o yılki anomali) olasılıklı tahmini","Geçmiş hal fiyatlarına dayalı ürün/hal bazlı fiyat tahmini","Enflasyon (TÜFE/tarımsal ÜFE) senaryolu tahmini","Ürün/parsel/bölge bazlı tarla verimi tahmini","Belirsizlik aralığı + backtest doğruluk metrikleri ile dürüst tahmin","REST API — ekosistem modüllerine tahmin servisi (/api/v1)","Diğer proje DB''lerine read-only erişim + REST hibrit veri toplama","Versiyonlu model kayıt defteri ve zamanlanmış yeniden eğitim"],"technologies_used":["Python","FastAPI","statsmodels","Prophet","scikit-learn","pandas","TypeScript","Fastify","Bun","MySQL","TimescaleDB","Redis","Docker"],"design_highlights":["tm_ prefix ile şema ayrımı","Python ML çekirdeği + ince Fastify ekosistem gateway","Ekosistemin merkezi tahmin/forecast veri servisi"]}' AS CHAR), 'Tahmin Motoru cover image', 'Tahmin Motoru', 'Tarım Dijital Ekosistemi''nin merkezi tahmin mikroservisi. Geçmiş istatistikler ve o yılki şartları gözeterek 12 aya kadar hava durumu, hal fiyatı, enflasyon ve tarla verimi tahmini üretir; ekosistemdeki diğer projelere API ile servis eder.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
+  CAST('{"html":"<p>Tarım Dijital Ekosistemi''nin merkezi tahmin mikroservisi. Geçmiş istatistikler ve o yılki şartları gözeterek 12 aya kadar hava durumu, hal fiyatı, enflasyon ve tarla verimi tahmini üretir; ekosistemdeki diğer projelere API ile servis eder.</p>","description":null,"key_features":["Ulusal/uluslararası makro-finansal-emtia korelasyon keşif motoru (TCMB EVDS, FRED, FAO, World Bank, Open-Meteo ERA5)","Sahte korelasyona karşı üç kapı: block-permutation + Benjamini-Hochberg FDR, mevsimsellik artefaktı, yapısal kırılma (supremum-Chow)","Point-in-time (vintage) veri disiplini — geçmişe dönük revizyon sızıntısı mimari olarak engellenir","12 aya kadar hava durumu (iklim istatistiği + o yılki anomali) olasılıklı tahmini","Geçmiş hal fiyatlarına dayalı ürün/hal bazlı fiyat tahmini","Enflasyon (TÜFE/tarımsal ÜFE) senaryolu tahmini","Ürün/parsel/bölge bazlı tarla verimi tahmini","Belirsizlik aralığı + backtest doğruluk metrikleri ile dürüst tahmin","REST API — ekosistem modüllerine tahmin servisi (/api/v1)","Diğer proje DB''lerine read-only erişim + REST hibrit veri toplama","Versiyonlu model kayıt defteri ve zamanlanmış yeniden eğitim"],"technologies_used":["Python","FastAPI","statsmodels","Prophet","scikit-learn","pandas","TypeScript","Fastify","Bun","MySQL","TimescaleDB","Redis","Docker","Drizzle ORM","JWT","Zod","Nodemailer"],"design_highlights":["tm_ prefix ile şema ayrımı","Python ML çekirdeği + ince Fastify ekosistem gateway","Ekosistemin merkezi tahmin/forecast veri servisi"]}' AS CHAR), 'Tahmin Motoru cover image', 'Tahmin Motoru', 'Tarım Dijital Ekosistemi''nin merkezi tahmin mikroservisi. Geçmiş istatistikler ve o yılki şartları gözeterek 12 aya kadar hava durumu, hal fiyatı, enflasyon ve tarla verimi tahmini üretir; ekosistemdeki diğer projelere API ile servis eder.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 )
 ON DUPLICATE KEY UPDATE
   title = VALUES(title),
@@ -194,14 +194,68 @@ ON DUPLICATE KEY UPDATE
   caption = VALUES(caption),
   updated_at = CURRENT_TIMESTAMP(3);
 
-SET @p8 := (SELECT project_id FROM projects_i18n WHERE locale='en' AND slug='paketjet' LIMIT 1);
+SET @p8 := (SELECT project_id FROM projects_i18n WHERE locale='en' AND slug='menu' LIMIT 1);
 SET @img8 := (SELECT id FROM project_images WHERE project_id=@p8 ORDER BY display_order ASC, created_at ASC LIMIT 1);
 
 INSERT INTO `projects_i18n` (
   `id`, `project_id`, `locale`, `title`, `slug`, `summary`, `content`,
   `featured_image_alt`, `meta_title`, `meta_description`, `created_at`, `updated_at`
 ) VALUES (
-  UUID(), @p8, 'de', 'PaketJet', 'paketjet', 'P2P cargo freight marketplace — carriers post route & capacity listings, customers book cargo space. BlaBlaCar model applied to freight logistics.',
+  UUID(), @p8, 'de', 'Menu SaaS — Çok Kiracılı Restoran Sipariş Platformu', 'menu', 'Lieferando benzeri çok kiracılı restoran sipariş platformu: QR masa siparişi, paket servis/gel-al, marketplace, kurye yönetimi, mutfak ekranı ve mobil uygulama. Schema-per-tenant mimari — her restoran kendi veritabanında.',
+  CAST('{"html":"<p>Lieferando benzeri çok kiracılı restoran sipariş platformu: QR masa siparişi, paket servis/gel-al, marketplace, kurye yönetimi, mutfak ekranı ve mobil uygulama. Schema-per-tenant mimari — her restoran kendi veritabanında.</p>","description":null,"key_features":["Next.js 16 implementation","React 19 implementation","TypeScript implementation","Fastify implementation","MySQL (schema-per-tenant) implementation"],"technologies_used":["Next.js 16","React 19","TypeScript","Fastify","MySQL (schema-per-tenant)","Bun","Expo / React Native","SSE (mutfak ekranı)","Next.js","React","Zustand","Tailwind CSS","Radix UI","Zod","MySQL","Drizzle ORM","JWT","Cloudinary","Nodemailer","Sass","i18n"],"design_highlights":["Portfolio metadata standard is enforced","Tech stack is merged with repository scan results","Content is generated dynamically for portfolio seeds"]}' AS CHAR), 'Menu SaaS — Çok Kiracılı Restoran Sipariş Platformu cover image', 'Menu SaaS — Çok Kiracılı Restoran Sipariş Platformu', 'Lieferando benzeri çok kiracılı restoran sipariş platformu: QR masa siparişi, paket servis/gel-al, marketplace, kurye yönetimi, mutfak ekranı ve mobil uygulama. Schema-per-tenant mimari — her restoran kendi veritabanında.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
+)
+ON DUPLICATE KEY UPDATE
+  title = VALUES(title),
+  slug = VALUES(slug),
+  summary = VALUES(summary),
+  content = VALUES(content),
+  featured_image_alt = VALUES(featured_image_alt),
+  meta_title = VALUES(meta_title),
+  meta_description = VALUES(meta_description),
+  updated_at = CURRENT_TIMESTAMP(3);
+
+INSERT INTO `project_images_i18n` (`id`, `image_id`, `locale`, `alt`, `caption`, `created_at`, `updated_at`) VALUES
+(UUID(), @img8, 'de', 'Menu SaaS — Çok Kiracılı Restoran Sipariş Platformu', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
+ON DUPLICATE KEY UPDATE
+  alt = VALUES(alt),
+  caption = VALUES(caption),
+  updated_at = CURRENT_TIMESTAMP(3);
+
+SET @p9 := (SELECT project_id FROM projects_i18n WHERE locale='en' AND slug='osgb-yazilim' LIMIT 1);
+SET @img9 := (SELECT id FROM project_images WHERE project_id=@p9 ORDER BY display_order ASC, created_at ASC LIMIT 1);
+
+INSERT INTO `projects_i18n` (
+  `id`, `project_id`, `locale`, `title`, `slug`, `summary`, `content`,
+  `featured_image_alt`, `meta_title`, `meta_description`, `created_at`, `updated_at`
+) VALUES (
+  UUID(), @p9, 'de', 'OSGB Yazılım — İSG Operasyon Yönetim Sistemi', 'osgb-yazilim', 'Ortak Sağlık Güvenlik Birimi (OSGB) operasyonlarını Excel''den kurtaran yönetim sistemi: firma kartları, İSG ziyaret takibi, görev yönetimi, sağlık raporu ve tarama takibi, hekim ekranı, arşiv/evrak, teklif ve tahsilat süreçleri, İK/personel ve yetkilendirme.',
+  CAST('{"html":"<p>Ortak Sağlık Güvenlik Birimi (OSGB) operasyonlarını Excel''den kurtaran yönetim sistemi: firma kartları, İSG ziyaret takibi, görev yönetimi, sağlık raporu ve tarama takibi, hekim ekranı, arşiv/evrak, teklif ve tahsilat süreçleri, İK/personel ve yetkilendirme.</p>","description":null,"key_features":["Next.js 16 implementation","React 19 implementation","TypeScript implementation","Fastify implementation","Drizzle ORM implementation"],"technologies_used":["Next.js 16","React 19","TypeScript","Fastify","Drizzle ORM","MySQL","Bun","Tailwind CSS v4","Next.js","React","Zustand","Tailwind CSS","Radix UI","Zod","JWT","Sass","Cloudinary","Nodemailer"],"design_highlights":["Portfolio metadata standard is enforced","Tech stack is merged with repository scan results","Content is generated dynamically for portfolio seeds"]}' AS CHAR), 'OSGB Yazılım — İSG Operasyon Yönetim Sistemi cover image', 'OSGB Yazılım — İSG Operasyon Yönetim Sistemi', 'Ortak Sağlık Güvenlik Birimi (OSGB) operasyonlarını Excel''den kurtaran yönetim sistemi: firma kartları, İSG ziyaret takibi, görev yönetimi, sağlık raporu ve tarama takibi, hekim ekranı, arşiv/evrak, teklif ve tahsilat süreçleri, İK/personel ve yetkilendirme.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
+)
+ON DUPLICATE KEY UPDATE
+  title = VALUES(title),
+  slug = VALUES(slug),
+  summary = VALUES(summary),
+  content = VALUES(content),
+  featured_image_alt = VALUES(featured_image_alt),
+  meta_title = VALUES(meta_title),
+  meta_description = VALUES(meta_description),
+  updated_at = CURRENT_TIMESTAMP(3);
+
+INSERT INTO `project_images_i18n` (`id`, `image_id`, `locale`, `alt`, `caption`, `created_at`, `updated_at`) VALUES
+(UUID(), @img9, 'de', 'OSGB Yazılım — İSG Operasyon Yönetim Sistemi', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
+ON DUPLICATE KEY UPDATE
+  alt = VALUES(alt),
+  caption = VALUES(caption),
+  updated_at = CURRENT_TIMESTAMP(3);
+
+SET @p10 := (SELECT project_id FROM projects_i18n WHERE locale='en' AND slug='paketjet' LIMIT 1);
+SET @img10 := (SELECT id FROM project_images WHERE project_id=@p10 ORDER BY display_order ASC, created_at ASC LIMIT 1);
+
+INSERT INTO `projects_i18n` (
+  `id`, `project_id`, `locale`, `title`, `slug`, `summary`, `content`,
+  `featured_image_alt`, `meta_title`, `meta_description`, `created_at`, `updated_at`
+) VALUES (
+  UUID(), @p10, 'de', 'PaketJet', 'paketjet', 'P2P cargo freight marketplace — carriers post route & capacity listings, customers book cargo space. BlaBlaCar model applied to freight logistics.',
   CAST('{"html":"<p>P2P cargo freight marketplace — carriers post route & capacity listings, customers book cargo space. BlaBlaCar model applied to freight logistics.</p>","description":null,"key_features":["P2P cargo listing & booking","Real-time capacity management","Wallet & payment system","Carrier & customer dashboards","Multi-step listing wizard","Admin panel with revenue stats","JWT cookie auth with role guards"],"technologies_used":["TypeScript","Next.js 15","React 19","Fastify v5","MySQL 8","Drizzle ORM","Bun","Zod","Zustand","Tailwind CSS v4","Next.js","React","Fastify","MySQL","Tailwind CSS","Radix UI","JWT","Cloudinary","Nodemailer"],"design_highlights":["Token-based Tailwind v4 design system","Dark mode with data-theme attribute","Mobile-first responsive panel UI","Capacity bar visualization"]}' AS CHAR), 'PaketJet cover image', 'PaketJet', 'P2P cargo freight marketplace — carriers post route & capacity listings, customers book cargo space. BlaBlaCar model applied to freight logistics.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 )
 ON DUPLICATE KEY UPDATE
@@ -215,20 +269,47 @@ ON DUPLICATE KEY UPDATE
   updated_at = CURRENT_TIMESTAMP(3);
 
 INSERT INTO `project_images_i18n` (`id`, `image_id`, `locale`, `alt`, `caption`, `created_at`, `updated_at`) VALUES
-(UUID(), @img8, 'de', 'PaketJet', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
+(UUID(), @img10, 'de', 'PaketJet', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
 ON DUPLICATE KEY UPDATE
   alt = VALUES(alt),
   caption = VALUES(caption),
   updated_at = CURRENT_TIMESTAMP(3);
 
-SET @p9 := (SELECT project_id FROM projects_i18n WHERE locale='en' AND slug='dirican-mantar' LIMIT 1);
-SET @img9 := (SELECT id FROM project_images WHERE project_id=@p9 ORDER BY display_order ASC, created_at ASC LIMIT 1);
+SET @p11 := (SELECT project_id FROM projects_i18n WHERE locale='en' AND slug='agrodukkan' LIMIT 1);
+SET @img11 := (SELECT id FROM project_images WHERE project_id=@p11 ORDER BY display_order ASC, created_at ASC LIMIT 1);
 
 INSERT INTO `projects_i18n` (
   `id`, `project_id`, `locale`, `title`, `slug`, `summary`, `content`,
   `featured_image_alt`, `meta_title`, `meta_description`, `created_at`, `updated_at`
 ) VALUES (
-  UUID(), @p9, 'de', 'Dirican Mantar — AI Hasat Görüntüleme Sistemi', 'dirican-mantar', 'Mersin''deki kültür mantarı üretim tesisi için geliştirilecek yapay zeka destekli hasat görüntüleme ve işaretleme sistemi. YOLOv8 + Intel RealSense + NVIDIA Jetson Orin ile 4 cm eşiğini geçen mantarları gerçek zamanlı tespit ederek hasat personelini LED/projeksiyon ile yönlendiriyor.',
+  UUID(), @p11, 'de', 'Agro Dükkan', 'agrodukkan', 'Tum zirai girdileri (tohum/fide, gubre, zirai ilac, alet/ekipman) perakende (B2C) satan e-ticaret zirai market. Fiyat, sepet, odeme (iyzico) ve Google Shopping ile son tuketiciye dogrudan satis. VistaSeeds (B2B) ile ayrik calisir.',
+  CAST('{"html":"<p>Tum zirai girdileri (tohum/fide, gubre, zirai ilac, alet/ekipman) perakende (B2C) satan e-ticaret zirai market. Fiyat, sepet, odeme (iyzico) ve Google Shopping ile son tuketiciye dogrudan satis. VistaSeeds (B2B) ile ayrik calisir.</p>","description":null,"key_features":["4 kategorili zirai market: tohum/fide, gubre, zirai ilac, alet/ekipman","Fiyatli urun vitrini + sepet + checkout (iyzico)","Zirai ilac (BKU) tam online satis: recete/bayilik akisi + admin onay","Kategori-ozel urun nitelikleri (NPK, aktif madde, karens, motor gucu)","Google Merchant urun feed + Shopping kampanyasi (BKU filtreli)","Multi-vendor altyapi (tek-satici modda acilir, pazaryerine hazir)","GA4 e-ticaret olcumu (view_item/add_to_cart/purchase, item_category)","Marka-bagimsiz e-ticaret sablonu: baska sitelerde yeniden kullanim"],"technologies_used":["Laravel","PHP","Next.js","React","Redux Toolkit","MySQL","iyzico","Netgsm","Fastify","JWT","JavaScript","Sass","TypeScript","Tailwind CSS"],"design_highlights":["Lisansli Shopo yazilimi -> marka-bagimsiz sablon (Projeler/sablon_eticaret)","Marka kod icinde sabit degil: .env + DB settings + brand.json''dan gelir","Kategori-ozel urun nitelikleri (NPK, aktif madde, karens, motor gucu)","BKU recete akisi: checkout recete adimi + admin onay + satis kaydi","init-store + apply-brand: sablondan tek komutla yeni markali site"]}' AS CHAR), 'Agro Dükkan cover image', 'Agro Dükkan', 'Tum zirai girdileri (tohum/fide, gubre, zirai ilac, alet/ekipman) perakende (B2C) satan e-ticaret zirai market. Fiyat, sepet, odeme (iyzico) ve Google Shopping ile son tuketiciye dogrudan satis. VistaSeeds (B2B) ile ayrik calisir.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
+)
+ON DUPLICATE KEY UPDATE
+  title = VALUES(title),
+  slug = VALUES(slug),
+  summary = VALUES(summary),
+  content = VALUES(content),
+  featured_image_alt = VALUES(featured_image_alt),
+  meta_title = VALUES(meta_title),
+  meta_description = VALUES(meta_description),
+  updated_at = CURRENT_TIMESTAMP(3);
+
+INSERT INTO `project_images_i18n` (`id`, `image_id`, `locale`, `alt`, `caption`, `created_at`, `updated_at`) VALUES
+(UUID(), @img11, 'de', 'Agro Dükkan', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
+ON DUPLICATE KEY UPDATE
+  alt = VALUES(alt),
+  caption = VALUES(caption),
+  updated_at = CURRENT_TIMESTAMP(3);
+
+SET @p12 := (SELECT project_id FROM projects_i18n WHERE locale='en' AND slug='dirican-mantar' LIMIT 1);
+SET @img12 := (SELECT id FROM project_images WHERE project_id=@p12 ORDER BY display_order ASC, created_at ASC LIMIT 1);
+
+INSERT INTO `projects_i18n` (
+  `id`, `project_id`, `locale`, `title`, `slug`, `summary`, `content`,
+  `featured_image_alt`, `meta_title`, `meta_description`, `created_at`, `updated_at`
+) VALUES (
+  UUID(), @p12, 'de', 'Dirican Mantar — AI Hasat Görüntüleme Sistemi', 'dirican-mantar', 'Mersin''deki kültür mantarı üretim tesisi için geliştirilecek yapay zeka destekli hasat görüntüleme ve işaretleme sistemi. YOLOv8 + Intel RealSense + NVIDIA Jetson Orin ile 4 cm eşiğini geçen mantarları gerçek zamanlı tespit ederek hasat personelini LED/projeksiyon ile yönlendiriyor.',
   CAST('{"html":"<p>Mersin''deki kültür mantarı üretim tesisi için geliştirilecek yapay zeka destekli hasat görüntüleme ve işaretleme sistemi. YOLOv8 + Intel RealSense + NVIDIA Jetson Orin ile 4 cm eşiğini geçen mantarları gerçek zamanlı tespit ederek hasat personelini LED/projeksiyon ile yönlendiriyor.</p>","description":null,"key_features":["YOLOv8 instance segmentation — örtüşen mantarlar dahil %94+ doğruluk","Intel RealSense D435i derinlik kamerası ile ±2mm boyut hassasiyeti","Gerçek zamanlı LED/projektör işaretleme (4cm+ yeşil, küçük kırmızı)","Oda/ranza/kat bazlı kalibrasyon profili yönetimi (15 saniyelik geçiş)","8 taşınabilir sepet birimi ile 18 oda kapsama","Web tabanlı yönetim paneli: oda izleme, personel performansı, hasat istatistikleri","MQTT tabanlı cihaz → panel veri akışı","M18K dataset (18.000+ örnek) + saha görüntüleriyle fine-tune model"],"technologies_used":["Python","YOLOv8","OpenCV","TensorRT","NVIDIA Jetson Orin","Intel RealSense","PyQt6","Fastify","Next.js","TypeScript","MySQL","MQTT","Docker","Node.js","Tailwind CSS","PM2","Nginx","Bun","Framer Motion","React","Zustand","Radix UI","Zod","Drizzle ORM","JWT","WebSockets","Sass","Cloudinary","Nodemailer"],"design_highlights":["Edge-first mimari: WiFi kesilse bile sepet birimi bağımsız çalışır","Taşınabilirlik: 15 sn''de kalibrasyon yükle, oda değiştir","MycoSense''e göre %85 maliyet avantajı","Faz 2 robotik hasat entegrasyonuna hazır yazılım altyapısı"]}' AS CHAR), 'Dirican Mantar — AI Hasat Görüntüleme Sistemi cover image', 'Dirican Mantar — AI Hasat Görüntüleme Sistemi', 'Mersin''deki kültür mantarı üretim tesisi için geliştirilecek yapay zeka destekli hasat görüntüleme ve işaretleme sistemi. YOLOv8 + Intel RealSense + NVIDIA Jetson Orin ile 4 cm eşiğini geçen mantarları gerçek zamanlı tespit ederek hasat personelini LED/projeksiyon ile yönlendiriyor.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 )
 ON DUPLICATE KEY UPDATE
@@ -242,20 +323,20 @@ ON DUPLICATE KEY UPDATE
   updated_at = CURRENT_TIMESTAMP(3);
 
 INSERT INTO `project_images_i18n` (`id`, `image_id`, `locale`, `alt`, `caption`, `created_at`, `updated_at`) VALUES
-(UUID(), @img9, 'de', 'Dirican Mantar — AI Hasat Görüntüleme Sistemi', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
+(UUID(), @img12, 'de', 'Dirican Mantar — AI Hasat Görüntüleme Sistemi', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
 ON DUPLICATE KEY UPDATE
   alt = VALUES(alt),
   caption = VALUES(caption),
   updated_at = CURRENT_TIMESTAMP(3);
 
-SET @p10 := (SELECT project_id FROM projects_i18n WHERE locale='en' AND slug='amozon' LIMIT 1);
-SET @img10 := (SELECT id FROM project_images WHERE project_id=@p10 ORDER BY display_order ASC, created_at ASC LIMIT 1);
+SET @p13 := (SELECT project_id FROM projects_i18n WHERE locale='en' AND slug='amozon' LIMIT 1);
+SET @img13 := (SELECT id FROM project_images WHERE project_id=@p13 ORDER BY display_order ASC, created_at ASC LIMIT 1);
 
 INSERT INTO `projects_i18n` (
   `id`, `project_id`, `locale`, `title`, `slug`, `summary`, `content`,
   `featured_image_alt`, `meta_title`, `meta_description`, `created_at`, `updated_at`
 ) VALUES (
-  UUID(), @p10, 'de', 'Amozon', 'amozon', 'Amazon kategorilerinde 5 boyutlu risk skoru + LLM reasoning ile açıklanabilir AL/TAKIP_ET/UZAK_DUR karar motoru.',
+  UUID(), @p13, 'de', 'Amozon', 'amozon', 'Amazon kategorilerinde 5 boyutlu risk skoru + LLM reasoning ile açıklanabilir AL/TAKIP_ET/UZAK_DUR karar motoru.',
   CAST('{"html":"<p>Amazon kategorilerinde 5 boyutlu risk skoru + LLM reasoning ile açıklanabilir AL/TAKIP_ET/UZAK_DUR karar motoru.</p>","description":null,"key_features":["Amazon ürün scraping ve ASIN tekilleştirme","Beş boyutlu kategori risk scoring","LLM cross-dimension reasoning","Confidence honesty ve coverage gate","Thesis memory — karar izleme ve invalidation","Single Journey tarama akışı (operatör paneli)","Keepa fiyat geçmişi zenginleştirme","Scan cache reuse ve kota görünürlüğü"],"technologies_used":["TypeScript","Bun","Next.js","React","MySQL","Oxylabs","Keepa","Groq LLM","Drizzle ORM"],"design_highlights":["Portfolio metadata standard is enforced","Tech stack is merged with repository scan results","Content is generated dynamically for portfolio seeds"]}' AS CHAR), 'Amozon cover image', 'Amozon', 'Amazon kategorilerinde 5 boyutlu risk skoru + LLM reasoning ile açıklanabilir AL/TAKIP_ET/UZAK_DUR karar motoru.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 )
 ON DUPLICATE KEY UPDATE
@@ -269,20 +350,20 @@ ON DUPLICATE KEY UPDATE
   updated_at = CURRENT_TIMESTAMP(3);
 
 INSERT INTO `project_images_i18n` (`id`, `image_id`, `locale`, `alt`, `caption`, `created_at`, `updated_at`) VALUES
-(UUID(), @img10, 'de', 'Amozon', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
+(UUID(), @img13, 'de', 'Amozon', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
 ON DUPLICATE KEY UPDATE
   alt = VALUES(alt),
   caption = VALUES(caption),
   updated_at = CURRENT_TIMESTAMP(3);
 
-SET @p11 := (SELECT project_id FROM projects_i18n WHERE locale='en' AND slug='market-pulse' LIMIT 1);
-SET @img11 := (SELECT id FROM project_images WHERE project_id=@p11 ORDER BY display_order ASC, created_at ASC LIMIT 1);
+SET @p14 := (SELECT project_id FROM projects_i18n WHERE locale='en' AND slug='market-pulse' LIMIT 1);
+SET @img14 := (SELECT id FROM project_images WHERE project_id=@p14 ORDER BY display_order ASC, created_at ASC LIMIT 1);
 
 INSERT INTO `projects_i18n` (
   `id`, `project_id`, `locale`, `title`, `slug`, `summary`, `content`,
   `featured_image_alt`, `meta_title`, `meta_description`, `created_at`, `updated_at`
 ) VALUES (
-  UUID(), @p11, 'de', 'MarketPulse', 'market-pulse', 'Türk distribütörleri için bayi izleme, lead yönetimi ve rakip analiz SaaS platformu. Scraper destekli otomatik sinyal üretimi.',
+  UUID(), @p14, 'de', 'MarketPulse', 'market-pulse', 'Türk distribütörleri için bayi izleme, lead yönetimi ve rakip analiz SaaS platformu. Scraper destekli otomatik sinyal üretimi.',
   CAST('{"html":"<p>Türk distribütörleri için bayi izleme, lead yönetimi ve rakip analiz SaaS platformu. Scraper destekli otomatik sinyal üretimi.</p>","description":null,"key_features":["Hedef firma takibi (rakip, bayi, distribütör, ortak)","Otomatik churn risk skoru (sinyal + aktivite + ERP verisi)","Lead pipeline (Yeni → Görüşmede → Dönüştürüldü akışı)","Pazar sinyalleri (site değişikliği, fiyat, sosyal aktivite, yorum)","Manuel ve scraper kaynaklı sinyal yönetimi","Lead Machine: Amazon satıcı tarama + AI review analizi","Lead Machine: B2B dizin tarama + ICP eşleştirme + pain point tespiti","Lead Machine: Fuar exhibitor tarama + 10times intent verisi","Enrichment: Apollo.io ile email + karar verici bulma","AI outreach e-posta taslağı üretimi (human-in-the-loop)","Haftalık PDF raporu + SMTP e-posta gönderimi","Paspas ERP cross-DB entegrasyonu (müşteri/sipariş okuma)","Paspas müşteri otomatik senkronizasyonu — POST /admin/market/sync-paspas (idempotent upsert)","Copy-deploy: her müşteri bağımsız kurulum"],"technologies_used":["Next.js 16","React 19","TypeScript","Tailwind CSS v4","Shadcn UI","Fastify","Drizzle ORM","MySQL","Bun","Cloudinary","Docker","Next.js","Tailwind CSS","JWT","React","Zustand","Radix UI","Zod","Nodemailer","Sass"],"design_highlights":["Sinyal öncelik renk kodlaması (Kritik/Yüksek/Orta/Düşük)","Lead pipeline kanban-tablo hibrit görünüm","Churn risk renk skalası"]}' AS CHAR), 'MarketPulse cover image', 'MarketPulse', 'Türk distribütörleri için bayi izleme, lead yönetimi ve rakip analiz SaaS platformu. Scraper destekli otomatik sinyal üretimi.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 )
 ON DUPLICATE KEY UPDATE
@@ -296,20 +377,20 @@ ON DUPLICATE KEY UPDATE
   updated_at = CURRENT_TIMESTAMP(3);
 
 INSERT INTO `project_images_i18n` (`id`, `image_id`, `locale`, `alt`, `caption`, `created_at`, `updated_at`) VALUES
-(UUID(), @img11, 'de', 'MarketPulse', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
+(UUID(), @img14, 'de', 'MarketPulse', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
 ON DUPLICATE KEY UPDATE
   alt = VALUES(alt),
   caption = VALUES(caption),
   updated_at = CURRENT_TIMESTAMP(3);
 
-SET @p12 := (SELECT project_id FROM projects_i18n WHERE locale='en' AND slug='e-fatura-service' LIMIT 1);
-SET @img12 := (SELECT id FROM project_images WHERE project_id=@p12 ORDER BY display_order ASC, created_at ASC LIMIT 1);
+SET @p15 := (SELECT project_id FROM projects_i18n WHERE locale='en' AND slug='e-fatura-service' LIMIT 1);
+SET @img15 := (SELECT id FROM project_images WHERE project_id=@p15 ORDER BY display_order ASC, created_at ASC LIMIT 1);
 
 INSERT INTO `projects_i18n` (
   `id`, `project_id`, `locale`, `title`, `slug`, `summary`, `content`,
   `featured_image_alt`, `meta_title`, `meta_description`, `created_at`, `updated_at`
 ) VALUES (
-  UUID(), @p12, 'de', 'e-fatura-service', 'e-fatura-service', 'Turkiye e-ticaret projeleri icin merkezi multi-tenant e-arsiv / e-fatura mikroservisi.',
+  UUID(), @p15, 'de', 'e-fatura-service', 'e-fatura-service', 'Turkiye e-ticaret projeleri icin merkezi multi-tenant e-arsiv / e-fatura mikroservisi.',
   CAST('{"html":"<p>Turkiye e-ticaret projeleri icin merkezi multi-tenant e-arsiv / e-fatura mikroservisi.</p>","description":null,"key_features":["Multi-tenant credential at-rest sifreleme (AES-256-GCM)","Idempotent fatura olusturma + durum makinesi","BullMQ kalici kuyruk + uretici soyutlama (Nilvera/EDM)","Imzali webhook bildirimi + poll fallback"],"technologies_used":["Bun","Fastify 5","TypeScript","Drizzle ORM","MySQL","Redis","BullMQ","Docker","Fastify","Zod"],"design_highlights":[]}' AS CHAR), 'e-fatura-service cover image', 'e-fatura-service', 'Turkiye e-ticaret projeleri icin merkezi multi-tenant e-arsiv / e-fatura mikroservisi.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 )
 ON DUPLICATE KEY UPDATE
@@ -323,20 +404,20 @@ ON DUPLICATE KEY UPDATE
   updated_at = CURRENT_TIMESTAMP(3);
 
 INSERT INTO `project_images_i18n` (`id`, `image_id`, `locale`, `alt`, `caption`, `created_at`, `updated_at`) VALUES
-(UUID(), @img12, 'de', 'e-fatura-service', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
+(UUID(), @img15, 'de', 'e-fatura-service', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
 ON DUPLICATE KEY UPDATE
   alt = VALUES(alt),
   caption = VALUES(caption),
   updated_at = CURRENT_TIMESTAMP(3);
 
-SET @p13 := (SELECT project_id FROM projects_i18n WHERE locale='en' AND slug='invitea' LIMIT 1);
-SET @img13 := (SELECT id FROM project_images WHERE project_id=@p13 ORDER BY display_order ASC, created_at ASC LIMIT 1);
+SET @p16 := (SELECT project_id FROM projects_i18n WHERE locale='en' AND slug='invitea' LIMIT 1);
+SET @img16 := (SELECT id FROM project_images WHERE project_id=@p16 ORDER BY display_order ASC, created_at ASC LIMIT 1);
 
 INSERT INTO `projects_i18n` (
   `id`, `project_id`, `locale`, `title`, `slug`, `summary`, `content`,
   `featured_image_alt`, `meta_title`, `meta_description`, `created_at`, `updated_at`
 ) VALUES (
-  UUID(), @p13, 'de', 'Invitea', 'invitea', 'QR kod sistemli, animasyonlu dijital davetiye SaaS platformu. Dugun, nisan, dogum gunu ve kurumsal etkinlikler icin LCV, masa plani ve canli giris kontrolu.',
+  UUID(), @p16, 'de', 'Invitea', 'invitea', 'QR kod sistemli, animasyonlu dijital davetiye SaaS platformu. Dugun, nisan, dogum gunu ve kurumsal etkinlikler icin LCV, masa plani ve canli giris kontrolu.',
   CAST('{"html":"<p>QR kod sistemli, animasyonlu dijital davetiye SaaS platformu. Dugun, nisan, dogum gunu ve kurumsal etkinlikler icin LCV, masa plani ve canli giris kontrolu.</p>","description":null,"key_features":["Animasyonlu davetiye sablonlari (GSAP + Lenis)","QR kod ile davetli giris kontrolu (mukerrer giris engeli)","LCV (RSVP) formu ve canli katilim tablosu","Masa/oturma plani (dnd-kit drag-drop)","Excel/CSV ile toplu davetli yukleme","WhatsApp + SMS + Email gonderim","5 dil + coklu para birimi","Admin paneli (sablon, paket, odeme yonetimi)","Multi-tenant SaaS mimari"],"technologies_used":["Next.js 16","React 19","TypeScript","Tailwind CSS v4","Radix UI","Framer Motion","GSAP","Lenis","Fastify 5","Bun","Drizzle ORM","MySQL","Redis","Cloudinary","Stripe","Iyzipay","PayPal","next-intl","BullMQ","Next.js","Fastify","React","Zustand","Tailwind CSS","Zod","JWT","Sass"],"design_highlights":["Zarf acilma animasyonu (GSAP)","Scroll-trigger kelime kelime fade","Lenis smooth scroll","Parallax foto galeri","Geri sayim flip animasyonu","Modern tipografi (serif + script + sans)"]}' AS CHAR), 'Invitea cover image', 'Invitea', 'QR kod sistemli, animasyonlu dijital davetiye SaaS platformu. Dugun, nisan, dogum gunu ve kurumsal etkinlikler icin LCV, masa plani ve canli giris kontrolu.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 )
 ON DUPLICATE KEY UPDATE
@@ -350,20 +431,20 @@ ON DUPLICATE KEY UPDATE
   updated_at = CURRENT_TIMESTAMP(3);
 
 INSERT INTO `project_images_i18n` (`id`, `image_id`, `locale`, `alt`, `caption`, `created_at`, `updated_at`) VALUES
-(UUID(), @img13, 'de', 'Invitea', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
+(UUID(), @img16, 'de', 'Invitea', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
 ON DUPLICATE KEY UPDATE
   alt = VALUES(alt),
   caption = VALUES(caption),
   updated_at = CURRENT_TIMESTAMP(3);
 
-SET @p14 := (SELECT project_id FROM projects_i18n WHERE locale='en' AND slug='satisai' LIMIT 1);
-SET @img14 := (SELECT id FROM project_images WHERE project_id=@p14 ORDER BY display_order ASC, created_at ASC LIMIT 1);
+SET @p17 := (SELECT project_id FROM projects_i18n WHERE locale='en' AND slug='satisai' LIMIT 1);
+SET @img17 := (SELECT id FROM project_images WHERE project_id=@p17 ORDER BY display_order ASC, created_at ASC LIMIT 1);
 
 INSERT INTO `projects_i18n` (
   `id`, `project_id`, `locale`, `title`, `slug`, `summary`, `content`,
   `featured_image_alt`, `meta_title`, `meta_description`, `created_at`, `updated_at`
 ) VALUES (
-  UUID(), @p14, 'de', 'SatisAI', 'satisai', 'Sahibinden basta olmak uzere Turk pazaryerleri icin AI destekli ilan baslik, aciklama ve etiket uretim SaaS platformu.',
+  UUID(), @p17, 'de', 'SatisAI', 'satisai', 'Sahibinden basta olmak uzere Turk pazaryerleri icin AI destekli ilan baslik, aciklama ve etiket uretim SaaS platformu.',
   CAST('{"html":"<p>Sahibinden basta olmak uzere Turk pazaryerleri icin AI destekli ilan baslik, aciklama ve etiket uretim SaaS platformu.</p>","description":null,"key_features":["Kategori-spesifik AI ilan uretimi (Vasita, Emlak, Ikinci El, Yedek Parca)","Toplu ilan uretimi (Excel/CSV import-export)","Sahibinden algoritmasina optimize baslik ve etiket","Multi-platform cikti (Sahibinden + Arabam + Hepsiemlak + Emlakjet)","Foto analizi ile otomatik ozellik tespiti (Claude Vision)","Pazar fiyat verisi ve fiyat onerisi (scraper-service entegrasyonu)","Galeri ve emlakci icin multi-user takim ozelligi","Kredi tabanli plan ve abonelik yonetimi","Kullanim analizi ve performans raporlari"],"technologies_used":["Next.js 16","React 19","TypeScript","Tailwind CSS v4","Shadcn UI","Fastify","Drizzle ORM","MySQL","Bun","Claude Sonnet 4.6 API","Cloudinary","iyzico","Stripe","Redis","Docker"],"design_highlights":["Galerici dostu hizli akis tasarimi","Toplu mod icin tablo bazli editor","Foto onizleme ve drag-drop yukleme"]}' AS CHAR), 'SatisAI cover image', 'SatisAI', 'Sahibinden basta olmak uzere Turk pazaryerleri icin AI destekli ilan baslik, aciklama ve etiket uretim SaaS platformu.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 )
 ON DUPLICATE KEY UPDATE
@@ -377,20 +458,20 @@ ON DUPLICATE KEY UPDATE
   updated_at = CURRENT_TIMESTAMP(3);
 
 INSERT INTO `project_images_i18n` (`id`, `image_id`, `locale`, `alt`, `caption`, `created_at`, `updated_at`) VALUES
-(UUID(), @img14, 'de', 'SatisAI', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
+(UUID(), @img17, 'de', 'SatisAI', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
 ON DUPLICATE KEY UPDATE
   alt = VALUES(alt),
   caption = VALUES(caption),
   updated_at = CURRENT_TIMESTAMP(3);
 
-SET @p15 := (SELECT project_id FROM projects_i18n WHERE locale='en' AND slug='sultandefense' LIMIT 1);
-SET @img15 := (SELECT id FROM project_images WHERE project_id=@p15 ORDER BY display_order ASC, created_at ASC LIMIT 1);
+SET @p18 := (SELECT project_id FROM projects_i18n WHERE locale='en' AND slug='sultandefense' LIMIT 1);
+SET @img18 := (SELECT id FROM project_images WHERE project_id=@p18 ORDER BY display_order ASC, created_at ASC LIMIT 1);
 
 INSERT INTO `projects_i18n` (
   `id`, `project_id`, `locale`, `title`, `slug`, `summary`, `content`,
   `featured_image_alt`, `meta_title`, `meta_description`, `created_at`, `updated_at`
 ) VALUES (
-  UUID(), @p15, 'de', 'Sultan Defense', 'sultandefense', 'Sultan Defense Ltd., Co. icin gelistirilen savunma tedarik katalogu, B2B teklif talebi ve admin yonetim platformu.',
+  UUID(), @p18, 'de', 'Sultan Defense', 'sultandefense', 'Sultan Defense Ltd., Co. icin gelistirilen savunma tedarik katalogu, B2B teklif talebi ve admin yonetim platformu.',
   CAST('{"html":"<p>Sultan Defense Ltd., Co. icin gelistirilen savunma tedarik katalogu, B2B teklif talebi ve admin yonetim platformu.</p>","description":null,"key_features":["Cok dilli savunma urun katalogu","10 ana urun kategorisi","B2B teklif ve RFQ akisi","Admin panelden katalog, medya, sayfa ve teklif yonetimi","EUC, ihracat uyumu ve lojistik odakli icerik","Teknik SEO, metadata, sitemap ve OG altyapisi","Seed tabanli MySQL kurulum akisi","Sultan Defense Celik ve Cyan marka temasi"],"technologies_used":["Next.js 16","React 19","TypeScript","Tailwind CSS v4","next-intl","Fastify","Bun","Drizzle ORM","MySQL","Zod","Radix UI","Cloudinary","Nginx","PM2","Next.js","React","Tailwind CSS","Shadcn UI","i18n","Zustand","JWT","Nodemailer"],"design_highlights":["Deep Navy ve Tactical Cyan renk sistemi","Kalkan ve SD monogram odakli marka dili","Koyu ve acik tema destegi","Operasyonel B2B katalog arayuzu","Yoğun admin ekranlari icin sade, taranabilir layout"]}' AS CHAR), 'Sultan Defense cover image', 'Sultan Defense', 'Sultan Defense Ltd., Co. icin gelistirilen savunma tedarik katalogu, B2B teklif talebi ve admin yonetim platformu.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 )
 ON DUPLICATE KEY UPDATE
@@ -404,20 +485,20 @@ ON DUPLICATE KEY UPDATE
   updated_at = CURRENT_TIMESTAMP(3);
 
 INSERT INTO `project_images_i18n` (`id`, `image_id`, `locale`, `alt`, `caption`, `created_at`, `updated_at`) VALUES
-(UUID(), @img15, 'de', 'Sultan Defense', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
+(UUID(), @img18, 'de', 'Sultan Defense', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
 ON DUPLICATE KEY UPDATE
   alt = VALUES(alt),
   caption = VALUES(caption),
   updated_at = CURRENT_TIMESTAMP(3);
 
-SET @p16 := (SELECT project_id FROM projects_i18n WHERE locale='en' AND slug='techstack-analyzer' LIMIT 1);
-SET @img16 := (SELECT id FROM project_images WHERE project_id=@p16 ORDER BY display_order ASC, created_at ASC LIMIT 1);
+SET @p19 := (SELECT project_id FROM projects_i18n WHERE locale='en' AND slug='techstack-analyzer' LIMIT 1);
+SET @img19 := (SELECT id FROM project_images WHERE project_id=@p19 ORDER BY display_order ASC, created_at ASC LIMIT 1);
 
 INSERT INTO `projects_i18n` (
   `id`, `project_id`, `locale`, `title`, `slug`, `summary`, `content`,
   `featured_image_alt`, `meta_title`, `meta_description`, `created_at`, `updated_at`
 ) VALUES (
-  UUID(), @p16, 'de', 'TechStack Analyzer', 'techstack-analyzer', 'Web sitelerinin kullandigi teknolojileri (CMS, odeme, analytics, reklam, hosting, CDN, JS kutuphaneleri) tespit eden BuiltWith benzeri analiz ve lead-generation SaaS platformu.',
+  UUID(), @p19, 'de', 'TechStack Analyzer', 'techstack-analyzer', 'Web sitelerinin kullandigi teknolojileri (CMS, odeme, analytics, reklam, hosting, CDN, JS kutuphaneleri) tespit eden BuiltWith benzeri analiz ve lead-generation SaaS platformu.',
   CAST('{"html":"<p>Web sitelerinin kullandigi teknolojileri (CMS, odeme, analytics, reklam, hosting, CDN, JS kutuphaneleri) tespit eden BuiltWith benzeri analiz ve lead-generation SaaS platformu.</p>","description":null,"key_features":["Tek domain teknoloji analizi (CMS, odeme, analytics, reklam, hosting, CDN, JS lib)","Toplu domain analizi (CSV/liste import, queue tabanli batch)","Wappalyzer tabanli fingerprint motoru (HTML, header, cookie, DNS, script)","Reverse lookup: belirli teknolojiyi kullanan domain listesi","Public REST API + API key & rate limit","Admin panel: tarama izleme, fingerprint kural yonetimi, kullanici","scraper-service entegrasyonu ile olcekli ve CF-bypass sayfa cekme","Periyodik yeniden tarama ve teknoloji degisim takibi","Kredi/abonelik tabanli plan yonetimi"],"technologies_used":["Next.js 16","React 19","TypeScript","Tailwind CSS v4","Shadcn UI","Fastify","Drizzle ORM","MySQL","Bun","Redis","BullMQ","Python","Scrapling","Docker","Next.js","React"],"design_highlights":["Domain rapor sayfasi: kategori bazli teknoloji kartlari","Reverse lookup icin filtrelenebilir tablo + export","Batch ilerleme paneli"]}' AS CHAR), 'TechStack Analyzer cover image', 'TechStack Analyzer', 'Web sitelerinin kullandigi teknolojileri (CMS, odeme, analytics, reklam, hosting, CDN, JS kutuphaneleri) tespit eden BuiltWith benzeri analiz ve lead-generation SaaS platformu.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 )
 ON DUPLICATE KEY UPDATE
@@ -431,20 +512,20 @@ ON DUPLICATE KEY UPDATE
   updated_at = CURRENT_TIMESTAMP(3);
 
 INSERT INTO `project_images_i18n` (`id`, `image_id`, `locale`, `alt`, `caption`, `created_at`, `updated_at`) VALUES
-(UUID(), @img16, 'de', 'TechStack Analyzer', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
+(UUID(), @img19, 'de', 'TechStack Analyzer', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
 ON DUPLICATE KEY UPDATE
   alt = VALUES(alt),
   caption = VALUES(caption),
   updated_at = CURRENT_TIMESTAMP(3);
 
-SET @p17 := (SELECT project_id FROM projects_i18n WHERE locale='en' AND slug='trackpulse' LIMIT 1);
-SET @img17 := (SELECT id FROM project_images WHERE project_id=@p17 ORDER BY display_order ASC, created_at ASC LIMIT 1);
+SET @p20 := (SELECT project_id FROM projects_i18n WHERE locale='en' AND slug='trackpulse' LIMIT 1);
+SET @img20 := (SELECT id FROM project_images WHERE project_id=@p20 ORDER BY display_order ASC, created_at ASC LIMIT 1);
 
 INSERT INTO `projects_i18n` (
   `id`, `project_id`, `locale`, `title`, `slug`, `summary`, `content`,
   `featured_image_alt`, `meta_title`, `meta_description`, `created_at`, `updated_at`
 ) VALUES (
-  UUID(), @p17, 'de', 'TrackPulse', 'trackpulse', 'GA4, Google Tag Manager, Meta Pixel ve Google Ads verisini tek panelde birleştiren web analitik ve dönüşüm izleme platformu + kurulum hizmeti.',
+  UUID(), @p20, 'de', 'TrackPulse', 'trackpulse', 'GA4, Google Tag Manager, Meta Pixel ve Google Ads verisini tek panelde birleştiren web analitik ve dönüşüm izleme platformu + kurulum hizmeti.',
   CAST('{"html":"<p>GA4, Google Tag Manager, Meta Pixel ve Google Ads verisini tek panelde birleştiren web analitik ve dönüşüm izleme platformu + kurulum hizmeti.</p>","description":null,"key_features":["GA4 + GTM + Meta Pixel + Google Ads tek panelde birleşik raporlama","Olay (event) ve dönüşüm izleme kurulumu","Dönüşüm hunisi (funnel) ve adım adım kayıp analizi","Kanal / atıf (attribution) modelleme ve ROAS","E-ticaret satın alma ve gelir izleme (enhanced e-commerce)","Server-side tracking (sGTM) ve Consent Mode v2 uyumu","Gerçek zamanlı aktif kullanıcı izleme","Hedef (goal) ve KPI panoları","Otomatik haftalık performans raporu (PDF + e-posta)","Çoklu site / çoklu hesap yönetimi"],"technologies_used":["Next.js 16","React 19","TypeScript","Tailwind CSS v4","Shadcn UI","Fastify","Drizzle ORM","MySQL","Bun","Google Analytics 4 Data API","Google Tag Manager","Google Ads API","Meta Conversions API","Docker","Next.js","React","Tailwind CSS","PM2","Nginx"],"design_highlights":["Birleşik veri panosu — kaynaklar arası tek görünüm","Dönüşüm hunisi görselleştirmesi","Kanal performansı ROAS renk skalası"]}' AS CHAR), 'TrackPulse cover image', 'TrackPulse', 'GA4, Google Tag Manager, Meta Pixel ve Google Ads verisini tek panelde birleştiren web analitik ve dönüşüm izleme platformu + kurulum hizmeti.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 )
 ON DUPLICATE KEY UPDATE
@@ -458,20 +539,20 @@ ON DUPLICATE KEY UPDATE
   updated_at = CURRENT_TIMESTAMP(3);
 
 INSERT INTO `project_images_i18n` (`id`, `image_id`, `locale`, `alt`, `caption`, `created_at`, `updated_at`) VALUES
-(UUID(), @img17, 'de', 'TrackPulse', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
+(UUID(), @img20, 'de', 'TrackPulse', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
 ON DUPLICATE KEY UPDATE
   alt = VALUES(alt),
   caption = VALUES(caption),
   updated_at = CURRENT_TIMESTAMP(3);
 
-SET @p18 := (SELECT project_id FROM projects_i18n WHERE locale='en' AND slug='videomatik' LIMIT 1);
-SET @img18 := (SELECT id FROM project_images WHERE project_id=@p18 ORDER BY display_order ASC, created_at ASC LIMIT 1);
+SET @p21 := (SELECT project_id FROM projects_i18n WHERE locale='en' AND slug='videomatik' LIMIT 1);
+SET @img21 := (SELECT id FROM project_images WHERE project_id=@p21 ORDER BY display_order ASC, created_at ASC LIMIT 1);
 
 INSERT INTO `projects_i18n` (
   `id`, `project_id`, `locale`, `title`, `slug`, `summary`, `content`,
   `featured_image_alt`, `meta_title`, `meta_description`, `created_at`, `updated_at`
 ) VALUES (
-  UUID(), @p18, 'de', 'Videomatik', 'videomatik', 'TR pazarına yönelik AI destekli video editleme SaaS. YouTube + Shorts/Reels için ham videoyu otomatik kesip yayın hazır hale getiren tarayıcı tabanlı editör.',
+  UUID(), @p21, 'de', 'Videomatik', 'videomatik', 'TR pazarına yönelik AI destekli video editleme SaaS. YouTube + Shorts/Reels için ham videoyu otomatik kesip yayın hazır hale getiren tarayıcı tabanlı editör.',
   CAST('{"html":"<p>TR pazarına yönelik AI destekli video editleme SaaS. YouTube + Shorts/Reels için ham videoyu otomatik kesip yayın hazır hale getiren tarayıcı tabanlı editör.</p>","description":null,"key_features":["AI auto-edit: Whisper transcribe + LLM segment seçimi + FFmpeg cut+concat","Tarayıcı tabanlı timeline editör (Faz 2+, OpenCut''tan ilham)","YouTube + Shorts + Reels + TikTok format presetleri (16:9, 9:16, 1:1)","Otomatik altyazı (Whisper) + AI başlık/açıklama/etiket üretimi","Direkt yayın: YouTube + Instagram + TikTok platformlara push","Türkçe arayüz, TL + KDV faturalama"],"technologies_used":["Next.js 16","React 19","TypeScript","Fastify","Bun","Drizzle ORM","MySQL","FFmpeg","OpenAI Whisper","Anthropic Claude","BullMQ","Redis","Cloudinary","SEO"],"design_highlights":["AI-first workflow: ham video → 60sn YouTube-ready output tek tıkla","Hibrit kontrol: otomatik kesim + opsiyonel manuel ince ayar","TR pazar odaklı: yerli ödeme + KDV + Türkçe LLM prompt''ları"]}' AS CHAR), 'Videomatik cover image', 'Videomatik', 'TR pazarına yönelik AI destekli video editleme SaaS. YouTube + Shorts/Reels için ham videoyu otomatik kesip yayın hazır hale getiren tarayıcı tabanlı editör.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 )
 ON DUPLICATE KEY UPDATE
@@ -485,21 +566,21 @@ ON DUPLICATE KEY UPDATE
   updated_at = CURRENT_TIMESTAMP(3);
 
 INSERT INTO `project_images_i18n` (`id`, `image_id`, `locale`, `alt`, `caption`, `created_at`, `updated_at`) VALUES
-(UUID(), @img18, 'de', 'Videomatik', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
+(UUID(), @img21, 'de', 'Videomatik', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
 ON DUPLICATE KEY UPDATE
   alt = VALUES(alt),
   caption = VALUES(caption),
   updated_at = CURRENT_TIMESTAMP(3);
 
-SET @p19 := (SELECT project_id FROM projects_i18n WHERE locale='en' AND slug='woody' LIMIT 1);
-SET @img19 := (SELECT id FROM project_images WHERE project_id=@p19 ORDER BY display_order ASC, created_at ASC LIMIT 1);
+SET @p22 := (SELECT project_id FROM projects_i18n WHERE locale='en' AND slug='woody' LIMIT 1);
+SET @img22 := (SELECT id FROM project_images WHERE project_id=@p22 ORDER BY display_order ASC, created_at ASC LIMIT 1);
 
 INSERT INTO `projects_i18n` (
   `id`, `project_id`, `locale`, `title`, `slug`, `summary`, `content`,
   `featured_image_alt`, `meta_title`, `meta_description`, `created_at`, `updated_at`
 ) VALUES (
-  UUID(), @p19, 'de', 'Woody ve Arkadaşları', 'woody', 'Anaokulu İngilizce eğitim setleri, dijital içerik kütüphanesi, öğretmen akademisi ve mağazayı tek çatıda toplayan çok dilli eğitim platformu.',
-  CAST('{"html":"<p>Anaokulu İngilizce eğitim setleri, dijital içerik kütüphanesi, öğretmen akademisi ve mağazayı tek çatıda toplayan çok dilli eğitim platformu.</p>","description":null,"key_features":["Çok dilli (10 dil) gerçek route + tam hreflang","SSR/SSG ile AI/arama motoru erişilebilir içerik","Dijital içerik kütüphanesi (Storyland / Movieland / Musicland)","Mağaza ve ürün sayfaları (Product + pricing şeması)","Blog ve öğretmen akademisi","Yerel SEO (İstanbul anaokulu İngilizce eğitimi)","Zengin JSON-LD şema + llms.txt"],"technologies_used":["Next.js 16","React 19","TypeScript","Tailwind CSS v4","next-intl","Fastify","Drizzle ORM","MySQL","Next.js","PM2","Bun","React","Zustand","Tailwind CSS","Radix UI","Zod","JWT","Sass","Cloudinary","Nodemailer"],"design_highlights":["Eski canlı tasarımın SSR sürümüne sadık taşınması","Çocuk dostu, marka renkli arayüz","Erişilebilirlik ve Core Web Vitals odaklı"]}' AS CHAR), 'Woody ve Arkadaşları cover image', 'Woody ve Arkadaşları', 'Anaokulu İngilizce eğitim setleri, dijital içerik kütüphanesi, öğretmen akademisi ve mağazayı tek çatıda toplayan çok dilli eğitim platformu.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
+  UUID(), @p22, 'de', 'Woody ve Arkadaşları', 'woody', 'Anaokulu İngilizce eğitim setleri, dijital içerik kütüphanesi, öğretmen akademisi ve mağazayı tek çatıda toplayan çok dilli eğitim platformu.',
+  CAST('{"html":"<p>Anaokulu İngilizce eğitim setleri, dijital içerik kütüphanesi, öğretmen akademisi ve mağazayı tek çatıda toplayan çok dilli eğitim platformu.</p>","description":null,"key_features":["Çok dilli (10 dil) gerçek route + tam hreflang","SSR/SSG ile AI/arama motoru erişilebilir içerik","Dijital içerik kütüphanesi (Storyland / Movieland / Musicland)","Mağaza ve ürün sayfaları (Product + offers şeması)","Blog ve öğretmen akademisi","Yerel SEO (İstanbul anaokulu İngilizce eğitimi)","Zengin JSON-LD şema + llms.txt"],"technologies_used":["Next.js 16","React 19","TypeScript","Tailwind CSS v4","next-intl","Fastify","Drizzle ORM","MySQL","Next.js","PM2","Bun","React","Zustand","Tailwind CSS","Radix UI","Zod","JWT","Sass","Cloudinary","Nodemailer"],"design_highlights":["Eski canlı tasarımın SSR sürümüne sadık taşınması","Çocuk dostu, marka renkli arayüz","Erişilebilirlik ve Core Web Vitals odaklı"]}' AS CHAR), 'Woody ve Arkadaşları cover image', 'Woody ve Arkadaşları', 'Anaokulu İngilizce eğitim setleri, dijital içerik kütüphanesi, öğretmen akademisi ve mağazayı tek çatıda toplayan çok dilli eğitim platformu.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 )
 ON DUPLICATE KEY UPDATE
   title = VALUES(title),
@@ -512,7 +593,34 @@ ON DUPLICATE KEY UPDATE
   updated_at = CURRENT_TIMESTAMP(3);
 
 INSERT INTO `project_images_i18n` (`id`, `image_id`, `locale`, `alt`, `caption`, `created_at`, `updated_at`) VALUES
-(UUID(), @img19, 'de', 'Woody ve Arkadaşları', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
+(UUID(), @img22, 'de', 'Woody ve Arkadaşları', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
+ON DUPLICATE KEY UPDATE
+  alt = VALUES(alt),
+  caption = VALUES(caption),
+  updated_at = CURRENT_TIMESTAMP(3);
+
+SET @p23 := (SELECT project_id FROM projects_i18n WHERE locale='en' AND slug='sultanolive' LIMIT 1);
+SET @img23 := (SELECT id FROM project_images WHERE project_id=@p23 ORDER BY display_order ASC, created_at ASC LIMIT 1);
+
+INSERT INTO `projects_i18n` (
+  `id`, `project_id`, `locale`, `title`, `slug`, `summary`, `content`,
+  `featured_image_alt`, `meta_title`, `meta_description`, `created_at`, `updated_at`
+) VALUES (
+  UUID(), @p23, 'de', 'Sultan Olive', 'sultanolive', 'Sultan Olive icin gelistirilen zeytin ve zeytinyagi urun katalogu, B2B teklif talebi ve admin yonetim platformu.',
+  CAST('{"html":"<p>Sultan Olive icin gelistirilen zeytin ve zeytinyagi urun katalogu, B2B teklif talebi ve admin yonetim platformu.</p>","description":null,"key_features":["Cok dilli zeytin ve zeytinyagi urun katalogu","B2B teklif ve RFQ akisi","Admin panelden katalog, medya, sayfa ve teklif yonetimi","Ihracat odakli kurumsal icerik","Teknik SEO, metadata, sitemap ve OG altyapisi","Seed tabanli MySQL kurulum akisi"],"technologies_used":["Next.js 16","React 19","TypeScript","Tailwind CSS v4","next-intl","Fastify","Bun","Drizzle ORM","MySQL","Zod","Radix UI","Cloudinary","Nginx","PM2","Next.js","React","Tailwind CSS","Shadcn UI","i18n","Zustand","JWT","Nodemailer"],"design_highlights":["Marka paleti belirlenecek (zeytin yesili + altin onerisi)","Koyu ve acik tema destegi","Operasyonel B2B katalog arayuzu","Yogun admin ekranlari icin sade, taranabilir layout"]}' AS CHAR), 'Sultan Olive cover image', 'Sultan Olive', 'Sultan Olive icin gelistirilen zeytin ve zeytinyagi urun katalogu, B2B teklif talebi ve admin yonetim platformu.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
+)
+ON DUPLICATE KEY UPDATE
+  title = VALUES(title),
+  slug = VALUES(slug),
+  summary = VALUES(summary),
+  content = VALUES(content),
+  featured_image_alt = VALUES(featured_image_alt),
+  meta_title = VALUES(meta_title),
+  meta_description = VALUES(meta_description),
+  updated_at = CURRENT_TIMESTAMP(3);
+
+INSERT INTO `project_images_i18n` (`id`, `image_id`, `locale`, `alt`, `caption`, `created_at`, `updated_at`) VALUES
+(UUID(), @img23, 'de', 'Sultan Olive', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
 ON DUPLICATE KEY UPDATE
   alt = VALUES(alt),
   caption = VALUES(caption),

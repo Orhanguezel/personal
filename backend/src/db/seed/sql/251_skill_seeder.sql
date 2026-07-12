@@ -1,5 +1,5 @@
 -- AUTO-GENERATED FILE. Source: /home/orhan/Documents/Projeler metadata + /home/orhan/Documents/Projeler/vps-guezel/Orhanguezel/README.md
--- Generated at 2026-06-09T23:37:13.766Z
+-- Generated at 2026-07-12T17:08:13.779Z
 SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci;
 SET collation_connection = 'utf8mb4_unicode_ci';
 SET time_zone = '+00:00';
@@ -15,17 +15,17 @@ VALUES
 INSERT INTO `skill_counters_i18n`
 (`id`,`counter_id`,`locale`,`title`,`slug`,`created_at`,`updated_at`)
 VALUES
-(UUID(),@c1,'en','Bun','bun',NOW(3),NOW(3));
+(UUID(),@c1,'en','MySQL','mysql',NOW(3),NOW(3));
 
 INSERT INTO `skill_counters_i18n`
 (`id`,`counter_id`,`locale`,`title`,`slug`,`created_at`,`updated_at`)
 VALUES
-(UUID(),@c1,'tr','Bun','bun',NOW(3),NOW(3));
+(UUID(),@c1,'tr','MySQL','mysql',NOW(3),NOW(3));
 
 INSERT INTO `skill_counters_i18n`
 (`id`,`counter_id`,`locale`,`title`,`slug`,`created_at`,`updated_at`)
 VALUES
-(UUID(),@c1,'de','Bun','bun',NOW(3),NOW(3));
+(UUID(),@c1,'de','MySQL','mysql',NOW(3),NOW(3));
 
 SET @c2 := UUID();
 INSERT INTO `skill_counters`
@@ -36,17 +36,17 @@ VALUES
 INSERT INTO `skill_counters_i18n`
 (`id`,`counter_id`,`locale`,`title`,`slug`,`created_at`,`updated_at`)
 VALUES
-(UUID(),@c2,'en','MySQL','mysql',NOW(3),NOW(3));
+(UUID(),@c2,'en','TypeScript','typescript',NOW(3),NOW(3));
 
 INSERT INTO `skill_counters_i18n`
 (`id`,`counter_id`,`locale`,`title`,`slug`,`created_at`,`updated_at`)
 VALUES
-(UUID(),@c2,'tr','MySQL','mysql',NOW(3),NOW(3));
+(UUID(),@c2,'tr','TypeScript','typescript',NOW(3),NOW(3));
 
 INSERT INTO `skill_counters_i18n`
 (`id`,`counter_id`,`locale`,`title`,`slug`,`created_at`,`updated_at`)
 VALUES
-(UUID(),@c2,'de','MySQL','mysql',NOW(3),NOW(3));
+(UUID(),@c2,'de','TypeScript','typescript',NOW(3),NOW(3));
 
 SET @c3 := UUID();
 INSERT INTO `skill_counters`
@@ -57,17 +57,17 @@ VALUES
 INSERT INTO `skill_counters_i18n`
 (`id`,`counter_id`,`locale`,`title`,`slug`,`created_at`,`updated_at`)
 VALUES
-(UUID(),@c3,'en','TypeScript','typescript',NOW(3),NOW(3));
+(UUID(),@c3,'en','Bun','bun',NOW(3),NOW(3));
 
 INSERT INTO `skill_counters_i18n`
 (`id`,`counter_id`,`locale`,`title`,`slug`,`created_at`,`updated_at`)
 VALUES
-(UUID(),@c3,'tr','TypeScript','typescript',NOW(3),NOW(3));
+(UUID(),@c3,'tr','Bun','bun',NOW(3),NOW(3));
 
 INSERT INTO `skill_counters_i18n`
 (`id`,`counter_id`,`locale`,`title`,`slug`,`created_at`,`updated_at`)
 VALUES
-(UUID(),@c3,'de','TypeScript','typescript',NOW(3),NOW(3));
+(UUID(),@c3,'de','Bun','bun',NOW(3),NOW(3));
 
 SET @c4 := UUID();
 INSERT INTO `skill_counters`
@@ -160,13 +160,13 @@ VALUES
 (@l1,'right','/assets/imgs/home-page-2/hero-1/icon-1.svg',NULL,1,10,NOW(3),NOW(3));
 
 INSERT INTO `skill_logos_i18n` (`id`,`logo_id`,`locale`,`label`,`created_at`,`updated_at`) VALUES
-(UUID(),@l1,'en','Bun',NOW(3),NOW(3));
+(UUID(),@l1,'en','MySQL',NOW(3),NOW(3));
 
 INSERT INTO `skill_logos_i18n` (`id`,`logo_id`,`locale`,`label`,`created_at`,`updated_at`) VALUES
-(UUID(),@l1,'tr','Bun',NOW(3),NOW(3));
+(UUID(),@l1,'tr','MySQL',NOW(3),NOW(3));
 
 INSERT INTO `skill_logos_i18n` (`id`,`logo_id`,`locale`,`label`,`created_at`,`updated_at`) VALUES
-(UUID(),@l1,'de','Bun',NOW(3),NOW(3));
+(UUID(),@l1,'de','MySQL',NOW(3),NOW(3));
 
 SET @l2 := UUID();
 INSERT INTO `skill_logos`
@@ -175,13 +175,13 @@ VALUES
 (@l2,'left','/assets/imgs/home-page-2/hero-1/icon-2.svg',NULL,1,20,NOW(3),NOW(3));
 
 INSERT INTO `skill_logos_i18n` (`id`,`logo_id`,`locale`,`label`,`created_at`,`updated_at`) VALUES
-(UUID(),@l2,'en','MySQL',NOW(3),NOW(3));
+(UUID(),@l2,'en','TypeScript',NOW(3),NOW(3));
 
 INSERT INTO `skill_logos_i18n` (`id`,`logo_id`,`locale`,`label`,`created_at`,`updated_at`) VALUES
-(UUID(),@l2,'tr','MySQL',NOW(3),NOW(3));
+(UUID(),@l2,'tr','TypeScript',NOW(3),NOW(3));
 
 INSERT INTO `skill_logos_i18n` (`id`,`logo_id`,`locale`,`label`,`created_at`,`updated_at`) VALUES
-(UUID(),@l2,'de','MySQL',NOW(3),NOW(3));
+(UUID(),@l2,'de','TypeScript',NOW(3),NOW(3));
 
 SET @l3 := UUID();
 INSERT INTO `skill_logos`
@@ -190,13 +190,13 @@ VALUES
 (@l3,'right','/assets/imgs/home-page-2/hero-1/icon-3.svg',NULL,1,30,NOW(3),NOW(3));
 
 INSERT INTO `skill_logos_i18n` (`id`,`logo_id`,`locale`,`label`,`created_at`,`updated_at`) VALUES
-(UUID(),@l3,'en','TypeScript',NOW(3),NOW(3));
+(UUID(),@l3,'en','Bun',NOW(3),NOW(3));
 
 INSERT INTO `skill_logos_i18n` (`id`,`logo_id`,`locale`,`label`,`created_at`,`updated_at`) VALUES
-(UUID(),@l3,'tr','TypeScript',NOW(3),NOW(3));
+(UUID(),@l3,'tr','Bun',NOW(3),NOW(3));
 
 INSERT INTO `skill_logos_i18n` (`id`,`logo_id`,`locale`,`label`,`created_at`,`updated_at`) VALUES
-(UUID(),@l3,'de','TypeScript',NOW(3),NOW(3));
+(UUID(),@l3,'de','Bun',NOW(3),NOW(3));
 
 SET @l4 := UUID();
 INSERT INTO `skill_logos`
@@ -265,13 +265,13 @@ VALUES
 (@l8,'left','/assets/imgs/home-page-2/hero-1/icon-8.svg',NULL,1,80,NOW(3),NOW(3));
 
 INSERT INTO `skill_logos_i18n` (`id`,`logo_id`,`locale`,`label`,`created_at`,`updated_at`) VALUES
-(UUID(),@l8,'en','Cloudinary',NOW(3),NOW(3));
+(UUID(),@l8,'en','JWT',NOW(3),NOW(3));
 
 INSERT INTO `skill_logos_i18n` (`id`,`logo_id`,`locale`,`label`,`created_at`,`updated_at`) VALUES
-(UUID(),@l8,'tr','Cloudinary',NOW(3),NOW(3));
+(UUID(),@l8,'tr','JWT',NOW(3),NOW(3));
 
 INSERT INTO `skill_logos_i18n` (`id`,`logo_id`,`locale`,`label`,`created_at`,`updated_at`) VALUES
-(UUID(),@l8,'de','Cloudinary',NOW(3),NOW(3));
+(UUID(),@l8,'de','JWT',NOW(3),NOW(3));
 
 SET @l9 := UUID();
 INSERT INTO `skill_logos`
@@ -310,13 +310,13 @@ VALUES
 (@l11,'right','/assets/imgs/home-page-2/hero-1/icon-2.svg',NULL,1,110,NOW(3),NOW(3));
 
 INSERT INTO `skill_logos_i18n` (`id`,`logo_id`,`locale`,`label`,`created_at`,`updated_at`) VALUES
-(UUID(),@l11,'en','JWT',NOW(3),NOW(3));
+(UUID(),@l11,'en','Cloudinary',NOW(3),NOW(3));
 
 INSERT INTO `skill_logos_i18n` (`id`,`logo_id`,`locale`,`label`,`created_at`,`updated_at`) VALUES
-(UUID(),@l11,'tr','JWT',NOW(3),NOW(3));
+(UUID(),@l11,'tr','Cloudinary',NOW(3),NOW(3));
 
 INSERT INTO `skill_logos_i18n` (`id`,`logo_id`,`locale`,`label`,`created_at`,`updated_at`) VALUES
-(UUID(),@l11,'de','JWT',NOW(3),NOW(3));
+(UUID(),@l11,'de','Cloudinary',NOW(3),NOW(3));
 
 SET @l12 := UUID();
 INSERT INTO `skill_logos`
@@ -325,12 +325,12 @@ VALUES
 (@l12,'left','/assets/imgs/home-page-2/hero-1/icon-3.svg',NULL,1,120,NOW(3),NOW(3));
 
 INSERT INTO `skill_logos_i18n` (`id`,`logo_id`,`locale`,`label`,`created_at`,`updated_at`) VALUES
-(UUID(),@l12,'en','Radix UI',NOW(3),NOW(3));
+(UUID(),@l12,'en','Nodemailer',NOW(3),NOW(3));
 
 INSERT INTO `skill_logos_i18n` (`id`,`logo_id`,`locale`,`label`,`created_at`,`updated_at`) VALUES
-(UUID(),@l12,'tr','Radix UI',NOW(3),NOW(3));
+(UUID(),@l12,'tr','Nodemailer',NOW(3),NOW(3));
 
 INSERT INTO `skill_logos_i18n` (`id`,`logo_id`,`locale`,`label`,`created_at`,`updated_at`) VALUES
-(UUID(),@l12,'de','Radix UI',NOW(3),NOW(3));
+(UUID(),@l12,'de','Nodemailer',NOW(3),NOW(3));
 
 COMMIT;

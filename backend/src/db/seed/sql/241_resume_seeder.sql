@@ -1,5 +1,5 @@
 -- AUTO-GENERATED FILE. Source: /home/orhan/Documents/Projeler/vps-guezel/Orhanguezel
--- Generated at 2026-06-09T23:37:13.765Z
+-- Generated at 2026-07-12T17:08:13.778Z
 SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci;
 SET collation_connection = 'utf8mb4_unicode_ci';
 SET time_zone = '+00:00';
