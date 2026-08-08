@@ -1,4 +1,5 @@
 -- =============================================================
+-- @generated migrate-gzlteknoloji-content
 -- OTOMATIK URETILDI — ELLE DUZENLEMEYIN.
 -- Uretici : backend/scripts/migrate-gzlteknoloji-content.mjs
 -- Kaynak  : _migration/gzlteknoloji/content-seeds/sql/040_kurumsal_icerik_seed.sql

@@ -39,6 +39,13 @@ const OUT_DIR = path.join(REPO, 'backend/src/db/seed/content/gzl');
 
 const DRY = process.argv.includes('--dry');
 
+/**
+ * Uretilen dosyalarin basligindaki MAKINE isareti — temizlik bunlari hedefler.
+ * Bilerek "dogal dilde yazilmasi olanaksiz" bir dizge: insan tarafindan yazilan
+ * bir seed'in aciklamasinda bu ifadeyi ANMASI, dosyanin silinmesine yol acmasin.
+ */
+const GENERATED_MARKER = '@generated migrate-gzlteknoloji-content';
+
 // ─────────────────────────────────────────────────────────────
 // DOSYA PLANI — her kaynak dosya icin karar + gerekce.
 // Plan referansi: MIGRASYON_PLANI_gzlteknoloji_2026-08-08.md
@@ -613,6 +620,7 @@ for (const file of srcFiles) {
 
   const header = [
     '-- =============================================================',
+    `-- ${GENERATED_MARKER}`,
     `-- OTOMATIK URETILDI — ELLE DUZENLEMEYIN.`,
     `-- Uretici : backend/scripts/migrate-gzlteknoloji-content.mjs`,
     `-- Kaynak  : _migration/gzlteknoloji/content-seeds/sql/${file}`,
@@ -632,9 +640,13 @@ for (const file of srcFiles) {
 // ── Yazma ────────────────────────────────────────────────────
 if (!DRY) {
   fs.mkdirSync(OUT_DIR, { recursive: true });
-  // Onceki uretimi temizle (README korunur)
+  // Onceki URETIMI temizle — ama YALNIZCA bu script'in urettiklerini.
+  // Elle yazilmis seed'ler (orn. 900_gzl_site_meta.sql) korunur; bunlar
+  // kaynakta karsiligi olmayan, bu deployment icin yazilmis icerigi tasir.
   for (const f of fs.readdirSync(OUT_DIR)) {
-    if (f.endsWith('.sql')) fs.unlinkSync(path.join(OUT_DIR, f));
+    if (!f.endsWith('.sql')) continue;
+    const p = path.join(OUT_DIR, f);
+    if (fs.readFileSync(p, 'utf8').includes(GENERATED_MARKER)) fs.unlinkSync(p);
   }
   for (const out of outputs) {
     fs.writeFileSync(path.join(OUT_DIR, out.name), out.body);

@@ -22,7 +22,20 @@ async function fetchDefaultLocaleMeta(): Promise<any | null> {
       next: { revalidate: 60 },
     });
     if (!res.ok) return null;
-    return await res.json();
+
+    // DİKKAT: bu uç nokta `text/plain` döner (gövde: `tr`), JSON değil.
+    // Eskiden burada doğrudan res.json() çağrılıyordu; düz metinde bu hata
+    // fırlatıyor, catch yutuyor ve fonksiyon SESSİZCE sabit FALLBACK_LOCALE'e
+    // düşüyordu. guezelwebdesign'da fark edilmedi çünkü fallback ('de') zaten
+    // onun varsayılanı; gzlteknoloji.com (varsayılan 'tr') ilk açılışta kökten
+    // /de'ye yönlendirdi. Artık her iki biçim de kabul ediliyor.
+    const text = (await res.text()).trim();
+    if (!text) return null;
+    try {
+      return JSON.parse(text);
+    } catch {
+      return text;
+    }
   } catch {
     return null;
   }

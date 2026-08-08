@@ -123,7 +123,11 @@ module.exports = {
       cwd: path.join(ROOT, 'backend'),
       script: path.join(ROOT, 'backend/dist/index.js'),
       interpreter: BUN_BIN,
-      max_memory_restart: '300M',
+      // 300M ÇOK DÜŞÜKTÜ: guezelwebdesign backend'i normal çalışmada ~290MB'a
+      // çıkıyor ve bu sınır onu sürekli restart ettiriyordu (11 restart / 1 saat).
+      // Sınır kaçak bellek için bir emniyet supabı olmalı, normal çalışmayı
+      // kesen bir tavan değil.
+      max_memory_restart: '700M',
       env: {
         NODE_ENV: 'production',
         HOST: '127.0.0.1',

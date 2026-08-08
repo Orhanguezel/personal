@@ -1,4 +1,5 @@
 -- =============================================================
+-- @generated migrate-gzlteknoloji-content
 -- OTOMATIK URETILDI — ELLE DUZENLEMEYIN.
 -- Uretici : backend/scripts/migrate-gzlteknoloji-content.mjs
 -- Kaynak  : _migration/gzlteknoloji/content-seeds/sql/035_footer_sections_schema_seed.sql
