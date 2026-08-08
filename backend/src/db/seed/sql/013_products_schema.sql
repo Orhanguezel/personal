@@ -49,6 +49,28 @@ CREATE TABLE IF NOT EXISTS products (
   -- 🔢 Drag & drop sıralama için
   order_num          INT(11)       NOT NULL DEFAULT 0,
 
+  -- ── Tarım/tohum alanları ──────────────────────────────────────────────────
+  -- Bu kolonlar @vps/shared-backend'in ortak `products` Drizzle şemasında
+  -- TANIMLI (paket VistaSeeds/BereketFide için yazıldı) ama bu repodaki seed
+  -- şemasında YOKTU. Ortak modül bu kolonları SELECT ettiği için
+  -- `GET /api/v1/products` HER İKİ sitede de 500 dönüyordu (2026-08-08'de
+  -- gzlteknoloji.com SaaS kataloğu yayına alınırken ortaya çıktı).
+  -- Bu deployment'larda kullanılmaz, NULL kalır — amaç ortak şemayla hizalanmak.
+  botanical_name     VARCHAR(255)  DEFAULT NULL,
+  planting_seasons   JSON          DEFAULT NULL,
+  harvest_days       INT           DEFAULT NULL,
+  climate_zones      JSON          DEFAULT NULL,
+  soil_types         JSON          DEFAULT NULL,
+  water_need         VARCHAR(16)   DEFAULT NULL,
+  sun_exposure       VARCHAR(16)   DEFAULT NULL,
+  min_temp           DECIMAL(5,2)  DEFAULT NULL,
+  max_temp           DECIMAL(5,2)  DEFAULT NULL,
+  germination_days   INT           DEFAULT NULL,
+  seed_depth_cm      DECIMAL(5,2)  DEFAULT NULL,
+  row_spacing_cm     INT           DEFAULT NULL,
+  plant_spacing_cm   INT           DEFAULT NULL,
+  yield_per_sqm      VARCHAR(50)   DEFAULT NULL,
+
   product_code       VARCHAR(64)   DEFAULT NULL,
   stock_quantity     INT(11)       NOT NULL DEFAULT 0,
   rating             DECIMAL(3,2)  NOT NULL DEFAULT 5.00,
