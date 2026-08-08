@@ -94,7 +94,10 @@ export default function AdminSupportClient() {
       q: q.trim() || undefined,
       status: status === 'all' ? undefined : status,
       priority: priority === 'all' ? undefined : priority,
-      limit: 200,
+      // API üst sınırı 100 (shared-backend/modules/support/validation.ts:
+      // limit .max(100)). 200 gönderildiğinde istek 400 "Geçersiz istek."
+      // ile reddediliyor ve destek listesi hiç yüklenmiyordu.
+      limit: 100,
       offset: 0,
       sort: 'created_at' as const,
       order: 'desc' as const,

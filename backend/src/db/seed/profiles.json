@@ -53,7 +53,7 @@
     "040.12_site_settings_static.sql": "content:gwd",
     "040.13_site_settings_coporation.sql": "content:gwd",
     "040.14_site_settings_home3.sql": "content:gwd",
-    "040.15_site_settings_admin_ui.sql": "content:gwd",
+    "040.15_site_settings_admin_ui.sql": "core",
     "040.1_site_meta.sql": "content:gwd",
     "040.2_site_settings_contact.sql": "content:gwd",
     "040.3_site_settings_services.sql": "content:gwd",

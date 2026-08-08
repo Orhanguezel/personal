@@ -12,7 +12,11 @@ import type {
 } from '@/integrations/shared';
 import { normalizeAdminUser } from '@/integrations/shared';
 
-const ADMIN_USERS_BASE = '/users';
+// Backend'de kullanıcı yönetimi rotaları admin önekiyle kayıtlı:
+// registerUserAdmin, registerSharedAdmin(adminApi) içinde çağrılıyor →
+// gerçek yol /api/v1/admin/users. Burası '/users' diyordu ve panelde
+// kullanıcılar listesi 404 alıyordu. Diğer tüm admin uçları '/admin/...'.
+const ADMIN_USERS_BASE = '/admin/users';
 
 export const authAdminApi = baseApi.injectEndpoints({
   endpoints: (b) => ({

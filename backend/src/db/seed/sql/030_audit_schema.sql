@@ -34,6 +34,14 @@ CREATE TABLE IF NOT EXISTS `audit_request_logs` (
   `country`          VARCHAR(8)   DEFAULT NULL,
   `city`             VARCHAR(64)  DEFAULT NULL,
 
+  -- Hata ayrıntıları — @vps/shared-backend audit modülünün Drizzle şemasında
+  -- TANIMLI ama bu seed şemasında YOKTU; modül bu kolonları SELECT ettiği için
+  -- `GET /api/v1/admin/audit/request-logs` her iki sitede de 500 dönüyordu
+  -- (admin panelinde 2026-08-08'de görüldü).
+  `error_code`       VARCHAR(64)  DEFAULT NULL,
+  `error_message`    VARCHAR(512) DEFAULT NULL,
+  `request_body`     LONGTEXT     DEFAULT NULL,
+
   `created_at`       DATETIME(3)  NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
 
   PRIMARY KEY (`id`),
