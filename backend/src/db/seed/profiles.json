@@ -44,6 +44,7 @@
     "004_user_roles_schema.sql": "schema",
     "005_user_roles_seed.sql": "core",
     "006_disable_placeholder_temp_users.sql": "core",
+    "012_categories_schema.sql": "schema",
     "013_products_schema.sql": "schema",
     "030_audit_schema.sql": "schema",
     "035_site_settings_schema.sql": "schema",

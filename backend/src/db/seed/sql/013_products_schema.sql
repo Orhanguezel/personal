@@ -18,6 +18,17 @@ CREATE TABLE IF NOT EXISTS products (
   -- 🔑 Ürün tipi (product | sparepart)
   item_type          ENUM('product','sparepart') NOT NULL DEFAULT 'product',
 
+  -- ── SaaS / dijital ürün alanları ──────────────────────────────────────────
+  -- gzlteknoloji birleşmesiyle eklendi (2026-08-08). GZL Teknoloji kataloğu
+  -- fiziksel ürün değil SaaS/araç/API satar (GeoSerra, KatalogAI, Invitea,
+  -- Scraper-API); bu alanlar olmadan katalog anlamsız kalıyordu.
+  -- GWD tarafında kullanılmaz, varsayılanlarla kalır.
+  product_kind       ENUM('saas','tool','api')   NOT NULL DEFAULT 'saas',
+  demo_url           VARCHAR(500)  DEFAULT NULL,
+  docs_url           VARCHAR(500)  DEFAULT NULL,
+  status             ENUM('live','beta','coming_soon') NOT NULL DEFAULT 'coming_soon',
+  pricing_model      ENUM('subscription','one_time','usage') NOT NULL DEFAULT 'subscription',
+
   category_id        CHAR(36)      NOT NULL,
   sub_category_id    CHAR(36)      DEFAULT NULL,
 
@@ -52,6 +63,8 @@ CREATE TABLE IF NOT EXISTS products (
   UNIQUE KEY products_code_uq        (product_code),
 
   KEY products_item_type_idx         (item_type),
+  KEY products_kind_idx              (product_kind),
+  KEY products_status_idx            (status),
   KEY products_category_id_idx       (category_id),
   KEY products_sub_category_id_idx   (sub_category_id),
   KEY products_active_idx            (is_active),
