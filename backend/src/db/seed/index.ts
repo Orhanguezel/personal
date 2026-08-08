@@ -16,6 +16,7 @@ const __dirname = path.dirname(__filename);
 type Flags = {
   noDrop?: boolean;
   only?: string[]; // ör: ["40","41","50"] -> sadece o dosyalar
+  profile?: string; // ör: "gzl" -> --profile=gzl (SEED_PROFILE env'ini ezer)
 };
 
 function parseFlags(argv: string[]): Flags {
@@ -24,9 +25,75 @@ function parseFlags(argv: string[]): Flags {
     if (a === '--no-drop') flags.noDrop = true;
     else if (a.startsWith('--only=')) {
       flags.only = a.replace('--only=', '').split(',').map(s => s.trim());
+    } else if (a.startsWith('--profile=')) {
+      flags.profile = a.replace('--profile=', '').trim();
     }
   }
   return flags;
+}
+
+// ─── Seed profilleri ─────────────────────────────────────────────────────────
+// Ayni kod tabani iki markayi sunar (MIGRASYON_PLANI_gzlteknoloji_2026-08-08.md):
+//   SEED_PROFILE=gwd -> Guzel Web Design (de/en)
+//   SEED_PROFILE=gzl -> GZL Teknoloji (tr)
+// Sema ortak, icerik ayridir. Siniflandirma: profiles.json
+
+type FileClass = 'schema' | 'core' | `content:${string}`;
+
+type ProfileManifest = {
+  defaultProfile: string;
+  profiles: Record<string, { label: string; defaultLocale: string; locales: string[] }>;
+  files: Record<string, FileClass>;
+};
+
+function loadManifest(): ProfileManifest {
+  // dist/ altinda calisirken profiles.json build ciktisina kopyalanmis olur;
+  // kaynaktan calisirken de ayni dizinde durur.
+  const candidates = [
+    path.resolve(__dirname, 'profiles.json'),
+    path.resolve(__dirname, '../../../src/db/seed/profiles.json'),
+  ];
+  const found = candidates.find(p => fs.existsSync(p));
+  if (!found) {
+    throw new Error(
+      `Seed profil manifestosu bulunamadi. Arananlar:\n  ${candidates.join('\n  ')}`
+    );
+  }
+  return JSON.parse(fs.readFileSync(found, 'utf8')) as ProfileManifest;
+}
+
+function resolveProfile(manifest: ProfileManifest, flags: Flags): string {
+  const profile = (flags.profile || process.env.SEED_PROFILE || manifest.defaultProfile).trim();
+  if (!manifest.profiles[profile]) {
+    throw new Error(
+      `Bilinmeyen SEED_PROFILE="${profile}". Gecerli profiller: ${Object.keys(manifest.profiles).join(', ')}`
+    );
+  }
+  return profile;
+}
+
+/**
+ * sql/ altindaki bir dosya bu profilde calismali mi?
+ * Siniflandirilmamis dosyada FAIL-CLOSED durur: sessizce yanlis markanin
+ * icerigini basmaktansa seed'in patlamasi yeglenir.
+ */
+function shouldRunForProfile(
+  manifest: ProfileManifest,
+  profile: string,
+  fileName: string
+): boolean {
+  const cls = manifest.files[fileName];
+  if (!cls) {
+    throw new Error(
+      `Seed dosyasi profiles.json'da siniflandirilmamis: "${fileName}".\n` +
+      `backend/src/db/seed/profiles.json -> "files" altina ekleyin.\n` +
+      `Gecerli siniflar: "schema" (saf DDL), "core" (her deployment'in onyukleme verisi), ` +
+      `"content:<profil>" (yalnizca o markanin icerigi).`
+    );
+  }
+  if (cls === 'schema' || cls === 'core') return true;
+  if (cls.startsWith('content:')) return cls === `content:${profile}`;
+  throw new Error(`profiles.json icinde gecersiz sinif: "${cls}" (dosya: ${fileName})`);
 }
 
 function assertSafeToDrop(dbName: string) {
@@ -136,6 +203,15 @@ async function runSqlFile(conn: mysql.Connection, absPath: string, adminVars: { 
 async function main() {
   const flags = parseFlags(process.argv);
 
+  // 0) Profil cozumle — hangi markanin icerigi basilacak?
+  const manifest = loadManifest();
+  const profile = resolveProfile(manifest, flags);
+  const profileInfo = manifest.profiles[profile];
+  logStep(
+    `🏷️  Seed profili: ${profile} — ${profileInfo.label} ` +
+    `(varsayilan locale: ${profileInfo.defaultLocale}, DB: ${env.DB.name})`
+  );
+
   // 1) Root ile drop + create (opsiyonel)
   const root = await createRoot();
   try {
@@ -180,15 +256,57 @@ async function main() {
       .filter(f => f.endsWith('.sql'))
       .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
 
-    for (const f of files) {
+    // Profil filtresini once TOPLUCA uygula: siniflandirilmamis bir dosya varsa
+    // DB'ye tek satir yazmadan, en basta patlasin.
+    const plan = files.map(f => ({ file: f, run: shouldRunForProfile(manifest, profile, f) }));
+    const skipped = plan.filter(p => !p.run);
+    if (skipped.length) {
+      logStep(
+        `⏭️ ${skipped.length} icerik dosyasi "${profile}" profiline ait olmadigi icin atlanacak`
+      );
+    }
+
+    for (const { file: f, run } of plan) {
       const abs = path.join(sqlDir, f);
+      if (!run) continue;
       if (!shouldRun(abs, flags)) {
         logStep(`⏭️ ${f} atlandı (--only filtresi)`);
         continue;
       }
       await runSqlFile(conn, abs, ADMIN);
     }
-    logStep('🎉 Seed tamamlandı.');
+
+    // 5) Profile ozel icerik: content/<profil>/*.sql
+    const contentDirCandidates = [
+      path.resolve(sqlDir, '../content', profile),
+      path.resolve(__dirname, 'content', profile),
+      path.resolve(__dirname, '../../../src/db/seed/content', profile),
+    ];
+    const contentDir = contentDirCandidates.find(d => fs.existsSync(d));
+
+    if (!contentDir) {
+      logStep(`ℹ️ content/${profile}/ dizini yok — profile ozel icerik atlandi`);
+    } else {
+      const contentFiles = fs.readdirSync(contentDir)
+        .filter(f => f.endsWith('.sql'))
+        .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+
+      if (!contentFiles.length) {
+        logStep(`ℹ️ content/${profile}/ bos — profile ozel icerik yok`);
+      } else {
+        logStep(`📦 content/${profile}/ — ${contentFiles.length} icerik dosyasi`);
+        for (const f of contentFiles) {
+          const abs = path.join(contentDir, f);
+          if (!shouldRun(abs, flags)) {
+            logStep(`⏭️ ${f} atlandı (--only filtresi)`);
+            continue;
+          }
+          await runSqlFile(conn, abs, ADMIN);
+        }
+      }
+    }
+
+    logStep(`🎉 Seed tamamlandı (profil: ${profile}).`);
   } finally {
     await conn.end();
   }

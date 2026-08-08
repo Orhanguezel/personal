@@ -18,7 +18,10 @@
     "schema:drift:fix": "node scripts/schema-drift-check.mjs --fix",
     "db:seed": "node --experimental-specifier-resolution=node dist/db/seed/index.js",
     "db:seed:nodrop": "node --experimental-specifier-resolution=node dist/db/seed/index.js --no-drop",
-    "db:seed:only": "node --experimental-specifier-resolution=node dist/db/seed/index.js --only="
+    "db:seed:only": "node --experimental-specifier-resolution=node dist/db/seed/index.js --only=",
+    "db:seed:gwd": "node --experimental-specifier-resolution=node dist/db/seed/index.js --profile=gwd",
+    "db:seed:gzl": "node --experimental-specifier-resolution=node dist/db/seed/index.js --profile=gzl",
+    "db:seed:profiles:check": "node scripts/check-seed-profiles.mjs"
   },
   "dependencies": {
     "@vps/shared-backend": "workspace:*",
