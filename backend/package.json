@@ -21,7 +21,8 @@
     "db:seed:only": "node --experimental-specifier-resolution=node dist/db/seed/index.js --only=",
     "db:seed:gwd": "node --experimental-specifier-resolution=node dist/db/seed/index.js --profile=gwd",
     "db:seed:gzl": "node --experimental-specifier-resolution=node dist/db/seed/index.js --profile=gzl",
-    "db:seed:profiles:check": "node scripts/check-seed-profiles.mjs"
+    "db:seed:profiles:check": "node scripts/check-seed-profiles.mjs",
+    "migrate:gzl": "node scripts/migrate-gzlteknoloji-content.mjs"
   },
   "dependencies": {
     "@vps/shared-backend": "workspace:*",
