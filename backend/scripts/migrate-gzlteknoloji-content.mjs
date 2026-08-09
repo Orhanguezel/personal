@@ -652,6 +652,7 @@ for (const file of srcFiles) {
   // kayitlar OKSUZ kaliyordu (27 proje / 23 ceviri) — cevirisiz proje
   // listelerde bozuk gorunur.
   const fakeProjectIds = new Set();
+  const fakeImageIds = new Set();
   for (const stmt of statements) {
     const c = classifyStatement(stmt);
     if (c.kind !== 'dml' || c.table !== 'projects_i18n') continue;
@@ -698,13 +699,27 @@ for (const file of srcFiles) {
         report.droppedRows.en += r.dropped;
       }
       if (table.startsWith('project')) {
-        const pred =
-          table === 'projects'
-            ? (tuple) => {
-                const id = (splitTuple(tuple)[0] || '').trim();
-                return fakeProjectIds.has(id);
-              }
-            : isFakeProjectRow;
+        // Sahte projeyi elerken TUM bagli satirlar birlikte gitmeli; aksi halde
+        // temiz bir seed foreign key hatasiyla patliyor (project_images ->
+        // olmayan projects satiri). Zincir: projects -> project_images ->
+        // project_images_i18n.
+        let pred;
+        if (table === 'projects') {
+          pred = (tuple) => fakeProjectIds.has((splitTuple(tuple)[0] || '').trim());
+        } else if (table === 'project_images') {
+          pred = (tuple) => {
+            const vals = splitTuple(tuple);
+            // (id, project_id, ...)
+            const isFake = fakeProjectIds.has((vals[1] || '').trim());
+            if (isFake) fakeImageIds.add((vals[0] || '').trim());
+            return isFake;
+          };
+        } else if (table === 'project_images_i18n') {
+          // (id, image_id, ...)
+          pred = (tuple) => fakeImageIds.has((splitTuple(tuple)[1] || '').trim());
+        } else {
+          pred = isFakeProjectRow;
+        }
         const r = dropValueRows(stmt, pred);
         stmt = r.sql;
         report.droppedRows.fakeProject += r.dropped;

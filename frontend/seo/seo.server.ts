@@ -57,8 +57,13 @@ export async function getAnalyticsConfig(opts?: {
 // JSON-LD graph builder (Organization + WebSite + LocalBusiness)
 // =============================================================
 
-export async function getSiteJsonLdGraph(): Promise<Thing> {
-  const all = await getSeoAll();
+export async function getSiteJsonLdGraph(opts?: { routeLocale?: string | null }): Promise<Thing> {
+  // routeLocale GECILMELI: gecilmezse ayar cozumleyicisi locale'i cookies()/
+  // headers() ile bulmaya calisiyor. Bu dinamik API'ler statik render sirasinda
+  // DYNAMIC_SERVER_USAGE firlatiyor ve on-demand uretilen sayfalar (henuz
+  // prebuild edilmemis detay sayfalari) 500 veriyordu — gzlteknoloji.com'da
+  // blog/hizmet/urun detaylari bu yuzden patliyordu (2026-08-09).
+  const all = await getSeoAll({ routeLocale: opts?.routeLocale ?? null });
   const canonicalBase = all.defaults.canonicalBase;
   const siteName = all.defaults.siteName;
   const localBusinessRaw = all.localBusiness ?? null;

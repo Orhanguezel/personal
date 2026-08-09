@@ -58,13 +58,15 @@ export default async function LocaleLayout({
   const p = await unwrapRouteParams(params);
   const locale = normalizeLocaleParam(p?.locale);
 
-  const siteJsonLd = await getSiteJsonLdGraph();
+  // locale GECILMELI: gecilmezse SEO katmani cookies()/headers() kullanip
+  // statik render'da DYNAMIC_SERVER_USAGE firlatiyor (detay sayfalari 500).
+  const siteJsonLd = await getSiteJsonLdGraph({ routeLocale: locale });
 
   return (
     <html lang={locale} suppressHydrationWarning>
       <body className={fontVars} suppressHydrationWarning>
         <JsonLd data={siteJsonLd} id="site" />
-        <GlobalScripts />
+        <GlobalScripts locale={locale} />
         <AppProviders>{children}</AppProviders>
       </body>
     </html>

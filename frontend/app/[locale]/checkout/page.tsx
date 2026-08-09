@@ -7,6 +7,15 @@ import Layout from '@/components/layout/Layout';
 import CheckoutClient from './_component/CheckoutClient';
 import { normalizeLocaleParam } from '@/i18n/localeParam';
 
+// Checkout DOGASI GEREGI dinamik: sepet/siparis durumu istege bagli ve
+// CheckoutClient useSearchParams() kullaniyor.
+// Onceden tum rotalar dolayli olarak dinamikti (layout SEO katmani
+// cookies()/headers() cagiriyordu), bu yuzden sayfa hic statik uretilmiyordu.
+// O bagimlilik kaldirilinca Next burayi prerender etmeye calisti ve
+// "useSearchParams() should be wrapped in a suspense boundary" ile BUILD'I
+// KIRDI. Sayfayi acikca dinamik isaretliyoruz.
+export const dynamic = 'force-dynamic';
+
 export default async function CheckoutPage({
   params,
 }: {

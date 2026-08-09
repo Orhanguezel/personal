@@ -181,6 +181,76 @@ function prepareSqlForRun(rawSql: string, admin: { email: string; id: string; pa
   return sql;
 }
 
+/** Bir SQL dosyasinin DROP edecegi tablolari cikarir */
+function dropTargets(sql: string): string[] {
+  const out = new Set<string>();
+  for (const m of sql.matchAll(/DROP\s+TABLE\s+(?:IF\s+EXISTS\s+)?`?([a-z0-9_]+)`?/gi)) {
+    out.add(m[1].toLowerCase());
+  }
+  return [...out];
+}
+
+/**
+ * VERI KAYBI KORUMASI.
+ *
+ * Sema dosyalarinin 14'u `DROP TABLE IF EXISTS` iceriyor — yani "sema" dosyasi
+ * calistirmak YIKICIDIR. `--no-drop` bayragi yalnizca DATABASE drop'unu atlar,
+ * bu DROP TABLE'lari ENGELLEMEZ.
+ *
+ * 2026-08-09'da bu yuzden canli veri kaybedildi: urun kolonlari eklenirken
+ * calistirilan tam seed, ilerleyen bir dosyada duplicate-key hatasiyla yarida
+ * kesildi; ama o noktaya gelene kadar services / pricing_plans / faqs
+ * tablolarini dusurup bos birakmisti. Sayfalar sessizce bosaldi.
+ *
+ * Bu kontrol, calistirilacak dosyalarin DROP edecegi tablolardan HERHANGI BIRI
+ * DOLU ise seed'i durdurur. Bilerek yapiliyorsa: ALLOW_DESTRUCTIVE=true
+ */
+async function assertNoDestructiveDrop(
+  conn: mysql.Connection,
+  files: Array<{ file: string; abs: string }>,
+) {
+  if (process.env.ALLOW_DESTRUCTIVE === 'true') {
+    logStep('⚠️  ALLOW_DESTRUCTIVE=true — dolu tablolarin dusurulmesine izin verildi');
+    return;
+  }
+
+  const targets = new Map<string, string[]>(); // tablo -> onu dusuren dosyalar
+  for (const { file, abs } of files) {
+    for (const t of dropTargets(fs.readFileSync(abs, 'utf8'))) {
+      targets.set(t, [...(targets.get(t) ?? []), file]);
+    }
+  }
+  if (!targets.size) return;
+
+  const nonEmpty: Array<{ table: string; rows: number; files: string[] }> = [];
+  for (const [table, srcFiles] of targets) {
+    try {
+      const [rows] = await conn.query<any[]>(
+        `SELECT COUNT(*) AS n FROM \`${table}\``,
+      );
+      const n = Number(rows?.[0]?.n ?? 0);
+      if (n > 0) nonEmpty.push({ table, rows: n, files: srcFiles });
+    } catch {
+      // tablo yok -> dusurulecek bir veri de yok
+    }
+  }
+  if (!nonEmpty.length) return;
+
+  const detail = nonEmpty
+    .map((x) => `  - ${x.table}: ${x.rows} satir  (${x.files.join(', ')})`)
+    .join('\n');
+
+  throw new Error(
+    'VERI KAYBI ONLENDI: calistirilacak sema dosyalari DOLU tablolari ' +
+      'DROP edecek.\n' +
+      detail +
+      '\n\nSeed dosyalari DROP TABLE + CREATE TABLE deseni kullaniyor; ' +
+      '`--no-drop` bunu engellemez.\n' +
+      'Bilerek yapiyorsaniz: ALLOW_DESTRUCTIVE=true ile calistirin ' +
+      '(once yedek alin).',
+  );
+}
+
 async function runSqlFile(conn: mysql.Connection, absPath: string, adminVars: { email: string; id: string; passwordHash: string }) {
   const name = path.basename(absPath);
   logStep(`⏳ ${name} çalışıyor...`);
@@ -266,13 +336,22 @@ async function main() {
       );
     }
 
-    for (const { file: f, run } of plan) {
-      const abs = path.join(sqlDir, f);
-      if (!run) continue;
-      if (!shouldRun(abs, flags)) {
-        logStep(`⏭️ ${f} atlandı (--only filtresi)`);
-        continue;
-      }
+    // Calistirilacak nihai liste (profil + --only filtreleri uygulanmis)
+    const toRun = plan
+      .filter((p) => p.run)
+      .map((p) => ({ file: p.file, abs: path.join(sqlDir, p.file) }))
+      .filter((p) => shouldRun(p.abs, flags));
+
+    for (const { file: f } of plan) {
+      if (!plan.find((p) => p.file === f)?.run) continue;
+      if (!toRun.some((p) => p.file === f)) logStep(`⏭️ ${f} atlandı (--only filtresi)`);
+    }
+
+    // Dolu tabloyu dusurecek bir sema dosyasi varsa BURADA dur (bkz.
+    // assertNoDestructiveDrop): tek satir bile yazmadan hata verir.
+    await assertNoDestructiveDrop(conn, toRun);
+
+    for (const { file: f, abs } of toRun) {
       await runSqlFile(conn, abs, ADMIN);
     }
 
