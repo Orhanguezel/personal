@@ -32,6 +32,10 @@ export type CustomPageFilters = {
 };
 
 export type CustomPageHeaderProps = {
+  title?: string;
+  description?: string;
+  createHref?: string;
+  hideModuleFilter?: boolean;
   filters: CustomPageFilters;
   total: number;
   onFiltersChange: (next: CustomPageFilters) => void;
@@ -53,6 +57,10 @@ export const CustomPageHeader: React.FC<CustomPageHeaderProps> = ({
   localesLoading,
   allowAllOption = true,
   moduleOptions,
+  title = 'Özel Sayfalar',
+  description = 'İçerik sayfalarını modül, yayın durumu ve aktif dile göre yönetebilirsin.',
+  createHref = '/admin/custompage/new',
+  hideModuleFilter = false,
 }) => {
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     onFiltersChange({ ...filters, search: e.target.value });
@@ -96,13 +104,11 @@ export const CustomPageHeader: React.FC<CustomPageHeaderProps> = ({
       <div className="border-b p-3">
         <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
           <div className="min-w-0 flex-1">
-            <div className="text-sm font-semibold">Özel Sayfalar</div>
-            <div className="text-xs text-muted-foreground">
-              İçerik sayfalarını modül, yayın durumu ve aktif dile göre yönetebilirsin.
-            </div>
+            <div className="text-sm font-semibold">{title}</div>
+            <div className="text-xs text-muted-foreground">{description}</div>
 
             <div className="mt-3 grid gap-2 md:grid-cols-12 md:items-end">
-              <div className="md:col-span-5">
+              <div className={hideModuleFilter ? 'md:col-span-7' : 'md:col-span-5'}>
                 <label className="mb-1 block text-xs text-muted-foreground">
                   Başlık / Slug / Meta arama
                 </label>
@@ -134,7 +140,7 @@ export const CustomPageHeader: React.FC<CustomPageHeaderProps> = ({
                 ) : null}
               </div>
 
-              <div className="md:col-span-2">
+              {!hideModuleFilter ? <div className="md:col-span-2">
                 <label className="mb-1 block text-xs text-muted-foreground">Modül</label>
                 <select
                   className="w-full rounded-md border bg-background px-2 py-2 text-sm"
@@ -154,7 +160,7 @@ export const CustomPageHeader: React.FC<CustomPageHeaderProps> = ({
                     Modül listesi yükleniyor...
                   </div>
                 ) : null}
-              </div>
+              </div> : null}
 
               <div className="md:col-span-2">
                 <label className="mb-1 block text-xs text-muted-foreground">Yayın durumu</label>
@@ -191,7 +197,7 @@ export const CustomPageHeader: React.FC<CustomPageHeaderProps> = ({
 
             <div className="mt-3 flex justify-end">
               <Link
-                href="/admin/custompage/new"
+                href={createHref}
                 className="rounded-md bg-primary px-3 py-2 text-xs text-primary-foreground"
               >
                 Yeni Sayfa Oluştur

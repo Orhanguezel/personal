@@ -50,7 +50,14 @@ function labelOfModuleKey(k: string) {
   return map[k] || k;
 }
 
-export default function AdminCustomPagesClient() {
+export type CustomPageSection = {
+  moduleKey: 'blog' | 'legal' | 'corporate';
+  title: string;
+  description: string;
+  basePath: string;
+};
+
+export default function AdminCustomPagesClient({ section }: { section?: CustomPageSection }) {
   const {
     localeOptions,
     defaultLocaleFromDb,
@@ -64,7 +71,7 @@ export default function AdminCustomPagesClient() {
 
   const [filters, setFilters] = React.useState<Filters>({
     search: '',
-    moduleKey: '',
+    moduleKey: section?.moduleKey ?? '',
     publishedFilter: 'all',
     locale: '',
   });
@@ -93,13 +100,13 @@ export default function AdminCustomPagesClient() {
   const queryParams = React.useMemo(
     () => ({
       q: filters.search.trim() || undefined,
-      module_key: filters.moduleKey.trim() || undefined,
+      module_key: section?.moduleKey ?? (filters.moduleKey.trim() || undefined),
       is_published,
       locale: effectiveLocale || undefined,
       limit: 200,
       offset: 0,
     }),
-    [filters.search, filters.moduleKey, is_published, effectiveLocale],
+    [filters.search, filters.moduleKey, is_published, effectiveLocale, section?.moduleKey],
   );
 
   const pagesQ = useListCustomPagesAdminQuery(
@@ -187,6 +194,10 @@ export default function AdminCustomPagesClient() {
   return (
     <div className="space-y-4">
       <CustomPageHeader
+        title={section?.title}
+        description={section?.description}
+        createHref={section ? `${section.basePath}/new` : undefined}
+        hideModuleFilter={!!section}
         filters={headerFilters}
         total={total}
         onFiltersChange={onHeaderFiltersChange}
@@ -198,6 +209,7 @@ export default function AdminCustomPagesClient() {
       />
 
       <CustomPageList
+        basePath={section?.basePath}
         items={rows}
         loading={busy}
         activeLocale={effectiveLocale}

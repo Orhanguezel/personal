@@ -1,6 +1,6 @@
 -- =============================================================
 -- FILE: 053_custom_pages_policy.seed.sql
--- Custom Pages — module_key='policy' (Privacy, KVKK, Terms)
+-- Custom Pages — module_key='legal' (Privacy, KVKK, Terms)
 -- - content: LONGTEXT JSON-string {"html":"..."}
 -- - i18n: TR/EN/DE
 -- =============================================================
@@ -11,7 +11,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 
 START TRANSACTION;
 
-SET @MODULE_KEY := 'policy';
+SET @MODULE_KEY := 'legal';
 SET @EMPTY_ARR := '[]';
 
 -- helper pattern:

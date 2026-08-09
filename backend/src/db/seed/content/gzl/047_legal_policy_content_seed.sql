@@ -14,9 +14,9 @@ SET NAMES utf8mb4;
 SET NAMES utf8mb4;
 
 INSERT INTO custom_pages (id,module_key,is_published,display_order,created_at,updated_at) VALUES
-('47000000-0000-4000-8000-000000000001','privacy',1,1,'2026-07-11 00:00:00.000','2026-07-11 00:00:00.000'),
-('47000000-0000-4000-8000-000000000002','terms',1,2,'2026-07-11 00:00:00.000','2026-07-11 00:00:00.000'),
-('47000000-0000-4000-8000-000000000003','cookies',1,3,'2026-07-11 00:00:00.000','2026-07-11 00:00:00.000')
+('47000000-0000-4000-8000-000000000001','legal',1,1,'2026-07-11 00:00:00.000','2026-07-11 00:00:00.000'),
+('47000000-0000-4000-8000-000000000002','legal',1,2,'2026-07-11 00:00:00.000','2026-07-11 00:00:00.000'),
+('47000000-0000-4000-8000-000000000003','legal',1,3,'2026-07-11 00:00:00.000','2026-07-11 00:00:00.000')
 ON DUPLICATE KEY UPDATE module_key=VALUES(module_key),is_published=VALUES(is_published),display_order=VALUES(display_order),updated_at=VALUES(updated_at);
 
 INSERT INTO custom_pages_i18n (`id`,`page_id`,`locale`,`title`,`slug`,`content`,`summary`,`meta_title`,`meta_description`) VALUES

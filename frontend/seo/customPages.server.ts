@@ -63,12 +63,14 @@ export function toSeoPageFromCustomPage(pick: CustomPageSeoPick | null): SeoPage
 export async function getCustomPageSeoByModuleSlug(
   module_key: string,
   slug: string,
+  locale?: string,
 ): Promise<CustomPageSeoPick | null> {
   const mk = String(module_key ?? '').trim();
   const sl = String(slug ?? '').trim();
   if (!mk || !sl) return null;
 
-  const url = joinApi(BASE_URL, `/custom-pages/by-slug/${encodeURIComponent(sl)}`);
+  const base = joinApi(BASE_URL, `/custom-pages/by-module/${encodeURIComponent(mk)}/${encodeURIComponent(sl)}`);
+  const url = locale ? `${base}?locale=${encodeURIComponent(locale)}` : base;
 
   const j = await fetchJsonNoStore(url);
   return j ? pickSeo(j) : null;
@@ -78,8 +80,9 @@ export async function getCustomPageSeoByModuleSlug(
 export async function getCustomPageSeoPageByModuleSlug(
   module_key: string,
   slug: string,
+  locale?: string,
 ): Promise<SeoPage | null> {
-  const raw = await getCustomPageSeoByModuleSlug(module_key, slug);
+  const raw = await getCustomPageSeoByModuleSlug(module_key, slug, locale);
   return toSeoPageFromCustomPage(raw);
 }
 

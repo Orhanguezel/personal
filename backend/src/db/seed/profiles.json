@@ -67,6 +67,7 @@
     "050_custom_pages_schema.sql": "schema",
     "052_custom_pages_blog.seed.sql": "content:gwd",
     "053_custom_pages_policy.seed.sql": "content:gwd",
+    "054_custom_pages_module_taxonomy.sql": "core",
     "060_reviews.sql": "schema",
     "070_services.sql": "schema",
     "071_services_seed.sql": "content:gwd",

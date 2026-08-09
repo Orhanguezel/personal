@@ -5,7 +5,7 @@
 // - Server fetch + normalize
 // =============================================================
 
-import { notFound } from 'next/navigation';
+import { notFound, permanentRedirect } from 'next/navigation';
 
 import Layout from '@/components/layout/Layout';
 import { unwrapRouteParams, normalizeLocaleParam } from '@/i18n/localeParam';
@@ -53,6 +53,14 @@ export default async function CustomPageDetail({
   const locale = normalizeLocaleParam(p?.locale);
   const moduleKey = String(p?.module_key ?? '').trim();
   const slug = String(p?.slug ?? '').trim();
+
+  if (moduleKey === 'blog') permanentRedirect(`/${locale}/blog/${slug}`);
+  if (['legal', 'policy', 'privacy', 'terms', 'cookies'].includes(moduleKey)) {
+    permanentRedirect(`/${locale}/legal/${slug}`);
+  }
+  if (['corporate', 'about', 'kurumsal'].includes(moduleKey)) {
+    permanentRedirect(`/${locale}/corporate/${slug}`);
+  }
 
   let page = await fetchCustomPage(moduleKey, slug, locale);
 

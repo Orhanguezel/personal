@@ -13,8 +13,8 @@
 SET NAMES utf8mb4;
 
 INSERT INTO `custom_pages` (`id`, `module_key`, `is_published`, `display_order`)
-VALUES ('8478ea33-66fd-5f08-912c-1aff9da9eb06', 'about', 1, 1)
-ON DUPLICATE KEY UPDATE `is_published` = VALUES(`is_published`), `updated_at` = CURRENT_TIMESTAMP(3);
+VALUES ('8478ea33-66fd-5f08-912c-1aff9da9eb06', 'corporate', 1, 1)
+ON DUPLICATE KEY UPDATE `module_key` = VALUES(`module_key`), `is_published` = VALUES(`is_published`), `updated_at` = CURRENT_TIMESTAMP(3);
 
 INSERT INTO `custom_pages_i18n`
   (`id`, `page_id`, `locale`, `title`, `slug`, `content`, `summary`, `meta_title`, `meta_description`)

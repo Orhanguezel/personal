@@ -46,7 +46,15 @@ function getErrMessage(err: unknown): string {
   return 'İşlem başarısız. Lütfen tekrar deneyin.';
 }
 
-export default function AdminCustomPageDetailClient({ id }: { id: string }) {
+export default function AdminCustomPageDetailClient({
+  id,
+  moduleKey,
+  basePath = '/admin/custompage',
+}: {
+  id: string;
+  moduleKey?: 'blog' | 'legal' | 'corporate';
+  basePath?: string;
+}) {
   const router = useRouter();
   const isCreateMode = String(id) === 'new';
 
@@ -138,7 +146,7 @@ export default function AdminCustomPageDetailClient({ id }: { id: string }) {
 
   const mode = isCreateMode ? 'create' : 'edit';
 
-  const onCancel = () => router.push('/admin/custompage');
+  const onCancel = () => router.push(basePath);
 
   const handleSubmit = async (values: CustomPageFormValues) => {
     try {
@@ -151,6 +159,7 @@ export default function AdminCustomPageDetailClient({ id }: { id: string }) {
 
       if (mode === 'create') {
         const payload: CustomPageCreatePayload = {
+          module_key: moduleKey ?? 'corporate',
           locale: loc,
           title: values.title.trim(),
           slug: values.slug.trim(),
@@ -183,7 +192,7 @@ export default function AdminCustomPageDetailClient({ id }: { id: string }) {
         }
 
         toast.success('Sayfa başarıyla oluşturuldu.');
-        router.replace(`/admin/custompage/${encodeURIComponent(nextId)}`);
+        router.replace(`${basePath}/${encodeURIComponent(nextId)}`);
         router.refresh();
         return;
       }
@@ -195,6 +204,7 @@ export default function AdminCustomPageDetailClient({ id }: { id: string }) {
       }
 
       const patch: CustomPageUpdatePayload = {
+        ...(moduleKey ? { module_key: moduleKey } : {}),
         locale: loc,
         title: values.title.trim(),
         slug: values.slug.trim(),
@@ -249,6 +259,20 @@ export default function AdminCustomPageDetailClient({ id }: { id: string }) {
             Listeye dön
           </button>
         </div>
+      </div>
+    );
+  }
+
+  if (!isCreateMode && page && moduleKey && page.module_key !== moduleKey) {
+    return (
+      <div className="rounded-lg border bg-card p-4">
+        <div className="text-sm font-semibold">Bu kayıt farklı bir bölüme ait</div>
+        <div className="mt-1 text-sm text-muted-foreground">
+          Kayıt <code>{page.module_key}</code> bölümünde. Yanlış bölümden düzenlenemez.
+        </div>
+        <button className="mt-3 rounded-md border px-3 py-2 text-xs" onClick={onCancel}>
+          Listeye dön
+        </button>
       </div>
     );
   }

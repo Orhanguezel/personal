@@ -3,8 +3,8 @@
 // FINAL — Admin Site Settings Page
 // =============================================================
 
-import AdminCustomPagesClient from './admin-custom_pages-client';
+import { redirect } from 'next/navigation';
 
 export default function Page() {
-  return <AdminCustomPagesClient />;
+  redirect('/admin/blog');
 }

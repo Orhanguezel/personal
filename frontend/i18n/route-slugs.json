@@ -5,5 +5,7 @@
   "work":     { "tr": "portfolyo", "de": "projekte",   "en": "work" },
   "blog":     { "tr": "blog",      "de": "blog",       "en": "blog" },
   "contact":  { "tr": "iletisim",  "de": "kontakt",    "en": "contact" },
-  "faq":      { "tr": "sss",       "de": "faq",        "en": "faq" }
+  "faq":      { "tr": "sss",       "de": "faq",        "en": "faq" },
+  "legal":    { "tr": "yasal",     "de": "rechtliches", "en": "legal" },
+  "corporate": { "tr": "kurumsal", "de": "unternehmen", "en": "corporate" }
 }

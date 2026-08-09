@@ -132,6 +132,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
       if (moduleKey === 'blog') {
         pushEntry(joinUrl(base, `/${locale}${localizePath(locale, `/blog/${slug}`)}`), toDate(row.updated_at));
+      } else if (moduleKey === 'legal' || moduleKey === 'corporate') {
+        pushEntry(joinUrl(base, `/${locale}${localizePath(locale, `/${moduleKey}/${slug}`)}`), toDate(row.updated_at));
       } else {
         pushEntry(
           joinUrl(base, `/${locale}/custompages/${moduleKey}/${slug}`),

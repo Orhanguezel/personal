@@ -57,6 +57,9 @@ export type AdminNavItemKey =
   | 'dashboard'
   | 'site_settings'
   | 'custom_pages'
+  | 'blog'
+  | 'legal'
+  | 'corporate'
   | 'services'
   | 'projects'
   | 'pricing'
@@ -106,7 +109,9 @@ export const adminNavConfig: AdminNavConfigGroup[] = [
     key: 'content',
     items: [
       { key: 'site_settings', url: '/admin/site-settings', icon: Settings },
-      { key: 'custom_pages', url: '/admin/custompage', icon: FileText },
+      { key: 'blog', url: '/admin/blog', icon: FileText },
+      { key: 'legal', url: '/admin/legal', icon: Shield },
+      { key: 'corporate', url: '/admin/corporate', icon: FileText },
       { key: 'services', url: '/admin/services', icon: Wrench },
       { key: 'projects', url: '/admin/projects', icon: Package },
       { key: 'pricing', url: '/admin/pricing', icon: Receipt },
@@ -162,6 +167,9 @@ const FALLBACK_TITLES: Record<AdminNavItemKey, string> = {
   dashboard: 'Dashboard',
   site_settings: 'Site Settings',
   custom_pages: 'Custom Pages',
+  blog: 'Blog',
+  legal: 'Legal',
+  corporate: 'Corporate',
   services: 'Services',
   projects: 'Projects',
   pricing: 'Pricing',

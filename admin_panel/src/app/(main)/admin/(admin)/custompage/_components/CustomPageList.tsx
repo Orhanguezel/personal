@@ -34,6 +34,7 @@ export type CustomPageListProps = {
   onMoveDown?: (index: number) => void;
 
   activeLocale?: string;
+  basePath?: string;
 };
 
 const VERY_LARGE_BP = 1700;
@@ -64,6 +65,7 @@ export const CustomPageList: React.FC<CustomPageListProps> = ({
   onMoveUp,
   onMoveDown,
   activeLocale,
+  basePath = '/admin/custompage',
 }) => {
   const rows = items ?? [];
   const hasData = rows.length > 0;
@@ -74,7 +76,7 @@ export const CustomPageList: React.FC<CustomPageListProps> = ({
   const effectiveLocale = useMemo(() => normLocale(activeLocale) || '', [activeLocale]);
 
   const editHrefById = (id: string) => ({
-    pathname: `/admin/custompage/${encodeURIComponent(id)}`,
+    pathname: `${basePath}/${encodeURIComponent(id)}`,
     query: effectiveLocale ? { locale: effectiveLocale } : undefined,
   });
 
