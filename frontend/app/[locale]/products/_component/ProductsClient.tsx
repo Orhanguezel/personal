@@ -6,6 +6,7 @@ import Image from 'next/image';
 import type { ProductDto } from '@/integrations/shared/products.types';
 import { formatPrice } from '@/integrations/shared/products.types';
 import { useListProductsPublicQuery } from '@/integrations/hooks';
+import { siteDefaultLocale } from '@/i18n/config';
 
 const CATEGORIES = [
   { key: '', label: 'Alle' },
@@ -33,7 +34,9 @@ export default function ProductsClient({
 
   const { data, isLoading, isFetching } = useListProductsPublicQuery({
     locale,
-    default_locale: locale,
+// default_locale = SITE varsayilani (bkz. i18n/config siteDefaultLocale):
+// istenen dilin kendisi gonderilirse eksik ceviriler bos/tiklanamaz doner.
+    default_locale: siteDefaultLocale(),
     limit: 100,
     order: 'display_order.asc',
     category: activeCategory || undefined,

@@ -72,6 +72,23 @@ async function fetchList<T>(
   return [];
 }
 
+/**
+ * Ceviri EKSIK oldugunda geri duselecek dil.
+ *
+ * Backend i18n'i alan bazinda COALESCE(istenen, varsayilan) ile cozuyor.
+ * Burada `default_locale` olarak ISTENEN DILIN KENDISI gonderiliyordu; bu
+ * COALESCE'i etkisiz birakiyor ve cevirisi olmayan kayitlar adi BOS, slug'i
+ * NULL olarak donuyordu. gzlteknoloji.com/en/hizmetler sayfasinda 21 hizmetin
+ * 16'si basliksiz ve TIKLANAMAZ kartlar olarak cikiyordu (2026-08-09).
+ *
+ * Sitenin varsayilan dili gonderilince eksik ceviriler o dile duser: icerik
+ * cevrilene kadar eksik degil, yalnizca kaynak dilde gorunur.
+ */
+function siteDefaultLocale(): string {
+  const env = String(process.env.NEXT_PUBLIC_DEFAULT_LOCALE || '').trim().toLowerCase();
+  return env.split('-')[0] || 'de';
+}
+
 export async function getServicesListServer(args: {
   locale: string;
   limit?: number;
@@ -82,7 +99,7 @@ export async function getServicesListServer(args: {
     offset: args.offset ?? 0,
     order: 'display_order.asc',
     locale: args.locale,
-    default_locale: args.locale,
+    default_locale: siteDefaultLocale(),
   });
 
   return rows.map(normalizeService);
@@ -130,7 +147,7 @@ export async function getProductsListServer(args: {
     offset: args.offset ?? 0,
     order: 'display_order.asc',
     locale: args.locale,
-    default_locale: args.locale,
+    default_locale: siteDefaultLocale(),
   };
   if (args.category) params.category = args.category;
 
@@ -168,7 +185,7 @@ export async function getServiceDetailServer(args: {
 }): Promise<ServiceDto | null> {
   const url = buildApiUrl(`/services/slug/${encodeURIComponent(args.slug)}`, {
     locale: args.locale,
-    default_locale: args.locale,
+    default_locale: siteDefaultLocale(),
   });
 
   try {
@@ -326,7 +343,7 @@ export async function getResumeListServer(args: {
 }): Promise<ResumeGroupedResponse> {
   const url = buildApiUrl('/resume', {
     locale: args.locale,
-    default_locale: args.locale,
+    default_locale: siteDefaultLocale(),
     limit: args.limit ?? 50,
     offset: args.offset ?? 0,
     order: 'display_order.asc',

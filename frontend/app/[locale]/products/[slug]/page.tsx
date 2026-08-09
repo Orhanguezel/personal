@@ -6,12 +6,13 @@
 import Layout from '@/components/layout/Layout';
 import ProductDetailClient from './_component/ProductDetailClient';
 import { unwrapRouteParams, normalizeLocaleParam } from '@/i18n/localeParam';
+import { siteDefaultLocale } from '@/i18n/config';
 import { getSeoPage, SEO_PAGE_KEYS, buildMetadata } from '@/seo';
 import { BASE_URL } from '@/integrations/apiBase';
 
 async function getProductBySlug(slug: string, locale: string) {
   const base = String(BASE_URL || '').replace(/\/+$/, '');
-  const url = `${base}/products/by-slug/${encodeURIComponent(slug)}?locale=${locale}&default_locale=${locale}`;
+  const url = `${base}/products/by-slug/${encodeURIComponent(slug)}?locale=${locale}&default_locale=${siteDefaultLocale()}`;
 
   const res = await fetch(url, {
     next: { revalidate: 60 },
