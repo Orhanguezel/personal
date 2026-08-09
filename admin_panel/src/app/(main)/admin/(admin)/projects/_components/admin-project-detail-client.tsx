@@ -32,6 +32,7 @@ import {
 } from '@/integrations/hooks';
 import type { BlogSeoQualityScore } from '@/integrations/shared';
 import ContentQualityPanel from '@/components/admin/seo/content-quality-panel';
+import { CategorySelect } from '@/components/admin/category-select';
 
 type FormState = UpsertProjectInput & { id?: string };
 
@@ -295,7 +296,12 @@ export default function AdminProjectDetailClient({ id }: { id: string }) {
 
             <div className="space-y-2">
               <Label>{page?.category_label}</Label>
-              <Input value={form.category ?? ''} onChange={(e) => setForm((p) => ({ ...p, category: e.target.value }))} />
+              {/* Serbest metin degil: kategori listesi site ayarindan gelir.
+                  Bkz. components/admin/category-select.tsx */}
+              <CategorySelect
+                value={form.category}
+                onChange={(next) => setForm((p) => ({ ...p, category: next }))}
+              />
             </div>
             <div className="space-y-2">
               <Label>{page?.client_label}</Label>

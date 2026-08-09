@@ -172,6 +172,9 @@ export default function AdminServiceDetailClient({ id }: { id: string }) {
       }
 
       const common: any = {
+        // Kategori (DB'de tarihsel adiyla `type`) — hizmet/proje eslesmesini
+        // saglayan alan. Bos birakilirsa backend 'other' varsayar.
+        type: (values as { type?: string }).type?.trim() || undefined,
         featured: values.featured,
         is_active: values.is_active,
         display_order: values.display_order ? Number(values.display_order) : undefined,

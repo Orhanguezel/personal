@@ -44,6 +44,7 @@ import RichContentEditor from '@/app/(main)/admin/_components/common/RichContent
 import { buildInitialValues, normalizeLocale, slugify } from './serviceForm.utils';
 import { ServiceFormImageColumn } from './ServiceFormImageColumn';
 import { useServiceEditorImageUpload } from './useServiceEditorImageUpload';
+import { CategorySelect } from '@/components/admin/category-select';
 
 const norm = (v: unknown) => String(v ?? '').trim();
 const toNull = (v: unknown) => {
@@ -564,6 +565,19 @@ export const ServiceForm: React.FC<ServiceFormProps> = ({
 
                 {/* RIGHT */}
                 <div className="space-y-4 lg:col-span-4">
+                  {/* KATEGORI — hizmeti ve ayni kategorideki projeleri baglayan alan.
+                      Liste site_settings.content_categories'ten gelir. */}
+                  <div className="space-y-2">
+                    <Label>Kategori</Label>
+                    <CategorySelect
+                      value={values.type}
+                      onChange={(next) => setValues((p) => ({ ...p, type: next }))}
+                    />
+                    <p className="text-xs text-muted-foreground">
+                      Aynı kategorideki projeler hizmet sayfasında referans olarak gösterilir.
+                    </p>
+                  </div>
+
                   <div className="space-y-2">
                     <Label>{t('admin.services.form.displayOrderLabel')}</Label>
                     <Input
