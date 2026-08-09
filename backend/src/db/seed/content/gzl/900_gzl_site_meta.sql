@@ -66,3 +66,10 @@ INSERT INTO `site_settings` (`id`, `key`, `locale`, `value`) VALUES
   ('90000000-0000-4000-8000-000000000041', 'seo_local_business', '*',
    '{"@type":"Organization","name":"GZL Danışmanlık Hizmetleri ve Teknoloji Limited Şirketi","alternateName":"GZL Teknoloji","url":"https://gzlteknoloji.com","logo":"https://gzlteknoloji.com/uploads/site-media/logo_transparent.png","email":"info@gzlteknoloji.com","address":{"@type":"PostalAddress","streetAddress":"Cumhuriyet Mah. Hastane Cad. Şahinler Sit. C Blok No:12-C İç Kapı No:14","addressLocality":"Gemlik","addressRegion":"Bursa","addressCountry":"TR"}}')
 ON DUPLICATE KEY UPDATE `value` = VALUES(`value`), `updated_at` = CURRENT_TIMESTAMP(3);
+
+-- ── Sosyal paylasim gorseli ─────────────────────────────────────────────────
+-- Ayar yoksa bilesen sablonun GWD gorseline (guezel-showcase/...) dusuyordu.
+INSERT INTO `site_settings` (`id`, `key`, `locale`, `value`) VALUES
+  ('90000000-0000-4000-8000-000000000051', 'site_og_default_image', '*',
+   '{"url":"https://gzlteknoloji.com/uploads/site-media/logo.png","alt":"GZL Teknoloji","width":1200,"height":630}')
+ON DUPLICATE KEY UPDATE `value` = VALUES(`value`), `updated_at` = CURRENT_TIMESTAMP(3);
