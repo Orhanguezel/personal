@@ -6,7 +6,6 @@
 // =============================================================
 
 import {
-  BarChart,
   Bell,
   Contact2,
   Database,
@@ -148,7 +147,7 @@ export const adminNavConfig: AdminNavConfigGroup[] = [
       { key: 'storage', url: '/admin/storage', icon: HardDrive },
       { key: 'db', url: '/admin/db', icon: Database },
       { key: 'audit', url: '/admin/audit', icon: FileSearch },
-      { key: 'reports', url: '/admin/reports', icon: BarChart },
+      // Reports API rotalari uygulanana kadar calismayan ekranı menude gostermiyoruz.
     ],
   },
 ];

@@ -124,6 +124,25 @@ function getMimeColor(mime: string): string {
   return 'text-muted-foreground';
 }
 
+function resolvePublicAssetUrl(value: string | null | undefined): string {
+  const url = String(value || '').trim();
+  if (!url || /^https?:\/\//i.test(url) || url.startsWith('data:') || url.startsWith('blob:')) {
+    return url;
+  }
+
+  const configured = String(process.env.NEXT_PUBLIC_MEDIA_URL || '').replace(/\/+$/, '');
+  if (/^https?:\/\//i.test(configured)) return `${configured}/${url.replace(/^\/+/, '')}`;
+
+  if (typeof window === 'undefined') return url;
+  const panelHost = window.location.hostname.toLowerCase();
+  const publicHost = panelHost === 'panel.guezelwebdesign.com'
+    ? 'www.guezelwebdesign.com'
+    : panelHost.startsWith('panel.')
+      ? panelHost.slice('panel.'.length)
+      : panelHost;
+  return `${window.location.protocol}//${publicHost}/${url.replace(/^\/+/, '')}`;
+}
+
 export default function AdminStorageClient() {
   const router = useRouter();
   const t = useAdminT();
@@ -498,7 +517,7 @@ export default function AdminStorageClient() {
                         <TableCell>
                           {item.url && item.mime.startsWith('image/') ? (
                             <img
-                              src={item.url}
+                              src={resolvePublicAssetUrl(item.url)}
                               alt={item.name}
                               className="size-10 rounded object-cover"
                             />
@@ -551,7 +570,7 @@ export default function AdminStorageClient() {
                                 asChild
                                 title={t('admin.storage.list.downloadTitle')}
                               >
-                                <a href={item.url} download target="_blank" rel="noopener noreferrer">
+                                <a href={resolvePublicAssetUrl(item.url)} download target="_blank" rel="noopener noreferrer">
                                   <Download className="size-3.5" />
                                 </a>
                               </Button>
@@ -629,7 +648,7 @@ export default function AdminStorageClient() {
 
                       {item.url && item.mime.startsWith('image/') ? (
                         <img
-                          src={item.url}
+                          src={resolvePublicAssetUrl(item.url)}
                           alt={item.name}
                           className="size-20 rounded object-cover"
                         />
@@ -670,7 +689,7 @@ export default function AdminStorageClient() {
                           asChild
                           className="flex-1 gap-2"
                         >
-                          <a href={item.url} download target="_blank" rel="noopener noreferrer">
+                          <a href={resolvePublicAssetUrl(item.url)} download target="_blank" rel="noopener noreferrer">
                             <Download className="size-3.5" />
                             {t('admin.storage.list.downloadTitle')}
                           </a>

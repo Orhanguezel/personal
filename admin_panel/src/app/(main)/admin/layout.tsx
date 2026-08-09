@@ -4,6 +4,7 @@
 // =============================================================
 
 import type { ReactNode } from 'react';
+import { headers } from 'next/headers';
 
 import { AppSidebar } from '@/app/(main)/admin/_components/sidebar/app-sidebar';
 
@@ -20,7 +21,10 @@ import AdminAuthGate from './_components/admin-auth-gate';
 // Admin auth-gated + dinamik veri — statik prerender yok (Next 16 route-group manifest hatasını da önler)
 export const dynamic = 'force-dynamic';
 
-export default function Layout({ children }: Readonly<{ children: ReactNode }>) {
+export default async function Layout({ children }: Readonly<{ children: ReactNode }>) {
+  const host = String((await headers()).get('host') || '').toLowerCase();
+  const profile: 'gwd' | 'gzl' = host.includes('gzlteknoloji') ? 'gzl' : 'gwd';
+
   return (
     <AdminAuthGate>
       {/* Gate inside; when ok, render layout */}
@@ -30,14 +34,7 @@ export default function Layout({ children }: Readonly<{ children: ReactNode }>) 
           // Sidebar komponentin prop zorunluluğu varsa default ver:
           variant="inset"
           collapsible="icon"
-          me={{
-            id: 'me',
-            name: 'Admin',
-            email: 'admin',
-            role: 'admin',
-            roles: ['admin'],
-            avatar: '',
-          }}
+          profile={profile}
         />
 
         <SidebarInset
@@ -64,8 +61,7 @@ export default function Layout({ children }: Readonly<{ children: ReactNode }>) 
               <div className="flex items-center gap-2">
                 <LayoutControls />
                 <ThemeSwitcher />
-                {/* AccountSwitcher me bilgisini AdminAuthGate hydrate edecek; burada placeholder */}
-                <AccountSwitcher me={{ id: 'me', email: 'admin', role: 'admin' }} />
+                <AccountSwitcher />
               </div>
             </div>
           </header>
