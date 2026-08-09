@@ -251,7 +251,7 @@ export async function getUiHomeServer(args: {
 
 export async function getPricingPageCopyServer(locale: string): Promise<PricingPageCopy> {
   const value = await getStaticSiteSettingValue('page_pricing', locale);
-  return normalizePricingPageCopy(value ?? null);
+  return normalizePricingPageCopy(value ?? null, locale);
 }
 
 export async function getPricingPublicServer(args: {

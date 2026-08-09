@@ -96,23 +96,29 @@ export type PricingPageCopy = {
   faq_error: string;
 };
 
-export function normalizePricingPageCopy(val: unknown): PricingPageCopy {
+export function normalizePricingPageCopy(val: unknown, locale = 'de'): PricingPageCopy {
   const o = parseJsonObject(val);
+  const isTr = locale.toLowerCase().startsWith('tr');
 
   return {
-    badge: uiText(o.badge) || 'Preise',
+    badge: uiText(o.badge) || (isTr ? 'Paketler ve Fiyatlar' : 'Preise'),
     title_html:
-      uiText(o.title_html) || 'Flexible <span class="text-300">Pakete für unterschiedliche</span> Budgets',
+      uiText(o.title_html) ||
+      (isTr
+        ? 'Farklı bütçelere uygun <span class="text-300">esnek paketler</span>'
+        : 'Flexible <span class="text-300">Pakete für unterschiedliche</span> Budgets'),
     intro_html:
       uiText(o.intro_html) ||
-      'Transparente Einstiegspakete fuer Websites, Relaunches und laufende Betreuung.',
-    loading: uiText(o.loading) || 'Wird geladen...',
-    error: uiText(o.error) || 'Preise oder FAQ konnten nicht geladen werden.',
-    empty: uiText(o.empty) || 'Keine Preispakete gefunden.',
-    cta_default_label: uiText(o.cta_default_label) || 'Anfragen',
-    faq_title: uiText(o.faq_title) || 'Haeufige Fragen',
-    faq_empty: uiText(o.faq_empty) || 'Keine FAQs gefunden.',
-    faq_error: uiText(o.faq_error) || 'FAQs konnten nicht geladen werden.',
+      (isTr
+        ? 'Web sitesi, yenileme, sürekli bakım ve SaaS ürünleri için şeffaf başlangıç paketleri.'
+        : 'Transparente Einstiegspakete fuer Websites, Relaunches und laufende Betreuung.'),
+    loading: uiText(o.loading) || (isTr ? 'Yükleniyor...' : 'Wird geladen...'),
+    error: uiText(o.error) || (isTr ? 'Paketler veya sorular yüklenemedi.' : 'Preise oder FAQ konnten nicht geladen werden.'),
+    empty: uiText(o.empty) || (isTr ? 'Henüz paket bulunmuyor.' : 'Keine Preispakete gefunden.'),
+    cta_default_label: uiText(o.cta_default_label) || (isTr ? 'Teklif alın' : 'Anfragen'),
+    faq_title: uiText(o.faq_title) || (isTr ? 'Sıkça Sorulan Sorular' : 'Haeufige Fragen'),
+    faq_empty: uiText(o.faq_empty) || (isTr ? 'Henüz soru bulunmuyor.' : 'Keine FAQs gefunden.'),
+    faq_error: uiText(o.faq_error) || (isTr ? 'Sorular yüklenemedi.' : 'FAQs konnten nicht geladen werden.'),
   };
 }
 

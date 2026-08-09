@@ -190,6 +190,7 @@ jobs:
             # must therefore be built against its own retained server-side env.
             for TREE in guezelwebdesign gzlteknoloji-site; do
               cd "/var/www/vps-guezel/${TREE}/frontend"
+              rm -rf .next
               bun run build
             done
 

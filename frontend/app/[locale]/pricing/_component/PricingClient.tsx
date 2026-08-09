@@ -25,6 +25,41 @@ export type Props = {
   initialFxRates: UsdFxRates;
 };
 
+function planGroupKey(code: string): string {
+  if (code.startsWith('sosyal-medya-platformu-')) return 'social-platform';
+  if (code.startsWith('ihracat-radari-')) return 'export-radar';
+  if (code.startsWith('geoserra-')) return 'geoserra';
+  if (code.startsWith('amozon-')) return 'amozon';
+  if (code.startsWith('eticaret-')) return 'ecommerce';
+  if (code.startsWith('sosyal-medya-')) return 'social-service';
+  if (code.startsWith('bakim-destek-')) return 'care';
+  return 'other';
+}
+
+function planGroupTitle(key: string, locale: string): string {
+  const tr: Record<string, string> = {
+    ecommerce: 'E-Ticaret Paketleri',
+    'social-service': 'Sosyal Medya Yönetimi Paketleri',
+    care: 'Bakım ve Destek Paketleri',
+    'social-platform': 'Sosyal Medya Platformu',
+    'export-radar': 'İhracat Radarı',
+    geoserra: 'GeoSerra',
+    amozon: 'Amozon',
+    other: 'Diğer Paketler',
+  };
+  const en: Record<string, string> = {
+    ecommerce: 'E-Commerce Packages',
+    'social-service': 'Social Media Management Packages',
+    care: 'Care and Support Packages',
+    'social-platform': 'Social Media Platform',
+    'export-radar': 'Export Radar',
+    geoserra: 'GeoSerra',
+    amozon: 'Amozon',
+    other: 'Other Packages',
+  };
+  return (locale.startsWith('tr') ? tr : en)[key] || key;
+}
+
 export default function PricingClient({
   locale,
   initialCopy,
@@ -106,13 +141,17 @@ export default function PricingClient({
     return raw
       .filter((x) => !!x && x.is_active)
       .slice()
-      .sort((a, b) => {
-        const fa = a.is_featured ? 1 : 0;
-        const fb = b.is_featured ? 1 : 0;
-        if (fb !== fa) return fb - fa;
-        return (a.display_order ?? 0) - (b.display_order ?? 0);
-      });
+      .sort((a, b) => (a.display_order ?? 0) - (b.display_order ?? 0));
   }, [pricingData]);
+
+  const planGroups = useMemo(() => {
+    const grouped = new Map<string, PricingPlan[]>();
+    for (const plan of plans) {
+      const key = planGroupKey(plan.code);
+      grouped.set(key, [...(grouped.get(key) ?? []), plan]);
+    }
+    return [...grouped.entries()];
+  }, [plans]);
 
   const faqs = useMemo(() => {
     const raw = safeArr<Faq>(faqsRaw);
@@ -151,7 +190,7 @@ export default function PricingClient({
                 <p className="text-300 fs-7 mt-3 mb-0 opacity-75">{fxDisclaimer(locale)}</p>
               </div>
 
-              <div className="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 justify-content-center mt-8">
+              <div className="mt-8">
                 {isBusy && (
                   <div className="col">
                     <p className="text-300 fs-5 mb-0 text-center">{copy.loading}</p>
@@ -172,44 +211,48 @@ export default function PricingClient({
 
                 {!isBusy &&
                   !hasError &&
-                  plans.map((p) => {
-                    const ctaHref = p.cta_href || contactHref;
-                    const ctaLabel = p.cta_label || copy.cta_default_label;
-                    const features = safeArr<string>(p.features);
-                    const { text: priceText } = displayPriceForPlan(p, locale, fxRates);
-
-                    return (
-                      <div className="col pricing-plan-col" key={p.id}>
-                        <div className="card-pricing-1 p-6 rounded-4 h-100 d-flex flex-column">
-                          <span className="text-uppercase fs-7">{p.badge || p.code}</span>
-                          <h4 className="mt-3 mb-3 text-dark">{p.title || p.code}</h4>
-
-                          <h3 className="ds-3 fw-medium text-primary-1 mb-5">
-                            {priceText}
-                            <span className="text-300 fs-4">
-                              {unitLabelForLocale(p.price_unit, locale)}
-                            </span>
-                          </h3>
-
-                          <ul className="ps-3 border-top border-600 pt-5 mb-auto">
-                            {features.map((f, idx) => (
-                              <li key={`${p.id}-f-${idx}`}>
-                                <p className="text-300 mb-2">{f}</p>
-                              </li>
-                            ))}
-                          </ul>
-
-                          <Link
-                            href={ctaHref}
-                            className="btn btn-primary mt-5 w-100 justify-content-center"
-                          >
-                            {ctaLabel}
-                            <i className="ri-arrow-right-up-line" />
-                          </Link>
-                        </div>
+                  planGroups.map(([groupKey, groupPlans]) => (
+                    <section className="pricing-plan-group mb-9" key={groupKey}>
+                      <div className="text-center mb-5">
+                        <span className="text-uppercase text-primary-1 fs-7 fw-semibold">Paketler</span>
+                        <h2 className="text-dark mt-2 mb-0">{planGroupTitle(groupKey, locale)}</h2>
                       </div>
-                    );
-                  })}
+                      <div className="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 justify-content-center">
+                        {groupPlans.map((p) => {
+                          const ctaHref = p.cta_href || contactHref;
+                          const ctaLabel = p.cta_label || copy.cta_default_label;
+                          const features = safeArr<string>(p.features);
+                          const { text: priceText } = displayPriceForPlan(p, locale, fxRates);
+
+                          return (
+                            <div className="col pricing-plan-col" key={p.id}>
+                              <div className="card-pricing-1 p-6 rounded-4 h-100 d-flex flex-column">
+                                <span className="text-uppercase fs-7">{p.badge || p.code}</span>
+                                <h4 className="mt-3 mb-3 text-dark">{p.title || p.code}</h4>
+                                <h3 className="ds-3 fw-medium text-primary-1 mb-5">
+                                  {priceText}
+                                  <span className="text-300 fs-4">
+                                    {unitLabelForLocale(p.price_unit, locale)}
+                                  </span>
+                                </h3>
+                                <ul className="ps-3 border-top border-600 pt-5 mb-auto">
+                                  {features.map((f, idx) => (
+                                    <li key={`${p.id}-f-${idx}`}>
+                                      <p className="text-300 mb-2">{f}</p>
+                                    </li>
+                                  ))}
+                                </ul>
+                                <Link href={ctaHref} className="btn btn-primary mt-5 w-100 justify-content-center">
+                                  {ctaLabel}
+                                  <i className="ri-arrow-right-up-line" />
+                                </Link>
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </section>
+                  ))}
               </div>
             </div>
           </div>

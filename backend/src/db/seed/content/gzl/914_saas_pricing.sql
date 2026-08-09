@@ -59,3 +59,12 @@ WHERE `product_id`='30000000-0000-4000-8000-000000000202' AND `locale`='tr';
 UPDATE `product_i18n` SET `title`='İhracat Radarı',`slug`='ihracat-radari',
   `meta_title`='İhracat Radarı | GZL Teknoloji',`updated_at`=CURRENT_TIMESTAMP(3)
 WHERE `product_id`='30000000-0000-4000-8000-000000000206' AND `locale`='tr';
+
+INSERT INTO `site_settings` (`id`,`key`,`locale`,`value`)
+VALUES (
+  '91400002-0000-4000-8000-000000000001',
+  'page_pricing',
+  'tr',
+  '{"badge":"Paketler ve Fiyatlar","title_html":"Farklı bütçelere uygun <span class=\"text-300\">esnek paketler</span>","intro_html":"Web sitesi, yenileme, sürekli bakım ve SaaS ürünleri için şeffaf başlangıç paketleri.","loading":"Yükleniyor...","error":"Paketler veya sık sorulan sorular yüklenemedi.","empty":"Henüz paket bulunmuyor.","cta_default_label":"Teklif alın","faq_title":"Sıkça Sorulan Sorular","faq_empty":"Henüz sık sorulan soru bulunmuyor.","faq_error":"Sık sorulan sorular yüklenemedi."}'
+)
+ON DUPLICATE KEY UPDATE `value`=VALUES(`value`),`updated_at`=CURRENT_TIMESTAMP(3);
