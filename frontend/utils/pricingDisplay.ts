@@ -64,8 +64,14 @@ export function displayPriceForPlan(
 ): { text: string; convertedFromUsd: boolean } {
   const cur = String(plan.currency || 'USD').toUpperCase();
   if (cur !== 'USD') {
-    const symbol = cur === 'EUR' ? '€' : cur === 'TRY' ? '₺' : '$';
-    return { text: `${symbol}${plan.price_amount}`, convertedFromUsd: false };
+    const amount = parseUsdAmount(plan.price_amount);
+    if (cur === 'TRY' || cur === 'EUR') {
+      return {
+        text: formatFiatAmount(amount, locale, cur),
+        convertedFromUsd: false,
+      };
+    }
+    return { text: `${cur} ${amount}`, convertedFromUsd: false };
   }
 
   const target = displayFiatForLocale(locale);
@@ -90,6 +96,8 @@ export function unitLabelForLocale(unit: string | undefined, locale: string): st
   }
   if (u === 'day') return base === 'tr' ? '/gün' : base === 'de' ? '/Tag' : '/day';
   if (u === 'month') return base === 'tr' ? '/ay' : base === 'de' ? '/Monat' : '/mo';
+  if (u === 'once') return base === 'tr' ? ' tek seferlik' : base === 'de' ? ' einmalig' : ' one-time';
+  if (u === 'setup') return base === 'tr' ? ' kurulum' : base === 'de' ? ' Einrichtung' : ' setup';
   return `/${u}`;
 }
 
@@ -99,10 +107,10 @@ export function fxDisclaimer(locale: string): string {
     .toLowerCase()
     .split('-')[0];
   if (base === 'tr') {
-    return 'Fiyatlar USD bazlıdır; gösterilen tutarlar güncel döviz kurlarıyla hesaplanır.';
+    return 'TL fiyatlar doğrudan, USD fiyatlar ise güncel döviz kuruyla gösterilir.';
   }
   if (base === 'de') {
-    return 'Preise basieren auf USD; angezeigte Beträge werden mit aktuellen Wechselkursen umgerechnet.';
+    return 'TRY prices are shown directly; USD prices are converted using current exchange rates.';
   }
-  return 'Prices are based in USD; displayed amounts use current exchange rates.';
+  return 'TRY prices are shown directly; USD prices use current exchange rates.';
 }

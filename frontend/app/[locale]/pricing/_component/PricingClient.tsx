@@ -81,7 +81,7 @@ export default function PricingClient({
     isLoading: pricingLoading,
     isFetching: pricingFetching,
     isError: pricingError,
-  } = useGetPricingQuery({ locale, plans_limit: 10 }, { skip: !usePricingFallback || !locale });
+  } = useGetPricingQuery({ locale, plans_limit: 50 }, { skip: !usePricingFallback || !locale });
 
   const faqParams = {
     locale,
@@ -111,8 +111,7 @@ export default function PricingClient({
         const fb = b.is_featured ? 1 : 0;
         if (fb !== fa) return fb - fa;
         return (a.display_order ?? 0) - (b.display_order ?? 0);
-      })
-      .slice(0, 3);
+      });
   }, [pricingData]);
 
   const faqs = useMemo(() => {
@@ -183,7 +182,7 @@ export default function PricingClient({
                       <div className="col pricing-plan-col" key={p.id}>
                         <div className="card-pricing-1 p-6 rounded-4 h-100 d-flex flex-column">
                           <span className="text-uppercase fs-7">{p.badge || p.code}</span>
-                          <br />
+                          <h4 className="mt-3 mb-3 text-dark">{p.title || p.code}</h4>
 
                           <h3 className="ds-3 fw-medium text-primary-1 mb-5">
                             {priceText}

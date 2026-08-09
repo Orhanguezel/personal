@@ -35,7 +35,7 @@ export default async function PricingPage({
 
   const [initialCopy, initialPricing, initialFaqs, initialFxRates] = await Promise.all([
     getPricingPageCopyServer(locale),
-    getPricingPublicServer({ locale, plans_limit: 10 }),
+    getPricingPublicServer({ locale, plans_limit: 50 }),
     getFaqsListServer({ locale, limit: 50, offset: 0 }),
     fetchFrankfurterUsdRates(),
   ]);
