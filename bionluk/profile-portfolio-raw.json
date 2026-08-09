@@ -1,0 +1,3461 @@
+{
+  "fetched_at": "2026-06-11T20:51:13.589Z",
+  "profile": {
+    "alk": false,
+    "user": {
+      "user_id": 2139134,
+      "uuid": "a5629041-73b1-4230-8b81-374a9f461d39",
+      "username": "orhanguzell",
+      "avatar_url": "https://bgcp.bionluk.com/images/avatar/200x200/006b3dab-e311-4ace-abbb-57d20654effa.png",
+      "followerCount": 0,
+      "followingCount": 0,
+      "likeCount": 2,
+      "generalInfo": [
+        {
+          "icon_svg": "https://gcdn.bionluk.com/site/cicons/ic-trash.svg",
+          "icon": "icon/ic_assignment_return_gray.png",
+          "name": "İptal Sayısı",
+          "value": "3",
+          "iconHeight": "15px",
+          "iconWidth": "15px"
+        },
+        {
+          "icon_svg": "https://gcdn.bionluk.com/site/cicons/ic-eye-open.svg",
+          "icon": "icon/tansel_profile_eye.svg",
+          "name": "Son Görülme",
+          "value": "6 dakika önce",
+          "iconHeight": "12px",
+          "iconWidth": "16px",
+          "son_gorulme_time": 1781210642
+        },
+        {
+          "icon_svg": "https://gcdn.bionluk.com/site/cicons/ic-messages.svg",
+          "icon": "icon/tansel_profile_time.svg",
+          "name": "Ort. Yanıt Süresi",
+          "value": 881200,
+          "iconHeight": "16px",
+          "iconWidth": "16px"
+        },
+        {
+          "icon_svg": "https://gcdn.bionluk.com/site/cicons/ic-package.svg",
+          "icon": "icon/tansel_profile_sonteslim.svg",
+          "name": "Son İş Teslimi",
+          "value": "3 gün önce",
+          "iconHeight": "16px",
+          "iconWidth": "16px"
+        },
+        {
+          "icon_svg": "https://gcdn.bionluk.com/site/cicons/ic-signupdate.svg",
+          "icon": "icon/ic_assignment_ind_gray_v2.svg",
+          "name": "Üyelik Tarihi",
+          "value": "Ağustos 2025",
+          "iconHeight": "16px",
+          "iconWidth": "16px"
+        }
+      ],
+      "buyerInfo": [],
+      "buyerRating": {
+        "commentCount": 0,
+        "commentRating": 0
+      },
+      "description": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.\r\n",
+      "title": "Full-Stack Next.js + Node.js",
+      "is_seller": true,
+      "seller_level": {
+        "level": 0,
+        "level_text": "",
+        "level_icon": null
+      },
+      "seller_skills": [
+        {
+          "id": "7441",
+          "name": "Next.js"
+        },
+        {
+          "id": "2648",
+          "name": "Node.js"
+        },
+        {
+          "id": "2570",
+          "name": "MongoDB"
+        },
+        {
+          "id": "6432",
+          "name": " ReactJS"
+        },
+        {
+          "id": "7661",
+          "name": "Tailwindcss"
+        },
+        {
+          "id": "8609",
+          "name": "MySQL"
+        }
+      ],
+      "educationHistory": [
+        {
+          "type": "certificate",
+          "school": "DCI",
+          "department": "Web Gelistirme",
+          "startYear": null,
+          "endYear": "2025"
+        }
+      ],
+      "workHistory": [],
+      "sellerRating": {
+        "commentCount": 11,
+        "commentRating": 4.5
+      },
+      "isBuyer": false,
+      "f_t_info": {
+        "isActive": false,
+        "isPublic": false,
+        "line": null
+      },
+      "last_seen": {
+        "show_help": false,
+        "text": "6 dakika önce"
+      },
+      "response_time": 881200,
+      "son_is_teslim_text": "3 gün önce",
+      "buyer_rating_text": " - ",
+      "buyer_iptal_text": " - ",
+      "isPro": false,
+      "meta": {
+        "title": "orhanguzell - Full-Stack Next.js + Node.js | Bionluk",
+        "description": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.\r\n",
+        "facebookMeta": {
+          "og:url": "https://bionluk.com/orhanguzell",
+          "og:type": "article",
+          "og:title": "orhanguzell - Full-Stack Next.js + Node.js | Bionluk",
+          "og:description": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.\r\n",
+          "og:image": "https://bgcp.bionluk.com/images/avatar/200x200/006b3dab-e311-4ace-abbb-57d20654effa.png",
+          "og:image:width": 200,
+          "og:image:height": 200
+        },
+        "canonical": "https://bionluk.com/orhanguzell"
+      },
+      "fileCount": "0",
+      "offersCount": "0",
+      "ordersCount": "Henüz yok",
+      "requestsCount": "yok",
+      "gigCount": "16",
+      "recurring_orders": 6,
+      "user_created_at": "Ağustos 2025"
+    },
+    "followStatus": {
+      "actionText": "Takip Et",
+      "actionClass": "follow-button",
+      "action": 1
+    }
+  },
+  "portfolio_count": 21,
+  "portfolios": [
+    {
+      "category_id": 6,
+      "category_name": "Yazılım & Teknoloji",
+      "category_slug": "yazilim-teknoloji",
+      "category_sub_id": 80,
+      "category_sub_name": "Diğer Yazılım Teknoloji",
+      "category_sub_slug": "diger-yazilim-teknoloji",
+      "comment_count": 1,
+      "comments": {
+        "messages": [
+          {
+            "id": 103077,
+            "comment": "Orhan hocam ile yeni nesil yani Google' un seveceği, yukarılarda göstereceği hızlı açılan website konusunda çalışma yaptık. Bu çalışmayı claudeflare domain adı, Next.js yazılım dili ve Hostinger VPS sağlayıcı kullanarak sağladık. Kendisi bu kavramlara uzak değildi süreci güzel yönetti. Teşekkürler.",
+            "comment_m": "Orhan hocam ile yeni nesil yani Google' un seveceği, yukarılarda göstereceği hızlı açılan website konusunda çalışma yaptık. Bu çalışmayı claudeflare domain adı, Next.js yazılım dili ve Hostinger VPS sağlayıcı kullanarak sağladık. Kendisi bu kavramlara uzak değildi süreci güzel yönetti. Teşekkürler.",
+            "reply": "",
+            "reply_m": "",
+            "user": {
+              "username": "fatihsultaner",
+              "avatar_url": "https://bgcp.bionluk.com/images/avatar/200x200/741a48bf-d216-4afd-9658-69e185313ca8.png",
+              "title": "Yazılım ve İhracat",
+              "uuid": "d25f8cbc-7fb5-4c2e-b8b2-001aa8a60333"
+            },
+            "created_at": 1781112176000,
+            "commentLikeCount": 0,
+            "commentLikeStatus": false,
+            "rating": "5.0"
+          }
+        ],
+        "seemorediv": false,
+        "startingOffset": 100,
+        "commentCount": 1
+      },
+      "name": "Çok Dilli B2B Sitesi — GEO + SEO + Lighthouse Analizi",
+      "description": "Çok dilli B2B ihracat sitesi olusturuldu. GEO + SEO + Lighthouse analizi: AI arama motorlarına (ChatGPT, Perplexity, Gemini) yönelik GEO, teknik SEO (hreflang, sitemap, schema) ve Core Web Vitals performans raporu. Aksiyon planıyla teslim edildi.\n",
+      "description_textarea": "Çok dilli B2B ihracat sitesi olusturuldu. GEO + SEO + Lighthouse analizi: AI arama motorlarına (ChatGPT, Perplexity, Gemini) yönelik GEO, teknik SEO (hreflang, sitemap, schema) ve Core Web Vitals performans raporu. Aksiyon planıyla teslim edildi.\n",
+      "status": 1,
+      "statusText": "Yayında",
+      "statusTextClass": "green",
+      "statusTextColorCode": "rgb(109, 206, 106)",
+      "uuid": "401dfdf2930d",
+      "disapproval_reasons": [],
+      "fav_count": 0,
+      "likes": [],
+      "likeStatus": {
+        "actionIcon": "icon/tansel_bionluk_like_bos_s.svg",
+        "actionText": "Beğen",
+        "action": 1
+      },
+      "viewCount": 1,
+      "upload_id": 23551269,
+      "cover_id": 23551269,
+      "itemCount": 1,
+      "file_type": "image",
+      "image_url": "https://bgcp.bionluk.com/images/order/1400x788/d128a2ec-0660-4ebf-b511-298277d358d0.png",
+      "image_url_original": "https://gcdn.bionluk.com/uploads/order/d128a2ec-0660-4ebf-b511-298277d358d0.png",
+      "image_url_small": "https://bgcp.bionluk.com/images/order/526x296/d128a2ec-0660-4ebf-b511-298277d358d0.png",
+      "video_url": null,
+      "items": [
+        {
+          "uuid": "2bdb3558-e627-41c2-9bd1-3845fa490dcc",
+          "upload_id": 23551269,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/order/d128a2ec-0660-4ebf-b511-298277d358d0.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/order/526x296/d128a2ec-0660-4ebf-b511-298277d358d0.png",
+          "image_url": "https://bgcp.bionluk.com/images/order/1400x788/d128a2ec-0660-4ebf-b511-298277d358d0.png",
+          "video_url": null,
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/order/d128a2ec-0660-4ebf-b511-298277d358d0.png",
+          "cover": {
+            "upload_id": 23551269,
+            "image_url": "https://bgcp.bionluk.com/images/order/1400x788/d128a2ec-0660-4ebf-b511-298277d358d0.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/order/526x296/d128a2ec-0660-4ebf-b511-298277d358d0.png"
+          }
+        }
+      ],
+      "cover": {
+        "uuid": "2bdb3558-e627-41c2-9bd1-3845fa490dcc",
+        "upload_id": 23551269,
+        "file_type": "image",
+        "image_url_original": "https://gcdn.bionluk.com/uploads/order/d128a2ec-0660-4ebf-b511-298277d358d0.png",
+        "image_url_small": "https://bgcp.bionluk.com/images/order/526x296/d128a2ec-0660-4ebf-b511-298277d358d0.png",
+        "image_url": "https://bgcp.bionluk.com/images/order/1400x788/d128a2ec-0660-4ebf-b511-298277d358d0.png",
+        "video_url": null,
+        "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+        "url": "https://gcdn.bionluk.com/uploads/order/d128a2ec-0660-4ebf-b511-298277d358d0.png"
+      },
+      "user": {
+        "avatar_url": "https://bgcp.bionluk.com/images/avatar/200x200/006b3dab-e311-4ace-abbb-57d20654effa.png",
+        "username": "orhanguzell",
+        "title": "Full-Stack Next.js + Node.js",
+        "description": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.<br>",
+        "description_m": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.\n",
+        "uuid": "a5629041-73b1-4230-8b81-374a9f461d39",
+        "user_id": 2139134,
+        "sellerRating": {
+          "commentCount": 11,
+          "commentRating": 4.5
+        },
+        "son_teslim_text": "3 gün önce",
+        "recurring_orders": 6,
+        "response_time": 881200,
+        "seller_created_at": "Ağustos 2025"
+      },
+      "rating_user": {
+        "id": 880826,
+        "uuid": "d25f8cbc-7fb5-4c2e-b8b2-001aa8a60333",
+        "username": "fatihsultaner",
+        "avatar_url": "https://bgcp.bionluk.com/images/avatar/200x200/741a48bf-d216-4afd-9658-69e185313ca8.png",
+        "title": "Yazılım ve İhracat",
+        "description_m": "Merhaba CRM yazılımı, harita yazılımı, whatsapp yazılımı, şirket isminden web site bulucu, web sitelerden scraping, telefon numarası ve mail adresi bulucu gibi yazılımlar konusunda yardımcı olmak isterim.\nTeşekkürler",
+        "son_teslim_text": "-",
+        "recurring_orders": 0,
+        "response_time": 0,
+        "user_created_at": "Ocak 2021"
+      }
+    },
+    {
+      "category_id": 2,
+      "category_name": "İnternet Reklamcılığı",
+      "category_slug": "internet-reklamciligi",
+      "category_sub_id": 202,
+      "category_sub_name": "Web Analytics & İzleme",
+      "category_sub_slug": "web-analytics-izleme",
+      "comment_count": 0,
+      "comments": {
+        "messages": [],
+        "seemorediv": false,
+        "startingOffset": 100,
+        "commentCount": 0
+      },
+      "name": "TrackPulse — Web Analitik & Dönüşüm İzleme Platformu`",
+      "description": "GA4, Google Tag Manager, Meta Pixel ve Google Ads dönüşüm izleme kurulumu yapan ve tüm kaynakları tek panelde birleştiren web analitik platformu. Olay/dönüşüm takibi, dönüşüm hunisi, kanal/atıf (ROAS) analizi ve server-side tracking kurulumu.",
+      "description_textarea": "GA4, Google Tag Manager, Meta Pixel ve Google Ads dönüşüm izleme kurulumu yapan ve tüm kaynakları tek panelde birleştiren web analitik platformu. Olay/dönüşüm takibi, dönüşüm hunisi, kanal/atıf (ROAS) analizi ve server-side tracking kurulumu.",
+      "status": 1,
+      "statusText": "Yayında",
+      "statusTextClass": "green",
+      "statusTextColorCode": "rgb(109, 206, 106)",
+      "uuid": "29a5cc6dbb61",
+      "disapproval_reasons": [],
+      "fav_count": 0,
+      "likes": [],
+      "likeStatus": {
+        "actionIcon": "icon/tansel_bionluk_like_bos_s.svg",
+        "actionText": "Beğen",
+        "action": 1
+      },
+      "viewCount": 1,
+      "upload_id": 23528309,
+      "cover_id": 23528310,
+      "itemCount": 1,
+      "file_type": "image",
+      "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/8bc1d63a-d63f-42bb-9500-047bfc2f28a0.png",
+      "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/8bc1d63a-d63f-42bb-9500-047bfc2f28a0.png",
+      "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/8bc1d63a-d63f-42bb-9500-047bfc2f28a0.png",
+      "video_url": null,
+      "items": [
+        {
+          "uuid": "5d308623-2180-4a65-b0be-c40287f47645",
+          "upload_id": 23528309,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/f308b25e-48e2-4297-952f-3f626252fda0.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/f308b25e-48e2-4297-952f-3f626252fda0.png",
+          "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/f308b25e-48e2-4297-952f-3f626252fda0.png",
+          "video_url": null,
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/portfolio/f308b25e-48e2-4297-952f-3f626252fda0.png",
+          "cover": {
+            "upload_id": 23528310,
+            "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/8bc1d63a-d63f-42bb-9500-047bfc2f28a0.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/8bc1d63a-d63f-42bb-9500-047bfc2f28a0.png"
+          }
+        },
+        {
+          "uuid": "b11bd61f-c19a-4740-8f87-6f7c511c8d55",
+          "upload_id": 23528311,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/0ce10391-2c83-408d-aea1-c4a2575d56bf.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/0ce10391-2c83-408d-aea1-c4a2575d56bf.png",
+          "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/0ce10391-2c83-408d-aea1-c4a2575d56bf.png",
+          "video_url": null,
+          "uploadname": "0ce10391-2c83-408d-aea1-c4a2575d56bf.png",
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/portfolio/0ce10391-2c83-408d-aea1-c4a2575d56bf.png",
+          "cover": {
+            "upload_id": 23528313,
+            "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/57f09539-7e64-4d2c-b950-ac5ae1dc0296.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/57f09539-7e64-4d2c-b950-ac5ae1dc0296.png"
+          }
+        },
+        {
+          "uuid": "90f3f272-78e1-47a2-b703-f8a0b576897b",
+          "upload_id": 23528314,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/06d5e26b-ab2d-42e3-8bc6-3a7e75081329.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/06d5e26b-ab2d-42e3-8bc6-3a7e75081329.png",
+          "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/06d5e26b-ab2d-42e3-8bc6-3a7e75081329.png",
+          "video_url": null,
+          "uploadname": "06d5e26b-ab2d-42e3-8bc6-3a7e75081329.png",
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/portfolio/06d5e26b-ab2d-42e3-8bc6-3a7e75081329.png",
+          "cover": {
+            "upload_id": 23528315,
+            "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/c067a426-f32b-4ee6-9c1d-65292a2ae9b0.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/c067a426-f32b-4ee6-9c1d-65292a2ae9b0.png"
+          }
+        },
+        {
+          "uuid": "8bbd91ff-10d1-4ed1-93c0-7b11d3500d93",
+          "upload_id": 23528317,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/54f15224-3a42-46ea-a477-2346a36e8aa5.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/54f15224-3a42-46ea-a477-2346a36e8aa5.png",
+          "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/54f15224-3a42-46ea-a477-2346a36e8aa5.png",
+          "video_url": null,
+          "uploadname": "54f15224-3a42-46ea-a477-2346a36e8aa5.png",
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/portfolio/54f15224-3a42-46ea-a477-2346a36e8aa5.png",
+          "cover": {
+            "upload_id": 23528318,
+            "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/97033f2d-6bdd-4296-8620-bd4ff12927bc.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/97033f2d-6bdd-4296-8620-bd4ff12927bc.png"
+          }
+        }
+      ],
+      "cover": {
+        "uuid": "e399960c-a419-4130-a448-24bd1e6dd065",
+        "upload_id": 23528310,
+        "file_type": "image",
+        "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/8bc1d63a-d63f-42bb-9500-047bfc2f28a0.png",
+        "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/8bc1d63a-d63f-42bb-9500-047bfc2f28a0.png",
+        "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/8bc1d63a-d63f-42bb-9500-047bfc2f28a0.png",
+        "video_url": null,
+        "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+        "url": "https://gcdn.bionluk.com/uploads/portfolio/8bc1d63a-d63f-42bb-9500-047bfc2f28a0.png"
+      },
+      "user": {
+        "avatar_url": "https://bgcp.bionluk.com/images/avatar/200x200/006b3dab-e311-4ace-abbb-57d20654effa.png",
+        "username": "orhanguzell",
+        "title": "Full-Stack Next.js + Node.js",
+        "description": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.<br>",
+        "description_m": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.\n",
+        "uuid": "a5629041-73b1-4230-8b81-374a9f461d39",
+        "user_id": 2139134,
+        "sellerRating": {
+          "commentCount": 11,
+          "commentRating": 4.5
+        },
+        "son_teslim_text": "3 gün önce",
+        "recurring_orders": 6,
+        "response_time": 881200,
+        "seller_created_at": "Ağustos 2025"
+      },
+      "rating_user": {
+        "id": null,
+        "uuid": null,
+        "username": null,
+        "avatar_url": null,
+        "title": null,
+        "description_m": null,
+        "son_teslim_text": null,
+        "recurring_orders": null,
+        "response_time": null,
+        "user_created_at": null
+      }
+    },
+    {
+      "category_id": 2,
+      "category_name": "İnternet Reklamcılığı",
+      "category_slug": "internet-reklamciligi",
+      "category_sub_id": 35,
+      "category_sub_name": "Diğer İnternet Reklamcılığı",
+      "category_sub_slug": "diger-internet-reklamciligi",
+      "comment_count": 0,
+      "comments": {
+        "messages": [],
+        "seemorediv": false,
+        "startingOffset": 100,
+        "commentCount": 0
+      },
+      "name": "GeoSerra — Yapay Zeka Aramaları İçin GEO + SEO Platformu",
+      "description": "ChatGPT, Perplexity, Gemini ve Google AI Overviews için siteleri analiz edip optimize eden GEO + SEO platformu. 6 boyutlu GEO skoru, AI crawler erişimi, citability, schema/llms.txt denetimi, PDF rapor ve aksiyon planı. Next.js + Fastify + Python.",
+      "description_textarea": "ChatGPT, Perplexity, Gemini ve Google AI Overviews için siteleri analiz edip optimize eden GEO + SEO platformu. 6 boyutlu GEO skoru, AI crawler erişimi, citability, schema/llms.txt denetimi, PDF rapor ve aksiyon planı. Next.js + Fastify + Python.",
+      "status": 1,
+      "statusText": "Yayında",
+      "statusTextClass": "green",
+      "statusTextColorCode": "rgb(109, 206, 106)",
+      "uuid": "4ebbbb066586",
+      "disapproval_reasons": [],
+      "fav_count": 0,
+      "likes": [],
+      "likeStatus": {
+        "actionIcon": "icon/tansel_bionluk_like_bos_s.svg",
+        "actionText": "Beğen",
+        "action": 1
+      },
+      "viewCount": 1,
+      "upload_id": 23527980,
+      "cover_id": 23527981,
+      "itemCount": 1,
+      "file_type": "image",
+      "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/76e8d28a-b29d-4b10-8e91-7a4b8c09010c.png",
+      "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/76e8d28a-b29d-4b10-8e91-7a4b8c09010c.png",
+      "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/76e8d28a-b29d-4b10-8e91-7a4b8c09010c.png",
+      "video_url": null,
+      "items": [
+        {
+          "uuid": "bf52aecb-24bf-4e6a-887d-795203595746",
+          "upload_id": 23527980,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/c5a4715b-1a6f-4837-b8d8-064ccf55ac27.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/c5a4715b-1a6f-4837-b8d8-064ccf55ac27.png",
+          "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/c5a4715b-1a6f-4837-b8d8-064ccf55ac27.png",
+          "video_url": null,
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/portfolio/c5a4715b-1a6f-4837-b8d8-064ccf55ac27.png",
+          "cover": {
+            "upload_id": 23527981,
+            "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/76e8d28a-b29d-4b10-8e91-7a4b8c09010c.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/76e8d28a-b29d-4b10-8e91-7a4b8c09010c.png"
+          }
+        },
+        {
+          "uuid": "f1af8a52-c40e-4b98-b1fb-a92582974129",
+          "upload_id": 23527983,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/72107196-7b15-456e-992a-005739d63230.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/72107196-7b15-456e-992a-005739d63230.png",
+          "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/72107196-7b15-456e-992a-005739d63230.png",
+          "video_url": null,
+          "uploadname": "72107196-7b15-456e-992a-005739d63230.png",
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/portfolio/72107196-7b15-456e-992a-005739d63230.png",
+          "cover": {
+            "upload_id": 23527984,
+            "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/9b0e3791-3897-492f-98a6-ec03a3dcdf86.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/9b0e3791-3897-492f-98a6-ec03a3dcdf86.png"
+          }
+        },
+        {
+          "uuid": "cfc775f4-3bea-40c6-b90f-27b3fbe9af97",
+          "upload_id": 23527985,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/4461f3bd-6631-4172-b625-affe4c6c05c3.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/4461f3bd-6631-4172-b625-affe4c6c05c3.png",
+          "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/4461f3bd-6631-4172-b625-affe4c6c05c3.png",
+          "video_url": null,
+          "uploadname": "4461f3bd-6631-4172-b625-affe4c6c05c3.png",
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/portfolio/4461f3bd-6631-4172-b625-affe4c6c05c3.png",
+          "cover": {
+            "upload_id": 23527986,
+            "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/22f70bd3-f483-47a9-b99f-ff4072ac9d3f.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/22f70bd3-f483-47a9-b99f-ff4072ac9d3f.png"
+          }
+        },
+        {
+          "uuid": "26cf661b-d5e7-4d52-9419-75d75e6f75a0",
+          "upload_id": 23527987,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/d5f60eb7-d7b1-46d8-ade7-8e585e017182.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/d5f60eb7-d7b1-46d8-ade7-8e585e017182.png",
+          "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/d5f60eb7-d7b1-46d8-ade7-8e585e017182.png",
+          "video_url": null,
+          "uploadname": "d5f60eb7-d7b1-46d8-ade7-8e585e017182.png",
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/portfolio/d5f60eb7-d7b1-46d8-ade7-8e585e017182.png",
+          "cover": {
+            "upload_id": 23527988,
+            "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/b8d4369a-0ce6-48d6-a2f1-93bff350b0ea.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/b8d4369a-0ce6-48d6-a2f1-93bff350b0ea.png"
+          }
+        }
+      ],
+      "cover": {
+        "uuid": "137f537d-3dee-4af1-92e3-29dcd6738fd6",
+        "upload_id": 23527981,
+        "file_type": "image",
+        "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/76e8d28a-b29d-4b10-8e91-7a4b8c09010c.png",
+        "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/76e8d28a-b29d-4b10-8e91-7a4b8c09010c.png",
+        "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/76e8d28a-b29d-4b10-8e91-7a4b8c09010c.png",
+        "video_url": null,
+        "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+        "url": "https://gcdn.bionluk.com/uploads/portfolio/76e8d28a-b29d-4b10-8e91-7a4b8c09010c.png"
+      },
+      "user": {
+        "avatar_url": "https://bgcp.bionluk.com/images/avatar/200x200/006b3dab-e311-4ace-abbb-57d20654effa.png",
+        "username": "orhanguzell",
+        "title": "Full-Stack Next.js + Node.js",
+        "description": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.<br>",
+        "description_m": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.\n",
+        "uuid": "a5629041-73b1-4230-8b81-374a9f461d39",
+        "user_id": 2139134,
+        "sellerRating": {
+          "commentCount": 11,
+          "commentRating": 4.5
+        },
+        "son_teslim_text": "3 gün önce",
+        "recurring_orders": 6,
+        "response_time": 881200,
+        "seller_created_at": "Ağustos 2025"
+      },
+      "rating_user": {
+        "id": null,
+        "uuid": null,
+        "username": null,
+        "avatar_url": null,
+        "title": null,
+        "description_m": null,
+        "son_teslim_text": null,
+        "recurring_orders": null,
+        "response_time": null,
+        "user_created_at": null
+      }
+    },
+    {
+      "category_id": 8,
+      "category_name": "İş & Yönetim",
+      "category_slug": "is-yonetim",
+      "category_sub_id": 91,
+      "category_sub_name": "Pazar Araştırmaları",
+      "category_sub_slug": "pazar-arastirmalari",
+      "comment_count": 0,
+      "comments": {
+        "messages": [],
+        "seemorediv": false,
+        "startingOffset": 100,
+        "commentCount": 0
+      },
+      "name": "Amozon — Amazon Ticari Radar & AI Karar Motoru",
+      "description": "Amazon kategorilerinde keyword/ASIN tarayıp 5 boyutlu risk skoru ve LLM reasoning ile açıklanabilir AL/TAKİP_ET/UZAK_DUR kararı üreten ticari radar. Oxylabs scraping + Keepa fiyat geçmişi + tez izleme. TypeScript/Bun + Next.js + MySQL.",
+      "description_textarea": "Amazon kategorilerinde keyword/ASIN tarayıp 5 boyutlu risk skoru ve LLM reasoning ile açıklanabilir AL/TAKİP_ET/UZAK_DUR kararı üreten ticari radar. Oxylabs scraping + Keepa fiyat geçmişi + tez izleme. TypeScript/Bun + Next.js + MySQL.",
+      "status": 1,
+      "statusText": "Yayında",
+      "statusTextClass": "green",
+      "statusTextColorCode": "rgb(109, 206, 106)",
+      "uuid": "e1a614ce4239",
+      "disapproval_reasons": [],
+      "fav_count": 0,
+      "likes": [],
+      "likeStatus": {
+        "actionIcon": "icon/tansel_bionluk_like_bos_s.svg",
+        "actionText": "Beğen",
+        "action": 1
+      },
+      "viewCount": 1,
+      "upload_id": 23527767,
+      "cover_id": 23527768,
+      "itemCount": 1,
+      "file_type": "image",
+      "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/0aefc2a7-6c29-4205-905e-0367ee411ab5.png",
+      "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/0aefc2a7-6c29-4205-905e-0367ee411ab5.png",
+      "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/0aefc2a7-6c29-4205-905e-0367ee411ab5.png",
+      "video_url": null,
+      "items": [
+        {
+          "uuid": "31649d1a-458b-426e-8e0a-6c479672bd05",
+          "upload_id": 23527767,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/c845d0dd-9a2c-4c9b-bef1-4bc82e4bbf1b.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/c845d0dd-9a2c-4c9b-bef1-4bc82e4bbf1b.png",
+          "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/c845d0dd-9a2c-4c9b-bef1-4bc82e4bbf1b.png",
+          "video_url": null,
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/portfolio/c845d0dd-9a2c-4c9b-bef1-4bc82e4bbf1b.png",
+          "cover": {
+            "upload_id": 23527768,
+            "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/0aefc2a7-6c29-4205-905e-0367ee411ab5.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/0aefc2a7-6c29-4205-905e-0367ee411ab5.png"
+          }
+        },
+        {
+          "uuid": "521cec1c-2f86-47c2-b860-e809ca156e74",
+          "upload_id": 23527770,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/25ad685b-c742-4186-8c38-46424b1968a1.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/25ad685b-c742-4186-8c38-46424b1968a1.png",
+          "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/25ad685b-c742-4186-8c38-46424b1968a1.png",
+          "video_url": null,
+          "uploadname": "25ad685b-c742-4186-8c38-46424b1968a1.png",
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/portfolio/25ad685b-c742-4186-8c38-46424b1968a1.png",
+          "cover": {
+            "upload_id": 23527771,
+            "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/e1fa4288-e96a-4b18-ba42-3a7e0a27b858.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/e1fa4288-e96a-4b18-ba42-3a7e0a27b858.png"
+          }
+        },
+        {
+          "uuid": "700f1e99-2238-4835-9475-442d7d7adf9c",
+          "upload_id": 23527773,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/d63cf294-33ea-451d-9a41-c8ae2a280eb7.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/d63cf294-33ea-451d-9a41-c8ae2a280eb7.png",
+          "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/d63cf294-33ea-451d-9a41-c8ae2a280eb7.png",
+          "video_url": null,
+          "uploadname": "d63cf294-33ea-451d-9a41-c8ae2a280eb7.png",
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/portfolio/d63cf294-33ea-451d-9a41-c8ae2a280eb7.png",
+          "cover": {
+            "upload_id": 23527775,
+            "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/d50a7d4f-931b-4bb4-8178-7d97e32b2abc.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/d50a7d4f-931b-4bb4-8178-7d97e32b2abc.png"
+          }
+        },
+        {
+          "uuid": "a6330e5d-212d-4b36-b349-684796abe2a3",
+          "upload_id": 23527777,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/0e7036a5-0827-4bf1-a5e8-36fa87e80c2d.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/0e7036a5-0827-4bf1-a5e8-36fa87e80c2d.png",
+          "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/0e7036a5-0827-4bf1-a5e8-36fa87e80c2d.png",
+          "video_url": null,
+          "uploadname": "0e7036a5-0827-4bf1-a5e8-36fa87e80c2d.png",
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/portfolio/0e7036a5-0827-4bf1-a5e8-36fa87e80c2d.png",
+          "cover": {
+            "upload_id": 23527778,
+            "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/1f5b2509-0703-4729-b15a-8e4a7a511d7e.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/1f5b2509-0703-4729-b15a-8e4a7a511d7e.png"
+          }
+        }
+      ],
+      "cover": {
+        "uuid": "fe4cc09f-bdcc-4edc-a825-e89cda1d8e8a",
+        "upload_id": 23527768,
+        "file_type": "image",
+        "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/0aefc2a7-6c29-4205-905e-0367ee411ab5.png",
+        "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/0aefc2a7-6c29-4205-905e-0367ee411ab5.png",
+        "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/0aefc2a7-6c29-4205-905e-0367ee411ab5.png",
+        "video_url": null,
+        "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+        "url": "https://gcdn.bionluk.com/uploads/portfolio/0aefc2a7-6c29-4205-905e-0367ee411ab5.png"
+      },
+      "user": {
+        "avatar_url": "https://bgcp.bionluk.com/images/avatar/200x200/006b3dab-e311-4ace-abbb-57d20654effa.png",
+        "username": "orhanguzell",
+        "title": "Full-Stack Next.js + Node.js",
+        "description": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.<br>",
+        "description_m": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.\n",
+        "uuid": "a5629041-73b1-4230-8b81-374a9f461d39",
+        "user_id": 2139134,
+        "sellerRating": {
+          "commentCount": 11,
+          "commentRating": 4.5
+        },
+        "son_teslim_text": "3 gün önce",
+        "recurring_orders": 6,
+        "response_time": 881200,
+        "seller_created_at": "Ağustos 2025"
+      },
+      "rating_user": {
+        "id": null,
+        "uuid": null,
+        "username": null,
+        "avatar_url": null,
+        "title": null,
+        "description_m": null,
+        "son_teslim_text": null,
+        "recurring_orders": null,
+        "response_time": null,
+        "user_created_at": null
+      }
+    },
+    {
+      "category_id": 6,
+      "category_name": "Yazılım & Teknoloji",
+      "category_slug": "yazilim-teknoloji",
+      "category_sub_id": 127,
+      "category_sub_name": "Data Analizi & Raporlama",
+      "category_sub_slug": "data-analizi-raporlama",
+      "comment_count": 0,
+      "comments": {
+        "messages": [],
+        "seemorediv": false,
+        "startingOffset": 100,
+        "commentCount": 0
+      },
+      "name": "GenomAI — Genomik Tahmin & AI Bitki Islahı Platformu",
+      "description": "Bitki ıslahını genomik tahmin (GEBV), GWAS marker analizi ve AI çaprazlama önerisiyle dijitalleştiren bilimsel Ar-Ge platformu. 8-12 yıllık tarla denemelerini haftalara indirir. Fastify + Python ML (scikit-learn, sommer R) + MLflow + Next.js.",
+      "description_textarea": "Bitki ıslahını genomik tahmin (GEBV), GWAS marker analizi ve AI çaprazlama önerisiyle dijitalleştiren bilimsel Ar-Ge platformu. 8-12 yıllık tarla denemelerini haftalara indirir. Fastify + Python ML (scikit-learn, sommer R) + MLflow + Next.js.",
+      "status": 1,
+      "statusText": "Yayında",
+      "statusTextClass": "green",
+      "statusTextColorCode": "rgb(109, 206, 106)",
+      "uuid": "64bec03680b7",
+      "disapproval_reasons": [],
+      "fav_count": 0,
+      "likes": [],
+      "likeStatus": {
+        "actionIcon": "icon/tansel_bionluk_like_bos_s.svg",
+        "actionText": "Beğen",
+        "action": 1
+      },
+      "viewCount": 1,
+      "upload_id": 23527570,
+      "cover_id": 23527571,
+      "itemCount": 1,
+      "file_type": "image",
+      "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/cbc4b6ca-de8c-479e-93b4-c018937d3161.png",
+      "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/cbc4b6ca-de8c-479e-93b4-c018937d3161.png",
+      "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/cbc4b6ca-de8c-479e-93b4-c018937d3161.png",
+      "video_url": null,
+      "items": [
+        {
+          "uuid": "ac0c05cd-2104-47f8-839d-e6bf8e0ad469",
+          "upload_id": 23527570,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/d0d5f68c-2b8e-48d5-8acf-ead50fc60a2e.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/d0d5f68c-2b8e-48d5-8acf-ead50fc60a2e.png",
+          "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/d0d5f68c-2b8e-48d5-8acf-ead50fc60a2e.png",
+          "video_url": null,
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/portfolio/d0d5f68c-2b8e-48d5-8acf-ead50fc60a2e.png",
+          "cover": {
+            "upload_id": 23527571,
+            "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/cbc4b6ca-de8c-479e-93b4-c018937d3161.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/cbc4b6ca-de8c-479e-93b4-c018937d3161.png"
+          }
+        },
+        {
+          "uuid": "0dd96365-3a23-4a42-b5a6-bdfc9dc887bc",
+          "upload_id": 23527572,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/07caa421-60b5-4819-9779-febc59445ddf.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/07caa421-60b5-4819-9779-febc59445ddf.png",
+          "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/07caa421-60b5-4819-9779-febc59445ddf.png",
+          "video_url": null,
+          "uploadname": "07caa421-60b5-4819-9779-febc59445ddf.png",
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/portfolio/07caa421-60b5-4819-9779-febc59445ddf.png",
+          "cover": {
+            "upload_id": 23527573,
+            "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/77e7bc3f-d3ad-46e0-8303-b43422c81e99.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/77e7bc3f-d3ad-46e0-8303-b43422c81e99.png"
+          }
+        },
+        {
+          "uuid": "649311e9-2509-4c5d-b09a-bb8cc26a45b0",
+          "upload_id": 23527578,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/1311b024-7d2f-4eb3-adce-e600b518165c.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/1311b024-7d2f-4eb3-adce-e600b518165c.png",
+          "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/1311b024-7d2f-4eb3-adce-e600b518165c.png",
+          "video_url": null,
+          "uploadname": "1311b024-7d2f-4eb3-adce-e600b518165c.png",
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/portfolio/1311b024-7d2f-4eb3-adce-e600b518165c.png",
+          "cover": {
+            "upload_id": 23527581,
+            "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/d9da5666-fbdb-4abc-a9b9-2aacb2adf749.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/d9da5666-fbdb-4abc-a9b9-2aacb2adf749.png"
+          }
+        },
+        {
+          "uuid": "e42290bb-ad21-4f46-9d30-22c639e1ddeb",
+          "upload_id": 23527582,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/a3e14947-c8ef-483d-af18-5d5115ec3f5c.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/a3e14947-c8ef-483d-af18-5d5115ec3f5c.png",
+          "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/a3e14947-c8ef-483d-af18-5d5115ec3f5c.png",
+          "video_url": null,
+          "uploadname": "a3e14947-c8ef-483d-af18-5d5115ec3f5c.png",
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/portfolio/a3e14947-c8ef-483d-af18-5d5115ec3f5c.png",
+          "cover": {
+            "upload_id": 23527583,
+            "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/e0eab2aa-3164-465e-82d5-bedec0542bdd.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/e0eab2aa-3164-465e-82d5-bedec0542bdd.png"
+          }
+        }
+      ],
+      "cover": {
+        "uuid": "9d0b1b94-51e1-4280-874f-b386d8313b4d",
+        "upload_id": 23527571,
+        "file_type": "image",
+        "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/cbc4b6ca-de8c-479e-93b4-c018937d3161.png",
+        "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/cbc4b6ca-de8c-479e-93b4-c018937d3161.png",
+        "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/cbc4b6ca-de8c-479e-93b4-c018937d3161.png",
+        "video_url": null,
+        "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+        "url": "https://gcdn.bionluk.com/uploads/portfolio/cbc4b6ca-de8c-479e-93b4-c018937d3161.png"
+      },
+      "user": {
+        "avatar_url": "https://bgcp.bionluk.com/images/avatar/200x200/006b3dab-e311-4ace-abbb-57d20654effa.png",
+        "username": "orhanguzell",
+        "title": "Full-Stack Next.js + Node.js",
+        "description": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.<br>",
+        "description_m": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.\n",
+        "uuid": "a5629041-73b1-4230-8b81-374a9f461d39",
+        "user_id": 2139134,
+        "sellerRating": {
+          "commentCount": 11,
+          "commentRating": 4.5
+        },
+        "son_teslim_text": "3 gün önce",
+        "recurring_orders": 6,
+        "response_time": 881200,
+        "seller_created_at": "Ağustos 2025"
+      },
+      "rating_user": {
+        "id": null,
+        "uuid": null,
+        "username": null,
+        "avatar_url": null,
+        "title": null,
+        "description_m": null,
+        "son_teslim_text": null,
+        "recurring_orders": null,
+        "response_time": null,
+        "user_created_at": null
+      }
+    },
+    {
+      "category_id": 2,
+      "category_name": "İnternet Reklamcılığı",
+      "category_slug": "internet-reklamciligi",
+      "category_sub_id": 32,
+      "category_sub_name": "Sosyal Medya Yönetimi",
+      "category_sub_slug": "sosyal-medya-yonetimi",
+      "comment_count": 0,
+      "comments": {
+        "messages": [],
+        "seemorediv": false,
+        "startingOffset": 100,
+        "commentCount": 0
+      },
+      "name": "SocialPulse — Sosyal Medya Yönetim & Otomasyon Platformu",
+      "description": "Kişiye özel, çok platformlu sosyal medya yönetim ve otomasyon SaaS'ı. Instagram, Facebook, X, YouTube, LinkedIn ve reklamlar için zamanlanmış yayın, içerik takvimi, AI içerik üretimi ve GA4/Ads analitiği. Next.js 16 + Fastify + MySQL.",
+      "description_textarea": "Kişiye özel, çok platformlu sosyal medya yönetim ve otomasyon SaaS'ı. Instagram, Facebook, X, YouTube, LinkedIn ve reklamlar için zamanlanmış yayın, içerik takvimi, AI içerik üretimi ve GA4/Ads analitiği. Next.js 16 + Fastify + MySQL.",
+      "status": 1,
+      "statusText": "Yayında",
+      "statusTextClass": "green",
+      "statusTextColorCode": "rgb(109, 206, 106)",
+      "uuid": "7a051c09690e",
+      "disapproval_reasons": [],
+      "fav_count": 0,
+      "likes": [],
+      "likeStatus": {
+        "actionIcon": "icon/tansel_bionluk_like_bos_s.svg",
+        "actionText": "Beğen",
+        "action": 1
+      },
+      "viewCount": 1,
+      "upload_id": 23527450,
+      "cover_id": 23527451,
+      "itemCount": 1,
+      "file_type": "image",
+      "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/ddeb6256-4e8f-4d70-83e8-203facc16206.png",
+      "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/ddeb6256-4e8f-4d70-83e8-203facc16206.png",
+      "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/ddeb6256-4e8f-4d70-83e8-203facc16206.png",
+      "video_url": null,
+      "items": [
+        {
+          "uuid": "6f93eb95-3d4e-4c90-b86e-972f6e1266ee",
+          "upload_id": 23527450,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/cefbbed8-8f59-441f-a43e-79fdd2f61ef2.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/cefbbed8-8f59-441f-a43e-79fdd2f61ef2.png",
+          "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/cefbbed8-8f59-441f-a43e-79fdd2f61ef2.png",
+          "video_url": null,
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/portfolio/cefbbed8-8f59-441f-a43e-79fdd2f61ef2.png",
+          "cover": {
+            "upload_id": 23527451,
+            "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/ddeb6256-4e8f-4d70-83e8-203facc16206.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/ddeb6256-4e8f-4d70-83e8-203facc16206.png"
+          }
+        },
+        {
+          "uuid": "a2133e8f-94b5-4e29-a449-dfc13367e6d9",
+          "upload_id": 23527453,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/7ec1a809-e83b-49fb-a9fd-86ce77e13ceb.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/7ec1a809-e83b-49fb-a9fd-86ce77e13ceb.png",
+          "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/7ec1a809-e83b-49fb-a9fd-86ce77e13ceb.png",
+          "video_url": null,
+          "uploadname": "7ec1a809-e83b-49fb-a9fd-86ce77e13ceb.png",
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/portfolio/7ec1a809-e83b-49fb-a9fd-86ce77e13ceb.png",
+          "cover": {
+            "upload_id": 23527454,
+            "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/79793fd7-2e34-4061-976d-9c0072a2807d.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/79793fd7-2e34-4061-976d-9c0072a2807d.png"
+          }
+        },
+        {
+          "uuid": "3877c6e7-cc83-4dce-ab39-f8b9f009707c",
+          "upload_id": 23527455,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/9c06d3af-5093-48a2-aed8-c2d43c8bd47c.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/9c06d3af-5093-48a2-aed8-c2d43c8bd47c.png",
+          "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/9c06d3af-5093-48a2-aed8-c2d43c8bd47c.png",
+          "video_url": null,
+          "uploadname": "9c06d3af-5093-48a2-aed8-c2d43c8bd47c.png",
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/portfolio/9c06d3af-5093-48a2-aed8-c2d43c8bd47c.png",
+          "cover": {
+            "upload_id": 23527456,
+            "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/9cae3bc9-36ec-4afc-9404-39bc4ad9688e.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/9cae3bc9-36ec-4afc-9404-39bc4ad9688e.png"
+          }
+        },
+        {
+          "uuid": "f7227507-732f-4187-91d3-1032c2bc2028",
+          "upload_id": 23527458,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/a6905d63-fc42-4ed5-8fcf-5f1690086c3c.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/a6905d63-fc42-4ed5-8fcf-5f1690086c3c.png",
+          "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/a6905d63-fc42-4ed5-8fcf-5f1690086c3c.png",
+          "video_url": null,
+          "uploadname": "a6905d63-fc42-4ed5-8fcf-5f1690086c3c.png",
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/portfolio/a6905d63-fc42-4ed5-8fcf-5f1690086c3c.png",
+          "cover": {
+            "upload_id": 23527460,
+            "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/48eed40b-6641-4830-9dcc-40504ce6aacf.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/48eed40b-6641-4830-9dcc-40504ce6aacf.png"
+          }
+        }
+      ],
+      "cover": {
+        "uuid": "8bd19eec-42da-43c2-934b-8b6ebd045322",
+        "upload_id": 23527451,
+        "file_type": "image",
+        "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/ddeb6256-4e8f-4d70-83e8-203facc16206.png",
+        "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/ddeb6256-4e8f-4d70-83e8-203facc16206.png",
+        "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/ddeb6256-4e8f-4d70-83e8-203facc16206.png",
+        "video_url": null,
+        "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+        "url": "https://gcdn.bionluk.com/uploads/portfolio/ddeb6256-4e8f-4d70-83e8-203facc16206.png"
+      },
+      "user": {
+        "avatar_url": "https://bgcp.bionluk.com/images/avatar/200x200/006b3dab-e311-4ace-abbb-57d20654effa.png",
+        "username": "orhanguzell",
+        "title": "Full-Stack Next.js + Node.js",
+        "description": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.<br>",
+        "description_m": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.\n",
+        "uuid": "a5629041-73b1-4230-8b81-374a9f461d39",
+        "user_id": 2139134,
+        "sellerRating": {
+          "commentCount": 11,
+          "commentRating": 4.5
+        },
+        "son_teslim_text": "3 gün önce",
+        "recurring_orders": 6,
+        "response_time": 881200,
+        "seller_created_at": "Ağustos 2025"
+      },
+      "rating_user": {
+        "id": null,
+        "uuid": null,
+        "username": null,
+        "avatar_url": null,
+        "title": null,
+        "description_m": null,
+        "son_teslim_text": null,
+        "recurring_orders": null,
+        "response_time": null,
+        "user_created_at": null
+      }
+    },
+    {
+      "category_id": 8,
+      "category_name": "İş & Yönetim",
+      "category_slug": "is-yonetim",
+      "category_sub_id": 206,
+      "category_sub_name": "Satış & Müşteri Bulma",
+      "category_sub_slug": "satis-musteri-bulma",
+      "comment_count": 0,
+      "comments": {
+        "messages": [],
+        "seemorediv": false,
+        "startingOffset": 100,
+        "commentCount": 0
+      },
+      "name": "MarketPulse — Bayi, Rakip & Pazar İzleme SaaS Platformu",
+      "description": "Türk KOBİ ve sanayi firmaları için scraper destekli B2B intelligence SaaS'ı. Amazon, dizin ve fuar taramasından lead üretimi, otomatik churn risk skoru, rakip & pazar sinyali takibi, AI outreach ve haftalık PDF raporu. Next.js 16 + Fastify + Python.\n",
+      "description_textarea": "Türk KOBİ ve sanayi firmaları için scraper destekli B2B intelligence SaaS'ı. Amazon, dizin ve fuar taramasından lead üretimi, otomatik churn risk skoru, rakip & pazar sinyali takibi, AI outreach ve haftalık PDF raporu. Next.js 16 + Fastify + Python.\n",
+      "status": 1,
+      "statusText": "Yayında",
+      "statusTextClass": "green",
+      "statusTextColorCode": "rgb(109, 206, 106)",
+      "uuid": "86e411f21ac4",
+      "disapproval_reasons": [],
+      "fav_count": 0,
+      "likes": [],
+      "likeStatus": {
+        "actionIcon": "icon/tansel_bionluk_like_bos_s.svg",
+        "actionText": "Beğen",
+        "action": 1
+      },
+      "viewCount": 1,
+      "upload_id": 23526868,
+      "cover_id": 23526869,
+      "itemCount": 1,
+      "file_type": "image",
+      "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/6bd94983-ffc5-4c99-9a12-5da82cdd94ac.png",
+      "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/6bd94983-ffc5-4c99-9a12-5da82cdd94ac.png",
+      "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/6bd94983-ffc5-4c99-9a12-5da82cdd94ac.png",
+      "video_url": null,
+      "items": [
+        {
+          "uuid": "fa7aa4f9-b4bb-44f2-a898-59440a296d22",
+          "upload_id": 23526868,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/251b868e-3329-473b-989f-7de63fc64b6f.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/251b868e-3329-473b-989f-7de63fc64b6f.png",
+          "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/251b868e-3329-473b-989f-7de63fc64b6f.png",
+          "video_url": null,
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/portfolio/251b868e-3329-473b-989f-7de63fc64b6f.png",
+          "cover": {
+            "upload_id": 23526869,
+            "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/6bd94983-ffc5-4c99-9a12-5da82cdd94ac.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/6bd94983-ffc5-4c99-9a12-5da82cdd94ac.png"
+          }
+        },
+        {
+          "uuid": "3918c546-72e0-4a4c-a12c-91dcaeca7e52",
+          "upload_id": 23526871,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/89f9841b-f228-45bb-ab65-5718e4504b80.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/89f9841b-f228-45bb-ab65-5718e4504b80.png",
+          "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/89f9841b-f228-45bb-ab65-5718e4504b80.png",
+          "video_url": null,
+          "uploadname": "89f9841b-f228-45bb-ab65-5718e4504b80.png",
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/portfolio/89f9841b-f228-45bb-ab65-5718e4504b80.png",
+          "cover": {
+            "upload_id": 23526872,
+            "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/7d6c280b-40a6-42d1-84c4-bc23361ffbe5.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/7d6c280b-40a6-42d1-84c4-bc23361ffbe5.png"
+          }
+        },
+        {
+          "uuid": "86b31328-a38b-47f9-a87a-7727a74fe2bb",
+          "upload_id": 23526876,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/f2584fb0-02cc-4b5a-96ad-90ce2c6b6fc5.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/f2584fb0-02cc-4b5a-96ad-90ce2c6b6fc5.png",
+          "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/f2584fb0-02cc-4b5a-96ad-90ce2c6b6fc5.png",
+          "video_url": null,
+          "uploadname": "f2584fb0-02cc-4b5a-96ad-90ce2c6b6fc5.png",
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/portfolio/f2584fb0-02cc-4b5a-96ad-90ce2c6b6fc5.png",
+          "cover": {
+            "upload_id": 23526877,
+            "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/4a63b7d8-4daf-4628-8816-f05ae54c44f2.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/4a63b7d8-4daf-4628-8816-f05ae54c44f2.png"
+          }
+        },
+        {
+          "uuid": "959a6169-5e4c-4430-b9a7-cf9edfb66f63",
+          "upload_id": 23526878,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/2d961ac7-9241-4871-ba49-e2356bbde4d9.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/2d961ac7-9241-4871-ba49-e2356bbde4d9.png",
+          "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/2d961ac7-9241-4871-ba49-e2356bbde4d9.png",
+          "video_url": null,
+          "uploadname": "2d961ac7-9241-4871-ba49-e2356bbde4d9.png",
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/portfolio/2d961ac7-9241-4871-ba49-e2356bbde4d9.png",
+          "cover": {
+            "upload_id": 23526879,
+            "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/e793996a-09db-4a10-a18f-f6508f68f56f.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/e793996a-09db-4a10-a18f-f6508f68f56f.png"
+          }
+        }
+      ],
+      "cover": {
+        "uuid": "6a0753f7-38d1-47be-a9be-72b3071af227",
+        "upload_id": 23526869,
+        "file_type": "image",
+        "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/6bd94983-ffc5-4c99-9a12-5da82cdd94ac.png",
+        "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/6bd94983-ffc5-4c99-9a12-5da82cdd94ac.png",
+        "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/6bd94983-ffc5-4c99-9a12-5da82cdd94ac.png",
+        "video_url": null,
+        "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+        "url": "https://gcdn.bionluk.com/uploads/portfolio/6bd94983-ffc5-4c99-9a12-5da82cdd94ac.png"
+      },
+      "user": {
+        "avatar_url": "https://bgcp.bionluk.com/images/avatar/200x200/006b3dab-e311-4ace-abbb-57d20654effa.png",
+        "username": "orhanguzell",
+        "title": "Full-Stack Next.js + Node.js",
+        "description": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.<br>",
+        "description_m": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.\n",
+        "uuid": "a5629041-73b1-4230-8b81-374a9f461d39",
+        "user_id": 2139134,
+        "sellerRating": {
+          "commentCount": 11,
+          "commentRating": 4.5
+        },
+        "son_teslim_text": "3 gün önce",
+        "recurring_orders": 6,
+        "response_time": 881200,
+        "seller_created_at": "Ağustos 2025"
+      },
+      "rating_user": {
+        "id": null,
+        "uuid": null,
+        "username": null,
+        "avatar_url": null,
+        "title": null,
+        "description_m": null,
+        "son_teslim_text": null,
+        "recurring_orders": null,
+        "response_time": null,
+        "user_created_at": null
+      }
+    },
+    {
+      "category_id": 6,
+      "category_name": "Yazılım & Teknoloji",
+      "category_slug": "yazilim-teknoloji",
+      "category_sub_id": 80,
+      "category_sub_name": "Diğer Yazılım Teknoloji",
+      "category_sub_slug": "diger-yazilim-teknoloji",
+      "comment_count": 0,
+      "comments": {
+        "messages": [],
+        "seemorediv": false,
+        "startingOffset": 100,
+        "commentCount": 0
+      },
+      "name": "Paspas ERP — Üretim ve Operasyon Yönetim Sistemi",
+      "description": "Üretim sektörü için sıfırdan geliştirdiğim çok kullanıcılı ERP. Stok, sipariş, üretim planlama ve operasyon yönetimi tek panelde. Fastify + Drizzle ORM + MySQL ve Next.js yönetim paneli; rol bazlı yetki ve çok kullanıcılı veri tutarlılığı sağlandı.",
+      "description_textarea": "Üretim sektörü için sıfırdan geliştirdiğim çok kullanıcılı ERP. Stok, sipariş, üretim planlama ve operasyon yönetimi tek panelde. Fastify + Drizzle ORM + MySQL ve Next.js yönetim paneli; rol bazlı yetki ve çok kullanıcılı veri tutarlılığı sağlandı.",
+      "status": 1,
+      "statusText": "Yayında",
+      "statusTextClass": "green",
+      "statusTextColorCode": "rgb(109, 206, 106)",
+      "uuid": "92e5e0a0016f",
+      "disapproval_reasons": [],
+      "fav_count": 0,
+      "likes": [],
+      "likeStatus": {
+        "actionIcon": "icon/tansel_bionluk_like_bos_s.svg",
+        "actionText": "Beğen",
+        "action": 1
+      },
+      "viewCount": 1,
+      "upload_id": 23517845,
+      "cover_id": 23517846,
+      "itemCount": 1,
+      "file_type": "image",
+      "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/1203741c-0292-48b7-a4bd-5f0945b7d0e8.png",
+      "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/1203741c-0292-48b7-a4bd-5f0945b7d0e8.png",
+      "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/1203741c-0292-48b7-a4bd-5f0945b7d0e8.png",
+      "video_url": null,
+      "items": [
+        {
+          "uuid": "3f6e224c-843e-4517-9f6f-5794c4cdeef2",
+          "upload_id": 23517845,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/bd603d68-53bc-44e3-8e11-7cc56f5a2bab.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/bd603d68-53bc-44e3-8e11-7cc56f5a2bab.png",
+          "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/bd603d68-53bc-44e3-8e11-7cc56f5a2bab.png",
+          "video_url": null,
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/portfolio/bd603d68-53bc-44e3-8e11-7cc56f5a2bab.png",
+          "cover": {
+            "upload_id": 23517846,
+            "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/1203741c-0292-48b7-a4bd-5f0945b7d0e8.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/1203741c-0292-48b7-a4bd-5f0945b7d0e8.png"
+          }
+        },
+        {
+          "uuid": "cb75af09-c465-4ca8-b584-a0153642f069",
+          "upload_id": 23517548,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/f631ec59-075a-4a0c-94f8-d69d02412760.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/f631ec59-075a-4a0c-94f8-d69d02412760.png",
+          "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/f631ec59-075a-4a0c-94f8-d69d02412760.png",
+          "video_url": null,
+          "uploadname": "f631ec59-075a-4a0c-94f8-d69d02412760.png",
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/portfolio/f631ec59-075a-4a0c-94f8-d69d02412760.png",
+          "cover": {
+            "upload_id": 23517549,
+            "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/e402ec86-a209-4db8-8557-3d66d007193c.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/e402ec86-a209-4db8-8557-3d66d007193c.png"
+          }
+        },
+        {
+          "uuid": "7248cc8a-7a5f-4fd5-9589-928184378595",
+          "upload_id": 23517550,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/10fd4dde-3bfe-4d5f-aca0-d15a496703e5.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/10fd4dde-3bfe-4d5f-aca0-d15a496703e5.png",
+          "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/10fd4dde-3bfe-4d5f-aca0-d15a496703e5.png",
+          "video_url": null,
+          "uploadname": "10fd4dde-3bfe-4d5f-aca0-d15a496703e5.png",
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/portfolio/10fd4dde-3bfe-4d5f-aca0-d15a496703e5.png",
+          "cover": {
+            "upload_id": 23517551,
+            "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/43b5ba9e-ea89-4ba1-9ee5-475cbc93d02c.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/43b5ba9e-ea89-4ba1-9ee5-475cbc93d02c.png"
+          }
+        },
+        {
+          "uuid": "d825db86-aa68-491c-a305-87cdedffbe69",
+          "upload_id": 23517553,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/1b55d85d-0fd0-40ae-b5b7-466829084d9d.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/1b55d85d-0fd0-40ae-b5b7-466829084d9d.png",
+          "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/1b55d85d-0fd0-40ae-b5b7-466829084d9d.png",
+          "video_url": null,
+          "uploadname": "1b55d85d-0fd0-40ae-b5b7-466829084d9d.png",
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/portfolio/1b55d85d-0fd0-40ae-b5b7-466829084d9d.png",
+          "cover": {
+            "upload_id": 23517555,
+            "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/4769c304-1d96-4431-bc0f-8c9076b730d9.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/4769c304-1d96-4431-bc0f-8c9076b730d9.png"
+          }
+        },
+        {
+          "uuid": "79b8622b-48b8-4a52-8894-c825884bb4a4",
+          "upload_id": 23517556,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/9ee7f758-4f9c-4370-bfb8-1150bd3bbcd6.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/9ee7f758-4f9c-4370-bfb8-1150bd3bbcd6.png",
+          "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/9ee7f758-4f9c-4370-bfb8-1150bd3bbcd6.png",
+          "video_url": null,
+          "uploadname": "9ee7f758-4f9c-4370-bfb8-1150bd3bbcd6.png",
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/portfolio/9ee7f758-4f9c-4370-bfb8-1150bd3bbcd6.png",
+          "cover": {
+            "upload_id": 23517557,
+            "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/6bfb15b4-d1e9-42dc-b0df-f38a66110142.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/6bfb15b4-d1e9-42dc-b0df-f38a66110142.png"
+          }
+        }
+      ],
+      "cover": {
+        "uuid": "555f5433-e1c3-4b4b-96b8-24583aab1b1a",
+        "upload_id": 23517846,
+        "file_type": "image",
+        "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/1203741c-0292-48b7-a4bd-5f0945b7d0e8.png",
+        "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/1203741c-0292-48b7-a4bd-5f0945b7d0e8.png",
+        "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/1203741c-0292-48b7-a4bd-5f0945b7d0e8.png",
+        "video_url": null,
+        "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+        "url": "https://gcdn.bionluk.com/uploads/portfolio/1203741c-0292-48b7-a4bd-5f0945b7d0e8.png"
+      },
+      "user": {
+        "avatar_url": "https://bgcp.bionluk.com/images/avatar/200x200/006b3dab-e311-4ace-abbb-57d20654effa.png",
+        "username": "orhanguzell",
+        "title": "Full-Stack Next.js + Node.js",
+        "description": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.<br>",
+        "description_m": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.\n",
+        "uuid": "a5629041-73b1-4230-8b81-374a9f461d39",
+        "user_id": 2139134,
+        "sellerRating": {
+          "commentCount": 11,
+          "commentRating": 4.5
+        },
+        "son_teslim_text": "3 gün önce",
+        "recurring_orders": 6,
+        "response_time": 881200,
+        "seller_created_at": "Ağustos 2025"
+      },
+      "rating_user": {
+        "id": null,
+        "uuid": null,
+        "username": null,
+        "avatar_url": null,
+        "title": null,
+        "description_m": null,
+        "son_teslim_text": null,
+        "recurring_orders": null,
+        "response_time": null,
+        "user_created_at": null
+      }
+    },
+    {
+      "category_id": 6,
+      "category_name": "Yazılım & Teknoloji",
+      "category_slug": "yazilim-teknoloji",
+      "category_sub_id": 125,
+      "category_sub_name": "Web Yazılım",
+      "category_sub_slug": "web-yazilim",
+      "comment_count": 1,
+      "comments": {
+        "messages": [
+          {
+            "id": 102438,
+            "comment": "Gerçekten son zamanlarda çalıştığım en iyi Freelancer seo ve kodlama konusunda kendini aşmış biri , seo optimizasyonu tamamlandı şimdi geriye kalan işlemleri teslim etmek için çalışmaya devam ediyor 🙏",
+            "comment_m": "Gerçekten son zamanlarda çalıştığım en iyi Freelancer seo ve kodlama konusunda kendini aşmış biri , seo optimizasyonu tamamlandı şimdi geriye kalan işlemleri teslim etmek için çalışmaya devam ediyor 🙏",
+            "reply": "",
+            "reply_m": "",
+            "user": {
+              "username": "batuhanberkant",
+              "avatar_url": "https://bgcp.bionluk.com/images/avatar/200x200/52f0aa18-e12c-4f58-8022-74af93937ab9.jpeg",
+              "title": "Sosyal Medya Danışmanı",
+              "uuid": "07199012-e014-4bf6-897d-ed8607ea9b99"
+            },
+            "created_at": 1776375553000,
+            "commentLikeCount": 0,
+            "commentLikeStatus": false,
+            "rating": "5.0"
+          }
+        ],
+        "seemorediv": false,
+        "startingOffset": 100,
+        "commentCount": 1
+      },
+      "name": "Wiribu.de – Lighthouse 100/100 & GEO/SEO Optimizasyonu",
+      "description": "Almanya pazarına yönelik PHP haber portalında teknik SEO ve GEO optimizasyonu. Lighthouse 4 kategoride 100/100 skoruna ulaşıldı. JSON-LD şema, llms.txt, IndexNow, AI tarayıcı erişimi ve structured data iyileştirmeleri yapıldı. GEO skoru 35'ten 74'e y",
+      "description_textarea": "Almanya pazarına yönelik PHP haber portalında teknik SEO ve GEO optimizasyonu. Lighthouse 4 kategoride 100/100 skoruna ulaşıldı. JSON-LD şema, llms.txt, IndexNow, AI tarayıcı erişimi ve structured data iyileştirmeleri yapıldı. GEO skoru 35'ten 74'e y",
+      "status": 1,
+      "statusText": "Yayında",
+      "statusTextClass": "green",
+      "statusTextColorCode": "rgb(109, 206, 106)",
+      "uuid": "cd12e02aa1ed",
+      "disapproval_reasons": [],
+      "fav_count": 0,
+      "likes": [],
+      "likeStatus": {
+        "actionIcon": "icon/tansel_bionluk_like_bos_s.svg",
+        "actionText": "Beğen",
+        "action": 1
+      },
+      "viewCount": 1,
+      "upload_id": 23286740,
+      "cover_id": 23286740,
+      "itemCount": 1,
+      "file_type": "image",
+      "image_url": "https://bgcp.bionluk.com/images/order/1400x788/edea2472-7ed0-4a94-bb13-857c7dd5c15c.png",
+      "image_url_original": "https://gcdn.bionluk.com/uploads/order/edea2472-7ed0-4a94-bb13-857c7dd5c15c.png",
+      "image_url_small": "https://bgcp.bionluk.com/images/order/526x296/edea2472-7ed0-4a94-bb13-857c7dd5c15c.png",
+      "video_url": null,
+      "items": [
+        {
+          "uuid": "b7b98043-dec2-4467-a247-74cc53c8d204",
+          "upload_id": 23286740,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/order/edea2472-7ed0-4a94-bb13-857c7dd5c15c.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/order/526x296/edea2472-7ed0-4a94-bb13-857c7dd5c15c.png",
+          "image_url": "https://bgcp.bionluk.com/images/order/1400x788/edea2472-7ed0-4a94-bb13-857c7dd5c15c.png",
+          "video_url": null,
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/order/edea2472-7ed0-4a94-bb13-857c7dd5c15c.png",
+          "cover": {
+            "upload_id": 23286740,
+            "image_url": "https://bgcp.bionluk.com/images/order/1400x788/edea2472-7ed0-4a94-bb13-857c7dd5c15c.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/order/526x296/edea2472-7ed0-4a94-bb13-857c7dd5c15c.png"
+          }
+        }
+      ],
+      "cover": {
+        "uuid": "b7b98043-dec2-4467-a247-74cc53c8d204",
+        "upload_id": 23286740,
+        "file_type": "image",
+        "image_url_original": "https://gcdn.bionluk.com/uploads/order/edea2472-7ed0-4a94-bb13-857c7dd5c15c.png",
+        "image_url_small": "https://bgcp.bionluk.com/images/order/526x296/edea2472-7ed0-4a94-bb13-857c7dd5c15c.png",
+        "image_url": "https://bgcp.bionluk.com/images/order/1400x788/edea2472-7ed0-4a94-bb13-857c7dd5c15c.png",
+        "video_url": null,
+        "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+        "url": "https://gcdn.bionluk.com/uploads/order/edea2472-7ed0-4a94-bb13-857c7dd5c15c.png"
+      },
+      "user": {
+        "avatar_url": "https://bgcp.bionluk.com/images/avatar/200x200/006b3dab-e311-4ace-abbb-57d20654effa.png",
+        "username": "orhanguzell",
+        "title": "Full-Stack Next.js + Node.js",
+        "description": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.<br>",
+        "description_m": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.\n",
+        "uuid": "a5629041-73b1-4230-8b81-374a9f461d39",
+        "user_id": 2139134,
+        "sellerRating": {
+          "commentCount": 11,
+          "commentRating": 4.5
+        },
+        "son_teslim_text": "3 gün önce",
+        "recurring_orders": 6,
+        "response_time": 881200,
+        "seller_created_at": "Ağustos 2025"
+      },
+      "rating_user": {
+        "id": 783682,
+        "uuid": "07199012-e014-4bf6-897d-ed8607ea9b99",
+        "username": "batuhanberkant",
+        "avatar_url": "https://bgcp.bionluk.com/images/avatar/200x200/52f0aa18-e12c-4f58-8022-74af93937ab9.jpeg",
+        "title": "Sosyal Medya Danışmanı",
+        "description_m": "5 Yıllık Etkin Sosyal Medya Tecrübesi olan Aynı Zamanda Youtube Üzerinde Aktif 350 Bin Abonesi Olan Bir Influencer'ım . Yıllardır Edindiğim ve Belirlediğim Stratejilerimi Sizlere Danışmanlık Hizmeti Olarak Vermeye Karar Verdim. Aklınıza Gelebilecek Bütün Sorunlarla Karşılaşmış ve Bunları Atlatmış Bir Influencer Olarak Artık Sosyal Medya Danışmanlık Hizmeti Vermeye Karar Verdim.nnEğitimini Aldığım Bazı Alanlar :nGrafik Animasyon & PhotoshopnWeb Tasarımı &nSosyal Medya Yöneticiliği &nVeri Tabanı Programcılığı &",
+        "son_teslim_text": "-",
+        "recurring_orders": 0,
+        "response_time": 0,
+        "user_created_at": "Kasım 2020"
+      }
+    },
+    {
+      "category_id": 6,
+      "category_name": "Yazılım & Teknoloji",
+      "category_slug": "yazilim-teknoloji",
+      "category_sub_id": 80,
+      "category_sub_name": "Diğer Yazılım Teknoloji",
+      "category_sub_slug": "diger-yazilim-teknoloji",
+      "comment_count": 0,
+      "comments": {
+        "messages": [],
+        "seemorediv": false,
+        "startingOffset": 100,
+        "commentCount": 0
+      },
+      "name": "Wiribu.de – Lighthouse 100/100 & GEO Optimizasyonu",
+      "description": "PHP haber portalında kapsamlı SEO & GEO optimizasyonu. Lighthouse 4 kategoride 100/100, GEO skoru 35→74. JSON-LD NewsArticle şeması, llms.txt, IndexNow, AI tarayıcı erişimi (%95) ve featured image alt text sistemi hayata geçirildi. Wiribu.de (Almanya",
+      "description_textarea": "PHP haber portalında kapsamlı SEO & GEO optimizasyonu. Lighthouse 4 kategoride 100/100, GEO skoru 35→74. JSON-LD NewsArticle şeması, llms.txt, IndexNow, AI tarayıcı erişimi (%95) ve featured image alt text sistemi hayata geçirildi. Wiribu.de (Almanya",
+      "status": 1,
+      "statusText": "Yayında",
+      "statusTextClass": "green",
+      "statusTextColorCode": "rgb(109, 206, 106)",
+      "uuid": "d42740e77076",
+      "disapproval_reasons": [],
+      "fav_count": 0,
+      "likes": [],
+      "likeStatus": {
+        "actionIcon": "icon/tansel_bionluk_like_bos_s.svg",
+        "actionText": "Beğen",
+        "action": 1
+      },
+      "viewCount": 1,
+      "upload_id": 23274411,
+      "cover_id": 23274412,
+      "itemCount": 1,
+      "file_type": "image",
+      "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/91e8a563-9a27-471e-9a66-4eecd6030fc8.png",
+      "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/91e8a563-9a27-471e-9a66-4eecd6030fc8.png",
+      "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/91e8a563-9a27-471e-9a66-4eecd6030fc8.png",
+      "video_url": null,
+      "items": [
+        {
+          "uuid": "877a3e02-e0c5-46c6-ab81-a7c6ddc63561",
+          "upload_id": 23274411,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/b1ea8893-c363-4815-b26d-eb0b29e27c54.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/b1ea8893-c363-4815-b26d-eb0b29e27c54.png",
+          "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/b1ea8893-c363-4815-b26d-eb0b29e27c54.png",
+          "video_url": null,
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/portfolio/b1ea8893-c363-4815-b26d-eb0b29e27c54.png",
+          "cover": {
+            "upload_id": 23274412,
+            "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/91e8a563-9a27-471e-9a66-4eecd6030fc8.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/91e8a563-9a27-471e-9a66-4eecd6030fc8.png"
+          }
+        },
+        {
+          "uuid": "c4bed62b-5fe3-402d-925a-52ebbd90ddc2",
+          "upload_id": 23274414,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/4e611c67-94bf-4da8-acc1-0c21268091f7.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/4e611c67-94bf-4da8-acc1-0c21268091f7.png",
+          "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/4e611c67-94bf-4da8-acc1-0c21268091f7.png",
+          "video_url": null,
+          "uploadname": "4e611c67-94bf-4da8-acc1-0c21268091f7.png",
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/portfolio/4e611c67-94bf-4da8-acc1-0c21268091f7.png",
+          "cover": {
+            "upload_id": 23274416,
+            "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/0ef99fba-e0b2-41a9-8170-b206e95e6ca5.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/0ef99fba-e0b2-41a9-8170-b206e95e6ca5.png"
+          }
+        }
+      ],
+      "cover": {
+        "uuid": "8a9bf2fe-2c16-4533-ac2b-0ee589354654",
+        "upload_id": 23274412,
+        "file_type": "image",
+        "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/91e8a563-9a27-471e-9a66-4eecd6030fc8.png",
+        "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/91e8a563-9a27-471e-9a66-4eecd6030fc8.png",
+        "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/91e8a563-9a27-471e-9a66-4eecd6030fc8.png",
+        "video_url": null,
+        "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+        "url": "https://gcdn.bionluk.com/uploads/portfolio/91e8a563-9a27-471e-9a66-4eecd6030fc8.png"
+      },
+      "user": {
+        "avatar_url": "https://bgcp.bionluk.com/images/avatar/200x200/006b3dab-e311-4ace-abbb-57d20654effa.png",
+        "username": "orhanguzell",
+        "title": "Full-Stack Next.js + Node.js",
+        "description": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.<br>",
+        "description_m": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.\n",
+        "uuid": "a5629041-73b1-4230-8b81-374a9f461d39",
+        "user_id": 2139134,
+        "sellerRating": {
+          "commentCount": 11,
+          "commentRating": 4.5
+        },
+        "son_teslim_text": "3 gün önce",
+        "recurring_orders": 6,
+        "response_time": 881200,
+        "seller_created_at": "Ağustos 2025"
+      },
+      "rating_user": {
+        "id": null,
+        "uuid": null,
+        "username": null,
+        "avatar_url": null,
+        "title": null,
+        "description_m": null,
+        "son_teslim_text": null,
+        "recurring_orders": null,
+        "response_time": null,
+        "user_created_at": null
+      }
+    },
+    {
+      "category_id": 6,
+      "category_name": "Yazılım & Teknoloji",
+      "category_slug": "yazilim-teknoloji",
+      "category_sub_id": 125,
+      "category_sub_name": "Web Yazılım",
+      "category_sub_slug": "web-yazilim",
+      "comment_count": 1,
+      "comments": {
+        "messages": [
+          {
+            "id": 102000,
+            "comment": "Gerçekten işinin ehli.Her probleme hızlıca çözüm üretebiliyor.Desteğini esirgemiyor.Bundan sonra sürekli olarak çalışacağız.<br>",
+            "comment_m": "Gerçekten işinin ehli.Her probleme hızlıca çözüm üretebiliyor.Desteğini esirgemiyor.Bundan sonra sürekli olarak çalışacağız.\n",
+            "reply": "yirli olsun. güle güle kullan. <br>",
+            "reply_m": "yirli olsun. güle güle kullan. r\n",
+            "user": {
+              "username": "atasah",
+              "avatar_url": "https://gcdn.bionluk.com/uploads/general/No_Avatar.png",
+              "title": "",
+              "uuid": "8f8421d8-fdf0-450b-8508-fb5409db4003"
+            },
+            "created_at": 1774079062000,
+            "commentLikeCount": 1,
+            "commentLikeStatus": false,
+            "rating": "5.0"
+          }
+        ],
+        "seemorediv": false,
+        "startingOffset": 100,
+        "commentCount": 1
+      },
+      "name": "Bereket Fide — Kurumsal Web Sitesi & Ürün Kataloğu",
+      "description": "Fide üretim firması için Next.js 16, Fastify ve MySQL ile full-stack kurumsal site geliştirdim. Ürün kataloğu, admin paneli, SEO uyumlu dinamik sayfalar, iletişim formu ve responsive tasarım içerir. Tailwind CSS v4 ile modern, doğal tonlarda UI.",
+      "description_textarea": "Fide üretim firması için Next.js 16, Fastify ve MySQL ile full-stack kurumsal site geliştirdim. Ürün kataloğu, admin paneli, SEO uyumlu dinamik sayfalar, iletişim formu ve responsive tasarım içerir. Tailwind CSS v4 ile modern, doğal tonlarda UI.",
+      "status": 1,
+      "statusText": "Yayında",
+      "statusTextClass": "green",
+      "statusTextColorCode": "rgb(109, 206, 106)",
+      "uuid": "aa09cc346417",
+      "disapproval_reasons": [],
+      "fav_count": 0,
+      "likes": [],
+      "likeStatus": {
+        "actionIcon": "icon/tansel_bionluk_like_bos_s.svg",
+        "actionText": "Beğen",
+        "action": 1
+      },
+      "viewCount": 2,
+      "upload_id": 23141685,
+      "cover_id": 23141685,
+      "itemCount": 1,
+      "file_type": "image",
+      "image_url": "https://bgcp.bionluk.com/images/order/1400x788/3ea6956d-732e-4069-b24b-ec9d393c066d.png",
+      "image_url_original": "https://gcdn.bionluk.com/uploads/order/3ea6956d-732e-4069-b24b-ec9d393c066d.png",
+      "image_url_small": "https://bgcp.bionluk.com/images/order/526x296/3ea6956d-732e-4069-b24b-ec9d393c066d.png",
+      "video_url": null,
+      "items": [
+        {
+          "uuid": "24812a72-37f6-497b-9958-a9a94d51191d",
+          "upload_id": 23141685,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/order/3ea6956d-732e-4069-b24b-ec9d393c066d.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/order/526x296/3ea6956d-732e-4069-b24b-ec9d393c066d.png",
+          "image_url": "https://bgcp.bionluk.com/images/order/1400x788/3ea6956d-732e-4069-b24b-ec9d393c066d.png",
+          "video_url": null,
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/order/3ea6956d-732e-4069-b24b-ec9d393c066d.png",
+          "cover": {
+            "upload_id": 23141685,
+            "image_url": "https://bgcp.bionluk.com/images/order/1400x788/3ea6956d-732e-4069-b24b-ec9d393c066d.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/order/526x296/3ea6956d-732e-4069-b24b-ec9d393c066d.png"
+          }
+        }
+      ],
+      "cover": {
+        "uuid": "24812a72-37f6-497b-9958-a9a94d51191d",
+        "upload_id": 23141685,
+        "file_type": "image",
+        "image_url_original": "https://gcdn.bionluk.com/uploads/order/3ea6956d-732e-4069-b24b-ec9d393c066d.png",
+        "image_url_small": "https://bgcp.bionluk.com/images/order/526x296/3ea6956d-732e-4069-b24b-ec9d393c066d.png",
+        "image_url": "https://bgcp.bionluk.com/images/order/1400x788/3ea6956d-732e-4069-b24b-ec9d393c066d.png",
+        "video_url": null,
+        "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+        "url": "https://gcdn.bionluk.com/uploads/order/3ea6956d-732e-4069-b24b-ec9d393c066d.png"
+      },
+      "user": {
+        "avatar_url": "https://bgcp.bionluk.com/images/avatar/200x200/006b3dab-e311-4ace-abbb-57d20654effa.png",
+        "username": "orhanguzell",
+        "title": "Full-Stack Next.js + Node.js",
+        "description": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.<br>",
+        "description_m": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.\n",
+        "uuid": "a5629041-73b1-4230-8b81-374a9f461d39",
+        "user_id": 2139134,
+        "sellerRating": {
+          "commentCount": 11,
+          "commentRating": 4.5
+        },
+        "son_teslim_text": "3 gün önce",
+        "recurring_orders": 6,
+        "response_time": 881200,
+        "seller_created_at": "Ağustos 2025"
+      },
+      "rating_user": {
+        "id": 2255738,
+        "uuid": "8f8421d8-fdf0-450b-8508-fb5409db4003",
+        "username": "atasah",
+        "avatar_url": "https://gcdn.bionluk.com/uploads/general/No_Avatar.png",
+        "title": "",
+        "description_m": "",
+        "son_teslim_text": "-",
+        "recurring_orders": 0,
+        "response_time": 0,
+        "user_created_at": "Mart 2026"
+      }
+    },
+    {
+      "category_id": 6,
+      "category_name": "Yazılım & Teknoloji",
+      "category_slug": "yazilim-teknoloji",
+      "category_sub_id": 125,
+      "category_sub_name": "Web Yazılım",
+      "category_sub_slug": "web-yazilim",
+      "comment_count": 1,
+      "comments": {
+        "messages": [
+          {
+            "id": 101947,
+            "comment": "İşinde profosyonel,isteklerinizi rahatça dile getirebilirsiniz.Web sitem için çok teknik<br>bir altyapı, anlaşılır ve süper işlevsel bir admin paneli kurdu,basit bir website değil resmen sistem yaratıyor.Kesinlikle çalışmaya devam edeceğim.<br>",
+            "comment_m": "İşinde profosyonel,isteklerinizi rahatça dile getirebilirsiniz.Web sitem için çok teknik\nbir altyapı, anlaşılır ve süper işlevsel bir admin paneli kurdu,basit bir website değil resmen sistem yaratıyor.Kesinlikle çalışmaya devam edeceğim.\n",
+            "reply": "",
+            "reply_m": "",
+            "user": {
+              "username": "atasah",
+              "avatar_url": "https://gcdn.bionluk.com/uploads/general/No_Avatar.png",
+              "title": "",
+              "uuid": "8f8421d8-fdf0-450b-8508-fb5409db4003"
+            },
+            "created_at": 1773734224000,
+            "commentLikeCount": 0,
+            "commentLikeStatus": false,
+            "rating": "5.0"
+          }
+        ],
+        "seemorediv": false,
+        "startingOffset": 100,
+        "commentCount": 1
+      },
+      "name": "Vista İnşaat — Kurumsal Web Sitesi & Admin Paneli",
+      "description": "İnşaat firması için Next.js 16 + Fastify + MySQL ile full-stack kurumsal site. Admin panel, çok dilli içerik yönetimi (TR/EN), teklif modülü, PDF oluşturma, galeri, SEO optimizasyonu, Cloudinary entegrasyonu. Canlı: vistainsaat.com\n",
+      "description_textarea": "İnşaat firması için Next.js 16 + Fastify + MySQL ile full-stack kurumsal site. Admin panel, çok dilli içerik yönetimi (TR/EN), teklif modülü, PDF oluşturma, galeri, SEO optimizasyonu, Cloudinary entegrasyonu. Canlı: vistainsaat.com\n",
+      "status": 1,
+      "statusText": "Yayında",
+      "statusTextClass": "green",
+      "statusTextColorCode": "rgb(109, 206, 106)",
+      "uuid": "8dccb13cffc2",
+      "disapproval_reasons": [],
+      "fav_count": 0,
+      "likes": [],
+      "likeStatus": {
+        "actionIcon": "icon/tansel_bionluk_like_bos_s.svg",
+        "actionText": "Beğen",
+        "action": 1
+      },
+      "viewCount": 9,
+      "upload_id": 23125797,
+      "cover_id": 23125797,
+      "itemCount": 1,
+      "file_type": "image",
+      "image_url": "https://bgcp.bionluk.com/images/order/1400x788/cf0d4d04-ad38-48dc-a7eb-cd41e6cd0f1b.png",
+      "image_url_original": "https://gcdn.bionluk.com/uploads/order/cf0d4d04-ad38-48dc-a7eb-cd41e6cd0f1b.png",
+      "image_url_small": "https://bgcp.bionluk.com/images/order/526x296/cf0d4d04-ad38-48dc-a7eb-cd41e6cd0f1b.png",
+      "video_url": null,
+      "items": [
+        {
+          "uuid": "9cdc3403-a9f6-4c37-bd9e-6b5a6d6196f1",
+          "upload_id": 23125797,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/order/cf0d4d04-ad38-48dc-a7eb-cd41e6cd0f1b.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/order/526x296/cf0d4d04-ad38-48dc-a7eb-cd41e6cd0f1b.png",
+          "image_url": "https://bgcp.bionluk.com/images/order/1400x788/cf0d4d04-ad38-48dc-a7eb-cd41e6cd0f1b.png",
+          "video_url": null,
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/order/cf0d4d04-ad38-48dc-a7eb-cd41e6cd0f1b.png",
+          "cover": {
+            "upload_id": 23125797,
+            "image_url": "https://bgcp.bionluk.com/images/order/1400x788/cf0d4d04-ad38-48dc-a7eb-cd41e6cd0f1b.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/order/526x296/cf0d4d04-ad38-48dc-a7eb-cd41e6cd0f1b.png"
+          }
+        }
+      ],
+      "cover": {
+        "uuid": "9cdc3403-a9f6-4c37-bd9e-6b5a6d6196f1",
+        "upload_id": 23125797,
+        "file_type": "image",
+        "image_url_original": "https://gcdn.bionluk.com/uploads/order/cf0d4d04-ad38-48dc-a7eb-cd41e6cd0f1b.png",
+        "image_url_small": "https://bgcp.bionluk.com/images/order/526x296/cf0d4d04-ad38-48dc-a7eb-cd41e6cd0f1b.png",
+        "image_url": "https://bgcp.bionluk.com/images/order/1400x788/cf0d4d04-ad38-48dc-a7eb-cd41e6cd0f1b.png",
+        "video_url": null,
+        "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+        "url": "https://gcdn.bionluk.com/uploads/order/cf0d4d04-ad38-48dc-a7eb-cd41e6cd0f1b.png"
+      },
+      "user": {
+        "avatar_url": "https://bgcp.bionluk.com/images/avatar/200x200/006b3dab-e311-4ace-abbb-57d20654effa.png",
+        "username": "orhanguzell",
+        "title": "Full-Stack Next.js + Node.js",
+        "description": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.<br>",
+        "description_m": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.\n",
+        "uuid": "a5629041-73b1-4230-8b81-374a9f461d39",
+        "user_id": 2139134,
+        "sellerRating": {
+          "commentCount": 11,
+          "commentRating": 4.5
+        },
+        "son_teslim_text": "3 gün önce",
+        "recurring_orders": 6,
+        "response_time": 881200,
+        "seller_created_at": "Ağustos 2025"
+      },
+      "rating_user": {
+        "id": 2255738,
+        "uuid": "8f8421d8-fdf0-450b-8508-fb5409db4003",
+        "username": "atasah",
+        "avatar_url": "https://gcdn.bionluk.com/uploads/general/No_Avatar.png",
+        "title": "",
+        "description_m": "",
+        "son_teslim_text": "-",
+        "recurring_orders": 0,
+        "response_time": 0,
+        "user_created_at": "Mart 2026"
+      }
+    },
+    {
+      "category_id": 6,
+      "category_name": "Yazılım & Teknoloji",
+      "category_slug": "yazilim-teknoloji",
+      "category_sub_id": 125,
+      "category_sub_name": "Web Yazılım",
+      "category_sub_slug": "web-yazilim",
+      "comment_count": 0,
+      "comments": {
+        "messages": [],
+        "seemorediv": false,
+        "startingOffset": 100,
+        "commentCount": 0
+      },
+      "name": "König Energetik – Randevulu Masaj & Wellness Sitesi",
+      "description": "Bonn'da faaliyet gösteren bir masaj merkezi için çok dilli (TR/DE) kurumsal web sitesi geliştirdim. Online randevu sistemi, yapay zeka destekli sohbet botu ve servis yönetimi içermektedir.",
+      "description_textarea": "Bonn'da faaliyet gösteren bir masaj merkezi için çok dilli (TR/DE) kurumsal web sitesi geliştirdim. Online randevu sistemi, yapay zeka destekli sohbet botu ve servis yönetimi içermektedir.",
+      "status": 1,
+      "statusText": "Yayında",
+      "statusTextClass": "green",
+      "statusTextColorCode": "rgb(109, 206, 106)",
+      "uuid": "68f829ac0330",
+      "disapproval_reasons": [],
+      "fav_count": 0,
+      "likes": [],
+      "likeStatus": {
+        "actionIcon": "icon/tansel_bionluk_like_bos_s.svg",
+        "actionText": "Beğen",
+        "action": 1
+      },
+      "viewCount": 6,
+      "upload_id": 23007348,
+      "cover_id": 23007349,
+      "itemCount": 1,
+      "file_type": "image",
+      "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/77249db5-8cf6-4c13-9351-584ac15d6cec.png",
+      "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/77249db5-8cf6-4c13-9351-584ac15d6cec.png",
+      "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/77249db5-8cf6-4c13-9351-584ac15d6cec.png",
+      "video_url": null,
+      "items": [
+        {
+          "uuid": "f58c614a-9b87-4fb4-9e5a-b0c627960283",
+          "upload_id": 23007348,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/28cd669b-0143-432a-989c-570983e7b7b0.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/28cd669b-0143-432a-989c-570983e7b7b0.png",
+          "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/28cd669b-0143-432a-989c-570983e7b7b0.png",
+          "video_url": null,
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/portfolio/28cd669b-0143-432a-989c-570983e7b7b0.png",
+          "cover": {
+            "upload_id": 23007349,
+            "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/77249db5-8cf6-4c13-9351-584ac15d6cec.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/77249db5-8cf6-4c13-9351-584ac15d6cec.png"
+          }
+        }
+      ],
+      "cover": {
+        "uuid": "3feca214-b345-48d2-a2c6-8ac03cec760e",
+        "upload_id": 23007349,
+        "file_type": "image",
+        "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/77249db5-8cf6-4c13-9351-584ac15d6cec.png",
+        "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/77249db5-8cf6-4c13-9351-584ac15d6cec.png",
+        "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/77249db5-8cf6-4c13-9351-584ac15d6cec.png",
+        "video_url": null,
+        "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+        "url": "https://gcdn.bionluk.com/uploads/portfolio/77249db5-8cf6-4c13-9351-584ac15d6cec.png"
+      },
+      "user": {
+        "avatar_url": "https://bgcp.bionluk.com/images/avatar/200x200/006b3dab-e311-4ace-abbb-57d20654effa.png",
+        "username": "orhanguzell",
+        "title": "Full-Stack Next.js + Node.js",
+        "description": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.<br>",
+        "description_m": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.\n",
+        "uuid": "a5629041-73b1-4230-8b81-374a9f461d39",
+        "user_id": 2139134,
+        "sellerRating": {
+          "commentCount": 11,
+          "commentRating": 4.5
+        },
+        "son_teslim_text": "3 gün önce",
+        "recurring_orders": 6,
+        "response_time": 881200,
+        "seller_created_at": "Ağustos 2025"
+      },
+      "rating_user": {
+        "id": null,
+        "uuid": null,
+        "username": null,
+        "avatar_url": null,
+        "title": null,
+        "description_m": null,
+        "son_teslim_text": null,
+        "recurring_orders": null,
+        "response_time": null,
+        "user_created_at": null
+      }
+    },
+    {
+      "category_id": 6,
+      "category_name": "Yazılım & Teknoloji",
+      "category_slug": "yazilim-teknoloji",
+      "category_sub_id": 126,
+      "category_sub_name": "E-ticaret",
+      "category_sub_slug": "e-ticaret",
+      "comment_count": 0,
+      "comments": {
+        "messages": [],
+        "seemorediv": false,
+        "startingOffset": 100,
+        "commentCount": 0
+      },
+      "name": "Sportoonline – Spor & Outdoor E-Ticaret Platformu",
+      "description": "Nike, Adidas gibi markaların spor giyim, supplement ve outdoor ürünlerini listeleyen çok kategorili bir e-ticaret platformu geliştirdim. Çok dilli yapı (TR), ürün yönetimi, sepet, kupon ve mağaza sistemi içermektedir.",
+      "description_textarea": "Nike, Adidas gibi markaların spor giyim, supplement ve outdoor ürünlerini listeleyen çok kategorili bir e-ticaret platformu geliştirdim. Çok dilli yapı (TR), ürün yönetimi, sepet, kupon ve mağaza sistemi içermektedir.",
+      "status": 1,
+      "statusText": "Yayında",
+      "statusTextClass": "green",
+      "statusTextColorCode": "rgb(109, 206, 106)",
+      "uuid": "84e67089d20b",
+      "disapproval_reasons": [],
+      "fav_count": 0,
+      "likes": [],
+      "likeStatus": {
+        "actionIcon": "icon/tansel_bionluk_like_bos_s.svg",
+        "actionText": "Beğen",
+        "action": 1
+      },
+      "viewCount": 9,
+      "upload_id": 23007317,
+      "cover_id": 23007318,
+      "itemCount": 1,
+      "file_type": "image",
+      "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/be3ba84a-22f5-4a95-89de-27e0f865c5bb.png",
+      "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/be3ba84a-22f5-4a95-89de-27e0f865c5bb.png",
+      "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/be3ba84a-22f5-4a95-89de-27e0f865c5bb.png",
+      "video_url": null,
+      "items": [
+        {
+          "uuid": "dcb2a041-d0de-4b1a-b40c-f4d1a7358ebc",
+          "upload_id": 23007317,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/2acb1b02-9447-4aca-b9ab-0b8f02731ba1.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/2acb1b02-9447-4aca-b9ab-0b8f02731ba1.png",
+          "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/2acb1b02-9447-4aca-b9ab-0b8f02731ba1.png",
+          "video_url": null,
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/portfolio/2acb1b02-9447-4aca-b9ab-0b8f02731ba1.png",
+          "cover": {
+            "upload_id": 23007318,
+            "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/be3ba84a-22f5-4a95-89de-27e0f865c5bb.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/be3ba84a-22f5-4a95-89de-27e0f865c5bb.png"
+          }
+        }
+      ],
+      "cover": {
+        "uuid": "01c76d8f-7f10-48ae-90d5-599fec70ae6a",
+        "upload_id": 23007318,
+        "file_type": "image",
+        "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/be3ba84a-22f5-4a95-89de-27e0f865c5bb.png",
+        "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/be3ba84a-22f5-4a95-89de-27e0f865c5bb.png",
+        "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/be3ba84a-22f5-4a95-89de-27e0f865c5bb.png",
+        "video_url": null,
+        "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+        "url": "https://gcdn.bionluk.com/uploads/portfolio/be3ba84a-22f5-4a95-89de-27e0f865c5bb.png"
+      },
+      "user": {
+        "avatar_url": "https://bgcp.bionluk.com/images/avatar/200x200/006b3dab-e311-4ace-abbb-57d20654effa.png",
+        "username": "orhanguzell",
+        "title": "Full-Stack Next.js + Node.js",
+        "description": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.<br>",
+        "description_m": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.\n",
+        "uuid": "a5629041-73b1-4230-8b81-374a9f461d39",
+        "user_id": 2139134,
+        "sellerRating": {
+          "commentCount": 11,
+          "commentRating": 4.5
+        },
+        "son_teslim_text": "3 gün önce",
+        "recurring_orders": 6,
+        "response_time": 881200,
+        "seller_created_at": "Ağustos 2025"
+      },
+      "rating_user": {
+        "id": null,
+        "uuid": null,
+        "username": null,
+        "avatar_url": null,
+        "title": null,
+        "description_m": null,
+        "son_teslim_text": null,
+        "recurring_orders": null,
+        "response_time": null,
+        "user_created_at": null
+      }
+    },
+    {
+      "category_id": 6,
+      "category_name": "Yazılım & Teknoloji",
+      "category_slug": "yazilim-teknoloji",
+      "category_sub_id": 125,
+      "category_sub_name": "Web Yazılım",
+      "category_sub_slug": "web-yazilim",
+      "comment_count": 0,
+      "comments": {
+        "messages": [],
+        "seemorediv": false,
+        "startingOffset": 100,
+        "commentCount": 0
+      },
+      "name": "B2B Teklif & Katalog Yönetimli Site",
+      "description": "Ensotek için Next.js tabanlı, çok dilli B2B kurumsal web sitesi geliştirdim. Ürün, referans ve hizmet içerikleri admin panelinden yönetiliyor. Node.js/Fastify ve MySQL/MariaDB backend ile entegre, SEO ve mobil uyumlu bir mimari kullandım.",
+      "description_textarea": "Ensotek için Next.js tabanlı, çok dilli B2B kurumsal web sitesi geliştirdim. Ürün, referans ve hizmet içerikleri admin panelinden yönetiliyor. Node.js/Fastify ve MySQL/MariaDB backend ile entegre, SEO ve mobil uyumlu bir mimari kullandım.",
+      "status": 1,
+      "statusText": "Yayında",
+      "statusTextClass": "green",
+      "statusTextColorCode": "rgb(109, 206, 106)",
+      "uuid": "862b3f26a481",
+      "disapproval_reasons": [],
+      "fav_count": 0,
+      "likes": [],
+      "likeStatus": {
+        "actionIcon": "icon/tansel_bionluk_like_bos_s.svg",
+        "actionText": "Beğen",
+        "action": 1
+      },
+      "viewCount": 15,
+      "upload_id": 22638428,
+      "cover_id": 22638430,
+      "itemCount": 1,
+      "file_type": "image",
+      "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/ca2a3f76-acf0-4f5d-ae39-68c8021c62d4.png",
+      "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/ca2a3f76-acf0-4f5d-ae39-68c8021c62d4.png",
+      "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/ca2a3f76-acf0-4f5d-ae39-68c8021c62d4.png",
+      "video_url": null,
+      "items": [
+        {
+          "uuid": "77e480c1-2aad-4de5-a24e-d62e757d4f8e",
+          "upload_id": 22638428,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/2fbd9f41-e32d-4456-8f69-41714c4cf387.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/2fbd9f41-e32d-4456-8f69-41714c4cf387.png",
+          "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/2fbd9f41-e32d-4456-8f69-41714c4cf387.png",
+          "video_url": null,
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/portfolio/2fbd9f41-e32d-4456-8f69-41714c4cf387.png",
+          "cover": {
+            "upload_id": 22638430,
+            "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/ca2a3f76-acf0-4f5d-ae39-68c8021c62d4.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/ca2a3f76-acf0-4f5d-ae39-68c8021c62d4.png"
+          }
+        },
+        {
+          "uuid": "d322ba78-1946-4547-8b52-0f254a5dfcd2",
+          "upload_id": 22638434,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/98bc791e-82b6-431c-bb91-f6bb53807de8.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/98bc791e-82b6-431c-bb91-f6bb53807de8.png",
+          "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/98bc791e-82b6-431c-bb91-f6bb53807de8.png",
+          "video_url": null,
+          "uploadname": "98bc791e-82b6-431c-bb91-f6bb53807de8.png",
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/portfolio/98bc791e-82b6-431c-bb91-f6bb53807de8.png",
+          "cover": {
+            "upload_id": 22638436,
+            "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/b254f0e9-47c8-4287-b57b-847171453e93.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/b254f0e9-47c8-4287-b57b-847171453e93.png"
+          }
+        },
+        {
+          "uuid": "692b8b01-7cf9-4fd2-b36f-cfed44068087",
+          "upload_id": 22651142,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/ee982789-68a9-40e5-8d9c-692855a99bd7.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/ee982789-68a9-40e5-8d9c-692855a99bd7.png",
+          "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/ee982789-68a9-40e5-8d9c-692855a99bd7.png",
+          "video_url": null,
+          "uploadname": "ee982789-68a9-40e5-8d9c-692855a99bd7.png",
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/portfolio/ee982789-68a9-40e5-8d9c-692855a99bd7.png",
+          "cover": {
+            "upload_id": 22651142,
+            "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/ee982789-68a9-40e5-8d9c-692855a99bd7.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/ee982789-68a9-40e5-8d9c-692855a99bd7.png"
+          }
+        }
+      ],
+      "cover": {
+        "uuid": "3f602cf9-818d-42d7-bd89-79d346a6ea2d",
+        "upload_id": 22638430,
+        "file_type": "image",
+        "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/ca2a3f76-acf0-4f5d-ae39-68c8021c62d4.png",
+        "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/ca2a3f76-acf0-4f5d-ae39-68c8021c62d4.png",
+        "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/ca2a3f76-acf0-4f5d-ae39-68c8021c62d4.png",
+        "video_url": null,
+        "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+        "url": "https://gcdn.bionluk.com/uploads/portfolio/ca2a3f76-acf0-4f5d-ae39-68c8021c62d4.png"
+      },
+      "user": {
+        "avatar_url": "https://bgcp.bionluk.com/images/avatar/200x200/006b3dab-e311-4ace-abbb-57d20654effa.png",
+        "username": "orhanguzell",
+        "title": "Full-Stack Next.js + Node.js",
+        "description": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.<br>",
+        "description_m": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.\n",
+        "uuid": "a5629041-73b1-4230-8b81-374a9f461d39",
+        "user_id": 2139134,
+        "sellerRating": {
+          "commentCount": 11,
+          "commentRating": 4.5
+        },
+        "son_teslim_text": "3 gün önce",
+        "recurring_orders": 6,
+        "response_time": 881200,
+        "seller_created_at": "Ağustos 2025"
+      },
+      "rating_user": {
+        "id": null,
+        "uuid": null,
+        "username": null,
+        "avatar_url": null,
+        "title": null,
+        "description_m": null,
+        "son_teslim_text": null,
+        "recurring_orders": null,
+        "response_time": null,
+        "user_created_at": null
+      }
+    },
+    {
+      "category_id": 6,
+      "category_name": "Yazılım & Teknoloji",
+      "category_slug": "yazilim-teknoloji",
+      "category_sub_id": 125,
+      "category_sub_name": "Web Yazılım",
+      "category_sub_slug": "web-yazilim",
+      "comment_count": 0,
+      "comments": {
+        "messages": [],
+        "seemorediv": false,
+        "startingOffset": 100,
+        "commentCount": 0
+      },
+      "name": "X Emlak – İlan & Portföy Yönetimli Web Yazılımı",
+      "description": "X Emlak için ilan yönetimi, kategori & filtreleme, mobil uyumlu arayüz ve WhatsApp/telefon ile tek tıkla iletişim özelliklerine sahip, SEO uyumlu bir emlak sitesi geliştirdim. React, TypeScript, Tailwind, Node.js/Fastify ve MySQL ile çalışıyor.",
+      "description_textarea": "X Emlak için ilan yönetimi, kategori & filtreleme, mobil uyumlu arayüz ve WhatsApp/telefon ile tek tıkla iletişim özelliklerine sahip, SEO uyumlu bir emlak sitesi geliştirdim. React, TypeScript, Tailwind, Node.js/Fastify ve MySQL ile çalışıyor.",
+      "status": 1,
+      "statusText": "Yayında",
+      "statusTextClass": "green",
+      "statusTextColorCode": "rgb(109, 206, 106)",
+      "uuid": "c687c90dee1b",
+      "disapproval_reasons": [],
+      "fav_count": 0,
+      "likes": [],
+      "likeStatus": {
+        "actionIcon": "icon/tansel_bionluk_like_bos_s.svg",
+        "actionText": "Beğen",
+        "action": 1
+      },
+      "viewCount": 20,
+      "upload_id": 22638359,
+      "cover_id": 22638365,
+      "itemCount": 1,
+      "file_type": "image",
+      "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/17e62368-7a58-4fd9-be4f-ac4551d5e42b.png",
+      "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/17e62368-7a58-4fd9-be4f-ac4551d5e42b.png",
+      "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/17e62368-7a58-4fd9-be4f-ac4551d5e42b.png",
+      "video_url": null,
+      "items": [
+        {
+          "uuid": "5944c6ae-e97b-44b0-8be9-d382110b074c",
+          "upload_id": 22638359,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/75168a57-ed4e-4b60-bd24-93c8fe5e1163.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/75168a57-ed4e-4b60-bd24-93c8fe5e1163.png",
+          "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/75168a57-ed4e-4b60-bd24-93c8fe5e1163.png",
+          "video_url": null,
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/portfolio/75168a57-ed4e-4b60-bd24-93c8fe5e1163.png",
+          "cover": {
+            "upload_id": 22638365,
+            "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/17e62368-7a58-4fd9-be4f-ac4551d5e42b.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/17e62368-7a58-4fd9-be4f-ac4551d5e42b.png"
+          }
+        }
+      ],
+      "cover": {
+        "uuid": "5f270296-0256-4d98-b4c2-fed09bebca00",
+        "upload_id": 22638365,
+        "file_type": "image",
+        "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/17e62368-7a58-4fd9-be4f-ac4551d5e42b.png",
+        "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/17e62368-7a58-4fd9-be4f-ac4551d5e42b.png",
+        "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/17e62368-7a58-4fd9-be4f-ac4551d5e42b.png",
+        "video_url": null,
+        "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+        "url": "https://gcdn.bionluk.com/uploads/portfolio/17e62368-7a58-4fd9-be4f-ac4551d5e42b.png"
+      },
+      "user": {
+        "avatar_url": "https://bgcp.bionluk.com/images/avatar/200x200/006b3dab-e311-4ace-abbb-57d20654effa.png",
+        "username": "orhanguzell",
+        "title": "Full-Stack Next.js + Node.js",
+        "description": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.<br>",
+        "description_m": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.\n",
+        "uuid": "a5629041-73b1-4230-8b81-374a9f461d39",
+        "user_id": 2139134,
+        "sellerRating": {
+          "commentCount": 11,
+          "commentRating": 4.5
+        },
+        "son_teslim_text": "3 gün önce",
+        "recurring_orders": 6,
+        "response_time": 881200,
+        "seller_created_at": "Ağustos 2025"
+      },
+      "rating_user": {
+        "id": null,
+        "uuid": null,
+        "username": null,
+        "avatar_url": null,
+        "title": null,
+        "description_m": null,
+        "son_teslim_text": null,
+        "recurring_orders": null,
+        "response_time": null,
+        "user_created_at": null
+      }
+    },
+    {
+      "category_id": 6,
+      "category_name": "Yazılım & Teknoloji",
+      "category_slug": "yazilim-teknoloji",
+      "category_sub_id": 116,
+      "category_sub_name": "Server & Websitesi Kurulumu",
+      "category_sub_slug": "server-websitesi-kurulumu",
+      "comment_count": 1,
+      "comments": {
+        "messages": [
+          {
+            "id": 98820,
+            "comment": "<br>Orhan ile çalışmak büyük bir keyifti. İşi zamanında ve eksiksiz teslim etti, teknik detaylara hâkimiyeti ve iletişim becerisi gerçekten etkileyiciydi. Taleplerimi sabırla dinledi her aşamasında çözüm odaklı yaklaştı hem profesyonel hemde güvenilir bir fralancertavsiye ediyorum herkese.",
+            "comment_m": "\nOrhan ile çalışmak büyük bir keyifti. İşi zamanında ve eksiksiz teslim etti, teknik detaylara hâkimiyeti ve iletişim becerisi gerçekten etkileyiciydi. Taleplerimi sabırla dinledi her aşamasında çözüm odaklı yaklaştı hem profesyonel hemde güvenilir bir fralancertavsiye ediyorum herkese.",
+            "reply": "",
+            "reply_m": "",
+            "user": {
+              "username": "webmedya42",
+              "avatar_url": "https://bgcp.bionluk.com/images/avatar/200x200/642bf68d-df0f-4b3f-aec0-f2bd95f50779.jpg",
+              "title": "Yazılım Uzmanı",
+              "uuid": "f36de948-8624-45da-b53a-99dac5e2751f"
+            },
+            "created_at": 1758478966000,
+            "commentLikeCount": 0,
+            "commentLikeStatus": false,
+            "rating": "5.0"
+          }
+        ],
+        "seemorediv": false,
+        "startingOffset": 100,
+        "commentCount": 1
+      },
+      "name": "Ubuntu VPS Kurulumu & Canlıya Alma – Web Projesi",
+      "description": "webmedya42 için Ubuntu 22.04 VPS kurup projeyi canlıya aldım: Nginx reverse proxy, Let’s Encrypt SSL, firewall/SSH sertleştirme, PM2/systemd servisleri, domain/DNS yönlendirme. MySQL’den MariaDB’a dönüşüm + veri taşıma ve doğrulama testleri.",
+      "description_textarea": "webmedya42 için Ubuntu 22.04 VPS kurup projeyi canlıya aldım: Nginx reverse proxy, Let’s Encrypt SSL, firewall/SSH sertleştirme, PM2/systemd servisleri, domain/DNS yönlendirme. MySQL’den MariaDB’a dönüşüm + veri taşıma ve doğrulama testleri.",
+      "status": 1,
+      "statusText": "Yayında",
+      "statusTextClass": "green",
+      "statusTextColorCode": "rgb(109, 206, 106)",
+      "uuid": "557d239fc1dc",
+      "disapproval_reasons": [],
+      "fav_count": 0,
+      "likes": [],
+      "likeStatus": {
+        "actionIcon": "icon/tansel_bionluk_like_bos_s.svg",
+        "actionText": "Beğen",
+        "action": 1
+      },
+      "viewCount": 40,
+      "upload_id": 22085310,
+      "cover_id": 22085310,
+      "itemCount": 1,
+      "file_type": "image",
+      "image_url": "https://bgcp.bionluk.com/images/order/1400x788/d5724095-8734-4b5f-9c18-58b7ba8032c6.png",
+      "image_url_original": "https://gcdn.bionluk.com/uploads/order/d5724095-8734-4b5f-9c18-58b7ba8032c6.png",
+      "image_url_small": "https://bgcp.bionluk.com/images/order/526x296/d5724095-8734-4b5f-9c18-58b7ba8032c6.png",
+      "video_url": null,
+      "items": [
+        {
+          "uuid": "a98b3e91-2089-4b3e-9382-e5e3ea702050",
+          "upload_id": 22085310,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/order/d5724095-8734-4b5f-9c18-58b7ba8032c6.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/order/526x296/d5724095-8734-4b5f-9c18-58b7ba8032c6.png",
+          "image_url": "https://bgcp.bionluk.com/images/order/1400x788/d5724095-8734-4b5f-9c18-58b7ba8032c6.png",
+          "video_url": null,
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/order/d5724095-8734-4b5f-9c18-58b7ba8032c6.png",
+          "cover": {
+            "upload_id": 22085310,
+            "image_url": "https://bgcp.bionluk.com/images/order/1400x788/d5724095-8734-4b5f-9c18-58b7ba8032c6.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/order/526x296/d5724095-8734-4b5f-9c18-58b7ba8032c6.png"
+          }
+        }
+      ],
+      "cover": {
+        "uuid": "a98b3e91-2089-4b3e-9382-e5e3ea702050",
+        "upload_id": 22085310,
+        "file_type": "image",
+        "image_url_original": "https://gcdn.bionluk.com/uploads/order/d5724095-8734-4b5f-9c18-58b7ba8032c6.png",
+        "image_url_small": "https://bgcp.bionluk.com/images/order/526x296/d5724095-8734-4b5f-9c18-58b7ba8032c6.png",
+        "image_url": "https://bgcp.bionluk.com/images/order/1400x788/d5724095-8734-4b5f-9c18-58b7ba8032c6.png",
+        "video_url": null,
+        "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+        "url": "https://gcdn.bionluk.com/uploads/order/d5724095-8734-4b5f-9c18-58b7ba8032c6.png"
+      },
+      "user": {
+        "avatar_url": "https://bgcp.bionluk.com/images/avatar/200x200/006b3dab-e311-4ace-abbb-57d20654effa.png",
+        "username": "orhanguzell",
+        "title": "Full-Stack Next.js + Node.js",
+        "description": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.<br>",
+        "description_m": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.\n",
+        "uuid": "a5629041-73b1-4230-8b81-374a9f461d39",
+        "user_id": 2139134,
+        "sellerRating": {
+          "commentCount": 11,
+          "commentRating": 4.5
+        },
+        "son_teslim_text": "3 gün önce",
+        "recurring_orders": 6,
+        "response_time": 881200,
+        "seller_created_at": "Ağustos 2025"
+      },
+      "rating_user": {
+        "id": 1883247,
+        "uuid": "f36de948-8624-45da-b53a-99dac5e2751f",
+        "username": "webmedya42",
+        "avatar_url": "https://bgcp.bionluk.com/images/avatar/200x200/642bf68d-df0f-4b3f-aec0-f2bd95f50779.jpg",
+        "title": "Yazılım Uzmanı",
+        "description_m": "Merhaba! Ben [ismail yıldırır], PHP web sitesi yazılım uzmanıyım. Web dünyasında yıllardır çalışıyorum ve müşterilerime en iyi çözümleri sunmak için elimden gelenin en iyisini yapıyorum. Özelleştirilmiş web tasarımı ve geliştirme E-ticaret çözümleri SEO ve dijital pazarlama Mobil uygulama geliştirme Sizlere Eniyi Hizmeti Vermek için çalışıyorum Dahili Numara: 76886",
+        "son_teslim_text": "-",
+        "recurring_orders": 0,
+        "response_time": 0,
+        "user_created_at": "Temmuz 2024"
+      }
+    },
+    {
+      "category_id": 6,
+      "category_name": "Yazılım & Teknoloji",
+      "category_slug": "yazilim-teknoloji",
+      "category_sub_id": 116,
+      "category_sub_name": "Server & Websitesi Kurulumu",
+      "category_sub_slug": "server-websitesi-kurulumu",
+      "comment_count": 0,
+      "comments": {
+        "messages": [],
+        "seemorediv": false,
+        "startingOffset": 100,
+        "commentCount": 0
+      },
+      "name": "Node.js/Express Backend & MongoDB – Nginx/PM2 Kurulum",
+      "description": "Proje keşfinden canlıya almaya kadar uçtan uca hizmet: Node.js/Express ile temiz REST API, MongoDB (Mongoose) yapısı, JWT güvenliği. Ubuntu üzerinde Nginx reverse proxy, PM2 process, SSL (Let’s Encrypt), DNS kayıtları ve CI/CD ile sorunsuz deploy. (2",
+      "description_textarea": "Proje keşfinden canlıya almaya kadar uçtan uca hizmet: Node.js/Express ile temiz REST API, MongoDB (Mongoose) yapısı, JWT güvenliği. Ubuntu üzerinde Nginx reverse proxy, PM2 process, SSL (Let’s Encrypt), DNS kayıtları ve CI/CD ile sorunsuz deploy. (2",
+      "status": 1,
+      "statusText": "Yayında",
+      "statusTextClass": "green",
+      "statusTextColorCode": "rgb(109, 206, 106)",
+      "uuid": "35c4e1b53bcd",
+      "disapproval_reasons": [],
+      "fav_count": 0,
+      "likes": [],
+      "likeStatus": {
+        "actionIcon": "icon/tansel_bionluk_like_bos_s.svg",
+        "actionText": "Beğen",
+        "action": 1
+      },
+      "viewCount": 21,
+      "upload_id": 22029521,
+      "cover_id": 22029523,
+      "itemCount": 1,
+      "file_type": "image",
+      "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/76b8b2ec-381f-4c0f-959c-d625f0d4c4ba.png",
+      "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/76b8b2ec-381f-4c0f-959c-d625f0d4c4ba.png",
+      "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/76b8b2ec-381f-4c0f-959c-d625f0d4c4ba.png",
+      "video_url": null,
+      "items": [
+        {
+          "uuid": "09f9b53f-9989-49d3-b0f9-943062ae2ea9",
+          "upload_id": 22029521,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/b0e0d5b9-5ad4-466a-aee2-2d5b97b8a9d1.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/b0e0d5b9-5ad4-466a-aee2-2d5b97b8a9d1.png",
+          "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/b0e0d5b9-5ad4-466a-aee2-2d5b97b8a9d1.png",
+          "video_url": null,
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/portfolio/b0e0d5b9-5ad4-466a-aee2-2d5b97b8a9d1.png",
+          "cover": {
+            "upload_id": 22029523,
+            "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/76b8b2ec-381f-4c0f-959c-d625f0d4c4ba.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/76b8b2ec-381f-4c0f-959c-d625f0d4c4ba.png"
+          }
+        }
+      ],
+      "cover": {
+        "uuid": "08a44fad-3b87-4bd4-8791-cad0b844ee28",
+        "upload_id": 22029523,
+        "file_type": "image",
+        "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/76b8b2ec-381f-4c0f-959c-d625f0d4c4ba.png",
+        "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/76b8b2ec-381f-4c0f-959c-d625f0d4c4ba.png",
+        "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/76b8b2ec-381f-4c0f-959c-d625f0d4c4ba.png",
+        "video_url": null,
+        "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+        "url": "https://gcdn.bionluk.com/uploads/portfolio/76b8b2ec-381f-4c0f-959c-d625f0d4c4ba.png"
+      },
+      "user": {
+        "avatar_url": "https://bgcp.bionluk.com/images/avatar/200x200/006b3dab-e311-4ace-abbb-57d20654effa.png",
+        "username": "orhanguzell",
+        "title": "Full-Stack Next.js + Node.js",
+        "description": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.<br>",
+        "description_m": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.\n",
+        "uuid": "a5629041-73b1-4230-8b81-374a9f461d39",
+        "user_id": 2139134,
+        "sellerRating": {
+          "commentCount": 11,
+          "commentRating": 4.5
+        },
+        "son_teslim_text": "3 gün önce",
+        "recurring_orders": 6,
+        "response_time": 881200,
+        "seller_created_at": "Ağustos 2025"
+      },
+      "rating_user": {
+        "id": null,
+        "uuid": null,
+        "username": null,
+        "avatar_url": null,
+        "title": null,
+        "description_m": null,
+        "son_teslim_text": null,
+        "recurring_orders": null,
+        "response_time": null,
+        "user_created_at": null
+      }
+    },
+    {
+      "category_id": 6,
+      "category_name": "Yazılım & Teknoloji",
+      "category_slug": "yazilim-teknoloji",
+      "category_sub_id": 125,
+      "category_sub_name": "Web Yazılım",
+      "category_sub_slug": "web-yazilim",
+      "comment_count": 0,
+      "comments": {
+        "messages": [],
+        "seemorediv": false,
+        "startingOffset": 100,
+        "commentCount": 0
+      },
+      "name": "Königs Massage — Multi-Tenant Randevu Platformu (Metahub)",
+      "description": "Metahub altyapısıyla güvenli, çok dilli ve ölçeklenebilir online randevu platformu geliştirdim. Hizmet/personel & takvim yönetimi, SMS/E-posta hatırlatmaları, mobil/SEO uyumlu arayüz. Stack: Next.js + TypeScript + Express MongoDB. koenigsmassage.com",
+      "description_textarea": "Metahub altyapısıyla güvenli, çok dilli ve ölçeklenebilir online randevu platformu geliştirdim. Hizmet/personel & takvim yönetimi, SMS/E-posta hatırlatmaları, mobil/SEO uyumlu arayüz. Stack: Next.js + TypeScript + Express MongoDB. koenigsmassage.com",
+      "status": 1,
+      "statusText": "Yayında",
+      "statusTextClass": "green",
+      "statusTextColorCode": "rgb(109, 206, 106)",
+      "uuid": "f837d9669f45",
+      "disapproval_reasons": [],
+      "fav_count": 0,
+      "likes": [],
+      "likeStatus": {
+        "actionIcon": "icon/tansel_bionluk_like_bos_s.svg",
+        "actionText": "Beğen",
+        "action": 1
+      },
+      "viewCount": 23,
+      "upload_id": 21950162,
+      "cover_id": 21950163,
+      "itemCount": 1,
+      "file_type": "image",
+      "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/db555900-13f2-404f-853b-558c58f148f6.png",
+      "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/db555900-13f2-404f-853b-558c58f148f6.png",
+      "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/db555900-13f2-404f-853b-558c58f148f6.png",
+      "video_url": null,
+      "items": [
+        {
+          "uuid": "15b65a13-0cce-47a8-ad7f-25ccca4f44ea",
+          "upload_id": 21950162,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/a553a26c-c1cc-4c60-8374-ca57b46f72e4.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/a553a26c-c1cc-4c60-8374-ca57b46f72e4.png",
+          "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/a553a26c-c1cc-4c60-8374-ca57b46f72e4.png",
+          "video_url": null,
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/portfolio/a553a26c-c1cc-4c60-8374-ca57b46f72e4.png",
+          "cover": {
+            "upload_id": 21950163,
+            "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/db555900-13f2-404f-853b-558c58f148f6.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/db555900-13f2-404f-853b-558c58f148f6.png"
+          }
+        }
+      ],
+      "cover": {
+        "uuid": "2cf526fd-ef2d-4082-b719-a6aa7dea5a6f",
+        "upload_id": 21950163,
+        "file_type": "image",
+        "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/db555900-13f2-404f-853b-558c58f148f6.png",
+        "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/db555900-13f2-404f-853b-558c58f148f6.png",
+        "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/db555900-13f2-404f-853b-558c58f148f6.png",
+        "video_url": null,
+        "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+        "url": "https://gcdn.bionluk.com/uploads/portfolio/db555900-13f2-404f-853b-558c58f148f6.png"
+      },
+      "user": {
+        "avatar_url": "https://bgcp.bionluk.com/images/avatar/200x200/006b3dab-e311-4ace-abbb-57d20654effa.png",
+        "username": "orhanguzell",
+        "title": "Full-Stack Next.js + Node.js",
+        "description": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.<br>",
+        "description_m": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.\n",
+        "uuid": "a5629041-73b1-4230-8b81-374a9f461d39",
+        "user_id": 2139134,
+        "sellerRating": {
+          "commentCount": 11,
+          "commentRating": 4.5
+        },
+        "son_teslim_text": "3 gün önce",
+        "recurring_orders": 6,
+        "response_time": 881200,
+        "seller_created_at": "Ağustos 2025"
+      },
+      "rating_user": {
+        "id": null,
+        "uuid": null,
+        "username": null,
+        "avatar_url": null,
+        "title": null,
+        "description_m": null,
+        "son_teslim_text": null,
+        "recurring_orders": null,
+        "response_time": null,
+        "user_created_at": null
+      }
+    },
+    {
+      "category_id": 6,
+      "category_name": "Yazılım & Teknoloji",
+      "category_slug": "yazilim-teknoloji",
+      "category_sub_id": 125,
+      "category_sub_name": "Web Yazılım",
+      "category_sub_slug": "web-yazilim",
+      "comment_count": 0,
+      "comments": {
+        "messages": [],
+        "seemorediv": false,
+        "startingOffset": 100,
+        "commentCount": 0
+      },
+      "name": "Ensotek — Multi-Tenant B2B SaaS (Metahub)",
+      "description": "Ensotek için Metahub altyapısıyla multi-tenant, çok dilli ve güvenli B2B platform geliştirdim. Modüller: katalog/teklif/sipariş, dokümantasyon, rol-tabanlı admin, raporlama. Next.js + TypeScript + Express + MongoDB. Performans/SEO ensotek.de",
+      "description_textarea": "Ensotek için Metahub altyapısıyla multi-tenant, çok dilli ve güvenli B2B platform geliştirdim. Modüller: katalog/teklif/sipariş, dokümantasyon, rol-tabanlı admin, raporlama. Next.js + TypeScript + Express + MongoDB. Performans/SEO ensotek.de",
+      "status": 1,
+      "statusText": "Yayında",
+      "statusTextClass": "green",
+      "statusTextColorCode": "rgb(109, 206, 106)",
+      "uuid": "ac8ef9ab619a",
+      "disapproval_reasons": [],
+      "fav_count": 0,
+      "likes": [],
+      "likeStatus": {
+        "actionIcon": "icon/tansel_bionluk_like_bos_s.svg",
+        "actionText": "Beğen",
+        "action": 1
+      },
+      "viewCount": 28,
+      "upload_id": 21950157,
+      "cover_id": 21950158,
+      "itemCount": 1,
+      "file_type": "image",
+      "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/052713a8-1fcc-44ca-997c-d88961c8d59f.png",
+      "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/052713a8-1fcc-44ca-997c-d88961c8d59f.png",
+      "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/052713a8-1fcc-44ca-997c-d88961c8d59f.png",
+      "video_url": null,
+      "items": [
+        {
+          "uuid": "936b87ed-e2f1-4ef9-9b5a-9f9782ee317b",
+          "upload_id": 21950157,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/2d9ff1d3-75f0-4d20-8b73-5e083cdc93db.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/2d9ff1d3-75f0-4d20-8b73-5e083cdc93db.png",
+          "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/2d9ff1d3-75f0-4d20-8b73-5e083cdc93db.png",
+          "video_url": null,
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/portfolio/2d9ff1d3-75f0-4d20-8b73-5e083cdc93db.png",
+          "cover": {
+            "upload_id": 21950158,
+            "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/052713a8-1fcc-44ca-997c-d88961c8d59f.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/052713a8-1fcc-44ca-997c-d88961c8d59f.png"
+          }
+        }
+      ],
+      "cover": {
+        "uuid": "3358915e-be4b-46fa-ae3e-30a7c0fca79d",
+        "upload_id": 21950158,
+        "file_type": "image",
+        "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/052713a8-1fcc-44ca-997c-d88961c8d59f.png",
+        "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/052713a8-1fcc-44ca-997c-d88961c8d59f.png",
+        "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/052713a8-1fcc-44ca-997c-d88961c8d59f.png",
+        "video_url": null,
+        "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+        "url": "https://gcdn.bionluk.com/uploads/portfolio/052713a8-1fcc-44ca-997c-d88961c8d59f.png"
+      },
+      "user": {
+        "avatar_url": "https://bgcp.bionluk.com/images/avatar/200x200/006b3dab-e311-4ace-abbb-57d20654effa.png",
+        "username": "orhanguzell",
+        "title": "Full-Stack Next.js + Node.js",
+        "description": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.<br>",
+        "description_m": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.\n",
+        "uuid": "a5629041-73b1-4230-8b81-374a9f461d39",
+        "user_id": 2139134,
+        "sellerRating": {
+          "commentCount": 11,
+          "commentRating": 4.5
+        },
+        "son_teslim_text": "3 gün önce",
+        "recurring_orders": 6,
+        "response_time": 881200,
+        "seller_created_at": "Ağustos 2025"
+      },
+      "rating_user": {
+        "id": null,
+        "uuid": null,
+        "username": null,
+        "avatar_url": null,
+        "title": null,
+        "description_m": null,
+        "son_teslim_text": null,
+        "recurring_orders": null,
+        "response_time": null,
+        "user_created_at": null
+      }
+    },
+    {
+      "category_id": 6,
+      "category_name": "Yazılım & Teknoloji",
+      "category_slug": "yazilim-teknoloji",
+      "category_sub_id": 125,
+      "category_sub_name": "Web Yazılım",
+      "category_sub_slug": "web-yazilim",
+      "comment_count": 0,
+      "comments": {
+        "messages": [],
+        "seemorediv": false,
+        "startingOffset": 100,
+        "commentCount": 0
+      },
+      "name": "Antalya Döner — QR Menü & Online Sipariş (Next.js)",
+      "description": "Next.js + TypeScript ile çok dilli QR menü ve online sipariş akışı kurdum. Ürün/variant/ekstra, sepet/kupon, teslimat–paket servis, admin panel ve raporlar. MongoDB + Express API, performans/SEO optimizasyonu, staging→prod; menu.guezelwebdesign.com",
+      "description_textarea": "Next.js + TypeScript ile çok dilli QR menü ve online sipariş akışı kurdum. Ürün/variant/ekstra, sepet/kupon, teslimat–paket servis, admin panel ve raporlar. MongoDB + Express API, performans/SEO optimizasyonu, staging→prod; menu.guezelwebdesign.com",
+      "status": 1,
+      "statusText": "Yayında",
+      "statusTextClass": "green",
+      "statusTextColorCode": "rgb(109, 206, 106)",
+      "uuid": "e69fa618e525",
+      "disapproval_reasons": [],
+      "fav_count": 0,
+      "likes": [],
+      "likeStatus": {
+        "actionIcon": "icon/tansel_bionluk_like_bos_s.svg",
+        "actionText": "Beğen",
+        "action": 1
+      },
+      "viewCount": 21,
+      "upload_id": 22029314,
+      "cover_id": 22029318,
+      "itemCount": 1,
+      "file_type": "image",
+      "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/36ce7fbb-3fc9-4b6a-9327-4a1274c0451a.jpeg",
+      "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/36ce7fbb-3fc9-4b6a-9327-4a1274c0451a.jpeg",
+      "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/36ce7fbb-3fc9-4b6a-9327-4a1274c0451a.jpeg",
+      "video_url": null,
+      "items": [
+        {
+          "uuid": "d6f3eeab-0bf7-4eb0-8aca-80f2a2f439b2",
+          "upload_id": 22029314,
+          "file_type": "image",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/02f42989-2ace-4f57-810e-52aca5563c32.jpeg",
+          "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/02f42989-2ace-4f57-810e-52aca5563c32.jpeg",
+          "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/02f42989-2ace-4f57-810e-52aca5563c32.jpeg",
+          "video_url": null,
+          "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-jpg@2x.png",
+          "url": "https://gcdn.bionluk.com/uploads/portfolio/02f42989-2ace-4f57-810e-52aca5563c32.jpeg",
+          "cover": {
+            "upload_id": 22029318,
+            "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/36ce7fbb-3fc9-4b6a-9327-4a1274c0451a.jpeg",
+            "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/36ce7fbb-3fc9-4b6a-9327-4a1274c0451a.jpeg"
+          }
+        }
+      ],
+      "cover": {
+        "uuid": "33417d59-5d98-4107-9c74-2222bae7253b",
+        "upload_id": 22029318,
+        "file_type": "image",
+        "image_url_original": "https://gcdn.bionluk.com/uploads/portfolio/36ce7fbb-3fc9-4b6a-9327-4a1274c0451a.jpeg",
+        "image_url_small": "https://bgcp.bionluk.com/images/portfolio/526x296/36ce7fbb-3fc9-4b6a-9327-4a1274c0451a.jpeg",
+        "image_url": "https://bgcp.bionluk.com/images/portfolio/1400x788/36ce7fbb-3fc9-4b6a-9327-4a1274c0451a.jpeg",
+        "video_url": null,
+        "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-jpg@2x.png",
+        "url": "https://gcdn.bionluk.com/uploads/portfolio/36ce7fbb-3fc9-4b6a-9327-4a1274c0451a.jpeg"
+      },
+      "user": {
+        "avatar_url": "https://bgcp.bionluk.com/images/avatar/200x200/006b3dab-e311-4ace-abbb-57d20654effa.png",
+        "username": "orhanguzell",
+        "title": "Full-Stack Next.js + Node.js",
+        "description": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.<br>",
+        "description_m": "Next.js (App Router) + TypeScript + Node/Express + MongoDB ile SaaS ve modüler web projeleri geliştiriyorum. Restoran (QR menü, online sipariş), e-ticaret MVP, apartman/site yönetimi ve randevu sistemleri ana odaklarım. Çok dilli (TR/EN/DE/FR/ES/PL), Redux Toolkit ve styled-components standart. Performans, SEO ve güvenlik (HTTP-only cookie) önceliğim. Teslimde canlı demo, kısa dokümantasyon ve kurulum desteği veririm. İsteğe bağlı aylık bakım ve yeni özellik paketleri sunarım.\n",
+        "uuid": "a5629041-73b1-4230-8b81-374a9f461d39",
+        "user_id": 2139134,
+        "sellerRating": {
+          "commentCount": 11,
+          "commentRating": 4.5
+        },
+        "son_teslim_text": "3 gün önce",
+        "recurring_orders": 6,
+        "response_time": 881200,
+        "seller_created_at": "Ağustos 2025"
+      },
+      "rating_user": {
+        "id": null,
+        "uuid": null,
+        "username": null,
+        "avatar_url": null,
+        "title": null,
+        "description_m": null,
+        "son_teslim_text": null,
+        "recurring_orders": null,
+        "response_time": null,
+        "user_created_at": null
+      }
+    }
+  ],
+  "comments": {
+    "seemorediv": false,
+    "commentCount": 11,
+    "commentRating": 4.5,
+    "commentGrades": [
+      {
+        "gradeType": 4,
+        "name": "Hizmet Kalitesi",
+        "grade": 4.5,
+        "gradeCount": 11,
+        "icon": "https://gcdn.bionluk.com/site/icon/design-16-px-copy.svg",
+        "iconSVG": "https://gcdn.bionluk.com/site/cicons/ic-package.svg"
+      },
+      {
+        "gradeType": 7,
+        "name": "Zamanlama",
+        "grade": 4.5,
+        "gradeCount": 11,
+        "icon": "https://gcdn.bionluk.com/site/icon/ui-16-px-2-time.svg",
+        "iconSVG": "https://gcdn.bionluk.com/site/cicons/ic-timer.svg"
+      },
+      {
+        "gradeType": 16,
+        "name": "İletişim Becerisi",
+        "grade": 4.5,
+        "gradeCount": 11,
+        "icon": "https://gcdn.bionluk.com/site/icon/ui-16-px-3-chat-33.svg",
+        "iconSVG": "https://gcdn.bionluk.com/site/cicons/ic-messages.svg"
+      }
+    ],
+    "commentGradesTemplate": [
+      {
+        "gradeType": 4,
+        "name": "Hizmet Kalitesi",
+        "grade": 0,
+        "gradeCount": 0,
+        "icon": "https://gcdn.bionluk.com/site/icon/design-16-px-copy.svg",
+        "iconSVG": "https://gcdn.bionluk.com/site/cicons/ic-package.svg"
+      },
+      {
+        "gradeType": 7,
+        "name": "Zamanlama",
+        "grade": 0,
+        "gradeCount": 0,
+        "icon": "https://gcdn.bionluk.com/site/icon/ui-16-px-2-time.svg",
+        "iconSVG": "https://gcdn.bionluk.com/site/cicons/ic-timer.svg"
+      },
+      {
+        "gradeType": 16,
+        "name": "İletişim Becerisi",
+        "grade": 0,
+        "gradeCount": 0,
+        "icon": "https://gcdn.bionluk.com/site/icon/ui-16-px-3-chat-33.svg",
+        "iconSVG": "https://gcdn.bionluk.com/site/cicons/ic-messages.svg"
+      }
+    ],
+    "comments": [
+      {
+        "avatar_url": "https://bgcp.bionluk.com/images/avatar/200x200/741a48bf-d216-4afd-9658-69e185313ca8.png",
+        "username": "fatihsultaner",
+        "usertitle": "Yazılım ve İhracat",
+        "comment": "Orhan hocam ile yeni nesil yani Google' un seveceği, yukarılarda göstereceği hızlı açılan website konusunda çalışma yaptık. Bu çalışmayı claudeflare domain adı, Next.js yazılım dili ve Hostinger VPS sağlayıcı kullanarak sağladık. Kendisi bu kavramlara uzak değildi süreci güzel yönetti. Teşekkürler.",
+        "comment_m": "Orhan hocam ile yeni nesil yani Google' un seveceği, yukarılarda göstereceği hızlı açılan website konusunda çalışma yaptık. Bu çalışmayı claudeflare domain adı, Next.js yazılım dili ve Hostinger VPS sağlayıcı kullanarak sağladık. Kendisi bu kavramlara uzak değildi süreci güzel yönetti. Teşekkürler.",
+        "comment_reply": "",
+        "comment_reply_m": "",
+        "created_at": 1781109085000,
+        "createdDay": "10 Haziran 2026",
+        "uuid": "d25f8cbc-7fb5-4c2e-b8b2-001aa8a60333",
+        "user_id": "880826",
+        "comment_id": 1331819,
+        "comment_detail": [
+          {
+            "title": "İletişim Becerisi",
+            "grade": 5
+          },
+          {
+            "title": "Hizmet Kalitesi",
+            "grade": 5
+          },
+          {
+            "title": "Zamanlama",
+            "grade": 5
+          }
+        ],
+        "grade": 5,
+        "sellerRating": {
+          "commentCount": 11,
+          "commentRating": 4.5
+        },
+        "description": "Merhaba CRM yazılımı, harita yazılımı, whatsapp yazılımı, şirket isminden web site bulucu, web sitelerden scraping, telefon numarası ve mail adresi bulucu gibi yazılımlar konusunda yardımcı olmak isterim.\nTeşekkürler",
+        "portfolio": {
+          "category_id": 6,
+          "category_name": "Yazılım & Teknoloji",
+          "category_slug": "yazilim-teknoloji",
+          "category_sub_id": 80,
+          "category_sub_name": "Diğer Yazılım Teknoloji",
+          "category_sub_slug": "diger-yazilim-teknoloji",
+          "comment_count": 0,
+          "comments": [],
+          "name": "Çok Dilli B2B Sitesi — GEO + SEO + Lighthouse Analizi",
+          "description": "Çok dilli B2B ihracat sitesi olusturuldu. GEO + SEO + Lighthouse analizi: AI arama motorlarına (ChatGPT, Perplexity, Gemini) yönelik GEO, teknik SEO (hreflang, sitemap, schema) ve Core Web Vitals performans raporu. Aksiyon planıyla teslim edildi.<br/>",
+          "description_textarea": "Çok dilli B2B ihracat sitesi olusturuldu. GEO + SEO + Lighthouse analizi: AI arama motorlarına (ChatGPT, Perplexity, Gemini) yönelik GEO, teknik SEO (hreflang, sitemap, schema) ve Core Web Vitals performans raporu. Aksiyon planıyla teslim edildi.\r\n",
+          "status": 1,
+          "uuid": "401dfdf2930d",
+          "disapproval_reasons": [],
+          "fav_count": 0,
+          "likes": [],
+          "likeStatus": [],
+          "viewCount": 0,
+          "upload_id": 23551269,
+          "cover_id": 23551269,
+          "itemCount": 1,
+          "file_type": "image",
+          "image_url": "https://bgcp.bionluk.com/images/order/1400x788/d128a2ec-0660-4ebf-b511-298277d358d0.png",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/order/d128a2ec-0660-4ebf-b511-298277d358d0.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/order/526x296/d128a2ec-0660-4ebf-b511-298277d358d0.png",
+          "video_url": null,
+          "items": [
+            {
+              "uuid": "2bdb3558-e627-41c2-9bd1-3845fa490dcc",
+              "upload_id": 23551269,
+              "file_type": "image",
+              "image_url_original": "https://gcdn.bionluk.com/uploads/order/d128a2ec-0660-4ebf-b511-298277d358d0.png",
+              "image_url_small": "https://bgcp.bionluk.com/images/order/526x296/d128a2ec-0660-4ebf-b511-298277d358d0.png",
+              "image_url": "https://bgcp.bionluk.com/images/order/1400x788/d128a2ec-0660-4ebf-b511-298277d358d0.png",
+              "video_url": null,
+              "uploadname": "d128a2ec-0660-4ebf-b511-298277d358d0.png",
+              "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+              "url": "https://gcdn.bionluk.com/uploads/order/d128a2ec-0660-4ebf-b511-298277d358d0.png"
+            }
+          ],
+          "cover": {
+            "uuid": "2bdb3558-e627-41c2-9bd1-3845fa490dcc",
+            "upload_id": 23551269,
+            "file_type": "image",
+            "image_url_original": "https://gcdn.bionluk.com/uploads/order/d128a2ec-0660-4ebf-b511-298277d358d0.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/order/526x296/d128a2ec-0660-4ebf-b511-298277d358d0.png",
+            "image_url": "https://bgcp.bionluk.com/images/order/1400x788/d128a2ec-0660-4ebf-b511-298277d358d0.png",
+            "video_url": null,
+            "uploadname": "d128a2ec-0660-4ebf-b511-298277d358d0.png",
+            "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+            "url": "https://gcdn.bionluk.com/uploads/order/d128a2ec-0660-4ebf-b511-298277d358d0.png"
+          },
+          "user": []
+        }
+      },
+      {
+        "avatar_url": "https://bgcp.bionluk.com/images/avatar/200x200/14365da8-9558-46e4-9558-bc357f502ab0.jpg",
+        "username": "fbabrand",
+        "usertitle": "Amazon FBA Operasyon & Karar Sistemleri Geliştiriyorum",
+        "comment": "İletişim ve teknik geri dönüş tarafı oldukça iyiydi. Canlı testlerde çıkan sorunlara hızlı dönüş sağlayıp gerekli düzeltmeleri yaptı. Çalışan ve operasyonel olarak kullanılabilir bir V1 sistem teslim edildi. Süreç boyunca çözüm odaklı ve iteratif ilerledi. Teşekkür ederim.<br>",
+        "comment_m": "İletişim ve teknik geri dönüş tarafı oldukça iyiydi. Canlı testlerde çıkan sorunlara hızlı dönüş sağlayıp gerekli düzeltmeleri yaptı. Çalışan ve operasyonel olarak kullanılabilir bir V1 sistem teslim edildi. Süreç boyunca çözüm odaklı ve iteratif ilerledi. Teşekkür ederim.\n",
+        "comment_reply": "",
+        "comment_reply_m": "",
+        "created_at": 1779497615000,
+        "createdDay": "23 Mayıs 2026",
+        "uuid": "0ad38af4-d0a3-4e28-bad8-846a6e90f9d8",
+        "user_id": "1840627",
+        "comment_id": 1329351,
+        "comment_detail": [
+          {
+            "title": "İletişim Becerisi",
+            "grade": 5
+          },
+          {
+            "title": "Hizmet Kalitesi",
+            "grade": 5
+          },
+          {
+            "title": "Zamanlama",
+            "grade": 4
+          }
+        ],
+        "grade": 4.7,
+        "sellerRating": {
+          "commentCount": 11,
+          "commentRating": 4.5
+        },
+        "description": "Amazon FBA ve veri temelli operasyonel karar sistemleri üzerine çalışıyorum. Özellikle ürün seçimi, risk yönetimi, explainable scoring, automation, veri pipeline ve operatör workflow alanlarında sistemler geliştiriyorum. Önceliğim gösterişli dashboard’lar değil; stabil çalışan, karar kalitesini artıran ve operasyonel stresi azaltan yapılar kurmak. Çalıştığım kişilerde teknik derinlik, problem çözme yaklaşımı ve sistem düşüncesi önceliklidir.",
+        "portfolio": {
+          "id": null,
+          "uuid": null
+        }
+      },
+      {
+        "avatar_url": "https://bgcp.bionluk.com/images/avatar/200x200/52f0aa18-e12c-4f58-8022-74af93937ab9.jpeg",
+        "username": "batuhanberkant",
+        "usertitle": "Sosyal Medya Danışmanı",
+        "comment": "Gerçekten son zamanlarda çalıştığım en iyi Freelancer seo ve kodlama konusunda kendini aşmış biri , seo optimizasyonu tamamlandı şimdi geriye kalan işlemleri teslim etmek için çalışmaya devam ediyor 🙏",
+        "comment_m": "Gerçekten son zamanlarda çalıştığım en iyi Freelancer seo ve kodlama konusunda kendini aşmış biri , seo optimizasyonu tamamlandı şimdi geriye kalan işlemleri teslim etmek için çalışmaya devam ediyor 🙏",
+        "comment_reply": "",
+        "comment_reply_m": "",
+        "created_at": 1775996662000,
+        "createdDay": "12 Nisan 2026",
+        "uuid": "07199012-e014-4bf6-897d-ed8607ea9b99",
+        "user_id": "783682",
+        "comment_id": 1322757,
+        "comment_detail": [
+          {
+            "title": "İletişim Becerisi",
+            "grade": 5
+          },
+          {
+            "title": "Hizmet Kalitesi",
+            "grade": 5
+          },
+          {
+            "title": "Zamanlama",
+            "grade": 5
+          }
+        ],
+        "grade": 5,
+        "sellerRating": {
+          "commentCount": 11,
+          "commentRating": 4.5
+        },
+        "description": "5 Yıllık Etkin Sosyal Medya Tecrübesi olan Aynı Zamanda Youtube Üzerinde Aktif 350 Bin Abonesi Olan Bir Influencer'ım . Yıllardır Edindiğim ve Belirlediğim Stratejilerimi Sizlere Danışmanlık Hizmeti Olarak Vermeye Karar Verdim. Aklınıza Gelebilecek Bütün Sorunlarla Karşılaşmış ve Bunları Atlatmış Bir Influencer Olarak Artık Sosyal Medya Danışmanlık Hizmeti Vermeye Karar Verdim.nnEğitimini Aldığım Bazı Alanlar :nGrafik Animasyon & PhotoshopnWeb Tasarımı &nSosyal Medya Yöneticiliği &nVeri Tabanı Programcılığı &",
+        "portfolio": {
+          "category_id": 6,
+          "category_name": "Yazılım & Teknoloji",
+          "category_slug": "yazilim-teknoloji",
+          "category_sub_id": 125,
+          "category_sub_name": "Web Yazılım",
+          "category_sub_slug": "web-yazilim",
+          "comment_count": 0,
+          "comments": [],
+          "name": "Wiribu.de – Lighthouse 100/100 & GEO/SEO Optimizasyonu",
+          "description": "Almanya pazarına yönelik PHP haber portalında teknik SEO ve GEO optimizasyonu. Lighthouse 4 kategoride 100/100 skoruna ulaşıldı. JSON-LD şema, llms.txt, IndexNow, AI tarayıcı erişimi ve structured data iyileştirmeleri yapıldı. GEO skoru 35\\'ten 74\\'e y",
+          "description_textarea": "Almanya pazarına yönelik PHP haber portalında teknik SEO ve GEO optimizasyonu. Lighthouse 4 kategoride 100/100 skoruna ulaşıldı. JSON-LD şema, llms.txt, IndexNow, AI tarayıcı erişimi ve structured data iyileştirmeleri yapıldı. GEO skoru 35\\'ten 74\\'e y",
+          "status": 1,
+          "uuid": "cd12e02aa1ed",
+          "disapproval_reasons": [],
+          "fav_count": 0,
+          "likes": [],
+          "likeStatus": [],
+          "viewCount": 0,
+          "upload_id": 23286740,
+          "cover_id": 23286740,
+          "itemCount": 1,
+          "file_type": "image",
+          "image_url": "https://bgcp.bionluk.com/images/order/1400x788/edea2472-7ed0-4a94-bb13-857c7dd5c15c.png",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/order/edea2472-7ed0-4a94-bb13-857c7dd5c15c.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/order/526x296/edea2472-7ed0-4a94-bb13-857c7dd5c15c.png",
+          "video_url": null,
+          "items": [
+            {
+              "uuid": "b7b98043-dec2-4467-a247-74cc53c8d204",
+              "upload_id": 23286740,
+              "file_type": "image",
+              "image_url_original": "https://gcdn.bionluk.com/uploads/order/edea2472-7ed0-4a94-bb13-857c7dd5c15c.png",
+              "image_url_small": "https://bgcp.bionluk.com/images/order/526x296/edea2472-7ed0-4a94-bb13-857c7dd5c15c.png",
+              "image_url": "https://bgcp.bionluk.com/images/order/1400x788/edea2472-7ed0-4a94-bb13-857c7dd5c15c.png",
+              "video_url": null,
+              "uploadname": "edea2472-7ed0-4a94-bb13-857c7dd5c15c.png",
+              "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+              "url": "https://gcdn.bionluk.com/uploads/order/edea2472-7ed0-4a94-bb13-857c7dd5c15c.png"
+            }
+          ],
+          "cover": {
+            "uuid": "b7b98043-dec2-4467-a247-74cc53c8d204",
+            "upload_id": 23286740,
+            "file_type": "image",
+            "image_url_original": "https://gcdn.bionluk.com/uploads/order/edea2472-7ed0-4a94-bb13-857c7dd5c15c.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/order/526x296/edea2472-7ed0-4a94-bb13-857c7dd5c15c.png",
+            "image_url": "https://bgcp.bionluk.com/images/order/1400x788/edea2472-7ed0-4a94-bb13-857c7dd5c15c.png",
+            "video_url": null,
+            "uploadname": "edea2472-7ed0-4a94-bb13-857c7dd5c15c.png",
+            "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+            "url": "https://gcdn.bionluk.com/uploads/order/edea2472-7ed0-4a94-bb13-857c7dd5c15c.png"
+          },
+          "user": []
+        }
+      },
+      {
+        "avatar_url": "https://gcdn.bionluk.com/uploads/general/No_Avatar.png",
+        "username": "atasah",
+        "usertitle": "",
+        "comment": "Gerçekten işinin ehli.Her probleme hızlıca çözüm üretebiliyor.Desteğini esirgemiyor.Bundan sonra sürekli olarak çalışacağız.<br>",
+        "comment_m": "Gerçekten işinin ehli.Her probleme hızlıca çözüm üretebiliyor.Desteğini esirgemiyor.Bundan sonra sürekli olarak çalışacağız.\n",
+        "comment_reply": "",
+        "comment_reply_m": "",
+        "created_at": 1774075095000,
+        "createdDay": "21 Mart 2026",
+        "uuid": "8f8421d8-fdf0-450b-8508-fb5409db4003",
+        "user_id": "2255738",
+        "comment_id": 1319060,
+        "comment_detail": [
+          {
+            "title": "İletişim Becerisi",
+            "grade": 5
+          },
+          {
+            "title": "Hizmet Kalitesi",
+            "grade": 5
+          },
+          {
+            "title": "Zamanlama",
+            "grade": 5
+          }
+        ],
+        "grade": 5,
+        "sellerRating": {
+          "commentCount": 11,
+          "commentRating": 4.5
+        },
+        "description": "",
+        "portfolio": {
+          "category_id": 6,
+          "category_name": "Yazılım & Teknoloji",
+          "category_slug": "yazilim-teknoloji",
+          "category_sub_id": 125,
+          "category_sub_name": "Web Yazılım",
+          "category_sub_slug": "web-yazilim",
+          "comment_count": 0,
+          "comments": [],
+          "name": "Bereket Fide — Kurumsal Web Sitesi & Ürün Kataloğu",
+          "description": "Fide üretim firması için Next.js 16, Fastify ve MySQL ile full-stack kurumsal site geliştirdim. Ürün kataloğu, admin paneli, SEO uyumlu dinamik sayfalar, iletişim formu ve responsive tasarım içerir. Tailwind CSS v4 ile modern, doğal tonlarda UI.",
+          "description_textarea": "Fide üretim firması için Next.js 16, Fastify ve MySQL ile full-stack kurumsal site geliştirdim. Ürün kataloğu, admin paneli, SEO uyumlu dinamik sayfalar, iletişim formu ve responsive tasarım içerir. Tailwind CSS v4 ile modern, doğal tonlarda UI.",
+          "status": 1,
+          "uuid": "aa09cc346417",
+          "disapproval_reasons": [],
+          "fav_count": 0,
+          "likes": [],
+          "likeStatus": [],
+          "viewCount": 0,
+          "upload_id": 23141685,
+          "cover_id": 23141685,
+          "itemCount": 1,
+          "file_type": "image",
+          "image_url": "https://bgcp.bionluk.com/images/order/1400x788/3ea6956d-732e-4069-b24b-ec9d393c066d.png",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/order/3ea6956d-732e-4069-b24b-ec9d393c066d.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/order/526x296/3ea6956d-732e-4069-b24b-ec9d393c066d.png",
+          "video_url": null,
+          "items": [
+            {
+              "uuid": "24812a72-37f6-497b-9958-a9a94d51191d",
+              "upload_id": 23141685,
+              "file_type": "image",
+              "image_url_original": "https://gcdn.bionluk.com/uploads/order/3ea6956d-732e-4069-b24b-ec9d393c066d.png",
+              "image_url_small": "https://bgcp.bionluk.com/images/order/526x296/3ea6956d-732e-4069-b24b-ec9d393c066d.png",
+              "image_url": "https://bgcp.bionluk.com/images/order/1400x788/3ea6956d-732e-4069-b24b-ec9d393c066d.png",
+              "video_url": null,
+              "uploadname": "3ea6956d-732e-4069-b24b-ec9d393c066d.png",
+              "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+              "url": "https://gcdn.bionluk.com/uploads/order/3ea6956d-732e-4069-b24b-ec9d393c066d.png"
+            }
+          ],
+          "cover": {
+            "uuid": "24812a72-37f6-497b-9958-a9a94d51191d",
+            "upload_id": 23141685,
+            "file_type": "image",
+            "image_url_original": "https://gcdn.bionluk.com/uploads/order/3ea6956d-732e-4069-b24b-ec9d393c066d.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/order/526x296/3ea6956d-732e-4069-b24b-ec9d393c066d.png",
+            "image_url": "https://bgcp.bionluk.com/images/order/1400x788/3ea6956d-732e-4069-b24b-ec9d393c066d.png",
+            "video_url": null,
+            "uploadname": "3ea6956d-732e-4069-b24b-ec9d393c066d.png",
+            "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+            "url": "https://gcdn.bionluk.com/uploads/order/3ea6956d-732e-4069-b24b-ec9d393c066d.png"
+          },
+          "user": []
+        }
+      },
+      {
+        "avatar_url": "https://gcdn.bionluk.com/uploads/general/No_Avatar.png",
+        "username": "atasah",
+        "usertitle": "",
+        "comment": "İşinde profosyonel,isteklerinizi rahatça dile getirebilirsiniz.Web sitem için çok teknik<br>bir altyapı, anlaşılır ve süper işlevsel bir admin paneli kurdu,basit bir website değil resmen sistem yaratıyor.Kesinlikle çalışmaya devam edeceğim.<br>",
+        "comment_m": "İşinde profosyonel,isteklerinizi rahatça dile getirebilirsiniz.Web sitem için çok teknik\nbir altyapı, anlaşılır ve süper işlevsel bir admin paneli kurdu,basit bir website değil resmen sistem yaratıyor.Kesinlikle çalışmaya devam edeceğim.\n",
+        "comment_reply": "",
+        "comment_reply_m": "",
+        "created_at": 1773725880000,
+        "createdDay": "17 Mart 2026",
+        "uuid": "8f8421d8-fdf0-450b-8508-fb5409db4003",
+        "user_id": "2255738",
+        "comment_id": 1318498,
+        "comment_detail": [
+          {
+            "title": "İletişim Becerisi",
+            "grade": 5
+          },
+          {
+            "title": "Hizmet Kalitesi",
+            "grade": 5
+          },
+          {
+            "title": "Zamanlama",
+            "grade": 5
+          }
+        ],
+        "grade": 5,
+        "sellerRating": {
+          "commentCount": 11,
+          "commentRating": 4.5
+        },
+        "description": "",
+        "portfolio": {
+          "category_id": 6,
+          "category_name": "Yazılım & Teknoloji",
+          "category_slug": "yazilim-teknoloji",
+          "category_sub_id": 125,
+          "category_sub_name": "Web Yazılım",
+          "category_sub_slug": "web-yazilim",
+          "comment_count": 0,
+          "comments": [],
+          "name": "Vista İnşaat — Kurumsal Web Sitesi & Admin Paneli",
+          "description": "İnşaat firması için Next.js 16 + Fastify + MySQL ile full-stack kurumsal site. Admin panel, çok dilli içerik yönetimi (TR/EN), teklif modülü, PDF oluşturma, galeri, SEO optimizasyonu, Cloudinary entegrasyonu. Canlı: vistainsaat.com<br/>",
+          "description_textarea": "İnşaat firması için Next.js 16 + Fastify + MySQL ile full-stack kurumsal site. Admin panel, çok dilli içerik yönetimi (TR/EN), teklif modülü, PDF oluşturma, galeri, SEO optimizasyonu, Cloudinary entegrasyonu. Canlı: vistainsaat.com\r\n",
+          "status": 1,
+          "uuid": "8dccb13cffc2",
+          "disapproval_reasons": [],
+          "fav_count": 0,
+          "likes": [],
+          "likeStatus": [],
+          "viewCount": 0,
+          "upload_id": 23125797,
+          "cover_id": 23125797,
+          "itemCount": 1,
+          "file_type": "image",
+          "image_url": "https://bgcp.bionluk.com/images/order/1400x788/cf0d4d04-ad38-48dc-a7eb-cd41e6cd0f1b.png",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/order/cf0d4d04-ad38-48dc-a7eb-cd41e6cd0f1b.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/order/526x296/cf0d4d04-ad38-48dc-a7eb-cd41e6cd0f1b.png",
+          "video_url": null,
+          "items": [
+            {
+              "uuid": "9cdc3403-a9f6-4c37-bd9e-6b5a6d6196f1",
+              "upload_id": 23125797,
+              "file_type": "image",
+              "image_url_original": "https://gcdn.bionluk.com/uploads/order/cf0d4d04-ad38-48dc-a7eb-cd41e6cd0f1b.png",
+              "image_url_small": "https://bgcp.bionluk.com/images/order/526x296/cf0d4d04-ad38-48dc-a7eb-cd41e6cd0f1b.png",
+              "image_url": "https://bgcp.bionluk.com/images/order/1400x788/cf0d4d04-ad38-48dc-a7eb-cd41e6cd0f1b.png",
+              "video_url": null,
+              "uploadname": "cf0d4d04-ad38-48dc-a7eb-cd41e6cd0f1b.png",
+              "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+              "url": "https://gcdn.bionluk.com/uploads/order/cf0d4d04-ad38-48dc-a7eb-cd41e6cd0f1b.png"
+            }
+          ],
+          "cover": {
+            "uuid": "9cdc3403-a9f6-4c37-bd9e-6b5a6d6196f1",
+            "upload_id": 23125797,
+            "file_type": "image",
+            "image_url_original": "https://gcdn.bionluk.com/uploads/order/cf0d4d04-ad38-48dc-a7eb-cd41e6cd0f1b.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/order/526x296/cf0d4d04-ad38-48dc-a7eb-cd41e6cd0f1b.png",
+            "image_url": "https://bgcp.bionluk.com/images/order/1400x788/cf0d4d04-ad38-48dc-a7eb-cd41e6cd0f1b.png",
+            "video_url": null,
+            "uploadname": "cf0d4d04-ad38-48dc-a7eb-cd41e6cd0f1b.png",
+            "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+            "url": "https://gcdn.bionluk.com/uploads/order/cf0d4d04-ad38-48dc-a7eb-cd41e6cd0f1b.png"
+          },
+          "user": []
+        }
+      },
+      {
+        "avatar_url": "https://bgcp.bionluk.com/images/avatar/200x200/9b7dd049-410f-409f-9778-da05a21fbe14.png",
+        "username": "bionluk",
+        "usertitle": "",
+        "comment": "Freelancer siparişi tamamlayamadı. (Bu bir otomatik sistem yorumudur.)",
+        "comment_m": "Freelancer siparişi tamamlayamadı.",
+        "comment_reply": "",
+        "comment_reply_m": "",
+        "created_at": 1762776761000,
+        "createdDay": "10 Kasım 2025",
+        "uuid": "f7ae7e90-5bf0-474f-9a17-a372a93e90d1",
+        "user_id": "1830155",
+        "comment_id": 1295816,
+        "comment_detail": [
+          {
+            "title": "Zamanlama",
+            "grade": 0
+          },
+          {
+            "title": "Hizmet Kalitesi",
+            "grade": 0
+          },
+          {
+            "title": "İletişim Becerisi",
+            "grade": 0
+          }
+        ],
+        "grade": 0,
+        "sellerRating": {
+          "commentCount": 11,
+          "commentRating": 4.5
+        },
+        "description": "Merhaba, profesyonel 3D animasyon stüdyosuyuz. Giyilebilir motion capture teknolojileriyle yapay zeka kullanmadan ihtiyacınıza yönelik her çeşit 3D animasyonu üretebiliriz. Profesyonel bir ekibe sahibiz, isterseniz 3D reklam animasyonları, isterseniz sinematik ya da tercih ettiğiniz herhangi bir konseptte ve senaryoda süre sınırı olmaksızın profesyonel bir şekilde oluşturup teslim edebiliriz.",
+        "portfolio": {
+          "id": null,
+          "uuid": null
+        }
+      },
+      {
+        "avatar_url": "https://gcdn.bionluk.com/uploads/general/No_Avatar.png",
+        "username": "ismailsabihay",
+        "usertitle": "",
+        "comment": "işini severek ve çok hızlı yapıyor. Kısa sürede işi tamamladı. Kendisiyle çalışmaktan çok memnun oldum",
+        "comment_m": "işini severek ve çok hızlı yapıyor. Kısa sürede işi tamamladı. Kendisiyle çalışmaktan çok memnun oldum",
+        "comment_reply": "",
+        "comment_reply_m": "",
+        "created_at": 1761516363000,
+        "createdDay": "27 Ekim 2025",
+        "uuid": "3bee2fc4-3847-447a-85f1-41a55afb0bf8",
+        "user_id": "20569",
+        "comment_id": 1293032,
+        "comment_detail": [
+          {
+            "title": "İletişim Becerisi",
+            "grade": 5
+          },
+          {
+            "title": "Hizmet Kalitesi",
+            "grade": 5
+          },
+          {
+            "title": "Zamanlama",
+            "grade": 5
+          }
+        ],
+        "grade": 5,
+        "sellerRating": {
+          "commentCount": 11,
+          "commentRating": 4.5
+        },
+        "description": "",
+        "portfolio": {
+          "id": null,
+          "uuid": null
+        }
+      },
+      {
+        "avatar_url": "https://gcdn.bionluk.com/uploads/general/No_Avatar.png",
+        "username": "fastmedya",
+        "usertitle": "",
+        "comment": "cok hızlı hizmet",
+        "comment_m": "cok hızlı hizmet",
+        "comment_reply": "",
+        "comment_reply_m": "",
+        "created_at": 1760389718000,
+        "createdDay": "14 Ekim 2025",
+        "uuid": "63e39e80-8dee-42ba-9d49-bb8123251b07",
+        "user_id": "1857040",
+        "comment_id": 1290767,
+        "comment_detail": [
+          {
+            "title": "İletişim Becerisi",
+            "grade": 5
+          },
+          {
+            "title": "Hizmet Kalitesi",
+            "grade": 5
+          },
+          {
+            "title": "Zamanlama",
+            "grade": 5
+          }
+        ],
+        "grade": 5,
+        "sellerRating": {
+          "commentCount": 11,
+          "commentRating": 4.5
+        },
+        "description": "",
+        "portfolio": {
+          "id": null,
+          "uuid": null
+        }
+      },
+      {
+        "avatar_url": "https://bgcp.bionluk.com/images/avatar/200x200/5c9d5033-5381-4e9f-9d5c-316a8e3fc538.png",
+        "username": "saintvi",
+        "usertitle": "",
+        "comment": "teşekkürler herşey için ",
+        "comment_m": "teşekkürler herşey için ",
+        "comment_reply": "",
+        "comment_reply_m": "",
+        "created_at": 1758479403000,
+        "createdDay": "21 Eylül 2025",
+        "uuid": "32cc748e-0454-40b1-b751-0d22b4942855",
+        "user_id": "1921745",
+        "comment_id": 1286938,
+        "comment_detail": [
+          {
+            "title": "İletişim Becerisi",
+            "grade": 5
+          },
+          {
+            "title": "Hizmet Kalitesi",
+            "grade": 5
+          },
+          {
+            "title": "Zamanlama",
+            "grade": 5
+          }
+        ],
+        "grade": 5,
+        "sellerRating": {
+          "commentCount": 11,
+          "commentRating": 4.5
+        },
+        "description": "",
+        "portfolio": {
+          "id": null,
+          "uuid": null
+        }
+      },
+      {
+        "avatar_url": "https://bgcp.bionluk.com/images/avatar/200x200/642bf68d-df0f-4b3f-aec0-f2bd95f50779.jpg",
+        "username": "webmedya42",
+        "usertitle": "Yazılım Uzmanı",
+        "comment": "<br>Orhan ile çalışmak büyük bir keyifti. İşi zamanında ve eksiksiz teslim etti, teknik detaylara hâkimiyeti ve iletişim becerisi gerçekten etkileyiciydi. Taleplerimi sabırla dinledi her aşamasında çözüm odaklı yaklaştı hem profesyonel hemde güvenilir bir fralancertavsiye ediyorum herkese.",
+        "comment_m": "\nOrhan ile çalışmak büyük bir keyifti. İşi zamanında ve eksiksiz teslim etti, teknik detaylara hâkimiyeti ve iletişim becerisi gerçekten etkileyiciydi. Taleplerimi sabırla dinledi her aşamasında çözüm odaklı yaklaştı hem profesyonel hemde güvenilir bir fralancertavsiye ediyorum herkese.",
+        "comment_reply": "",
+        "comment_reply_m": "",
+        "created_at": 1758477940000,
+        "createdDay": "21 Eylül 2025",
+        "uuid": "f36de948-8624-45da-b53a-99dac5e2751f",
+        "user_id": "1883247",
+        "comment_id": 1286936,
+        "comment_detail": [
+          {
+            "title": "İletişim Becerisi",
+            "grade": 5
+          },
+          {
+            "title": "Hizmet Kalitesi",
+            "grade": 5
+          },
+          {
+            "title": "Zamanlama",
+            "grade": 5
+          }
+        ],
+        "grade": 5,
+        "sellerRating": {
+          "commentCount": 11,
+          "commentRating": 4.5
+        },
+        "description": "Merhaba! Ben [ismail yıldırır], PHP web sitesi yazılım uzmanıyım. Web dünyasında yıllardır çalışıyorum ve müşterilerime en iyi çözümleri sunmak için elimden gelenin en iyisini yapıyorum. Özelleştirilmiş web tasarımı ve geliştirme E-ticaret çözümleri SEO ve dijital pazarlama Mobil uygulama geliştirme Sizlere Eniyi Hizmeti Vermek için çalışıyorum Dahili Numara: 76886",
+        "portfolio": {
+          "category_id": 6,
+          "category_name": "Yazılım & Teknoloji",
+          "category_slug": "yazilim-teknoloji",
+          "category_sub_id": 116,
+          "category_sub_name": "Server & Websitesi Kurulumu",
+          "category_sub_slug": "server-websitesi-kurulumu",
+          "comment_count": 0,
+          "comments": [],
+          "name": "Ubuntu VPS Kurulumu & Canlıya Alma – Web Projesi",
+          "description": "webmedya42 için Ubuntu 22.04 VPS kurup projeyi canlıya aldım: Nginx reverse proxy, Let’s Encrypt SSL, firewall/SSH sertleştirme, PM2/systemd servisleri, domain/DNS yönlendirme. MySQL’den MariaDB’a dönüşüm + veri taşıma ve doğrulama testleri.",
+          "description_textarea": "webmedya42 için Ubuntu 22.04 VPS kurup projeyi canlıya aldım: Nginx reverse proxy, Let’s Encrypt SSL, firewall/SSH sertleştirme, PM2/systemd servisleri, domain/DNS yönlendirme. MySQL’den MariaDB’a dönüşüm + veri taşıma ve doğrulama testleri.",
+          "status": 1,
+          "uuid": "557d239fc1dc",
+          "disapproval_reasons": [],
+          "fav_count": 0,
+          "likes": [],
+          "likeStatus": [],
+          "viewCount": 0,
+          "upload_id": 22085310,
+          "cover_id": 22085310,
+          "itemCount": 1,
+          "file_type": "image",
+          "image_url": "https://bgcp.bionluk.com/images/order/1400x788/d5724095-8734-4b5f-9c18-58b7ba8032c6.png",
+          "image_url_original": "https://gcdn.bionluk.com/uploads/order/d5724095-8734-4b5f-9c18-58b7ba8032c6.png",
+          "image_url_small": "https://bgcp.bionluk.com/images/order/526x296/d5724095-8734-4b5f-9c18-58b7ba8032c6.png",
+          "video_url": null,
+          "items": [
+            {
+              "uuid": "a98b3e91-2089-4b3e-9382-e5e3ea702050",
+              "upload_id": 22085310,
+              "file_type": "image",
+              "image_url_original": "https://gcdn.bionluk.com/uploads/order/d5724095-8734-4b5f-9c18-58b7ba8032c6.png",
+              "image_url_small": "https://bgcp.bionluk.com/images/order/526x296/d5724095-8734-4b5f-9c18-58b7ba8032c6.png",
+              "image_url": "https://bgcp.bionluk.com/images/order/1400x788/d5724095-8734-4b5f-9c18-58b7ba8032c6.png",
+              "video_url": null,
+              "uploadname": "d5724095-8734-4b5f-9c18-58b7ba8032c6.png",
+              "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+              "url": "https://gcdn.bionluk.com/uploads/order/d5724095-8734-4b5f-9c18-58b7ba8032c6.png"
+            }
+          ],
+          "cover": {
+            "uuid": "a98b3e91-2089-4b3e-9382-e5e3ea702050",
+            "upload_id": 22085310,
+            "file_type": "image",
+            "image_url_original": "https://gcdn.bionluk.com/uploads/order/d5724095-8734-4b5f-9c18-58b7ba8032c6.png",
+            "image_url_small": "https://bgcp.bionluk.com/images/order/526x296/d5724095-8734-4b5f-9c18-58b7ba8032c6.png",
+            "image_url": "https://bgcp.bionluk.com/images/order/1400x788/d5724095-8734-4b5f-9c18-58b7ba8032c6.png",
+            "video_url": null,
+            "uploadname": "d5724095-8734-4b5f-9c18-58b7ba8032c6.png",
+            "icon_png": "https://gcdn.bionluk.com/site/cicons/file_types/ic-fileformat-png@2x.png",
+            "url": "https://gcdn.bionluk.com/uploads/order/d5724095-8734-4b5f-9c18-58b7ba8032c6.png"
+          },
+          "user": []
+        }
+      },
+      {
+        "avatar_url": "https://bgcp.bionluk.com/images/avatar/200x200/5c9d5033-5381-4e9f-9d5c-316a8e3fc538.png",
+        "username": "saintvi",
+        "usertitle": "",
+        "comment": "güzel iş",
+        "comment_m": "güzel iş",
+        "comment_reply": "",
+        "comment_reply_m": "",
+        "created_at": 1757494003000,
+        "createdDay": "10 Eylül 2025",
+        "uuid": "32cc748e-0454-40b1-b751-0d22b4942855",
+        "user_id": "1921745",
+        "comment_id": 1284917,
+        "comment_detail": [
+          {
+            "title": "İletişim Becerisi",
+            "grade": 5
+          },
+          {
+            "title": "Hizmet Kalitesi",
+            "grade": 5
+          },
+          {
+            "title": "Zamanlama",
+            "grade": 5
+          }
+        ],
+        "grade": 5,
+        "sellerRating": {
+          "commentCount": 11,
+          "commentRating": 4.5
+        },
+        "description": "",
+        "portfolio": {
+          "id": null,
+          "uuid": null
+        }
+      }
+    ],
+    "orderCount": 16
+  }
+}
