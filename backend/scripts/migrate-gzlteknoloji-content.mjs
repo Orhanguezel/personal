@@ -135,6 +135,26 @@ const TEXT_FIXES = [
 ];
 
 /**
+ * ROTA ESLEMESI — emekli gzlteknoloji frontend'i Turkce rota slug'lari
+ * kullaniyordu (/hizmetler, /urunler, /portfolyo...). BU kod tabani Ingilizce
+ * rotalar kullanir. Menu kayitlari oldugu gibi tasininca TUM basliklar 404
+ * veriyordu (canlida dogrulandi).
+ *
+ * Not: hakkimizda/about ayri bir custom_page olarak yayinlanir, bu yuzden
+ * custompages rotasina esleniyor (bkz. content/gzl/903_gzl_about_page.sql).
+ */
+const URL_MAP = {
+  '/hizmetler': '/services',
+  '/paketler': '/pricing',
+  '/urunler': '/products',
+  '/portfolyo': '/work',
+  '/portfolio': '/work',
+  '/iletisim': '/contact',
+  '/hakkimizda': '/custompages/about/hakkimizda',
+  '/about': '/custompages/about/about-us',
+};
+
+/**
  * Kaynakta olup hedef semada OLMAYAN kolonlar.
  * Deger kaybi olmasin diye: dusurulen her degerin NULL oldugu DOGRULANIR,
  * NULL degilse script hata verip durur (sessiz veri kaybi yok).
@@ -517,6 +537,14 @@ function applyTextFixes(sql) {
   for (const [re, rep] of TEXT_FIXES) {
     const before = out;
     out = out.replace(re, rep);
+    if (out !== before) n++;
+  }
+  // Rota eslemesi: yalnizca TAM eslesen tirnak icindeki degerler degistirilir
+  // ('/hizmetler' -> '/services'). Metin icinde gecen benzer ifadelere
+  // dokunulmaz.
+  for (const [from, to] of Object.entries(URL_MAP)) {
+    const before = out;
+    out = out.split(`'${from}'`).join(`'${to}'`);
     if (out !== before) n++;
   }
   return { sql: out, fixes: n };
