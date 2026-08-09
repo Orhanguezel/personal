@@ -181,11 +181,18 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_KEY }}
           timeout: 60s
-          command_timeout: 120s
+          command_timeout: 600s
           script: |
             set -e
 
-            export PATH=/home/orhan/.local/node22/bin:$PATH
+            export PATH=/home/orhan/.local/node22/bin:/home/orhan/.bun/bin:$PATH
+            # NEXT_PUBLIC values are embedded at build time. Each public site
+            # must therefore be built against its own retained server-side env.
+            for TREE in guezelwebdesign gzlteknoloji-site; do
+              cd "/var/www/vps-guezel/${TREE}/frontend"
+              bun run build
+            done
+
             cd /var/www/vps-guezel/guezelwebdesign
             DEPLOY_PROFILE=gwd pm2 startOrReload ecosystem.config.cjs --update-env
             cd /var/www/vps-guezel/gzlteknoloji-site

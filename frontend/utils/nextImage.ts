@@ -9,6 +9,9 @@ const ALLOWED_HOSTS = new Set([
 ]);
 
 export function shouldUnoptimizeImage(src: string): boolean {
+  // Imported Bionluk images are already resized WebP assets. Serving them
+  // directly avoids an unnecessary second optimization pass.
+  if (src.startsWith('/assets/bionluk/')) return true;
   if (!/^https?:\/\//i.test(src)) return false;
   try {
     return !ALLOWED_HOSTS.has(new URL(src).hostname);
