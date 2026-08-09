@@ -11,6 +11,13 @@
 import { toNum, toBool, parseJsonObject, uiText } from '@/integrations/shared';
 import type { ValueType, JsonLike } from '@/integrations/shared';
 
+// Hero varsayilanlari DEPLOYMENT'A GORE uretilir (bun run ui:generate).
+// Daha once burada Guezel Web Design'in Ingilizce metinleri SABIT duruyordu;
+// hero istemci tarafinda doldugu icin bu metinler gzlteknoloji.com'un SSR
+// ciktisinda gorunuyordu. Uretilmis deger yoksa bos string kullanilir.
+import brandGenerated from '@/config/brand.generated.json';
+const GEN_HOME = (brandGenerated as { home?: any } | undefined)?.home ?? null;
+
 /** FE/BE arasında ayakta kalacak JSON-benzeri tip */
 export type SettingValue =
   | string
@@ -1099,17 +1106,17 @@ export function normalizeUiHomeSettingValue(value: unknown): UiHomeCopy {
 
   return {
     home1: {
-      greeting: pick(home1, 'greeting', "👋 Hi there, I'm Orhan Güzel", 'home1_greeting'),
+      greeting: pick(home1, 'greeting', GEN_HOME?.home1?.greeting ?? '', 'home1_greeting'),
       title_html: pick(
         home1,
         'title_html',
-        'Building <span class="text-primary-1">production-ready</span> web platforms',
+        GEN_HOME?.home1?.title_html ?? '',
         'home1_title_html',
       ),
       description: pick(
         home1,
         'description',
-        'Founder of Guezel Web Design. I help businesses and brands create user-focused digital products and interactive web experiences.',
+        GEN_HOME?.home1?.description ?? '',
         'home1_description',
       ),
       cta_primary: pick(home1, 'cta_primary', 'Download CV', 'home1_cta_primary'),
@@ -1117,11 +1124,11 @@ export function normalizeUiHomeSettingValue(value: unknown): UiHomeCopy {
       experience_label: pick(
         home1,
         'experience_label',
-        '+ 12 years with professional design software',
+        GEN_HOME?.home1?.experience_label ?? '',
         'home1_experience_label',
       ),
-      hero_image: pick(home1, 'hero_image', '/assets/imgs/guezel-showcase/workspace_guezel_web_design.webp', 'home1_hero_image'),
-      hero_image_alt: pick(home1, 'hero_image_alt', 'Guezel Web Design showcase', 'home1_hero_image_alt'),
+      hero_image: pick(home1, 'hero_image', GEN_HOME?.home1?.hero_image ?? '', 'home1_hero_image'),
+      hero_image_alt: pick(home1, 'hero_image_alt', GEN_HOME?.home1?.hero_image_alt ?? '', 'home1_hero_image_alt'),
       decor_image: pick(
         home1,
         'decor_image',
@@ -1131,17 +1138,17 @@ export function normalizeUiHomeSettingValue(value: unknown): UiHomeCopy {
       decor_image_alt: pick(home1, 'decor_image_alt', 'Decor', 'home1_decor_image_alt'),
     },
     home2: {
-      greeting: pick(home2, 'greeting', "Hey, I'm Orhan Güzel", 'home2_greeting'),
+      greeting: pick(home2, 'greeting', GEN_HOME?.home2?.greeting ?? '', 'home2_greeting'),
       title_html: pick(
         home2,
         'title_html',
-        'Founder of <span class="text-linear-4">Guezel Web Design</span> Studio<span class="flicker">_</span>',
+        GEN_HOME?.home2?.title_html ?? '',
         'home2_title_html',
       ),
       description_html: pick(
         home2,
         'description_html',
-        '&lt;p&gt;<span class="text-dark">At</span> <span class="text-secondary-2">guezelwebdesign.com</span><span class="text-dark">, I build fast, reliable web and app experiences with</span> <span class="text-secondary-2">NodeJS</span>, <span class="text-secondary-2">React</span>, <span class="text-secondary-2">Angular</span>, and <span class="text-secondary-2">Laravel</span><span class="text-dark">.</span>&lt;/p&gt;',
+        GEN_HOME?.home2?.description_html ?? '',
         'home2_description_html',
       ),
       more_label: pick(home2, 'more_label', '...and more', 'home2_more_label'),
@@ -1149,10 +1156,15 @@ export function normalizeUiHomeSettingValue(value: unknown): UiHomeCopy {
       hero_image: pick(
         home2,
         'hero_image',
-        '/assets/imgs/guezel-showcase/storefront_guezel_web_design.webp',
+        GEN_HOME?.home2?.hero_image ?? GEN_HOME?.home1?.hero_image ?? '',
         'home2_hero_image',
       ),
-      hero_image_alt: pick(home2, 'hero_image_alt', 'Guezel Web Design showcase', 'home2_hero_image_alt'),
+      hero_image_alt: pick(
+        home2,
+        'hero_image_alt',
+        GEN_HOME?.home2?.hero_image_alt ?? GEN_HOME?.home1?.hero_image_alt ?? '',
+        'home2_hero_image_alt',
+      ),
       icon_image: pick(
         home2,
         'icon_image',
@@ -1512,7 +1524,7 @@ export function normalizeUiCoporationSettingValue(value: unknown): UiCoporationC
     uiText((root as any).heading_html) ||
     'More than +168 <span class="text-300">companies <br /></span> trusted <span class="text-300">worldwide_</span>';
 
-  const avatar = pick(contact, 'avatar', '/assets/imgs/guezel-showcase/workspace_guezel_web_design.webp', 'contact_avatar');
+  const avatar = pick(contact, 'avatar', GEN_HOME?.home1?.hero_image ?? '', 'contact_avatar');
   const avatar_alt = pick(contact, 'avatar_alt', 'Guezel Web Design workspace', 'contact_avatar_alt');
 
   const skype_label = pick(contact, 'skype_label', '[skype]', 'contact_skype_label');

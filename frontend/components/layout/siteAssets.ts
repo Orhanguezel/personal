@@ -23,12 +23,30 @@ export const SITE_MEDIA_KEYS = {
   ogDefault: 'site_og_default_image',
 } as const;
 
-export const SITE_MEDIA_FALLBACKS = {
-  brandName: 'Guezel Web Design',
+// Marka varsayilanlari DEPLOYMENT'A GORE uretilir:
+//   bun run ui:generate  ->  config/brand.generated.json
+//
+// NEDEN: site_settings istemci tarafinda `/ui/<locale>.json` ile okunuyor,
+// yani SUNUCUDA uretilen HTML'de marka henuz bilinmiyor ve buradaki sabit
+// deger basiliyordu. Iki markali kurulumda bu, gzlteknoloji.com'un SSR
+// ciktisinda "Guezel Web Design" ve GWD logosunun gorunmesi demekti.
+// Uretilmis dosya yoksa (temiz checkout) asagidaki sablon degerlere duser.
+import brandGenerated from '@/config/brand.generated.json';
+
+const BRAND_DEFAULTS = {
+  brandName: '',
   logo: '/assets/imgs/landing-page/logo.svg',
   favicon: '/assets/imgs/template/favicon.svg',
   appleTouchIcon: '/assets/imgs/template/favicon.svg',
   ogDefault: '/assets/imgs/guezel-showcase/service_web_design_showcase.webp',
+};
+
+export const SITE_MEDIA_FALLBACKS = {
+  brandName: brandGenerated.brandName || BRAND_DEFAULTS.brandName,
+  logo: brandGenerated.logo || BRAND_DEFAULTS.logo,
+  favicon: brandGenerated.favicon || BRAND_DEFAULTS.favicon,
+  appleTouchIcon: brandGenerated.appleTouchIcon || BRAND_DEFAULTS.appleTouchIcon,
+  ogDefault: brandGenerated.ogDefault || BRAND_DEFAULTS.ogDefault,
 } as const;
 
 export type SiteMedia = {

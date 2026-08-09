@@ -134,7 +134,11 @@ export function pickTextFromSettingValue(v: unknown, fallback = ''): string {
   return fallback;
 }
 
-export function pickBrandName(v: unknown, fallback = 'guezelwebdesign'): string {
+// Varsayilan BOS: bu kod tabani iki markayi sunuyor. Sabit bir marka adi
+// yazmak, ayari eksik olan deployment'ta DIGER markanin adini gostermek
+// demekti (gzlteknoloji.com footer'inda "guezelwebdesign" cikiyordu).
+// Cagiranlar deployment'a gore uretilen SITE_MEDIA_FALLBACKS.brandName verir.
+export function pickBrandName(v: unknown, fallback = ''): string {
   if (typeof v === 'string') return v.trim() || fallback;
   if (v && typeof v === 'object') {
     const o: any = v;
