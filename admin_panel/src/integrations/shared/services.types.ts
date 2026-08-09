@@ -11,14 +11,7 @@
 import type { BoolLike, SortOrder } from '@/integrations/shared';
 
 /** Backend ServiceTypeEnum ile uyumlu */
-export type ServiceType =
-  | 'maintenance_repair'
-  | 'modernization'
-  | 'spare_parts_components'
-  | 'applications_references'
-  | 'engineering_support'
-  | 'production'
-  | 'other';
+export type ServiceType = string;
 
 /** Sıralama alanları (serviceListQuerySchema.sort ile uyumlu) */
 export type ServiceSortField = 'created_at' | 'updated_at' | 'display_order';

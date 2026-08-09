@@ -40,6 +40,7 @@ import type { Project } from '@/integrations/shared';
 import { useListProjectsAdminQuery } from '@/integrations/hooks';
 import type { BlogSeoQualityScore } from '@/integrations/shared';
 import { IndexabilityBadge, QualityBadge } from '@/components/admin/seo/quality-badge';
+import { useContentCategories } from '@/components/admin/category-select';
 
 function formatPriceWithCurrency(
   amount: string | number | null | undefined,
@@ -59,6 +60,7 @@ function formatPriceWithCurrency(
 type Filters = {
   locale: string;
   q: string;
+  category: string;
   is_published: 'all' | 'yes' | 'no';
   is_featured: 'all' | 'yes' | 'no';
   orderDir: 'asc' | 'desc';
@@ -74,6 +76,7 @@ export default function AdminProjectsClient() {
   const [filters, setFilters] = React.useState<Filters>({
     locale: '',
     q: '',
+    category: '',
     is_published: 'all',
     is_featured: 'all',
     orderDir: 'desc',
@@ -91,6 +94,7 @@ export default function AdminProjectsClient() {
     () => ({
       locale: filters.locale || undefined,
       q: filters.q.trim() || undefined,
+      category: filters.category || undefined,
       is_published:
         filters.is_published === 'all' ? undefined : filters.is_published === 'yes',
       is_featured: filters.is_featured === 'all' ? undefined : filters.is_featured === 'yes',
@@ -104,6 +108,11 @@ export default function AdminProjectsClient() {
 
   const listQ = useListProjectsAdminQuery(params, { refetchOnMountOrArgChange: true });
   const rows = (listQ.data ?? []) as Project[];
+  const { categories, loading: categoriesLoading } = useContentCategories();
+  const categoryLabels = React.useMemo(
+    () => new Map(categories.map((category) => [category.slug, category.label])),
+    [categories],
+  );
 
   return (
     <div className="space-y-6">
@@ -132,7 +141,7 @@ export default function AdminProjectsClient() {
           <CardTitle className="text-base">{page?.filters_title}</CardTitle>
           <CardDescription>{page?.filters_desc}</CardDescription>
         </CardHeader>
-        <CardContent className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+        <CardContent className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
           <AdminLocaleSelect
             value={filters.locale}
             onChange={(v) => setFilters((p) => ({ ...p, locale: v }))}
@@ -152,6 +161,32 @@ export default function AdminProjectsClient() {
                 className="pl-9"
               />
             </div>
+          </div>
+
+          <div className="space-y-2">
+            <Label>Kategori</Label>
+            <Select
+              value={filters.category || 'all'}
+              onValueChange={(value) =>
+                setFilters((previous) => ({
+                  ...previous,
+                  category: value === 'all' ? '' : value,
+                }))
+              }
+              disabled={listQ.isFetching || categoriesLoading}
+            >
+              <SelectTrigger>
+                <SelectValue placeholder="Tüm kategoriler" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">Tüm kategoriler</SelectItem>
+                {categories.map((category) => (
+                  <SelectItem key={category.slug} value={category.slug}>
+                    {category.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
 
           <div className="space-y-2">
@@ -201,6 +236,7 @@ export default function AdminProjectsClient() {
               <TableRow>
                 <TableHead>{page?.col_title}</TableHead>
                 <TableHead>{page?.col_locale}</TableHead>
+                <TableHead>Kategori</TableHead>
                 <TableHead>{page?.col_published}</TableHead>
                 <TableHead>SEO</TableHead>
                 <TableHead>İndeks</TableHead>
@@ -214,7 +250,7 @@ export default function AdminProjectsClient() {
             <TableBody>
               {rows.length === 0 && !listQ.isFetching && (
                 <TableRow>
-                  <TableCell colSpan={10} className="text-center text-sm text-muted-foreground">
+                  <TableCell colSpan={11} className="text-center text-sm text-muted-foreground">
                     {common?.states?.empty}
                   </TableCell>
                 </TableRow>
@@ -223,6 +259,11 @@ export default function AdminProjectsClient() {
                 <TableRow key={item.id}>
                   <TableCell className="font-medium">{item.title}</TableCell>
                   <TableCell>{item.locale}</TableCell>
+                  <TableCell>
+                    <Badge variant="outline">
+                      {categoryLabels.get(item.category || '') || item.category || '—'}
+                    </Badge>
+                  </TableCell>
                   <TableCell>
                     <Badge variant={item.is_published ? 'secondary' : 'outline'}>
                       {item.is_published ? page?.filter_yes : page?.filter_no}

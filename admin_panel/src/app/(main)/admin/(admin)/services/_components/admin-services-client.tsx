@@ -20,6 +20,7 @@ import { localeShortClient, localeShortClientOr } from '@/i18n/localeShortClient
 
 import { useAdminT } from '@/app/(main)/admin/_components/common/useAdminT';
 import { cn } from '@/lib/utils';
+import { useContentCategories } from '@/components/admin/category-select';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -57,6 +58,7 @@ type PublishedFilter = 'all' | 'active' | 'inactive';
 
 type Filters = {
   search: string;
+  category: string;
   publishedFilter: PublishedFilter;
   locale: string;
   featuredOnly: boolean;
@@ -105,6 +107,7 @@ export default function AdminServicesClient() {
 
   const [filters, setFilters] = React.useState<Filters>({
     search: '',
+    category: '',
     publishedFilter: 'all',
     locale: '',
     featuredOnly: false,
@@ -157,6 +160,7 @@ export default function AdminServicesClient() {
   const queryParams = React.useMemo(() => {
     const qp: ServiceListAdminQueryParams = {
       q: filters.search.trim() || undefined,
+      type: filters.category || undefined,
       locale: effectiveLocale || undefined,
       is_active,
       featured: filters.featuredOnly ? 1 : undefined,
@@ -164,7 +168,13 @@ export default function AdminServicesClient() {
       offset: 0,
     } as any;
     return qp;
-  }, [filters.search, effectiveLocale, is_active, filters.featuredOnly]);
+  }, [filters.search, filters.category, effectiveLocale, is_active, filters.featuredOnly]);
+
+  const { categories, loading: categoriesLoading } = useContentCategories();
+  const categoryLabels = React.useMemo(
+    () => new Map(categories.map((category) => [category.slug, category.label])),
+    [categories],
+  );
 
   const listQ = useListServicesAdminQuery(
     queryParams as any,
@@ -280,6 +290,7 @@ export default function AdminServicesClient() {
     setFilters((p) => ({
       ...p,
       search: '',
+      category: '',
       publishedFilter: 'all',
       featuredOnly: false,
     }));
@@ -321,7 +332,7 @@ export default function AdminServicesClient() {
         </CardHeader>
 
         <CardContent className="space-y-4">
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
             <div className="space-y-2">
               <Label htmlFor="q">{t('admin.services.header.searchLabel')}</Label>
               <div className="relative">
@@ -335,6 +346,32 @@ export default function AdminServicesClient() {
                   disabled={busy}
                 />
               </div>
+            </div>
+
+            <div className="space-y-2">
+              <Label>Kategori</Label>
+              <Select
+                value={filters.category || 'all'}
+                onValueChange={(value) =>
+                  setFilters((previous) => ({
+                    ...previous,
+                    category: value === 'all' ? '' : value,
+                  }))
+                }
+                disabled={busy || categoriesLoading}
+              >
+                <SelectTrigger>
+                  <SelectValue placeholder="Tüm kategoriler" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">Tüm kategoriler</SelectItem>
+                  {categories.map((category) => (
+                    <SelectItem key={category.slug} value={category.slug}>
+                      {category.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
 
             <div className="space-y-2">
@@ -437,6 +474,7 @@ export default function AdminServicesClient() {
                 <TableRow>
                   <TableHead>{t('admin.services.list.nameColumn')}</TableHead>
                   <TableHead>{t('admin.services.list.slugColumn')}</TableHead>
+                  <TableHead>Kategori</TableHead>
                   <TableHead>{t('admin.services.list.featuredColumn')}</TableHead>
                   <TableHead>{t('admin.services.list.oneTimePriceColumn')}</TableHead>
                   <TableHead>{t('admin.services.list.statusColumn')}</TableHead>
@@ -457,6 +495,11 @@ export default function AdminServicesClient() {
                     <TableRow key={id || `${idx}`}>
                       <TableCell className="font-medium">{name}</TableCell>
                       <TableCell className="wrap-break-word">{slug}</TableCell>
+                      <TableCell>
+                        <Badge variant="outline">
+                          {categoryLabels.get(String(p?.type ?? '')) || p?.type || '—'}
+                        </Badge>
+                      </TableCell>
 
                       <TableCell>
                         <div className="flex items-center gap-2">
@@ -550,7 +593,7 @@ export default function AdminServicesClient() {
 
                 {showEmpty ? (
                   <TableRow>
-                    <TableCell colSpan={6} className="py-10 text-center text-muted-foreground">
+                    <TableCell colSpan={7} className="py-10 text-center text-muted-foreground">
                       {t('admin.services.list.noRecords')}
                     </TableCell>
                   </TableRow>
@@ -580,6 +623,9 @@ export default function AdminServicesClient() {
                         <Badge variant="destructive">{t('admin.services.list.inactiveStatus')}</Badge>
                       )}
                       <Badge variant="secondary">{featured ? t('admin.services.list.featuredBadge') : t('admin.services.list.normalStatus')}</Badge>
+                      <Badge variant="outline">
+                        {categoryLabels.get(String(p?.type ?? '')) || p?.type || '—'}
+                      </Badge>
                     </div>
 
                     <div className="mt-2 space-y-2 text-sm">
