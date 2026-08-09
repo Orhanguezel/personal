@@ -94,16 +94,26 @@ export function useSiteMedia(opts?: { locale?: string }): SiteMedia {
   const { data: ogDefaultRow } = useGetSiteSettingByKeyQuery(buildArg(SITE_MEDIA_KEYS.ogDefault, locale));
 
   const brandName = useMemo(() => {
-    const siteTitle = trimStr((siteTitleRow as any)?.value);
     const brandObj = (companyBrandRow as any)?.value;
     const fallback = SITE_MEDIA_FALLBACKS.brandName;
 
-    return siteTitle || pickBrandName(brandObj, fallback) || fallback;
+    // `site_title` bir SAYFA BASLIGIDIR ("GZL Teknoloji — Yazilim, SaaS ve
+    // Dijital Cozumler"); header'daki logo yanina basilacak MARKA ADI degil.
+    // Onceden ilk sirada oldugu icin gzlteknoloji.com header'inda logonun
+    // yaninda cok uzun bir cumle cikiyordu. Once marka adi, en sonda baslik.
+    return (
+      pickBrandName(brandObj, '') ||
+      trimStr((siteTitleRow as any)?.value) ||
+      fallback
+    );
   }, [siteTitleRow, companyBrandRow]);
 
   const brandShort = useMemo(() => {
-    const brandObj = parseJsonObject((companyBrandRow as any)?.value);
-    return trimStr((brandObj as any)?.shortName) || '';
+    const brandObj = parseJsonObject((companyBrandRow as any)?.value) as any;
+    // Veri kaynaklari iki yazim bicimini de kullaniyor: sablon `shortName`,
+    // tasinan gzlteknoloji verisi `short_name`. Yalnizca camelCase arandigi
+    // icin kisa ad bulunamiyor ve uzun baslige dusuluyordu.
+    return trimStr(brandObj?.shortName) || trimStr(brandObj?.short_name) || '';
   }, [companyBrandRow]);
 
   const logo = useMemo(() => {

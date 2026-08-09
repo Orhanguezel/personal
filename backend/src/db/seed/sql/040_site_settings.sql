@@ -308,7 +308,7 @@ VALUES
   CAST(JSON_OBJECT(
     'badge','Hizmetlerim',
     'title_html','<span class="text-300">Fikir ve mimariden</span> üretime hazır <span class="text-300">web platformlarına</span>',
-    'intro_html','Grevenbroich merkezli web geliştirme desteğiyle Neuss, Mönchengladbach, Düsseldorf ve uzaktaki ekipler için çalışıyorum. <br /> Temiz mimariyle web platformları, API''ler, admin panelleri ve e-ticaret sistemleri geliştiriyorum.',
+    'intro_html','Almanya''da web geliştirme desteğiyle yurt içi ve uzaktaki ekipler için çalışıyorum. <br /> Temiz mimariyle web platformları, API''ler, admin panelleri ve e-ticaret sistemleri geliştiriyorum.',
     'cta_label','Teklif Al',
     'loading','Yükleniyor...',
     'error','Hizmetler yüklenemedi.',
@@ -326,7 +326,7 @@ VALUES
   CAST(JSON_OBJECT(
     'badge','My Services',
     'title_html','From <span class="text-300">idea and architecture</span> to production-ready <span class="text-300">web platforms</span>',
-    'intro_html','Web development from Grevenbroich for Neuss, Mönchengladbach, Düsseldorf and remote teams beyond. <br /> I deliver production-ready web platforms, APIs, admin panels and e-commerce systems with clean architecture.',
+    'intro_html','Web development for businesses across Germany and remote teams. <br /> I deliver production-ready web platforms, APIs, admin panels and e-commerce systems with clean architecture.',
     'cta_label','Get a Quote',
     'loading','Loading...',
     'error','Failed to load services.',
@@ -344,7 +344,7 @@ VALUES
   CAST(JSON_OBJECT(
     'badge','Meine Leistungen',
     'title_html','Von <span class="text-300">Idee und Architektur</span> bis zur produktionsreifen <span class="text-300">Web-Plattform</span>',
-    'intro_html','Webentwicklung aus Grevenbroich für Neuss, Mönchengladbach, Düsseldorf und digitale Teams darüber hinaus. <br /> Ich liefere produktionsreife Webplattformen, APIs, Admin-Panels und E-Commerce-Systeme mit sauberer Architektur.',
+    'intro_html','Webentwicklung in Deutschland für Unternehmen bundesweit und digitale Teams darüber hinaus. <br /> Ich liefere produktionsreife Webplattformen, APIs, Admin-Panels und E-Commerce-Systeme mit sauberer Architektur.',
     'cta_label','Angebot anfordern',
     'loading','Wird geladen...',
     'error','Services konnten nicht geladen werden.',

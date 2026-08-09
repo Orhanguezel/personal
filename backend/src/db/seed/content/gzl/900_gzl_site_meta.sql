@@ -48,11 +48,11 @@ ON DUPLICATE KEY UPDATE `value` = VALUES(`value`), `updated_at` = CURRENT_TIMEST
 -- ── seo_defaults — HER DILDE FARKLI ──────────────────────────────────────────
 INSERT INTO `site_settings` (`id`, `key`, `locale`, `value`) VALUES
   ('90000000-0000-4000-8000-000000000021', 'seo_defaults', 'tr',
-   '{"canonicalBase":"https://gzlteknoloji.com","siteName":"GZL Teknoloji","titleTemplate":"%s | GZL Teknoloji","defaultTitle":"GZL Teknoloji — Yazılım, SaaS ve Dijital Çözümler","defaultDescription":"Gemlik ve Bursa merkezli yazılım şirketi. Kurumsal web yazılımı, SaaS ürünleri, e-ticaret, otomasyon ve yapay zeka destekli dijital çözümler.","locale":"tr_TR","twitterCard":"summary_large_image"}'),
+   '{"canonicalBase":"https://gzlteknoloji.com","siteName":"GZL Teknoloji","titleTemplate":"%s | GZL Teknoloji","defaultTitle":"GZL Teknoloji — Yazılım, SaaS ve Dijital Çözümler","defaultDescription":"Kurumsal web yazılımı, SaaS ürünleri, e-ticaret, otomasyon ve yapay zekâ destekli dijital çözümler geliştiriyoruz.","locale":"tr_TR","twitterCard":"summary_large_image"}'),
   ('90000000-0000-4000-8000-000000000022', 'seo_defaults', 'en',
-   '{"canonicalBase":"https://gzlteknoloji.com","siteName":"GZL Technology","titleTemplate":"%s | GZL Technology","defaultTitle":"GZL Technology — Software, SaaS and Digital Solutions","defaultDescription":"Software company based in Gemlik/Bursa, Türkiye. Custom web software, SaaS products, e-commerce, automation and AI-assisted digital solutions.","locale":"en_US","twitterCard":"summary_large_image"}'),
+   '{"canonicalBase":"https://gzlteknoloji.com","siteName":"GZL Technology","titleTemplate":"%s | GZL Technology","defaultTitle":"GZL Technology — Software, SaaS and Digital Solutions","defaultDescription":"Custom web software, SaaS products, e-commerce, automation and AI-assisted digital solutions.","locale":"en_US","twitterCard":"summary_large_image"}'),
   ('90000000-0000-4000-8000-000000000023', 'seo_defaults', 'de',
-   '{"canonicalBase":"https://gzlteknoloji.com","siteName":"GZL Technologie","titleTemplate":"%s | GZL Technologie","defaultTitle":"GZL Technologie — Software, SaaS und digitale Lösungen","defaultDescription":"Softwareunternehmen mit Sitz in Gemlik/Bursa, Türkei. Individuelle Websoftware, SaaS-Produkte, E-Commerce, Automatisierung und KI-gestützte digitale Lösungen.","locale":"de_DE","twitterCard":"summary_large_image"}')
+   '{"canonicalBase":"https://gzlteknoloji.com","siteName":"GZL Technologie","titleTemplate":"%s | GZL Technologie","defaultTitle":"GZL Technologie — Software, SaaS und digitale Lösungen","defaultDescription":"Individuelle Websoftware, SaaS-Produkte, E-Commerce, Automatisierung und KI-gestützte digitale Lösungen.","locale":"de_DE","twitterCard":"summary_large_image"}')
 ON DUPLICATE KEY UPDATE `value` = VALUES(`value`), `updated_at` = CURRENT_TIMESTAMP(3);
 
 -- ── seo_app_icons — global (favicon/apple icon 018 seed'inden gelir) ─────────

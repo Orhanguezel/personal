@@ -172,9 +172,9 @@ const OVERRIDES = {
     },
     'detail.author_section_title': { tr: 'Yazar', en: 'Author', de: 'Autor' },
     'detail.author_bio_html': {
-      tr: '<p>GZL Teknoloji — Gemlik/Bursa merkezli yazılım ve dijital danışmanlık şirketi.</p>',
-      en: '<p>GZL Technology — software and digital consulting company based in Gemlik/Bursa, Türkiye.</p>',
-      de: '<p>GZL Technologie — Software- und Digitalberatung mit Sitz in Gemlik/Bursa, Türkei.</p>',
+      tr: '<p>GZL Teknoloji — yazılım ve dijital danışmanlık şirketi.</p>',
+      en: '<p>GZL Technology — software and digital consulting company.</p>',
+      de: '<p>GZL Technologie — Software- und Digitalberatung.</p>',
     },
   },
 

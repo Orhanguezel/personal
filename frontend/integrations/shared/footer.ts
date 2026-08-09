@@ -142,8 +142,13 @@ export function pickBrandName(v: unknown, fallback = ''): string {
   if (typeof v === 'string') return v.trim() || fallback;
   if (v && typeof v === 'object') {
     const o: any = v;
+    // Iki yazim bicimi de destekleniyor: sablon `shortName`, tasinan
+    // gzlteknoloji verisi `short_name`. Kisa ad her zaman tam unvana yeglenir
+    // (header'da "GZL Danismanlik Hizmetleri ve Teknoloji Limited Sirketi"
+    // yerine "GZL Teknoloji" gorunsun).
     const s =
       (typeof o?.shortName === 'string' ? o.shortName : '') ||
+      (typeof o?.short_name === 'string' ? o.short_name : '') ||
       (typeof o?.name === 'string' ? o.name : '');
     return (s || '').trim() || fallback;
   }

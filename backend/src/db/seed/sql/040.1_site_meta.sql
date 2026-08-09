@@ -297,7 +297,7 @@ VALUES
 ) AS CHAR CHARACTER SET utf8mb4), NOW(3), NOW(3)),
 (UUID(), 'seo_pages_home', 'de', CAST(JSON_OBJECT(
   'title','Orhan Guzel — Full-Stack Webentwickler | Next.js, Fastify, Laravel',
-  'description','Produktionsreife Business-Plattformen, E-Commerce-Systeme und operative Webanwendungen mit Next.js, Fastify, Laravel und Flutter. Webentwickler aus Grevenbroich, Deutschland.',
+  'description','Produktionsreife Business-Plattformen, E-Commerce-Systeme und operative Webanwendungen mit Next.js, Fastify, Laravel und Flutter. Webentwickler aus Deutschland.',
   'keywords','orhan guzel, full-stack webentwickler, webentwickler deutschland, next.js entwickler, fastify, laravel, e-commerce, business plattform',
   'ogImage', @OG_DEFAULT
 ) AS CHAR CHARACTER SET utf8mb4), NOW(3), NOW(3)),
