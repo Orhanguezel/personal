@@ -97,7 +97,9 @@ export function unitLabelForLocale(unit: string | undefined, locale: string): st
   if (u === 'day') return base === 'tr' ? '/gün' : base === 'de' ? '/Tag' : '/day';
   if (u === 'month') return base === 'tr' ? '/ay' : base === 'de' ? '/Monat' : '/mo';
   if (u === 'once') return base === 'tr' ? ' tek seferlik' : base === 'de' ? ' einmalig' : ' one-time';
-  if (u === 'setup') return base === 'tr' ? ' kurulum' : base === 'de' ? ' Einrichtung' : ' setup';
+  if (u === 'setup' || u === 'setup_monthly') {
+    return base === 'tr' ? 'kurulum' : base === 'de' ? 'Einrichtung' : 'setup';
+  }
   return `/${u}`;
 }
 

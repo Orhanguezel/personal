@@ -229,9 +229,9 @@ export default function PricingClient({
                               <div className="card-pricing-1 p-6 rounded-4 h-100 d-flex flex-column">
                                 <span className="text-uppercase fs-7">{p.badge || p.code}</span>
                                 <h4 className="mt-3 mb-3 text-dark">{p.title || p.code}</h4>
-                                <h3 className="ds-3 fw-medium text-primary-1 mb-5">
-                                  {priceText}
-                                  <span className="text-300 fs-4">
+                                <h3 className="ds-3 fw-medium text-primary-1 mb-5 d-flex flex-wrap align-items-baseline gap-2">
+                                  <span>{priceText}</span>
+                                  <span className="text-300 fs-6 fw-normal">
                                     {unitLabelForLocale(p.price_unit, locale)}
                                   </span>
                                 </h3>
