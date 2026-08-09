@@ -66,7 +66,9 @@ type Filters = {
 
 function isUuidLike(v?: string) {
   if (!v) return false;
-  return /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(v);
+  // Imported services use a legacy UUID with a 10-character final segment;
+  // records created in the panel use the canonical 12-character segment.
+  return /^[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{10,12}$/i.test(v);
 }
 
 function formatPriceWithCurrency(
@@ -299,7 +301,7 @@ export default function AdminServicesClient() {
   const showEmpty = !busy && (rows?.length ?? 0) === 0;
 
   return (
-    <div className="space-y-6">
+    <div className="min-w-0 max-w-full space-y-6 overflow-x-hidden">
       <div className="space-y-1">
         <h1 className="text-lg font-semibold">{t('admin.services.header.title')}</h1>
         <p className="text-sm text-muted-foreground">
@@ -307,7 +309,7 @@ export default function AdminServicesClient() {
         </p>
       </div>
 
-      <Card>
+      <Card className="min-w-0 max-w-full">
         <CardHeader className="gap-2">
           <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
             <div className="space-y-1">
@@ -331,7 +333,7 @@ export default function AdminServicesClient() {
           </div>
         </CardHeader>
 
-        <CardContent className="space-y-4">
+        <CardContent className="min-w-0 space-y-4">
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
             <div className="space-y-2">
               <Label htmlFor="q">{t('admin.services.header.searchLabel')}</Label>
@@ -431,7 +433,7 @@ export default function AdminServicesClient() {
         </CardContent>
       </Card>
 
-      <Card>
+      <Card className="min-w-0 max-w-full">
         <CardHeader className="gap-2">
           <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
             <div className="space-y-1">
@@ -450,7 +452,7 @@ export default function AdminServicesClient() {
           </div>
         </CardHeader>
 
-        <CardContent className="space-y-4">
+        <CardContent className="min-w-0 space-y-4">
           {listQ.isError ? (
             <div className="rounded-md border p-4 text-sm">
               {t('admin.services.list.listLoadError')}{' '}
@@ -468,7 +470,7 @@ export default function AdminServicesClient() {
           ) : null}
 
           {/* Desktop table */}
-          <div className="hidden rounded-md border md:block">
+          <div className="hidden min-w-0 max-w-full overflow-hidden rounded-md border md:block">
             <Table>
               <TableHeader>
                 <TableRow>
