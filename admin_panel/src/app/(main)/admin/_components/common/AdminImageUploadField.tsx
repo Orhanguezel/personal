@@ -12,7 +12,7 @@
 // - Cloudinary raw/upload uzantısız => svg sayılmaz
 // =============================================================
 
-import React, { useMemo, useRef } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { toast } from 'sonner';
 import { Copy, Image as ImageIcon, Library, Upload, Star, Trash2 } from 'lucide-react';
 
@@ -145,6 +145,12 @@ const ratioOf = (aspect: '16x9' | '4x3' | '1x1') => {
   return 16 / 9;
 };
 
+const publicSiteOrigin = (hostname: string): string => {
+  if (hostname === 'panel.gzlteknoloji.com') return 'https://gzlteknoloji.com';
+  if (hostname === 'panel.guezelwebdesign.com') return 'https://www.guezelwebdesign.com';
+  return '';
+};
+
 const errorMessage = (err: unknown, fallback: string) => {
   if (err && typeof err === 'object') {
     const data = 'data' in err ? (err as { data?: unknown }).data : undefined;
@@ -221,7 +227,18 @@ export const AdminImageUploadField: React.FC<AdminImageUploadFieldProps> = ({
   previewObjectFit = 'cover',
 }) => {
   const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const [assetOrigin, setAssetOrigin] = useState('');
   const [createAssetAdmin, { isLoading: isUploading }] = useCreateAssetAdminMutation();
+
+  useEffect(() => {
+    setAssetOrigin(publicSiteOrigin(window.location.hostname));
+  }, []);
+
+  const previewSrc = (raw: string): string => {
+    const safe = norm(raw);
+    if (!safe.startsWith('/assets/')) return safe;
+    return assetOrigin ? `${assetOrigin}${safe}` : '';
+  };
 
   const meta = useMemo(() => toMeta(metadata), [metadata]);
   const gallery = useMemo(
@@ -323,7 +340,8 @@ export const AdminImageUploadField: React.FC<AdminImageUploadFieldProps> = ({
     }
 
     const svg = isSvgUrl(value);
-    const previewUrl = svg ? withCloudinarySanitizeIfSvg(value) : value;
+    const rawPreviewUrl = svg ? withCloudinarySanitizeIfSvg(value) : value;
+    const previewUrl = previewSrc(rawPreviewUrl);
 
     return (
       <div className="space-y-2">
@@ -331,7 +349,11 @@ export const AdminImageUploadField: React.FC<AdminImageUploadFieldProps> = ({
 
         <div className="overflow-hidden rounded-md border bg-background">
           <AspectRatio ratio={aspect}>
-            {svg ? (
+            {!previewUrl ? (
+              <div className="flex h-full w-full items-center justify-center text-xs text-muted-foreground">
+                Önizleme hazırlanıyor…
+              </div>
+            ) : svg ? (
               <object
                 data={previewUrl}
                 type="image/svg+xml"
@@ -403,7 +425,8 @@ export const AdminImageUploadField: React.FC<AdminImageUploadFieldProps> = ({
           {gallery.map((u, idx) => {
             const isCover = !!coverValue && norm(coverValue) === u;
             const svg = isSvgUrl(u);
-            const previewUrl = svg ? withCloudinarySanitizeIfSvg(u) : u;
+            const rawPreviewUrl = svg ? withCloudinarySanitizeIfSvg(u) : u;
+            const previewUrl = previewSrc(rawPreviewUrl);
 
             return (
               <div
@@ -414,7 +437,11 @@ export const AdminImageUploadField: React.FC<AdminImageUploadFieldProps> = ({
                   <div className="w-35 shrink-0">
                     <div className="overflow-hidden rounded-md border bg-background">
                       <AspectRatio ratio={16 / 9}>
-                        {svg ? (
+                        {!previewUrl ? (
+                          <div className="flex h-full w-full items-center justify-center text-xs text-muted-foreground">
+                            Önizleme hazırlanıyor…
+                          </div>
+                        ) : svg ? (
                           <object
                             data={previewUrl}
                             type="image/svg+xml"

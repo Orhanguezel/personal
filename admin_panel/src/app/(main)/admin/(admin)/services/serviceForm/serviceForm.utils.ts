@@ -62,6 +62,56 @@ export const resolveInitialLocale = (
 
 const toStr = (v: unknown) => (v === null || v === undefined ? '' : String(v));
 
+type ServiceContentRecord = Record<string, unknown>;
+
+export const parseServiceContent = (raw: unknown): ServiceContentRecord => {
+  if (raw && typeof raw === 'object' && !Array.isArray(raw)) {
+    return { ...(raw as ServiceContentRecord) };
+  }
+
+  const text = toStr(raw).trim();
+  if (!text) return {};
+
+  try {
+    const parsed = JSON.parse(text);
+    if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
+      return parsed as ServiceContentRecord;
+    }
+  } catch {
+    // Legacy rows may contain HTML directly instead of a JSON object.
+  }
+
+  return { html: text };
+};
+
+const contentString = (content: ServiceContentRecord, key: string): string =>
+  toStr(content[key]);
+
+export const serializeServiceContent = (values: ServiceFormValues): string => {
+  const content = parseServiceContent(values.content);
+  const tags = toStr(values.tags)
+    .split(',')
+    .map((tag) => tag.trim())
+    .filter(Boolean);
+
+  const editable: Record<string, unknown> = {
+    html: values.description || '',
+    material: values.material || '',
+    includes: values.includes || '',
+    warranty: values.warranty || '',
+    area: values.area || '',
+    duration: values.duration || '',
+    maintenance: values.maintenance || '',
+    season: values.season || '',
+    equipment: values.equipment || '',
+    tags,
+  };
+
+  // Preserve packages, source metadata and any future keys while making every
+  // field visible in the form persist through the canonical content column.
+  return JSON.stringify({ ...content, ...editable });
+};
+
 export const buildInitialValues = (
   initial: ServiceDto | undefined,
   activeLocale: string | undefined,
@@ -119,6 +169,11 @@ export const buildInitialValues = (
     };
   }
 
+  const parsedContent = parseServiceContent(initial.content);
+  const parsedTags = Array.isArray(parsedContent.tags)
+    ? parsedContent.tags.map(toStr).filter(Boolean).join(', ')
+    : contentString(parsedContent, 'tags');
+
   return {
     id: initial.id,
     locale: loc,
@@ -128,14 +183,17 @@ export const buildInitialValues = (
     slug: toStr(initial.slug),
     summary: toStr(initial.summary),
     content: toStr(initial.content),
-    description: toStr(initial.description),
+    description:
+      contentString(parsedContent, 'html') ||
+      contentString(parsedContent, 'description') ||
+      toStr(initial.description),
 
-    material: toStr(initial.material),
+    material: contentString(parsedContent, 'material') || toStr(initial.material),
     price: toStr(initial.price_onetime ?? initial.price),
     currency: toStr((initial as { currency?: string }).currency) || 'USD',
     is_purchasable: !!initial.is_purchasable,
-    includes: toStr(initial.includes),
-    warranty: toStr(initial.warranty),
+    includes: contentString(parsedContent, 'includes') || toStr(initial.includes),
+    warranty: contentString(parsedContent, 'warranty') || toStr(initial.warranty),
     image_alt: toStr(initial.image_alt),
 
     // flags + order
@@ -150,14 +208,14 @@ export const buildInitialValues = (
     image_asset_id: toStr(initial.image_asset_id),
 
     // technical
-    area: toStr(initial.area),
-    duration: toStr(initial.duration),
-    maintenance: toStr(initial.maintenance),
-    season: toStr(initial.season),
-    equipment: toStr(initial.equipment),
+    area: contentString(parsedContent, 'area') || toStr(initial.area),
+    duration: contentString(parsedContent, 'duration') || toStr(initial.duration),
+    maintenance: contentString(parsedContent, 'maintenance') || toStr(initial.maintenance),
+    season: contentString(parsedContent, 'season') || toStr(initial.season),
+    equipment: contentString(parsedContent, 'equipment') || toStr(initial.equipment),
 
     // SEO + tags
-    tags: toStr((initial as any).tags),
+    tags: parsedTags || toStr((initial as any).tags),
     meta_title: toStr((initial as any).meta_title),
     meta_description: toStr((initial as any).meta_description),
     meta_keywords: toStr((initial as any).meta_keywords),

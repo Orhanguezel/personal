@@ -39,10 +39,13 @@ import {
 } from '@/integrations/hooks';
 import type { BlogSeoQualityScore } from '@/integrations/shared';
 import ContentQualityPanel from '@/components/admin/seo/content-quality-panel';
+import { serializeServiceContent } from '@/app/(main)/admin/(admin)/services/serviceForm/serviceForm.utils';
 
 function isUuidLike(v?: string) {
   if (!v) return false;
-  return /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(v);
+  // Legacy imported service IDs use a 10-character final segment, while new
+  // records use the canonical 12-character UUID segment.
+  return /^[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{10,12}$/i.test(v);
 }
 
 const normalizeLocale = (v: unknown): string =>
@@ -95,7 +98,9 @@ export default function AdminServiceDetailClient({ id }: { id: string }) {
   }, [sp]);
 
   // active locale (state, URL sync)
-  const [activeLocale, setActiveLocale] = React.useState<string>('');
+  // Start from the URL immediately. Waiting for the locales request here lets
+  // the DB default briefly win and can rewrite an explicit `?locale=tr` to DE.
+  const [activeLocale, setActiveLocale] = React.useState<string>(() => urlLocale);
 
   React.useEffect(() => {
     if (!localeOptions || localeOptions.length === 0) return;
@@ -107,8 +112,8 @@ export default function AdminServiceDetailClient({ id }: { id: string }) {
 
       const canUse = (l: string) => !!l && (localeSet.size === 0 || localeSet.has(l));
 
-      if (p && canUse(p)) return p;
       if (u && canUse(u)) return u;
+      if (p && canUse(p)) return p;
       if (def && canUse(def)) return def;
 
       const first = localeShortClient((localeOptions as any)?.[0]?.value);
@@ -209,15 +214,13 @@ export default function AdminServiceDetailClient({ id }: { id: string }) {
         locale: loc,
         name: values.name?.trim() || '',
         slug: values.slug?.trim() || '',
+        summary: values.summary || null,
+        content: serializeServiceContent(values),
 
-        description: values.description || undefined,
-        material: values.material || undefined,
-        price: values.price || undefined,
-        includes: values.includes || undefined,
-        warranty: values.warranty || undefined,
+        price_onetime: values.price || null,
+        currency: values.currency || 'USD',
+        is_purchasable: values.is_purchasable,
         image_alt: values.image_alt || undefined,
-
-        tags: values.tags || null,
         meta_title: values.meta_title || null,
         meta_description: values.meta_description || null,
         meta_keywords: values.meta_keywords || null,
