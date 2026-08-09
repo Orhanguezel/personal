@@ -1,9 +1,17 @@
+import { readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const appDir = dirname(fileURLToPath(import.meta.url));
 // node_modules/next monorepo kökünde (vps-guezel): frontend -> guezelwebdesign -> vps-guezel
 const workspaceRoot = resolve(appDir, '../..');
+
+// Dile gore URL haritasi — TEK KAYNAK: i18n/route-slugs.json
+// (i18n/routes.ts ayni dosyayi okur; next.config bir .ts dosyasini import
+// edemedigi icin harita JSON olarak tutuluyor.)
+const ROUTE_SLUGS = JSON.parse(
+  readFileSync(resolve(appDir, 'i18n/route-slugs.json'), 'utf8'),
+);
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -86,14 +94,50 @@ const nextConfig = {
   // dusuyor ve optimizer 400 donuyordu -> sitedeki urun/blog/fiyat gorselleri
   // kiriliyordu (2026-08-09, gzlteknoloji.com). Bu rewrite ile Next kendi
   // uzerinden backend'e proxy'ler; optimizer artik gorseli bulabiliyor.
+  // ── DILE GORE URL ─────────────────────────────────────────────────────────
+  // Yerellestirilmis adres -> gercek (Ingilizce) rota. Tablo: i18n/routes.ts
+  // Not: rewrite ADRESI DEGISTIRMEZ; ziyaretci /tr/hizmetler gorur.
   async rewrites() {
+    const localized = [];
+    for (const [route, byLocale] of Object.entries(ROUTE_SLUGS)) {
+      for (const [locale, slug] of Object.entries(byLocale)) {
+        if (slug === route) continue; // ayni ise rewrite gereksiz
+        localized.push(
+          { source: `/${locale}/${slug}`, destination: `/${locale}/${route}` },
+          { source: `/${locale}/${slug}/:path*`, destination: `/${locale}/${route}/:path*` },
+        );
+      }
+    }
+
     const origin = (
       process.env.UPLOADS_PROXY_ORIGIN ||
       process.env.NEXT_PUBLIC_MEDIA_URL ||
       ''
     ).replace(/\/+$/, '');
-    if (!origin) return [];
-    return [{ source: '/uploads/:path*', destination: `${origin}/uploads/:path*` }];
+    const uploads = origin
+      ? [{ source: '/uploads/:path*', destination: `${origin}/uploads/:path*` }]
+      : [];
+    return [...localized, ...uploads];
+  },
+
+  // Ingilizce yol -> yerellestirilmis yol (kalici). Ayni icerik iki farkli
+  // adresten servis edilmesin diye; kanonik adres yerellestirilmis olan.
+  async redirects() {
+    const out = [];
+    for (const [route, byLocale] of Object.entries(ROUTE_SLUGS)) {
+      for (const [locale, slug] of Object.entries(byLocale)) {
+        if (slug === route) continue;
+        out.push(
+          { source: `/${locale}/${route}`, destination: `/${locale}/${slug}`, permanent: true },
+          {
+            source: `/${locale}/${route}/:path*`,
+            destination: `/${locale}/${slug}/:path*`,
+            permanent: true,
+          },
+        );
+      }
+    }
+    return out;
   },
 
   images: {

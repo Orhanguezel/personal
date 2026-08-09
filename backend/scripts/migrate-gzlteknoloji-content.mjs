@@ -97,7 +97,12 @@ const FILE_PLAN = {
   '033_home_sections_v2_seed.sql': [SKIP, 'home_sections GWD modelinde yok (plan madde 12: GWD home modeline elle eslenecek)'],
   '034_testimonials_schema_seed.sql': [SKIP, 'testimonials tablosu yok; plan madde 6 -> reviews(060) tablosuna elle eslenecek'],
   '036_bionluk_tracker_schema.sql': [SKIP, 'ATILACAK: bionluk tracker'],
-  '037_marketing_content_seed.sql': [SKIP, 'ATILACAK: placeholder pazarlama icerigi'],
+  // DIKKAT — bu dosya once yanlislikla ATILMISTI. Plan bolum 3'te "placeholder
+  // marketing (037)" diye geciyor, ama dosyanin ICINDE plan madde 5'in istedigi
+  // 8 GERCEK BLOG YAZISI var (module_key='blog'; ai-overviews,
+  // chatgpt-neden-onermiyor, bayi-takibi-excel-crm ...) ve sayfa bazli
+  // seo_pages ayarlari. Atlandigi icin gzlteknoloji.com/tr/blog BOS geliyordu.
+  '037_marketing_content_seed.sql': [COPY, 'Blog yazilari + sayfa SEO ayarlari (plan madde 5)'],
 };
 
 // ─────────────────────────────────────────────────────────────
@@ -128,8 +133,17 @@ const FAKE_PROJECT_SLUGS = new Set([
   'node-js-express-backend-mongodb-nginx-pm2-kurulum',
 ]);
 
-/** Kaynakta bozuk kalmis basliklar (kacak backtick vb.) */
+/**
+ * Kaynakta bozuk kalmis basliklar + KONUM IFADELERI.
+ *
+ * Konum: kullanici karari (2026-08-09) — "biz her yere hizmet veriyoruz";
+ * hero/pazarlama metinlerinde sehir/bolge belirtilmiyor. Adres yalnizca ADRES
+ * ve YASAL alanlarda kalir (Gemlik VD, MERSIS, Ticaret Sicil, PostalAddress),
+ * bu yuzden yalnizca "... merkezli" pazarlama kaliplari hedefleniyor.
+ */
 const TEXT_FIXES = [
+  [/Gemlik\/Bursa merkezli /g, ''],
+  [/Gemlik ve Bursa merkezli /g, ''],
   [/Platformu`'/g, "Platformu'"],
   [/İzleme Platformu`/g, 'İzleme Platformu'],
 ];
@@ -153,6 +167,43 @@ const URL_MAP = {
   '/hakkimizda': '/custompages/about/hakkimizda',
   '/about': '/custompages/about/about-us',
 };
+
+/**
+ * DILE GORE URL — menu baglantilari her locale'de kendi slug'ini kullanir
+ * (/tr/hizmetler, /de/leistungen, /en/services). Harita TEK KAYNAK:
+ * frontend/i18n/route-slugs.json (next.config rewrites/redirects ve sitemap
+ * de ayni dosyadan besleniyor).
+ *
+ * Once URL_MAP ile emekli frontend'in Turkce rotalari GERCEK rota adina
+ * cevrilir (/hizmetler -> /services), sonra satirin locale'ine gore yeniden
+ * yerellestirilir. Boylece EN satiri /services, TR satiri /hizmetler alir.
+ */
+const ROUTE_SLUGS = JSON.parse(
+  fs.readFileSync(path.join(REPO, 'frontend/i18n/route-slugs.json'), 'utf8'),
+);
+
+const ABOUT_URL = {
+  tr: '/custompages/about/hakkimizda',
+  en: '/custompages/about/about-us',
+  de: '/custompages/about/about-us',
+};
+
+/** menu_items_i18n VALUES satirini locale'ine gore yerellestirir */
+function localizeMenuRow(tuple) {
+  const locMatch = tuple.match(/'(tr|en|de)'/);
+  if (!locMatch) return tuple;
+  const loc = locMatch[1];
+
+  let out = tuple;
+  for (const [route, byLocale] of Object.entries(ROUTE_SLUGS)) {
+    const slug = byLocale[loc] || route;
+    out = out.split(`'/${route}'`).join(`'/${slug}'`);
+  }
+  for (const v of Object.values(ABOUT_URL)) {
+    out = out.split(`'${v}'`).join(`'${ABOUT_URL[loc]}'`);
+  }
+  return out;
+}
 
 /**
  * Kaynakta olup hedef semada OLMAYAN kolonlar.
@@ -595,6 +646,26 @@ for (const file of srcFiles) {
   const raw = fs.readFileSync(path.join(SRC_DIR, file), 'utf8');
   const statements = splitStatements(raw);
 
+  // ONCE TARA: sahte projelerin ID'lerini topla.
+  // Slug yalnizca projects_i18n satirlarinda bulunur; taban `projects` satiri
+  // slug icermez. Ilk surumde sadece i18n satirlari eleniyordu ve taban
+  // kayitlar OKSUZ kaliyordu (27 proje / 23 ceviri) — cevirisiz proje
+  // listelerde bozuk gorunur.
+  const fakeProjectIds = new Set();
+  for (const stmt of statements) {
+    const c = classifyStatement(stmt);
+    if (c.kind !== 'dml' || c.table !== 'projects_i18n') continue;
+    const parsed = parseInsertValues(stmt);
+    if (!parsed) continue;
+    for (const tuple of parsed.tuples) {
+      if (!isFakeProjectRow(tuple)) continue;
+      const vals = splitTuple(tuple);
+      // projects_i18n: (id, project_id, locale, ...) -> 2. deger project_id
+      const pid = (vals[1] || '').trim();
+      if (pid.startsWith("'")) fakeProjectIds.add(pid);
+    }
+  }
+
   const keptStatements = [];
   for (let stmt of statements) {
     const { kind, table } = classifyStatement(stmt);
@@ -620,13 +691,21 @@ for (const file of srcFiles) {
       const si = synthesizeId(stmt, table);
       stmt = si.sql;
       report.synthesizedIds += si.added;
+
       if (DROP_EN_LOCALE_FILES.has(file)) {
         const r = dropValueRows(stmt, isEnRow);
         stmt = r.sql;
         report.droppedRows.en += r.dropped;
       }
       if (table.startsWith('project')) {
-        const r = dropValueRows(stmt, isFakeProjectRow);
+        const pred =
+          table === 'projects'
+            ? (tuple) => {
+                const id = (splitTuple(tuple)[0] || '').trim();
+                return fakeProjectIds.has(id);
+              }
+            : isFakeProjectRow;
+        const r = dropValueRows(stmt, pred);
         stmt = r.sql;
         report.droppedRows.fakeProject += r.dropped;
       }
@@ -636,7 +715,20 @@ for (const file of srcFiles) {
 
     const fixed = applyTextFixes(stmt);
     report.textFixes += fixed.fixes;
-    keptStatements.push(fixed.sql);
+    let finalSql = fixed.sql;
+
+    // DIKKAT: menu yerellestirmesi applyTextFixes'ten SONRA calismali.
+    // URL_MAP once emekli frontend'in Turkce rotalarini gercek rota adina
+    // ceviriyor (/hizmetler -> /services); onceden calistirilirsa yaptigimiz
+    // yerellestirme hemen geri aliniyordu.
+    if (table === 'menu_items_i18n') {
+      const parsed = parseInsertValues(finalSql);
+      if (parsed && parsed.tuples.length) {
+        finalSql = rebuildInsert(parsed.head, parsed.tuples.map(localizeMenuRow), parsed.tail);
+      }
+    }
+
+    keptStatements.push(finalSql);
   }
 
   // Icerigi kalmayan dosyayi yazma

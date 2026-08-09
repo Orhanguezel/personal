@@ -15,7 +15,7 @@ SET NAMES utf8mb4;
 UPDATE site_settings
 SET value = JSON_OBJECT(
   'title', 'GZL Teknoloji Hakkında',
-  'intro', 'GZL Teknoloji, Gemlik/Bursa merkezli bir yazılım ve dijital danışmanlık şirketidir. Resmî unvanımız GZL Danışmanlık Hizmetleri ve Teknoloji Ltd. Şti. olup özel yazılım geliştirme, kurumsal web sitesi ve e-ticaret projeleri, iş süreçleri otomasyonu, yapay zekâ entegrasyonu ve GEO/SEO danışmanlığı alanlarında çalışıyoruz.',
+  'intro', 'GZL Teknoloji, bir yazılım ve dijital danışmanlık şirketidir. Resmî unvanımız GZL Danışmanlık Hizmetleri ve Teknoloji Ltd. Şti. olup özel yazılım geliştirme, kurumsal web sitesi ve e-ticaret projeleri, iş süreçleri otomasyonu, yapay zekâ entegrasyonu ve GEO/SEO danışmanlığı alanlarında çalışıyoruz.',
   'sections', JSON_ARRAY(
     JSON_OBJECT(
       'title', 'Mühendislik disipliniyle yazılım geliştirme',
