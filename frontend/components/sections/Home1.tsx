@@ -7,7 +7,7 @@ import Link from "next/link"
 import { useMemo } from 'react';
 
 import { useStaticSiteSetting } from '@/utils/staticSiteSettings';
-import { normalizeUiHomeSettingValue, sanitizeHtml, type UiHomeCopy } from '@/integrations/shared';
+import { normalizeUiHomeSettingValue, sanitizeHtml, type UiHomeCopy, trimStr } from '@/integrations/shared';
 import { shouldUnoptimizeImage } from '@/utils/nextImage';
 import { getCvAssetPath } from '@/utils/cv';
 
@@ -36,7 +36,12 @@ export default function Home1({
 	const decorSrc = String(copy.decor_image || '').trim() || '/assets/imgs/hero/hero-1/decorate.webp';
 	const decorAlt = String(copy.decor_image_alt || '').trim() || '';
 	const heroUnoptimized = /^https?:\/\//i.test(heroSrc) && shouldUnoptimizeImage(heroSrc);
-	const cvHref = getCvAssetPath(safeLocale);
+	// Birincil CTA hedefi ayardan gelebilir (ui_home.home1.cta_primary_href).
+	// Sablon bunu SABIT olarak CV dosyasina baglamisti; GZL Teknoloji bir sirket
+	// ve CV sayfasi yok — buton /cv/tr'ye gidip 404 veriyordu (2026-08-09).
+	// Ayar yoksa eski davranis (CV) korunur.
+	const cvHref = trimStr(copy.cta_primary_href) || getCvAssetPath(safeLocale);
+	const isCvLink = !trimStr(copy.cta_primary_href);
 
 
 	return (
@@ -52,9 +57,14 @@ export default function Home1({
 								dangerouslySetInnerHTML={{ __html: sanitizeHtml(copy.title_html) }}
 							/>
 							<p className="text-300 mb-6">{copy.description}</p>
-							<Link href={cvHref} className="btn btn-gradient me-2" target="_blank" rel="noopener noreferrer" aria-label={copy.cta_primary}>
+							<Link
+								href={cvHref}
+								className="btn btn-gradient me-2"
+								{...(isCvLink ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+								aria-label={copy.cta_primary}
+							>
 								{copy.cta_primary}
-								<i className="ri-download-line ms-2" />
+								<i className={isCvLink ? "ri-download-line ms-2" : "ri-arrow-right-line ms-2"} />
 							</Link>
 							<Link href="/#contact" className="btn btn-outline-secondary d-inline-flex align-items-center" aria-label={copy.cta_secondary}>
 								<span>{copy.cta_secondary}</span>

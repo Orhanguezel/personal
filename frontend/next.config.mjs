@@ -80,6 +80,22 @@ const nextConfig = {
     ];
   },
 
+  // `/uploads/*` dosyalarini backend servis eder (nginx'te ayri location).
+  // Next.js resim optimizer'i GORELI yollari KENDI sunucusundan cekmeye
+  // calisir; orada /uploads bulunmadigi icin istek locale yonlendirmesine
+  // dusuyor ve optimizer 400 donuyordu -> sitedeki urun/blog/fiyat gorselleri
+  // kiriliyordu (2026-08-09, gzlteknoloji.com). Bu rewrite ile Next kendi
+  // uzerinden backend'e proxy'ler; optimizer artik gorseli bulabiliyor.
+  async rewrites() {
+    const origin = (
+      process.env.UPLOADS_PROXY_ORIGIN ||
+      process.env.NEXT_PUBLIC_MEDIA_URL ||
+      ''
+    ).replace(/\/+$/, '');
+    if (!origin) return [];
+    return [{ source: '/uploads/:path*', destination: `${origin}/uploads/:path*` }];
+  },
+
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [

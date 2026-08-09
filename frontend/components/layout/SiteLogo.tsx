@@ -41,6 +41,9 @@ const FALLBACK_URL = SITE_MEDIA_FALLBACKS.logo;
 const DEFAULT_W = 160;
 const DEFAULT_H = 60;
 
+/** Header'da logonun cikabilecegi en buyuk genislik (px). */
+const MAX_W = 200;
+
 const variantKeyMap: Record<Variant, string> = {
   default: SITE_MEDIA_KEYS.logo,
   dark: SITE_MEDIA_KEYS.logoDark,
@@ -83,8 +86,18 @@ const SiteLogo: React.FC<SiteLogoProps> = ({
       }
     } else {
       finalSrc = trimStr(media.url) || FALLBACK_URL;
-      finalW = media.width || DEFAULT_W;
-      finalH = media.height || DEFAULT_H;
+
+      // DB'deki genislik/yukseklik dosyanin GERCEK boyutudur, GORUNTULENECEK
+      // boyut degil. Dogrudan kullanilinca <img width> cok buyuk olabiliyor:
+      // GZL logosu 1410x261 oldugu icin header devasa aciliyordu (2026-08-09).
+      // En-boy oranini koruyarak MAX_W'ye olceklenir; kucuk logolar (orn.
+      // GWD'nin 66x65'i) oldugu gibi kalir.
+      const rawW = media.width || DEFAULT_W;
+      const rawH = media.height || DEFAULT_H;
+      const scale = rawW > MAX_W ? MAX_W / rawW : 1;
+
+      finalW = Math.round(rawW * scale);
+      finalH = Math.max(1, Math.round(rawH * scale));
     }
 
     const finalAlt =

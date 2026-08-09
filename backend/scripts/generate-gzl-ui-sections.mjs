@@ -39,7 +39,7 @@ const UI_DIR = path.join(REPO, 'frontend/public/ui');
 const OUT = path.join(REPO, 'backend/src/db/seed/content/gzl/904_gzl_ui_sections.sql');
 
 const LOCALES = ['tr', 'en', 'de'];
-const KEYS = ['ui_services', 'ui_project', 'ui_blog', 'ui_brands', 'ui_testimonials', 'ui_coporation'];
+const KEYS = ['ui_services', 'ui_project', 'ui_blog', 'ui_brands', 'ui_testimonials', 'ui_coporation', 'ui_skills', 'ui_resume'];
 
 const LOGO = '/uploads/site-media/logo_transparent.png';
 
@@ -207,6 +207,41 @@ const OVERRIDES = {
     decorate_img: { tr: '', en: '', de: '' },
   },
 
+
+  // ui_skills / ui_resume — sablonda BIREYSEL dille yazilmis ("Yeteneklerim",
+  // "Full-Stack Developer olarak ... gelistiriyorum"). GZL bir SIRKET; ayni
+  // bolumler kurumsal dile cevrildi. (Bu anahtarlar GZL DB'sinde yoktu ve
+  // panel/istemci 404 aliyordu.)
+  ui_skills: {
+    'skills1.heading': { tr: 'Uzmanlıklarımız', en: 'Our Expertise', de: 'Unsere Kompetenzen' },
+    'skills1.intro_html': {
+      tr: 'Kullandığımız teknolojiler ve üretim araçları.',
+      en: 'The technologies and production tools we use.',
+      de: 'Die Technologien und Werkzeuge, die wir einsetzen.',
+    },
+    'skills1.extra_intro': {
+      tr: 'Ayrıca şu alanlarda çalışıyoruz:',
+      en: 'We also work with:',
+      de: 'Wir arbeiten ausserdem mit:',
+    },
+    'skills2.badge': { tr: 'Uzmanlıklar', en: 'Expertise', de: 'Kompetenzen' },
+    'skills2.heading': { tr: 'Uzmanlıklarımız', en: 'Our Expertise', de: 'Unsere Kompetenzen' },
+  },
+
+  ui_resume: {
+    'resume1.heading': { tr: 'Deneyimimiz', en: 'Our Experience', de: 'Unsere Erfahrung' },
+    'resume1.intro_html': {
+      tr: 'Kurumsal web ve e-ticaret, ERP/CRM panelleri, otomasyon ve yapay zekâ entegrasyonu alanlarında üretime alınmış işler.',
+      en: 'Work delivered to production across corporate web and e-commerce, ERP/CRM panels, automation and AI integration.',
+      de: 'In den Produktivbetrieb gebrachte Projekte in Unternehmenswebsites und E-Commerce, ERP/CRM-Panels, Automatisierung und KI-Integration.',
+    },
+    'resume1.cta_label': { tr: 'İletişime geçin', en: 'Get in touch', de: 'Kontakt aufnehmen' },
+    'resume1.marquee_text': {
+      tr: 'Next.js . Fastify . MySQL . Drizzle',
+      en: 'Next.js . Fastify . MySQL . Drizzle',
+      de: 'Next.js . Fastify . MySQL . Drizzle',
+    },
+  },
   ui_coporation: {
     badge: { tr: 'İş Birliği', en: 'Collaboration', de: 'Zusammenarbeit' },
     heading_html: {

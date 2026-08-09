@@ -563,10 +563,21 @@ export function parseSiteLogoMedia(val: unknown): MediaValue {
 export function shouldBypassNextImageOptimizer(src: unknown): boolean {
   if (typeof src !== 'string') return false;
   const s = src.trim();
+  if (!s) return false;
+
+  // `/uploads/...` dosyalarini BACKEND servis eder (nginx'te ayri location).
+  // Next.js resim optimizer'i goreli yollari KENDI sunucusundan cekmeye
+  // calisir; orada /uploads bulunmadigi icin istek HTML'e dusuyor ve optimizer
+  // 400 donuyordu — sitedeki logo/urun/blog gorselleri bu yuzden kiriliyordu
+  // (2026-08-09'da gzlteknoloji.com'da gorulду). Bu dosyalar zaten uygun
+  // boyutta ve dogrudan servis edilebilir; optimizer atlanir.
+  if (s.startsWith('/uploads/')) return true;
+
   if (!isHttpUrl(s)) return false;
 
   try {
     const u = new URL(s);
+    if (u.pathname.startsWith('/uploads/')) return true;
     return u.hostname === 'localhost' || u.hostname === '127.0.0.1';
   } catch {
     return false;

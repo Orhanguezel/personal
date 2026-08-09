@@ -1076,6 +1076,8 @@ export type UiHomeCopy = {
     description: string;
     cta_primary: string;
     cta_secondary: string;
+    /** Bos ise bilesen CV dosyasina duser (bkz. Home1.tsx). */
+    cta_primary_href: string;
     experience_label: string;
     hero_image: string;
     hero_image_alt: string;
@@ -1121,6 +1123,8 @@ export function normalizeUiHomeSettingValue(value: unknown): UiHomeCopy {
       ),
       cta_primary: pick(home1, 'cta_primary', 'Download CV', 'home1_cta_primary'),
       cta_secondary: pick(home1, 'cta_secondary', 'Hire me', 'home1_cta_secondary'),
+      // Birincil CTA hedefi — bos ise bilesen CV dosyasina duser (eski davranis).
+      cta_primary_href: pick(home1, 'cta_primary_href', '', 'home1_cta_primary_href'),
       experience_label: pick(
         home1,
         'experience_label',
