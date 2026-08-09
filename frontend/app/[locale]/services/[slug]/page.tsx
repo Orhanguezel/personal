@@ -70,6 +70,7 @@ export default async function ServiceDetailPage({
       <RelatedProjects
         locale={safeLocale}
         category={(svc as { type?: string | null } | null)?.type ?? null}
+        currentServiceSlug={(svc as { slug?: string | null } | null)?.slug ?? slug}
         currentServiceName={(svc as { name?: string } | null)?.name ?? null}
       />
     </Layout>

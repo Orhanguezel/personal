@@ -15,6 +15,8 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Switch } from '@/components/ui/switch';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 import { AdminJsonEditor } from '@/app/(main)/admin/_components/common/AdminJsonEditor';
@@ -23,13 +25,14 @@ import { useAdminLocales } from '@/app/(main)/admin/_components/common/useAdminL
 import { useAdminUiCopy } from '@/app/(main)/admin/_components/common/useAdminUiCopy';
 import RichContentEditor from '@/components/common/RichContentEditor'; // ✅ ADDED
 
-import type { Project, UpsertProjectInput } from '@/integrations/shared';
-import { isUuidLike } from '@/integrations/shared';
+import type { Project, ServiceDto, UpsertProjectInput } from '@/integrations/shared';
+import { isUuidLike, parseStringArray } from '@/integrations/shared';
 import {
   useGetProjectAdminQuery,
   useGetProjectBySlugAdminQuery,
   useCreateProjectAdminMutation,
   useUpdateProjectAdminMutation,
+  useListServicesAdminQuery,
 } from '@/integrations/hooks';
 import type { BlogSeoQualityScore } from '@/integrations/shared';
 import ContentQualityPanel from '@/components/admin/seo/content-quality-panel';
@@ -65,6 +68,72 @@ const emptyForm: FormState = {
   currency: 'USD',
   is_purchasable: false,
 };
+
+function ProjectServiceSelector({
+  locale,
+  value,
+  onChange,
+  label,
+  helperText,
+}: {
+  locale: string;
+  value: string[];
+  onChange: (next: string[]) => void;
+  label?: string;
+  helperText?: string;
+}) {
+  const servicesQ = useListServicesAdminQuery({
+    locale: locale || undefined,
+    is_active: 1,
+    limit: 200,
+    offset: 0,
+  });
+  const services = React.useMemo(
+    () => ((servicesQ.data as { items?: ServiceDto[] } | undefined)?.items ?? []),
+    [servicesQ.data],
+  );
+  const selected = React.useMemo(() => new Set(value), [value]);
+
+  const toggle = (slug: string, checked: boolean) => {
+    onChange(checked ? [...new Set([...value, slug])] : value.filter((item) => item !== slug));
+  };
+
+  return (
+    <div className="space-y-2">
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <Label>{label || 'İlgili hizmetler'}</Label>
+        <Badge variant="secondary">{selected.size} seçili</Badge>
+      </div>
+      {helperText ? <p className="text-xs text-muted-foreground">{helperText}</p> : null}
+      <div className="max-h-72 space-y-1 overflow-y-auto rounded-md border p-2">
+        {servicesQ.isLoading ? (
+          <p className="p-2 text-sm text-muted-foreground">Hizmetler yükleniyor…</p>
+        ) : (
+          services.map((service) => {
+            const slug = String(service.slug ?? '').trim();
+            if (!slug) return null;
+            return (
+              <label
+                key={service.id}
+                className="flex cursor-pointer items-start gap-3 rounded-md p-2 hover:bg-muted/60"
+              >
+                <Checkbox
+                  checked={selected.has(slug)}
+                  onCheckedChange={(checked) => toggle(slug, checked === true)}
+                  className="mt-0.5"
+                />
+                <span className="min-w-0">
+                  <span className="block text-sm font-medium">{service.name || slug}</span>
+                  <span className="block wrap-break-word text-xs text-muted-foreground">{slug}</span>
+                </span>
+              </label>
+            );
+          })
+        )}
+      </div>
+    </div>
+  );
+}
 
 export default function AdminProjectDetailClient({ id }: { id: string }) {
   const router = useRouter();
@@ -112,7 +181,7 @@ export default function AdminProjectDetailClient({ id }: { id: string }) {
       const p = projectQ.data as Project;
       setForm({
         id: p.id,
-        locale: p.locale ?? '',
+        locale: p.locale ?? (p as Project & { locale_resolved?: string }).locale_resolved ?? '',
         is_published: p.is_published,
         is_featured: p.is_featured,
         display_order: p.display_order,
@@ -126,8 +195,8 @@ export default function AdminProjectDetailClient({ id }: { id: string }) {
         complete_date: p.complete_date ?? '',
         completion_time_label: p.completion_time_label ?? '',
         website_url: p.website_url ?? '',
-        services: Array.isArray(p.services) ? p.services : [],
-        techs: Array.isArray(p.techs) ? p.techs : [],
+        services: parseStringArray(p.services),
+        techs: parseStringArray(p.techs),
         title: p.title ?? '',
         slug: p.slug ?? '',
         summary: p.summary ?? '',
@@ -365,12 +434,12 @@ export default function AdminProjectDetailClient({ id }: { id: string }) {
               <Input value={form.completion_time_label ?? ''} onChange={(e) => setForm((p) => ({ ...p, completion_time_label: e.target.value }))} />
             </div>
 
-            <AdminJsonEditor
+            <ProjectServiceSelector
+              locale={form.locale || defaultLocaleFromDb || ''}
               label={page?.services_label}
               value={form.services ?? []}
-              onChange={(next) => setForm((p) => ({ ...p, services: Array.isArray(next) ? next : [] }))}
+              onChange={(next) => setForm((p) => ({ ...p, services: next }))}
               helperText={page?.services_help}
-              height={200}
             />
 
             <AdminJsonEditor

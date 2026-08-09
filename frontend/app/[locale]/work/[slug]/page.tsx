@@ -24,7 +24,7 @@ export async function generateStaticParams() {
 const BREADCRUMB_LABELS: Record<string, { home: string; work: string }> = {
   de: { home: 'Startseite', work: 'Portfolio' },
   en: { home: 'Home', work: 'Portfolio' },
-  tr: { home: 'Anasayfa', work: 'Referanslar' },
+  tr: { home: 'Anasayfa', work: 'Projeler' },
 };
 
 function workDescription(project: {
@@ -98,6 +98,7 @@ export default async function WorkSinglePage({
       <RelatedServices
         locale={safeLocale}
         category={(project as { category?: string | null } | null)?.category ?? null}
+        serviceSlugs={(project as { services?: string[] | null } | null)?.services ?? null}
       />
     </Layout>
   );

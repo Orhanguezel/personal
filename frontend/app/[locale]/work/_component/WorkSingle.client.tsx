@@ -63,10 +63,15 @@ export default function WorkSingleClient({
   );
 
   const gallery = useMemo(() => {
-    const fromImagesEndpoint = (Array.isArray(images) ? images : []) as ProjectImage[];
-    const fromDetail = Array.isArray((detailRaw as any)?.images)
+    const isActive = (image: ProjectImage) =>
+      image.is_active === true || (image as unknown as { is_active?: number }).is_active === 1;
+    const fromImagesEndpoint = ((Array.isArray(images) ? images : []) as ProjectImage[]).filter(
+      isActive,
+    );
+    const fromDetail = (Array.isArray((detailRaw as any)?.images)
       ? ((detailRaw as any).images as any[] as ProjectImage[])
-      : [];
+      : []
+    ).filter(isActive);
     return fromImagesEndpoint.length ? fromImagesEndpoint : fromDetail;
   }, [images, detailRaw]);
 
@@ -155,11 +160,6 @@ export default function WorkSingleClient({
               <div className="bg-6 px-5 py-3 rounded-2">
                 <p className="text-300 mb-0">{copy.label_complete}</p>
                 <h6>{detail.completePretty}</h6>
-              </div>
-
-              <div className="bg-6 px-5 py-3 rounded-2">
-                <p className="text-300 mb-0">{copy.label_services}</p>
-                <h6>{detail.servicesArr.join(', ')}</h6>
               </div>
 
               <div className="bg-6 px-5 py-3 rounded-2">

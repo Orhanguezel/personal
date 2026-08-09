@@ -28,12 +28,15 @@ const FALLBACK_TITLE: Record<string, string> = {
 export default async function RelatedServices({
   locale,
   category,
+  serviceSlugs,
 }: {
   locale: string;
   category?: string | null;
+  serviceSlugs?: string[] | null;
 }) {
   const slug = String(category ?? '').trim();
-  if (!slug) return null;
+  const selected = new Set((serviceSlugs ?? []).map((item) => String(item).trim()).filter(Boolean));
+  if (!slug && selected.size === 0) return null;
 
   const [services, categoryLabel] = await Promise.all([
     getServicesListServer({ locale, limit: 100 }),
@@ -41,12 +44,19 @@ export default async function RelatedServices({
   ]);
 
   const matching = services
-    .filter((s) => String((s as { type?: string }).type ?? '').trim() === slug)
+    .filter((s) => {
+      const item = s as { slug?: string; type?: string };
+      return selected.size > 0
+        ? selected.has(String(item.slug ?? '').trim())
+        : String(item.type ?? '').trim() === slug;
+    })
     .slice(0, 6);
   if (!matching.length) return null;
 
   const base = `/${locale}/${localizedSegment(locale, 'services')}`;
-  const title = FALLBACK_TITLE[locale] ?? FALLBACK_TITLE.en;
+  const title = selected.size > 0
+    ? ({ tr: 'Bu projede sunduğumuz hizmetler', en: 'Services delivered in this project', de: 'Leistungen in diesem Projekt' }[locale] ?? FALLBACK_TITLE.en)
+    : (FALLBACK_TITLE[locale] ?? FALLBACK_TITLE.en);
 
   return (
     <section className="section-related-services pb-120">

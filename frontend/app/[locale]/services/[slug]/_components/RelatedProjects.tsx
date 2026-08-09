@@ -54,22 +54,32 @@ function pickText(value: unknown, path: string[]): string | null {
 export default async function RelatedProjects({
   locale,
   category,
+  currentServiceSlug,
   currentServiceName,
 }: {
   locale: string;
   category?: string | null;
+  currentServiceSlug?: string | null;
   currentServiceName?: string | null;
 }) {
   const slug = String(category ?? '').trim();
+  const serviceSlug = String(currentServiceSlug ?? '').trim();
   if (!slug) return null;
 
   const [projects, categoryLabel, uiServices] = await Promise.all([
-    getProjectsListServer({ locale, category: slug, limit: 6 }),
+    getProjectsListServer({ locale, category: slug, limit: 100 }),
     getCategoryLabel(locale, slug),
     getStaticSiteSettingValue('ui_services', locale),
   ]);
 
-  if (!projects.length) return null;
+  const exactProjects = serviceSlug
+    ? projects.filter((project) =>
+        Array.isArray((project as { services?: string[] }).services) &&
+        (project as { services: string[] }).services.includes(serviceSlug),
+      )
+    : [];
+  const matchingProjects = (exactProjects.length ? exactProjects : projects).slice(0, 6);
+  if (!matchingProjects.length) return null;
 
   const title =
     pickText(uiServices, ['detail', 'related_projects_title']) ??
@@ -103,7 +113,7 @@ export default async function RelatedProjects({
             </div>
 
             <div className="row g-4">
-              {projects.map((p) => {
+              {matchingProjects.map((p) => {
                 const image = (p as { featured_image?: string | null }).featured_image ?? '';
                 const href = `${workPath}/${(p as { slug?: string }).slug ?? ''}`;
                 return (
