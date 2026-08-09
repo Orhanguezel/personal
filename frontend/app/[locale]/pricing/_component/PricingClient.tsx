@@ -12,6 +12,7 @@ import {
   fxDisclaimer,
   unitLabelForLocale,
 } from '@/utils/pricingDisplay';
+import { localizePath } from '@/i18n/routes';
 
 export type Props = {
   locale: string;
@@ -58,6 +59,13 @@ function planGroupTitle(key: string, locale: string): string {
     other: 'Other Packages',
   };
   return (locale.startsWith('tr') ? tr : en)[key] || key;
+}
+
+function productSlugForPlanGroup(key: string): string | null {
+  if (key === 'social-platform') return 'sosyal-medya-platformu';
+  if (key === 'export-radar') return 'ihracat-radari';
+  if (key === 'geoserra') return 'geoserra';
+  return null;
 }
 
 export default function PricingClient({
@@ -216,6 +224,15 @@ export default function PricingClient({
                       <div className="text-center mb-5">
                         <span className="text-uppercase text-primary-1 fs-7 fw-semibold">Paketler</span>
                         <h2 className="text-dark mt-2 mb-0">{planGroupTitle(groupKey, locale)}</h2>
+                        {productSlugForPlanGroup(groupKey) && (
+                          <Link
+                            href={`/${locale}${localizePath(locale, `/products/${productSlugForPlanGroup(groupKey)}`)}`}
+                            className="d-inline-flex align-items-center gap-1 mt-3 text-primary-1 fw-semibold"
+                          >
+                            {locale.startsWith('tr') ? 'Ürün detaylarını incele' : 'View product details'}
+                            <i className="ri-arrow-right-line" />
+                          </Link>
+                        )}
                       </div>
                       <div className="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 justify-content-center">
                         {groupPlans.map((p) => {

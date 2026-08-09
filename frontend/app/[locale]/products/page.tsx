@@ -1,6 +1,6 @@
 // =============================================================
 // FILE: frontend/app/[locale]/products/page.tsx
-// Products list page (server) — site packages for sale
+// Products list page (server) — SaaS product showcase
 // =============================================================
 
 import Layout from '@/components/layout/Layout';

@@ -1,250 +1,93 @@
-'use client';
-
-import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import type { ProductDto } from '@/integrations/shared/products.types';
-import { formatPrice } from '@/integrations/shared/products.types';
 import { sanitizeHtml } from '@/integrations/shared';
+import { localizePath } from '@/i18n/routes';
 
-type PaymentType = 'onetime' | 'subscription';
-
-const COPY: Record<string, Record<string, string>> = {
+const COPY = {
+  tr: {
+    home: 'Anasayfa', products: 'Ürünler', demo: 'Canlı demoyu aç', contact: 'Demo iste',
+    features: 'Öne çıkan özellikler', description: 'Ürün hakkında', tags: 'Kullanım alanları',
+  },
   de: {
-    home: 'Startseite',
-    products: 'Pakete',
-    onetime: 'Einmalzahlung',
-    subscription: 'Monatliches Abonnement',
-    buyNow: 'Jetzt kaufen',
-    liveDemo: 'Live Demo ansehen',
-    technologies: 'Technologien',
-    type: 'Typ',
-    typeDigital: 'Digitales Produkt (Quellcode-Lieferung)',
-    typeService: 'Dienstleistung',
-    features: 'Funktionen & Features',
-    description: 'Beschreibung',
+    home: 'Startseite', products: 'Produkte', demo: 'Live-Demo öffnen', contact: 'Demo anfragen',
+    features: 'Highlights', description: 'Über das Produkt', tags: 'Anwendungsbereiche',
   },
   en: {
-    home: 'Home',
-    products: 'Products',
-    onetime: 'One-time payment',
-    subscription: 'Monthly subscription',
-    buyNow: 'Buy now',
-    liveDemo: 'View live demo',
-    technologies: 'Technologies',
-    type: 'Type',
-    typeDigital: 'Digital product (source code delivery)',
-    typeService: 'Service',
-    features: 'Features',
-    description: 'Description',
+    home: 'Home', products: 'Products', demo: 'Open live demo', contact: 'Request a demo',
+    features: 'Key features', description: 'About the product', tags: 'Use cases',
   },
-  tr: {
-    home: 'Anasayfa',
-    products: 'Paketler',
-    onetime: 'Tek seferlik odeme',
-    subscription: 'Aylik abonelik',
-    buyNow: 'Satin al',
-    liveDemo: 'Canli demo',
-    technologies: 'Teknolojiler',
-    type: 'Tip',
-    typeDigital: 'Dijital urun (kaynak kodu teslimi)',
-    typeService: 'Hizmet',
-    features: 'Ozellikler',
-    description: 'Aciklama',
-  },
-};
+} as const;
 
-export default function ProductDetailClient({
-  locale,
-  product,
-}: {
-  locale: string;
-  product: ProductDto;
-}) {
-  const t = useMemo(() => COPY[locale] ?? COPY.en, [locale]);
-
-  const [paymentType, setPaymentType] = useState<PaymentType>(
-    product.price_onetime ? 'onetime' : 'subscription',
-  );
-
-  const priceOnetime = formatPrice(product.price_onetime, product.currency);
-  const priceMonthly = formatPrice(product.price_monthly, product.currency);
-  const features = product.features ?? [];
-  const techStack = product.tech_stack ?? [];
+export default function ProductDetailClient({ locale, product }: { locale: string; product: ProductDto }) {
+  const baseLocale = locale.startsWith('tr') ? 'tr' : locale.startsWith('de') ? 'de' : 'en';
+  const copy = COPY[baseLocale];
+  const productsHref = `/${locale}${localizePath(locale, '/products')}`;
+  const contactHref = `/${locale}${localizePath(locale, '/contact')}?subject=${encodeURIComponent(product.title || 'SaaS demo')}`;
   const gallery = product.gallery ?? [];
-
-  const checkoutHref = `/${locale}/checkout?product=${product.id}&type=${paymentType}`;
-
-  // API `category` alanini kategori tablolari eklendikten sonra NESNE olarak
-  // donuyor ({id, name, slug, ...}); once duz metin bekleniyordu ve React
-  // "Objects are not valid as a React child" ile 500 veriyordu (urun detay
-  // sayfasi, 2026-08-09). Metin, nesne ve bos deger artik birlikte ele aliniyor.
-  const categoryLabel = (() => {
-    const c: unknown = (product as { category?: unknown })?.category;
-    if (typeof c === 'string') return c.trim();
-    if (c && typeof c === 'object') {
-      const o = c as { name?: unknown; slug?: unknown };
-      if (typeof o.name === 'string' && o.name.trim()) return o.name.trim();
-      if (typeof o.slug === 'string' && o.slug.trim()) return o.slug.trim();
-    }
-    return '';
-  })();
+  const features = product.features?.length ? product.features : product.tags ?? [];
 
   return (
     <section className="pt-120 pb-150">
       <div className="container">
-        {/* Breadcrumb */}
-        <nav aria-label="breadcrumb" className="mb-4">
+        <nav aria-label="breadcrumb" className="mb-5">
           <ol className="breadcrumb">
-            <li className="breadcrumb-item">
-              <Link href={`/${locale}`}>{t.home}</Link>
-            </li>
-            <li className="breadcrumb-item">
-              <Link href={`/${locale}/products`}>{t.products}</Link>
-            </li>
-            <li className="breadcrumb-item active" aria-current="page">
-              {product.title}
-            </li>
+            <li className="breadcrumb-item"><Link href={`/${locale}`}>{copy.home}</Link></li>
+            <li className="breadcrumb-item"><Link href={productsHref}>{copy.products}</Link></li>
+            <li className="breadcrumb-item active" aria-current="page">{product.title}</li>
           </ol>
         </nav>
 
-        <div className="row g-5">
-          {/* Left: Image + Gallery */}
+        <div className="row g-5 align-items-center mx-0">
           <div className="col-lg-7">
             {product.cover_image_url && (
-              <div className="position-relative rounded overflow-hidden mb-4" style={{ height: '400px' }}>
+              <div className="position-relative rounded-4 overflow-hidden shadow-sm" style={{ minHeight: '420px' }}>
                 <Image
                   src={product.cover_image_url}
-                  alt={product.title || ''}
+                  alt={product.title || copy.products}
                   fill
                   className="object-fit-cover"
-                  sizes="(max-width: 768px) 100vw, 60vw"
+                  sizes="(max-width: 991px) 100vw, 58vw"
                   priority
                 />
               </div>
             )}
-
-            {gallery.length > 0 && (
-              <div className="row g-2">
-                {gallery.slice(0, 4).map((img, i) => (
-                  <div key={i} className="col-3">
-                    <div className="position-relative rounded overflow-hidden" style={{ height: '100px' }}>
-                      <Image
-                        src={img}
-                        alt={`${product.title} - ${i + 1}`}
-                        fill
-                        className="object-fit-cover"
-                        sizes="15vw"
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
           </div>
 
-          {/* Right: Info + CTA */}
           <div className="col-lg-5">
-            {categoryLabel ? (
-              <span className="badge bg-light text-dark mb-2">{categoryLabel}</span>
-            ) : null}
-            <h1 className="fw-bold mb-2">{product.title}</h1>
-            {product.subtitle && (
-              <p className="fs-5 text-muted mb-4">{product.subtitle}</p>
-            )}
+            <span className="text-uppercase text-primary-1 fs-7 fw-semibold">{product.category}</span>
+            <h1 className="ds-4 fw-bold text-dark mt-2 mb-3">{product.title}</h1>
+            {product.subtitle && <p className="fs-5 text-300 mb-4">{product.subtitle}</p>}
 
-            {/* Pricing Selection */}
-            <div className="card border mb-4">
-              <div className="card-body">
-                {product.price_onetime && (
-                  <label
-                    className={`d-flex align-items-center gap-3 p-3 rounded cursor-pointer mb-2 ${paymentType === 'onetime' ? 'bg-primary bg-opacity-10 border border-primary' : 'border'}`}
-                    style={{ cursor: 'pointer' }}
-                  >
-                    <input
-                      type="radio"
-                      name="paymentType"
-                      checked={paymentType === 'onetime'}
-                      onChange={() => setPaymentType('onetime')}
-                      className="form-check-input"
-                    />
-                    <div>
-                      <strong>{t.onetime}</strong>
-                      <div className="text-primary fs-4 fw-bold">{priceOnetime}</div>
-                    </div>
-                  </label>
-                )}
-
-                {product.price_monthly && product.paypal_plan_id && (
-                  <label
-                    className={`d-flex align-items-center gap-3 p-3 rounded cursor-pointer ${paymentType === 'subscription' ? 'bg-success bg-opacity-10 border border-success' : 'border'}`}
-                    style={{ cursor: 'pointer' }}
-                  >
-                    <input
-                      type="radio"
-                      name="paymentType"
-                      checked={paymentType === 'subscription'}
-                      onChange={() => setPaymentType('subscription')}
-                      className="form-check-input"
-                    />
-                    <div>
-                      <strong>{t.subscription}</strong>
-                      <div className="text-success fs-4 fw-bold">{priceMonthly}/mo</div>
-                    </div>
-                  </label>
-                )}
-              </div>
-            </div>
-
-            {/* CTA Buttons */}
-            <div className="d-grid gap-2 mb-4">
-              <Link href={checkoutHref} className="btn btn-primary btn-lg">
-                {t.buyNow}
-              </Link>
-              {product.demo_url && (
-                <a
-                  href={product.demo_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-outline-secondary btn-lg"
-                >
-                  {t.liveDemo}
-                </a>
-              )}
-            </div>
-
-            {/* Tech Stack */}
-            {techStack.length > 0 && (
+            {product.tags && product.tags.length > 0 && (
               <div className="mb-4">
-                <h6 className="fw-bold mb-2">{t.technologies}</h6>
+                <p className="fw-semibold text-dark mb-2">{copy.tags}</p>
                 <div className="d-flex flex-wrap gap-2">
-                  {techStack.map((tech) => (
-                    <span key={tech} className="badge bg-soft-primary text-primary px-3 py-2">
-                      {tech}
-                    </span>
-                  ))}
+                  {product.tags.map((tag) => <span key={tag} className="badge bg-light text-dark border px-3 py-2">{tag}</span>)}
                 </div>
               </div>
             )}
 
-            {/* Product Type */}
-            <div className="text-muted small">
-              <strong>{t.type}:</strong>{' '}
-              {product.product_type === 'digital' ? t.typeDigital : t.typeService}
+            <div className="d-flex flex-wrap gap-3">
+              <Link href={contactHref} className="btn btn-primary btn-lg">{copy.contact}</Link>
+              {product.demo_url && (
+                <a href={product.demo_url} target="_blank" rel="noopener noreferrer" className="btn btn-outline-secondary btn-lg">
+                  {copy.demo} <i className="ri-external-link-line" />
+                </a>
+              )}
             </div>
           </div>
         </div>
 
-        {/* Features */}
         {features.length > 0 && (
-          <div className="mt-5">
-            <h3 className="fw-bold mb-4">{t.features}</h3>
+          <div className="mt-8">
+            <h2 className="h3 fw-bold text-dark mb-4">{copy.features}</h2>
             <div className="row g-3">
-              {features.map((feature, i) => (
-                <div key={i} className="col-md-6 col-lg-4">
-                  <div className="d-flex align-items-start gap-2">
-                    <span className="text-primary fs-5">&#10003;</span>
-                    <span>{feature}</span>
+              {features.map((feature) => (
+                <div key={feature} className="col-md-6 col-lg-4">
+                  <div className="card border-0 shadow-sm h-100 p-4 d-flex flex-row align-items-start gap-3">
+                    <i className="ri-checkbox-circle-fill text-primary-1 fs-4" />
+                    <span className="text-dark">{feature}</span>
                   </div>
                 </div>
               ))}
@@ -252,14 +95,22 @@ export default function ProductDetailClient({
           </div>
         )}
 
-        {/* Description */}
         {product.description && (
-          <div className="mt-5">
-            <h3 className="fw-bold mb-4">{t.description}</h3>
-            <div
-              className="text-300 lh-lg"
-              dangerouslySetInnerHTML={{ __html: sanitizeHtml(product.description) }}
-            />
+          <div className="mt-8">
+            <h2 className="h3 fw-bold text-dark mb-4">{copy.description}</h2>
+            <div className="text-300 fs-5 lh-lg" dangerouslySetInnerHTML={{ __html: sanitizeHtml(product.description) }} />
+          </div>
+        )}
+
+        {gallery.length > 1 && (
+          <div className="row g-3 mt-5">
+            {gallery.slice(1, 5).map((image) => (
+              <div key={image} className="col-6 col-lg-3">
+                <div className="position-relative rounded-3 overflow-hidden" style={{ height: '180px' }}>
+                  <Image src={image} alt={product.title || copy.products} fill className="object-fit-cover" sizes="25vw" />
+                </div>
+              </div>
+            ))}
           </div>
         )}
       </div>

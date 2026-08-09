@@ -9,6 +9,7 @@ import { unwrapRouteParams, normalizeLocaleParam } from '@/i18n/localeParam';
 import { siteDefaultLocale } from '@/i18n/config';
 import { getSeoPage, SEO_PAGE_KEYS, buildMetadata } from '@/seo';
 import { BASE_URL } from '@/integrations/apiBase';
+import { normalizeProduct } from '@/integrations/shared/products.types';
 
 async function getProductBySlug(slug: string, locale: string) {
   const base = String(BASE_URL || '').replace(/\/+$/, '');
@@ -20,7 +21,7 @@ async function getProductBySlug(slug: string, locale: string) {
   });
 
   if (!res.ok) return null;
-  return res.json();
+  return normalizeProduct(await res.json());
 }
 
 export default async function ProductDetailPage({
@@ -37,8 +38,8 @@ export default async function ProductDetailPage({
       <Layout headerStyle={1} footerStyle={1}>
         <section className="pt-120 pb-150">
           <div className="container text-center">
-            <h2>Produkt nicht gefunden</h2>
-            <p>Das angeforderte Paket existiert nicht oder wurde entfernt.</p>
+            <h2>Ürün bulunamadı</h2>
+            <p>İstenen SaaS ürünü mevcut değil veya yayından kaldırılmış.</p>
           </div>
         </section>
       </Layout>

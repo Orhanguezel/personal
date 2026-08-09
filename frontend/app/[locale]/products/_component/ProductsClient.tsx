@@ -1,27 +1,37 @@
-'use client';
-
-import { useMemo, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import type { ProductDto } from '@/integrations/shared/products.types';
-import { formatPrice } from '@/integrations/shared/products.types';
-import { useListProductsPublicQuery } from '@/integrations/hooks';
-import { siteDefaultLocale } from '@/i18n/config';
+import { localizePath } from '@/i18n/routes';
 
-const CATEGORIES = [
-  { key: '', label: 'Alle' },
-  { key: 'emlak', label: 'Immobilien' },
-  { key: 'ecommerce', label: 'E-Commerce' },
-  { key: 'erp', label: 'ERP' },
-  { key: 'landing', label: 'Landing Page' },
-];
-
-const FALLBACK_IMAGES = [
-  '/assets/imgs/work/img-1.webp',
-  '/assets/imgs/work/img-2.webp',
-  '/assets/imgs/work/img-3.webp',
-  '/assets/imgs/work/img-4.webp',
-];
+const COPY = {
+  tr: {
+    badge: 'SaaS Ürünleri',
+    title: 'İşinizi büyüten dijital ürünler',
+    intro: 'Otomasyon, veri analizi ve yapay zekâ odaklı platformlarımızı keşfedin.',
+    details: 'Ürünü incele',
+    demo: 'Canlı demo',
+    featured: 'Öne çıkan',
+    empty: 'Henüz yayınlanmış bir SaaS ürünü bulunmuyor.',
+  },
+  de: {
+    badge: 'SaaS-Produkte',
+    title: 'Digitale Produkte für Ihr Wachstum',
+    intro: 'Entdecken Sie unsere Plattformen für Automatisierung, Datenanalyse und KI.',
+    details: 'Produkt ansehen',
+    demo: 'Live-Demo',
+    featured: 'Empfohlen',
+    empty: 'Derzeit sind keine SaaS-Produkte veröffentlicht.',
+  },
+  en: {
+    badge: 'SaaS Products',
+    title: 'Digital products built for growth',
+    intro: 'Explore our platforms for automation, data analysis, and artificial intelligence.',
+    details: 'View product',
+    demo: 'Live demo',
+    featured: 'Featured',
+    empty: 'There are no published SaaS products yet.',
+  },
+} as const;
 
 export default function ProductsClient({
   locale,
@@ -30,160 +40,86 @@ export default function ProductsClient({
   locale: string;
   initialItems?: ProductDto[];
 }) {
-  const [activeCategory, setActiveCategory] = useState('');
-
-  const { data, isLoading, isFetching } = useListProductsPublicQuery({
-    locale,
-// default_locale = SITE varsayilani (bkz. i18n/config siteDefaultLocale):
-// istenen dilin kendisi gonderilirse eksik ceviriler bos/tiklanamaz doner.
-    default_locale: siteDefaultLocale(),
-    limit: 100,
-    order: 'display_order.asc',
-    category: activeCategory || undefined,
-  });
-
-  const items = useMemo(() => {
-    const list = Array.isArray(data) && data.length > 0 ? data : initialItems;
-    if (activeCategory) {
-      return list.filter((p) => p.category === activeCategory);
-    }
-    return list;
-  }, [data, initialItems, activeCategory]);
+  const baseLocale = locale.startsWith('tr') ? 'tr' : locale.startsWith('de') ? 'de' : 'en';
+  const copy = COPY[baseLocale];
+  const items = initialItems.filter((product) => product.slug && product.status === 'active');
 
   return (
     <section className="section-products pt-120 pb-150">
       <div className="container">
-        {/* Header */}
-        <div className="text-center mb-5">
-          <span className="btn btn-tag fadeInUp">Site Pakete</span>
-          <h3 className="ds-3 mt-3 mb-4 text-dark fw-bold">
-            Fertige Website-Pakete
-          </h3>
-          <p className="fs-5 text-300 mb-5">
-            Professionelle, sofort einsatzbereite Website-Loesungen fuer Ihr Geschaeft
+        <div className="text-center mb-8">
+          <span className="btn btn-tag fadeInUp">{copy.badge}</span>
+          <h1 className="ds-3 mt-3 mb-4 text-dark fw-bold">{copy.title}</h1>
+          <p className="fs-5 text-300 mb-0 mx-auto" style={{ maxWidth: '720px' }}>
+            {copy.intro}
           </p>
         </div>
 
-        {/* Category Filter */}
-        <div className="d-flex justify-content-center gap-2 mb-5 flex-wrap">
-          {CATEGORIES.map((cat) => (
-            <button
-              key={cat.key}
-              className={`btn ${activeCategory === cat.key ? 'btn-primary' : 'btn-outline-secondary'} rounded-pill px-4`}
-              onClick={() => setActiveCategory(cat.key)}
-            >
-              {cat.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Loading */}
-        {isLoading && (
-          <div className="text-center py-5">
-            <div className="spinner-border text-primary" role="status">
-              <span className="visually-hidden">Loading...</span>
-            </div>
-          </div>
-        )}
-
-        {/* Product Grid */}
-        {!isLoading && (
+        {items.length > 0 ? (
           <div className="row g-4">
             {items.map((product, idx) => {
-              const href = `/${locale}/products/${product.slug}`;
-              const imgSrc = product.cover_image_url || FALLBACK_IMAGES[idx % FALLBACK_IMAGES.length];
-              const priceOnetime = formatPrice(product.price_onetime, product.currency);
-              const priceMonthly = formatPrice(product.price_monthly, product.currency);
+              const href = `/${locale}${localizePath(locale, `/products/${product.slug}`)}`;
+              const imgSrc = product.cover_image_url || `/assets/imgs/work/img-${(idx % 4) + 1}.webp`;
 
               return (
                 <div key={product.id} className="col-lg-4 col-md-6">
-                  <div className="card border-0 shadow-sm h-100 card-hover">
-                    <Link href={href}>
-                      <div className="position-relative overflow-hidden" style={{ height: '240px' }}>
-                        <Image
-                          src={imgSrc}
-                          alt={product.title || ''}
-                          fill
-                          className="object-fit-cover"
-                          sizes="(max-width: 768px) 100vw, 33vw"
-                        />
-                        {product.is_featured === 1 && (
-                          <span className="badge bg-warning position-absolute top-0 end-0 m-3">
-                            Featured
-                          </span>
-                        )}
-                      </div>
+                  <article className="card border-0 shadow-sm h-100 card-hover overflow-hidden">
+                    <Link href={href} className="position-relative d-block" style={{ height: '240px' }}>
+                      <Image
+                        src={imgSrc}
+                        alt={product.title || copy.badge}
+                        fill
+                        className="object-fit-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                      {product.is_featured === 1 && (
+                        <span className="badge bg-warning text-dark position-absolute top-0 end-0 m-3">
+                          {copy.featured}
+                        </span>
+                      )}
                     </Link>
-                    <div className="card-body d-flex flex-column">
-                      <span className="badge bg-light text-dark mb-2 align-self-start">
+                    <div className="card-body d-flex flex-column p-4">
+                      <span className="text-uppercase text-primary-1 fs-7 fw-semibold mb-2">
                         {product.category}
                       </span>
                       <Link href={href} className="text-decoration-none">
-                        <h5 className="card-title fw-bold text-dark">{product.title}</h5>
+                        <h2 className="h4 fw-bold text-dark mb-3">{product.title}</h2>
                       </Link>
-                      {product.subtitle && (
-                        <p className="text-muted small mb-3">{product.subtitle}</p>
-                      )}
+                      <p className="text-300 mb-4">{product.description || product.subtitle}</p>
 
-                      {/* Tech Stack */}
-                      {product.tech_stack && product.tech_stack.length > 0 && (
-                        <div className="mb-3">
-                          {product.tech_stack.slice(0, 4).map((tech) => (
-                            <span key={tech} className="badge bg-soft-primary text-primary me-1 mb-1">
-                              {tech}
+                      {product.tags && product.tags.length > 0 && (
+                        <div className="d-flex flex-wrap gap-2 mb-4">
+                          {product.tags.slice(0, 4).map((tag) => (
+                            <span key={tag} className="badge bg-light text-dark border">
+                              {tag}
                             </span>
                           ))}
                         </div>
                       )}
 
-                      <div className="mt-auto">
-                        {/* Pricing */}
-                        <div className="d-flex align-items-center gap-3 mb-3">
-                          {priceOnetime && (
-                            <div>
-                              <small className="text-muted d-block">Einmalig</small>
-                              <strong className="text-primary fs-5">{priceOnetime}</strong>
-                            </div>
-                          )}
-                          {priceMonthly && (
-                            <div>
-                              <small className="text-muted d-block">Monatlich</small>
-                              <strong className="text-success fs-5">{priceMonthly}/mo</strong>
-                            </div>
-                          )}
-                        </div>
-
-                        {/* Actions */}
-                        <div className="d-flex gap-2">
-                          <Link href={href} className="btn btn-primary btn-sm flex-grow-1">
-                            Details
-                          </Link>
-                          {product.demo_url && (
-                            <a
-                              href={product.demo_url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="btn btn-outline-secondary btn-sm"
-                            >
-                              Demo
-                            </a>
-                          )}
-                        </div>
+                      <div className="d-flex flex-wrap gap-2 mt-auto">
+                        <Link href={href} className="btn btn-primary flex-grow-1 justify-content-center">
+                          {copy.details} <i className="ri-arrow-right-line" />
+                        </Link>
+                        {product.demo_url && (
+                          <a
+                            href={product.demo_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn btn-outline-secondary"
+                          >
+                            {copy.demo}
+                          </a>
+                        )}
                       </div>
                     </div>
-                  </div>
+                  </article>
                 </div>
               );
             })}
           </div>
-        )}
-
-        {/* Empty State */}
-        {!isLoading && items.length === 0 && (
-          <div className="text-center py-5">
-            <h4 className="text-muted">Keine Pakete gefunden</h4>
-            <p className="text-300">Bitte versuchen Sie eine andere Kategorie.</p>
-          </div>
+        ) : (
+          <p className="text-center text-300 py-5">{copy.empty}</p>
         )}
       </div>
     </section>

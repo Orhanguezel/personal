@@ -61,32 +61,44 @@ function safeJsonArray(val: unknown): string[] | null {
 }
 
 export function normalizeProduct(raw: any): ProductDto {
+  const category = raw.category;
+  const categoryLabel =
+    typeof category === 'string'
+      ? category
+      : category && typeof category === 'object'
+        ? category.name ?? category.slug ?? ''
+        : '';
+  const specifications =
+    raw.specifications && typeof raw.specifications === 'object'
+      ? raw.specifications
+      : {};
+
   return {
     id: raw.id ?? '',
-    product_type: raw.product_type ?? 'service',
-    category: raw.category ?? 'landing',
+    product_type: raw.product_type ?? raw.item_type ?? 'service',
+    category: categoryLabel || 'SaaS',
     price_onetime: raw.price_onetime ?? null,
     price_monthly: raw.price_monthly ?? null,
     currency: raw.currency ?? 'EUR',
-    status: raw.status ?? 'draft',
+    status: raw.status ?? (raw.is_active ? 'active' : 'draft'),
     is_featured: raw.is_featured ?? 0,
-    display_order: raw.display_order ?? 0,
-    cover_image_url: raw.cover_image_url ?? null,
-    gallery: safeJsonArray(raw.gallery),
-    demo_url: raw.demo_url ?? null,
+    display_order: raw.display_order ?? raw.order_num ?? 0,
+    cover_image_url: raw.cover_image_url ?? raw.image_url ?? null,
+    gallery: safeJsonArray(raw.gallery ?? raw.images),
+    demo_url: raw.demo_url ?? specifications.demo_url ?? null,
     download_url: raw.download_url ?? null,
     tags: safeJsonArray(raw.tags),
-    tech_stack: safeJsonArray(raw.tech_stack),
+    tech_stack: safeJsonArray(raw.tech_stack ?? specifications.tech_stack),
     paypal_plan_id: raw.paypal_plan_id ?? null,
     created_at: raw.created_at ?? '',
     updated_at: raw.updated_at ?? '',
     title: raw.title ?? null,
     slug: raw.slug ?? null,
-    subtitle: raw.subtitle ?? null,
+    subtitle: raw.subtitle ?? raw.meta_description ?? null,
     description: raw.description ?? null,
-    features: safeJsonArray(raw.features),
-    seo_title: raw.seo_title ?? null,
-    seo_description: raw.seo_description ?? null,
+    features: safeJsonArray(raw.features ?? specifications.features),
+    seo_title: raw.seo_title ?? raw.meta_title ?? null,
+    seo_description: raw.seo_description ?? raw.meta_description ?? null,
     locale_resolved: raw.locale_resolved ?? null,
   };
 }
