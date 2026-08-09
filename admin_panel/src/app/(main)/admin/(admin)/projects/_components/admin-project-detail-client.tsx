@@ -30,6 +30,8 @@ import {
   useCreateProjectAdminMutation,
   useUpdateProjectAdminMutation,
 } from '@/integrations/hooks';
+import type { BlogSeoQualityScore } from '@/integrations/shared';
+import ContentQualityPanel from '@/components/admin/seo/content-quality-panel';
 
 type FormState = UpsertProjectInput & { id?: string };
 
@@ -85,6 +87,8 @@ export default function AdminProjectDetailClient({ id }: { id: string }) {
   const projectQ = useGetProjectAdminQuery(id, { skip: !canLoad, refetchOnMountOrArgChange: true });
   const [createProject, createState] = useCreateProjectAdminMutation();
   const [updateProject, updateState] = useUpdateProjectAdminMutation();
+
+  const seoQuality = (projectQ.data as { seo_quality?: BlogSeoQualityScore } | undefined)?.seo_quality;
 
   const [form, setForm] = React.useState<FormState>(emptyForm);
 
@@ -365,6 +369,9 @@ export default function AdminProjectDetailClient({ id }: { id: string }) {
             </div>
           </CardContent>
         </Card>
+
+        {/* Icerik kalite / SEO paneli — skor backend'de hesaplanir (seo-quality.ts) */}
+        {seoQuality ? <ContentQualityPanel score={seoQuality} /> : null}
       </div>
     </div>
   );

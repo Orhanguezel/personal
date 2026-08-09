@@ -11,6 +11,27 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  /* ── SEO / icerik kalite paneli token'lari ────────────────────────────────
+     Woody'den kopyalanan kalite panelleri `gm-*` siniflarini kullaniyor
+     (text-gm-gold, bg-gm-success, border-gm-border ...).
+     DIKKAT: bu token'lar WOODY'DE DE TANIMLI DEGIL — Tailwind v4 @theme'de
+     karsiligi olmayan sinif icin CSS URETMEZ, yani orada 1000'den fazla
+     kullanim sessizce hicbir sey yapiyor. Burada semantik karsiliklariyla
+     tanimlaniyorlar ki panel gercekten renk kodlu gorunsun:
+       success = yayina hazir, gold = gelistirilmeli, error = yetersiz.
+  */
+  --color-gm-success: oklch(0.62 0.16 150);
+  --color-gm-gold: oklch(0.75 0.14 85);
+  --color-gm-error: oklch(0.58 0.22 27);
+  --color-gm-border: var(--border);
+  --color-gm-border-soft: color-mix(in oklab, var(--border) 60%, transparent);
+  --color-gm-surface: var(--card);
+  --color-gm-text: var(--foreground);
+  --color-gm-text-dim: var(--muted-foreground);
+  /* Panelde `text-gm-muted` de kullaniliyor (woody'de tanimsizdi, yani o
+     siniflar woody'de de hicbir renk uretmiyordu). Burada tanimli. */
+  --color-gm-muted: var(--muted-foreground);
+
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);

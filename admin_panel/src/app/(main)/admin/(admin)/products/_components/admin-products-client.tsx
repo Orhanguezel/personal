@@ -40,6 +40,8 @@ import {
   useDeleteProductAdminMutation,
   useReorderProductsAdminMutation,
 } from '@/integrations/hooks';
+import type { BlogSeoQualityScore } from '@/integrations/shared';
+import { IndexabilityBadge, QualityBadge } from '@/components/admin/seo/quality-badge';
 
 type StatusFilter = 'all' | 'active' | 'draft' | 'archived';
 
@@ -355,6 +357,8 @@ export default function AdminProductsClient() {
                   <TableHead>Fiyat (Tek)</TableHead>
                   <TableHead>Fiyat (Aylık)</TableHead>
                   <TableHead>Durum</TableHead>
+                  <TableHead>SEO</TableHead>
+                  <TableHead>İndeks</TableHead>
                   <TableHead className="text-right">İşlemler</TableHead>
                 </TableRow>
               </TableHeader>
@@ -372,6 +376,12 @@ export default function AdminProductsClient() {
                       <Badge className={STATUS_BADGE[p.status] || ''}>
                         {p.status === 'active' ? 'Aktif' : p.status === 'draft' ? 'Taslak' : 'Arşiv'}
                       </Badge>
+                    </TableCell>
+                    <TableCell>
+                      <QualityBadge q={(p as { seo_quality?: BlogSeoQualityScore }).seo_quality} />
+                    </TableCell>
+                    <TableCell>
+                      <IndexabilityBadge published={p.status === 'active'} slug={(p as { slug?: string }).slug} />
                     </TableCell>
                     <TableCell className="text-right">
                       <div className="inline-flex items-center gap-1">
@@ -417,7 +427,7 @@ export default function AdminProductsClient() {
 
                 {showEmpty && (
                   <TableRow>
-                    <TableCell colSpan={7} className="py-10 text-center text-muted-foreground">
+                    <TableCell colSpan={9} className="py-10 text-center text-muted-foreground">
                       Kayıt bulunamadı
                     </TableCell>
                   </TableRow>

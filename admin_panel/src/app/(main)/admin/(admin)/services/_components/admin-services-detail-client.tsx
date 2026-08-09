@@ -36,6 +36,8 @@ import {
   useCreateServiceAdminMutation,
   useUpdateServiceAdminMutation,
 } from '@/integrations/hooks';
+import type { BlogSeoQualityScore } from '@/integrations/shared';
+import ContentQualityPanel from '@/components/admin/seo/content-quality-panel';
 
 function isUuidLike(v?: string) {
   if (!v) return false;
@@ -150,6 +152,8 @@ export default function AdminServiceDetailClient({ id }: { id: string }) {
 
   const [createService, createState] = useCreateServiceAdminMutation();
   const [updateService, updateState] = useUpdateServiceAdminMutation();
+
+  const seoQuality = (service as { seo_quality?: BlogSeoQualityScore } | undefined)?.seo_quality;
 
   const loading = localesLoading || localesFetching || isLoadingService || isFetchingService;
   const saving = createState.isLoading || updateState.isLoading;
@@ -359,6 +363,10 @@ export default function AdminServiceDetailClient({ id }: { id: string }) {
           </Button>
         </div>
       </div>
+
+      {/* Icerik kalite / SEO paneli — skoru backend hesaplar (seo-quality.ts).
+          Formun ustunde durur ki duzenlemeden once eksikler gorulsun. */}
+      {seoQuality ? <ContentQualityPanel score={seoQuality} /> : null}
 
       {/* ServiceForm: şimdilik mevcut bileşen (bir sonraki adımda shadcn refactor) */}
       <ServiceForm

@@ -27,6 +27,8 @@ import {
 
 import type { LocaleOption } from './_components/CustomPageHeader';
 import { CustomPageForm, type CustomPageFormValues } from './_components/CustomPageForm';
+import ContentQualityPanel from '@/components/admin/seo/content-quality-panel';
+import type { BlogSeoQualityScore } from '@/integrations/shared';
 
 function isUuidLike(v?: string) {
   if (!v) return false;
@@ -251,7 +253,13 @@ export default function AdminCustomPageDetailClient({ id }: { id: string }) {
     );
   }
 
+  const seoQuality = (page as { seo_quality?: BlogSeoQualityScore } | null | undefined)?.seo_quality;
+
   return (
+    <div className="space-y-4">
+      {/* Icerik kalite / SEO paneli — woody deseni: duzenleme sayfasinda
+          skor + gecen/kalan kontroller + oneriler birlikte gorunur. */}
+      {seoQuality ? <ContentQualityPanel score={seoQuality} /> : null}
     <CustomPageForm
       mode={mode}
       initialData={page}
@@ -264,5 +272,6 @@ export default function AdminCustomPageDetailClient({ id }: { id: string }) {
       onSubmit={handleSubmit}
       onCancel={onCancel}
     />
+    </div>
   );
 }
