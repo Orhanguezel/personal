@@ -8,6 +8,7 @@ import { usePathname } from 'next/navigation';
 import { useCreateContactMutation } from '@/integrations/hooks';
 import { useStaticSiteSetting } from '@/utils/staticSiteSettings';
 
+import { SITE_MEDIA_FALLBACKS } from '@/components/layout/siteAssets';
 import {
   cx,
   resolveLocaleForApi,
@@ -343,7 +344,7 @@ export default function Contact1() {
       <div className="scroll-move-right position-absolute bottom-0 start-50 translate-middle-x bg-900 overflow-hidden">
         <div className="img-custom-anim-top">
           <h3 className="stroke fs-280 text-lowercase text-900 mb-0 lh-1">
-            {section.marquee || 'guezelwebdesign'}
+            {section.marquee || SITE_MEDIA_FALLBACKS.brandName}
           </h3>
         </div>
       </div>

@@ -12,7 +12,7 @@ VALUES
     'home1', JSON_OBJECT(
       'greeting','👋 Hi there, I''m Orhan Güzel',
       'title_html','Building <span class="text-primary-1">production-ready</span> web platforms',
-      'description','Full-stack web developer based in Grevenbroich, serving businesses in Neuss, Mönchengladbach, Düsseldorf and beyond. I build production-ready web platforms, e-commerce systems and operational applications.',
+      'description','Full-stack web developer serving businesses across Germany and remote teams. I build production-ready web platforms, e-commerce systems and operational applications.',
       'cta_primary','Download CV',
       'cta_secondary','Get in touch',
       'experience_label','15+ platforms live in production',
@@ -43,7 +43,7 @@ VALUES
     'home1', JSON_OBJECT(
       'greeting','👋 Hallo, ich bin Orhan Güzel',
       'title_html','Produktionsreife <span class="text-primary-1">Web-Plattformen</span> entwickeln',
-      'description','Full-Stack Webentwickler aus Grevenbroich für Unternehmen in Neuss, Mönchengladbach, Düsseldorf und darüber hinaus. Ich entwickle produktionsreife Webplattformen, E-Commerce-Systeme und operative Anwendungen.',
+      'description','Full-Stack Webentwickler in Deutschland für Unternehmen bundesweit und darüber hinaus. Ich entwickle produktionsreife Webplattformen, E-Commerce-Systeme und operative Anwendungen.',
       'cta_primary','CV herunterladen',
       'cta_secondary','Kontakt aufnehmen',
       'experience_label','15+ Plattformen live in Produktion',
@@ -74,7 +74,7 @@ VALUES
     'home1', JSON_OBJECT(
       'greeting','👋 Merhaba, ben Orhan Güzel',
       'title_html','Üretime hazır <span class="text-primary-1">web platformları</span> geliştiriyorum',
-      'description','Grevenbroich merkezli full-stack web geliştiriciyim; Neuss, Mönchengladbach, Düsseldorf ve uzaktaki ekipler için üretime hazır web platformları, e-ticaret sistemleri ve operasyonel uygulamalar geliştiriyorum.',
+      'description','Almanya''da çalışan bir full-stack web geliştiricisiyim; yurt içi ve uzaktaki ekipler için üretime hazır web platformları, e-ticaret sistemleri ve operasyonel uygulamalar geliştiriyorum.',
       'cta_primary','CV indir',
       'cta_secondary','İletişime geç',
       'experience_label','15+ canlı platform',

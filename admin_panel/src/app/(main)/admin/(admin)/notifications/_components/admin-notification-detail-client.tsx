@@ -32,6 +32,7 @@ import {
   useUpdateNotificationMutation,
   useDeleteNotificationMutation,
 } from '@/integrations/hooks';
+import { toneClass, toneTextClass } from '@/components/admin/status-tone';
 
 function getErrMsg(e: unknown): string {
   const anyErr = e as any;
@@ -269,8 +270,8 @@ export default function AdminNotificationDetailClient({ id }: { id: string }) {
             )}
 
             {!isNew && (
-              <div className="rounded-md border border-yellow-200 bg-yellow-50 p-4 dark:border-yellow-800 dark:bg-yellow-950/20">
-                <p className="text-sm text-yellow-800 dark:text-yellow-200">
+              <div className={`rounded-md border p-4 ${toneClass('warning')}`}>
+                <p className={`text-sm ${toneTextClass('warning')}`}>
                   ℹ️ Bildirimler oluşturulduktan sonra düzenlenemez. Sadece okundu/okunmadı
                   durumu değiştirilebilir.
                 </p>

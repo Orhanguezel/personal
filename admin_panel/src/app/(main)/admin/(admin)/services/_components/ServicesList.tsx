@@ -34,6 +34,8 @@ import {
 } from '@/components/ui/pagination';
 
 import { ArrowUp, ArrowDown, Pencil, Trash2 } from 'lucide-react';
+import type { BlogSeoQualityScore } from '@/integrations/shared';
+import { IndexabilityBadge, QualityBadge } from '@/components/admin/seo/quality-badge';
 
 const PAGE_SIZE = 20;
 
@@ -230,6 +232,8 @@ export const ServicesList: React.FC<ServicesListProps> = ({
                             {s.is_active ? t('admin.services.list.activeStatus') : t('admin.services.list.inactiveStatus')}
                           </Badge>
                           <Badge variant="secondary">{s.featured ? t('admin.services.list.featuredStatus') : t('admin.services.list.normalStatus')}</Badge>
+                          <QualityBadge q={(s as { seo_quality?: BlogSeoQualityScore }).seo_quality} />
+                          <IndexabilityBadge published={s.is_active} slug={s.slug} />
                         </div>
                       </TableCell>
 
@@ -323,6 +327,8 @@ export const ServicesList: React.FC<ServicesListProps> = ({
                       {s.is_active ? t('admin.services.list.activeStatus') : t('admin.services.list.inactiveStatus')}
                     </Badge>
                     <Badge variant="secondary">{s.featured ? t('admin.services.list.featuredStatus') : t('admin.services.list.normalStatus')}</Badge>
+                    <QualityBadge q={(s as { seo_quality?: BlogSeoQualityScore }).seo_quality} />
+                    <IndexabilityBadge published={s.is_active} slug={s.slug} />
                   </div>
 
                   <div className="text-xs text-muted-foreground">

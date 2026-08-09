@@ -38,6 +38,8 @@ import { useAdminUiCopy } from '@/app/(main)/admin/_components/common/useAdminUi
 
 import type { Project } from '@/integrations/shared';
 import { useListProjectsAdminQuery } from '@/integrations/hooks';
+import type { BlogSeoQualityScore } from '@/integrations/shared';
+import { IndexabilityBadge, QualityBadge } from '@/components/admin/seo/quality-badge';
 
 function formatPriceWithCurrency(
   amount: string | number | null | undefined,
@@ -200,6 +202,8 @@ export default function AdminProjectsClient() {
                 <TableHead>{page?.col_title}</TableHead>
                 <TableHead>{page?.col_locale}</TableHead>
                 <TableHead>{page?.col_published}</TableHead>
+                <TableHead>SEO</TableHead>
+                <TableHead>İndeks</TableHead>
                 <TableHead>{page?.col_featured}</TableHead>
                 <TableHead>{page?.col_price}</TableHead>
                 <TableHead>{page?.col_sale}</TableHead>
@@ -210,7 +214,7 @@ export default function AdminProjectsClient() {
             <TableBody>
               {rows.length === 0 && !listQ.isFetching && (
                 <TableRow>
-                  <TableCell colSpan={8} className="text-center text-sm text-muted-foreground">
+                  <TableCell colSpan={10} className="text-center text-sm text-muted-foreground">
                     {common?.states?.empty}
                   </TableCell>
                 </TableRow>
@@ -223,6 +227,12 @@ export default function AdminProjectsClient() {
                     <Badge variant={item.is_published ? 'secondary' : 'outline'}>
                       {item.is_published ? page?.filter_yes : page?.filter_no}
                     </Badge>
+                  </TableCell>
+                  <TableCell>
+                    <QualityBadge q={(item as { seo_quality?: BlogSeoQualityScore }).seo_quality} />
+                  </TableCell>
+                  <TableCell>
+                    <IndexabilityBadge published={item.is_published} slug={(item as { slug?: string }).slug} />
                   </TableCell>
                   <TableCell>
                     <Badge variant={item.is_featured ? 'secondary' : 'outline'}>
@@ -240,7 +250,11 @@ export default function AdminProjectsClient() {
                   <TableCell>{item.display_order}</TableCell>
                   <TableCell className="text-right">
                     <Button variant="outline" size="sm" asChild>
-                      <Link href={`/admin/projects/${encodeURIComponent(item.id)}`}>
+                      <Link
+                        href={`/admin/projects/${encodeURIComponent(
+                          String((item as { slug?: string }).slug ?? '').trim() || item.id,
+                        )}`}
+                      >
                         {common?.actions?.edit}
                       </Link>
                     </Button>

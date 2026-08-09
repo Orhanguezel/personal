@@ -106,14 +106,16 @@ export default function OffCanvas({ isOffCanvas, handleOffCanvas }: OffCanvasPro
     return safeText(raw);
   }, [contact]);
 
-  const email = useMemo(() => {
-    const raw = pickStr(contact, ['email'], '');
-    return safeText(raw, 'orhanguzell@gmail.com');
-  }, [contact]);
+  // Fallback'ler BILEREK BOS: bu kod tabani iki markayi sunuyor
+  // (guezelwebdesign.com ve gzlteknoloji.com). Buraya sabit bir e-posta/adres
+  // yazmak, ayarlari eksik olan deployment'ta DIGER markanin iletisim
+  // bilgisini gostermek demekti — gzlteknoloji.com'da "Grevenbroich" ve
+  // GWD e-postasi bu yuzden cikiyordu. Deger yoksa alan gosterilmez.
+  const email = useMemo(() => safeText(pickStr(contact, ['email'], '')), [contact]);
 
   const skype = useMemo(() => safeText(pickStr(contact, ['skype'], '')), [contact]);
 
-  const address = useMemo(() => safeText(pickStr(contact, ['address'], ''), 'Grevenbroich'), [contact]);
+  const address = useMemo(() => safeText(pickStr(contact, ['address'], '')), [contact]);
 
   const socialLinks = useMemo(() => {
     const entries: Array<{ key: string; url: string; icon: string; label: string }> = [

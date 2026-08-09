@@ -21,6 +21,7 @@ import {
 } from '@/integrations/shared';
 import SiteLogo from '../SiteLogo';
 import { FooterLegalLinks } from './FooterLegalLinks';
+import { SITE_MEDIA_FALLBACKS } from '@/components/layout/siteAssets';
 
 export default function Footer2() {
   const pathname = usePathname() || '/';
@@ -41,7 +42,7 @@ export default function Footer2() {
   const brandValue = brandRowValue;
   const socialsValue = socialsRowValue;
 
-  const brandName = useMemo(() => pickBrandName(brandValue, 'guezelwebdesign'), [brandValue]);
+  const brandName = useMemo(() => pickBrandName(brandValue, SITE_MEDIA_FALLBACKS.brandName), [brandValue]);
 
   const socials = useMemo(() => {
     // DB’de x var; template twitter iconu var -> x ile mapliyoruz

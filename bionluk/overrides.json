@@ -1,0 +1,333 @@
+{
+  "gigs": {
+    "796863": {
+      "description_en": "We build a multilingual QR menu and online ordering platform tailored to your restaurant, using Next.js (App Router) + TypeScript + Express + MongoDB.\n\nModules: categories/products, variants & extras, cart/coupons, delivery and takeaway, courier workflow, admin panel and reports.\n\nMobile and SEO friendly, performance-focused and secure (HTTP-only cookies).\n\nDelivery: live demo, source code (GitHub), concise documentation and installation support.\n\nOptional: payment integration (iyzico/Stripe), multi-location support, WhatsApp order button.\n\n4 revisions included; requests outside the agreed scope are quoted separately.",
+      "packages": {
+        "basic": {
+          "title_en": "Basic — QR Menu + Simple Cart",
+          "description_en": "Single location, single language. QR menu, product–variant–extras management and a simple cart. Standard theme, mobile/SEO friendly."
+        },
+        "standard": {
+          "title_en": "Standard — Cart + Coupons + Multilingual",
+          "description_en": "Single/multi location, 2 languages (TR + EN/DE). Cart + coupons, delivery and takeaway settings, basic reports. Theme color customization."
+        },
+        "premium": {
+          "title_en": "Pro — Multi-Location + Courier + Payments",
+          "description_en": "Multiple locations + delivery zones, courier/delivery workflow, coupons/campaigns, advanced reports. Custom component design. Payment integration."
+        }
+      },
+      "slug": {
+        "tr": "online-siparis-sistemi",
+        "en": "online-ordering-system"
+      },
+      "title_en": "Online Ordering System with QR Menu for Restaurants"
+    },
+    "800224": {
+      "description_en": "We deliver reliable, scalable and high-performance backend development and server setup services tailored to your needs.\n\nWHAT WE OFFER\n\nBackend development\n- Modular REST APIs with Node.js & Express\n- Secure authentication with JWT/tokens + RBAC\n- MongoDB (Mongoose) schema, index and query optimization\n- Real-time features (Socket.io/WebSocket)\n- File uploads and CDN/cloud storage (Cloudinary/S3)\n- Postman/Swagger documentation, optional Jest tests\n\nDevOps / go-live\n- Nginx (1.24+) reverse proxy on Ubuntu 22.04 LTS\n- Zero-downtime deploys with PM2 (cluster mode)\n- Let's Encrypt SSL with automatic renewal\n- DNS/domain management (A/AAAA, CNAME, TXT, SPF/DKIM/DMARC)\n- Logging & monitoring (pm2/nginx), backups and .env management\n\nCONCRETE KPIs & SLA (targets/benchmarks)\n- Uptime: 99.9% SLA\n- API p95 response time: < 200–400 ms (Express + correct indexing)\n- TTFB improvement: 30–60% (Nginx cache, brotli/gzip, keep-alive)\n- Deploy downtime: 0 s (PM2 reload/graceful)\n- RPS (example 2 vCPU VPS): 1k–3k req/s on read-heavy endpoints\n- 5xx error rate: < 0.5% (health checks + rate limiting)\n- Backups: daily (7-day) + weekly (4-week) retention\n- SSL renewal check: automatic cron every 60 days\n- Cold start to live: < 5 min (optional CI/CD)\n\nSECURITY DEFAULTS\n- OWASP Top 10-focused review\n- Rate limiting: default 100 requests/min/IP (configurable)\n- Passwords: bcrypt 12+ rounds; JWT access 15 min / refresh 7 days\n- Cookies: httpOnly, secure, sameSite; domain-scoped CORS\n\nENVIRONMENT & VERSIONS\nNode.js 18/20 LTS, Express, MongoDB 6/7, Nginx 1.24+, PM2 5.x, Ubuntu 22.04 LTS, Postman/Swagger, Git/GitHub.\n\nDELIVERABLES\n- Source code + README/runbook\n- Postman collection / Swagger\n- Nginx + PM2 configurations, SSL/DNS records\n- Short-term support (Q&A / minor fixes)\n\nIf you want an end-to-end, measurable solution for backend development or a production launch with Nginx + PM2 + DNS + SSL, let's bring your project live together.",
+      "packages": {
+        "basic": {
+          "title_en": "Server Setup & Deployment (Single App)",
+          "description_en": "Ubuntu 22.04 initial setup, user/SSH keys, UFW; Nginx reverse proxy + HTTP/2 + gzip/brotli; PM2."
+        },
+        "standard": {
+          "title_en": "Backend + Database + Deployment",
+          "description_en": "Everything in Basic + MongoDB (Mongoose) schemas & indexes, JWT/RBAC authentication and 8–12 REST endpoints."
+        },
+        "premium": {
+          "title_en": "Production-Ready Infrastructure (End-to-End)",
+          "description_en": "Everything in Standard + real-time (Socket.io), file uploads + CDN/S3/Cloudinary, staging + production environments."
+        }
+      },
+      "slug": {
+        "tr": "ubuntu-vps-kurulum-yayinlama",
+        "en": "ubuntu-vps-setup-deployment"
+      },
+      "title_en": "Ubuntu VPS Setup & Production Deployment"
+    },
+    "825066": {
+      "description_en": "We bring quotation preparation, job tracking and reporting for manufacturing and service businesses together in a single web-based system. We set up a company-specific admin panel and make the entire process — from quote to job to report — simple and clear. After setup, we provide usage training and onboarding support.",
+      "packages": {
+        "basic": {
+          "title_en": "Starter",
+          "description_en": "For small businesses."
+        }
+      },
+      "slug": {
+        "tr": "teklif-raporlama-web-sayfasi",
+        "en": "quotation-reporting-web-page"
+      },
+      "title_en": "Quotation & Reporting Web Application for Businesses"
+    },
+    "825070": {
+      "description_en": "A real estate listing platform built specifically for your agency, deployed on your own domain and your own server:\n\n- Unlimited listings with advanced filtering\n- Visitor/end-user sign-up and member accounts\n- \"Featured listing\" showcase\n- Unlimited categories (For Sale, For Rent, Residential, Residence, Commercial, etc.)\n- All the capabilities you would expect from the leading real estate listing portals\n- Detailed search (by region, sale/rent, residential/commercial, price, listing detail, or quick title search)\n- Future-dated listing publication\n- Approval workflow — listings created by agents are approved by an authorized user\n- Plan photos, videos and listing details in advance and attach them to the listing\n- Property location pinning on Google Maps\n- YouTube video embedding\n- Demo account available for testing\n\nPlease get in touch for details.",
+      "packages": {
+        "basic": {
+          "title_en": "Basic",
+          "description_en": "A ready-to-use setup — enter your company details and start publishing right away."
+        },
+        "standard": {
+          "title_en": "Standard",
+          "description_en": "Customized for your company, with an adapted design."
+        },
+        "premium": {
+          "title_en": "Professional",
+          "description_en": "For established agencies with large portfolios, specialized in their market."
+        }
+      },
+      "slug": {
+        "tr": "emlak-ilan-sitesi",
+        "en": "real-estate-listing-website"
+      },
+      "title_en": "Custom Real Estate Listing Website"
+    },
+    "825076": {
+      "description_en": "Our SEO service covers:\n\n- Site speed optimization\n- Title, meta description and Open Graph tag optimization\n- Heading (H tag) hierarchy optimization\n- Index & noindex optimization\n- Nofollow optimization\n- Rich snippet optimization\n- Schema structured data optimization\n- Internal linking optimization\n- Sitemap optimization\n- Image SEO optimization\n- Robots.txt optimization\n- Anchor link optimization\n- Indexing API optimization\n- Breadcrumb optimization\n- Knowledge Graph optimization\n- 404 error optimization\n- Orphan page optimization\n- Pages-with-redirect-links optimization\n- Toxic backlink blocking\n- Detailed before/after report\n\n- We deliver a growth planning report outlining the path your site should follow to grow.\n- We also provide detailed guidance on how to run keyword analysis for the articles you plan to publish.",
+      "packages": {
+        "basic": {
+          "title_en": "Basic",
+          "description_en": "Entry level."
+        }
+      },
+      "slug": {
+        "tr": "seo-hizmeti",
+        "en": "seo-service"
+      },
+      "title_en": "SEO Service — Move Your Website Up the Search Rankings"
+    },
+    "840180": {
+      "description_en": "We develop multilingual, multi-category e-commerce platforms using Next.js, React and Node.js. Our end-to-end full-stack solutions include product management, a cart system, a coupon module, multi-store infrastructure and payment integration. We deliver SEO-friendly, fast and scalable projects.",
+      "packages": {
+        "basic": {
+          "title_en": "Starter Package",
+          "description_en": "Single-language, essential e-commerce website. Product listing, cart and payment system included."
+        },
+        "standard": {
+          "title_en": "Professional Package",
+          "description_en": "Multi-category, multilingual e-commerce website. Admin panel, coupon and store system included."
+        },
+        "premium": {
+          "title_en": "Enterprise Package",
+          "description_en": "Full-scale e-commerce platform + iOS & Android mobile apps. SEO, analytics and custom integrations included."
+        }
+      },
+      "slug": {
+        "tr": "modern-e-ticaret-sitesi",
+        "en": "modern-ecommerce-website"
+      },
+      "title_en": "Modern E-Commerce Website Development"
+    },
+    "840182": {
+      "description_en": "We develop modern corporate websites for clinics, spas, beauty centers and healthcare professionals. Our end-to-end full-stack solutions include an online appointment booking module, calendar integration, multilingual support and an AI-powered chatbot. Your customers can book appointments 24/7, while you manage the entire process from the admin panel.",
+      "packages": {
+        "basic": {
+          "title_en": "Starter Package",
+          "description_en": "Single-language corporate website. Service pages and contact form included."
+        },
+        "standard": {
+          "title_en": "Professional Package",
+          "description_en": "Multilingual corporate website + online appointment booking system and calendar management included."
+        },
+        "premium": {
+          "title_en": "Enterprise Package",
+          "description_en": "Multilingual corporate website + online appointment system + AI-powered chatbot. Admin panel included."
+        }
+      },
+      "slug": {
+        "tr": "randevu-sistemli-kurumsal-site",
+        "en": "appointment-corporate-website"
+      },
+      "title_en": "Corporate Website with Online Appointment Booking"
+    },
+    "850998": {
+      "description_en": "We make your website visible not only on Google, but also in ChatGPT, Gemini and Perplexity.\n\nWhat is GEO (Generative Engine Optimization)?\nUsers increasingly reach information through AI assistants. GEO measures and improves how your site is perceived by these systems — and whether it gets cited.\n\nAUDIT SCOPE\n\nGEO & AI Visibility\n- AI citability score (0–100)\n- Readiness status for ChatGPT, Gemini, Perplexity and Google AI Overviews\n- AI crawler access review (GPTBot, ClaudeBot, PerplexityBot, etc.)\n- llms.txt standard compliance\n- Schema.org / JSON-LD structured data audit\n- Brand awareness and reference visibility across AI systems\n\nTechnical SEO\n- robots.txt, sitemap.xml and canonical URL checks\n- Meta tags, Open Graph, Twitter Card\n- Internal link structure and anchor text analysis\n- Index/noindex status\n\nLighthouse & Core Web Vitals\n- Performance score (LCP, INP, CLS metrics)\n- Mobile friendliness and accessibility\n- Resource optimization (JS, CSS, images)\n\nDELIVERED REPORT\nA professional PDF including score gauges, a platform-by-platform readiness table, a prioritized action plan and technical notes you can hand directly to your developer.\n\nSites we have previously audited include energetische-massage-bonn.de, paketjet.com, sportoonline.com, guezelwebdesign.com and more.\n\nA URL is all we need — no site access required.",
+      "packages": {
+        "basic": {
+          "title_en": "Essential Audit",
+          "description_en": "The audit includes findings plus an action plan."
+        }
+      },
+      "slug": {
+        "tr": "geo-seo-lighthouse-analizi",
+        "en": "geo-seo-lighthouse-audit"
+      },
+      "title_en": "GEO + SEO + Lighthouse Audit for Your Website"
+    },
+    "861114": {
+      "description_en": "Would you like to run your entire business from a single dashboard? We develop custom ERP software that brings inventory, orders, production, accounts, invoicing and reporting together — not an off-the-shelf template, but a system designed around your workflow that grows as you do.\n\nBecause we build production-grade, multi-user enterprise systems, we get the hardest parts of ERP right from the start: multi-user data consistency, authorization and real-time synchronization.\n\nMODULES WE BUILD (AS NEEDED)\n\n- Inventory and warehouse management (including critical stock alerts)\n- Order, sales and purchasing tracking\n- Production / work order planning\n- Accounts, invoicing and payment tracking\n- User roles and permissions (multi-user)\n- Notification system (in-app / email)\n- Reporting and Excel export\n- Admin panel and mobile-friendly interface\n\nTECHNOLOGY\n\nNext.js + React, Fastify / Node.js, Drizzle ORM, PostgreSQL / Supabase or MySQL. We also handle server setup and go-live (VPS, Nginx); the product is delivered up and running.\n\nHOW WE WORK\n\nWe start with a requirements analysis and produce a clear scope and delivery plan. During development we regularly share a working preview and move forward together. After delivery, we remain available for bug fixes and ongoing development.\n\nTell us briefly about your business and your needs, and we will prepare a scope, timeline and price tailored to you.",
+      "packages": {
+        "basic": {
+          "title_en": "Core ERP",
+          "description_en": "Inventory + orders + accounts + admin panel. Multi-user core ERP, production deployment included."
+        },
+        "standard": {
+          "title_en": "Extended ERP",
+          "description_en": "Core ERP + production/work orders + invoicing + reporting + Excel export."
+        },
+        "premium": {
+          "title_en": "Full ERP System",
+          "description_en": "Complete ERP: all modules + multi-user authorization + notification system + reporting + production deployment."
+        }
+      },
+      "slug": {
+        "tr": "firmaya-ozel-erp-yazilimi",
+        "en": "custom-erp-software"
+      },
+      "title_en": "Custom ERP & Business Management Software"
+    },
+    "861468": {
+      "description_en": "We build a custom B2B lead generation and market monitoring platform that lets you track prospects and competitors from a single dashboard. The system is tailored to your industry — automotive suppliers, plastic injection, machinery, export businesses and more.\n\nWHAT WE DELIVER\n\n- Lead Machine — automated prospect generation from Amazon seller scans, B2B directories (Europages/Kompass/Google Maps) and trade fair exhibitor lists\n- ICP (ideal customer profile) matching with 0–100 scoring\n- Lead pipeline — kanban board (New → In Contact → Quoted → Converted)\n- Churn risk score — calculated automatically from signals, activity and order data\n- Market signals — competitor website/price changes and social activity tracking (automated via scrapers)\n- Decision-maker email discovery (enrichment) plus AI-assisted outreach email drafts\n- Weekly PDF report with email notifications\n- Integration with your existing ERP/CRM\n\nTECHNOLOGY\n\nNext.js 16, React 19, TypeScript, Tailwind, Fastify, MySQL, Python scrapers, Docker. Each client gets a separate, standalone deployment — your data remains exclusively yours.\n\nHOW WE WORK\n\n1) Discovery call to define your target industry and ICP\n2) Demo dashboard and scope approval\n3) Development and scraper source setup\n4) Testing, training and go-live\n\nMarketPulse in our portfolio is a live, end-to-end deployment of this system. Message us with your scope and budget and we will prepare a clear, project-specific proposal.",
+      "packages": {
+        "basic": {
+          "title_en": "BASIC — 20,000 ₺",
+          "description_en": "Lead generation + tracking dashboard for a single industry. ICP matching from one channel of your choice (Amazon, B2B directory or trade fairs)."
+        },
+        "standard": {
+          "title_en": "STANDARD — 30,000 ₺",
+          "description_en": "Everything in BASIC + 300 prospects from 2 sources, churn risk scoring, market signals (competitor site/price tracking) and decision-maker email discovery."
+        },
+        "premium": {
+          "title_en": "PRO — 50,000 ₺",
+          "description_en": "Everything in STANDARD + 1,000 prospects from 3 sources, automated scraper signals, AI outreach email drafts and ERP/CRM integration."
+        }
+      },
+      "slug": {
+        "tr": "lead-bulma-rakip-takip-paneli",
+        "en": "lead-generation-competitor-monitoring-dashboard"
+      },
+      "title_en": "Custom B2B Lead Generation & Competitor Monitoring Dashboard"
+    },
+    "861494": {
+      "description_en": "We develop a custom web platform that lets your business plan, schedule and publish social media content from a single dashboard. Prepare posts in advance, place them on a calendar and measure their performance.\n\nWHAT WE DELIVER\n\n- Instagram, Facebook, LinkedIn, X and YouTube accounts managed from one dashboard (via the platforms' official APIs)\n- Content calendar and post scheduling (drag and drop, best-time suggestions)\n- Adapting a single piece of content to different platforms, with pre-publish preview\n- AI-assisted copy and hashtag suggestions (optional)\n- Content templates and hashtag groups\n- Core performance reporting (impressions, engagement, clicks)\n- Multi-user and multi-brand usage with role management\n\nHOW WE WORK\n\n1) Defining requirements and account scope\n2) Demo dashboard and approval\n3) Development and official API connections\n4) Testing, a short training session and handover\n\nThe software is deployed as a fully independent installation dedicated to you; your data stays with you. Technology stack: Next.js, React, Fastify, MySQL. Message us for scope and pricing.",
+      "packages": {
+        "basic": {
+          "title_en": "BASIC — 15,000 ₺",
+          "description_en": "Scheduled publishing and content calendar dashboard for a single brand on 2 platforms (e.g. Instagram + Facebook)."
+        },
+        "standard": {
+          "title_en": "STANDARD — 25,000 ₺",
+          "description_en": "Everything in BASIC + 4 platforms, 3 brands/accounts and an AI content assistant (copy & hashtags)."
+        },
+        "premium": {
+          "title_en": "PRO — 45,000 ₺",
+          "description_en": "Everything in STANDARD + 6+ platforms (Ads included), unlimited brands/accounts, multi-user & role management and GA4/Ads reporting."
+        }
+      },
+      "slug": {
+        "tr": "sosyal-medya-otomasyon-paneli",
+        "en": "social-media-automation-dashboard"
+      },
+      "title_en": "Custom Social Media Automation Dashboard for Your Brand"
+    },
+    "861502": {
+      "description_en": "We build AI/ML-powered analytics and forecasting platforms that turn your data into predictions and decisions. End-to-end setup for R&D teams, agriculture/biotechnology organizations and data-intensive businesses.\n\nWHAT WE DELIVER\n\n- Machine learning prediction engine (regression/classification) — with confidence intervals\n- Python ML service (FastAPI, scikit-learn; R/sommer integration where needed)\n- Model versioning and experiment tracking (MLflow)\n- Big data processing (Parquet/DuckDB), CSV/VCF import and data quality checks\n- Interactive visualizations — distribution, bar, Manhattan/GWAS and PCA charts\n- AI/LLM interpretation layer (Groq/OpenAI) — explains results in plain language\n- Management dashboard: predictions, reporting, ranking/selection index\n- Automated retraining loop and audit trail\n\nTECHNOLOGY\n\nFastify, Bun, TypeScript, Drizzle ORM, MySQL · Python, FastAPI, scikit-learn, MLflow · Next.js 16, Tailwind, Shadcn UI · Docker. Dedicated, standalone deployment for your organization.\n\nHOW WE WORK\n\n1) Defining your data and target metrics\n2) Demo model + scope approval\n3) Development, model training and validation\n4) Dashboard delivery, training and go-live\n\nOur reference project is GenomAI — a genomic prediction (GEBV) and GWAS platform for plant breeding. Message us for a clear, project-specific proposal.",
+      "packages": {
+        "basic": {
+          "title_en": "Forecasting Dashboard",
+          "description_en": "One ML forecasting model (regression/classification) for a single dataset + confidence intervals, results table and basic visualizations."
+        },
+        "standard": {
+          "title_en": "ML Analytics System",
+          "description_en": "Everything in BASIC + 3 models, model versioning (MLflow), advanced visualizations (Manhattan/PCA/distribution) and CSV/VCF import."
+        },
+        "premium": {
+          "title_en": "Full AI Platform",
+          "description_en": "Everything in STANDARD + unlimited models, automated retraining loop, AI/LLM interpretation layer and ranking/selection index."
+        }
+      },
+      "slug": {
+        "tr": "ai-ml-veri-tahmin-platformu",
+        "en": "ai-ml-data-forecasting-platform"
+      },
+      "title_en": "AI & ML Data Forecasting Platform Development"
+    },
+    "861509": {
+      "description_en": "We build dashboards for e-commerce and Amazon research that collect data (scraping), score it with AI and turn it into decisions. An end-to-end system for product research, price tracking and competitor analysis.\n\nWHAT WE DELIVER\n\n- Amazon / e-commerce scraping (Oxylabs and similar) — search results, product details, ASIN deduplication\n- Price history enrichment (Keepa) and time series\n- Multi-dimensional risk/opportunity scoring engine\n- LLM cross-dimension reasoning — combining dimensions into an explainable decision (BUY / WATCH / AVOID)\n- Confidence honesty: hedged \"estimated\" language plus coverage checks when data is thin or missing\n- Decision/thesis tracking — automatic alerts when the premise behind a decision breaks down\n- Operator dashboard: single-screen scan flow, reporting, quota visibility\n- Scan cache reuse and API quota management\n\nTECHNOLOGY\n\nTypeScript, Bun, Next.js 16, React, MySQL · Oxylabs, Keepa, Groq/OpenAI LLM. Dedicated, standalone deployment — API subscriptions remain in your own accounts.\n\nHOW WE WORK\n\n1) Defining your target market/data and decision criteria\n2) Demo scan + scope approval\n3) Scraping + scoring + dashboard development\n4) Testing, training and go-live\n\nOur reference is Amozon — Amazon Commercial Radar. Message us for a clear, project-specific proposal.",
+      "packages": {
+        "basic": {
+          "title_en": "Scraping Dashboard",
+          "description_en": "Scraping for a single site/category + a dashboard listing the results. Search, product details and ASIN deduplication."
+        },
+        "standard": {
+          "title_en": "Scoring System",
+          "description_en": "Everything in BASIC + Keepa price history, multi-dimensional risk/opportunity scoring and LLM-assisted explainable decisions."
+        },
+        "premium": {
+          "title_en": "Full Decision Radar",
+          "description_en": "Everything in STANDARD + 5-dimension scoring, coverage gate (confidence honesty), thesis tracking with degradation alerts."
+        }
+      },
+      "slug": {
+        "tr": "amazon-fiyat-scraping-sistemi",
+        "en": "amazon-price-scraping-system"
+      },
+      "title_en": "Amazon Product & Price Scraping System"
+    },
+    "861515": {
+      "description_en": "People now search with ChatGPT, Perplexity, Gemini and Google AI Overviews alongside Google. We combine GEO (Generative Engine Optimization) with classic SEO so that your site gets found — and CITED — by these AI engines.\n\nWHAT WE DELIVER\n\n- GEO + SEO audit — 6-dimension score (citability, technical SEO, schema, E-E-A-T, AI crawlers, performance)\n- AI platform readiness analysis — ChatGPT, Perplexity, Gemini, AI Overviews, Bing Copilot\n- AI crawler access (GPTBot, PerplexityBot, Google-Extended, ClaudeBot) — robots/meta configuration\n- Schema.org / JSON-LD structured data (Article, FAQ, LocalBusiness, Breadcrumb)\n- llms.txt creation and publishing\n- Citable content — clear answer blocks, TL;DR summaries, FAQs\n- Technical SEO + Core Web Vitals (LCP, CLS, INP) improvements\n- E-E-A-T trust signals and brand mention (entity) work\n- PDF report + prioritized 30/60/90-day action plan\n\nHOW WE WORK\n\n1) Free preliminary analysis + GEO/SEO score\n2) Detailed report and scope approval\n3) Implementation — technical + content\n4) Verification, monitoring and reporting\n\nWe run this work on GeoSerra, our own GEO/SEO analysis platform. Message us for a quote tailored to your site type.",
+      "packages": {
+        "basic": {
+          "title_en": "GEO + SEO Audit",
+          "description_en": "AI-search readiness analysis of your site: 6-dimension GEO+SEO score, AI platform readiness and AI crawler access review."
+        },
+        "standard": {
+          "title_en": "Audit + Implementation",
+          "description_en": "Everything in BASIC + implementation: Schema.org/JSON-LD, llms.txt, AI crawler access configuration, technical SEO and Core Web Vitals improvements."
+        },
+        "premium": {
+          "title_en": "Full GEO + SEO + Monitoring",
+          "description_en": "Everything in STANDARD + full-site coverage, E-E-A-T and brand mention (entity) work, content implementation and a 30/60/90-day roadmap."
+        }
+      },
+      "slug": {
+        "tr": "yapay-zeka-arama-optimizasyonu-geo",
+        "en": "generative-engine-optimization-geo"
+      },
+      "title_en": "Generative Engine Optimization (GEO) — Get Cited by ChatGPT & AI Search"
+    },
+    "861532": {
+      "description_en": "We set up accurate data collection and conversion tracking on your website, so you can see exactly how many sales or leads each channel brings in — and the real ROAS of your ads.\n\nWHAT WE DELIVER\n\n- Google Analytics 4 (GA4) setup with correct event/conversion configuration\n- Google Tag Manager (GTM) container setup and tag management\n- Meta (Facebook/Instagram) Pixel + Conversions API (server-side)\n- Google Ads conversion tracking + GA4 import\n- E-commerce purchase & revenue tracking (enhanced e-commerce / purchase event)\n- Conversion funnels and event-based tracking\n- Consent Mode v2 (KVKK/GDPR cookie consent) compliance\n- Server-side tracking (sGTM) to reduce data loss\n- Channel / attribution and ROAS reporting setup\n- Testing, verification (DebugView, Tag Assistant) and a short usage training\n\nHOW WE WORK\n\n1) Audit of the current setup + defining target conversions\n2) GTM/GA4/Pixel/Ads configuration\n3) Testing, verification and go-live\n4) Reporting setup + training\n\nWe work with WordPress, Shopify, Ticimax, Ikas, custom builds and most other platforms. Message us for a clear quote.",
+      "packages": {
+        "basic": {
+          "title_en": "GA4 + GTM Setup",
+          "description_en": "Google Analytics 4 and Google Tag Manager setup, with basic page-view tracking and configuration of 1–2 conversion events."
+        },
+        "standard": {
+          "title_en": "Conversion Tracking",
+          "description_en": "Everything in BASIC + Meta Pixel, Google Ads conversion tracking, e-commerce purchase/revenue events and up to 5 conversion events."
+        },
+        "premium": {
+          "title_en": "Full Tracking System",
+          "description_en": "Everything in STANDARD + Meta Conversions API (server-side), sGTM, Consent Mode v2 (KVKK/GDPR) and channel/attribution & ROAS reporting."
+        }
+      },
+      "slug": {
+        "tr": "ga4-gtm-donusum-izleme",
+        "en": "ga4-gtm-conversion-tracking"
+      },
+      "title_en": "GA4, GTM & Conversion Tracking Setup"
+    },
+    "861536": {
+      "description_en": "We build web scraping systems that extract the data you need from websites, Google Maps and B2B directories — whether you need a ready-to-use API or a one-time data extraction.\n\nWHAT WE DELIVER\n\n- Web scraping API / microservice (Python · FastAPI)\n- Data extraction from dynamic (JavaScript-rendered) pages with Playwright stealth mode\n- Solutions that work on Cloudflare and bot-protected sites\n- Google Maps business data (name, phone, address, rating, URL)\n- Scan profiles for B2B directories, trade fair exhibitors and competitor sites\n- E-commerce product/price tracking and change monitoring\n- Synchronous + asynchronous job queue (arq) and webhook callbacks (HMAC-signed)\n- Redis cache, Bearer token auth and daily quota management\n- CSV / JSON / Excel output or direct API integration\n- Deployment to your own server with Docker\n\nTECHNOLOGY\n\nPython, FastAPI, Scrapling, Playwright, Redis, arq, Docker.\n\nHOW WE WORK\n\n1) Defining target sites/data and fields\n2) Sample output (demo) + scope approval\n3) Development, testing and delivery\n4) Optional server deployment + maintenance\n\nNote: we only work with publicly available data that you are entitled to collect, in accordance with the target site's terms. Message us with your scope.",
+      "packages": {
+        "basic": {
+          "title_en": "One-Time Data Extraction",
+          "description_en": "The data you need (name, phone, address, price, etc.) extracted from a single website or Google Maps search and delivered."
+        },
+        "standard": {
+          "title_en": "Custom Scraping Bot",
+          "description_en": "A re-runnable custom scraping script for 1–3 sites: dynamic (JS) page support, stealth mode and scheduling."
+        },
+        "premium": {
+          "title_en": "Scraping API System",
+          "description_en": "A multi-source, production-ready scraping API: FastAPI endpoints, async job queue (arq) + HMAC webhooks and Playwright support."
+        }
+      },
+      "slug": {
+        "tr": "google-maps-veri-cekme-botu",
+        "en": "google-maps-data-scraping-bot"
+      },
+      "title_en": "Google Maps & Website Data Scraping Bot"
+    }
+  },
+  "portfolios": {}
+}

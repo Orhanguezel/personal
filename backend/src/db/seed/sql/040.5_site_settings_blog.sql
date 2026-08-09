@@ -65,7 +65,7 @@ VALUES
       'category_fallback','Blog',
       'read_time','3 min read',
       'author_section_title','About the author',
-      'author_bio_html','<p>Orhan Güzel builds production-ready web platforms and business software with Next.js, Fastify, and Laravel — based in Grevenbroich, Germany.</p>'
+      'author_bio_html','<p>Orhan Güzel builds production-ready web platforms and business software with Next.js, Fastify, and Laravel — based in Germany.</p>'
     )
   ) AS CHAR CHARACTER SET utf8mb4),
   NOW(3), NOW(3)
@@ -131,7 +131,7 @@ VALUES
       'category_fallback','Blog',
       'read_time','3 Min. Lesezeit',
       'author_section_title','Über den Autor',
-      'author_bio_html','<p>Orhan Güzel entwickelt produktionsreife Webplattformen und Business-Software mit Next.js, Fastify und Laravel — in Grevenbroich, Deutschland.</p>'
+      'author_bio_html','<p>Orhan Güzel entwickelt produktionsreife Webplattformen und Business-Software mit Next.js, Fastify und Laravel — in Deutschland.</p>'
     )
   ) AS CHAR CHARACTER SET utf8mb4),
   NOW(3), NOW(3)
@@ -197,7 +197,7 @@ VALUES
       'category_fallback','Blog',
       'read_time','3 dk okuma',
       'author_section_title','Yazar hakkında',
-      'author_bio_html','<p>Orhan Güzel, Next.js, Fastify ve Laravel ile üretime hazır web platformları ve iş yazılımları geliştiriyor; Grevenbroich, Almanya.</p>'
+      'author_bio_html','<p>Orhan Güzel, Next.js, Fastify ve Laravel ile üretime hazır web platformları ve iş yazılımları geliştiriyor; Almanya.</p>'
     )
   ) AS CHAR CHARACTER SET utf8mb4),
   NOW(3), NOW(3)

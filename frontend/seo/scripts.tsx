@@ -11,8 +11,11 @@ import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
 
 import { getAnalyticsConfig } from './seo.server';
 
-export async function GlobalScripts() {
-  const a = await getAnalyticsConfig();
+export async function GlobalScripts({ locale }: { locale?: string | null } = {}) {
+  // locale GECILMELI — bkz. seo.server.ts getSiteJsonLdGraph notu:
+  // routeLocale yoksa cozumleyici cookies()/headers() kullaniyor ve statik
+  // render'da bailout uretiyor.
+  const a = await getAnalyticsConfig({ routeLocale: locale ?? null });
 
   const GA_ID = a.gaId || '';
   const GTM_ID = a.gtmId || '';

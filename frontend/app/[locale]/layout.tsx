@@ -15,6 +15,8 @@ import JsonLd from '@/seo/JsonLd';
 import { GlobalScripts } from '@/seo/scripts';
 import { getSiteJsonLdGraph } from '@/seo/seo.server';
 import { buildIconsFromSeo } from '@/integrations/shared';
+import { getStaticSiteSettingsServer } from '@/utils/staticSiteSettings.server';
+import { StaticSiteSettingsProvider } from '@/utils/staticSiteSettings.context';
 
 // Global Styles
 import '@/public/assets/css/vendors/bootstrap.min.css';
@@ -58,14 +60,21 @@ export default async function LocaleLayout({
   const p = await unwrapRouteParams(params);
   const locale = normalizeLocaleParam(p?.locale);
 
-  const siteJsonLd = await getSiteJsonLdGraph();
+  // locale GECILMELI: gecilmezse SEO katmani cookies()/headers() kullanip
+  // statik render'da DYNAMIC_SERVER_USAGE firlatiyor (detay sayfalari 500).
+  const siteJsonLd = await getSiteJsonLdGraph({ routeLocale: locale });
+
+  // Arayuz metinleri sunucuda okunur; bkz. staticSiteSettings.context.tsx
+  const uiSettings = await getStaticSiteSettingsServer(locale);
 
   return (
     <html lang={locale} suppressHydrationWarning>
       <body className={fontVars} suppressHydrationWarning>
         <JsonLd data={siteJsonLd} id="site" />
-        <GlobalScripts />
-        <AppProviders>{children}</AppProviders>
+        <GlobalScripts locale={locale} />
+        <StaticSiteSettingsProvider value={uiSettings}>
+          <AppProviders>{children}</AppProviders>
+        </StaticSiteSettingsProvider>
       </body>
     </html>
   );

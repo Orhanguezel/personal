@@ -1,5 +1,5 @@
 -- AUTO-GENERATED FILE. Source: /home/orhan/Documents/Projeler metadata + /home/orhan/Documents/Projeler/vps-guezel/Orhanguezel/README.md
--- Generated at 2026-07-12T17:08:13.779Z
+-- Generated at 2026-08-09T10:05:24.924Z
 SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci;
 SET collation_connection = 'utf8mb4_unicode_ci';
 SET time_zone = '+00:00';

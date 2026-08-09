@@ -1,5 +1,5 @@
 -- AUTO-GENERATED FILE. Source: /home/orhan/Documents/Projeler/vps-guezel/Orhanguezel
--- Generated at 2026-07-12T17:08:13.778Z
+-- Generated at 2026-08-09T10:05:24.924Z
 SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci;
 SET collation_connection = 'utf8mb4_unicode_ci';
 SET time_zone = '+00:00';
@@ -141,17 +141,17 @@ VALUES
 INSERT INTO `resume_entries_i18n`
 (`id`,`entry_id`,`locale`,`title`,`subtitle`,`description`,`highlights_json`,`slug`,`created_at`,`updated_at`)
 VALUES
-(UUID(),@r7,'en','Ekosistem Sosyal Medya','Tarım Ekosistemi Sosyal Medya Yönetim Platformu','Tarım Dijital Ekosistemi''nin tüm markaları için merkezi sosyal medya yönetim platformu. Facebook, Instagram, LinkedIn, X ve Telegram kanallarına zamanlanmış içerik yayını, AI destekli içerik üretimi, analitik takip ve çoklu proje (bereketfide, vistaseed, tarimansiklopedisi vb.) hesap yönetimi.',CAST('["TypeScript","Fastify","Drizzle ORM","MySQL","Bun"]' AS CHAR),'ekosistem-sosyal-medya-experience',NOW(3),NOW(3));
+(UUID(),@r7,'en','Ekosistem Sosyal Medya','Tarım Ekosistemi Sosyal Medya Yönetim Platformu','Multi-tenant SaaS sosyal medya + AI reklam otomasyon platformu. Facebook, Instagram, LinkedIn, X, Telegram yayını ve AI destekli içerik üretiminin yanı sıra: Meta+Google Ads bağlama, birleşik canlı dashboard (kâr dahil), AI reklam analisti, tek-tıkla öneri uygulama, guardrail''li otonom kampanya optimizasyonu (auto-revert + kill switch), kreatif analiz (vision), 10''lu içerik paketi, rakip analizi, AI hafızası ve çok kanallı metrik uyarı sistemi.',CAST('["TypeScript","Fastify","Drizzle ORM","MySQL","Bun"]' AS CHAR),'ekosistem-sosyal-medya-experience',NOW(3),NOW(3));
 
 INSERT INTO `resume_entries_i18n`
 (`id`,`entry_id`,`locale`,`title`,`subtitle`,`description`,`highlights_json`,`slug`,`created_at`,`updated_at`)
 VALUES
-(UUID(),@r7,'tr','Ekosistem Sosyal Medya','Tarım Ekosistemi Sosyal Medya Yönetim Platformu','Tarım Dijital Ekosistemi''nin tüm markaları için merkezi sosyal medya yönetim platformu. Facebook, Instagram, LinkedIn, X ve Telegram kanallarına zamanlanmış içerik yayını, AI destekli içerik üretimi, analitik takip ve çoklu proje (bereketfide, vistaseed, tarimansiklopedisi vb.) hesap yönetimi.',CAST('["TypeScript","Fastify","Drizzle ORM","MySQL","Bun"]' AS CHAR),'ekosistem-sosyal-medya-experience',NOW(3),NOW(3));
+(UUID(),@r7,'tr','Ekosistem Sosyal Medya','Tarım Ekosistemi Sosyal Medya Yönetim Platformu','Multi-tenant SaaS sosyal medya + AI reklam otomasyon platformu. Facebook, Instagram, LinkedIn, X, Telegram yayını ve AI destekli içerik üretiminin yanı sıra: Meta+Google Ads bağlama, birleşik canlı dashboard (kâr dahil), AI reklam analisti, tek-tıkla öneri uygulama, guardrail''li otonom kampanya optimizasyonu (auto-revert + kill switch), kreatif analiz (vision), 10''lu içerik paketi, rakip analizi, AI hafızası ve çok kanallı metrik uyarı sistemi.',CAST('["TypeScript","Fastify","Drizzle ORM","MySQL","Bun"]' AS CHAR),'ekosistem-sosyal-medya-experience',NOW(3),NOW(3));
 
 INSERT INTO `resume_entries_i18n`
 (`id`,`entry_id`,`locale`,`title`,`subtitle`,`description`,`highlights_json`,`slug`,`created_at`,`updated_at`)
 VALUES
-(UUID(),@r7,'de','Ekosistem Sosyal Medya','Tarım Ekosistemi Sosyal Medya Yönetim Platformu','Tarım Dijital Ekosistemi''nin tüm markaları için merkezi sosyal medya yönetim platformu. Facebook, Instagram, LinkedIn, X ve Telegram kanallarına zamanlanmış içerik yayını, AI destekli içerik üretimi, analitik takip ve çoklu proje (bereketfide, vistaseed, tarimansiklopedisi vb.) hesap yönetimi.',CAST('["TypeScript","Fastify","Drizzle ORM","MySQL","Bun"]' AS CHAR),'ekosistem-sosyal-medya-experience',NOW(3),NOW(3));
+(UUID(),@r7,'de','Ekosistem Sosyal Medya','Tarım Ekosistemi Sosyal Medya Yönetim Platformu','Multi-tenant SaaS sosyal medya + AI reklam otomasyon platformu. Facebook, Instagram, LinkedIn, X, Telegram yayını ve AI destekli içerik üretiminin yanı sıra: Meta+Google Ads bağlama, birleşik canlı dashboard (kâr dahil), AI reklam analisti, tek-tıkla öneri uygulama, guardrail''li otonom kampanya optimizasyonu (auto-revert + kill switch), kreatif analiz (vision), 10''lu içerik paketi, rakip analizi, AI hafızası ve çok kanallı metrik uyarı sistemi.',CAST('["TypeScript","Fastify","Drizzle ORM","MySQL","Bun"]' AS CHAR),'ekosistem-sosyal-medya-experience',NOW(3),NOW(3));
 
 SET @r8 := UUID();
 INSERT INTO `resume_entries`

@@ -1,9 +1,17 @@
+import { readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const appDir = dirname(fileURLToPath(import.meta.url));
 // node_modules/next monorepo kökünde (vps-guezel): frontend -> guezelwebdesign -> vps-guezel
 const workspaceRoot = resolve(appDir, '../..');
+
+// Dile gore URL haritasi — TEK KAYNAK: i18n/route-slugs.json
+// (i18n/routes.ts ayni dosyayi okur; next.config bir .ts dosyasini import
+// edemedigi icin harita JSON olarak tutuluyor.)
+const ROUTE_SLUGS = JSON.parse(
+  readFileSync(resolve(appDir, 'i18n/route-slugs.json'), 'utf8'),
+);
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -78,6 +86,91 @@ const nextConfig = {
         headers: security,
       },
     ];
+  },
+
+  // `/uploads/*` dosyalarini backend servis eder (nginx'te ayri location).
+  // Next.js resim optimizer'i GORELI yollari KENDI sunucusundan cekmeye
+  // calisir; orada /uploads bulunmadigi icin istek locale yonlendirmesine
+  // dusuyor ve optimizer 400 donuyordu -> sitedeki urun/blog/fiyat gorselleri
+  // kiriliyordu (2026-08-09, gzlteknoloji.com). Bu rewrite ile Next kendi
+  // uzerinden backend'e proxy'ler; optimizer artik gorseli bulabiliyor.
+  // ── DILE GORE URL ─────────────────────────────────────────────────────────
+  // Yerellestirilmis adres -> gercek (Ingilizce) rota. Tablo: i18n/routes.ts
+  // Not: rewrite ADRESI DEGISTIRMEZ; ziyaretci /tr/hizmetler gorur.
+  async rewrites() {
+    const localized = [];
+    for (const [route, byLocale] of Object.entries(ROUTE_SLUGS)) {
+      for (const [locale, slug] of Object.entries(byLocale)) {
+        if (slug === route) continue; // ayni ise rewrite gereksiz
+        localized.push(
+          { source: `/${locale}/${slug}`, destination: `/${locale}/${route}` },
+          { source: `/${locale}/${slug}/:path*`, destination: `/${locale}/${route}/:path*` },
+        );
+      }
+    }
+
+    const origin = (
+      process.env.UPLOADS_PROXY_ORIGIN ||
+      process.env.NEXT_PUBLIC_MEDIA_URL ||
+      ''
+    ).replace(/\/+$/, '');
+    const uploads = origin
+      ? [{ source: '/uploads/:path*', destination: `${origin}/uploads/:path*` }]
+      : [];
+    return [...localized, ...uploads];
+  },
+
+  // Ingilizce yol -> yerellestirilmis yol (kalici). Ayni icerik iki farkli
+  // adresten servis edilmesin diye; kanonik adres yerellestirilmis olan.
+  async redirects() {
+    const out = [];
+
+    // BIRLESTIRILEN PROJE KAYITLARI
+    // Portfolyo iki kaynaktan birlestiginde ayni is birden fazla kayit olmustu
+    // (bkz. backend/scripts/gzl-taxonomy.mjs -> PROJECT_MERGES). Yinelenenler
+    // silindi; eski adresler olu kalmasin diye kalan kayda 308 ile gonderiliyor.
+    const MERGED_PROJECTS = {
+      geoserra: 'geoserra-yapay-zeka-aramalari-icin-geo-seo-platformu',
+      'konig-massage': 'konig-energetik-randevulu-masaj-wellness-sitesi',
+      'konigs-massage-multi-tenant-randevu-platformu-metahub':
+        'konig-energetik-randevulu-masaj-wellness-sitesi',
+      'wiribu-de-lighthouse-100-100-geo-optimizasyonu':
+        'wiribu-de-lighthouse-100-100-geo-seo-optimizasyonu',
+    };
+    for (const [locale, byRoute] of Object.entries(
+      Object.fromEntries(
+        Object.keys(ROUTE_SLUGS.work ?? {}).map((l) => [l, ROUTE_SLUGS.work[l]]),
+      ),
+    )) {
+      for (const [from, to] of Object.entries(MERGED_PROJECTS)) {
+        out.push({
+          source: `/${locale}/${byRoute}/${from}`,
+          destination: `/${locale}/${byRoute}/${to}`,
+          permanent: true,
+        });
+        // Yerellestirme oncesi (Ingilizce) adres de yakalanir.
+        out.push({
+          source: `/${locale}/work/${from}`,
+          destination: `/${locale}/${byRoute}/${to}`,
+          permanent: true,
+        });
+      }
+    }
+
+    for (const [route, byLocale] of Object.entries(ROUTE_SLUGS)) {
+      for (const [locale, slug] of Object.entries(byLocale)) {
+        if (slug === route) continue;
+        out.push(
+          { source: `/${locale}/${route}`, destination: `/${locale}/${slug}`, permanent: true },
+          {
+            source: `/${locale}/${route}/:path*`,
+            destination: `/${locale}/${slug}/:path*`,
+            permanent: true,
+          },
+        );
+      }
+    }
+    return out;
   },
 
   images: {

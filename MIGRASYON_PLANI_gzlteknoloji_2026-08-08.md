@@ -71,3 +71,73 @@ Seed runner `SEED_PROFILE=gwd|gzl` env'ine göre ilgili content/ setini uygular.
 
 ## 7. Sıradaki adım
 Faz 0 → Faz 1. Migration script + content/gzl seed'leri ile başla (en yüksek değer: SaaS ürünler + hizmetler).
+
+---
+
+# DURUM — 2026-08-08 akşamı güncellemesi
+
+## ✅ Faz 0 — İskelet: TAMAM
+
+- **Seed profil desteği** (`SEED_PROFILE=gwd|gzl` / `--profile=`). `backend/src/db/seed/profiles.json`
+  69 seed dosyasını sınıflandırır: `schema`(27) / `core`(9) / `content:gwd`(33).
+  Sınıflandırılmamış dosyada seed **fail-closed** durur.
+- `content/gwd/` + `content/gzl/` dizinleri açıldı. GWD içeriği bilerek `sql/` altında
+  bırakıldı → mevcut canlı deploy'un davranışı **hiç değişmedi**.
+- `ecosystem.config.cjs` **profil destekli** hale geldi (`DEPLOY_PROFILE=gwd|gzl`);
+  gzl profili portları: BE 8102 / FE 3120 / Admin 3121, locale `tr`.
+- Doğrulama scripti: `bun run db:seed:profiles:check`.
+
+## ✅ Faz 1 — İçerik taşıma: BÜYÜK ÖLÇÜDE TAMAM
+
+`backend/scripts/migrate-gzlteknoloji-content.mjs` (`bun run migrate:gzl`) — tekrar
+çalıştırılabilir ve **deterministik** (iki çalıştırma bit-bazında aynı çıktı).
+39 kaynak dosyadan **22 içerik seed'i** üretildi.
+
+Yerel MySQL'de gzl profiliyle uçtan uca seed edildi ve doğrulandı:
+
+| | Adet |
+|---|---|
+| Hizmetler (TR) | 21 |
+| SaaS ürünler | 6 (GeoSerra, Sozial, KatalogAI, Invitea, Scraper-API, MarketPulse) |
+| Projeler | 27 |
+| Custom pages (blog+legal+kurumsal) | 7 sayfa / 14 çeviri |
+| Fiyat planları | 8 |
+| SSS | 7 |
+| Menü / Footer / Medya | 15 / 3 / 26 |
+| site_settings | 44 — marka "GZL Teknoloji", **Meta Pixel 38701926646073227 yerinde** |
+
+Küratörlük uygulandı: 255 EN stub satırı, 4 sahte "bionluk kategorisi" projesi elendi;
+`menu_items.site_id` düşürüldü; `custom_pages_i18n` için 14 deterministik id üretildi.
+
+### Yol boyunca çıkan ve düzeltilen 3 gerçek hata
+1. **Dangling FK:** `products` tablosunun `categories`/`sub_categories` FK'leri vardı ama
+   o tablolar şemada **hiç yoktu** (`FOREIGN_KEY_CHECKS=0` gizliyordu) → `012_categories_schema.sql` eklendi.
+2. **Eksik SaaS alanları:** `products`'a `product_kind`, `demo_url`, `docs_url`, `status`,
+   `pricing_model` eklendi (ALTER yok, CREATE TABLE'a yazıldı).
+3. **Seed SQL ayrıştırıcısı:** düz regex kullanıyordu; metin değeri içindeki `;`+satırsonu
+   cümleyi bölüyor, `--` dizisi içeriği yorum sanıp siliyordu. `utils.ts` artık tırnak duyarlı.
+
+## ⏳ Faz 1'de KALAN — elle eşleme gerektiren 3 kalem
+
+Bunlar otomatik taşınamaz çünkü GWD'de karşılık tablo yok; script bunları **raporlayıp atlıyor**:
+
+| Plan md. | Kaynak | Ne gerek |
+|---|---|---|
+| 3 | `service_packages` (+i18n), 3 deyim | GWD `pricing_plans` modeline tier eşlemesi |
+| 6 | `testimonials` (034) | GWD `reviews`(060) tablosuna eşleme — gerçek yorum mu placeholder mı ayıklanmalı |
+| 12 | `home_sections` v2 (033) | GWD kendi home modeli (site_settings 040.7/040.14) — yeniden kurulmalı |
+
+## ⏳ Faz 2-3-4 — yapılmadı
+
+- **Faz 2 (lokal doğrulama):** DB tarafı doğrulandı; frontend'i TR profille ayağa kaldırıp
+  sayfa sayfa gözden geçirme YAPILMADI. Not: GWD frontend locale listesi hâlâ i18n config'te
+  (env değil) — TR-only için per-deployment override gerekecek.
+- **Faz 3 (deploy):** YAPILMADI. **gzlteknoloji.com şu an 502** — eski deployment 2026-08-08'de
+  emekliye ayrıldı (PM2 uygulamaları silindi), yerine yeni deployment henüz kurulmadı.
+  Bu, planın "Faz 3'e kadar ona dokunma" varsayımını değiştirir: artık kesinti riski değil,
+  **kapalı bir siteyi açma** işi var. Yapılacaklar: `/var/www/vps-guezel/gzlteknoloji-new`
+  (GWD kodu) → `bun install && bun run build` → `DEPLOY_PROFILE=gzl pm2 start ecosystem.config.cjs`
+  → DB `gzlteknoloji` fresh seed (`SEED_PROFILE=gzl`) → nginx vhost → doğrulama.
+- **Faz 4 (emeklilik):** repo silindi/arşivlendi (Orhan yaptı, içerik `_migration/` altında güvende).
+  VPS'teki `/var/www/vps-guezel/gzlteknoloji` eski ağacı ve root `package.json`'daki workspace
+  girdileri hâlâ duruyor — Faz 3 bitince temizlenecek.

@@ -1,0 +1,9 @@
+{
+  "services": { "tr": "hizmetler", "de": "leistungen", "en": "services" },
+  "pricing":  { "tr": "paketler",  "de": "preise",     "en": "pricing" },
+  "products": { "tr": "urunler",   "de": "produkte",   "en": "products" },
+  "work":     { "tr": "portfolyo", "de": "projekte",   "en": "work" },
+  "blog":     { "tr": "blog",      "de": "blog",       "en": "blog" },
+  "contact":  { "tr": "iletisim",  "de": "kontakt",    "en": "contact" },
+  "faq":      { "tr": "sss",       "de": "faq",        "en": "faq" }
+}

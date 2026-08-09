@@ -98,7 +98,7 @@ jobs:
             rsync -avz --delete \
               --exclude=node_modules --exclude=.git --exclude=.env --exclude=.DS_Store \
               -e "ssh $SSH_OPTS" \
-              backend/ "${VPS_USER}@${VPS_HOST}:/var/www/guezelwebdesign/backend" \
+              backend/ "${VPS_USER}@${VPS_HOST}:/var/www/vps-guezel/guezelwebdesign/backend" \
               && success=1 && break
             echo "⚠ Attempt $i failed, retrying in 10s..."
             sleep 10
@@ -125,7 +125,7 @@ jobs:
             rsync -avz --delete \
               --exclude=node_modules --exclude=.git --exclude=.env --exclude=.DS_Store \
               -e "ssh $SSH_OPTS" \
-              admin_panel/ "${VPS_USER}@${VPS_HOST}:/var/www/guezelwebdesign/admin_panel" \
+              admin_panel/ "${VPS_USER}@${VPS_HOST}:/var/www/vps-guezel/guezelwebdesign/admin_panel" \
               && success=1 && break
             echo "⚠ Attempt $i failed, retrying in 10s..."
             sleep 10
@@ -152,7 +152,7 @@ jobs:
             rsync -avz --delete \
               --exclude=node_modules --exclude=.git --exclude=.env --exclude=.DS_Store \
               -e "ssh $SSH_OPTS" \
-              frontend/ "${VPS_USER}@${VPS_HOST}:/var/www/guezelwebdesign/frontend" \
+              frontend/ "${VPS_USER}@${VPS_HOST}:/var/www/vps-guezel/guezelwebdesign/frontend" \
               && success=1 && break
             echo "⚠ Attempt $i failed, retrying in 10s..."
             sleep 10
@@ -173,14 +173,8 @@ jobs:
           script: |
             set -e
 
-            cd /var/www/guezelwebdesign/backend
-            pm2 startOrReload ecosystem.config.cjs --update-env
-
-            cd /var/www/guezelwebdesign/admin_panel
-            pm2 startOrReload ecosystem.config.cjs --update-env
-
-            cd /var/www/guezelwebdesign/frontend
-            pm2 startOrReload ecosystem.config.cjs --update-env
+            cd /var/www/vps-guezel/guezelwebdesign
+            DEPLOY_PROFILE=gwd pm2 startOrReload ecosystem.config.cjs --update-env
 
             pm2 save
 
@@ -188,7 +182,7 @@ jobs:
 
             ss -ltnp | grep -E "127\.0\.0\.1:8044|127\.0\.0\.1:3045|127\.0\.0\.1:3044" >/dev/null
 
-            curl -fsS http://127.0.0.1:8044/api/health >/dev/null
+            curl -fsS http://127.0.0.1:8044/api/v1/health >/dev/null
 
             smoke_page() {
               url="$1"

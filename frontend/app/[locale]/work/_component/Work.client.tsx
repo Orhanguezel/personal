@@ -6,12 +6,14 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 
 import { useGetSiteSettingByKeyQuery, useListProjectsPublicQuery } from '@/integrations/hooks';
 import type { Project } from '@/integrations/shared';
 import { normalizeStringArray, contentToSummary, normalizeUiProjectSettingValue, sanitizeHtml } from '@/integrations/shared';
 import { shouldUnoptimizeImage } from '@/utils/nextImage';
+import { CategoryFilter, parseCategoryOptions } from '@/components/content/CategoryFilter';
+import { useStaticSiteSetting } from '@/utils/staticSiteSettings';
 
 export default function WorkClient({
   locale,
@@ -41,9 +43,40 @@ export default function WorkClient({
     { skip: hasServerList },
   );
 
-  const items = useMemo(
+  // KATEGORI SUZGECI — proje ve hizmetler ayni kategori kumesini kullanir.
+  const { value: categoriesSetting } = useStaticSiteSetting({ key: 'content_categories', locale });
+  const categoryOptions = useMemo(
+    () => parseCategoryOptions(categoriesSetting),
+    [categoriesSetting],
+  );
+  const categoryLabels = useMemo(() => {
+    const acc: Record<string, string> = {};
+    for (const c of categoryOptions) acc[c.slug] = c.label;
+    return acc;
+  }, [categoryOptions]);
+
+  const [activeCategory, setActiveCategory] = useState('');
+
+  const allItems = useMemo(
     () => (Array.isArray(data) && data.length ? data : initialItems),
     [data, initialItems],
+  );
+
+  const categoryCounts = useMemo(() => {
+    const acc: Record<string, number> = {};
+    for (const p of allItems) {
+      const key = String(p.category ?? '').trim();
+      if (key) acc[key] = (acc[key] ?? 0) + 1;
+    }
+    return acc;
+  }, [allItems]);
+
+  const items = useMemo(
+    () =>
+      activeCategory
+        ? allItems.filter((p) => String(p.category ?? '').trim() === activeCategory)
+        : allItems,
+    [allItems, activeCategory],
   );
 
   return (
@@ -62,6 +95,14 @@ export default function WorkClient({
               <p
                 className="text-300 fs-5"
                 dangerouslySetInnerHTML={{ __html: sanitizeHtml(copy.intro_html) }}
+              />
+
+              <CategoryFilter
+                categories={categoryOptions}
+                value={activeCategory}
+                onChange={setActiveCategory}
+                allLabel={copy.badge}
+                counts={categoryCounts}
               />
             </div>
           </div>
@@ -129,7 +170,7 @@ export default function WorkClient({
                           <div className="card__content px-md-4 px-3">
                             <div className="card__title d-md-flex align-items-center mb-0 mb-lg-2">
                               <Link href={href} className="card_title_link">
-                                <p className="text-primary-1 mb-0 mb-md-2">{p.category ?? ''}</p>
+                                <p className="text-primary-1 mb-0 mb-md-2">{categoryLabels[String(p.category ?? '').trim()] ?? p.category ?? ''}</p>
                                 <h3 className="fw-semibold">{p.title ?? ''}</h3>
                               </Link>
 

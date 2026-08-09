@@ -3,13 +3,18 @@ import { fileURLToPath } from 'node:url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const workspaceRoot = path.resolve(__dirname, '..');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactCompiler: false,
   compiler: { removeConsole: process.env.NODE_ENV === 'production' },
-  outputFileTracingRoot: workspaceRoot,
+  // outputFileTracingRoot BİLEREK YOK.
+  // Bu satır (workspaceRoot = üst dizin) Next 16'nın Turbopack derleyicisinde
+  // proje kökü çıkarımını bozuyor ve build "We couldn't find the Next.js
+  // package (next/package.json) from the project directory" ile kırılıyordu
+  // (paket monorepo köküne hoist edildiğinde). `output: 'standalone'`
+  // kullanılmadığı için dosya izleme kökünü elle vermeye gerek de yok.
+  // Şablon projedeki panelde de bu satır yok ve orada Turbopack sorunsuz.
 
   // ✅ Image optimization config
   images: {

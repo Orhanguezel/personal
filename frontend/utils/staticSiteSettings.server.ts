@@ -93,3 +93,22 @@ export async function getStaticSiteSettingValue(key: string, locale?: string): P
   const { map } = await getStaticSettingsMap(normalizedLocale);
   return (map as StaticSettingsMap)[normalizedKey];
 }
+
+/**
+ * Bir locale'in TUM arayuz metinlerini sunucuda dondurur.
+ * Neden gerekli: bkz. utils/staticSiteSettings.context.tsx — istemci hook'u
+ * useEffect ile calistigi icin SSR ciktisi kodda gomulu (Almanca) varsayilan
+ * metinlere dusuyordu ve tarayicilar gzlteknoloji.com'da baska bir markanin
+ * basligini goruyordu.
+ */
+export async function getStaticSiteSettingsServer(
+  locale: string,
+): Promise<Record<string, unknown>> {
+  try {
+    const { map } = await getStaticSettingsMap(locale);
+    return map;
+  } catch {
+    // Dosya yoksa istemci tarafi eski akisla (fetch) devam eder.
+    return {};
+  }
+}

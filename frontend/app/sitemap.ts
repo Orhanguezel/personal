@@ -3,6 +3,7 @@ import { getSeoAll } from '@/seo/seo.server';
 import { getRuntimeLocalesServer } from '@/i18n/server';
 import { BASE_URL } from '@/integrations/apiBase';
 import { joinUrl } from '@/integrations/shared';
+import { localizePath } from '@/i18n/routes';
 
 type ListRow = {
   slug?: string | null;
@@ -98,7 +99,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   for (const locale of activeLocales) {
     for (const path of staticPaths) {
-      const fullPath = path ? `/${locale}${path}` : `/${locale}`;
+      // Kanonik adres DILE GORE olan (bkz. i18n/routes.ts). Ingilizce yollar
+      // 308 ile buraya yonleniyor; sitemap dogrudan hedefi listelemeli.
+      const fullPath = path ? `/${locale}${localizePath(locale, path)}` : `/${locale}`;
       pushEntry(joinUrl(base, fullPath));
     }
   }
@@ -107,19 +110,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     for (const row of services) {
       const slug = String(row?.slug || '').trim();
       if (!slug) continue;
-      pushEntry(joinUrl(base, `/${locale}/services/${slug}`), toDate(row.updated_at));
+      pushEntry(joinUrl(base, `/${locale}${localizePath(locale, `/services/${slug}`)}`), toDate(row.updated_at));
     }
 
     for (const row of projects) {
       const slug = String(row?.slug || '').trim();
       if (!slug) continue;
-      pushEntry(joinUrl(base, `/${locale}/work/${slug}`), toDate(row.updated_at));
+      pushEntry(joinUrl(base, `/${locale}${localizePath(locale, `/work/${slug}`)}`), toDate(row.updated_at));
     }
 
     for (const row of products) {
       const slug = String(row?.slug || '').trim();
       if (!slug) continue;
-      pushEntry(joinUrl(base, `/${locale}/products/${slug}`), toDate(row.updated_at));
+      pushEntry(joinUrl(base, `/${locale}${localizePath(locale, `/products/${slug}`)}`), toDate(row.updated_at));
     }
 
     for (const row of customPages) {
@@ -128,7 +131,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       if (!slug || !moduleKey) continue;
 
       if (moduleKey === 'blog') {
-        pushEntry(joinUrl(base, `/${locale}/blog/${slug}`), toDate(row.updated_at));
+        pushEntry(joinUrl(base, `/${locale}${localizePath(locale, `/blog/${slug}`)}`), toDate(row.updated_at));
       } else {
         pushEntry(
           joinUrl(base, `/${locale}/custompages/${moduleKey}/${slug}`),

@@ -75,6 +75,21 @@ export default function ProductDetailClient({
 
   const checkoutHref = `/${locale}/checkout?product=${product.id}&type=${paymentType}`;
 
+  // API `category` alanini kategori tablolari eklendikten sonra NESNE olarak
+  // donuyor ({id, name, slug, ...}); once duz metin bekleniyordu ve React
+  // "Objects are not valid as a React child" ile 500 veriyordu (urun detay
+  // sayfasi, 2026-08-09). Metin, nesne ve bos deger artik birlikte ele aliniyor.
+  const categoryLabel = (() => {
+    const c: unknown = (product as { category?: unknown })?.category;
+    if (typeof c === 'string') return c.trim();
+    if (c && typeof c === 'object') {
+      const o = c as { name?: unknown; slug?: unknown };
+      if (typeof o.name === 'string' && o.name.trim()) return o.name.trim();
+      if (typeof o.slug === 'string' && o.slug.trim()) return o.slug.trim();
+    }
+    return '';
+  })();
+
   return (
     <section className="pt-120 pb-150">
       <div className="container">
@@ -130,7 +145,9 @@ export default function ProductDetailClient({
 
           {/* Right: Info + CTA */}
           <div className="col-lg-5">
-            <span className="badge bg-light text-dark mb-2">{product.category}</span>
+            {categoryLabel ? (
+              <span className="badge bg-light text-dark mb-2">{categoryLabel}</span>
+            ) : null}
             <h1 className="fw-bold mb-2">{product.title}</h1>
             {product.subtitle && (
               <p className="fs-5 text-muted mb-4">{product.subtitle}</p>

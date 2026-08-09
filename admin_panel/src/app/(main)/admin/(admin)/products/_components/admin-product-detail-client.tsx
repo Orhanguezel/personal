@@ -36,6 +36,8 @@ import {
   useCreateProductAdminMutation,
   useUpdateProductAdminMutation,
 } from '@/integrations/hooks';
+import type { BlogSeoQualityScore } from '@/integrations/shared';
+import ContentQualityPanel from '@/components/admin/seo/content-quality-panel';
 
 function isUuidLike(v?: string) {
   if (!v) return false;
@@ -138,6 +140,8 @@ export default function AdminProductDetailClient({ id }: { id: string }) {
 
   const [createProduct, createState] = useCreateProductAdminMutation();
   const [updateProduct, updateState] = useUpdateProductAdminMutation();
+
+  const seoQuality = (product as { seo_quality?: BlogSeoQualityScore } | undefined)?.seo_quality;
 
   const loading = localesLoading || localesFetching || isLoadingProduct || isFetchingProduct;
   const saving = createState.isLoading || updateState.isLoading;
@@ -293,6 +297,9 @@ export default function AdminProductDetailClient({ id }: { id: string }) {
           </Button>
         </div>
       </div>
+
+      {/* Icerik kalite / SEO paneli — skor backend'de hesaplanir (seo-quality.ts) */}
+      {seoQuality ? <ContentQualityPanel score={seoQuality} /> : null}
 
       <form onSubmit={onSubmit}>
         <div className="grid gap-6 lg:grid-cols-12">

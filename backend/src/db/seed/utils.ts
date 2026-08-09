@@ -1,21 +1,103 @@
 // src/db/seed/utils.ts
 
-// Yorumları temizle + güvenli split
-export function cleanSql(input: string): string {
-  // -- satır sonuna kadar ve /* ... */ blok yorumlarını temizle
-  return input
-    .replace(/--.*?(\r?\n|$)/g, '$1')
-    .replace(/\/\*[\s\S]*?\*\//g, '');
+/**
+ * SQL'i tek geçişte tarayıp string/identifier/yorum sınırlarını doğru izler.
+ *
+ * NEDEN (2026-08-08): Önceki hâli düz regex kullanıyordu ve bir metin değerinin
+ * İÇİNDEKİ `;` + satırsonu ya da `--` dizisi cümleyi ortasından bölüyor /
+ * içeriği yorum sanıp siliyordu. gzlteknoloji içeriği taşınırken bu, geçerli bir
+ * seed dosyasında ER_PARSE_ERROR olarak patladı. Uzun HTML/markdown içerik
+ * taşıyan her seed bu riski taşır; ayrıştırıcı artık tırnak duyarlı.
+ *
+ * Desteklenen sınırlar: '...' (ve '' kaçışı), "...", `...`, \ kaçışı,
+ * -- satır yorumu, # satır yorumu, /* blok yorumu *​/
+ */
+type Scan = { text: string; statements: string[] };
+
+function scanSql(input: string, opts: { stripComments: boolean }): Scan {
+  let out = '';
+  const statements: string[] = [];
+  let current = '';
+
+  const push = (ch: string) => { out += ch; current += ch; };
+
+  for (let i = 0; i < input.length; i++) {
+    const ch = input[i];
+    const next = input[i + 1];
+
+    // — yorumlar —
+    if (ch === '-' && next === '-') {
+      const end = input.indexOf('\n', i);
+      const stop = end === -1 ? input.length : end;
+      if (!opts.stripComments) { const c = input.slice(i, stop); out += c; current += c; }
+      i = stop - 1;
+      continue;
+    }
+    if (ch === '#') {
+      const end = input.indexOf('\n', i);
+      const stop = end === -1 ? input.length : end;
+      if (!opts.stripComments) { const c = input.slice(i, stop); out += c; current += c; }
+      i = stop - 1;
+      continue;
+    }
+    if (ch === '/' && next === '*') {
+      const end = input.indexOf('*/', i + 2);
+      const stop = end === -1 ? input.length : end + 2;
+      if (!opts.stripComments) { const c = input.slice(i, stop); out += c; current += c; }
+      i = stop - 1;
+      continue;
+    }
+
+    // — tırnaklı bölgeler: içeride hiçbir şey yorumlanmaz —
+    if (ch === "'" || ch === '"' || ch === '`') {
+      const quote = ch;
+      push(ch);
+      i++;
+      for (; i < input.length; i++) {
+        const c = input[i];
+        if (c === '\\' && quote !== '`') {
+          push(c);
+          if (i + 1 < input.length) push(input[++i]);
+          continue;
+        }
+        if (c === quote) {
+          // '' / "" / `` kaçışı
+          if (input[i + 1] === quote) { push(c); push(input[++i]); continue; }
+          push(c);
+          break;
+        }
+        push(c);
+      }
+      continue;
+    }
+
+    // — cümle sınırı —
+    if (ch === ';') {
+      current += ch;
+      out += ch;
+      const trimmed = current.trim();
+      if (trimmed && trimmed !== ';') statements.push(trimmed);
+      current = '';
+      continue;
+    }
+
+    push(ch);
+  }
+
+  const tail = current.trim();
+  if (tail && tail !== ';') statements.push(tail.endsWith(';') ? tail : tail + ';');
+
+  return { text: out, statements };
 }
 
-// ; ile biten cümleleri ayrıştır (stringlerin içinde ; varsa bu basit split bozulabilir
-// fakat tipik schema/seed dosyalarında sorun çıkmaz)
+// Yorumları temizle (tırnak içindekilere dokunmadan)
+export function cleanSql(input: string): string {
+  return scanSql(input, { stripComments: true }).text;
+}
+
+// Cümlelere ayır (tırnak içindeki `;` cümleyi bölmez)
 export function splitStatements(sql: string): string[] {
-  return sql
-    .split(/;\s*(?:\r?\n|$)/g)
-    .map(s => s.trim())
-    .filter(Boolean)
-    .map(s => s.endsWith(';') ? s : s + ';');
+  return scanSql(sql, { stripComments: false }).statements;
 }
 
 export function logStep(msg: string) {

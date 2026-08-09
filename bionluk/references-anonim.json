@@ -1,0 +1,141 @@
+{
+  "_meta": {
+    "kaynak": "docs/bionluk/profile-portfolio-raw.json → comments.comments[] (fetched_at 2026-06-11)",
+    "toplam_ham_yorum": 11,
+    "yayinlanan": 10,
+    "haric_tutulan": 1,
+    "haric_tutma_gerekcesi": "comment_id 1295816 (username 'bionluk', grade 0) bir OTOMATIK SISTEM yorumudur ('Freelancer siparişi tamamlayamadı.'), müşteri değerlendirmesi değildir. Referans olarak yayınlanmaz. Bionluk profilindeki 4.50 ortalama bu otomatik 0'ı içerir; sitede ortalama yayınlanacaksa 10 gerçek yorumun ortalaması (4.97) kullanılır ve 'Bionluk profil ortalaması 4.50' diye sunulmaz.",
+    "anonimlestirme_kurali": "Ham veride müşterilerin GERÇEK ad-soyadı YOKTUR; yalnızca Bionluk kullanıcı adı (handle) vardır. Baş harfler handle'ın sözcük parçalarından türetilmiştir; kişi adı olmayan marka handle'ları da aynı biçimde iki harfe indirgenmiştir. Sonuç her durumda anonimdir. Orhan gerçek ad-soyad biliyorsa 'initials' alanını düzeltebilir.",
+    "kaldirilan_alanlar": ["profil görseli (Bionluk CDN + tanımlayıcı)", "kullanıcı adı", "kullanıcı kimliği", "uuid", "portfolyo bağlantısı", "müşterinin kendi profil biyografisi (kimlik sızdırır)"],
+    "geri_cevrilebilirlik_uyarisi": "Bu dosyadaki 'ref_id' değerleri ham `profile-portfolio-raw.json` içindeki comment_id ile eşleşir; o dosya kullanıcı adlarını içerir. Yani repoya erişimi olan biri eşlemeyi kurabilir. Kabul edilebilir: repo özeldir ve KVKK açısından belirleyici olan, YAYINLANAN veride (DB + site + API) tam ad bulunmamasıdır. Repo herkese açılacaksa ham JSON'lar önce `.gitignore`'a alınmalıdır.",
+    "metin_islemi": "Alıntılar VERBATIM. Yalnızca HTML <br> etiketleri kaldırıldı, eksik boşluk/noktalama düzeltildi, emoji temizlendi. Hiçbir kelime değiştirilmedi, eklenmedi, çıkarılmadı.",
+    "kvkk_notu": "Baş harf + genel meslek unvanı, tek başına belirli bir kişiyi tanımlamaz. Yine de yayın öncesi Orhan onayı gereklidir. Bir müşteri 'adımla yayınlayın' derse ayrıca açık rıza alınıp bu dosyada 'consent': true işaretlenir.",
+    "sonraki_adim": "Codex bu dosyadan `references` + `references_i18n` seed üretir (WP-3.6). display_name = initials."
+  },
+
+  "references": [
+    {
+      "ref_id": "1331819",
+      "initials": "F.S.",
+      "role_title_tr": "Yazılım ve İhracat",
+      "role_title_en": "Software & Export",
+      "rating": 5,
+      "date": "2026-06-10",
+      "is_featured": true,
+      "consent": false,
+      "quote_tr": "Orhan hocam ile yeni nesil, yani Google'un seveceği, yukarılarda göstereceği hızlı açılan website konusunda çalışma yaptık. Bu çalışmayı Cloudflare domain adı, Next.js yazılım dili ve Hostinger VPS sağlayıcı kullanarak sağladık. Kendisi bu kavramlara uzak değildi, süreci güzel yönetti. Teşekkürler.",
+      "quote_en": "We worked on a next-generation website — the kind Google favours and ranks well — that loads fast. We built it using a Cloudflare domain, the Next.js framework and a Hostinger VPS. He was well versed in these concepts and managed the process nicely. Thank you.",
+      "_not": "Ham metinde 'claudeflare' yazımı Cloudflare olarak düzeltildi (açık yazım hatası, marka adı)."
+    },
+    {
+      "ref_id": "1329351",
+      "initials": "F.B.",
+      "role_title_tr": "Amazon FBA operasyon ve karar sistemleri",
+      "role_title_en": "Amazon FBA operations & decision systems",
+      "rating": 4.7,
+      "date": "2026-05-23",
+      "is_featured": true,
+      "consent": false,
+      "quote_tr": "İletişim ve teknik geri dönüş tarafı oldukça iyiydi. Canlı testlerde çıkan sorunlara hızlı dönüş sağlayıp gerekli düzeltmeleri yaptı. Çalışan ve operasyonel olarak kullanılabilir bir V1 sistem teslim edildi. Süreç boyunca çözüm odaklı ve iteratif ilerledi. Teşekkür ederim.",
+      "quote_en": "Communication and technical responsiveness were very good. He responded quickly to issues found in live testing and made the necessary corrections. A working, operationally usable V1 system was delivered. Throughout the process he worked iteratively and stayed solution-focused. Thank you."
+    },
+    {
+      "ref_id": "1322757",
+      "initials": "B.B.",
+      "role_title_tr": "Sosyal Medya Danışmanı",
+      "role_title_en": "Social Media Consultant",
+      "rating": 5,
+      "date": "2026-04-12",
+      "is_featured": true,
+      "consent": false,
+      "quote_tr": "Gerçekten son zamanlarda çalıştığım en iyi freelancer; SEO ve kodlama konusunda kendini aşmış biri. SEO optimizasyonu tamamlandı, şimdi geriye kalan işlemleri teslim etmek için çalışmaya devam ediyor.",
+      "quote_en": "Genuinely the best freelancer I have worked with recently — he has outdone himself on SEO and coding. The SEO optimisation is complete and he is still working to deliver the remaining items."
+    },
+    {
+      "ref_id": "1319060",
+      "initials": "A.S.",
+      "role_title_tr": null,
+      "role_title_en": null,
+      "rating": 5,
+      "date": "2026-03-21",
+      "is_featured": true,
+      "consent": false,
+      "quote_tr": "Gerçekten işinin ehli. Her probleme hızlıca çözüm üretebiliyor. Desteğini esirgemiyor. Bundan sonra sürekli olarak çalışacağız.",
+      "quote_en": "Truly a master of his craft. He produces quick solutions to every problem and never withholds his support. We will be working together on an ongoing basis from now on."
+    },
+    {
+      "ref_id": "1318498",
+      "initials": "A.S.",
+      "role_title_tr": null,
+      "role_title_en": null,
+      "rating": 5,
+      "date": "2026-03-17",
+      "is_featured": true,
+      "consent": false,
+      "quote_tr": "İşinde profesyonel, isteklerinizi rahatça dile getirebilirsiniz. Web sitem için çok teknik bir altyapı, anlaşılır ve süper işlevsel bir admin paneli kurdu. Basit bir website değil, resmen sistem yaratıyor. Kesinlikle çalışmaya devam edeceğim.",
+      "quote_en": "Professional in his work; you can express your requests comfortably. He built a highly technical infrastructure for my website along with a clear, superbly functional admin panel. This is not a simple website — he genuinely creates a system. I will definitely keep working with him.",
+      "_not": "Ham metindeki 'profosyonel' yazımı düzeltildi. Aynı müşteri (A.S.) iki ayrı yorum bırakmış — ikisi de korundu, sitede tek kart içinde birleştirilmez."
+    },
+    {
+      "ref_id": "1293032",
+      "initials": "İ.S.",
+      "role_title_tr": null,
+      "role_title_en": null,
+      "rating": 5,
+      "date": "2025-10-27",
+      "is_featured": false,
+      "consent": false,
+      "quote_tr": "İşini severek ve çok hızlı yapıyor. Kısa sürede işi tamamladı. Kendisiyle çalışmaktan çok memnun oldum.",
+      "quote_en": "He does his work with genuine enthusiasm and great speed. He completed the job in a short time. I was very pleased to work with him."
+    },
+    {
+      "ref_id": "1286936",
+      "initials": "W.M.",
+      "role_title_tr": "Yazılım Uzmanı",
+      "role_title_en": "Software Specialist",
+      "rating": 5,
+      "date": "2025-09-21",
+      "is_featured": true,
+      "consent": false,
+      "quote_tr": "Orhan ile çalışmak büyük bir keyifti. İşi zamanında ve eksiksiz teslim etti; teknik detaylara hâkimiyeti ve iletişim becerisi gerçekten etkileyiciydi. Taleplerimi sabırla dinledi, her aşamasında çözüm odaklı yaklaştı. Hem profesyonel hem de güvenilir bir freelancer, tavsiye ediyorum herkese.",
+      "quote_en": "Working with Orhan was a great pleasure. He delivered the work on time and in full; his command of technical detail and his communication skills were genuinely impressive. He listened to my requests patiently and stayed solution-focused at every stage. A professional and trustworthy freelancer — I recommend him to everyone.",
+      "_not": "Ham metindeki 'fralancertavsiye' bitişik yazımı 'freelancer, tavsiye' olarak ayrıldı. Bu müşterinin Bionluk profil biyografisinde kendi gerçek adı geçiyor; o alan (description) bilinçli olarak alınmadı."
+    },
+    {
+      "ref_id": "1290767",
+      "initials": "F.M.",
+      "role_title_tr": null,
+      "role_title_en": null,
+      "rating": 5,
+      "date": "2025-10-14",
+      "is_featured": false,
+      "consent": false,
+      "quote_tr": "Çok hızlı hizmet.",
+      "quote_en": "Very fast service."
+    },
+    {
+      "ref_id": "1286938",
+      "initials": "S.V.",
+      "role_title_tr": null,
+      "role_title_en": null,
+      "rating": 5,
+      "date": "2025-09-21",
+      "is_featured": false,
+      "consent": false,
+      "quote_tr": "Teşekkürler, her şey için.",
+      "quote_en": "Thank you, for everything."
+    },
+    {
+      "ref_id": "1284917",
+      "initials": "S.V.",
+      "role_title_tr": null,
+      "role_title_en": null,
+      "rating": 5,
+      "date": "2025-09-10",
+      "is_featured": false,
+      "consent": false,
+      "quote_tr": "Güzel iş.",
+      "quote_en": "Nice work."
+    }
+  ]
+}

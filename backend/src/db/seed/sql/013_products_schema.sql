@@ -18,6 +18,17 @@ CREATE TABLE IF NOT EXISTS products (
   -- 🔑 Ürün tipi (product | sparepart)
   item_type          ENUM('product','sparepart') NOT NULL DEFAULT 'product',
 
+  -- ── SaaS / dijital ürün alanları ──────────────────────────────────────────
+  -- gzlteknoloji birleşmesiyle eklendi (2026-08-08). GZL Teknoloji kataloğu
+  -- fiziksel ürün değil SaaS/araç/API satar (GeoSerra, KatalogAI, Invitea,
+  -- Scraper-API); bu alanlar olmadan katalog anlamsız kalıyordu.
+  -- GWD tarafında kullanılmaz, varsayılanlarla kalır.
+  product_kind       ENUM('saas','tool','api')   NOT NULL DEFAULT 'saas',
+  demo_url           VARCHAR(500)  DEFAULT NULL,
+  docs_url           VARCHAR(500)  DEFAULT NULL,
+  status             ENUM('live','beta','coming_soon') NOT NULL DEFAULT 'coming_soon',
+  pricing_model      ENUM('subscription','one_time','usage') NOT NULL DEFAULT 'subscription',
+
   category_id        CHAR(36)      NOT NULL,
   sub_category_id    CHAR(36)      DEFAULT NULL,
 
@@ -38,6 +49,28 @@ CREATE TABLE IF NOT EXISTS products (
   -- 🔢 Drag & drop sıralama için
   order_num          INT(11)       NOT NULL DEFAULT 0,
 
+  -- ── Tarım/tohum alanları ──────────────────────────────────────────────────
+  -- Bu kolonlar @vps/shared-backend'in ortak `products` Drizzle şemasında
+  -- TANIMLI (paket VistaSeeds/BereketFide için yazıldı) ama bu repodaki seed
+  -- şemasında YOKTU. Ortak modül bu kolonları SELECT ettiği için
+  -- `GET /api/v1/products` HER İKİ sitede de 500 dönüyordu (2026-08-08'de
+  -- gzlteknoloji.com SaaS kataloğu yayına alınırken ortaya çıktı).
+  -- Bu deployment'larda kullanılmaz, NULL kalır — amaç ortak şemayla hizalanmak.
+  botanical_name     VARCHAR(255)  DEFAULT NULL,
+  planting_seasons   JSON          DEFAULT NULL,
+  harvest_days       INT           DEFAULT NULL,
+  climate_zones      JSON          DEFAULT NULL,
+  soil_types         JSON          DEFAULT NULL,
+  water_need         VARCHAR(16)   DEFAULT NULL,
+  sun_exposure       VARCHAR(16)   DEFAULT NULL,
+  min_temp           DECIMAL(5,2)  DEFAULT NULL,
+  max_temp           DECIMAL(5,2)  DEFAULT NULL,
+  germination_days   INT           DEFAULT NULL,
+  seed_depth_cm      DECIMAL(5,2)  DEFAULT NULL,
+  row_spacing_cm     INT           DEFAULT NULL,
+  plant_spacing_cm   INT           DEFAULT NULL,
+  yield_per_sqm      VARCHAR(50)   DEFAULT NULL,
+
   product_code       VARCHAR(64)   DEFAULT NULL,
   stock_quantity     INT(11)       NOT NULL DEFAULT 0,
   rating             DECIMAL(3,2)  NOT NULL DEFAULT 5.00,
@@ -52,6 +85,8 @@ CREATE TABLE IF NOT EXISTS products (
   UNIQUE KEY products_code_uq        (product_code),
 
   KEY products_item_type_idx         (item_type),
+  KEY products_kind_idx              (product_kind),
+  KEY products_status_idx            (status),
   KEY products_category_id_idx       (category_id),
   KEY products_sub_category_id_idx   (sub_category_id),
   KEY products_active_idx            (is_active),

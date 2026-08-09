@@ -27,9 +27,13 @@ import type { Project, UpsertProjectInput } from '@/integrations/shared';
 import { isUuidLike } from '@/integrations/shared';
 import {
   useGetProjectAdminQuery,
+  useGetProjectBySlugAdminQuery,
   useCreateProjectAdminMutation,
   useUpdateProjectAdminMutation,
 } from '@/integrations/hooks';
+import type { BlogSeoQualityScore } from '@/integrations/shared';
+import ContentQualityPanel from '@/components/admin/seo/content-quality-panel';
+import { CategorySelect } from '@/components/admin/category-select';
 
 type FormState = UpsertProjectInput & { id?: string };
 
@@ -80,11 +84,26 @@ export default function AdminProjectDetailClient({ id }: { id: string }) {
   }, [localeOptions]);
 
   const isCreate = String(id) === 'new';
-  const canLoad = !isCreate && isUuidLike(id);
+  // ADRESTE ID DEGIL SLUG
+  // Rota onceden yalnizca UUID kabul ediyordu; adres cubugunda okunmaz bir
+  // kimlik duruyordu. Artik slug de calisir, eski UUID adresleri de.
+  const routeKey = String(id || '').trim();
+  const looksLikeId = isUuidLike(routeKey);
+  const canLoad = !isCreate && !!routeKey;
 
-  const projectQ = useGetProjectAdminQuery(id, { skip: !canLoad, refetchOnMountOrArgChange: true });
+  const byIdQ = useGetProjectAdminQuery(routeKey, {
+    skip: !canLoad || !looksLikeId,
+    refetchOnMountOrArgChange: true,
+  });
+  const bySlugQ = useGetProjectBySlugAdminQuery(routeKey, {
+    skip: !canLoad || looksLikeId,
+    refetchOnMountOrArgChange: true,
+  });
+  const projectQ = looksLikeId ? byIdQ : bySlugQ;
   const [createProject, createState] = useCreateProjectAdminMutation();
   const [updateProject, updateState] = useUpdateProjectAdminMutation();
+
+  const seoQuality = (projectQ.data as { seo_quality?: BlogSeoQualityScore } | undefined)?.seo_quality;
 
   const [form, setForm] = React.useState<FormState>(emptyForm);
 
@@ -170,7 +189,9 @@ export default function AdminProjectDetailClient({ id }: { id: string }) {
         const created = await createProject(payload).unwrap();
         if (created?.id) {
           toast.success(common?.actions?.save || '');
-          router.replace(`/admin/projects/${encodeURIComponent(created.id)}`);
+          // Adreste slug tercih edilir.
+          const nextKey = String((created as { slug?: string }).slug ?? '').trim() || created.id;
+          router.replace(`/admin/projects/${encodeURIComponent(nextKey)}`);
           return;
         }
       } else if (form.id) {
@@ -291,7 +312,12 @@ export default function AdminProjectDetailClient({ id }: { id: string }) {
 
             <div className="space-y-2">
               <Label>{page?.category_label}</Label>
-              <Input value={form.category ?? ''} onChange={(e) => setForm((p) => ({ ...p, category: e.target.value }))} />
+              {/* Serbest metin degil: kategori listesi site ayarindan gelir.
+                  Bkz. components/admin/category-select.tsx */}
+              <CategorySelect
+                value={form.category}
+                onChange={(next) => setForm((p) => ({ ...p, category: next }))}
+              />
             </div>
             <div className="space-y-2">
               <Label>{page?.client_label}</Label>
@@ -365,6 +391,9 @@ export default function AdminProjectDetailClient({ id }: { id: string }) {
             </div>
           </CardContent>
         </Card>
+
+        {/* Icerik kalite / SEO paneli — skor backend'de hesaplanir (seo-quality.ts) */}
+        {seoQuality ? <ContentQualityPanel score={seoQuality} /> : null}
       </div>
     </div>
   );

@@ -17,6 +17,8 @@ import { Button } from '@/components/ui/button';
 
 import type { CustomPageDto } from '@/integrations/shared';
 import { useDeleteCustomPageAdminMutation } from '@/integrations/hooks';
+import type { BlogSeoQualityScore } from '@/integrations/shared';
+import { IndexabilityBadge, QualityBadge } from '@/components/admin/seo/quality-badge';
 
 export type CustomPageListProps = {
   items?: CustomPageDto[];
@@ -158,6 +160,8 @@ export const CustomPageList: React.FC<CustomPageListProps> = ({
                         #{idx + 1}
                       </span>
                       {renderStatus(p)}
+                      <QualityBadge q={(p as { seo_quality?: BlogSeoQualityScore }).seo_quality} />
+                      <IndexabilityBadge published={p.is_published} slug={p.slug} />
                       {localeResolved ? (
                         <span className="inline-flex items-center rounded-full border px-2 py-0.5 text-[11px] text-muted-foreground">
                           Locale: <code className="ml-1">{localeResolved}</code>
@@ -231,6 +235,8 @@ export const CustomPageList: React.FC<CustomPageListProps> = ({
               <th className="px-3 py-2 text-xs">Başlık</th>
               <th className="px-3 py-2 text-xs">Slug</th>
               <th className="px-3 py-2 text-xs">Durum</th>
+              <th className="px-3 py-2 text-xs">SEO</th>
+              <th className="px-3 py-2 text-xs">İndeks</th>
               <th className="px-3 py-2 text-xs">Tarih</th>
               <th className="px-3 py-2 text-xs text-right">İşlemler</th>
             </tr>
@@ -272,6 +278,12 @@ export const CustomPageList: React.FC<CustomPageListProps> = ({
                   </td>
 
                   <td className="px-3 py-2 whitespace-nowrap">{renderStatus(p)}</td>
+                  <td className="px-3 py-2 whitespace-nowrap">
+                    <QualityBadge q={(p as { seo_quality?: BlogSeoQualityScore }).seo_quality} />
+                  </td>
+                  <td className="px-3 py-2 whitespace-nowrap">
+                    <IndexabilityBadge published={p.is_published} slug={p.slug} />
+                  </td>
 
                   <td className="px-3 py-2 whitespace-nowrap text-xs">
                     <div>{formatDate(p.created_at)}</div>

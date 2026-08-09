@@ -5,11 +5,12 @@
 
 import Layout from '@/components/layout/Layout';
 import ServiceDetailClient from '../_component/ServiceDetailClient';
+import RelatedProjects from './_components/RelatedProjects';
 import BreadcrumbJsonLd from '@/seo/BreadcrumbJsonLd';
 import ServiceJsonLd from '@/seo/ServiceJsonLd';
 import { mergeSeoPage } from '@/integrations/shared';
 import { normalizeLocaleParam, unwrapRouteParams } from '@/i18n/localeParam';
-import { getServiceSeoPageBySlug, getSeoPage, SEO_PAGE_KEYS, buildMetadata } from '@/seo';
+import { getServiceSeoPageBySlug, getSeoAll, getSeoPage, SEO_PAGE_KEYS, buildMetadata } from '@/seo';
 import { getServicesListServer, getServiceDetailServer } from '@/utils/publicLists.server';
 import { safeGenerateStaticSlugParams } from '@/utils/safeGenerateStaticSlugParams';
 
@@ -36,6 +37,12 @@ export default async function ServiceDetailPage({
   const svc = await getServiceDetailServer({ locale: safeLocale, slug });
   const labels = BREADCRUMB_LABELS[safeLocale] ?? BREADCRUMB_LABELS.en;
 
+  // IKI MARKA, TEK KOD TABANI: saglayici adi sabit "Guezel Web Design" yaziliydi
+  // ve gzlteknoloji.com'da YANLIS isletmeyi yapisal veriye gomuyordu.
+  // Ad, deployment'in kendi SEO ayarindan okunur.
+  const seoAll = await getSeoAll({ routeLocale: safeLocale });
+  const providerName = seoAll.defaults.siteName;
+
   return (
     <Layout headerStyle={1} footerStyle={1}>
       <BreadcrumbJsonLd
@@ -52,12 +59,19 @@ export default async function ServiceDetailPage({
           name={(svc as any).name || slug}
           description={(svc as any).summary || undefined}
           serviceType={(svc as any).name || undefined}
-          providerName="Guezel Web Design"
-          areaServed={['Germany', 'Europe']}
+          providerName={providerName}
           url={`/${safeLocale}/services/${slug}`}
         />
       )}
-      <ServiceDetailClient locale={safeLocale} slug={slug} />
+      <ServiceDetailClient locale={safeLocale} slug={slug} initialService={svc} />
+
+      {/* Hizmet -> ayni kategorideki projeler. Kategori, hizmet ve projeyi
+          baglayan tek alan (services.type == projects.category). */}
+      <RelatedProjects
+        locale={safeLocale}
+        category={(svc as { type?: string | null } | null)?.type ?? null}
+        currentServiceName={(svc as { name?: string } | null)?.name ?? null}
+      />
     </Layout>
   );
 }

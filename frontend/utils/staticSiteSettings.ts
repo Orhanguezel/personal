@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from 'react';
 
+import { useStaticSiteSettingsMap } from './staticSiteSettings.context';
+
 import { FALLBACK_LOCALE, SUPPORTED_LOCALES } from '@/i18n/config';
 import { BASE_URL } from '@/integrations/apiBase';
 
@@ -119,9 +121,18 @@ export function useStaticSiteSetting(args: { key: string; locale?: string }): St
   const key = String(args.key || '').trim();
   const locale = normalizeLocale(args.locale);
 
+  // SUNUCUDA HAZIR DEGER — bkz. staticSiteSettings.context.tsx.
+  // Saglayici varsa deger ilk render'da (SSR dahil) elimizde olur; ag istegi
+  // yalnizca saglayicinin bulunmadigi yerlerde calisir.
+  const serverMap = useStaticSiteSettingsMap();
+  const seeded =
+    serverMap && key && serverMap[key] !== undefined
+      ? ({ key, locale, value: serverMap[key] } as StaticSettingRow)
+      : undefined;
+
   const [state, setState] = useState<StaticSettingState>({
-    data: undefined,
-    isLoading: true,
+    data: seeded,
+    isLoading: !seeded,
     isError: false,
   });
 
@@ -133,7 +144,7 @@ export function useStaticSiteSetting(args: { key: string; locale?: string }): St
       return undefined;
     }
 
-    setState({ data: undefined, isLoading: true, isError: false });
+    setState((prev) => ({ ...prev, isLoading: !prev.data, isError: false }));
 
     loadSiteSetting(key, locale)
       .then((data) => {
@@ -142,7 +153,9 @@ export function useStaticSiteSetting(args: { key: string; locale?: string }): St
       })
       .catch(() => {
         if (cancelled) return;
-        setState({ data: undefined, isLoading: false, isError: true });
+        // Sunucudan gelen deger varsa onu koru; hata yuzunden Almanca
+        // varsayilanlara dusmeyelim.
+        setState((prev) => ({ data: prev.data, isLoading: false, isError: !prev.data }));
       });
 
     return () => {

@@ -57,19 +57,44 @@ export async function getAnalyticsConfig(opts?: {
 // JSON-LD graph builder (Organization + WebSite + LocalBusiness)
 // =============================================================
 
-export async function getSiteJsonLdGraph(): Promise<Thing> {
-  const all = await getSeoAll();
+export async function getSiteJsonLdGraph(opts?: { routeLocale?: string | null }): Promise<Thing> {
+  // routeLocale GECILMELI: gecilmezse ayar cozumleyicisi locale'i cookies()/
+  // headers() ile bulmaya calisiyor. Bu dinamik API'ler statik render sirasinda
+  // DYNAMIC_SERVER_USAGE firlatiyor ve on-demand uretilen sayfalar (henuz
+  // prebuild edilmemis detay sayfalari) 500 veriyordu — gzlteknoloji.com'da
+  // blog/hizmet/urun detaylari bu yuzden patliyordu (2026-08-09).
+  const all = await getSeoAll({ routeLocale: opts?.routeLocale ?? null });
   const canonicalBase = all.defaults.canonicalBase;
   const siteName = all.defaults.siteName;
+  const localBusinessRaw = all.localBusiness ?? null;
+
+  // ── IKI MARKA, TEK KOD TABANI ─────────────────────────────────────────────
+  // Asagidaki JSON-LD grafi Guezel Web Design icin ELLE yazilmisti: kurucu
+  // Person'i (Orhan Guzel, IHK Aachen), Almanya adresi (Grevenbroich),
+  // Alman telefon/e-postasi ve GWD sosyal hesaplari.
+  // gzlteknoloji.com ayni koddan sunuldugunda bu yapisal veri YANLIS bir
+  // isletmeyi tarif ediyordu.
+  //
+  // Ayrim: bir deployment `seo_local_business` ayarini TANIMLADIYSA, yapisal
+  // veri O AYARDAN uretilir ve GWD'ye ozel bloklar hic eklenmez. Ayar yoksa
+  // (guezelwebdesign.com'un bugunku durumu) eski graf aynen korunur.
+  const hasOwnBusinessData = Boolean(
+    localBusinessRaw && typeof localBusinessRaw === 'object',
+  );
+
   const sameAs = Array.from(
     new Set([
       ...(all.sameAs ?? []),
-      'https://github.com/Orhanguezel',
-      'https://www.linkedin.com/in/orhan-g%C3%BCzel-53b47b11a',
-      'https://www.linkedin.com/company/gzl-teknoloji',
+      // GWD'ye ait sabit hesaplar yalnizca kendi deployment'inda eklenir
+      ...(hasOwnBusinessData
+        ? []
+        : [
+            'https://github.com/Orhanguezel',
+            'https://www.linkedin.com/in/orhan-g%C3%BCzel-53b47b11a',
+            'https://www.linkedin.com/company/gzl-teknoloji',
+          ]),
     ]),
   );
-  const localBusinessRaw = all.localBusiness ?? null;
 
   const orgId = `${canonicalBase}/#org`;
   const websiteId = `${canonicalBase}/#website`;
@@ -96,28 +121,37 @@ export async function getSiteJsonLdGraph(): Promise<Thing> {
           ? String((localBusinessRaw as any).logo).trim()
           : undefined,
       sameAs: sameAs.length ? sameAs : undefined,
-      description:
-        'Full-Stack Web Development Agency specializing in production-ready business platforms, e-commerce systems, and web applications using Next.js, Fastify, Laravel, and Flutter.',
-      founderId: founderId,
-      foundingDate: '2020',
-      areaServed: ['Germany', 'Europe'],
-      knowsAbout: [
-        'Next.js',
-        'React',
-        'TypeScript',
-        'Fastify',
-        'Laravel',
-        'Flutter',
-        'MySQL',
-        'E-Commerce',
-        'Full-Stack Web Development',
-        'UI/UX Design',
-      ],
-      email: 'orhanguzell@gmail.com',
+      // Aciklama/kurulus/e-posta once DB'den; yoksa GWD'nin mevcut degerleri.
+      // (Sabit degerler GZL deployment'inda yanlis isletmeyi tarif ediyordu.)
+      description: hasOwnBusinessData
+        ? (asText((localBusinessRaw as any)?.description) || undefined)
+        : 'Full-Stack Web Development Agency specializing in production-ready business platforms, e-commerce systems, and web applications using Next.js, Fastify, Laravel, and Flutter.',
+      founderId: hasOwnBusinessData ? undefined : founderId,
+      foundingDate: hasOwnBusinessData
+        ? (asText((localBusinessRaw as any)?.foundingDate) || undefined)
+        : '2020',
+      areaServed: hasOwnBusinessData ? undefined : ['Germany', 'Europe'],
+      knowsAbout: hasOwnBusinessData
+        ? undefined
+        : [
+            'Next.js',
+            'React',
+            'TypeScript',
+            'Fastify',
+            'Laravel',
+            'Flutter',
+            'MySQL',
+            'E-Commerce',
+            'Full-Stack Web Development',
+            'UI/UX Design',
+          ],
+      email: hasOwnBusinessData
+        ? (asText((localBusinessRaw as any)?.email) || undefined)
+        : 'orhanguzell@gmail.com',
     }),
   );
 
-  items.push(
+  if (!hasOwnBusinessData) items.push(
     person({
       id: founderId,
       name: 'Orhan Güzel',
@@ -145,7 +179,7 @@ export async function getSiteJsonLdGraph(): Promise<Thing> {
     }),
   );
 
-  items.push(
+  if (!hasOwnBusinessData) items.push(
     professionalService({
       id: professionalServiceId,
       name: siteName,
@@ -157,7 +191,7 @@ export async function getSiteJsonLdGraph(): Promise<Thing> {
     }),
   );
 
-  items.push({
+  if (!hasOwnBusinessData) items.push({
     '@type': ['LocalBusiness', 'ProfessionalService'],
     '@id': localBusinessDeId,
     name: siteName,
@@ -197,7 +231,7 @@ export async function getSiteJsonLdGraph(): Promise<Thing> {
     ],
   });
 
-  items.push({
+  if (!hasOwnBusinessData) items.push({
     '@type': ['LocalBusiness', 'ProfessionalService'],
     '@id': localBusinessTrId,
     name: 'GZL Teknoloji ve Danışmanlık Hizmetleri Ltd. Şti.',

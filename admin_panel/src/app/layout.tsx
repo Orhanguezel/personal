@@ -9,9 +9,10 @@
 import type { ReactNode } from 'react';
 import type { Metadata } from 'next';
 import Script from 'next/script';
+import { cookies, headers } from 'next/headers';
 
 import { Toaster } from '@/components/ui/sonner';
-import { APP_CONFIG } from '@/config/app-config';
+import { getPanelBrand } from '@/config/app-config';
 import { fontVars } from '@/lib/fonts/registry';
 import { PREFERENCE_DEFAULTS } from '@/lib/preferences/preferences-config';
 
@@ -20,10 +21,12 @@ import { PreferencesStoreProvider } from '@/stores/preferences/preferences-provi
 
 import './globals.css';
 
-export const metadata: Metadata = {
-  title: APP_CONFIG.meta.title,
-  description: APP_CONFIG.meta.description,
-};
+// Marka koda gomulu DEGIL: deployment'in kendi ayarindan okunur.
+// Bkz. src/config/app-config.ts — onceden burada baska bir musterinin adi vardi.
+export async function generateMetadata(): Promise<Metadata> {
+  const brand = await getPanelBrand();
+  return { title: brand.title, description: brand.description };
+}
 
 function ThemeBootInlineScript() {
   const {
@@ -71,13 +74,20 @@ function ThemeBootInlineScript() {
   );
 }
 
-export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
+export default async function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   const { theme_preset, content_layout, navbar_style, sidebar_variant, sidebar_collapsible, font } =
     PREFERENCE_DEFAULTS;
+  const host = String((await headers()).get('host') || '').toLowerCase();
+  const savedLocale = String((await cookies()).get('admin_locale')?.value || '').toLowerCase();
+  const adminLocale = ['tr', 'en', 'de'].includes(savedLocale)
+    ? savedLocale
+    : host.includes('gzlteknoloji')
+      ? 'tr'
+      : 'de';
 
   return (
     <html
-      lang="tr"
+      lang={adminLocale}
       // html/body hydration mismatch’lerini tolere et (extension + theme class)
       suppressHydrationWarning
       data-theme-preset={theme_preset}
@@ -93,7 +103,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
         {/* Redux store gerekiyorsa kalsın */}
         <StoreProvider>
           {/* Preferences Zustand */}
-          <PreferencesStoreProvider>
+          <PreferencesStoreProvider init={{ adminLocale }}>
             {children}
             <Toaster />
           </PreferencesStoreProvider>

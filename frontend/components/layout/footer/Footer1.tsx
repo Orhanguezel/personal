@@ -22,6 +22,7 @@ import {
 } from '@/integrations/shared';
 import SiteLogo from '../SiteLogo';
 import { FooterLegalLinks } from './FooterLegalLinks';
+import { SITE_MEDIA_FALLBACKS } from '@/components/layout/siteAssets';
 
 function safeYear(): number {
   return new Date().getFullYear();
@@ -147,7 +148,7 @@ export default function Footer1() {
 
   const brandValue = brandRowValue;
   const brandName = useMemo(
-    () => pickTextFromSettingValue(brandValue, 'guezelwebdesign'),
+    () => pickTextFromSettingValue(brandValue, SITE_MEDIA_FALLBACKS.brandName),
     [brandValue],
   );
 

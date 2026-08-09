@@ -60,6 +60,7 @@ import {
   useUpdateReviewAdminMutation,
   useDeleteReviewAdminMutation,
 } from '@/integrations/hooks';
+import { toneTextClass } from '@/components/admin/status-tone';
 
 type ApprovedFilter = 'all' | 'approved' | 'unapproved';
 type ActiveFilter = 'all' | 'active' | 'inactive';
@@ -496,7 +497,7 @@ export default function AdminReviewsClient() {
                           disabled={busy}
                         >
                           {item.is_approved ? (
-                            <CheckCircle2 className="size-4 text-green-600" />
+                            <CheckCircle2 className={`size-4 ${toneTextClass('success')}`} />
                           ) : (
                             <XCircle className="size-4 text-muted-foreground" />
                           )}
@@ -601,7 +602,7 @@ export default function AdminReviewsClient() {
                           title={item.is_approved ? 'Onaylı' : 'Onaysız'}
                         >
                           {item.is_approved ? (
-                            <CheckCircle2 className="size-4 text-green-600" />
+                            <CheckCircle2 className={`size-4 ${toneTextClass('success')}`} />
                           ) : (
                             <XCircle className="size-4 text-muted-foreground" />
                           )}

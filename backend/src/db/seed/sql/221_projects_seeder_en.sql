@@ -1,5 +1,5 @@
 -- AUTO-GENERATED FILE. Source: /home/orhan/Documents/Projeler project metadata files
--- Generated at 2026-07-12T17:08:13.777Z
+-- Generated at 2026-08-09T10:05:24.922Z
 SET NAMES utf8mb4;
 SET time_zone = '+00:00';
 
@@ -192,15 +192,15 @@ INSERT INTO `projects` (
   1000.00, 'USD', 1,
   '/assets/imgs/work/img-4.png', @asset6, 'https://sosial.tarvista.com', NULL,
   'SAAS PLATFORM', 'Own Project — Tarım Dijital Ekosistemi', '2025-01-01', NULL, 'Aktif geliştirme',
-  CAST('["Backend Development","Frontend Development","Admin Dashboard","Architecture & Optimization","AI Integration","Social Media Automation"]' AS CHAR), 'https://sosial.tarvista.com', CAST('["TypeScript","Fastify","Drizzle ORM","MySQL","Bun","Zod","JWT","node-cron","Next.js","React","React Query","Tailwind CSS","Shadcn UI","Groq LLM","OpenAI","Google Analytics API","Google Ads API","PM2","Nginx","Nodemailer","Cloudinary"]' AS CHAR), CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
+  CAST('["Backend Development","Frontend Development","Admin Dashboard","Architecture & Optimization","AI Integration","Social Media Automation","Google/Meta Ads Automation","AI Marketing Analyst","Autonomous Optimization"]' AS CHAR), 'https://sosial.tarvista.com', CAST('["TypeScript","Fastify","Drizzle ORM","MySQL","Bun","Zod","JWT","node-cron","Next.js","React","React Query","Tailwind CSS","Shadcn UI","Groq LLM","OpenAI","Google Analytics API","Google Ads API","Anthropic Claude","Meta Marketing API","Recharts","PM2","Nginx","Nodemailer","Cloudinary"]' AS CHAR), CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 );
 
 INSERT INTO `projects_i18n` (
   `id`, `project_id`, `locale`, `title`, `slug`, `summary`, `content`,
   `featured_image_alt`, `meta_title`, `meta_description`, `created_at`, `updated_at`
 ) VALUES (
-  @pi18n6, @p6, 'en', 'Ekosistem Sosyal Medya', 'ekosistem-sosyal-medya', 'Tarım Dijital Ekosistemi''nin tüm markaları için merkezi sosyal medya yönetim platformu. Facebook, Instagram, LinkedIn, X ve Telegram kanallarına zamanlanmış içerik yayını, AI destekli içerik üretimi, analitik takip ve çoklu proje (bereketfide, vistaseed, tarimansiklopedisi vb.) hesap yönetimi.',
-  CAST('{"html":"<p>Tarım Dijital Ekosistemi''nin tüm markaları için merkezi sosyal medya yönetim platformu. Facebook, Instagram, LinkedIn, X ve Telegram kanallarına zamanlanmış içerik yayını, AI destekli içerik üretimi, analitik takip ve çoklu proje (bereketfide, vistaseed, tarimansiklopedisi vb.) hesap yönetimi.</p>","description":null,"key_features":["Çoklu marka/proje yönetimi (bereketfide, vistaseed, tarimansiklopedisi...)","Facebook & Instagram Business API entegrasyonu","LinkedIn OAuth ve içerik yayını","X (Twitter) OAuth ve tweet yönetimi","Telegram bot entegrasyonu","AI destekli içerik üretimi (Groq/OpenAI)","Zamanlanmış görevler (node-cron): 5dk, 30dk, saatlik, günlük","Ekosistem haber akışı senkronizasyonu","Google Analytics 4 ve Google Ads takibi","İçerik şablonu yönetimi","Hashtag grup yönetimi","Kampanya takvimi","Platform token sağlığı izleme","Çoklu tenant mimarisi","Paylaşımlı @agro/shared-backend altyapısı"],"technologies_used":["TypeScript","Fastify","Drizzle ORM","MySQL","Bun","Zod","JWT","node-cron","Next.js","React","React Query","Tailwind CSS","Shadcn UI","Groq LLM","OpenAI","Google Analytics API","Google Ads API","PM2","Nginx","Nodemailer","Cloudinary"],"design_highlights":["Monorepo, @agro/shared-backend ile SaaS mimarisi","Tüm ekosistem platformlarına tek panelden erişim","Cron tabanlı otonom yayın akışı"]}' AS CHAR), 'Ekosistem Sosyal Medya Yönetim Paneli', 'Ekosistem Sosyal Medya', 'Tarım Dijital Ekosistemi''nin tüm markaları için merkezi sosyal medya yönetim platformu. Facebook, Instagram, LinkedIn, X ve Telegram kanallarına zamanlanmış içerik yayını, AI destekli içerik üretimi, analitik takip ve çoklu proje (bereketfide, vistaseed, tarimansiklopedisi vb.) hesap yönetimi.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
+  @pi18n6, @p6, 'en', 'Ekosistem Sosyal Medya', 'ekosistem-sosyal-medya', 'Multi-tenant SaaS sosyal medya + AI reklam otomasyon platformu. Facebook, Instagram, LinkedIn, X, Telegram yayını ve AI destekli içerik üretiminin yanı sıra: Meta+Google Ads bağlama, birleşik canlı dashboard (kâr dahil), AI reklam analisti, tek-tıkla öneri uygulama, guardrail''li otonom kampanya optimizasyonu (auto-revert + kill switch), kreatif analiz (vision), 10''lu içerik paketi, rakip analizi, AI hafızası ve çok kanallı metrik uyarı sistemi.',
+  CAST('{"html":"<p>Multi-tenant SaaS sosyal medya + AI reklam otomasyon platformu. Facebook, Instagram, LinkedIn, X, Telegram yayını ve AI destekli içerik üretiminin yanı sıra: Meta+Google Ads bağlama, birleşik canlı dashboard (kâr dahil), AI reklam analisti, tek-tıkla öneri uygulama, guardrail''li otonom kampanya optimizasyonu (auto-revert + kill switch), kreatif analiz (vision), 10''lu içerik paketi, rakip analizi, AI hafızası ve çok kanallı metrik uyarı sistemi.</p>","description":null,"key_features":["Çoklu marka/proje yönetimi (bereketfide, vistaseed, tarimansiklopedisi...)","Facebook & Instagram Business API entegrasyonu","LinkedIn OAuth ve içerik yayını","X (Twitter) OAuth ve tweet yönetimi","Telegram bot entegrasyonu","AI destekli içerik üretimi (Groq/OpenAI)","Zamanlanmış görevler (node-cron): 5dk, 30dk, saatlik, günlük","Ekosistem haber akışı senkronizasyonu","Google Analytics 4 ve Google Ads takibi","İçerik şablonu yönetimi","Hashtag grup yönetimi","Kampanya takvimi","Platform token sağlığı izleme","Çoklu tenant mimarisi","Paylaşımlı @agro/shared-backend altyapısı","Meta + Google Ads bağlama ve birleşik reklam dashboard''u (birleşik ROAS + kâr tahmini)","AI reklam analisti: audit + sinyaller + trendlerden önceliklendirilmiş öneriler","Tek tıkla öneri uygulama (change-set: validate → onay → apply, fingerprint güvenliği)","Guardrail''li otonom optimizasyon (bütçe/adet/sessiz saat tavanları + auto-revert + kill switch, opt-in)","Kreatif analiz (Claude vision ile 0-100 skor + iyileştirme önerileri)","Tek tuşla 10''lu içerik paketi (başlık/açıklama/CTA/reklam metni/video senaryo/görsel fikri)","Rakip analizi (gerçek veriden LLM sentez strateji raporu)","AI hafızası (haftalık çıkarım; bulgular analist ve içerik üretimine enjekte)","Çok kanallı metrik uyarı motoru (eşik kuralları → in-app zil + Telegram + mail)"],"technologies_used":["TypeScript","Fastify","Drizzle ORM","MySQL","Bun","Zod","JWT","node-cron","Next.js","React","React Query","Tailwind CSS","Shadcn UI","Groq LLM","OpenAI","Google Analytics API","Google Ads API","Anthropic Claude","Meta Marketing API","Recharts","PM2","Nginx","Nodemailer","Cloudinary"],"design_highlights":["Monorepo, @agro/shared-backend ile SaaS mimarisi","Tüm ekosistem platformlarına tek panelden erişim","Cron tabanlı otonom yayın akışı","AI reklam otomasyonu (analiz→öneri→tek-tık/otonom uygula→outcome→hafıza)","Guardrail''li otonom optimizasyon + auto-revert güvenlik katmanı"]}' AS CHAR), 'Ekosistem Sosyal Medya Yönetim Paneli', 'Ekosistem Sosyal Medya', 'Multi-tenant SaaS sosyal medya + AI reklam otomasyon platformu. Facebook, Instagram, LinkedIn, X, Telegram yayını ve AI destekli içerik üretiminin yanı sıra: Meta+Google Ads bağlama, birleşik canlı dashboard (kâr dahil), AI reklam analisti, tek-tıkla öneri uygulama, guardrail''li otonom kampanya optimizasyonu (auto-revert + kill switch), kreatif analiz (vision), 10''lu içerik paketi, rakip analizi, AI hafızası ve çok kanallı metrik uyarı sistemi.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 );
 
 INSERT INTO `project_images` (`id`, `project_id`, `asset_id`, `image_url`, `display_order`, `is_active`, `created_at`, `updated_at`) VALUES
@@ -224,7 +224,7 @@ INSERT INTO `projects` (
 ) VALUES (
   @p7, 1, 0, 7,
   1000.00, 'USD', 1,
-  '/assets/imgs/work/img-4.png', @asset7, NULL, NULL,
+  '/assets/imgs/work/img-1.png', @asset7, NULL, NULL,
   'AGRITECH PLATFORM', 'Own Project — Tarım Dijital Ekosistemi', '2026-05-15', NULL, 'Aktif geliştirme',
   CAST('["Backend Development","API Design","Data Modeling","Machine Learning","Data Engineering"]' AS CHAR), NULL, CAST('["Python","FastAPI","statsmodels","Prophet","scikit-learn","pandas","TypeScript","Fastify","Bun","MySQL","TimescaleDB","Redis","Docker","Drizzle ORM","JWT","Zod","Nodemailer"]' AS CHAR), CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 );
@@ -238,7 +238,7 @@ INSERT INTO `projects_i18n` (
 );
 
 INSERT INTO `project_images` (`id`, `project_id`, `asset_id`, `image_url`, `display_order`, `is_active`, `created_at`, `updated_at`) VALUES
-(@img7, @p7, @asset7, '/assets/imgs/work/img-4.png', 0, 1, CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
+(@img7, @p7, @asset7, '/assets/imgs/work/img-1.png', 0, 1, CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
 
 INSERT INTO `project_images_i18n` (`id`, `image_id`, `locale`, `alt`, `caption`, `created_at`, `updated_at`) VALUES
 (@imgI18n7, @img7, 'en', 'Tahmin Motoru', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
@@ -258,7 +258,7 @@ INSERT INTO `projects` (
 ) VALUES (
   @p8, 1, 0, 8,
   1000.00, 'USD', 1,
-  '/assets/imgs/work/img-1.png', @asset8, NULL, NULL,
+  '/assets/imgs/work/img-3.png', @asset8, NULL, NULL,
   'SAAS PLATFORM', 'Own Project', '2025-01-01', NULL, 'Ongoing',
   CAST('["Çok kiracılı SaaS mimarisi","Online sipariş sistemi","QR masa siparişi","Kurye/delivery yönetimi","Mobil uygulama"]' AS CHAR), NULL, CAST('["Next.js 16","React 19","TypeScript","Fastify","MySQL (schema-per-tenant)","Bun","Expo / React Native","SSE (mutfak ekranı)","Next.js","React","Zustand","Tailwind CSS","Radix UI","Zod","MySQL","Drizzle ORM","JWT","Cloudinary","Nodemailer","Sass","i18n"]' AS CHAR), CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 );
@@ -272,7 +272,7 @@ INSERT INTO `projects_i18n` (
 );
 
 INSERT INTO `project_images` (`id`, `project_id`, `asset_id`, `image_url`, `display_order`, `is_active`, `created_at`, `updated_at`) VALUES
-(@img8, @p8, @asset8, '/assets/imgs/work/img-1.png', 0, 1, CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
+(@img8, @p8, @asset8, '/assets/imgs/work/img-3.png', 0, 1, CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
 
 INSERT INTO `project_images_i18n` (`id`, `image_id`, `locale`, `alt`, `caption`, `created_at`, `updated_at`) VALUES
 (@imgI18n8, @img8, 'en', 'Menu SaaS — Çok Kiracılı Restoran Sipariş Platformu', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
@@ -292,7 +292,7 @@ INSERT INTO `projects` (
 ) VALUES (
   @p9, 1, 0, 9,
   1000.00, 'USD', 1,
-  '/assets/imgs/work/img-1.png', @asset9, NULL, NULL,
+  '/assets/imgs/work/img-4.png', @asset9, NULL, NULL,
   'ERP SYSTEM', 'Own Project', '2025-01-01', NULL, 'Ongoing',
   CAST('["Sistem analizi ve veri modeli","Backend API geliştirme","Yönetim paneli geliştirme","Excel veri göçü (İSG-KATİP import)","Kurumsal web sitesi"]' AS CHAR), NULL, CAST('["Next.js 16","React 19","TypeScript","Fastify","Drizzle ORM","MySQL","Bun","Tailwind CSS v4","Next.js","React","Zustand","Tailwind CSS","Radix UI","Zod","JWT","Sass","Cloudinary","Nodemailer"]' AS CHAR), CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 );
@@ -306,7 +306,7 @@ INSERT INTO `projects_i18n` (
 );
 
 INSERT INTO `project_images` (`id`, `project_id`, `asset_id`, `image_url`, `display_order`, `is_active`, `created_at`, `updated_at`) VALUES
-(@img9, @p9, @asset9, '/assets/imgs/work/img-1.png', 0, 1, CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
+(@img9, @p9, @asset9, '/assets/imgs/work/img-4.png', 0, 1, CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
 
 INSERT INTO `project_images_i18n` (`id`, `image_id`, `locale`, `alt`, `caption`, `created_at`, `updated_at`) VALUES
 (@imgI18n9, @img9, 'en', 'OSGB Yazılım — İSG Operasyon Yönetim Sistemi', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
@@ -394,7 +394,7 @@ INSERT INTO `projects` (
 ) VALUES (
   @p12, 1, 0, 12,
   1000.00, 'USD', 1,
-  '/assets/imgs/work/img-3.png', @asset12, 'https://diricanmantar.com', NULL,
+  '/assets/imgs/work/img-4.png', @asset12, 'https://diricanmantar.com', NULL,
   'AGRITECH PLATFORM', 'Dirican Mantar', '2026-05-08', NULL, '9–10 hafta',
   CAST('["Computer Vision / AI Development","Edge AI Software","Backend Development","Frontend Development","Hardware Consulting"]' AS CHAR), 'https://diricanmantar.com', CAST('["Python","YOLOv8","OpenCV","TensorRT","NVIDIA Jetson Orin","Intel RealSense","PyQt6","Fastify","Next.js","TypeScript","MySQL","MQTT","Docker","Node.js","Tailwind CSS","PM2","Nginx","Bun","Framer Motion","React","Zustand","Radix UI","Zod","Drizzle ORM","JWT","WebSockets","Sass","Cloudinary","Nodemailer"]' AS CHAR), CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 );
@@ -408,7 +408,7 @@ INSERT INTO `projects_i18n` (
 );
 
 INSERT INTO `project_images` (`id`, `project_id`, `asset_id`, `image_url`, `display_order`, `is_active`, `created_at`, `updated_at`) VALUES
-(@img12, @p12, @asset12, '/assets/imgs/work/img-3.png', 0, 1, CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
+(@img12, @p12, @asset12, '/assets/imgs/work/img-4.png', 0, 1, CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
 
 INSERT INTO `project_images_i18n` (`id`, `image_id`, `locale`, `alt`, `caption`, `created_at`, `updated_at`) VALUES
 (@imgI18n12, @img12, 'en', 'Dirican Mantar — AI Hasat Görüntüleme Sistemi', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
@@ -496,24 +496,24 @@ INSERT INTO `projects` (
 ) VALUES (
   @p15, 1, 0, 15,
   1000.00, 'USD', 1,
-  '/assets/imgs/work/img-1.png', @asset15, NULL, 'https://github.com/Orhanguezel/e-fatura-service',
-  'SERVICE PLATFORM', 'Own Product', '2026-05-16', NULL, 'Ongoing',
-  CAST('["Backend Development","API Integration","DevOps"]' AS CHAR), NULL, CAST('["Bun","Fastify 5","TypeScript","Drizzle ORM","MySQL","Redis","BullMQ","Docker","Fastify","Zod"]' AS CHAR), CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
+  '/assets/imgs/work/img-1.png', @asset15, 'https://ditcofood.com', NULL,
+  'CORPORATE WEBSITE', 'Ditco Food', '2026-07-20', NULL, 'Ongoing',
+  CAST('["Frontend Development","Backend Development","UI/UX Design","SEO"]' AS CHAR), 'https://ditcofood.com', CAST('["Next.js 16","React 19","TypeScript","Tailwind CSS v4","Fastify","Drizzle ORM","MySQL","Bun","Next.js","PM2","React","Zustand","Tailwind CSS","Radix UI","Zod","JWT","Sass","Cloudinary","Nodemailer"]' AS CHAR), CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 );
 
 INSERT INTO `projects_i18n` (
   `id`, `project_id`, `locale`, `title`, `slug`, `summary`, `content`,
   `featured_image_alt`, `meta_title`, `meta_description`, `created_at`, `updated_at`
 ) VALUES (
-  @pi18n15, @p15, 'en', 'e-fatura-service', 'e-fatura-service', 'Turkiye e-ticaret projeleri icin merkezi multi-tenant e-arsiv / e-fatura mikroservisi.',
-  CAST('{"html":"<p>Nilvera/EDM entegratorleri uzerinden mali muhurlu e-arsiv fatura kesen, idempotent, kuyruk tabanli ve webhook bildirimli merkezi servis. sportoonline pilot tenant; kamanilan, konigsmassage, GZLTemizlik ortak tuketir.</p>","description":null,"key_features":["Multi-tenant credential at-rest sifreleme (AES-256-GCM)","Idempotent fatura olusturma + durum makinesi","BullMQ kalici kuyruk + uretici soyutlama (Nilvera/EDM)","Imzali webhook bildirimi + poll fallback"],"technologies_used":["Bun","Fastify 5","TypeScript","Drizzle ORM","MySQL","Redis","BullMQ","Docker","Fastify","Zod"],"design_highlights":[]}' AS CHAR), 'e-fatura-service cover image', 'e-fatura-service', 'Turkiye e-ticaret projeleri icin merkezi multi-tenant e-arsiv / e-fatura mikroservisi.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
+  @pi18n15, @p15, 'en', 'Ditco Food', 'ditcofood', 'Uluslararası gıda üreticisi Ditco Food için kurumsal web sitesi yenilemesi.',
+  CAST('{"html":"<p>Ditco Food''un ürün yelpazesini, üretim kalitesini ve uluslararası sertifikalarını sunan kurumsal web sitesi. Next.js tabanlı frontend, Fastify + Drizzle backend ve ürün/içerik yönetimi için admin panel içerir. Mevcut site ikas platformundan kendi altyapımıza taşınmaktadır.</p>","description":null,"key_features":["Ürün kataloğu (kategori, ürün detay, teknik doküman)","Kurumsal tanıtım ve sertifikalar bölümü","İletişim ve teklif talep formu","Admin panelden içerik, ürün ve görsel yönetimi","Çoklu dil altyapısı (TR/EN)","SEO ve yapılandırılmış veri (JSON-LD)"],"technologies_used":["Next.js 16","React 19","TypeScript","Tailwind CSS v4","Fastify","Drizzle ORM","MySQL","Bun","Next.js","PM2","React","Zustand","Tailwind CSS","Radix UI","Zod","JWT","Sass","Cloudinary","Nodemailer"],"design_highlights":["Gıda üretiminin ölçeğini vurgulayan görsel öncelikli düzen","Ürün ailelerine göre net bilgi mimarisi","Mobil öncelikli responsive düzen"]}' AS CHAR), 'Ditco Food kurumsal web sitesi', 'Ditco Food', 'Uluslararası gıda üreticisi Ditco Food için kurumsal web sitesi yenilemesi.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 );
 
 INSERT INTO `project_images` (`id`, `project_id`, `asset_id`, `image_url`, `display_order`, `is_active`, `created_at`, `updated_at`) VALUES
 (@img15, @p15, @asset15, '/assets/imgs/work/img-1.png', 0, 1, CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
 
 INSERT INTO `project_images_i18n` (`id`, `image_id`, `locale`, `alt`, `caption`, `created_at`, `updated_at`) VALUES
-(@imgI18n15, @img15, 'en', 'e-fatura-service', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
+(@imgI18n15, @img15, 'en', 'Ditco Food', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
 
 SET @p16 := UUID();
 SET @pi18n16 := UUID();
@@ -530,24 +530,24 @@ INSERT INTO `projects` (
 ) VALUES (
   @p16, 1, 0, 16,
   1000.00, 'USD', 1,
-  '/assets/imgs/work/img-1.png', @asset16, NULL, NULL,
-  'SAAS PLATFORM', 'Own Product', '2026-05-28', NULL, 'Planlama',
-  CAST('["Backend Development","Frontend Development","Admin Panel Development","UI/UX Design","Animation Design","Payment Integration","DevOps"]' AS CHAR), NULL, CAST('["Next.js 16","React 19","TypeScript","Tailwind CSS v4","Radix UI","Framer Motion","GSAP","Lenis","Fastify 5","Bun","Drizzle ORM","MySQL","Redis","Cloudinary","Stripe","Iyzipay","PayPal","next-intl","BullMQ","Next.js","Fastify","React","Zustand","Tailwind CSS","Zod","JWT","Sass"]' AS CHAR), CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
+  '/assets/imgs/work/img-1.png', @asset16, NULL, 'https://github.com/Orhanguezel/e-fatura-service',
+  'SERVICE PLATFORM', 'Own Product', '2026-05-16', NULL, 'Ongoing',
+  CAST('["Backend Development","API Integration","DevOps"]' AS CHAR), NULL, CAST('["Bun","Fastify 5","TypeScript","Drizzle ORM","MySQL","Redis","BullMQ","Docker","Fastify","Zod"]' AS CHAR), CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 );
 
 INSERT INTO `projects_i18n` (
   `id`, `project_id`, `locale`, `title`, `slug`, `summary`, `content`,
   `featured_image_alt`, `meta_title`, `meta_description`, `created_at`, `updated_at`
 ) VALUES (
-  @pi18n16, @p16, 'en', 'Invitea', 'invitea', 'QR kod sistemli, animasyonlu dijital davetiye SaaS platformu. Dugun, nisan, dogum gunu ve kurumsal etkinlikler icin LCV, masa plani ve canli giris kontrolu.',
-  CAST('{"html":"<p>Gelin/damat veya kurumsal musteri kendi davetiyesini olusturur, davetlilere QR kodlu link gonderir; etkinlik gunu kapida gorevli telefonun kamerasi ile QR okutarak mukerrer girisi engeller. Global pazar icin 5 dil (TR/EN/DE/ES/FR) ve coklu para birimi (Stripe + Iyzipay + PayPal) destegi.</p>","description":null,"key_features":["Animasyonlu davetiye sablonlari (GSAP + Lenis)","QR kod ile davetli giris kontrolu (mukerrer giris engeli)","LCV (RSVP) formu ve canli katilim tablosu","Masa/oturma plani (dnd-kit drag-drop)","Excel/CSV ile toplu davetli yukleme","WhatsApp + SMS + Email gonderim","5 dil + coklu para birimi","Admin paneli (sablon, paket, odeme yonetimi)","Multi-tenant SaaS mimari"],"technologies_used":["Next.js 16","React 19","TypeScript","Tailwind CSS v4","Radix UI","Framer Motion","GSAP","Lenis","Fastify 5","Bun","Drizzle ORM","MySQL","Redis","Cloudinary","Stripe","Iyzipay","PayPal","next-intl","BullMQ","Next.js","Fastify","React","Zustand","Tailwind CSS","Zod","JWT","Sass"],"design_highlights":["Zarf acilma animasyonu (GSAP)","Scroll-trigger kelime kelime fade","Lenis smooth scroll","Parallax foto galeri","Geri sayim flip animasyonu","Modern tipografi (serif + script + sans)"]}' AS CHAR), 'Invitea — QR sistemli dijital davetiye platformu', 'Invitea', 'QR kod sistemli, animasyonlu dijital davetiye SaaS platformu. Dugun, nisan, dogum gunu ve kurumsal etkinlikler icin LCV, masa plani ve canli giris kontrolu.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
+  @pi18n16, @p16, 'en', 'e-fatura-service', 'e-fatura-service', 'Turkiye e-ticaret projeleri icin merkezi multi-tenant e-arsiv / e-fatura mikroservisi.',
+  CAST('{"html":"<p>Nilvera/EDM entegratorleri uzerinden mali muhurlu e-arsiv fatura kesen, idempotent, kuyruk tabanli ve webhook bildirimli merkezi servis. sportoonline pilot tenant; kamanilan, konigsmassage, GZLTemizlik ortak tuketir.</p>","description":null,"key_features":["Multi-tenant credential at-rest sifreleme (AES-256-GCM)","Idempotent fatura olusturma + durum makinesi","BullMQ kalici kuyruk + uretici soyutlama (Nilvera/EDM)","Imzali webhook bildirimi + poll fallback"],"technologies_used":["Bun","Fastify 5","TypeScript","Drizzle ORM","MySQL","Redis","BullMQ","Docker","Fastify","Zod"],"design_highlights":[]}' AS CHAR), 'e-fatura-service cover image', 'e-fatura-service', 'Turkiye e-ticaret projeleri icin merkezi multi-tenant e-arsiv / e-fatura mikroservisi.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 );
 
 INSERT INTO `project_images` (`id`, `project_id`, `asset_id`, `image_url`, `display_order`, `is_active`, `created_at`, `updated_at`) VALUES
 (@img16, @p16, @asset16, '/assets/imgs/work/img-1.png', 0, 1, CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
 
 INSERT INTO `project_images_i18n` (`id`, `image_id`, `locale`, `alt`, `caption`, `created_at`, `updated_at`) VALUES
-(@imgI18n16, @img16, 'en', 'Invitea', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
+(@imgI18n16, @img16, 'en', 'e-fatura-service', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
 
 SET @p17 := UUID();
 SET @pi18n17 := UUID();
@@ -564,24 +564,24 @@ INSERT INTO `projects` (
 ) VALUES (
   @p17, 1, 0, 17,
   1000.00, 'USD', 1,
-  '/assets/imgs/work/satisai-cover.png', @asset17, NULL, NULL,
-  'SAAS PLATFORM', 'Own Project', '2026-05-02', NULL, 'Ongoing',
-  CAST('["AI Product Development","Frontend Development","Backend Development","Prompt Engineering","SaaS Architecture"]' AS CHAR), NULL, CAST('["Next.js 16","React 19","TypeScript","Tailwind CSS v4","Shadcn UI","Fastify","Drizzle ORM","MySQL","Bun","Claude Sonnet 4.6 API","Cloudinary","iyzico","Stripe","Redis","Docker"]' AS CHAR), CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
+  '/assets/imgs/work/img-1.png', @asset17, 'https://hilalsever.com', NULL,
+  'CORPORATE WEBSITE', 'Hilal Sever Mimarlık', '2026-07-20', NULL, 'Ongoing',
+  CAST('["Frontend Development","Backend Development","UI/UX Design","SEO"]' AS CHAR), 'https://hilalsever.com', CAST('["Next.js 16","React 19","TypeScript","Tailwind CSS v4","Fastify","Drizzle ORM","MySQL","Bun","Next.js","PM2","React","Zustand","Tailwind CSS","Radix UI","Zod","JWT","Sass","Cloudinary","Nodemailer"]' AS CHAR), CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 );
 
 INSERT INTO `projects_i18n` (
   `id`, `project_id`, `locale`, `title`, `slug`, `summary`, `content`,
   `featured_image_alt`, `meta_title`, `meta_description`, `created_at`, `updated_at`
 ) VALUES (
-  @pi18n17, @p17, 'en', 'SatisAI', 'satisai', 'Sahibinden basta olmak uzere Turk pazaryerleri icin AI destekli ilan baslik, aciklama ve etiket uretim SaaS platformu.',
-  CAST('{"html":"<p>Galericiler, emlakcilar, ikinci el satici ve kurumsal saticilar icin Claude Sonnet 4.6 tabanli ilan optimizasyon araci. Kategori-spesifik prompt''lar, toplu ilan uretimi (Excel/CSV), foto analizi ve pazar fiyat verisi ile Sahibinden, Arabam.com, Hepsiemlak ve Emlakjet gibi platformlara paralel cikti uretir.</p>","description":null,"key_features":["Kategori-spesifik AI ilan uretimi (Vasita, Emlak, Ikinci El, Yedek Parca)","Toplu ilan uretimi (Excel/CSV import-export)","Sahibinden algoritmasina optimize baslik ve etiket","Multi-platform cikti (Sahibinden + Arabam + Hepsiemlak + Emlakjet)","Foto analizi ile otomatik ozellik tespiti (Claude Vision)","Pazar fiyat verisi ve fiyat onerisi (scraper-service entegrasyonu)","Galeri ve emlakci icin multi-user takim ozelligi","Kredi tabanli plan ve abonelik yonetimi","Kullanim analizi ve performans raporlari"],"technologies_used":["Next.js 16","React 19","TypeScript","Tailwind CSS v4","Shadcn UI","Fastify","Drizzle ORM","MySQL","Bun","Claude Sonnet 4.6 API","Cloudinary","iyzico","Stripe","Redis","Docker"],"design_highlights":["Galerici dostu hizli akis tasarimi","Toplu mod icin tablo bazli editor","Foto onizleme ve drag-drop yukleme"]}' AS CHAR), 'SatisAI - AI ilan uretim SaaS', 'SatisAI', 'Sahibinden basta olmak uzere Turk pazaryerleri icin AI destekli ilan baslik, aciklama ve etiket uretim SaaS platformu.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
+  @pi18n17, @p17, 'en', 'Hilal Sever Mimarlık', 'hilalsever', 'İstanbul merkezli mimarlık ofisi için kurumsal web sitesi ve proje portfolyo yönetimi.',
+  CAST('{"html":"<p>Hilal Sever Mimarlık''ın mimari projelerini, hizmetlerini ve ofis kimliğini sunan kurumsal web sitesi. Next.js tabanlı frontend, Fastify + Drizzle backend ve proje/görsel yönetimi için admin panel içerir.</p>","description":null,"key_features":["Mimari proje portfolyosu (kategori, görsel galeri, proje detay)","Hizmetler ve ofis tanıtımı","İletişim formu ve harita entegrasyonu","Admin panelden içerik ve görsel yönetimi","Çoklu dil altyapısı (TR/EN)","SEO ve yapılandırılmış veri (JSON-LD)"],"technologies_used":["Next.js 16","React 19","TypeScript","Tailwind CSS v4","Fastify","Drizzle ORM","MySQL","Bun","Next.js","PM2","React","Zustand","Tailwind CSS","Radix UI","Zod","JWT","Sass","Cloudinary","Nodemailer"],"design_highlights":["Mimari işlere odaklanan sade, tipografi öncelikli tasarım","Tam genişlikte görsel galeriler ve proje vitrinleri","Mobil öncelikli responsive düzen"]}' AS CHAR), 'Hilal Sever Mimarlık kurumsal web sitesi', 'Hilal Sever Mimarlık', 'İstanbul merkezli mimarlık ofisi için kurumsal web sitesi ve proje portfolyo yönetimi.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 );
 
 INSERT INTO `project_images` (`id`, `project_id`, `asset_id`, `image_url`, `display_order`, `is_active`, `created_at`, `updated_at`) VALUES
-(@img17, @p17, @asset17, '/assets/imgs/work/satisai-cover.png', 0, 1, CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
+(@img17, @p17, @asset17, '/assets/imgs/work/img-1.png', 0, 1, CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
 
 INSERT INTO `project_images_i18n` (`id`, `image_id`, `locale`, `alt`, `caption`, `created_at`, `updated_at`) VALUES
-(@imgI18n17, @img17, 'en', 'SatisAI', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
+(@imgI18n17, @img17, 'en', 'Hilal Sever Mimarlık', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
 
 SET @p18 := UUID();
 SET @pi18n18 := UUID();
@@ -598,24 +598,24 @@ INSERT INTO `projects` (
 ) VALUES (
   @p18, 1, 0, 18,
   1000.00, 'USD', 1,
-  '/logo/png/sultandefense_logo_512.png', @asset18, 'https://www.sultandefense.com', 'https://github.com/Orhanguezel/defense.git',
-  'B2B PLATFORM', 'Sultan Defense Ltd., Co.', '2026-06-04', NULL, 'Ongoing',
-  CAST('["Frontend Development","Backend Development","Admin Panel Development","Database Seeding","Technical SEO","Brand Implementation","Deployment Preparation"]' AS CHAR), 'https://www.sultandefense.com', CAST('["Next.js 16","React 19","TypeScript","Tailwind CSS v4","next-intl","Fastify","Bun","Drizzle ORM","MySQL","Zod","Radix UI","Cloudinary","Nginx","PM2","Next.js","React","Tailwind CSS","Shadcn UI","i18n","Zustand","JWT","Nodemailer"]' AS CHAR), CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
+  '/assets/imgs/work/img-1.png', @asset18, NULL, NULL,
+  'SAAS PLATFORM', 'Own Product', '2026-05-28', NULL, 'Planlama',
+  CAST('["Backend Development","Frontend Development","Admin Panel Development","UI/UX Design","Animation Design","Payment Integration","DevOps"]' AS CHAR), NULL, CAST('["Next.js 16","React 19","TypeScript","Tailwind CSS v4","Radix UI","Framer Motion","GSAP","Lenis","Fastify 5","Bun","Drizzle ORM","MySQL","Redis","Cloudinary","Stripe","Iyzipay","PayPal","next-intl","BullMQ","Next.js","Fastify","React","Zustand","Tailwind CSS","Zod","JWT","Sass"]' AS CHAR), CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 );
 
 INSERT INTO `projects_i18n` (
   `id`, `project_id`, `locale`, `title`, `slug`, `summary`, `content`,
   `featured_image_alt`, `meta_title`, `meta_description`, `created_at`, `updated_at`
 ) VALUES (
-  @pi18n18, @p18, 'en', 'Sultan Defense', 'sultandefense', 'Sultan Defense Ltd., Co. icin gelistirilen savunma tedarik katalogu, B2B teklif talebi ve admin yonetim platformu.',
-  CAST('{"html":"<p>Sultan Defense; savunma urun kategorileri, tedarik sureci, ihracat uyumu, EUC dokumantasyonu, lojistik koordinasyonu ve cok dilli kurumsal icerik yonetimi iceren Next.js, Fastify ve MySQL tabanli bir B2B platformdur.</p>","description":null,"key_features":["Cok dilli savunma urun katalogu","10 ana urun kategorisi","B2B teklif ve RFQ akisi","Admin panelden katalog, medya, sayfa ve teklif yonetimi","EUC, ihracat uyumu ve lojistik odakli icerik","Teknik SEO, metadata, sitemap ve OG altyapisi","Seed tabanli MySQL kurulum akisi","Sultan Defense Celik ve Cyan marka temasi"],"technologies_used":["Next.js 16","React 19","TypeScript","Tailwind CSS v4","next-intl","Fastify","Bun","Drizzle ORM","MySQL","Zod","Radix UI","Cloudinary","Nginx","PM2","Next.js","React","Tailwind CSS","Shadcn UI","i18n","Zustand","JWT","Nodemailer"],"design_highlights":["Deep Navy ve Tactical Cyan renk sistemi","Kalkan ve SD monogram odakli marka dili","Koyu ve acik tema destegi","Operasyonel B2B katalog arayuzu","Yoğun admin ekranlari icin sade, taranabilir layout"]}' AS CHAR), 'Sultan Defense shield logo', 'Sultan Defense', 'Sultan Defense Ltd., Co. icin gelistirilen savunma tedarik katalogu, B2B teklif talebi ve admin yonetim platformu.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
+  @pi18n18, @p18, 'en', 'Invitea', 'invitea', 'QR kod sistemli, animasyonlu dijital davetiye SaaS platformu. Dugun, nisan, dogum gunu ve kurumsal etkinlikler icin LCV, masa plani ve canli giris kontrolu.',
+  CAST('{"html":"<p>Gelin/damat veya kurumsal musteri kendi davetiyesini olusturur, davetlilere QR kodlu link gonderir; etkinlik gunu kapida gorevli telefonun kamerasi ile QR okutarak mukerrer girisi engeller. Global pazar icin 5 dil (TR/EN/DE/ES/FR) ve coklu para birimi (Stripe + Iyzipay + PayPal) destegi.</p>","description":null,"key_features":["Animasyonlu davetiye sablonlari (GSAP + Lenis)","QR kod ile davetli giris kontrolu (mukerrer giris engeli)","LCV (RSVP) formu ve canli katilim tablosu","Masa/oturma plani (dnd-kit drag-drop)","Excel/CSV ile toplu davetli yukleme","WhatsApp + SMS + Email gonderim","5 dil + coklu para birimi","Admin paneli (sablon, paket, odeme yonetimi)","Multi-tenant SaaS mimari"],"technologies_used":["Next.js 16","React 19","TypeScript","Tailwind CSS v4","Radix UI","Framer Motion","GSAP","Lenis","Fastify 5","Bun","Drizzle ORM","MySQL","Redis","Cloudinary","Stripe","Iyzipay","PayPal","next-intl","BullMQ","Next.js","Fastify","React","Zustand","Tailwind CSS","Zod","JWT","Sass"],"design_highlights":["Zarf acilma animasyonu (GSAP)","Scroll-trigger kelime kelime fade","Lenis smooth scroll","Parallax foto galeri","Geri sayim flip animasyonu","Modern tipografi (serif + script + sans)"]}' AS CHAR), 'Invitea — QR sistemli dijital davetiye platformu', 'Invitea', 'QR kod sistemli, animasyonlu dijital davetiye SaaS platformu. Dugun, nisan, dogum gunu ve kurumsal etkinlikler icin LCV, masa plani ve canli giris kontrolu.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 );
 
 INSERT INTO `project_images` (`id`, `project_id`, `asset_id`, `image_url`, `display_order`, `is_active`, `created_at`, `updated_at`) VALUES
-(@img18, @p18, @asset18, '/logo/png/sultandefense_logo_512.png', 0, 1, CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
+(@img18, @p18, @asset18, '/assets/imgs/work/img-1.png', 0, 1, CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
 
 INSERT INTO `project_images_i18n` (`id`, `image_id`, `locale`, `alt`, `caption`, `created_at`, `updated_at`) VALUES
-(@imgI18n18, @img18, 'en', 'Sultan Defense', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
+(@imgI18n18, @img18, 'en', 'Invitea', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
 
 SET @p19 := UUID();
 SET @pi18n19 := UUID();
@@ -632,24 +632,24 @@ INSERT INTO `projects` (
 ) VALUES (
   @p19, 1, 0, 19,
   1000.00, 'USD', 1,
-  '/assets/imgs/work/techstack-analyzer-cover.png', @asset19, NULL, NULL,
-  'SAAS PLATFORM', 'Own Project', '2026-05-19', NULL, 'Ongoing',
-  CAST('["Backend Development","Web Scraping & Crawling","Data Engineering","Frontend Development","SaaS Architecture","API Development"]' AS CHAR), NULL, CAST('["Next.js 16","React 19","TypeScript","Tailwind CSS v4","Shadcn UI","Fastify","Drizzle ORM","MySQL","Bun","Redis","BullMQ","Python","Scrapling","Docker","Next.js","React"]' AS CHAR), CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
+  '/assets/imgs/work/img-1.png', @asset19, NULL, NULL,
+  'SAAS PLATFORM', 'Own Project', '2026-07-24', NULL, 'Ongoing',
+  CAST('["Frontend Development","Backend Development","SaaS Architecture","İSG-KATİP Automation"]' AS CHAR), NULL, CAST('["Next.js 16","React 19","TypeScript","Fastify","Bun","MySQL","Drizzle ORM","Tailwind CSS","RTK Query","Next.js","PM2","React","Zustand","Radix UI","Zod","JWT","Sass","Cloudinary","Nodemailer"]' AS CHAR), CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 );
 
 INSERT INTO `projects_i18n` (
   `id`, `project_id`, `locale`, `title`, `slug`, `summary`, `content`,
   `featured_image_alt`, `meta_title`, `meta_description`, `created_at`, `updated_at`
 ) VALUES (
-  @pi18n19, @p19, 'en', 'TechStack Analyzer', 'techstack-analyzer', 'Web sitelerinin kullandigi teknolojileri (CMS, odeme, analytics, reklam, hosting, CDN, JS kutuphaneleri) tespit eden BuiltWith benzeri analiz ve lead-generation SaaS platformu.',
-  CAST('{"html":"<p>Bir domain veya domain listesi alir; sayfa HTML''i, HTTP header, cookie, DNS ve script imzalarini Wappalyzer tabanli fingerprint motoru ile eslestirerek sitenin teknoloji yiginini cikarir. Reverse lookup (belirli bir teknolojiyi kullanan tum domainleri listeleme) ile pazar arastirmasi ve lead generation saglar. Sayfa cekme isi merkezi scraper-service uzerinden yapilir.</p>","description":null,"key_features":["Tek domain teknoloji analizi (CMS, odeme, analytics, reklam, hosting, CDN, JS lib)","Toplu domain analizi (CSV/liste import, queue tabanli batch)","Wappalyzer tabanli fingerprint motoru (HTML, header, cookie, DNS, script)","Reverse lookup: belirli teknolojiyi kullanan domain listesi","Public REST API + API key & rate limit","Admin panel: tarama izleme, fingerprint kural yonetimi, kullanici","scraper-service entegrasyonu ile olcekli ve CF-bypass sayfa cekme","Periyodik yeniden tarama ve teknoloji degisim takibi","Kredi/abonelik tabanli plan yonetimi"],"technologies_used":["Next.js 16","React 19","TypeScript","Tailwind CSS v4","Shadcn UI","Fastify","Drizzle ORM","MySQL","Bun","Redis","BullMQ","Python","Scrapling","Docker","Next.js","React"],"design_highlights":["Domain rapor sayfasi: kategori bazli teknoloji kartlari","Reverse lookup icin filtrelenebilir tablo + export","Batch ilerleme paneli"]}' AS CHAR), 'TechStack Analyzer - web teknoloji tespit SaaS', 'TechStack Analyzer', 'Web sitelerinin kullandigi teknolojileri (CMS, odeme, analytics, reklam, hosting, CDN, JS kutuphaneleri) tespit eden BuiltWith benzeri analiz ve lead-generation SaaS platformu.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
+  @pi18n19, @p19, 'en', 'Katip Asistanı', 'katip-asistan', 'OSGB''ler için İSG-KATİP otomasyon ve sözleşme yönetim platformu — e-Devlet dökümünü içeri alıp firma, atama ve süreleri tek tuşla senkronlar.',
+  CAST('{"html":"<p>katipotomasyonu.com''a alternatif, bulut tabanlı İSG-KATİP otomasyon SaaS''ı. e-Devlet sözleşme dökümü (hizmet sözleşme süreçleri export''u) yüklendiğinde firmaları SGK sicille eşleştirir, uzman/hekim atamalarını günceller, çoklu sicilli (şube) firmaları otomatik tanır ve yalnız farkları uygular (idempotent mutabakat). Asgari süre kontrolü, ataması düşen sözleşme uyarısı, personel dakika/kapasite takibi ve tarih bazlı hatırlatma bildirimleri içerir. Çekirdek mutabakat motoru osgb-yazilim projesinde üretildi ve doğrulandı.</p>","description":null,"key_features":["İSG-KATİP dökümü import + idempotent mutabakat (Eşitle)","SGK sicil eşleştirme + çoklu sicil / şube desteği","Uzman/hekim atama otomasyonu ve süre güncelleme","Asgari süre kontrolü ve ataması düşen sözleşme uyarısı","Personel dakika/kapasite takibi","Tarih bazlı hatırlatma ve bildirim (Telegram/e-posta)"],"technologies_used":["Next.js 16","React 19","TypeScript","Fastify","Bun","MySQL","Drizzle ORM","Tailwind CSS","RTK Query","Next.js","PM2","React","Zustand","Radix UI","Zod","JWT","Sass","Cloudinary","Nodemailer"],"design_highlights":["Tek tuşla senkron akışı","Fark önizlemeli mutabakat","Çok kiracılı (multi-tenant) OSGB paneli"]}' AS CHAR), 'Katip Asistanı platform cover', 'Katip Asistanı', 'OSGB''ler için İSG-KATİP otomasyon ve sözleşme yönetim platformu — e-Devlet dökümünü içeri alıp firma, atama ve süreleri tek tuşla senkronlar.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 );
 
 INSERT INTO `project_images` (`id`, `project_id`, `asset_id`, `image_url`, `display_order`, `is_active`, `created_at`, `updated_at`) VALUES
-(@img19, @p19, @asset19, '/assets/imgs/work/techstack-analyzer-cover.png', 0, 1, CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
+(@img19, @p19, @asset19, '/assets/imgs/work/img-1.png', 0, 1, CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
 
 INSERT INTO `project_images_i18n` (`id`, `image_id`, `locale`, `alt`, `caption`, `created_at`, `updated_at`) VALUES
-(@imgI18n19, @img19, 'en', 'TechStack Analyzer', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
+(@imgI18n19, @img19, 'en', 'Katip Asistanı', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
 
 SET @p20 := UUID();
 SET @pi18n20 := UUID();
@@ -666,24 +666,24 @@ INSERT INTO `projects` (
 ) VALUES (
   @p20, 1, 0, 20,
   1000.00, 'USD', 1,
-  'docs/portfolio/assets/00-cover.png', @asset20, NULL, NULL,
-  'WEB ANALYTICS', 'Own Product', '2026-06-05', NULL, 'Planlama / Portfolyo hazırlık',
-  CAST('["Web Analytics Setup","Conversion Tracking","Tag Management","Frontend Development","Backend Development","Data Integration"]' AS CHAR), NULL, CAST('["Next.js 16","React 19","TypeScript","Tailwind CSS v4","Shadcn UI","Fastify","Drizzle ORM","MySQL","Bun","Google Analytics 4 Data API","Google Tag Manager","Google Ads API","Meta Conversions API","Docker","Next.js","React","Tailwind CSS","PM2","Nginx"]' AS CHAR), CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
+  '/assets/imgs/work/satisai-cover.png', @asset20, NULL, NULL,
+  'SAAS PLATFORM', 'Own Project', '2026-05-02', NULL, 'Ongoing',
+  CAST('["AI Product Development","Frontend Development","Backend Development","Prompt Engineering","SaaS Architecture"]' AS CHAR), NULL, CAST('["Next.js 16","React 19","TypeScript","Tailwind CSS v4","Shadcn UI","Fastify","Drizzle ORM","MySQL","Bun","Claude Sonnet 4.6 API","Cloudinary","iyzico","Stripe","Redis","Docker"]' AS CHAR), CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 );
 
 INSERT INTO `projects_i18n` (
   `id`, `project_id`, `locale`, `title`, `slug`, `summary`, `content`,
   `featured_image_alt`, `meta_title`, `meta_description`, `created_at`, `updated_at`
 ) VALUES (
-  @pi18n20, @p20, 'en', 'TrackPulse', 'trackpulse', 'GA4, Google Tag Manager, Meta Pixel ve Google Ads verisini tek panelde birleştiren web analitik ve dönüşüm izleme platformu + kurulum hizmeti.',
-  CAST('{"html":"<p>Web sitelerine GA4, Google Tag Manager, Meta Pixel ve Google Ads dönüşüm izleme kurulumu yapan ve tüm bu kaynakları tek bir panelde birleştiren analitik platformu. Olay (event) ve dönüşüm takibi, dönüşüm hunisi, kanal/atıf (attribution) analizi, e-ticaret satın alma izleme ve gerçek zamanlı raporlama. Server-side tracking ve Consent Mode v2 uyumlu kurulum.</p>","description":null,"key_features":["GA4 + GTM + Meta Pixel + Google Ads tek panelde birleşik raporlama","Olay (event) ve dönüşüm izleme kurulumu","Dönüşüm hunisi (funnel) ve adım adım kayıp analizi","Kanal / atıf (attribution) modelleme ve ROAS","E-ticaret satın alma ve gelir izleme (enhanced e-commerce)","Server-side tracking (sGTM) ve Consent Mode v2 uyumu","Gerçek zamanlı aktif kullanıcı izleme","Hedef (goal) ve KPI panoları","Otomatik haftalık performans raporu (PDF + e-posta)","Çoklu site / çoklu hesap yönetimi"],"technologies_used":["Next.js 16","React 19","TypeScript","Tailwind CSS v4","Shadcn UI","Fastify","Drizzle ORM","MySQL","Bun","Google Analytics 4 Data API","Google Tag Manager","Google Ads API","Meta Conversions API","Docker","Next.js","React","Tailwind CSS","PM2","Nginx"],"design_highlights":["Birleşik veri panosu — kaynaklar arası tek görünüm","Dönüşüm hunisi görselleştirmesi","Kanal performansı ROAS renk skalası"]}' AS CHAR), 'TrackPulse — web analitik ve dönüşüm izleme paneli', 'TrackPulse', 'GA4, Google Tag Manager, Meta Pixel ve Google Ads verisini tek panelde birleştiren web analitik ve dönüşüm izleme platformu + kurulum hizmeti.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
+  @pi18n20, @p20, 'en', 'SatisAI', 'satisai', 'Sahibinden basta olmak uzere Turk pazaryerleri icin AI destekli ilan baslik, aciklama ve etiket uretim SaaS platformu.',
+  CAST('{"html":"<p>Galericiler, emlakcilar, ikinci el satici ve kurumsal saticilar icin Claude Sonnet 4.6 tabanli ilan optimizasyon araci. Kategori-spesifik prompt''lar, toplu ilan uretimi (Excel/CSV), foto analizi ve pazar fiyat verisi ile Sahibinden, Arabam.com, Hepsiemlak ve Emlakjet gibi platformlara paralel cikti uretir.</p>","description":null,"key_features":["Kategori-spesifik AI ilan uretimi (Vasita, Emlak, Ikinci El, Yedek Parca)","Toplu ilan uretimi (Excel/CSV import-export)","Sahibinden algoritmasina optimize baslik ve etiket","Multi-platform cikti (Sahibinden + Arabam + Hepsiemlak + Emlakjet)","Foto analizi ile otomatik ozellik tespiti (Claude Vision)","Pazar fiyat verisi ve fiyat onerisi (scraper-service entegrasyonu)","Galeri ve emlakci icin multi-user takim ozelligi","Kredi tabanli plan ve abonelik yonetimi","Kullanim analizi ve performans raporlari"],"technologies_used":["Next.js 16","React 19","TypeScript","Tailwind CSS v4","Shadcn UI","Fastify","Drizzle ORM","MySQL","Bun","Claude Sonnet 4.6 API","Cloudinary","iyzico","Stripe","Redis","Docker"],"design_highlights":["Galerici dostu hizli akis tasarimi","Toplu mod icin tablo bazli editor","Foto onizleme ve drag-drop yukleme"]}' AS CHAR), 'SatisAI - AI ilan uretim SaaS', 'SatisAI', 'Sahibinden basta olmak uzere Turk pazaryerleri icin AI destekli ilan baslik, aciklama ve etiket uretim SaaS platformu.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 );
 
 INSERT INTO `project_images` (`id`, `project_id`, `asset_id`, `image_url`, `display_order`, `is_active`, `created_at`, `updated_at`) VALUES
-(@img20, @p20, @asset20, 'docs/portfolio/assets/00-cover.png', 0, 1, CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
+(@img20, @p20, @asset20, '/assets/imgs/work/satisai-cover.png', 0, 1, CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
 
 INSERT INTO `project_images_i18n` (`id`, `image_id`, `locale`, `alt`, `caption`, `created_at`, `updated_at`) VALUES
-(@imgI18n20, @img20, 'en', 'TrackPulse', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
+(@imgI18n20, @img20, 'en', 'SatisAI', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
 
 SET @p21 := UUID();
 SET @pi18n21 := UUID();
@@ -700,24 +700,24 @@ INSERT INTO `projects` (
 ) VALUES (
   @p21, 1, 0, 21,
   1000.00, 'USD', 1,
-  '/assets/imgs/work/img-1.png', @asset21, NULL, NULL,
-  'SAAS PLATFORM', 'Own Project', '2026-05-26', NULL, 'Ongoing',
-  CAST('["Frontend Development","Backend Development","AI Integration","Video Processing"]' AS CHAR), NULL, CAST('["Next.js 16","React 19","TypeScript","Fastify","Bun","Drizzle ORM","MySQL","FFmpeg","OpenAI Whisper","Anthropic Claude","BullMQ","Redis","Cloudinary","SEO"]' AS CHAR), CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
+  '/logo/png/sultandefense_logo_512.png', @asset21, 'https://www.sultandefense.com', 'https://github.com/Orhanguezel/defense.git',
+  'B2B PLATFORM', 'Sultan Defense Ltd., Co.', '2026-06-04', NULL, 'Ongoing',
+  CAST('["Frontend Development","Backend Development","Admin Panel Development","Database Seeding","Technical SEO","Brand Implementation","Deployment Preparation"]' AS CHAR), 'https://www.sultandefense.com', CAST('["Next.js 16","React 19","TypeScript","Tailwind CSS v4","next-intl","Fastify","Bun","Drizzle ORM","MySQL","Zod","Radix UI","Cloudinary","Nginx","PM2","Next.js","React","Tailwind CSS","Shadcn UI","i18n","Zustand","JWT","Nodemailer"]' AS CHAR), CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 );
 
 INSERT INTO `projects_i18n` (
   `id`, `project_id`, `locale`, `title`, `slug`, `summary`, `content`,
   `featured_image_alt`, `meta_title`, `meta_description`, `created_at`, `updated_at`
 ) VALUES (
-  @pi18n21, @p21, 'en', 'Videomatik', 'videomatik', 'TR pazarına yönelik AI destekli video editleme SaaS. YouTube + Shorts/Reels için ham videoyu otomatik kesip yayın hazır hale getiren tarayıcı tabanlı editör.',
-  CAST('{"html":"<p>Operatör ham videosunu yükler; Whisper transcribe → LLM segment seçimi → FFmpeg cut+concat boru hattı YouTube-ready bir video üretir. İsteğe bağlı manuel timeline editörü ile ince ayar. Çıktı doğrudan YouTube/Instagram/TikTok''a yayınlanabilir. CapCut alternatifi olarak konumlanır; Türkçe arayüz, TL fiyatlama, KDV faturalama.</p>","description":null,"key_features":["AI auto-edit: Whisper transcribe + LLM segment seçimi + FFmpeg cut+concat","Tarayıcı tabanlı timeline editör (Faz 2+, OpenCut''tan ilham)","YouTube + Shorts + Reels + TikTok format presetleri (16:9, 9:16, 1:1)","Otomatik altyazı (Whisper) + AI başlık/açıklama/etiket üretimi","Direkt yayın: YouTube + Instagram + TikTok platformlara push","Türkçe arayüz, TL + KDV faturalama"],"technologies_used":["Next.js 16","React 19","TypeScript","Fastify","Bun","Drizzle ORM","MySQL","FFmpeg","OpenAI Whisper","Anthropic Claude","BullMQ","Redis","Cloudinary","SEO"],"design_highlights":["AI-first workflow: ham video → 60sn YouTube-ready output tek tıkla","Hibrit kontrol: otomatik kesim + opsiyonel manuel ince ayar","TR pazar odaklı: yerli ödeme + KDV + Türkçe LLM prompt''ları"]}' AS CHAR), 'Videomatik AI video editor cover', 'Videomatik', 'TR pazarına yönelik AI destekli video editleme SaaS. YouTube + Shorts/Reels için ham videoyu otomatik kesip yayın hazır hale getiren tarayıcı tabanlı editör.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
+  @pi18n21, @p21, 'en', 'Sultan Defense', 'sultandefense', 'Sultan Defense Ltd., Co. icin gelistirilen savunma tedarik katalogu, B2B teklif talebi ve admin yonetim platformu.',
+  CAST('{"html":"<p>Sultan Defense; savunma urun kategorileri, tedarik sureci, ihracat uyumu, EUC dokumantasyonu, lojistik koordinasyonu ve cok dilli kurumsal icerik yonetimi iceren Next.js, Fastify ve MySQL tabanli bir B2B platformdur.</p>","description":null,"key_features":["Cok dilli savunma urun katalogu","10 ana urun kategorisi","B2B teklif ve RFQ akisi","Admin panelden katalog, medya, sayfa ve teklif yonetimi","EUC, ihracat uyumu ve lojistik odakli icerik","Teknik SEO, metadata, sitemap ve OG altyapisi","Seed tabanli MySQL kurulum akisi","Sultan Defense Celik ve Cyan marka temasi"],"technologies_used":["Next.js 16","React 19","TypeScript","Tailwind CSS v4","next-intl","Fastify","Bun","Drizzle ORM","MySQL","Zod","Radix UI","Cloudinary","Nginx","PM2","Next.js","React","Tailwind CSS","Shadcn UI","i18n","Zustand","JWT","Nodemailer"],"design_highlights":["Deep Navy ve Tactical Cyan renk sistemi","Kalkan ve SD monogram odakli marka dili","Koyu ve acik tema destegi","Operasyonel B2B katalog arayuzu","Yoğun admin ekranlari icin sade, taranabilir layout"]}' AS CHAR), 'Sultan Defense shield logo', 'Sultan Defense', 'Sultan Defense Ltd., Co. icin gelistirilen savunma tedarik katalogu, B2B teklif talebi ve admin yonetim platformu.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 );
 
 INSERT INTO `project_images` (`id`, `project_id`, `asset_id`, `image_url`, `display_order`, `is_active`, `created_at`, `updated_at`) VALUES
-(@img21, @p21, @asset21, '/assets/imgs/work/img-1.png', 0, 1, CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
+(@img21, @p21, @asset21, '/logo/png/sultandefense_logo_512.png', 0, 1, CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
 
 INSERT INTO `project_images_i18n` (`id`, `image_id`, `locale`, `alt`, `caption`, `created_at`, `updated_at`) VALUES
-(@imgI18n21, @img21, 'en', 'Videomatik', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
+(@imgI18n21, @img21, 'en', 'Sultan Defense', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
 
 SET @p22 := UUID();
 SET @pi18n22 := UUID();
@@ -734,24 +734,24 @@ INSERT INTO `projects` (
 ) VALUES (
   @p22, 1, 0, 22,
   1000.00, 'USD', 1,
-  '/assets/imgs/work/img-1.png', @asset22, 'https://woodyvearkadaslari.com', NULL,
-  'WEB APPLICATION', 'Mina Yayınevi', '2026-06-02', NULL, 'Devam ediyor',
-  CAST('["Frontend Development","Backend Development","SEO / GEO Optimization","i18n / Localization","Admin Panel"]' AS CHAR), 'https://woodyvearkadaslari.com', CAST('["Next.js 16","React 19","TypeScript","Tailwind CSS v4","next-intl","Fastify","Drizzle ORM","MySQL","Next.js","PM2","Bun","React","Zustand","Tailwind CSS","Radix UI","Zod","JWT","Sass","Cloudinary","Nodemailer"]' AS CHAR), CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
+  '/assets/imgs/work/techstack-analyzer-cover.png', @asset22, NULL, NULL,
+  'SAAS PLATFORM', 'Own Project', '2026-05-19', NULL, 'Ongoing',
+  CAST('["Backend Development","Web Scraping & Crawling","Data Engineering","Frontend Development","SaaS Architecture","API Development"]' AS CHAR), NULL, CAST('["Next.js 16","React 19","TypeScript","Tailwind CSS v4","Shadcn UI","Fastify","Drizzle ORM","MySQL","Bun","Redis","BullMQ","Python","Scrapling","Docker","Next.js","React"]' AS CHAR), CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 );
 
 INSERT INTO `projects_i18n` (
   `id`, `project_id`, `locale`, `title`, `slug`, `summary`, `content`,
   `featured_image_alt`, `meta_title`, `meta_description`, `created_at`, `updated_at`
 ) VALUES (
-  @pi18n22, @p22, 'en', 'Woody ve Arkadaşları', 'woody', 'Anaokulu İngilizce eğitim setleri, dijital içerik kütüphanesi, öğretmen akademisi ve mağazayı tek çatıda toplayan çok dilli eğitim platformu.',
-  CAST('{"html":"<p>woodyvearkadaslari.com''un Next.js 16 + Fastify yeniden inşası. Eski CSR (Emergent/PHP) site SSR/SSG''ye taşınıyor; 10 dil için gerçek hreflang (next-intl), zengin JSON-LD şema (Product offers, Article author, FAQPage, LocalBusiness), llms.txt ve güvenlik başlıkları ile GEO/SEO skoru hedefleniyor. Kapsam: anasayfa, preschool, workshop, home-tutor, woody-academy, library, blog, store ve 12 dijital içerik ürün sayfası.</p>","description":null,"key_features":["Çok dilli (10 dil) gerçek route + tam hreflang","SSR/SSG ile AI/arama motoru erişilebilir içerik","Dijital içerik kütüphanesi (Storyland / Movieland / Musicland)","Mağaza ve ürün sayfaları (Product + offers şeması)","Blog ve öğretmen akademisi","Yerel SEO (İstanbul anaokulu İngilizce eğitimi)","Zengin JSON-LD şema + llms.txt"],"technologies_used":["Next.js 16","React 19","TypeScript","Tailwind CSS v4","next-intl","Fastify","Drizzle ORM","MySQL","Next.js","PM2","Bun","React","Zustand","Tailwind CSS","Radix UI","Zod","JWT","Sass","Cloudinary","Nodemailer"],"design_highlights":["Eski canlı tasarımın SSR sürümüne sadık taşınması","Çocuk dostu, marka renkli arayüz","Erişilebilirlik ve Core Web Vitals odaklı"]}' AS CHAR), 'Woody ve Arkadaşları platform kapak görseli', 'Woody ve Arkadaşları', 'Anaokulu İngilizce eğitim setleri, dijital içerik kütüphanesi, öğretmen akademisi ve mağazayı tek çatıda toplayan çok dilli eğitim platformu.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
+  @pi18n22, @p22, 'en', 'TechStack Analyzer', 'techstack-analyzer', 'Web sitelerinin kullandigi teknolojileri (CMS, odeme, analytics, reklam, hosting, CDN, JS kutuphaneleri) tespit eden BuiltWith benzeri analiz ve lead-generation SaaS platformu.',
+  CAST('{"html":"<p>Bir domain veya domain listesi alir; sayfa HTML''i, HTTP header, cookie, DNS ve script imzalarini Wappalyzer tabanli fingerprint motoru ile eslestirerek sitenin teknoloji yiginini cikarir. Reverse lookup (belirli bir teknolojiyi kullanan tum domainleri listeleme) ile pazar arastirmasi ve lead generation saglar. Sayfa cekme isi merkezi scraper-service uzerinden yapilir.</p>","description":null,"key_features":["Tek domain teknoloji analizi (CMS, odeme, analytics, reklam, hosting, CDN, JS lib)","Toplu domain analizi (CSV/liste import, queue tabanli batch)","Wappalyzer tabanli fingerprint motoru (HTML, header, cookie, DNS, script)","Reverse lookup: belirli teknolojiyi kullanan domain listesi","Public REST API + API key & rate limit","Admin panel: tarama izleme, fingerprint kural yonetimi, kullanici","scraper-service entegrasyonu ile olcekli ve CF-bypass sayfa cekme","Periyodik yeniden tarama ve teknoloji degisim takibi","Kredi/abonelik tabanli plan yonetimi"],"technologies_used":["Next.js 16","React 19","TypeScript","Tailwind CSS v4","Shadcn UI","Fastify","Drizzle ORM","MySQL","Bun","Redis","BullMQ","Python","Scrapling","Docker","Next.js","React"],"design_highlights":["Domain rapor sayfasi: kategori bazli teknoloji kartlari","Reverse lookup icin filtrelenebilir tablo + export","Batch ilerleme paneli"]}' AS CHAR), 'TechStack Analyzer - web teknoloji tespit SaaS', 'TechStack Analyzer', 'Web sitelerinin kullandigi teknolojileri (CMS, odeme, analytics, reklam, hosting, CDN, JS kutuphaneleri) tespit eden BuiltWith benzeri analiz ve lead-generation SaaS platformu.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 );
 
 INSERT INTO `project_images` (`id`, `project_id`, `asset_id`, `image_url`, `display_order`, `is_active`, `created_at`, `updated_at`) VALUES
-(@img22, @p22, @asset22, '/assets/imgs/work/img-1.png', 0, 1, CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
+(@img22, @p22, @asset22, '/assets/imgs/work/techstack-analyzer-cover.png', 0, 1, CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
 
 INSERT INTO `project_images_i18n` (`id`, `image_id`, `locale`, `alt`, `caption`, `created_at`, `updated_at`) VALUES
-(@imgI18n22, @img22, 'en', 'Woody ve Arkadaşları', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
+(@imgI18n22, @img22, 'en', 'TechStack Analyzer', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
 
 SET @p23 := UUID();
 SET @pi18n23 := UUID();
@@ -768,7 +768,109 @@ INSERT INTO `projects` (
 ) VALUES (
   @p23, 1, 0, 23,
   1000.00, 'USD', 1,
-  '/logo/png/sultanolive_logo_512.png', @asset23, 'https://www.sultanolive.com', 'https://github.com/Orhanguezel/sultanolive.git',
+  'docs/portfolio/assets/00-cover.png', @asset23, NULL, NULL,
+  'WEB ANALYTICS', 'Own Product', '2026-06-05', NULL, 'Planlama / Portfolyo hazırlık',
+  CAST('["Web Analytics Setup","Conversion Tracking","Tag Management","Frontend Development","Backend Development","Data Integration"]' AS CHAR), NULL, CAST('["Next.js 16","React 19","TypeScript","Tailwind CSS v4","Shadcn UI","Fastify","Drizzle ORM","MySQL","Bun","Google Analytics 4 Data API","Google Tag Manager","Google Ads API","Meta Conversions API","Docker","Next.js","React","Tailwind CSS","PM2","Nginx"]' AS CHAR), CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
+);
+
+INSERT INTO `projects_i18n` (
+  `id`, `project_id`, `locale`, `title`, `slug`, `summary`, `content`,
+  `featured_image_alt`, `meta_title`, `meta_description`, `created_at`, `updated_at`
+) VALUES (
+  @pi18n23, @p23, 'en', 'TrackPulse', 'trackpulse', 'GA4, Google Tag Manager, Meta Pixel ve Google Ads verisini tek panelde birleştiren web analitik ve dönüşüm izleme platformu + kurulum hizmeti.',
+  CAST('{"html":"<p>Web sitelerine GA4, Google Tag Manager, Meta Pixel ve Google Ads dönüşüm izleme kurulumu yapan ve tüm bu kaynakları tek bir panelde birleştiren analitik platformu. Olay (event) ve dönüşüm takibi, dönüşüm hunisi, kanal/atıf (attribution) analizi, e-ticaret satın alma izleme ve gerçek zamanlı raporlama. Server-side tracking ve Consent Mode v2 uyumlu kurulum.</p>","description":null,"key_features":["GA4 + GTM + Meta Pixel + Google Ads tek panelde birleşik raporlama","Olay (event) ve dönüşüm izleme kurulumu","Dönüşüm hunisi (funnel) ve adım adım kayıp analizi","Kanal / atıf (attribution) modelleme ve ROAS","E-ticaret satın alma ve gelir izleme (enhanced e-commerce)","Server-side tracking (sGTM) ve Consent Mode v2 uyumu","Gerçek zamanlı aktif kullanıcı izleme","Hedef (goal) ve KPI panoları","Otomatik haftalık performans raporu (PDF + e-posta)","Çoklu site / çoklu hesap yönetimi"],"technologies_used":["Next.js 16","React 19","TypeScript","Tailwind CSS v4","Shadcn UI","Fastify","Drizzle ORM","MySQL","Bun","Google Analytics 4 Data API","Google Tag Manager","Google Ads API","Meta Conversions API","Docker","Next.js","React","Tailwind CSS","PM2","Nginx"],"design_highlights":["Birleşik veri panosu — kaynaklar arası tek görünüm","Dönüşüm hunisi görselleştirmesi","Kanal performansı ROAS renk skalası"]}' AS CHAR), 'TrackPulse — web analitik ve dönüşüm izleme paneli', 'TrackPulse', 'GA4, Google Tag Manager, Meta Pixel ve Google Ads verisini tek panelde birleştiren web analitik ve dönüşüm izleme platformu + kurulum hizmeti.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
+);
+
+INSERT INTO `project_images` (`id`, `project_id`, `asset_id`, `image_url`, `display_order`, `is_active`, `created_at`, `updated_at`) VALUES
+(@img23, @p23, @asset23, 'docs/portfolio/assets/00-cover.png', 0, 1, CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
+
+INSERT INTO `project_images_i18n` (`id`, `image_id`, `locale`, `alt`, `caption`, `created_at`, `updated_at`) VALUES
+(@imgI18n23, @img23, 'en', 'TrackPulse', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
+
+SET @p24 := UUID();
+SET @pi18n24 := UUID();
+SET @img24 := UUID();
+SET @imgI18n24 := UUID();
+SET @asset24 := UUID();
+
+INSERT INTO `projects` (
+  `id`, `is_published`, `is_featured`, `display_order`,
+  `price_onetime`, `currency`, `is_purchasable`,
+  `featured_image`, `featured_image_asset_id`, `demo_url`, `repo_url`,
+  `category`, `client_name`, `start_date`, `complete_date`, `completion_time_label`,
+  `services`, `website_url`, `techs`, `created_at`, `updated_at`
+) VALUES (
+  @p24, 1, 0, 24,
+  1000.00, 'USD', 1,
+  '/assets/imgs/work/img-1.png', @asset24, NULL, NULL,
+  'SAAS PLATFORM', 'Own Project', '2026-05-26', NULL, 'Ongoing',
+  CAST('["Frontend Development","Backend Development","AI Integration","Video Processing"]' AS CHAR), NULL, CAST('["Next.js 16","React 19","TypeScript","Fastify","Bun","Drizzle ORM","MySQL","FFmpeg","OpenAI Whisper","Anthropic Claude","BullMQ","Redis","Cloudinary","SEO"]' AS CHAR), CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
+);
+
+INSERT INTO `projects_i18n` (
+  `id`, `project_id`, `locale`, `title`, `slug`, `summary`, `content`,
+  `featured_image_alt`, `meta_title`, `meta_description`, `created_at`, `updated_at`
+) VALUES (
+  @pi18n24, @p24, 'en', 'Videomatik', 'videomatik', 'TR pazarına yönelik AI destekli video editleme SaaS. YouTube + Shorts/Reels için ham videoyu otomatik kesip yayın hazır hale getiren tarayıcı tabanlı editör.',
+  CAST('{"html":"<p>Operatör ham videosunu yükler; Whisper transcribe → LLM segment seçimi → FFmpeg cut+concat boru hattı YouTube-ready bir video üretir. İsteğe bağlı manuel timeline editörü ile ince ayar. Çıktı doğrudan YouTube/Instagram/TikTok''a yayınlanabilir. CapCut alternatifi olarak konumlanır; Türkçe arayüz, TL fiyatlama, KDV faturalama.</p>","description":null,"key_features":["AI auto-edit: Whisper transcribe + LLM segment seçimi + FFmpeg cut+concat","Tarayıcı tabanlı timeline editör (Faz 2+, OpenCut''tan ilham)","YouTube + Shorts + Reels + TikTok format presetleri (16:9, 9:16, 1:1)","Otomatik altyazı (Whisper) + AI başlık/açıklama/etiket üretimi","Direkt yayın: YouTube + Instagram + TikTok platformlara push","Türkçe arayüz, TL + KDV faturalama"],"technologies_used":["Next.js 16","React 19","TypeScript","Fastify","Bun","Drizzle ORM","MySQL","FFmpeg","OpenAI Whisper","Anthropic Claude","BullMQ","Redis","Cloudinary","SEO"],"design_highlights":["AI-first workflow: ham video → 60sn YouTube-ready output tek tıkla","Hibrit kontrol: otomatik kesim + opsiyonel manuel ince ayar","TR pazar odaklı: yerli ödeme + KDV + Türkçe LLM prompt''ları"]}' AS CHAR), 'Videomatik AI video editor cover', 'Videomatik', 'TR pazarına yönelik AI destekli video editleme SaaS. YouTube + Shorts/Reels için ham videoyu otomatik kesip yayın hazır hale getiren tarayıcı tabanlı editör.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
+);
+
+INSERT INTO `project_images` (`id`, `project_id`, `asset_id`, `image_url`, `display_order`, `is_active`, `created_at`, `updated_at`) VALUES
+(@img24, @p24, @asset24, '/assets/imgs/work/img-1.png', 0, 1, CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
+
+INSERT INTO `project_images_i18n` (`id`, `image_id`, `locale`, `alt`, `caption`, `created_at`, `updated_at`) VALUES
+(@imgI18n24, @img24, 'en', 'Videomatik', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
+
+SET @p25 := UUID();
+SET @pi18n25 := UUID();
+SET @img25 := UUID();
+SET @imgI18n25 := UUID();
+SET @asset25 := UUID();
+
+INSERT INTO `projects` (
+  `id`, `is_published`, `is_featured`, `display_order`,
+  `price_onetime`, `currency`, `is_purchasable`,
+  `featured_image`, `featured_image_asset_id`, `demo_url`, `repo_url`,
+  `category`, `client_name`, `start_date`, `complete_date`, `completion_time_label`,
+  `services`, `website_url`, `techs`, `created_at`, `updated_at`
+) VALUES (
+  @p25, 1, 0, 25,
+  1000.00, 'USD', 1,
+  '/assets/imgs/work/img-1.png', @asset25, 'https://woodyvearkadaslari.com', NULL,
+  'WEB APPLICATION', 'Mina Yayınevi', '2026-06-02', NULL, 'Devam ediyor',
+  CAST('["Frontend Development","Backend Development","SEO / GEO Optimization","i18n / Localization","Admin Panel"]' AS CHAR), 'https://woodyvearkadaslari.com', CAST('["Next.js 16","React 19","TypeScript","Tailwind CSS v4","next-intl","Fastify","Drizzle ORM","MySQL","Next.js","PM2","Bun","React","Zustand","Tailwind CSS","Radix UI","Zod","JWT","Sass","Cloudinary","Nodemailer"]' AS CHAR), CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
+);
+
+INSERT INTO `projects_i18n` (
+  `id`, `project_id`, `locale`, `title`, `slug`, `summary`, `content`,
+  `featured_image_alt`, `meta_title`, `meta_description`, `created_at`, `updated_at`
+) VALUES (
+  @pi18n25, @p25, 'en', 'Woody ve Arkadaşları', 'woody', 'Anaokulu İngilizce eğitim setleri, dijital içerik kütüphanesi, öğretmen akademisi ve mağazayı tek çatıda toplayan çok dilli eğitim platformu.',
+  CAST('{"html":"<p>woodyvearkadaslari.com''un Next.js 16 + Fastify yeniden inşası. Eski CSR (Emergent/PHP) site SSR/SSG''ye taşınıyor; 10 dil için gerçek hreflang (next-intl), zengin JSON-LD şema (Product offers, Article author, FAQPage, LocalBusiness), llms.txt ve güvenlik başlıkları ile GEO/SEO skoru hedefleniyor. Kapsam: anasayfa, preschool, workshop, home-tutor, woody-academy, library, blog, store ve 12 dijital içerik ürün sayfası.</p>","description":null,"key_features":["Çok dilli (10 dil) gerçek route + tam hreflang","SSR/SSG ile AI/arama motoru erişilebilir içerik","Dijital içerik kütüphanesi (Storyland / Movieland / Musicland)","Mağaza ve ürün sayfaları (Product + offers şeması)","Blog ve öğretmen akademisi","Yerel SEO (İstanbul anaokulu İngilizce eğitimi)","Zengin JSON-LD şema + llms.txt"],"technologies_used":["Next.js 16","React 19","TypeScript","Tailwind CSS v4","next-intl","Fastify","Drizzle ORM","MySQL","Next.js","PM2","Bun","React","Zustand","Tailwind CSS","Radix UI","Zod","JWT","Sass","Cloudinary","Nodemailer"],"design_highlights":["Eski canlı tasarımın SSR sürümüne sadık taşınması","Çocuk dostu, marka renkli arayüz","Erişilebilirlik ve Core Web Vitals odaklı"]}' AS CHAR), 'Woody ve Arkadaşları platform kapak görseli', 'Woody ve Arkadaşları', 'Anaokulu İngilizce eğitim setleri, dijital içerik kütüphanesi, öğretmen akademisi ve mağazayı tek çatıda toplayan çok dilli eğitim platformu.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
+);
+
+INSERT INTO `project_images` (`id`, `project_id`, `asset_id`, `image_url`, `display_order`, `is_active`, `created_at`, `updated_at`) VALUES
+(@img25, @p25, @asset25, '/assets/imgs/work/img-1.png', 0, 1, CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
+
+INSERT INTO `project_images_i18n` (`id`, `image_id`, `locale`, `alt`, `caption`, `created_at`, `updated_at`) VALUES
+(@imgI18n25, @img25, 'en', 'Woody ve Arkadaşları', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
+
+SET @p26 := UUID();
+SET @pi18n26 := UUID();
+SET @img26 := UUID();
+SET @imgI18n26 := UUID();
+SET @asset26 := UUID();
+
+INSERT INTO `projects` (
+  `id`, `is_published`, `is_featured`, `display_order`,
+  `price_onetime`, `currency`, `is_purchasable`,
+  `featured_image`, `featured_image_asset_id`, `demo_url`, `repo_url`,
+  `category`, `client_name`, `start_date`, `complete_date`, `completion_time_label`,
+  `services`, `website_url`, `techs`, `created_at`, `updated_at`
+) VALUES (
+  @p26, 1, 0, 26,
+  1000.00, 'USD', 1,
+  '/logo/png/sultanolive_logo_512.png', @asset26, 'https://www.sultanolive.com', 'https://github.com/Orhanguezel/sultanolive.git',
   'B2B PLATFORM', 'Sultan Olive', '2026-06-11', NULL, 'Ongoing',
   CAST('["Frontend Development","Backend Development","Admin Panel Development","Database Seeding","Technical SEO","Brand Implementation","Deployment Preparation"]' AS CHAR), 'https://www.sultanolive.com', CAST('["Next.js 16","React 19","TypeScript","Tailwind CSS v4","next-intl","Fastify","Bun","Drizzle ORM","MySQL","Zod","Radix UI","Cloudinary","Nginx","PM2","Next.js","React","Tailwind CSS","Shadcn UI","i18n","Zustand","JWT","Nodemailer"]' AS CHAR), CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 );
@@ -777,14 +879,14 @@ INSERT INTO `projects_i18n` (
   `id`, `project_id`, `locale`, `title`, `slug`, `summary`, `content`,
   `featured_image_alt`, `meta_title`, `meta_description`, `created_at`, `updated_at`
 ) VALUES (
-  @pi18n23, @p23, 'en', 'Sultan Olive', 'sultanolive', 'Sultan Olive icin gelistirilen zeytin ve zeytinyagi urun katalogu, B2B teklif talebi ve admin yonetim platformu.',
+  @pi18n26, @p26, 'en', 'Sultan Olive', 'sultanolive', 'Sultan Olive icin gelistirilen zeytin ve zeytinyagi urun katalogu, B2B teklif talebi ve admin yonetim platformu.',
   CAST('{"html":"<p>Sultan Olive; zeytin, zeytinyagi ve zeytin bazli urun kategorileri, B2B tedarik ve teklif (RFQ) akisi, ihracat odakli kurumsal icerik ve cok dilli icerik yonetimi iceren Next.js, Fastify ve MySQL tabanli bir B2B katalog platformudur.</p>","description":null,"key_features":["Cok dilli zeytin ve zeytinyagi urun katalogu","B2B teklif ve RFQ akisi","Admin panelden katalog, medya, sayfa ve teklif yonetimi","Ihracat odakli kurumsal icerik","Teknik SEO, metadata, sitemap ve OG altyapisi","Seed tabanli MySQL kurulum akisi"],"technologies_used":["Next.js 16","React 19","TypeScript","Tailwind CSS v4","next-intl","Fastify","Bun","Drizzle ORM","MySQL","Zod","Radix UI","Cloudinary","Nginx","PM2","Next.js","React","Tailwind CSS","Shadcn UI","i18n","Zustand","JWT","Nodemailer"],"design_highlights":["Marka paleti belirlenecek (zeytin yesili + altin onerisi)","Koyu ve acik tema destegi","Operasyonel B2B katalog arayuzu","Yogun admin ekranlari icin sade, taranabilir layout"]}' AS CHAR), 'Sultan Olive logo', 'Sultan Olive', 'Sultan Olive icin gelistirilen zeytin ve zeytinyagi urun katalogu, B2B teklif talebi ve admin yonetim platformu.', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)
 );
 
 INSERT INTO `project_images` (`id`, `project_id`, `asset_id`, `image_url`, `display_order`, `is_active`, `created_at`, `updated_at`) VALUES
-(@img23, @p23, @asset23, '/logo/png/sultanolive_logo_512.png', 0, 1, CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
+(@img26, @p26, @asset26, '/logo/png/sultanolive_logo_512.png', 0, 1, CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
 
 INSERT INTO `project_images_i18n` (`id`, `image_id`, `locale`, `alt`, `caption`, `created_at`, `updated_at`) VALUES
-(@imgI18n23, @img23, 'en', 'Sultan Olive', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
+(@imgI18n26, @img26, 'en', 'Sultan Olive', 'Primary project visual', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
 
 COMMIT;
