@@ -20,7 +20,18 @@ import type { Project, ProjectImage } from '@/integrations/shared';
 import { normalizeProjectDetail, normalizeUiProjectSettingValue, sanitizeHtml } from '@/integrations/shared';
 import { shouldUnoptimizeImage } from '@/utils/nextImage';
 
-export default function WorkSingleClient({ locale }: { locale: string }) {
+/**
+ * SUNUCUDA ILK ICERIK (SSR) — bkz. ServiceDetailClient'taki ayni not.
+ * Proje metni yalnizca istemcide cekildigi icin SSR ciktisinda yer almiyordu;
+ * `initialProject` sunucu bileseninden gelir ve ilk render'i doldurur.
+ */
+export default function WorkSingleClient({
+  locale,
+  initialProject,
+}: {
+  locale: string;
+  initialProject?: unknown;
+}) {
   const params = useParams<{ slug?: string; locale?: string }>();
   const slug = (params?.slug ?? '').trim();
 
@@ -33,10 +44,12 @@ export default function WorkSingleClient({ locale }: { locale: string }) {
   const copy = ui.detail;
 
   const {
-    data: detailRaw,
+    data: detailFromQuery,
     isLoading: isDetailLoading,
     error: detailError,
   } = useGetProjectBySlugPublicQuery({ slug, include: 'images', locale } as any, { skip: !slug });
+
+  const detailRaw = detailFromQuery ?? (initialProject as typeof detailFromQuery);
 
   const detail = useMemo(() => {
     if (!detailRaw) return null;
@@ -57,7 +70,9 @@ export default function WorkSingleClient({ locale }: { locale: string }) {
     return fromImagesEndpoint.length ? fromImagesEndpoint : fromDetail;
   }, [images, detailRaw]);
 
-  if (isDetailLoading) {
+  // Sunucudan gelen veri varsa yukleniyor ekranini gostermiyoruz; aksi halde
+  // SSR ciktisi yine bos kalirdi.
+  if (isDetailLoading && !detailRaw) {
     return (
       <section className="section-work-single section-padding">
         <div className="container">

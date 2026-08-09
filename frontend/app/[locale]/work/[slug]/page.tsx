@@ -91,7 +91,7 @@ export default async function WorkSinglePage({
         ]}
       />
       {creativeWorkJsonLd && <JsonLd data={creativeWorkJsonLd} id="creative-work" />}
-      <WorkSingleClient locale={safeLocale} />
+      <WorkSingleClient locale={safeLocale} initialProject={project} />
     </Layout>
   );
 }

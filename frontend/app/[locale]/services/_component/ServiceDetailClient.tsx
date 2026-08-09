@@ -35,7 +35,27 @@ function stripHtmlToText(input: string) {
     .trim();
 }
 
-export default function ServiceDetailClient({ locale, slug }: { locale: string; slug: string }) {
+/**
+ * SUNUCUDA ILK ICERIK (SSR)
+ *
+ * Bu bilesen istemci tarafinda RTK Query ile veri cekiyordu; sonuc olarak
+ * hizmet metni SSR ciktisinda HIC yer almiyordu. Arama motorlarinin bir kismi
+ * ve yapay zeka tarayicilarinin cogu JavaScript calistirmadigi icin sayfa
+ * onlara BOS gorunuyordu — icerik ne kadar iyi yazilirsa yazilsin indekslenmiyordu.
+ *
+ * Sunucu bileseni (page.tsx) hizmeti zaten cekiyor; `initialService` ile
+ * buraya veriyor ve ilk render sunucuda dolu HTML uretiyor. RTK Query yaniti
+ * geldiginde veri tazeleniyor.
+ */
+export default function ServiceDetailClient({
+  locale,
+  slug,
+  initialService,
+}: {
+  locale: string;
+  slug: string;
+  initialService?: unknown;
+}) {
   const { value: uiSettingValue } = useStaticSiteSetting({
     key: 'ui_services',
     locale,
@@ -47,7 +67,7 @@ export default function ServiceDetailClient({ locale, slug }: { locale: string; 
   );
 
   const {
-    data: svc,
+    data: svcFromQuery,
     isLoading: isSvcLoading,
     isFetching: isSvcFetching,
     isError: isSvcError,
@@ -56,6 +76,9 @@ export default function ServiceDetailClient({ locale, slug }: { locale: string; 
     locale,
     default_locale: locale,
   });
+
+  // Sunucudan gelen kayit ilk render'i besler; istemci yaniti gelince o kullanilir.
+  const svc = (svcFromQuery ?? (initialService as typeof svcFromQuery)) || undefined;
 
   const serviceId = svc?.id;
 
@@ -75,7 +98,7 @@ export default function ServiceDetailClient({ locale, slug }: { locale: string; 
     } as any,
   );
 
-  const showBusy = isSvcLoading || isSvcFetching;
+  const showBusy = (isSvcLoading || isSvcFetching) && !svc;
   const showImgsBusy = isImgsLoading || isImgsFetching;
 
   const parsed = useMemo(() => {
