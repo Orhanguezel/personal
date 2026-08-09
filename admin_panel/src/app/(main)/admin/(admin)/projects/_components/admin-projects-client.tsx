@@ -250,7 +250,11 @@ export default function AdminProjectsClient() {
                   <TableCell>{item.display_order}</TableCell>
                   <TableCell className="text-right">
                     <Button variant="outline" size="sm" asChild>
-                      <Link href={`/admin/projects/${encodeURIComponent(item.id)}`}>
+                      <Link
+                        href={`/admin/projects/${encodeURIComponent(
+                          String((item as { slug?: string }).slug ?? '').trim() || item.id,
+                        )}`}
+                      >
                         {common?.actions?.edit}
                       </Link>
                     </Button>

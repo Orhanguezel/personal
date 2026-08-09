@@ -33,6 +33,7 @@ import type {
 } from '@/integrations/shared';
 import {
   useGetServiceAdminQuery,
+  useGetServiceBySlugAdminQuery,
   useCreateServiceAdminMutation,
   useUpdateServiceAdminMutation,
 } from '@/integrations/hooks';
@@ -66,6 +67,10 @@ export default function AdminServiceDetailClient({ id }: { id: string }) {
   const sp = useSearchParams();
 
   const isCreateMode = String(id) === 'new';
+
+  // Adres slug de olabilir, eski UUID de. Bkz. asagidaki sorgu secimi.
+  const routeKey = String(id || '').trim();
+  const looksLikeId = isUuidLike(routeKey);
 
   const {
     localeOptions,
@@ -129,7 +134,7 @@ export default function AdminServiceDetailClient({ id }: { id: string }) {
     if (isCreateMode) {
       router.replace(`/admin/services/new?${params.toString()}`);
     } else {
-      router.replace(`/admin/services/${encodeURIComponent(String(id))}?${params.toString()}`);
+      router.replace(`/admin/services/${encodeURIComponent(routeKey)}?${params.toString()}`);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeLocale]);
@@ -137,7 +142,22 @@ export default function AdminServiceDetailClient({ id }: { id: string }) {
   const localesReady = !localesLoading && !localesFetching;
   const hasLocales = (localeOptions?.length ?? 0) > 0;
 
-  const shouldSkipDetail = isCreateMode || !isUuidLike(String(id || '')) || !queryLocale;
+  // ADRESTE ID DEGIL SLUG
+  //
+  // Onceden rota yalnizca UUID kabul ediyordu (`!isUuidLike` ise sorgu
+  // atlaniyordu), yani adres cubugunda okunmaz bir kimlik duruyordu.
+  // Artik iki bicim de calisir: slug varsa by-slug ucundan, eski
+  // kaydedilmis/paylasilmis UUID adresleri ise eskisi gibi id ucundan cozulur.
+  const skipCommon = isCreateMode || !routeKey || !queryLocale;
+
+  const byIdQ = useGetServiceAdminQuery(
+    { id: routeKey, locale: queryLocale } as any,
+    { skip: skipCommon || !looksLikeId } as any,
+  );
+  const bySlugQ = useGetServiceBySlugAdminQuery(
+    { slug: routeKey, locale: queryLocale } as any,
+    { skip: skipCommon || looksLikeId } as any,
+  );
 
   const {
     data: service,
@@ -145,10 +165,7 @@ export default function AdminServiceDetailClient({ id }: { id: string }) {
     isFetching: isFetchingService,
     error: serviceError,
     refetch,
-  } = useGetServiceAdminQuery(
-    { id: String(id), locale: queryLocale } as any,
-    { skip: shouldSkipDetail } as any,
-  );
+  } = looksLikeId ? byIdQ : bySlugQ;
 
   const [createService, createState] = useCreateServiceAdminMutation();
   const [updateService, updateState] = useUpdateServiceAdminMutation();
@@ -226,8 +243,10 @@ export default function AdminServiceDetailClient({ id }: { id: string }) {
         }
 
         toast.success(t('admin.services.formHeader.created'));
+        // Adreste slug tercih edilir; slug uretilmediyse id ile devam edilir.
+        const nextKey = String((created as any)?.slug ?? '').trim() || nextId;
         router.replace(
-          `/admin/services/${encodeURIComponent(nextId)}?locale=${encodeURIComponent(
+          `/admin/services/${encodeURIComponent(nextKey)}?locale=${encodeURIComponent(
             localeShortClient(loc) || loc,
           )}`,
         );
@@ -248,6 +267,15 @@ export default function AdminServiceDetailClient({ id }: { id: string }) {
 
       await updateService({ id: currentId, patch } as any).unwrap();
       toast.success(t('admin.services.formHeader.updated'));
+
+      // Slug degistiyse adres de degismeli: aksi halde adres cubugundaki eski
+      // slug artik hicbir kayda karsilik gelmez ve sayfa yenilenince 404 olur.
+      const savedSlug = String(common.slug ?? '').trim();
+      if (savedSlug && !looksLikeId && savedSlug !== routeKey) {
+        const params = new URLSearchParams(sp?.toString() || '');
+        params.set('locale', localeShortClient(loc) || loc);
+        router.replace(`/admin/services/${encodeURIComponent(savedSlug)}?${params.toString()}`);
+      }
 
       const short = localeShortClient(loc);
       if (short && short !== queryLocale) setActiveLocale(short);

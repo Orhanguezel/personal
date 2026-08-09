@@ -224,9 +224,14 @@ export default function AdminServicesClient() {
     router.push(`/admin/services/new?locale=${encodeURIComponent(l)}`);
   }
 
-  function onEdit(id: string) {
+  // ADRESTE SLUG: okunabilir olsun diye slug tercih edilir; slug yoksa
+  // (henuz cevirisi girilmemis kayit) id ile devam edilir. Detay sayfasi
+  // iki bicimi de cozer.
+  function onEdit(idOrSlug: string) {
     const l = localeShortClientOr(effectiveLocale, 'de');
-    router.push(`/admin/services/${encodeURIComponent(id)}?locale=${encodeURIComponent(l)}`);
+    router.push(
+      `/admin/services/${encodeURIComponent(idOrSlug)}?locale=${encodeURIComponent(l)}`,
+    );
   }
 
   async function onToggleActive(item: ServiceDto, next: boolean) {
@@ -516,7 +521,7 @@ export default function AdminServicesClient() {
                           <Button
                             variant="outline"
                             size="sm"
-                            onClick={() => onEdit(id)}
+                            onClick={() => onEdit(String(p?.slug ?? '').trim() || id)}
                             disabled={busy || !isUuidLike(id)}
                             title={t('admin.services.list.editButton')}
                           >
@@ -643,7 +648,7 @@ export default function AdminServicesClient() {
                       <Button
                         variant="outline"
                         size="sm"
-                        onClick={() => onEdit(id)}
+                        onClick={() => onEdit(String(p?.slug ?? '').trim() || id)}
                         disabled={busy || !isUuidLike(id)}
                       >
                         <Pencil className="mr-2 size-4" />
