@@ -23,15 +23,14 @@ import * as React from 'react';
 import { EyeOff, Gauge, Globe, PenLine } from 'lucide-react';
 
 import type { BlogSeoQualityScore } from '@/integrations/shared';
+import { toneClass } from '@/components/admin/status-tone';
 
 export function QualityBadge({ q }: { q?: BlogSeoQualityScore | null }) {
   if (!q) return <span className="text-xs text-muted-foreground">—</span>;
-  const tone =
-    q.level === 'ready'
-      ? 'bg-gm-success/10 text-gm-success border-gm-success/20'
-      : q.level === 'publishable'
-        ? 'bg-gm-gold/10 text-gm-gold border-gm-gold/20'
-        : 'bg-gm-error/10 text-gm-error border-gm-error/20';
+  // Renkler tek kanaldan: components/admin/status-tone.ts
+  const tone = toneClass(
+    q.level === 'ready' ? 'success' : q.level === 'publishable' ? 'warning' : 'danger',
+  );
   return (
     <span
       title={`SEO ${q.score}/100 · ${q.word_count} kelime${q.gate_passed ? '' : ' · sert kapı kaldı'}`}
@@ -58,7 +57,7 @@ export function indexabilityOf(input: IndexabilityInput): IndexState {
   if (input.noindex) {
     return {
       label: 'noindex',
-      tone: 'bg-gm-error/10 text-gm-error border-gm-error/20',
+      tone: toneClass('danger'),
       Icon: EyeOff,
       title: 'Meta robots noindex — arama motorlarına kapalı',
     };
@@ -66,7 +65,7 @@ export function indexabilityOf(input: IndexabilityInput): IndexState {
   if (!input.published) {
     return {
       label: 'Taslak',
-      tone: 'bg-gm-gold/10 text-gm-gold border-gm-gold/20',
+      tone: toneClass('warning'),
       Icon: PenLine,
       title: 'Yayında değil — indekslenmez',
     };
@@ -74,14 +73,14 @@ export function indexabilityOf(input: IndexabilityInput): IndexState {
   if (!String(input.slug ?? '').trim()) {
     return {
       label: 'URL yok',
-      tone: 'bg-gm-error/10 text-gm-error border-gm-error/20',
+      tone: toneClass('danger'),
       Icon: EyeOff,
       title: 'Slug boş — sayfanın kanonik adresi yok',
     };
   }
   return {
     label: 'İndekslenebilir',
-    tone: 'bg-gm-success/10 text-gm-success border-gm-success/20',
+    tone: toneClass('success'),
     Icon: Globe,
     title: 'Yayında, URL var, noindex yok — sitemap üzerinden taranabilir',
   };

@@ -42,6 +42,7 @@ import {
 } from '@/integrations/hooks';
 import type { BlogSeoQualityScore } from '@/integrations/shared';
 import { IndexabilityBadge, QualityBadge } from '@/components/admin/seo/quality-badge';
+import { statusClass } from '@/components/admin/status-tone';
 
 type StatusFilter = 'all' | 'active' | 'draft' | 'archived';
 
@@ -57,11 +58,8 @@ function isUuidLike(v?: string) {
   return /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(v);
 }
 
-const STATUS_BADGE: Record<string, string> = {
-  active: 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200',
-  draft: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200',
-  archived: 'bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200',
-};
+/** Durum renkleri tek kanaldan: components/admin/status-tone.ts */
+const STATUS_BADGE = statusClass;
 
 const CATEGORIES = ['', 'emlak', 'ecommerce', 'erp', 'landing'];
 
@@ -373,7 +371,7 @@ export default function AdminProductsClient() {
                     <TableCell>{formatPrice(p.price_onetime)}</TableCell>
                     <TableCell>{formatPrice(p.price_monthly)}</TableCell>
                     <TableCell>
-                      <Badge className={STATUS_BADGE[p.status] || ''}>
+                      <Badge variant="outline" className={STATUS_BADGE(p.status)}>
                         {p.status === 'active' ? 'Aktif' : p.status === 'draft' ? 'Taslak' : 'Arşiv'}
                       </Badge>
                     </TableCell>
@@ -443,7 +441,7 @@ export default function AdminProductsClient() {
                 <div key={p.id} className="space-y-2 p-4">
                   <div className="flex items-center justify-between">
                     <span className="font-medium">{p.title || '—'}</span>
-                    <Badge className={STATUS_BADGE[p.status] || ''}>{p.status}</Badge>
+                    <Badge variant="outline" className={STATUS_BADGE(p.status)}>{p.status}</Badge>
                   </div>
                   <div className="flex flex-wrap gap-2 text-sm text-muted-foreground">
                     <Badge variant="outline">{p.category || '—'}</Badge>

@@ -38,32 +38,19 @@ import {
   useListSubscriptionsAdminQuery,
   useCancelSubscriptionAdminMutation,
 } from '@/integrations/hooks';
+import { statusClass } from '@/components/admin/status-tone';
 
 type StatusFilter = 'all' | 'pending' | 'paid' | 'processing' | 'delivered' | 'cancelled' | 'refunded';
 type PaymentFilter = 'all' | 'unpaid' | 'paid' | 'failed' | 'refunded';
 
-const STATUS_BADGE: Record<string, string> = {
-  pending: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200',
-  paid: 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200',
-  processing: 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200',
-  delivered: 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200',
-  cancelled: 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200',
-  refunded: 'bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200',
-};
+/** Durum renkleri tek kanaldan: components/admin/status-tone.ts */
+const STATUS_BADGE = statusClass;
 
-const PAYMENT_BADGE: Record<string, string> = {
-  unpaid: 'bg-yellow-100 text-yellow-800',
-  paid: 'bg-green-100 text-green-800',
-  failed: 'bg-red-100 text-red-800',
-  refunded: 'bg-gray-100 text-gray-800',
-};
+/** Durum renkleri tek kanaldan: components/admin/status-tone.ts */
+const PAYMENT_BADGE = statusClass;
 
-const SUB_STATUS_BADGE: Record<string, string> = {
-  active: 'bg-green-100 text-green-800',
-  suspended: 'bg-yellow-100 text-yellow-800',
-  cancelled: 'bg-red-100 text-red-800',
-  expired: 'bg-gray-100 text-gray-800',
-};
+/** Durum renkleri tek kanaldan: components/admin/status-tone.ts */
+const SUB_STATUS_BADGE = statusClass;
 
 function formatPrice(val: string | number | null | undefined): string {
   if (val == null || val === '') return '—';
@@ -240,10 +227,10 @@ export default function AdminOrdersClient() {
                           </Badge>
                         </TableCell>
                         <TableCell>
-                          <Badge className={STATUS_BADGE[o.status] || ''}>{o.status}</Badge>
+                          <Badge variant="outline" className={STATUS_BADGE(o.status)}>{o.status}</Badge>
                         </TableCell>
                         <TableCell>
-                          <Badge className={PAYMENT_BADGE[o.payment_status] || ''}>{o.payment_status}</Badge>
+                          <Badge variant="outline" className={PAYMENT_BADGE(o.payment_status)}>{o.payment_status}</Badge>
                         </TableCell>
                         <TableCell className="text-sm">{formatDate(o.created_at)}</TableCell>
                         <TableCell className="text-right">
@@ -275,7 +262,7 @@ export default function AdminOrdersClient() {
                     <div key={o.id} className="space-y-2 p-4">
                       <div className="flex items-center justify-between">
                         <span className="font-mono text-sm">{o.order_number}</span>
-                        <Badge className={STATUS_BADGE[o.status] || ''}>{o.status}</Badge>
+                        <Badge variant="outline" className={STATUS_BADGE(o.status)}>{o.status}</Badge>
                       </div>
                       <div className="text-sm">
                         <div>{o.customer_name} — {o.customer_email}</div>
@@ -329,7 +316,7 @@ export default function AdminOrdersClient() {
                         <TableCell className="font-mono text-xs">{s.paypal_subscription_id || '—'}</TableCell>
                         <TableCell className="font-mono text-xs">{s.paypal_plan_id || '—'}</TableCell>
                         <TableCell>
-                          <Badge className={SUB_STATUS_BADGE[s.status] || ''}>{s.status}</Badge>
+                          <Badge variant="outline" className={SUB_STATUS_BADGE(s.status)}>{s.status}</Badge>
                         </TableCell>
                         <TableCell className="text-sm">
                           {s.current_period_start ? formatDate(s.current_period_start) : '—'}

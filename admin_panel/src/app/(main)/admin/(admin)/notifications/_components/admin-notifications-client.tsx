@@ -43,6 +43,7 @@ import {
   useMarkAllReadMutation,
   useUpdateNotificationMutation,
 } from '@/integrations/hooks';
+import { toneTextClass } from '@/components/admin/status-tone';
 
 type ReadFilter = 'all' | 'read' | 'unread';
 
@@ -314,7 +315,7 @@ export default function AdminNotificationsClient() {
                       {item.is_read ? (
                         <BellOff className="size-4 text-muted-foreground" />
                       ) : (
-                        <Bell className="size-4 text-blue-600" />
+                        <Bell className={`size-4 ${toneTextClass('info')}`} />
                       )}
                     </TableCell>
                     <TableCell className="font-medium">
@@ -395,7 +396,7 @@ export default function AdminNotificationsClient() {
                         {item.is_read ? (
                           <BellOff className="size-4 text-muted-foreground" />
                         ) : (
-                          <Bell className="size-4 text-blue-600" />
+                          <Bell className={`size-4 ${toneTextClass('info')}`} />
                         )}
                         <p className="font-semibold">{item.title}</p>
                       </div>
