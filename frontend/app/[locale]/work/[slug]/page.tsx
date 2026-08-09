@@ -5,6 +5,7 @@
 import Layout from '@/components/layout/Layout';
 import { normalizeLocaleParam, unwrapRouteParams } from '@/i18n/localeParam';
 import WorkSingleClient from '../_component/WorkSingle.client';
+import RelatedServices from './_components/RelatedServices';
 import { getProjectSeoPageBySlug, getSeoPage, SEO_PAGE_KEYS, buildMetadata } from '@/seo';
 import JsonLd from '@/seo/JsonLd';
 import BreadcrumbJsonLd from '@/seo/BreadcrumbJsonLd';
@@ -92,6 +93,12 @@ export default async function WorkSinglePage({
       />
       {creativeWorkJsonLd && <JsonLd data={creativeWorkJsonLd} id="creative-work" />}
       <WorkSingleClient locale={safeLocale} initialProject={project} />
+
+      {/* Proje -> ayni kategorideki hizmetler (kategori tek baglayici alan). */}
+      <RelatedServices
+        locale={safeLocale}
+        category={(project as { category?: string | null } | null)?.category ?? null}
+      />
     </Layout>
   );
 }

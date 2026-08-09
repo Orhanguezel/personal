@@ -5,6 +5,7 @@
 
 import Layout from '@/components/layout/Layout';
 import ServiceDetailClient from '../_component/ServiceDetailClient';
+import RelatedProjects from './_components/RelatedProjects';
 import BreadcrumbJsonLd from '@/seo/BreadcrumbJsonLd';
 import ServiceJsonLd from '@/seo/ServiceJsonLd';
 import { mergeSeoPage } from '@/integrations/shared';
@@ -63,6 +64,14 @@ export default async function ServiceDetailPage({
         />
       )}
       <ServiceDetailClient locale={safeLocale} slug={slug} initialService={svc} />
+
+      {/* Hizmet -> ayni kategorideki projeler. Kategori, hizmet ve projeyi
+          baglayan tek alan (services.type == projects.category). */}
+      <RelatedProjects
+        locale={safeLocale}
+        category={(svc as { type?: string | null } | null)?.type ?? null}
+        currentServiceName={(svc as { name?: string } | null)?.name ?? null}
+      />
     </Layout>
   );
 }

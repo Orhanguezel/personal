@@ -124,6 +124,39 @@ const nextConfig = {
   // adresten servis edilmesin diye; kanonik adres yerellestirilmis olan.
   async redirects() {
     const out = [];
+
+    // BIRLESTIRILEN PROJE KAYITLARI
+    // Portfolyo iki kaynaktan birlestiginde ayni is birden fazla kayit olmustu
+    // (bkz. backend/scripts/gzl-taxonomy.mjs -> PROJECT_MERGES). Yinelenenler
+    // silindi; eski adresler olu kalmasin diye kalan kayda 308 ile gonderiliyor.
+    const MERGED_PROJECTS = {
+      geoserra: 'geoserra-yapay-zeka-aramalari-icin-geo-seo-platformu',
+      'konig-massage': 'konig-energetik-randevulu-masaj-wellness-sitesi',
+      'konigs-massage-multi-tenant-randevu-platformu-metahub':
+        'konig-energetik-randevulu-masaj-wellness-sitesi',
+      'wiribu-de-lighthouse-100-100-geo-optimizasyonu':
+        'wiribu-de-lighthouse-100-100-geo-seo-optimizasyonu',
+    };
+    for (const [locale, byRoute] of Object.entries(
+      Object.fromEntries(
+        Object.keys(ROUTE_SLUGS.work ?? {}).map((l) => [l, ROUTE_SLUGS.work[l]]),
+      ),
+    )) {
+      for (const [from, to] of Object.entries(MERGED_PROJECTS)) {
+        out.push({
+          source: `/${locale}/${byRoute}/${from}`,
+          destination: `/${locale}/${byRoute}/${to}`,
+          permanent: true,
+        });
+        // Yerellestirme oncesi (Ingilizce) adres de yakalanir.
+        out.push({
+          source: `/${locale}/work/${from}`,
+          destination: `/${locale}/${byRoute}/${to}`,
+          permanent: true,
+        });
+      }
+    }
+
     for (const [route, byLocale] of Object.entries(ROUTE_SLUGS)) {
       for (const [locale, slug] of Object.entries(byLocale)) {
         if (slug === route) continue;

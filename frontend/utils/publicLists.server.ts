@@ -109,6 +109,12 @@ export async function getProjectsListServer(args: {
   locale: string;
   limit?: number;
   offset?: number;
+  /**
+   * Kategoriye gore suzer. HIZMET ve PROJE ayni kategori listesini kullanir
+   * (bkz. backend/scripts/gzl-taxonomy.mjs); hizmet detayindaki
+   * "bu kategoride yaptigimiz projeler" bolumu bu parametreyle beslenir.
+   */
+  category?: string | null;
 }): Promise<Project[]> {
   return fetchList<Project>('/projects', {
     limit: args.limit ?? 200,
@@ -117,6 +123,7 @@ export async function getProjectsListServer(args: {
     view: 'card',
     locale: args.locale,
     is_published: true,
+    ...(args.category ? { category: args.category } : {}),
   });
 }
 
