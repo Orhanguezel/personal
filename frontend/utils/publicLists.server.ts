@@ -179,11 +179,18 @@ export async function getBlogDetailServer(args: {
   }
 }
 
+/**
+ * DIKKAT: Yol `/services/by-slug/:slug`. Onceden `/services/slug/:slug`
+ * yaziliydi; backend'de boyle bir rota YOK, istek 404 donuyordu ve fonksiyon
+ * catch/`!res.ok` dallarindan sessizce `null` uretiyordu. Sonuc: hizmet detay
+ * sayfasi SSR'da bos kaliyor, ServiceJsonLd hic basilmiyordu — hata hicbir
+ * yerde gorunmuyordu cunku istemci tarafi ayri (dogru) rotayi kullaniyor.
+ */
 export async function getServiceDetailServer(args: {
   locale: string;
   slug: string;
 }): Promise<ServiceDto | null> {
-  const url = buildApiUrl(`/services/slug/${encodeURIComponent(args.slug)}`, {
+  const url = buildApiUrl(`/services/by-slug/${encodeURIComponent(args.slug)}`, {
     locale: args.locale,
     default_locale: siteDefaultLocale(),
   });
@@ -208,7 +215,7 @@ export async function getProjectDetailServer(args: {
   locale: string;
   slug: string;
 }): Promise<Project | null> {
-  const url = buildApiUrl(`/projects/slug/${encodeURIComponent(args.slug)}`, {
+  const url = buildApiUrl(`/projects/by-slug/${encodeURIComponent(args.slug)}`, {
     locale: args.locale,
   });
 
