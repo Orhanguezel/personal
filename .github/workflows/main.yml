@@ -98,7 +98,7 @@ jobs:
             success=1
             for TREE in guezelwebdesign gzlteknoloji-site; do
               rsync -avz --delete \
-                --exclude=node_modules --exclude=.git --exclude=.env --exclude=.DS_Store \
+                --exclude=node_modules --exclude=.git --exclude=.env --exclude=.env.* --exclude=.DS_Store \
                 -e "ssh $SSH_OPTS" \
                 backend/ "${VPS_USER}@${VPS_HOST}:/var/www/vps-guezel/${TREE}/backend" \
                 || success=0
@@ -129,7 +129,7 @@ jobs:
             success=1
             for TREE in guezelwebdesign gzlteknoloji-site; do
               rsync -avz --delete \
-                --exclude=node_modules --exclude=.git --exclude=.env --exclude=.DS_Store \
+                --exclude=node_modules --exclude=.git --exclude=.env --exclude=.env.* --exclude=.DS_Store \
                 -e "ssh $SSH_OPTS" \
                 admin_panel/ "${VPS_USER}@${VPS_HOST}:/var/www/vps-guezel/${TREE}/admin_panel" \
                 || success=0
@@ -160,7 +160,7 @@ jobs:
             success=1
             for TREE in guezelwebdesign gzlteknoloji-site; do
               rsync -avz --delete \
-                --exclude=node_modules --exclude=.git --exclude=.env --exclude=.DS_Store \
+                --exclude=node_modules --exclude=.git --exclude=.env --exclude=.env.* --exclude=.DS_Store \
                 -e "ssh $SSH_OPTS" \
                 frontend/ "${VPS_USER}@${VPS_HOST}:/var/www/vps-guezel/${TREE}/frontend" \
                 || success=0
