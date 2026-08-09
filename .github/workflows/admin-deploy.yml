@@ -1,5 +1,10 @@
 name: Admin Panel Deploy
 
+# HEDEF SUNUCU: secrets.VPS_HOST = 72.61.23.36 (orhan@).
+# 2026-08-09'a kadar secret 72.61.93.212'yi gosteriyordu; o adres artik bize ait
+# DEGIL (Traefik varsayilan sertifikasi donen yabanci bir makine) ve deploy
+# adimi 'Permission denied (publickey)' ile kaliyordu. Anahtar sorunu yoktu.
+
 on:
   workflow_dispatch:
 
@@ -36,18 +41,24 @@ jobs:
           chmod 600 ~/.ssh/deploy_key
           ssh-keyscan -T 10 -H "$VPS_HOST" >> ~/.ssh/known_hosts 2>/dev/null || true
 
-      - name: Deploy admin panel
+      # IKI DAGITIM AGACI
+      # gzlteknoloji.com, guezelwebdesign kod tabaninin AYRI BIR KOPYASINDAN
+      # sunuluyor (/var/www/vps-guezel/gzlteknoloji-site). Yalnizca guezelwebdesign
+      # agacina kopyalamak GZL panelini eski build'de birakir.
+      - name: Deploy admin panel (both deployments)
         env:
           VPS_HOST: ${{ secrets.VPS_HOST }}
           VPS_USER: ${{ secrets.VPS_USER }}
         run: |
           test -n "$VPS_USER"
-          rsync -avz --delete \
-            --exclude=node_modules --exclude=.git --exclude=.env --exclude=.DS_Store \
-            -e "ssh -o ConnectTimeout=30 -o StrictHostKeyChecking=no -i ~/.ssh/deploy_key" \
-            admin_panel/ "${VPS_USER}@${VPS_HOST}:/var/www/vps-guezel/guezelwebdesign/admin_panel"
+          for TREE in guezelwebdesign gzlteknoloji-site; do
+            rsync -avz --delete \
+              --exclude=node_modules --exclude=.git --exclude=.env --exclude=.env.* --exclude=.DS_Store \
+              -e "ssh -o ConnectTimeout=30 -o StrictHostKeyChecking=no -i ~/.ssh/deploy_key" \
+              admin_panel/ "${VPS_USER}@${VPS_HOST}:/var/www/vps-guezel/${TREE}/admin_panel"
+          done
 
-      - name: Reload and smoke test GWD admin
+      - name: Reload and smoke test both admin panels
         env:
           VPS_HOST: ${{ secrets.VPS_HOST }}
           VPS_USER: ${{ secrets.VPS_USER }}
@@ -55,13 +66,17 @@ jobs:
           ssh -o ConnectTimeout=30 -o StrictHostKeyChecking=no -i ~/.ssh/deploy_key \
             "${VPS_USER}@${VPS_HOST}" <<'REMOTE'
           set -e
-          cd /var/www/vps-guezel/guezelwebdesign
-          DEPLOY_PROFILE=gwd pm2 startOrReload ecosystem.config.cjs \
-            --only guezelwebdesign-admin-panel --update-env
+          # Sunucudaki sistem Node'u 20 (EOL) ve Next 16 derlemesini kiriyor;
+          # Node 22 yan yana kurulu, PATH'e alinmali.
+          export PATH=/home/orhan/.local/node22/bin:$PATH
+          pm2 restart guezelwebdesign-admin-panel gzlteknoloji-admin-panel --update-env
           pm2 save
+          sleep 10
           curl -fsSL http://127.0.0.1:3045/auth/login | grep -E 'name="email"|type="email"' >/dev/null
+          curl -fsSL http://127.0.0.1:3121/auth/login | grep -E 'name="email"|type="email"' >/dev/null
           REMOTE
 
       - name: Verify public admin
         run: |
           curl -fsSL https://panel.guezelwebdesign.com/auth/login | grep -E 'name="email"|type="email"' >/dev/null
+          curl -fsSL https://panel.gzlteknoloji.com/auth/login | grep -E 'name="email"|type="email"' >/dev/null
