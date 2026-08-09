@@ -7,7 +7,6 @@ import { toast } from 'sonner';
 import { useRouter, useSearchParams } from 'next/navigation';
 
 import { Button } from '@/components/ui/button';
-import { Checkbox } from '@/components/ui/checkbox';
 import {
   Form,
   FormControl,
@@ -19,12 +18,11 @@ import {
 import { Input } from '@/components/ui/input';
 
 import { useAuthTokenMutation } from '@/integrations/hooks';
-import { useAdminTranslations } from '@/i18n/adminUi';
+import { useAdminT } from '@/app/(main)/admin/_components/common/useAdminT';
 
 type FormValues = {
   email: string;
   password: string;
-  remember?: boolean;
 };
 
 function safeNext(next: string | null | undefined, fallback: string): string {
@@ -55,7 +53,7 @@ function getErrMessage(err: unknown, fallback: string): string {
 export function LoginForm() {
   const router = useRouter();
   const sp = useSearchParams();
-  const t = useAdminTranslations('tr');
+  const t = useAdminT();
 
   const [login, loginState] = useAuthTokenMutation();
 
@@ -70,7 +68,6 @@ export function LoginForm() {
     defaultValues: {
       email: '',
       password: '',
-      remember: false,
     },
     mode: 'onSubmit',
   });
@@ -136,31 +133,6 @@ export function LoginForm() {
                 />
               </FormControl>
               <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        {/* UI-only remember */}
-        <FormField
-          control={form.control}
-          name="remember"
-          render={({ field }) => (
-            <FormItem className="flex flex-row items-center">
-              <FormControl>
-                <Checkbox
-                  id="login-remember"
-                  checked={!!field.value}
-                  onCheckedChange={(v) => field.onChange(!!v)}
-                  disabled={isBusy}
-                  className="size-4"
-                />
-              </FormControl>
-              <FormLabel
-                htmlFor="login-remember"
-                className="ml-1 font-medium text-muted-foreground text-sm"
-              >
-                {t('admin.auth.login.rememberMe')}
-              </FormLabel>
             </FormItem>
           )}
         />

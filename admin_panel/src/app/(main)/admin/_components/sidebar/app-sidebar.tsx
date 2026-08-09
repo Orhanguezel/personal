@@ -23,6 +23,7 @@ import { buildAdminSidebarItems } from '@/navigation/sidebar/sidebar-items';
 import type { NavGroup } from '@/navigation/sidebar/sidebar-items';
 
 import { useAdminUiCopy } from '@/app/(main)/admin/_components/common/useAdminUiCopy';
+import { useAdminSession } from '@/app/(main)/admin/_components/admin-session';
 
 import { NavMain } from './nav-main';
 import { NavUser } from './nav-user';
@@ -45,21 +46,40 @@ function hasRole(me: SidebarMe, role: Role) {
 }
 
 export function AppSidebar({
-  me,
   appName,
+  profile,
   variant,
   collapsible,
   ...props
 }: React.ComponentProps<typeof Sidebar> & {
-  me: SidebarMe;
   appName?: string;
+  profile: 'gwd' | 'gzl';
 }) {
   const { copy } = useAdminUiCopy();
+  const session = useAdminSession();
+  const me: SidebarMe = {
+    id: session.id,
+    name: session.email?.split('@')[0] || 'Admin',
+    email: session.email || '',
+    role: session.role,
+    roles: [session.role],
+    avatar: '',
+  };
   const label = (copy.app_name || appName || '').trim();
 
   // ✅ admin ise tüm menu, değilse sadece dashboard
   const groupsForMe: NavGroup[] = hasRole(me, 'admin')
     ? buildAdminSidebarItems(copy.nav)
+        .map((group) => ({
+          ...group,
+          items: group.items.filter((item) => {
+            if (profile === 'gzl' && ['/admin/resume', '/admin/skills'].includes(item.url)) {
+              return false;
+            }
+            return !['/admin/chat', '/admin/mail', '/admin/support'].includes(item.url);
+          }),
+        }))
+        .filter((group) => group.items.length > 0)
     : [
         {
           id: 1,

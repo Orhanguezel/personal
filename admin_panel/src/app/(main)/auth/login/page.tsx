@@ -6,7 +6,7 @@ import { Command } from 'lucide-react';
 import { Suspense } from 'react';
 
 import { LoginForm } from '../_components/login-form';
-import { useAdminTranslations } from '@/i18n/adminUi';
+import { useAdminT } from '@/app/(main)/admin/_components/common/useAdminT';
 
 function LoginFormFallback() {
   return (
@@ -20,7 +20,7 @@ function LoginFormFallback() {
 }
 
 export default function Login() {
-  const t = useAdminTranslations('tr');
+  const t = useAdminT();
 
   return (
     <div className="flex min-h-dvh">

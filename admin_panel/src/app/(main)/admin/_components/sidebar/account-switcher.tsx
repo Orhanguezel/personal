@@ -21,17 +21,13 @@ import { getInitials } from '@/lib/utils';
 
 import { useLogoutMutation } from '@/integrations/hooks';
 import { useAdminT } from '@/app/(main)/admin/_components/common/useAdminT';
+import { useAdminSession } from '@/app/(main)/admin/_components/admin-session';
 
-type Me = {
-  id: string;
-  email: string | null;
-  role: string;
-};
-
-export function AccountSwitcher({ me }: { me: Me }) {
+export function AccountSwitcher() {
   const router = useRouter();
   const [logout, { isLoading }] = useLogoutMutation();
   const t = useAdminT();
+  const me = useAdminSession();
 
   const displayName = useMemo(() => me.email ?? 'Admin', [me.email]);
 

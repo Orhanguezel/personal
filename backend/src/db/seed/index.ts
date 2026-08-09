@@ -146,7 +146,12 @@ function shouldRun(file: string, flags: Flags) {
 function getAdminVars() {
   const email = (process.env.ADMIN_EMAIL || 'orhanguzell@gmail.com').trim();
   const id = (process.env.ADMIN_ID || '4f618a8d-6fdb-498c-898a-395d368b2193').trim();
-  const plainPassword = process.env.ADMIN_PASSWORD || 'admin123';
+  const plainPassword = String(process.env.ADMIN_PASSWORD || '').trim();
+  if (!plainPassword) {
+    throw new Error(
+      'ADMIN_PASSWORD zorunludur. Seed islemi tahmin edilebilir bir yonetici parolasi uretemez.',
+    );
+  }
   const passwordHash = bcrypt.hashSync(plainPassword, 12);
   return { email, id, passwordHash };
 }

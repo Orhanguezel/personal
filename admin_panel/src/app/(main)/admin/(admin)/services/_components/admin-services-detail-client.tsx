@@ -306,28 +306,6 @@ export default function AdminServiceDetailClient({ id }: { id: string }) {
     );
   }
 
-  if (!isCreateMode && !isUuidLike(String(id || ''))) {
-    return (
-      <div className="space-y-6">
-        <div className="space-y-1">
-          <h1 className="text-lg font-semibold">{t('admin.services.formHeader.invalidIdTitle')}</h1>
-          <p className="text-sm text-muted-foreground">
-            {t('admin.services.formHeader.invalidIdDescription')} <code className="wrap-break-word">{String(id || '-')}</code>
-          </p>
-        </div>
-
-        <Card>
-          <CardContent className="flex items-center justify-between pt-6">
-            <Button variant="outline" onClick={onCancel}>
-              <ArrowLeft className="mr-2 size-4" />
-              {t('admin.services.formHeader.backToList')}
-            </Button>
-          </CardContent>
-        </Card>
-      </div>
-    );
-  }
-
   if (!isCreateMode && !loading && !service && serviceError) {
     return (
       <div className="space-y-6">

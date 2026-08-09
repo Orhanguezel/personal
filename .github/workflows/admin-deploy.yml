@@ -1,0 +1,67 @@
+name: Admin Panel Deploy
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy-admin:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Build and check admin panel
+        working-directory: admin_panel
+        run: |
+          bun install --frozen-lockfile || bun install
+          bun run check
+          bun x tsc --noEmit
+          bun run build
+
+      - name: Setup SSH key
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_KEY: ${{ secrets.VPS_KEY }}
+        run: |
+          test -n "$VPS_HOST"
+          test -n "$VPS_KEY"
+          mkdir -p ~/.ssh
+          echo "$VPS_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -T 10 -H "$VPS_HOST" >> ~/.ssh/known_hosts 2>/dev/null || true
+
+      - name: Deploy admin panel
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+        run: |
+          test -n "$VPS_USER"
+          rsync -avz --delete \
+            --exclude=node_modules --exclude=.git --exclude=.env --exclude=.DS_Store \
+            -e "ssh -o ConnectTimeout=30 -o StrictHostKeyChecking=no -i ~/.ssh/deploy_key" \
+            admin_panel/ "${VPS_USER}@${VPS_HOST}:/var/www/vps-guezel/guezelwebdesign/admin_panel"
+
+      - name: Reload and smoke test GWD admin
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+        run: |
+          ssh -o ConnectTimeout=30 -o StrictHostKeyChecking=no -i ~/.ssh/deploy_key \
+            "${VPS_USER}@${VPS_HOST}" <<'REMOTE'
+          set -e
+          cd /var/www/vps-guezel/guezelwebdesign
+          DEPLOY_PROFILE=gwd pm2 startOrReload ecosystem.config.cjs \
+            --only guezelwebdesign-admin-panel --update-env
+          pm2 save
+          curl -fsSL http://127.0.0.1:3045/auth/login | grep -E 'name="email"|type="email"' >/dev/null
+          REMOTE
+
+      - name: Verify public admin
+        run: |
+          curl -fsSL https://panel.guezelwebdesign.com/auth/login | grep -E 'name="email"|type="email"' >/dev/null

@@ -13,6 +13,7 @@ import { useRouter } from 'next/navigation';
 import { useStatusQuery } from '@/integrations/hooks';
 import type { AuthStatusResponse } from '@/integrations/shared';
 import { normalizeMeFromStatus } from '@/integrations/shared';
+import { AdminSessionProvider } from './admin-session';
 
 export default function AdminAuthGate({ children }: { children: React.ReactNode }) {
   const router = useRouter();
@@ -41,5 +42,5 @@ export default function AdminAuthGate({ children }: { children: React.ReactNode 
   const me = normalizeMeFromStatus(q.data as AuthStatusResponse | undefined);
   if (!me || me.isAdmin !== true) return null;
 
-  return <>{children}</>;
+  return <AdminSessionProvider me={me}>{children}</AdminSessionProvider>;
 }
