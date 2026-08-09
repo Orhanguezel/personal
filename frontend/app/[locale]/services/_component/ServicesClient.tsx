@@ -12,7 +12,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 
 import { useListServicesPublicQuery } from '@/integrations/hooks';
 import { useStaticSiteSetting } from '@/utils/staticSiteSettings';
@@ -24,6 +24,7 @@ import {
   type ServiceDto,
 } from '@/integrations/shared';
 import { shouldUnoptimizeImage } from '@/utils/nextImage';
+import { CategoryFilter, parseCategoryOptions } from '@/components/content/CategoryFilter';
 
 export default function ServicesClient({
   locale,
@@ -55,7 +56,34 @@ export default function ServicesClient({
     { skip: hasServerList },
   );
 
-  const items = data?.items && data.items.length ? data.items : initialItems;
+  const allItems = data?.items && data.items.length ? data.items : initialItems;
+
+  // KATEGORI SUZGECI — liste ayni kategori kumesini projelerle paylasir.
+  const { value: categoriesSetting } = useStaticSiteSetting({ key: 'content_categories', locale });
+  const categoryOptions = useMemo(
+    () => parseCategoryOptions(categoriesSetting),
+    [categoriesSetting],
+  );
+  const [activeCategory, setActiveCategory] = useState('');
+
+  const categoryCounts = useMemo(() => {
+    const acc: Record<string, number> = {};
+    for (const svc of allItems) {
+      const key = String((svc as { type?: string }).type ?? '').trim();
+      if (key) acc[key] = (acc[key] ?? 0) + 1;
+    }
+    return acc;
+  }, [allItems]);
+
+  const items = useMemo(
+    () =>
+      activeCategory
+        ? allItems.filter(
+            (svc) => String((svc as { type?: string }).type ?? '').trim() === activeCategory,
+          )
+        : allItems,
+    [allItems, activeCategory],
+  );
 
   const cards = useMemo(() => {
     return items.map((svc, idx) => {
@@ -97,6 +125,14 @@ export default function ServicesClient({
                 <p
                   className="text-300 fs-5"
                   dangerouslySetInnerHTML={{ __html: sanitizeHtml(ui.page.intro_html) }}
+                />
+
+                <CategoryFilter
+                  categories={categoryOptions}
+                  value={activeCategory}
+                  onChange={setActiveCategory}
+                  allLabel={ui.page.badge}
+                  counts={categoryCounts}
                 />
 
                 {isError ? (

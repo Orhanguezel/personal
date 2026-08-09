@@ -35,6 +35,9 @@ const OUT_DIR = path.resolve(__dirname, '../public/ui');
 
 /** Istemci bilesenlerinin `/ui/<locale>.json` icinden okudugu anahtarlar */
 const KEYS = [
+  // Kategori listesi: hizmet ve portfolyo suzgecleri bunu okur. Statik dosyada
+  // olmazsa suzgec SSR ciktisinda yer almaz ve sayfa yuklenince sonradan belirir.
+  'content_categories',
   'contact_info',
   'contact_section',
   'offer_pdf_labels',
