@@ -209,7 +209,10 @@ export default function Footer1() {
               href={`/${localeForLinks}`}
             >
               <SiteLogo className="me-2" alt={brandName || 'logo'} sizes="160px" />
-              {brandName !== 'GZL Teknoloji' && <span className="fs-4 ms-2 text-white-keep">{brandName}</span>}
+              {!brandName.toLocaleLowerCase('tr').startsWith('gzl danışmanlık') &&
+                brandName !== 'GZL Teknoloji' && (
+                  <span className="fs-4 ms-2 text-white-keep">{brandName}</span>
+                )}
             </Link>
 
             {groups.length ? (
@@ -237,7 +240,7 @@ export default function Footer1() {
           <div className="row justify-content-center py-4">
             <div className="col-lg-7 col-md-9">
               <form
-                className="d-flex flex-column flex-sm-row gap-2 align-items-stretch"
+                className="footer-newsletter-form d-flex flex-column flex-sm-row gap-2 align-items-stretch"
                 onSubmit={handleNewsletterSubmit}
               >
                 <label htmlFor="footer-newsletter-email" className="visually-hidden">
@@ -248,7 +251,7 @@ export default function Footer1() {
                   type="email"
                   inputMode="email"
                   autoComplete="email"
-                  className="form-control border-0 rounded-2 px-4 py-3"
+                  className="footer-newsletter-input form-control rounded-2 px-4 py-3"
                   placeholder={newsletterCopy.placeholder}
                   value={newsletterEmail}
                   onChange={(event) => {
@@ -260,7 +263,7 @@ export default function Footer1() {
                 />
                 <button
                   type="submit"
-                  className="btn btn-gradient px-4 py-3 text-uppercase"
+                  className="footer-newsletter-submit btn px-4 py-3 text-uppercase"
                   disabled={newsletterState.isLoading}
                 >
                   {newsletterState.isLoading ? newsletterCopy.sending : newsletterCopy.button}
