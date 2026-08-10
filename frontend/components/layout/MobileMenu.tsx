@@ -132,7 +132,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: MobileMen
             onClick={onNavigate}
           >
             <SiteLogo className="me-2" alt={brandLabel} sizes="120px" />
-            <span className="fs-4 ms-2 text-dark">{brandLabel}</span>
+            {brandLabel !== 'GZL Teknoloji' && <span className="fs-4 ms-2 text-dark">{brandLabel}</span>}
           </Link>
 
           <div

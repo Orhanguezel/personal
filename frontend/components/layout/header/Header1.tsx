@@ -45,7 +45,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isOffC
                     <div className="container py-3 px-0">
                         <Link className="navbar-brand d-flex main-logo align-items-center ms-lg-0 ms-md-5 ms-3" href={`/${localeForLinks}`}>
                             <SiteLogo className="me-2" alt={brandName} sizes="32px" />
-                            <span className="fs-4 ms-2">{brandLabel}</span>
+                            {brandLabel !== 'GZL Teknoloji' && <span className="fs-4 ms-2">{brandLabel}</span>}
                         </Link>
                         <div className="d-none d-lg-flex">
                             <div className="collapse navbar-collapse" id="navbarSupportedContent">

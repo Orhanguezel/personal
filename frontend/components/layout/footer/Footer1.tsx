@@ -209,7 +209,7 @@ export default function Footer1() {
               href={`/${localeForLinks}`}
             >
               <SiteLogo className="me-2" alt={brandName || 'logo'} sizes="160px" />
-              <span className="fs-4 ms-2 text-white-keep">{brandName}</span>
+              {brandName !== 'GZL Teknoloji' && <span className="fs-4 ms-2 text-white-keep">{brandName}</span>}
             </Link>
 
             {groups.length ? (

@@ -47,6 +47,10 @@ export default function HomeLanding({
   const copy = COPY[lang];
   const route = (path: string) => `/${locale}${localizePath(locale, path)}`;
   const hero = ui.home1;
+  const heroTitle = hero.title_html.replace(
+    'GZL Teknoloji —',
+    '<span class="gzl-home-brandline">GZL Teknoloji —</span>',
+  );
   const heroImage = hero.hero_image || '/assets/imgs/guezel-showcase/workspace_guezel_web_design.webp';
   const preferredSlugs = ['geoserra', 'sosyal-medya-platformu', 'ihracat-radari'];
   const featuredProducts = preferredSlugs
@@ -59,7 +63,7 @@ export default function HomeLanding({
         <div className="container">
           <div className="gzl-home-herogrid">
             <div className="gzl-home-herocopy">
-              <h1 dangerouslySetInnerHTML={{ __html: sanitizeHtml(hero.title_html) }} />
+              <h1 dangerouslySetInnerHTML={{ __html: sanitizeHtml(heroTitle) }} />
               <p>{short(hero.description, 210)}</p>
               <div className="gzl-home-ctas">
                 <Link href={`/${locale}#contact`} className="btn btn-primary">{copy.contact}</Link>

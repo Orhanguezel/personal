@@ -107,7 +107,9 @@ const SiteLogo: React.FC<SiteLogoProps> = ({
       'Site Logo';
     const finalSizes = trimStr(sizes) || '(max-width: 992px) 120px, 160px';
 
-    return { finalSrc, finalW, finalH, finalAlt, finalSizes };
+    const hasWordmark = finalW / finalH >= 2.4;
+
+    return { finalSrc, finalW, finalH, finalAlt, finalSizes, hasWordmark };
   }, [overrideSrc, media.url, media.width, media.height, media.alt, alt, sizes]);
 
   const unoptimized = shouldBypassNextImageOptimizer(resolved.finalSrc);
@@ -125,6 +127,7 @@ const SiteLogo: React.FC<SiteLogoProps> = ({
       sizes={resolved.finalSizes}
       priority={priority}
       unoptimized={unoptimized}
+      data-has-wordmark={resolved.hasWordmark ? 'true' : 'false'}
       style={{ height: 'auto' }}
     />
   );

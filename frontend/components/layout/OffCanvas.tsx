@@ -181,7 +181,7 @@ export default function OffCanvas({ isOffCanvas, handleOffCanvas }: OffCanvasPro
             onClick={handleOffCanvas}
           >
             <SiteLogo className="me-2" alt={brandLabel} sizes="36px" />
-            <span className="fs-4 ms-2 text-white-keep">{brandLabel}</span>
+            {brandLabel !== 'GZL Teknoloji' && <span className="fs-4 ms-2 text-white-keep">{brandLabel}</span>}
           </Link>
           <p className="h3 mb-0">{headline}</p>
         </div>
