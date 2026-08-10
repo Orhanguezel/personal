@@ -49,7 +49,7 @@ export default function HomeLanding({
   const hero = ui.home1;
   const heroTitle = hero.title_html.replace(
     'GZL Teknoloji —',
-    '<span class="gzl-home-brandline">GZL Teknoloji —</span>',
+    '<span class="gzl-home-brandline">GZL Teknoloji</span>',
   );
   const heroImage = hero.hero_image || '/assets/imgs/guezel-showcase/workspace_guezel_web_design.webp';
   const preferredSlugs = ['geoserra', 'sosyal-medya-platformu', 'ihracat-radari'];
