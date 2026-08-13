@@ -3,9 +3,12 @@
 SET NAMES utf8mb4;
 
 INSERT INTO custom_pages (id,module_key,is_published,display_order,created_at,updated_at) VALUES
-('47000000-0000-4000-8000-000000000001','privacy',1,1,'2026-07-11 00:00:00.000','2026-07-11 00:00:00.000'),
-('47000000-0000-4000-8000-000000000002','terms',1,2,'2026-07-11 00:00:00.000','2026-07-11 00:00:00.000'),
-('47000000-0000-4000-8000-000000000003','cookies',1,3,'2026-07-11 00:00:00.000','2026-07-11 00:00:00.000')
+-- module_key tum yasal sayfalarda 'legal' olmalidir: frontend rotasi
+-- app/[locale]/legal/[slug] CustomContentPage'i moduleKey="legal" ile cagirir.
+('47000000-0000-4000-8000-000000000001','legal',1,1,'2026-07-11 00:00:00.000','2026-07-11 00:00:00.000'),
+('47000000-0000-4000-8000-000000000002','legal',1,2,'2026-07-11 00:00:00.000','2026-07-11 00:00:00.000'),
+('47000000-0000-4000-8000-000000000003','legal',1,3,'2026-07-11 00:00:00.000','2026-07-11 00:00:00.000'),
+('47000000-0000-4000-8000-000000000004','legal',1,4,'2026-08-13 00:00:00.000','2026-08-13 00:00:00.000')
 ON DUPLICATE KEY UPDATE module_key=VALUES(module_key),is_published=VALUES(is_published),display_order=VALUES(display_order),updated_at=VALUES(updated_at);
 
 INSERT INTO custom_pages_i18n (page_id,locale,title,slug,content,summary,meta_title,meta_description) VALUES
@@ -116,5 +119,35 @@ INSERT INTO custom_pages_i18n (page_id,locale,title,slug,content,summary,meta_ti
 <h2>4. Analytics and transfers</h2>
 <p>Where analytics consent is given, Google Analytics 4 and Google Tag Manager may be used. Device and usage data may be processed by Google outside Türkiye. See the Privacy Policy for further information.</p>
 <h2>5. Updates and contact</h2>
-<p>This policy is updated when tools or applicable law changes. Questions may be sent to info@gzlteknoloji.com.</p>','Necessary and analytics cookies used by GZL Technology, their purposes, duration and preference controls.','Cookie Policy','Necessary and analytics cookies used by GZL Technology, their purposes, duration and preference controls.')
+<p>This policy is updated when tools or applicable law changes. Questions may be sent to info@gzlteknoloji.com.</p>','Necessary and analytics cookies used by GZL Technology, their purposes, duration and preference controls.','Cookie Policy','Necessary and analytics cookies used by GZL Technology, their purposes, duration and preference controls.'),
+('47000000-0000-4000-8000-000000000004','tr','Veri Silme Talimatları','data-deletion','<p><strong>Yürürlük tarihi: 13 Ağustos 2026</strong></p>
+<p>Bu sayfa, <strong>GZL Danışmanlık Hizmetleri ve Teknoloji Ltd. Şti.</strong> tarafından işletilen internet sitesi ve uygulamalarda tutulan kişisel verilerin nasıl sildirileceğini açıklar. Talepler için info@gzlteknoloji.com adresine yazabilirsiniz.</p>
+<h2>1. Hangi veriler silinir</h2>
+<ul><li>İletişim ve teklif formlarıyla ilettiğiniz ad-soyad, e-posta, telefon, firma ve mesaj içeriği,</li><li>E-bülten kaydınız ve onay geçmişi,</li><li>Facebook, Instagram veya Threads hesabınızla giriş yaptıysanız ya da hesabınızı uygulamalarımıza bağladıysanız, Meta platformlarından alınan hesap kimliği, ad, profil görseli ve izin verdiğiniz kapsamdaki içerik ve istatistik verileri,</li><li>Destek yazışmalarında oluşan kayıtlar.</li></ul>
+<h2>2. Silme talebi nasıl yapılır</h2>
+<p>info@gzlteknoloji.com adresine <strong>&laquo;Veri silme talebi&raquo;</strong> konu başlığıyla bir e-posta gönderin. E-postada şunları belirtin:</p>
+<ul><li>Ad-soyad ve başvurunuzda kullandığınız e-posta adresi,</li><li>Silinmesini istediğiniz veri türü (tüm kayıtlar veya belirli kayıtlar),</li><li>Meta hesabınızla bağlantılı bir talep ise ilgili Facebook Sayfası, Instagram hesabı veya Threads hesabı adı.</li></ul>
+<p>Kimliğinizi doğrulayabilmemiz için başvurunun, kayıtlarımızda bulunan e-posta adresinden gönderilmesi gerekir. Gerekli hâllerde ek doğrulama isteyebiliriz.</p>
+<h2>3. Süre ve sonuç</h2>
+<p>Talebiniz en kısa sürede, her hâlde en geç <strong>30 gün</strong> içinde sonuçlandırılır ve sonuç size e-posta ile bildirilir. Silme tamamlandığında veriler üretim sistemlerinden kaldırılır; yedeklerdeki kopyalar yedek döngüsü içinde en geç 30 gün içinde tasfiye edilir.</p>
+<p>Mevzuatın saklanmasını zorunlu kıldığı kayıtlar (örneğin fatura ve muhasebe belgeleri) yasal süre boyunca saklanır. Bu kayıtlar erişime kapatılır ve yalnızca ilgili yasal yükümlülük için kullanılır.</p>
+<h2>4. Meta uygulama bağlantısını kaldırma</h2>
+<p>Facebook veya Instagram hesabınızın uygulamamızla bağlantısını kendiniz de kesebilirsiniz: <em>Ayarlar ve gizlilik &rarr; Ayarlar &rarr; Uygulamalar ve internet siteleri</em> bölümünden ilgili uygulamayı seçip kaldırın. Bağlantıyı kesmek, daha önce alınmış verilerin silinmesini kendiliğinden sağlamaz; silme için yukarıdaki talebi de iletmeniz gerekir.</p>
+<h2>5. İletişim</h2>
+<p>Veri sorumlusu: GZL Danışmanlık Hizmetleri ve Teknoloji Ltd. Şti., Cumhuriyet Mah. Hastane Cad. Şahinler Sit. C Blok No:12-C İç Kapı No:14, Gemlik/Bursa, Türkiye. E-posta: info@gzlteknoloji.com</p>','GZL Teknoloji hizmetlerinde tutulan kişisel verilerin ve Meta platformlarından alınan verilerin silinmesi için başvuru adımları.','Veri Silme Talimatları','GZL Teknoloji hizmetlerinde tutulan kişisel verilerin ve Meta platformlarından alınan verilerin silinmesi için başvuru adımları.'),
+('47000000-0000-4000-8000-000000000004','en','Data Deletion Instructions','data-deletion','<p><strong>Effective date: 13 August 2026</strong></p>
+<p>This page explains how to request deletion of personal data held by <strong>GZL Danışmanlık Hizmetleri ve Teknoloji Ltd. Şti.</strong> through its website and applications. Requests may be sent to info@gzlteknoloji.com.</p>
+<h2>1. Data covered</h2>
+<ul><li>Name, email, telephone, company and message content submitted through contact and quote forms,</li><li>Newsletter subscription records and consent history,</li><li>Where you signed in with a Facebook, Instagram or Threads account, or connected such an account to our applications: the account identifier, name, profile image and the content and insights data covered by the permissions you granted,</li><li>Records created during support correspondence.</li></ul>
+<h2>2. How to request deletion</h2>
+<p>Send an email to info@gzlteknoloji.com with the subject <strong>&laquo;Data deletion request&raquo;</strong> and include:</p>
+<ul><li>Your name and the email address used in your original request,</li><li>The data you want removed (all records, or specific records),</li><li>For requests linked to a Meta account, the relevant Facebook Page, Instagram account or Threads account name.</li></ul>
+<p>To let us verify identity, the request must be sent from the email address held in our records. Additional verification may be requested where necessary.</p>
+<h2>3. Timing and outcome</h2>
+<p>Requests are handled as soon as possible and no later than <strong>30 days</strong>, and the outcome is confirmed by email. Once deletion is complete, data is removed from production systems; copies held in backups are purged within the backup cycle, no later than 30 days.</p>
+<p>Records that law requires us to retain, such as invoices and accounting documents, are kept for the statutory period. Such records are placed out of general access and used only for the relevant legal obligation.</p>
+<h2>4. Removing the Meta app connection</h2>
+<p>You may also disconnect your Facebook or Instagram account yourself: open <em>Settings and privacy &rarr; Settings &rarr; Apps and websites</em>, select the application and remove it. Disconnecting does not by itself delete data already received, so please also send the request described above.</p>
+<h2>5. Contact</h2>
+<p>Data controller: GZL Danışmanlık Hizmetleri ve Teknoloji Ltd. Şti., Cumhuriyet Mah. Hastane Cad. Şahinler Sit. C Blok No:12-C İç Kapı No:14, Gemlik/Bursa, Türkiye. Email: info@gzlteknoloji.com</p>','How to request deletion of personal data held by GZL Technology, including data received from Meta platforms.','Data Deletion Instructions','How to request deletion of personal data held by GZL Technology, including data received from Meta platforms.')
 ON DUPLICATE KEY UPDATE title=VALUES(title),slug=VALUES(slug),content=VALUES(content),summary=VALUES(summary),meta_title=VALUES(meta_title),meta_description=VALUES(meta_description);
