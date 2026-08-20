@@ -93,6 +93,9 @@ export async function generateMetadata({
 
   return {
     ...(icons ? { icons } : {}),
+    other: {
+      'facebook-domain-verification': 'gsahjqmhjch65399xux7x44xhmih4m',
+    },
   };
 }
 
