@@ -4,5 +4,100 @@
   "favicon": "/assets/imgs/template/favicon.svg",
   "appleTouchIcon": "/assets/imgs/template/favicon.svg",
   "ogDefault": "/assets/imgs/guezel-showcase/service_web_design_showcase.webp",
-  "home": null
+  "home": {
+    "home1": {
+      "greeting": "👋 Merhaba, ben Orhan Güzel",
+      "hero_image": "/assets/imgs/guezel-showcase/workspace_guezel_web_design.webp",
+      "title_html": "Üretime hazır <span class=\"text-primary-1\">web platformları</span> geliştiriyorum",
+      "cta_primary": "CV indir",
+      "decor_image": "/assets/imgs/hero/hero-1/decorate.png",
+      "description": "Almanya'da çalışan bir full-stack web geliştiricisiyim; yurt içi ve uzaktaki ekipler için üretime hazır web platformları, e-ticaret sistemleri ve operasyonel uygulamalar geliştiriyorum.",
+      "cta_secondary": "İletişime geç",
+      "hero_image_alt": "Guezel Web Design showcase",
+      "decor_image_alt": "Dekor",
+      "experience_label": "15+ canlı platform"
+    },
+    "home2": {
+      "cv_label": "[ CV indir ]",
+      "greeting": "Selam, ben Orhan Güzel",
+      "hero_image": "/assets/imgs/guezel-showcase/storefront_guezel_web_design.webp",
+      "icon_image": "/assets/imgs/home-page-2/hero-1/icon.svg",
+      "more_label": "...ve daha fazlası",
+      "title_html": "Web ve app ürünleri için <span class=\"text-linear-4\">full-stack</span> teslimat<span class=\"flicker\">_</span>",
+      "hero_image_alt": "Guezel Web Design showcase",
+      "icon_image_alt": "Dekor",
+      "description_html": "&lt;p&gt;<span class=\"text-dark\">guezelwebdesign.com</span><span class=\"text-dark\"> altında admin panel, API, müşteri uygulaması ve operasyon sistemleri geliştiriyorum;</span> <span class=\"text-secondary-2\">Next.js</span>, <span class=\"text-secondary-2\">Fastify</span>, <span class=\"text-secondary-2\">Laravel</span> <span class=\"text-dark\">ve</span> <span class=\"text-secondary-2\">Flutter</span><span class=\"text-dark\"> ile.</span>&lt;/p&gt;"
+    }
+  },
+  "legalEntity": {
+    "name": "Güzel Webdesign",
+    "shortName": "Guezel Web Design",
+    "email": "",
+    "phone": "",
+    "website": "https://www.guezelwebdesign.com",
+    "address": "",
+    "taxOffice": "",
+    "taxNumber": "",
+    "mersis": "",
+    "tradeRegistry": "",
+    "registerCourt": "",
+    "vatId": "",
+    "director": ""
+  },
+  "legalLinks": {
+    "tr": [
+      {
+        "title": "Yasal Bildirim (Impressum)",
+        "href": "/tr/impressum"
+      },
+      {
+        "title": "Gizlilik Politikası",
+        "href": "/tr/custompages/policy/gizlilik-politikasi"
+      },
+      {
+        "title": "KVKK Aydınlatma",
+        "href": "/tr/custompages/policy/kvkk"
+      },
+      {
+        "title": "Kullanım Şartları",
+        "href": "/tr/custompages/policy/kullanim-sartlari"
+      }
+    ],
+    "en": [
+      {
+        "title": "Legal Notice (Impressum)",
+        "href": "/en/impressum"
+      },
+      {
+        "title": "Privacy Policy",
+        "href": "/en/custompages/policy/privacy-policy"
+      },
+      {
+        "title": "KVKK / Data Protection",
+        "href": "/en/custompages/policy/kvkk"
+      },
+      {
+        "title": "Terms & Conditions",
+        "href": "/en/custompages/policy/terms-and-conditions"
+      }
+    ],
+    "de": [
+      {
+        "title": "Impressum",
+        "href": "/de/impressum"
+      },
+      {
+        "title": "Datenschutzrichtlinie",
+        "href": "/de/custompages/policy/datenschutz"
+      },
+      {
+        "title": "KVKK / Datenschutz",
+        "href": "/de/custompages/policy/kvkk"
+      },
+      {
+        "title": "Nutzungsbedingungen",
+        "href": "/de/custompages/policy/nutzungsbedingungen"
+      }
+    ]
+  }
 }

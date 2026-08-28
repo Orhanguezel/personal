@@ -159,6 +159,74 @@ function firstText(...vals) {
   return '';
 }
 
+function str(v) {
+  return typeof v === 'string' ? v.trim() : '';
+}
+
+// company_brand -> gorunur KUNYE verisi.
+// Meta/Facebook isletme dogrulamasi, TTK 39 ve 5651 s.K. resmi unvanin
+// SITEDE GORUNUR olmasini ister; JSON-LD yeterli degildir. Deger yine
+// DB'den gelir — kodda marka yazmaz (bkz. CLAUDE.md "MARKA KURALI").
+function buildLegalEntity(raw) {
+  const o = typeof raw === 'string' ? safeParse(raw) : raw;
+  if (!o || typeof o !== 'object') return null;
+  const legal = o.legal && typeof o.legal === 'object' ? o.legal : {};
+
+  const entity = {
+    name: str(o.name),
+    shortName: str(o.short_name) || str(o.shortName),
+    email: str(o.email),
+    phone: str(o.phone),
+    website: str(o.website),
+    address: str(legal.adres) || str(legal.address),
+    taxOffice: str(legal.vergi_dairesi) || str(legal.tax_office),
+    taxNumber: str(legal.vergi_no) || str(legal.tax_number),
+    mersis: str(legal.mersis),
+    tradeRegistry: str(legal.ticaret_sicil) || str(legal.trade_registry),
+    registerCourt: str(legal.register_court) || str(legal.handelsregister),
+    vatId: str(legal.vat_id) || str(legal.ust_id),
+    director: str(legal.mudur) || str(legal.director) || str(legal.sirket_muduru),
+  };
+
+  return Object.values(entity).some(Boolean) ? entity : null;
+}
+
+// Footer'daki yasal baglantilar: her deployment KENDI yayinlanmis sayfalarindan
+// uretilir. Onceden slug'lar kodda sabitti (guezelwebdesign'in `policy` modulu)
+// ve gzlteknoloji.com'da footer "Gizlilik Politikasi" bagi 404 veriyordu.
+const LEGAL_MODULES = ['legal', 'policy'];
+const CLEAN_ROUTE_SLUGS = new Set(['impressum']);
+
+async function fetchLegalLinks(locale) {
+  const out = [];
+  for (const moduleKey of LEGAL_MODULES) {
+    const url = `${API_BASE}/custom-pages?module_key=${moduleKey}&locale=${locale}&limit=50`;
+    let rows;
+    try {
+      const res = await fetch(url, { headers: { Accept: 'application/json' } });
+      if (!res.ok) continue;
+      rows = await res.json();
+    } catch {
+      continue;
+    }
+    if (!Array.isArray(rows)) continue;
+
+    for (const row of rows) {
+      if (!row || row.is_published === 0 || row.is_published === false) continue;
+      const slug = str(row.slug);
+      const title = str(row.title);
+      if (!slug || !title) continue;
+      const href = CLEAN_ROUTE_SLUGS.has(slug)
+        ? `/${locale}/${slug}`
+        : `/${locale}/custompages/${moduleKey}/${slug}`;
+      if (out.some((x) => x.href === href)) continue;
+      out.push({ title, href, order: Number(row.display_order ?? 0) });
+    }
+  }
+  out.sort((a, b) => a.order - b.order);
+  return out.map(({ title, href }) => ({ title, href }));
+}
+
 try {
   const base = await fetchLocale(locales[0]);
   const brandRows = await (async () => {
@@ -179,6 +247,14 @@ try {
   const homeRaw = base.ui_home;
   const home = typeof homeRaw === 'string' ? safeParse(homeRaw) : homeRaw;
 
+  const legalEntity = buildLegalEntity(brandRows.company_brand);
+
+  const legalLinks = {};
+  for (const locale of locales) {
+    const links = await fetchLegalLinks(locale);
+    if (links.length) legalLinks[locale] = links;
+  }
+
   const brand = {
     brandName: firstText(brandRows.brand_short_name, brandRows.brand_name, brandRows.company_brand, brandRows.site_title),
     logo: firstUrl(base.site_logo),
@@ -186,14 +262,25 @@ try {
     appleTouchIcon: firstUrl(base.site_apple_touch_icon),
     ogDefault: firstUrl(base.site_og_default_image),
     home: home && typeof home === 'object' ? home : null,
+    legalEntity,
+    legalLinks,
   };
 
   fs.mkdirSync(path.dirname(BRAND_FILE), { recursive: true });
   fs.writeFileSync(BRAND_FILE, JSON.stringify(brand, null, 2) + '\n');
+  const legalLinkCount = Object.values(legalLinks).reduce((n, arr) => n + arr.length, 0);
   console.log(
     `\n  config/brand.generated.json  marka: ${brand.brandName || '(bos)'} · logo: ${brand.logo || '(bos)'}` +
-      ` · hero: ${brand.home ? 'var' : '(yok)'}`
+      ` · hero: ${brand.home ? 'var' : '(yok)'}` +
+      ` · kunye: ${legalEntity?.name || '(yok)'}` +
+      ` · yasal bag: ${legalLinkCount}`
   );
+  if (!legalEntity || !(legalEntity.address || legalEntity.taxNumber || legalEntity.mersis || legalEntity.tradeRegistry || legalEntity.vatId)) {
+    console.warn(
+      '  UYARI: site_settings.company_brand icinde `legal` blogu yok — footer kunyesi BASILMAYACAK.\n' +
+        '         Resmi unvanin sitede gorunur olmasi Meta isletme dogrulamasi ve TTK 39 icin gereklidir.'
+    );
+  }
 } catch (err) {
   failed = true;
   console.error(`  marka varsayilanlari uretilemedi: ${err.message}`);

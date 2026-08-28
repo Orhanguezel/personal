@@ -100,7 +100,6 @@ export async function getSiteJsonLdGraph(opts?: { routeLocale?: string | null })
   const websiteId = `${canonicalBase}/#website`;
   const localBusinessId = `${canonicalBase}/#localbusiness`;
   const localBusinessDeId = `${canonicalBase}/#localbusiness-de`;
-  const localBusinessTrId = `${canonicalBase}/#localbusiness-tr`;
   const founderId = `${canonicalBase}/#founder`;
   const professionalServiceId = `${canonicalBase}/#professional-service`;
 
@@ -231,27 +230,14 @@ export async function getSiteJsonLdGraph(opts?: { routeLocale?: string | null })
     ],
   });
 
-  if (!hasOwnBusinessData) items.push({
-    '@type': ['LocalBusiness', 'ProfessionalService'],
-    '@id': localBusinessTrId,
-    name: 'GZL Teknoloji ve Danışmanlık Hizmetleri Ltd. Şti.',
-    url: canonicalBase,
-    email: 'orhanguzell@gmail.com',
-    telephone: '+90 505 715 14 60',
-    parentOrganization: { '@id': orgId },
-    founder: { '@id': founderId },
-    sameAs,
-    priceRange: '$$',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: 'Cumhuriyet Mah. Hastahane Cad. 12/C Şahinler Sitesi D:14',
-      postalCode: '16600',
-      addressLocality: 'Gemlik',
-      addressRegion: 'Bursa',
-      addressCountry: 'TR',
-    },
-    areaServed: ['Turkey'],
-  });
+  // TR tuzel kisiligi (GZL ... Ltd. Sti.) BU dosyada yer ALMAZ.
+  // 2026-08-28: burada elle yazilmis bir TR LocalBusiness dugumu vardi ve
+  // unvani da yanlis siradaydi ("GZL Teknoloji ve Danismanlik Hizmetleri").
+  // Iki ayri tuzel kisilik var ve karistirilmalari dogrulamayi bozuyor:
+  //   guezelwebdesign.com -> Almanya, Orhan Guezel (freiberuflich)
+  //   gzlteknoloji.com    -> Turkiye, GZL ... Ltd. Sti.
+  // TR sirketinin yapisal verisi kendi kurulumunun `site_settings.
+  // seo_local_business` kaydindan gelir (asagidaki `localBusinessRaw` dali).
 
   items.push(
     website({

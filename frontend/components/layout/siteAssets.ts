@@ -33,6 +33,38 @@ export const SITE_MEDIA_KEYS = {
 // Uretilmis dosya yoksa (temiz checkout) asagidaki sablon degerlere duser.
 import brandGenerated from '@/config/brand.generated.json';
 
+/** Footer kunyesi — degerler DB'deki `company_brand.legal` blogundan uretilir. */
+export type LegalEntity = {
+  name?: string;
+  shortName?: string;
+  email?: string;
+  phone?: string;
+  website?: string;
+  address?: string;
+  taxOffice?: string;
+  taxNumber?: string;
+  mersis?: string;
+  tradeRegistry?: string;
+  registerCourt?: string;
+  vatId?: string;
+  director?: string;
+};
+
+export type LegalLink = { title: string; href: string };
+
+// Uretilmis dosyanin sekli deployment'a gore degisir (eski kurulumlarda yeni
+// alanlar hic olmayabilir); tek noktadan gevsek tiplenir.
+const brandGen = brandGenerated as {
+  brandName?: string;
+  logo?: string;
+  favicon?: string;
+  appleTouchIcon?: string;
+  ogDefault?: string;
+  home?: unknown;
+  legalEntity?: LegalEntity | null;
+  legalLinks?: Record<string, LegalLink[]> | null;
+};
+
 const BRAND_DEFAULTS = {
   brandName: '',
   logo: '/assets/imgs/landing-page/logo.svg',
@@ -42,11 +74,15 @@ const BRAND_DEFAULTS = {
 };
 
 export const SITE_MEDIA_FALLBACKS = {
-  brandName: brandGenerated.brandName || BRAND_DEFAULTS.brandName,
-  logo: brandGenerated.logo || BRAND_DEFAULTS.logo,
-  favicon: brandGenerated.favicon || BRAND_DEFAULTS.favicon,
-  appleTouchIcon: brandGenerated.appleTouchIcon || BRAND_DEFAULTS.appleTouchIcon,
-  ogDefault: brandGenerated.ogDefault || BRAND_DEFAULTS.ogDefault,
+  brandName: brandGen.brandName || BRAND_DEFAULTS.brandName,
+  logo: brandGen.logo || BRAND_DEFAULTS.logo,
+  favicon: brandGen.favicon || BRAND_DEFAULTS.favicon,
+  appleTouchIcon: brandGen.appleTouchIcon || BRAND_DEFAULTS.appleTouchIcon,
+  ogDefault: brandGen.ogDefault || BRAND_DEFAULTS.ogDefault,
+  // SSR'da da basilmalidir: Meta/Facebook dogrulamasi ve arama motorlari
+  // JavaScript sonrasi doldurulan metni gormeyebilir.
+  legalEntity: (brandGen.legalEntity || null) as LegalEntity | null,
+  legalLinks: (brandGen.legalLinks || {}) as Record<string, LegalLink[]>,
 } as const;
 
 export type SiteMedia = {

@@ -13,7 +13,8 @@
     "assets:optimize": "node scripts/optimize-public-assets.mjs --rewrite",
     "lh:autorun": "lhci autorun --config=./lighthouserc.cjs",
     "lh:collect": "lhci collect --config=./lighthouserc.cjs",
-    "ui:generate": "node scripts/generate-ui-settings.mjs"
+    "ui:generate": "node scripts/generate-ui-settings.mjs",
+    "build:deploy": "node scripts/generate-ui-settings.mjs && next build"
   },
   "dependencies": {
     "@next/third-parties": "^16.1.6",
