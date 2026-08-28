@@ -174,7 +174,16 @@ const nextConfig = {
   },
 
   images: {
-    formats: ['image/avif', 'image/webp'],
+    // AVIF BILEREK KAPALI (2026-08-29). Sunucu tek vCPU'lu; AVIF kodlama
+    // WebP'ye gore kat kat pahali. /tr/portfolyo'da 33 kart gorseli soguk
+    // onbellekte ayni anda istendiginde optimizer 502 verip frontend sureci
+    // yeniden basliyordu (bellek 200 MB -> 400 MB). WebP ~%20 daha buyuk
+    // dosya uretir ama sayfayi ayakta tutar.
+    formats: ['image/webp'],
+    // Optimize edilmis turevler uzun sure saklansin: /uploads altindaki
+    // gorseller degistiginde dosya adi/yolu degisiyor, icerik ayni yolda
+    // sessizce degismiyor. Kisa TTL her seferinde yeniden kodlama demekti.
+    minimumCacheTTL: 2592000, // 30 gun
     remotePatterns: [
       { protocol: 'https', hostname: 'images.unsplash.com', pathname: '/**' },
 
