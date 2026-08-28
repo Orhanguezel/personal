@@ -78,3 +78,22 @@ UPDATE `product_faqs` SET
   `question` = 'Who is İhracat Radarı for?',
   `answer` = 'For SMEs and manufacturers that export or plan to. The export team finds buyer candidates from customs data, contacts decision makers and manages export documents in one panel.'
 WHERE `id` = '30000000-0000-4000-8000-000000002205';
+
+-- ── Ek duzeltmeler (CRM dogrulamasi, 2026-08-29) ────────────────────────────
+-- Ihracat Radari canli: manifest project.status="live" ve ihracatradari.com.tr
+-- HTTP 200 donuyor. Kolon: ENUM('live','beta','coming_soon').
+UPDATE `products` SET `status` = 'live'
+WHERE `id` = '30000000-0000-4000-8000-000000000206';
+
+-- KatalogAI adres sapmasi: katalogai.gzltek.tech OLU (yanit yok), manifestteki
+-- links.website = https://thecatalogia.com ayakta (HTTP 200). Kartta kirik
+-- baglanti duruyordu.
+UPDATE `products` SET `demo_url` = 'https://thecatalogia.com'
+WHERE `id` = '30000000-0000-4000-8000-000000000203';
+
+UPDATE `product_specs` SET `value` = 'https://thecatalogia.com'
+WHERE `id` = '30000000-0000-4000-8000-000000001203';
+
+UPDATE `product_i18n` SET
+  `specifications` = JSON_SET(COALESCE(`specifications`, JSON_OBJECT()), '$.demo_url', 'https://thecatalogia.com')
+WHERE `product_id` = '30000000-0000-4000-8000-000000000203';
