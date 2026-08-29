@@ -155,8 +155,11 @@ export default function WorkClient({
                               className="card__image"
                               src={img}
                               alt={alt}
-                              width={800}
-                              height={800}
+                              // Kutunun orani CSS'te 16:9 (main.css, portfolyo
+                              // kart gorseli). Intrinsic olcu de ayni oranda
+                              // olmali; 800x800 iken duzen kare varsayiyordu.
+                              width={1600}
+                              height={900}
                               sizes="(max-width: 992px) 100vw, 50vw"
                               priority={idx < 2}
                               unoptimized={shouldUnoptimizeImage(img)}

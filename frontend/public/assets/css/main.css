@@ -14369,6 +14369,26 @@ strong {
     max-width: 100%;
   }
 }
+/* Portfolyo kart gorseli — kare kutu genis kapaklari kesiyordu (2026-08-29).
+   Sablon `.card__image`'a `aspect-ratio:1` veriyordu; kart gorsellerinin 23'u
+   16:9, 8'i 1.44 oranli. Kare kutuda 16:9 bir kapagin genisliginin %44'u
+   kirpiliyor ve markali kapaklarin SOLDAKI baslik bloklari kesiliyordu.
+   16:9 kutu: gorsellerin cogunda kirpma yok. Daha dar (1.44) site ekran
+   goruntulerinde ust hizalama, sayfanin tanidik ust bandini korur. */
+.section-work .card-scroll .cards .card-custom .card__inner .card__image-container{
+  /* Kutu, yanindaki METIN SUTUNU kadar uzuyordu (flex `align-items:stretch`),
+     bu yuzden `aspect-ratio` hic uygulanmiyordu: 608px genisligindeki kutu
+     421-509px yukseklige cikip neredeyse kareye donuyor, 16:9 kapagin solu
+     kirpiliyordu. `align-self` ile esnemeyi kesiyoruz; yukseklik artik
+     gorselin kendi oraninda. */
+  align-self:center;
+  height:auto;
+}
+.section-work .card-scroll .cards .card-custom .card__inner .card__image-container .card__image{
+  height:auto;
+  aspect-ratio:16/9;
+  object-position:center top;
+}
 /* GZL compact home landing */
 .gzl-home-herogrid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);min-height:560px;border:1px solid var(--tc-neutral-800)}
 .gzl-home-herocopy{display:flex;flex-direction:column;justify-content:center;padding:clamp(36px,6vw,84px);background-image:linear-gradient(rgba(120,92,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(120,92,255,.04) 1px,transparent 1px);background-size:42px 42px}
