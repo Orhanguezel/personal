@@ -1,11 +1,12 @@
 // frontend/components/sections/Contact1.tsx
 'use client';
 
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 import { useCreateContactMutation } from '@/integrations/hooks';
+import { trackGenerateLead } from '@/utils/analytics';
 import { useStaticSiteSetting } from '@/utils/staticSiteSettings';
 
 import { SITE_MEDIA_FALLBACKS } from '@/components/layout/siteAssets';
@@ -34,6 +35,8 @@ const CONTACT_COPY = {
     phoneField: 'Telefon',
     subject: 'Betreff',
     submit: 'Nachricht senden',
+    // Paket CTA'si ?paket= ile geldiginde konu alanina yazilir
+    package_subject_prefix: 'Paketanfrage',
   },
   en: {
     headline: 'Get in touch',
@@ -48,6 +51,7 @@ const CONTACT_COPY = {
     phoneField: 'Your phone',
     subject: 'Subject',
     submit: 'Send Message',
+    package_subject_prefix: 'Package enquiry',
   },
   tr: {
     headline: 'Iletisime gec',
@@ -62,6 +66,7 @@ const CONTACT_COPY = {
     phoneField: 'Telefon',
     subject: 'Konu',
     submit: 'Mesaj gönder',
+    package_subject_prefix: 'Paket teklifi',
   },
 } as const;
 
@@ -107,6 +112,25 @@ export default function Contact1() {
   // honeypot (BE: website)
   const [website, setWebsite] = useState('');
 
+  // Paket sayfasindaki "teklif al" dugmeleri buraya `?paket=<kod>` ile gelir.
+  // Konu alanini onceden doldurmazsak parametre gorunmez kalir ve gelen
+  // mesajdan hangi paketin sorulduğu anlasilmaz.
+  //
+  // `useSearchParams` yerine dogrudan location: bu bilesen statik uretilen
+  // sayfalarda da kullaniliyor ve arama parametresi okumak orada Suspense
+  // sinirina zorluyor. Etki yalnizca istemcide, ilk boyamadan sonra.
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const paket = new URLSearchParams(window.location.search).get('paket');
+    if (!paket) return;
+    const readable = paket
+      .split('-')
+      .filter(Boolean)
+      .map((word) => word.charAt(0).toLocaleUpperCase(localeForApi || 'tr') + word.slice(1))
+      .join(' ');
+    setSubject((current) => current || `${copy.package_subject_prefix}: ${readable}`);
+  }, [copy.package_subject_prefix, localeForApi]);
+
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -124,6 +148,7 @@ export default function Contact1() {
 
     try {
       await createContact(payload).unwrap();
+      if (!website.trim()) trackGenerateLead('contact_form');
 
       setName('');
       setEmailInput('');

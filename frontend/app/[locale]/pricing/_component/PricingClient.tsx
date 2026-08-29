@@ -13,6 +13,7 @@ import {
   unitLabelForLocale,
 } from '@/utils/pricingDisplay';
 import { localizePath } from '@/i18n/routes';
+import { SUPPORTED_LOCALES } from '@/i18n/config';
 
 export type Props = {
   locale: string;
@@ -175,6 +176,30 @@ export default function PricingClient({
 
   const contactHref = `/${locale}/#contact`;
 
+  // Paket CTA'lari veritabanindan gelir ve DILDEN BAGIMSIZ saklanir
+  // ("/contact?paket=..."). Burada dile cevrilir: /tr/iletisim, /de/kontakt...
+  //
+  // NEDEN (2026-08-29): kayitlarda `/teklif-al?paket=...` yaziyordu — boyle bir
+  // rota hic olmadi, sekiz paketin "teklif al" dugmesi de 404 veriyordu.
+  // Ayrica ham deger dogrudan href'e basiliyordu; dil onekli olmayan her
+  // ic baglanti bu yuzden kiriliyordu.
+  const localizeCtaHref = (raw?: string | null): string => {
+    const value = (raw || '').trim();
+    if (!value) return contactHref;
+    // Dis baglantilar ve capa/mailto oldugu gibi kalir.
+    if (/^(https?:)?\/\//i.test(value) || /^(mailto:|tel:|#)/i.test(value)) return value;
+    if (!value.startsWith('/')) return value;
+
+    const [path, query = ''] = value.split('?');
+    const segments = path.split('/').filter(Boolean);
+    // Zaten dil onekliyse (eski kayitlar: "/tr/iletisim?...") dokunma.
+    if (segments[0] && SUPPORTED_LOCALES.includes(segments[0] as (typeof SUPPORTED_LOCALES)[number])) {
+      return value;
+    }
+    const localized = localizePath(locale, path);
+    return `/${locale}${localized}${query ? `?${query}` : ''}`;
+  };
+
   return (
     <>
       <section className="section-pricing-1 pt-130 pb-150">
@@ -236,7 +261,7 @@ export default function PricingClient({
                       </div>
                       <div className="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 justify-content-center">
                         {groupPlans.map((p) => {
-                          const ctaHref = p.cta_href || contactHref;
+                          const ctaHref = localizeCtaHref(p.cta_href);
                           const ctaLabel = p.cta_label || copy.cta_default_label;
                           const features = safeArr<string>(p.features);
                           const { text: priceText } = displayPriceForPlan(p, locale, fxRates);

@@ -98,7 +98,17 @@ function nextApp({ name, cwd, port }) {
     script: path.join(cwd, 'node_modules/next/dist/bin/next'),
     interpreter: NODE_BIN,
     args: `start -p ${port} -H 127.0.0.1`,
-    max_memory_restart: '400M',
+    // 400M COK DUSUKTU (2026-08-29): pm2.log kaniti — Process 5
+    // (gzlteknoloji-frontend) 423-461 MB'a cikip DUZENLI olarak
+    // oldurulup yeniden baslatiliyordu:
+    //   "restarted because it exceeds --max-memory-restart value
+    //    (current_memory=461217792 max_memory_limit=419430400)"
+    // Her oldurme bir SOGUK BASLANGIC demek: Next'in bellek ici rota ve
+    // gorsel onbellegi sifirlaniyor, sonraki ziyaretci yavas sayfa goruyor.
+    // Backend'de ayni hata 2026-08 icinde 300M -> 700M yapilarak duzeltilmisti;
+    // frontend atlanmis. Sinir kacak bellek icin emniyet supabidir, normal
+    // calismayi kesen bir tavan degil. Sunucuda 3,9 GB RAM, ~1,6 GB bos.
+    max_memory_restart: '700M',
     env: {
       NODE_ENV: 'production',
       HOST: '127.0.0.1',
