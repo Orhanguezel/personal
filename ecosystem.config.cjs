@@ -79,6 +79,9 @@ const common = {
   autorestart: true,
   min_uptime: '30s',
   max_restarts: 10,
+  exp_backoff_restart_delay: 1000,
+  min_uptime: '30s',
+  max_restarts: 10,
   restart_delay: 5000,
   kill_timeout: 8000,
   listen_timeout: 10000,
@@ -131,8 +134,15 @@ module.exports = {
       ...common,
       name: backendName,
       cwd: path.join(ROOT, 'backend'),
-      script: path.join(ROOT, 'backend/dist/index.js'),
-      interpreter: BUN_BIN,
+      // DIKKAT: `interpreter: BUN_BIN` KULLANMA. PM2 o durumda uygulamayi kendi
+      // ProcessContainerForkBun sarmalayicisi icinde calistirir; sarmalayici
+      // surekli /proc/self/stat orneklemesi yapip bellek ayirir ve BOSTA BILE
+      // ~5-8% CPU yakar. Tek cekirdekli bu sunucuda 7 uygulama x ~5% = yaklasik
+      // yarim cekirdek bosa gidiyordu (2026-09-03 olcumu).
+      // Bun'i dogrudan script olarak calistirinca tuketim %0.4'e dusuyor.
+      script: BUN_BIN,
+      args: 'dist/index.js',
+      interpreter: 'none',
       // 300M ÇOK DÜŞÜKTÜ: guezelwebdesign backend'i normal çalışmada ~290MB'a
       // çıkıyor ve bu sınır onu sürekli restart ettiriyordu (11 restart / 1 saat).
       // Sınır kaçak bellek için bir emniyet supabı olmalı, normal çalışmayı
