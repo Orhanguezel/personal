@@ -115,7 +115,7 @@ export async function generateMetadata({
 
   const [{ all, page }, contentSeo] = await Promise.all([
     getSeoPage(SEO_PAGE_KEYS.workDetail, { routeLocale: locale }),
-    getProjectSeoPageBySlug(slug),
+    getProjectSeoPageBySlug(slug, locale),
   ]);
 
   const merged = mergeSeoPage(page, contentSeo);

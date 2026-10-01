@@ -43,18 +43,28 @@ export function toSeoPageFromService(pick: ServiceSeoPick | null): SeoPage | nul
 }
 
 /** Route: GET /services/by-slug/:slug */
-export async function getServiceSeoBySlug(slug: string): Promise<ServiceSeoPick | null> {
+export async function getServiceSeoBySlug(
+  slug: string,
+  locale?: string,
+): Promise<ServiceSeoPick | null> {
   const sl = String(slug ?? '').trim();
   if (!sl) return null;
 
-  const url = joinApi(BASE_URL, `/services/by-slug/${encodeURIComponent(sl)}`);
+  // Dil verilmezse API varsayilan dili (tr) dondurur: en/de sayfada Turkce <title>.
+  const loc = String(locale ?? '').trim();
+  const url =
+    joinApi(BASE_URL, `/services/by-slug/${encodeURIComponent(sl)}`) +
+    (loc ? `?locale=${encodeURIComponent(loc)}` : '');
 
   const j = await fetchJsonNoStore(url);
   return j ? pickSeo(j) : null;
 }
 
 /** ✅ SEO page builder for service by slug */
-export async function getServiceSeoPageBySlug(slug: string): Promise<SeoPage | null> {
-  const raw = await getServiceSeoBySlug(slug);
+export async function getServiceSeoPageBySlug(
+  slug: string,
+  locale?: string,
+): Promise<SeoPage | null> {
+  const raw = await getServiceSeoBySlug(slug, locale);
   return toSeoPageFromService(raw);
 }

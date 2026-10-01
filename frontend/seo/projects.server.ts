@@ -41,18 +41,28 @@ export function toSeoPageFromProject(pick: ProjectSeoPick | null): SeoPage | nul
 }
 
 /** Route: GET /projects/by-slug/:slug */
-export async function getProjectSeoBySlug(slug: string): Promise<ProjectSeoPick | null> {
+export async function getProjectSeoBySlug(
+  slug: string,
+  locale?: string,
+): Promise<ProjectSeoPick | null> {
   const sl = String(slug ?? '').trim();
   if (!sl) return null;
 
-  const url = joinApi(BASE_URL, `/projects/by-slug/${encodeURIComponent(sl)}`);
+  // Dil verilmezse API varsayilan dili (tr) dondurur: en/de sayfada Turkce <title>.
+  const loc = String(locale ?? '').trim();
+  const url =
+    joinApi(BASE_URL, `/projects/by-slug/${encodeURIComponent(sl)}`) +
+    (loc ? `?locale=${encodeURIComponent(loc)}` : '');
 
   const j = await fetchJsonNoStore(url);
   return j ? pickSeo(j) : null;
 }
 
 /** ✅ SEO page builder for project by slug */
-export async function getProjectSeoPageBySlug(slug: string): Promise<SeoPage | null> {
-  const raw = await getProjectSeoBySlug(slug);
+export async function getProjectSeoPageBySlug(
+  slug: string,
+  locale?: string,
+): Promise<SeoPage | null> {
+  const raw = await getProjectSeoBySlug(slug, locale);
   return toSeoPageFromProject(raw);
 }
