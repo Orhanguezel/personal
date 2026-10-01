@@ -44,7 +44,11 @@ health_url() {
   case "$1:$2" in
     gwd:frontend) echo "http://127.0.0.1:3044/de http://127.0.0.1:3044/de/blog" ;;
     gzl:frontend) echo "http://127.0.0.1:3120/tr http://127.0.0.1:3120/tr/blog" ;;
-    gwd:admin_panel) echo http://127.0.0.1:3045/auth/login ;; gzl:admin_panel) echo http://127.0.0.1:3121/auth/login ;;
+    # Panel proxy'si yalniz cerezin VARLIGINA bakar (veri tarayicida cekilir): sahte cerezle
+    # korumali sayfalarin sunucu render'i sinanir, gercek kimlik bilgisi gerekmez.
+    # /auth/login tek basina yetmez — 2026-09'da panel haftalarca 500 verdi.
+    gwd:admin_panel) p=3045 ;& gzl:admin_panel) p=${p:-3121}
+      echo "http://127.0.0.1:$p/auth/login http://127.0.0.1:$p/admin/dashboard http://127.0.0.1:$p/admin/site-settings http://127.0.0.1:$p/admin/custompage http://127.0.0.1:$p/admin/products" ;;
     gwd:backend) echo http://127.0.0.1:8044/api/v1/health ;;  gzl:backend) echo http://127.0.0.1:8102/api/v1/health ;;
   esac
 }
@@ -150,8 +154,13 @@ for t in $TREES; do
       for i in \$(seq 1 60); do
         ok=1
         for u in $url; do
-          c=\$(curl -s -o /dev/null -w '%{http_code}' \$u || true)
+          r=\$(curl -s -b mh_access_token=saglik-kontrolu -w '\\n%{http_code}' \$u || true)
+          c=\$(printf '%s' \"\$r\" | tail -1)
           [ \"\$c\" = 200 ] || { ok=0; bad=\"\$u \$c\"; break; }
+          # 200 donup hata sayfasi basan render'lari da yakala.
+          if printf '%s' \"\$r\" | grep -qE 'Application error|Internal Server Error|clientReferenceManifest'; then
+            ok=0; bad=\"\$u hata-sayfasi\"; break
+          fi
         done
         [ \$ok = 1 ] && echo \"    $name OK (\${i}s)\" && exit 0
         sleep 1
