@@ -73,6 +73,7 @@ Sunucu (`orhan@72.61.23.36`) 1 vCPU / 3.9 GB RAM ve 7 canli siteyi tasiyor. Sunu
   kapisi yesil. Sunucuda `.next-*`, `*.bak`, eski kopya biriktirme; geri donus icin
   yalniz tek `.next.prev` tutulur.
 - Sunucu agacinda commit'lenmemis elle degisiklik var: sunucuda `git pull` ile yayin yapma.
+- **Canli backend main disi kod calistiriyor (2026-10-01):** canli `dist`te `modules/tanitio-content-source` (+ `routes`/`env` degisiklikleri) var; kaynagi yerel calisma agacinda COMMIT EDILMEMIS (`backend/src/modules/tanitio-content-source`, `gzl-crm-content`, `routes.ts`, `core/env.ts`). Backend yayinindan ONCE bu is commit edilmeli; deploy-yerel.sh silinecek dosya gorurse durur.
 - **Admin paneli Next surumu (2026-10-01):** panel `next 16.1.1`'e SABITLENDI. Sunucuda
   panelin kendi `node_modules/next`'i yoktu; Next kokten **15.5.25** cozuluyordu
   (GZLTemizlik'in kok kurulumu, 2026-09-03) ve 16 ile derlenmis panel en az 2026-09-27'den

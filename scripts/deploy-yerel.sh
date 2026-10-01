@@ -129,6 +129,16 @@ for t in $TREES; do
   for app in $APPS; do
     dir="$BASE/$td/$app"
     if [ "$app" = backend ]; then
+      # Canlida olup yeni ciktida OLMAYAN dosya = canliya commit'lenmemis kod gonderilmis.
+      # 2026-10-01: canli dist'te main'de olmayan modules/tanitio-content-source vardi;
+      # yayin onu sessizce silecekti. Once commit'lenmeli; bilerek silmek icin SILMEYE_IZIN=1.
+      silinecek="$(rsync -rcn --delete --out-format='%n' "$STAGE/backend/dist/" "$HOST:$dir/dist/" | sed -n 's/^deleting //p')"
+      if [ -n "$silinecek" ] && [ -z "${SILMEYE_IZIN:-}" ]; then
+        echo "HATA: $t backend canlida main'de olmayan dosyalar var; yayin bunlari silerdi:" >&2
+        printf '      %s\n' $silinecek >&2
+        echo "Once o kodu commit'le (ya da bilerek silmek icin SILMEYE_IZIN=1)." >&2
+        exit 1
+      fi
       "${RS[@]}" "$STAGE/backend/dist/" "$HOST:$dir/.dist-upload-$SHA/"
     else
       "${RS[@]}" "$STAGE/$t/$app/.next/" "$HOST:$dir/.next-upload-$SHA/"
