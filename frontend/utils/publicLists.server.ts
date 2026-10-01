@@ -152,7 +152,9 @@ export async function getProductsListServer(args: {
   const params: Record<string, string | number | boolean | undefined> = {
     limit: args.limit ?? 50,
     offset: args.offset ?? 0,
-    order: 'display_order.asc',
+    // Urun API'si siralama alanini `order_num` olarak tanir; `display_order` sessizce
+    // yok sayiliyor, sira admin'deki "Sira" alanina uymuyordu (2026-10-01).
+    order: 'order_num.asc',
     locale: args.locale,
     default_locale: siteDefaultLocale(),
   };
