@@ -15,7 +15,7 @@ This repository is the guezelwebdesign monorepo. It is not related to the Ensote
 
 - Do not commit secrets or real production `.env` values.
 - Do not deploy from Codex source-prep tasks unless the user explicitly asks to override the current brief.
-- For production rollout, use the guarded server build flow on `guezel-yeni-root`.
+- **Sunucuda derleme YASAK.** Yayin yalniz yerelden: `bash scripts/deploy-yerel.sh` (asagida).
 - After every Next.js source change, verify both `bun run build` and `bun run start` locally for the touched app.
 
 ## Local Ports
@@ -37,20 +37,39 @@ bolumleri "Guezel Web Design", Alman telefonu ve Grevenbroich adresini gosteriyo
 Meta isletme dogrulamasi bu yuzden reddedildi ("Resmi isletme adinizin internet
 sitesinde yer almasi gerekir").
 
-Her frontend deploy'unda **build'den once** o kurulumun kendi API'siyle uret:
-
-```bash
-# gzlteknoloji.com
-cd /var/www/vps-guezel/gzlteknoloji-site/frontend
-API_BASE=https://gzlteknoloji.com/api/v1 bun run build:deploy
-
-# guezelwebdesign.com
-cd /var/www/vps-guezel/guezelwebdesign/frontend
-API_BASE=https://www.guezelwebdesign.com/api/v1 bun run build:deploy
-```
-
-`build:deploy` = `ui:generate` + `next build`. Duz `bun run build` **kullanma**.
-Build Node 22 ister: `export PATH=/home/orhan/.local/node22/bin:$PATH`.
+`scripts/deploy-yerel.sh` bunu her kurulum icin ayri yapar: sunucudan o kurulumun
+`.env` dosyalarini alir, `API_BASE=<o kurulumun API'si> bun run build:deploy` ile
+YERELDE derler, ciktiyi o kuruluma gonderir. Ayni `.next` iki siteye gitmez.
 
 Uretici, `company_brand.legal` blogu yoksa uyarir — footer kunyesi o kurulumda
 basilmaz. Gorunur resmi unvan Meta dogrulamasi ve TTK m.39 icin zorunludur.
+
+## SUNUCUDA DERLEME YASAK (2026-10-01, Orhan, zorunlu — hepsihal ile ayni kural)
+
+Sunucu (`orhan@72.61.23.36`) 1 vCPU / 3.9 GB RAM ve 7 canli siteyi tasiyor. Sunucuda
+`next build`/`tsc` dakikalarca tam CPU yer, build boyunca tum siteler yavaslar
+(2026-09-03 CPU krizi: load 36, tum siteler dustu). 2026-10-01'de ayrica sunlar cikti:
+
+- CI `deploy` isi sunucuda `rm -rf .next && bun run build` yapiyordu (build boyunca site
+  kapali) ve 2026-08-20'den beri hic basarili olmamisti — push "deploy" degildi.
+- Root ile alinmis bir build `.next`'i root'a birakmis; PM2 sureci (orhan) ISR
+  onbellegine yazamamis, sayfalar haftalarca yenilenmemisti.
+- Disk %100 doluydu; sunucuda build/kopya birikintisi bunun ana nedeniydi.
+
+**Kural:**
+
+- **Yayin yalniz:** `bash scripts/deploy-yerel.sh` — origin/main'i yerel worktree'de
+  (`../.build-guezelwebdesign`) derler, rsync ile gonderir, sunucuda yalniz `.next`
+  takasi + `pm2 restart` + saglik kontrolu yapar; gecmezse `.next.prev`'e geri doner.
+  - `APPS="frontend admin_panel backend"` (varsayilan `frontend`), `TREES="gwd gzl"`,
+    `BUILD_ONLY=1` yalniz yerel derleme.
+- **Sunucuda yasak:** `bun run build`, `build:deploy`, `next build`, `tsc`, `bun test`,
+  Playwright/Chromium, lighthouse. Sunucuda `/etc/vps-guezel-derleme-yasak` varken build
+  betikleri kendiliginden durur (`scripts/derleme-kilidi.mjs`); kilidi asma, isaret
+  dosyasini silme. Tek istisna Orhan'in acik acil durum onayi: `SUNUCUDA_DERLE=evet-acil`.
+- **Push deploy degildir.** GitHub Actions yalniz kalite kapisi (lint/tsc/build) calistirir.
+- **Sunucuda `sudo` ile build/yazma yapma** — dosyalar root'a gecer, PM2 yazamaz.
+- **Deploy'dan once:** `df -h /` (bos alan >= 3 GB), `git status` temiz commit, kalite
+  kapisi yesil. Sunucuda `.next-*`, `*.bak`, eski kopya biriktirme; geri donus icin
+  yalniz tek `.next.prev` tutulur.
+- Sunucu agacinda commit'lenmemis elle degisiklik var: sunucuda `git pull` ile yayin yapma.

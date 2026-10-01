@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "bun --hot src/index.ts",
-    "build": "bun x tsc -p tsconfig.json && bun x tsc-alias -p tsconfig.json && node scripts/fix-esm-extensions.mjs",
+    "build": "node ../scripts/derleme-kilidi.mjs && bun x tsc -p tsconfig.json && bun x tsc-alias -p tsconfig.json && node scripts/fix-esm-extensions.mjs",
     "lint": "biome lint .",
     "check": "biome check .",
     "check:fix": "biome check --write .",

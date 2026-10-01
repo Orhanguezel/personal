@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node ../scripts/derleme-kilidi.mjs && next build",
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
@@ -14,7 +14,7 @@
     "lh:autorun": "lhci autorun --config=./lighthouserc.cjs",
     "lh:collect": "lhci collect --config=./lighthouserc.cjs",
     "ui:generate": "node scripts/generate-ui-settings.mjs",
-    "build:deploy": "node scripts/generate-ui-settings.mjs && next build"
+    "build:deploy": "node ../scripts/derleme-kilidi.mjs && node scripts/generate-ui-settings.mjs && next build"
   },
   "dependencies": {
     "@next/third-parties": "^16.1.6",
