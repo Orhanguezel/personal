@@ -97,6 +97,7 @@
     "222_projects_seeder_tr.sql": "content:gwd",
     "223_projects_seeder_de.sql": "content:gwd",
     "224_project_case_studies.seed.sql": "content:gwd",
+    "225_gzl_crm_content_imports.sql": "schema",
     "230_pricing_schema.sql": "schema",
     "231_pricing_schema_seeder.sql": "content:gwd",
     "235_social_posts.sql": "schema",

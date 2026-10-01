@@ -93,6 +93,12 @@ export const env = {
   PUBLIC_URL: process.env.PUBLIC_URL || 'https://www.ensotek.de',
   FRONTEND_URL: FRONTEND_URL,
 
+  // Tanitio'nun tenant web sitesi içerik kaynağı için salt-okunur API anahtarı.
+  TANITIO_CONTENT_API_KEY: process.env.TANITIO_CONTENT_API_KEY || '',
+
+  // GZL Gelir CRM -> website project create integration. No fallback secret.
+  GZL_CRM_CONTENT_API_KEY: process.env.GZL_CRM_CONTENT_API_KEY || '',
+
   // ✅ SMTP / Mail (sadece fallback; asıl değerler site_settings.smtp_* ile gelebilir)
   SMTP_HOST: process.env.SMTP_HOST || '',
   SMTP_PORT: toInt(process.env.SMTP_PORT, 465),
