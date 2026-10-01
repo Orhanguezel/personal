@@ -229,9 +229,9 @@ VALUES
 (UUID(), 'site_logo', '*', '/assets/imgs/logo/logo-dark.svg', NOW(3), NOW(3)),
 (UUID(), 'site_logo_dark', '*', '/assets/imgs/logo/logo-dark.svg', NOW(3), NOW(3)),
 (UUID(), 'site_logo_light', '*', '/assets/imgs/logo/logo-white.svg', NOW(3), NOW(3)),
-(UUID(), 'site_favicon', '*', '/assets/imgs/favicon.png', NOW(3), NOW(3)),
-(UUID(), 'site_apple_touch_icon', '*', '/assets/imgs/apple-touch-icon.png', NOW(3), NOW(3)),
-(UUID(), 'site_og_default_image', '*', 'https://www.guezelwebdesign.com/assets/imgs/guezel-showcase/service_web_design_showcase.webp', NOW(3), NOW(3))
+(UUID(), 'site_favicon', '*', '/assets/imgs/template/favicon-32.png', NOW(3), NOW(3)),
+(UUID(), 'site_apple_touch_icon', '*', '/assets/imgs/template/apple-touch-icon.png', NOW(3), NOW(3)),
+(UUID(), 'site_og_default_image', '*', 'https://www.guezelwebdesign.com/assets/imgs/guezel-showcase/og-default.jpg', NOW(3), NOW(3))
 ON DUPLICATE KEY UPDATE
   `value`      = VALUES(`value`),
   `updated_at` = VALUES(`updated_at`);

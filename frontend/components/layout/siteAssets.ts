@@ -68,9 +68,9 @@ const brandGen = brandGenerated as {
 const BRAND_DEFAULTS = {
   brandName: '',
   logo: '/assets/imgs/landing-page/logo.svg',
-  favicon: '/assets/imgs/template/favicon.svg',
-  appleTouchIcon: '/assets/imgs/template/favicon.svg',
-  ogDefault: '/assets/imgs/guezel-showcase/service_web_design_showcase.webp',
+  favicon: '/assets/imgs/template/favicon-32.png',
+  appleTouchIcon: '/assets/imgs/template/apple-touch-icon.png',
+  ogDefault: '/assets/imgs/guezel-showcase/og-default.jpg',
 };
 
 export const SITE_MEDIA_FALLBACKS = {

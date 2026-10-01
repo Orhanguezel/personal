@@ -50,7 +50,7 @@ SET @OG_DEFAULT := COALESCE(
     ORDER BY `updated_at` DESC
     LIMIT 1
   ),
-  'https://www.guezelwebdesign.com/assets/imgs/guezel-showcase/service_web_design_showcase.webp'
+  'https://www.guezelwebdesign.com/assets/imgs/guezel-showcase/og-default.jpg'
 );
 
 -- -------------------------------------------------------------

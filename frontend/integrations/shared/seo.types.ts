@@ -749,7 +749,7 @@ export async function fetchSiteSettingsStrict(
       };
     }
     if (wantsSeoAppIcons && out['seo_app_icons'] === undefined) {
-      const fav = `${siteUrl}/assets/imgs/template/favicon.svg`;
+      const fav = `${siteUrl}/assets/imgs/template/favicon-32.png`;
       out['seo_app_icons'] = { favicon32: fav, favicon16: fav };
     }
   }

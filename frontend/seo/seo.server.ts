@@ -201,7 +201,7 @@ export async function getSiteJsonLdGraph(opts?: { routeLocale?: string | null })
     logo:
       localBusinessRaw && typeof (localBusinessRaw as any).logo === 'string'
         ? String((localBusinessRaw as any).logo).trim()
-        : joinUrl(canonicalBase, '/assets/imgs/template/favicon.svg'),
+        : joinUrl(canonicalBase, '/assets/imgs/template/icon-512.png'),
     parentOrganization: { '@id': orgId },
     founder: { '@id': founderId },
     sameAs,

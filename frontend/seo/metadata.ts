@@ -29,7 +29,7 @@ const OG_LOCALE_BY_ROUTE: Record<string, string> = {
   tr: 'tr_TR',
 };
 
-const SHOWCASE_OG_IMAGE = '/assets/imgs/guezel-showcase/service_web_design_showcase.webp';
+const SHOWCASE_OG_IMAGE = '/assets/imgs/guezel-showcase/og-default.jpg';
 const DEPRECATED_OG_IMAGE_SUFFIXES = [
   '/assets/imgs/home-page-3/hero/img-1.png',
   '/assets/imgs/home-page-3/hero/img-1.webp',

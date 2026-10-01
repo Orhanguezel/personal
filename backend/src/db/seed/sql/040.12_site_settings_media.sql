@@ -53,7 +53,7 @@ VALUES
   'site_favicon',
   '*',
   CAST(JSON_OBJECT(
-    'url','/assets/imgs/template/favicon.svg',
+    'url','/assets/imgs/template/favicon-32.png',
     'alt','Guezel Web Design'
   ) AS CHAR CHARACTER SET utf8mb4),
   NOW(3), NOW(3)
@@ -63,7 +63,7 @@ VALUES
   'site_apple_touch_icon',
   '*',
   CAST(JSON_OBJECT(
-    'url','/assets/imgs/template/favicon.svg',
+    'url','/assets/imgs/template/apple-touch-icon.png',
     'alt','Guezel Web Design'
   ) AS CHAR CHARACTER SET utf8mb4),
   NOW(3), NOW(3)
@@ -73,7 +73,7 @@ VALUES
   'site_app_icon_512',
   '*',
   CAST(JSON_OBJECT(
-    'url','/assets/imgs/template/favicon.svg',
+    'url','/assets/imgs/template/icon-512.png',
     'alt','Guezel Web Design'
   ) AS CHAR CHARACTER SET utf8mb4),
   NOW(3), NOW(3)
@@ -83,7 +83,7 @@ VALUES
   'site_og_default_image',
   '*',
   CAST(JSON_OBJECT(
-    'url','/assets/imgs/guezel-showcase/service_web_design_showcase.webp',
+    'url','/assets/imgs/guezel-showcase/og-default.jpg',
     'alt','Guezel Web Design'
   ) AS CHAR CHARACTER SET utf8mb4),
   NOW(3), NOW(3)
