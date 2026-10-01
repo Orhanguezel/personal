@@ -99,6 +99,7 @@
     "224_project_case_studies.seed.sql": "content:gwd",
     "225_gzl_crm_content_imports.sql": "schema",
     "226_portfolio_2026_10.sql": "content:gwd",
+    "227_portfolyo_sira_hizmet_gorsel.sql": "content:gwd",
     "230_pricing_schema.sql": "schema",
     "231_pricing_schema_seeder.sql": "content:gwd",
     "235_social_posts.sql": "schema",
