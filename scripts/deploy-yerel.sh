@@ -103,6 +103,16 @@ done
 if [ -n "${BUILD_ONLY:-}" ]; then echo "OK yalniz derleme: $STAGE"; exit 0; fi
 
 echo "==> [3/4] sunucuya gonderiliyor"
+# Yerelde derleyen Next ile sunucuda calistiran Next ayni olmali; .next surumler arasi tasinmaz.
+for t in $TREES; do
+  td="$(tree_dir "$t")"
+  for app in $APPS; do
+    [ "$app" = backend ] && continue
+    lv="$(cd "$WT/$app" && node -p 'require("next/package.json").version')"
+    rv="$(ssh "$HOST" "cd $BASE/$td/$app && node -p 'require(\"next/package.json\").version'")"
+    [ "$lv" = "$rv" ] || { echo "HATA: $t $app Next surumu farkli (yerel $lv, sunucu $rv)" >&2; exit 1; }
+  done
+done
 RS=(rsync -a --compress --delete)
 for t in $TREES; do
   td="$(tree_dir "$t")"
