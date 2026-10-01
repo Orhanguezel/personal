@@ -274,11 +274,77 @@ URUN.append(dict(
             meta_title='Individuelles CRM — Vertrieb und Kundenmanagement | GZL Technologie'),
     }))
 
+URUN.append(dict(
+    id=None, code='OSGB', order=5, featured=1, status='live', pricing='one_time',
+    demo=None, docs=None, image='osgb',
+    # Kaynak: osgb-yazilim/project.portfolio.json + sitedeki osgb-isletme-yonetim-sistemi hizmet metni.
+    # Musteriden gosterim izni yok (manifest): musteri adi, canli adres ve ekran goruntusu KULLANILMAZ.
+    i18n={
+        'tr': dict(
+            title='OSGB İşletme Yönetim Sistemi — İSG Operasyonu Tek Panelde', slug='osgb-isletme-yonetim-sistemi',
+            subtitle='Sözleşme, ziyaret planı, uzman ve hekim ataması, sağlık taraması, evrak ve tahsilatı Excel yerine tek panelde yönetin.',
+            description=('Ortak sağlık güvenlik birimleri mevzuat gereği yüzlerce işyerine İSG uzmanı ve işyeri hekimi hizmeti verir; bu operasyon '
+                         'çoğunlukla dağınık Excel dosyalarıyla yürür. OSGB İşletme Yönetim Sistemi firma kartlarından ziyaret planına, sağlık '
+                         'taramasından süreli evraka, tekliften tahsilata kadar tüm işi tek panele taşır. Canlıda çalışan bir OSGB sistemi temel '
+                         'alınır, sizin iş akışınıza göre kurulur ve mevcut Excel/İSG-KATİP verileriniz aktarılır. Kapsama göre teklif hazırlanır.'),
+            features=['Firma kartları, sözleşme ve tehlike sınıfı kayıtları',
+                      'İSG-KATİP sözleşme dökümüyle atama mutabakatı',
+                      'Mevzuata göre ziyaret planı, uzman ve işyeri hekimi ataması',
+                      'Kanıtla kapanan ziyaret kaydı ve görev yönetimi',
+                      'Sağlık raporu, tarama takibi ve hekim ekranı',
+                      'Evrak arşivi ve süresi dolacak belgeler için uyarı',
+                      'Teklif, satış, tahsilat ve finans takibi',
+                      'İK/personel yönetimi ve rol tabanlı yetkiler',
+                      'Bildirim ve otomasyon altyapısı'],
+            tags=['OSGB', 'İSG', 'İşyeri Hekimi', 'Ziyaret Planlama', 'Evrak Takibi', 'Özel Yazılım'],
+            cta='Teklif al',
+            meta_title='OSGB İşletme Yönetim Sistemi — İSG Yazılımı | GZL Teknoloji'),
+        'en': dict(
+            title='OSGB Management System — Occupational Health & Safety Operations in One Panel', slug='osgb-management-system',
+            subtitle='Manage contracts, visit plans, safety expert and physician assignments, health screening, documents and collections in one panel instead of Excel.',
+            description=('Joint health and safety units (OSGB) in Türkiye provide safety experts and workplace physicians to hundreds of workplaces by law, '
+                         'and this work usually runs on scattered Excel files. The OSGB Management System brings everything into one panel, from company '
+                         'records and visit plans to health screening, time-limited documents, quotes and collections. It builds on an OSGB system already '
+                         'running in production, is set up around your workflow, and your existing Excel and İSG-KATİP data is migrated. Pricing is quoted by scope.'),
+            features=['Company records, contracts and hazard classes',
+                      'Assignment reconciliation with İSG-KATİP contract exports',
+                      'Regulation-based visit planning with safety expert and physician assignment',
+                      'Visit records closed with evidence, plus task management',
+                      'Health reports, screening tracking and a physician view',
+                      'Document archive with alerts for expiring documents',
+                      'Quotes, sales, collections and finance tracking',
+                      'HR/staff management and role-based permissions',
+                      'Notification and automation infrastructure'],
+            tags=['OSGB', 'Occupational Health & Safety', 'Workplace Physician', 'Visit Planning', 'Document Tracking', 'Custom Software'],
+            cta='Request a quote',
+            meta_title='OSGB Management System — OHS Software | GZL Technology'),
+        'de': dict(
+            title='OSGB-Managementsystem — Arbeitsschutz-Operations in einem Panel', slug='osgb-managementsystem',
+            subtitle='Verträge, Besuchsplanung, Zuweisung von Fachkräften und Betriebsärzten, Gesundheitsuntersuchungen, Dokumente und Inkasso in einem Panel statt in Excel.',
+            description=('Gemeinsame Arbeitsschutzeinheiten (OSGB) in der Türkei stellen gesetzlich vorgeschriebene Fachkräfte für Arbeitssicherheit und Betriebsärzte '
+                         'für Hunderte Betriebe; meist läuft das über verstreute Excel-Dateien. Das OSGB-Managementsystem bündelt alles in einem Panel: von '
+                         'Firmenakten und Besuchsplänen über Gesundheitsuntersuchungen und befristete Dokumente bis zu Angeboten und Zahlungseingängen. Grundlage ist '
+                         'ein produktiv laufendes OSGB-System; es wird an Ihre Abläufe angepasst, vorhandene Excel- und İSG-KATİP-Daten werden übernommen. '
+                         'Das Angebot richtet sich nach dem Umfang.'),
+            features=['Firmenakten, Verträge und Gefahrenklassen',
+                      'Abgleich der Zuweisungen mit İSG-KATİP-Vertragsexporten',
+                      'Vorschriftsgemäße Besuchsplanung mit Zuweisung von Fachkräften und Betriebsärzten',
+                      'Besuchsnachweise mit Beleg und Aufgabenverwaltung',
+                      'Gesundheitsberichte, Untersuchungsverfolgung und Arztansicht',
+                      'Dokumentenarchiv mit Warnung vor ablaufenden Unterlagen',
+                      'Angebote, Vertrieb, Zahlungseingänge und Finanzen',
+                      'Personalverwaltung und rollenbasierte Rechte',
+                      'Benachrichtigungs- und Automatisierungsinfrastruktur'],
+            tags=['OSGB', 'Arbeitsschutz', 'Betriebsarzt', 'Besuchsplanung', 'Dokumentenverwaltung', 'Individualsoftware'],
+            cta='Angebot anfordern',
+            meta_title='OSGB-Managementsystem — Arbeitsschutz-Software | GZL Technologie'),
+    }))
+
 # Mevcut urunler: yalniz sira/adres duzeltmesi (icerik korunur)
 DUZELT = [
     # kod, sira, aktif, demo_url (None = degistirme)
     ('IHRACAT-RADARI', 92, 0, 'https://ihracatradari.com.tr'),    # Orhan 2026-10-01: urunlerden kaldirildi (demo adresi yine duzeltilir)
-    ('SCRAPER-API', 5, 1, 'https://scraper.guezelwebdesign.com/docs'),  # eski scraper.gzltek.tech acilmiyor
+    ('SCRAPER-API', 6, 1, 'https://scraper.guezelwebdesign.com/docs'),  # eski scraper.gzltek.tech acilmiyor
     ('GEOSERRA', 90, 0, None),     # site 502 (surecler 2026-09-03'ten beri durdurulmus) — satistan kaldir
     ('KATALOGAI', 91, 0, None),    # artik bize ait degil (CLAUDE.md, 2026-09-27)
 ]
@@ -310,6 +376,11 @@ def build(kapak_dir):
         if demo:
             out.append(f"UPDATE `product_i18n` SET `specifications`=JSON_SET(COALESCE(`specifications`,'{{}}'),'$.demo_url',{q(demo)}), `updated_at`=NOW(3) "
                        f"WHERE `product_id`=(SELECT `id` FROM `products` WHERE `product_code`={q(code)} LIMIT 1);")
+    out.append('\n-- Hizmet karti: OSGB gorseli musteri sitesinin ekraniydi (gosterim izni yok) -> uretilmis grafik.')
+    url = '/uploads/services/osgb-isletme-yonetim-sistemi/osgb-grafik-1600x900.webp'
+    sub = "(SELECT `service_id` FROM `services_i18n` WHERE `locale`='tr' AND `slug`='osgb-isletme-yonetim-sistemi' LIMIT 1) x"
+    out.append(f"UPDATE `services` s JOIN {sub} ON s.`id`=x.`service_id` SET s.`featured_image`={q(url)}, s.`image_url`={q(url)}, s.`image_asset_id`=NULL, s.`updated_at`=NOW(3);")
+    out.append(f"UPDATE `service_images` si JOIN {sub} ON si.`service_id`=x.`service_id` SET si.`image_url`={q(url)}, si.`image_asset_id`=NULL, si.`updated_at`=NOW(3);")
     out.append('COMMIT;')
     return '\n'.join(out) + '\n'
 

@@ -68,13 +68,15 @@ def build(tarih_json, kapak_dir):
     # 2) Hizmet gorselleri
     out.append('\n-- Hizmet gorselleri: 1600x900, kendi projelerimiz / uretilmis grafik.')
     for slug in HIZMET:
-        path = f'services/{slug}/kapak-1600x900.webp'
+        # OSGB: musteri sitesinin ekrani kullanilamaz (gosterim izni yok) -> uretilmis grafik, yeni ad.
+        fname = 'osgb-grafik-1600x900.webp' if slug == 'osgb-isletme-yonetim-sistemi' else 'kapak-1600x900.webp'
+        path = f'services/{slug}/{fname}'
         url = '/uploads/' + path
         aid = uid('asset', 'service', slug)
-        size = os.path.getsize(os.path.join(kapak_dir, slug, 'kapak-1600x900.webp'))
+        size = os.path.getsize(os.path.join(kapak_dir, slug, fname))
         out.append("INSERT INTO `storage_assets` (`id`,`user_id`,`name`,`bucket`,`path`,`folder`,`mime`,`size`,`width`,`height`,`url`,`provider`,`provider_resource_type`,`provider_format`,`metadata`) VALUES "
-                   f"({q(aid)},NULL,'kapak-1600x900.webp','media',{q(path)},{q('services/' + slug)},'image/webp',{size},1600,900,{q(url)},'local','image','webp',{q(json.dumps({'source': 'services-2026-10', 'role': 'cover'}))})"
-                   " ON DUPLICATE KEY UPDATE `size`=VALUES(`size`),`url`=VALUES(`url`),`updated_at`=NOW(3);")
+                   f"({q(aid)},NULL,{q(fname)},'media',{q(path)},{q('services/' + slug)},'image/webp',{size},1600,900,{q(url)},'local','image','webp',{q(json.dumps({'source': 'services-2026-10', 'role': 'cover'}))})"
+                   " ON DUPLICATE KEY UPDATE `name`=VALUES(`name`),`path`=VALUES(`path`),`size`=VALUES(`size`),`url`=VALUES(`url`),`updated_at`=NOW(3);")
         sub = f"(SELECT `service_id` FROM `services_i18n` WHERE `locale`='tr' AND `slug`={q(slug)} LIMIT 1) x"
         out.append(f"UPDATE `services` s JOIN {sub} ON s.`id`=x.`service_id` SET s.`featured_image`={q(url)}, s.`image_url`={q(url)}, s.`image_asset_id`={q(aid)}, s.`updated_at`=NOW(3);")
         out.append(f"UPDATE `service_images` si JOIN (SELECT `service_id` FROM `services_i18n` WHERE `locale`='tr' AND `slug`={q(slug)} LIMIT 1) x ON si.`service_id`=x.`service_id` SET si.`image_url`={q(url)}, si.`image_asset_id`={q(aid)}, si.`updated_at`=NOW(3);")

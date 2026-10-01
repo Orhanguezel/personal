@@ -24,7 +24,7 @@ export const dynamic = 'force-dynamic';
 export default async function ServicesPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const safeLocale = normalizeLocaleParam(locale);
-  const initialItems = await getServicesListServer({ locale: safeLocale, limit: 20 });
+  const initialItems = await getServicesListServer({ locale: safeLocale, limit: 100 });
 
   const labels = BREADCRUMB_LABELS[safeLocale] ?? BREADCRUMB_LABELS.en;
 
