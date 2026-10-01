@@ -99,7 +99,7 @@ for app in $APPS; do
     mv "$WT/$app/.next" "$out/.next"
     rm -rf "$out/.next/cache"
     # public/ui/*.json ve config/brand.generated.json kuruluma ozeldir (marka kurali).
-    cp -a "$WT/$app/public" "$out/public"
+    [ -d "$WT/$app/public" ] && cp -a "$WT/$app/public" "$out/public"
     git -C "$WT" checkout --quiet -- "$app/public" "$app/config" 2>/dev/null || true
     rm -f "$WT/$app/.env" "$WT/$app/.env.production.local"
     echo "    $t $app derlendi"
@@ -129,7 +129,7 @@ for t in $TREES; do
     else
       "${RS[@]}" "$STAGE/$t/$app/.next/" "$HOST:$dir/.next-upload-$SHA/"
       # public --delete OLMADAN: sunucuda yuklenmis dosyalar (uploads) durur.
-      rsync -a --compress "$STAGE/$t/$app/public/" "$HOST:$dir/public/"
+      [ -d "$STAGE/$t/$app/public" ] && rsync -a --compress "$STAGE/$t/$app/public/" "$HOST:$dir/public/"
       rsync -a "$WT/$app/package.json" "$WT/$app"/next.config.* "$HOST:$dir/"
     fi
   done
