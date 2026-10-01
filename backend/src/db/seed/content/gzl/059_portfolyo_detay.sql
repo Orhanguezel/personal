@@ -1953,4 +1953,8 @@ UPDATE `projects_i18n` SET `meta_title`=CONCAT('Woody ve Arkadaşları - Çok Di
 UPDATE `site_settings` SET `value`=CAST(JSON_SET(CAST(`value` AS JSON), '$.detail.case_study_title', 'Vaka çalışması', '$.detail.case_study_challenge_label', 'Zorluk', '$.detail.case_study_approach_label', 'Yaklaşım', '$.detail.case_study_outcome_label', 'Sonuç') AS CHAR CHARACTER SET utf8mb4), `updated_at`=NOW(3) WHERE `key`='ui_project' AND `locale`='tr' AND JSON_VALID(`value`);
 UPDATE `site_settings` SET `value`=CAST(JSON_SET(CAST(`value` AS JSON), '$.detail.case_study_title', 'Case study', '$.detail.case_study_challenge_label', 'Challenge', '$.detail.case_study_approach_label', 'Approach', '$.detail.case_study_outcome_label', 'Outcome') AS CHAR CHARACTER SET utf8mb4), `updated_at`=NOW(3) WHERE `key`='ui_project' AND `locale`='en' AND JSON_VALID(`value`);
 UPDATE `site_settings` SET `value`=CAST(JSON_SET(CAST(`value` AS JSON), '$.detail.case_study_title', 'Fallstudie', '$.detail.case_study_challenge_label', 'Herausforderung', '$.detail.case_study_approach_label', 'Vorgehen', '$.detail.case_study_outcome_label', 'Ergebnis') AS CHAR CHARACTER SET utf8mb4), `updated_at`=NOW(3) WHERE `key`='ui_project' AND `locale`='de' AND JSON_VALID(`value`);
+
+-- gzl meta_title eki dile gore
+UPDATE `projects_i18n` SET `meta_title`=REPLACE(`meta_title`, ' | GZL Teknoloji', ' | GZL Technology'), `updated_at`=NOW(3) WHERE `locale`='en' AND `meta_title` LIKE '% | GZL Teknoloji';
+UPDATE `projects_i18n` SET `meta_title`=REPLACE(`meta_title`, ' | GZL Teknoloji', ''), `updated_at`=NOW(3) WHERE `locale`='de' AND `meta_title` LIKE '% | GZL Teknoloji';
 COMMIT;

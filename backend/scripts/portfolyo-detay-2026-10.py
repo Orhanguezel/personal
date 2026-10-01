@@ -92,6 +92,11 @@ def build(girdi):
                    f"'$.detail.case_study_title', {q(t)}, '$.detail.case_study_challenge_label', {q(c)}, "
                    f"'$.detail.case_study_approach_label', {q(a)}, '$.detail.case_study_outcome_label', {q(o)}"
                    f") AS CHAR CHARACTER SET utf8mb4), `updated_at`=NOW(3) WHERE `key`='ui_project' AND `locale`={q(loc)} AND JSON_VALID(`value`);")
+    # gzl marka eki hizmet sayfalariyla ayni: tr "| GZL Teknoloji", en "| GZL Technology", de eksiz.
+    # gwd satirlarinda bu ek yok; ifade orada etkisizdir.
+    out.append('\n-- gzl meta_title eki dile gore')
+    out.append("UPDATE `projects_i18n` SET `meta_title`=REPLACE(`meta_title`, ' | GZL Teknoloji', ' | GZL Technology'), `updated_at`=NOW(3) WHERE `locale`='en' AND `meta_title` LIKE '% | GZL Teknoloji';")
+    out.append("UPDATE `projects_i18n` SET `meta_title`=REPLACE(`meta_title`, ' | GZL Teknoloji', ''), `updated_at`=NOW(3) WHERE `locale`='de' AND `meta_title` LIKE '% | GZL Teknoloji';")
     out.append('COMMIT;')
     return '\n'.join(out) + '\n'
 
