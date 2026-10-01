@@ -18,6 +18,9 @@ import glob, json, os, re, sys
 
 IZINLI = {'p', 'h2', 'h3', 'ul', 'ol', 'li', 'strong', 'em', 'a', 'br'}
 LOCALES = ('tr', 'en', 'de')
+ETIKET = {'tr': ('Vaka çalışması', 'Zorluk', 'Yaklaşım', 'Sonuç'),
+          'en': ('Case study', 'Challenge', 'Approach', 'Outcome'),
+          'de': ('Fallstudie', 'Herausforderung', 'Vorgehen', 'Ergebnis')}
 
 
 def q(v):
@@ -82,6 +85,13 @@ def build(girdi):
         for loc, d in locs.items():
             assert loc in LOCALES
             out.append(ozet_sql(slug, loc, d))
+    # Vaka calismasi etiketleri: tr/de'de "Challenge" Ingilizce kalmisti
+    out.append('\n-- ui_project vaka calismasi etiketleri')
+    for loc, (t, c, a, o) in ETIKET.items():
+        out.append("UPDATE `site_settings` SET `value`=CAST(JSON_SET(CAST(`value` AS JSON), "
+                   f"'$.detail.case_study_title', {q(t)}, '$.detail.case_study_challenge_label', {q(c)}, "
+                   f"'$.detail.case_study_approach_label', {q(a)}, '$.detail.case_study_outcome_label', {q(o)}"
+                   f") AS CHAR CHARACTER SET utf8mb4), `updated_at`=NOW(3) WHERE `key`='ui_project' AND `locale`={q(loc)} AND JSON_VALID(`value`);")
     out.append('COMMIT;')
     return '\n'.join(out) + '\n'
 

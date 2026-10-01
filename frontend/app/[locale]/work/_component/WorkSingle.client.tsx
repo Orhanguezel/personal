@@ -19,6 +19,7 @@ import {
 import type { Project, ProjectImage } from '@/integrations/shared';
 import { normalizeProjectDetail, normalizeUiProjectSettingValue, sanitizeHtml } from '@/integrations/shared';
 import { shouldUnoptimizeImage } from '@/utils/nextImage';
+import { useStaticSiteSetting } from '@/utils/staticSiteSettings';
 
 /**
  * SUNUCUDA ILK ICERIK (SSR) — bkz. ServiceDetailClient'taki ayni not.
@@ -40,7 +41,12 @@ export default function WorkSingleClient({
     locale,
   });
 
-  const ui = useMemo(() => normalizeUiProjectSettingValue(uiSetting?.value), [uiSetting?.value]);
+  // Derlemede uretilen kurulum ayari (public/ui): SSR ilk boyamada da dogru dilde etiket.
+  const { value: staticUiSetting } = useStaticSiteSetting({ key: 'ui_project', locale });
+  const ui = useMemo(
+    () => normalizeUiProjectSettingValue(uiSetting?.value ?? staticUiSetting),
+    [uiSetting?.value, staticUiSetting],
+  );
   const copy = ui.detail;
 
   const {
