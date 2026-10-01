@@ -49,7 +49,11 @@ health_url() {
     # /auth/login tek basina yetmez — 2026-09'da panel haftalarca 500 verdi.
     gwd:admin_panel) p=3045 ;& gzl:admin_panel) p=${p:-3121}
       echo "http://127.0.0.1:$p/auth/login http://127.0.0.1:$p/admin/dashboard http://127.0.0.1:$p/admin/site-settings http://127.0.0.1:$p/admin/custompage http://127.0.0.1:$p/admin/products" ;;
-    gwd:backend) echo http://127.0.0.1:8044/api/v1/health ;;  gzl:backend) echo http://127.0.0.1:8102/api/v1/health ;;
+    # Backend: /health DB'ye gitmez; veritabani sorgulayan acik uclar da 200 donmeli
+    # (sema seed'den gelir, yeni kod eksik kolon sorgularsa yalniz o uc 500 verir).
+    # URL'de `&` YOK: liste uzak kabukta tirnaksiz acilir.
+    gwd:backend) p=8044 ;& gzl:backend) p=${p:-8102}
+      echo "http://127.0.0.1:$p/api/v1/health http://127.0.0.1:$p/api/v1/site_settings/site_favicon http://127.0.0.1:$p/api/v1/custom-pages?module_key=blog http://127.0.0.1:$p/api/v1/services?limit=1 http://127.0.0.1:$p/api/v1/projects?limit=1" ;;
   esac
 }
 
