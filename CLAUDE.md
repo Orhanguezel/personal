@@ -73,3 +73,9 @@ Sunucu (`orhan@72.61.23.36`) 1 vCPU / 3.9 GB RAM ve 7 canli siteyi tasiyor. Sunu
   kapisi yesil. Sunucuda `.next-*`, `*.bak`, eski kopya biriktirme; geri donus icin
   yalniz tek `.next.prev` tutulur.
 - Sunucu agacinda commit'lenmemis elle degisiklik var: sunucuda `git pull` ile yayin yapma.
+- **Admin paneli Next surumu (2026-10-01):** panel `next 16.1.1`'e SABITLENDI. Sunucuda
+  panelin kendi `node_modules/next`'i yoktu; Next kokten **15.5.25** cozuluyordu
+  (GZLTemizlik'in kok kurulumu, 2026-09-03) ve 16 ile derlenmis panel en az 2026-09-27'den
+  beri `Invariant: Expected clientReferenceManifest` ile 500 veriyordu (iki kurulumda da).
+  Duzeltme: sunucuda `admin_panel/node_modules/next` -> ayni agacin `frontend/node_modules/next`
+  (16.1.1) symlink'i. Paneli yayinlarken yerel Next de 16.1.1 olmali (deploy-yerel.sh kontrol eder).
