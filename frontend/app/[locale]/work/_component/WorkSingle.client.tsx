@@ -119,9 +119,9 @@ export default function WorkSingleClient({
           <div className="row">
             <div className="col-lg-8 mx-lg-auto mb-lg-0">
               <div className="text-center">
-                <Link href="#" className="btn btn-gradient d-inline-block text-uppercase">
+                <span className="btn btn-gradient d-inline-block text-uppercase">
                   {copy.badge}
-                </Link>
+                </span>
 
                 <h3 className="ds-3 mt-3 mb-4 text-dark">{detail.title}</h3>
 
@@ -164,7 +164,23 @@ export default function WorkSingleClient({
 
               <div className="bg-6 px-5 py-3 rounded-2">
                 <p className="text-300 mb-0">{copy.label_website}</p>
-                <h6>{detail.website}</h6>
+                <h6 className="mb-0">
+                  {(() => {
+                    const site = externalSite(detail.website);
+                    return site ? (
+                      <a
+                        href={site.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-primary-2 text-decoration-underline"
+                      >
+                        {site.label}
+                      </a>
+                    ) : (
+                      detail.website || "-"
+                    );
+                  })()}
+                </h6>
               </div>
             </div>
 
@@ -301,4 +317,17 @@ export default function WorkSingleClient({
       {/* Static 1 + Contact bloklarını burada aynen tutabilirsin */}
     </div>
   );
+}
+
+/** Proje sitesi: yalniz http(s) adresi baglanti olur; etiket alan adidir. */
+function externalSite(raw: string): { href: string; label: string } | null {
+  const s = (raw ?? "").trim();
+  if (!s) return null;
+  try {
+    const u = new URL(/^https?:\/\//i.test(s) ? s : `https://${s}`);
+    if (u.protocol !== "https:" && u.protocol !== "http:") return null;
+    return { href: u.href, label: u.hostname.replace(/^www\./, "") };
+  } catch {
+    return null;
+  }
 }
