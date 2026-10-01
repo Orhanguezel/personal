@@ -39,9 +39,11 @@ pm2_name()  {
   local p; case "$1" in gwd) p=guezelwebdesign ;; gzl) p=gzlteknoloji ;; esac
   case "$2" in frontend) echo "$p-frontend" ;; admin_panel) echo "$p-admin-panel" ;; backend) echo "$p-backend" ;; esac
 }
+# Bosluklu liste: hepsi 200 donmeli. Blog, harici paket (isomorphic-dompurify) kullanir.
 health_url() {
   case "$1:$2" in
-    gwd:frontend) echo http://127.0.0.1:3044/de ;;   gzl:frontend) echo http://127.0.0.1:3120/tr ;;
+    gwd:frontend) echo "http://127.0.0.1:3044/de http://127.0.0.1:3044/de/blog" ;;
+    gzl:frontend) echo "http://127.0.0.1:3120/tr http://127.0.0.1:3120/tr/blog" ;;
     gwd:admin_panel) echo http://127.0.0.1:3045/auth/login ;; gzl:admin_panel) echo http://127.0.0.1:3121/auth/login ;;
     gwd:backend) echo http://127.0.0.1:8044/api/v1/health ;;  gzl:backend) echo http://127.0.0.1:8102/api/v1/health ;;
   esac
@@ -129,6 +131,8 @@ for t in $TREES; do
   done
 done
 
+scp -q "$REPO/scripts/next-externals-bagla.mjs" "$HOST:/tmp/next-externals-bagla.mjs"
+
 echo "==> [4/4] yayin gecisi (derlemesiz)"
 for t in $TREES; do
   td="$(tree_dir "$t")"
@@ -136,16 +140,23 @@ for t in $TREES; do
     dir="$BASE/$td/$app"; name="$(pm2_name "$t" "$app")"; url="$(health_url "$t" "$app")"
     if [ "$app" = backend ]; then cur=dist; up=".dist-upload-$SHA"; else cur=.next; up=".next-upload-$SHA"; fi
     ssh "$HOST" "set -e; cd $dir
+      # Harici paket symlink'leri yerel makineyi gosterir; gecisten ONCE sunucuya bagla.
+      if [ $app != backend ]; then node /tmp/next-externals-bagla.mjs $up . ; fi
       sudo -n rm -rf $cur.prev $cur.failed
       [ -e $cur ] && mv $cur $cur.prev
       mv $up $cur
       pm2 restart $name --update-env >/dev/null
+      ok=0
       for i in \$(seq 1 60); do
-        c=\$(curl -s -o /dev/null -w '%{http_code}' $url || true)
-        [ \"\$c\" = 200 ] && echo \"    $name OK (\${i}s)\" && exit 0
+        ok=1
+        for u in $url; do
+          c=\$(curl -s -o /dev/null -w '%{http_code}' \$u || true)
+          [ \"\$c\" = 200 ] || { ok=0; bad=\"\$u \$c\"; break; }
+        done
+        [ \$ok = 1 ] && echo \"    $name OK (\${i}s)\" && exit 0
         sleep 1
       done
-      echo \"HATA: $name saglik kontrolu gecmedi (\$c) — geri aliniyor\" >&2
+      echo \"HATA: $name saglik kontrolu gecmedi (\$bad) — geri aliniyor\" >&2
       mv $cur $cur.failed; mv $cur.prev $cur
       pm2 restart $name --update-env >/dev/null
       exit 1"
