@@ -25,6 +25,44 @@ const querySchema = z.object({
 type Query = z.infer<typeof querySchema>;
 type DbRow = RowDataPacket & Record<string, unknown>;
 
+// Kiraciya ozel sozlesme/baglam metinleri KODDA YAZMAZ (marka kurali): ayni kod
+// guezelwebdesign.com'da da kosar. Kaynak: site_settings `tanitio_content_source` (locale '*'),
+// gzl icin seed: db/seed/content/gzl/054_tanitio_icerik_kaynagi_seed.sql.
+// Ayar yoksa markasiz, notr degerler doner.
+const PROFILE_KEY = 'tanitio_content_source';
+
+type SourceProfile = {
+  contract?: string;
+  tenant?: string;
+  brand?: string;
+  locale?: string;
+  timezone?: string;
+  sector?: string;
+  audience?: string[];
+  contentPillars?: string[];
+  defaultHashtags?: string[];
+};
+
+async function loadProfile(): Promise<SourceProfile> {
+  const [rows] = await pool.query<DbRow[]>(
+    "SELECT `value` FROM site_settings WHERE `key` = ? AND locale = '*' LIMIT 1",
+    [PROFILE_KEY],
+  );
+  const raw = rows[0]?.value;
+  if (raw == null) return {};
+  if (typeof raw === 'object') return raw as SourceProfile;
+  try {
+    const parsed = JSON.parse(String(raw));
+    return parsed && typeof parsed === 'object' ? (parsed as SourceProfile) : {};
+  } catch {
+    return {};
+  }
+}
+
+function strings(value: unknown): string[] {
+  return Array.isArray(value) ? value.map(String) : [];
+}
+
 function authorized(req: FastifyRequest) {
   const expected = env.TANITIO_CONTENT_API_KEY;
   const bearer = String(req.headers.authorization ?? '').replace(/^Bearer\s+/i, '');
@@ -86,17 +124,20 @@ export async function registerTanitioContentSource(app: FastifyInstance) {
     return reply.status(500).send({ error: { code: 'CONTENT_SOURCE_ERROR', message: 'İçerik kaynağı okunamadı.' } });
   });
 
-  app.get('/contract', async () => ({
-    contract: 'gzlteknoloji-tanitio-web-connection',
-    version: '1.0',
-    tenant: 'gzlteknoloji',
-    locale: 'tr-TR',
-    locales: LOCALES,
-    timezone: 'Europe/Istanbul',
-    capabilities: { read: ['articles', 'products', 'projects', 'context'], write: [], publish: false },
-    endpoints: { articles: '/articles', products: '/products', projects: '/projects', context: '/context' },
-    auth: { type: 'bearer', header: 'Authorization' },
-  }));
+  app.get('/contract', async () => {
+    const profile = await loadProfile();
+    return {
+      contract: profile.contract ?? 'tanitio-web-connection',
+      version: '1.0',
+      tenant: profile.tenant ?? null,
+      locale: profile.locale ?? 'tr-TR',
+      locales: LOCALES,
+      timezone: profile.timezone ?? 'Europe/Istanbul',
+      capabilities: { read: ['articles', 'products', 'projects', 'context'], write: [], publish: false },
+      endpoints: { articles: '/articles', products: '/products', projects: '/projects', context: '/context' },
+      auth: { type: 'bearer', header: 'Authorization' },
+    };
+  });
 
   app.get('/articles', async (req) => {
     const q = parseQuery(req.query);
@@ -162,17 +203,18 @@ export async function registerTanitioContentSource(app: FastifyInstance) {
   });
 
   app.get('/context', async () => {
-    const [[articles], [products], [projects]] = await Promise.all([
+    const [profile, [articles], [products], [projects]] = await Promise.all([
+      loadProfile(),
       pool.query<DbRow[]>("SELECT COUNT(*) total,MAX(updated_at) lastUpdated FROM custom_pages WHERE module_key='blog' AND is_published=1"),
       pool.query<DbRow[]>('SELECT COUNT(*) total,MAX(updated_at) lastUpdated FROM services WHERE is_active=1'),
       pool.query<DbRow[]>('SELECT COUNT(*) total,MAX(updated_at) lastUpdated FROM projects WHERE is_published=1'),
     ]);
     return {
-      tenant: 'gzlteknoloji', brand: 'GZL Teknoloji', website: WEBSITE,
-      sector: 'kurumsal web, e-ticaret, özel yazılım ve dijital otomasyon',
-      audience: ['KOBİler', 'girişimciler', 'dijital dönüşüm hedefleyen işletmeler'],
-      contentPillars: ['özel yazılım', 'web ve e-ticaret', 'iş otomasyonu', 'GEO ve SEO', 'vaka çalışmaları'],
-      defaultHashtags: ['#gzlteknoloji', '#yazilim', '#webtasarim', '#eticaret', '#dijitaldonusum'],
+      tenant: profile.tenant ?? null, brand: profile.brand ?? null, website: WEBSITE,
+      sector: profile.sector ?? null,
+      audience: strings(profile.audience),
+      contentPillars: strings(profile.contentPillars),
+      defaultHashtags: strings(profile.defaultHashtags),
       inventory: {
         articles: { total: Number(articles[0]?.total ?? 0), lastUpdated: dateOrNull(articles[0]?.lastUpdated) },
         products: { total: Number(products[0]?.total ?? 0), lastUpdated: dateOrNull(products[0]?.lastUpdated) },
