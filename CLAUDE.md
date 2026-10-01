@@ -75,8 +75,9 @@ Sunucu (`orhan@72.61.23.36`) 1 vCPU / 3.9 GB RAM ve 7 canli siteyi tasiyor. Sunu
 - Sunucu agacinda commit'lenmemis elle degisiklik var: sunucuda `git pull` ile yayin yapma.
 - **Entegrasyon uclari (2026-10-01):** `/api/v1/integrations/tanitio` (Tanitio yalniz gzlteknoloji.com'u
   okur; anahtar yalniz gzl `.env`'inde, gwd'de BOS — onceden iki sitede ayni anahtar vardi) ve
-  `/api/v1/integrations/gzl-crm` (anahtar tanimsiz → 503). CRM'i acmadan once canli DB'ye
-  `225_gzl_crm_content_imports.sql` semasi kurulmali. Tanitio `/context` GZL'ye ozgu metin tasir.
+  `/api/v1/integrations/gzl-crm` (anahtar tanimsiz → 503; `gzl_crm_content_imports` tablosu iki
+  canli DB'de kurulu, 2026-10-01). Tanitio kiraci metinleri `site_settings.tanitio_content_source`'tan
+  gelir (gzl seed 054); ayar yoksa notr yanit.
 - **Admin paneli Next surumu (2026-10-01):** panel `next 16.1.1`'e SABITLENDI. Sunucuda
   panelin kendi `node_modules/next`'i yoktu; Next kokten **15.5.25** cozuluyordu
   (GZLTemizlik'in kok kurulumu, 2026-09-03) ve 16 ile derlenmis panel en az 2026-09-27'den
