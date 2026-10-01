@@ -354,6 +354,91 @@ P.append(dict(
             meta_description='Mehrsprachige B2B-Website für einen britischen Ersatzteillieferanten mit technischem Katalog von 461 Wälzlagern und Angebotsanfrage.'),
     }))
 
+P.append(dict(
+    # Orhan 2026-10-01: gercek alan adina (clanaquascaping.com) gecene kadar mevcut adres paylasilir.
+    key='clanaquascaping-web', dir='clanaquascaping', order=280, featured=0,
+    category='Kurumsal Web / Akvaryum Tasarim', client='CLAN Aquascaping Design', url='https://clanaquascaping.tech',
+    services=['Web Tasarım ve Kurumsal Kimlik', 'Full-Stack Geliştirme (Next.js + Fastify)', 'Çok Dilli İçerik Yönetimi', 'SEO ve GEO', 'Özel Hesaplama Araçları', 'Yapay Zekâ İçerik Hattı'],
+    techs=['Next.js 16', 'React 19', 'TypeScript', 'Fastify', 'Drizzle ORM', 'MySQL 8', 'Bun', 'Tailwind CSS 4', 'Claude API', 'Cloudinary', 'Nginx', 'PM2'],
+    slug='clan-aquascaping-bitkili-akvaryum-tasarim-sitesi',
+    i18n={
+        'tr': dict(
+            title='CLAN Aquascaping — Bitkili Akvaryum Tasarımı için Kurumsal Site ve Hesaplama Araçları',
+            summary='Bitkili akvaryum tasarımı ve özel ölçü akvaryum imalatı yapan CLAN Aquascaping Design için WordPress yerine geçen, beş hesaplama aracı ve yapay zekâ içerik hattı olan çok dilli site.',
+            intro='<p><strong>CLAN Aquascaping Design</strong> İstanbul\'da bitkili akvaryum (aquascape) tasarımı ve özel ölçü akvaryum imalatı yapıyor. Eski WordPress/WooCommerce kurulumunun yerine Next.js ön yüz, Fastify/Drizzle arka uç ve ayrı yönetim paneliyle yeni bir site kuruldu.</p>',
+            sections=[('Akvaristler için hesaplama araçları', '<p>Beş araç ziyaretçiye gerçek bir değer sunar: hacim ve ağırlık, CO2-pH-KH dengesi, gübre dozlama, aydınlatma (PAR) ve besin birikimi hesapları.</p>'),
+                      ('Yapay zekâ destekli içerik hattı', '<p>Instagram paylaşımları dil başına blog taslağına dönüştürülür; yayın her zaman insan onayından geçer. Blog yazıları SSS bölümü ve yapılandırılmış veriyle yayınlanır.</p>'),
+                      ('Arama ve yapay zekâ görünürlüğü', '<p>TR/EN çok dilli yapı, dil başına ayrı adres ve hreflang eşleşmesi; llms.txt, RSS, site haritası ve LocalBusiness/FAQPage/HowTo yapılandırılmış verisiyle AI aramalarına açık bir altyapı kuruldu.</p>')],
+            features=['TR/EN çok dilli yapı, dil başına ayrı adres', 'Kurumsal vitrin, hizmetler ve aquascape proje portföyü', 'Beş hesaplama aracı: hacim/ağırlık, CO2-pH-KH, gübre, aydınlatma (PAR), besin birikimi', 'Instagram → blog taslağı yapay zekâ hattı (insan onaylı)', 'Blogda SSS ve FAQPage yapılandırılmış verisi', 'Yönetim paneli: içerik, proje, hizmet, blog ve gelen kutusu'],
+            alt='CLAN Aquascaping galeri sayfası: kurulan bitkili akvaryumlar',
+            meta_title='CLAN Aquascaping — Akvaryum Tasarım Sitesi ve Hesaplama Araçları',
+            meta_description='Bitkili akvaryum tasarım firması için Next.js ve Fastify ile kurulan çok dilli site: beş hesaplama aracı, yapay zekâ içerik hattı ve GEO/SEO altyapısı.'),
+        'en': dict(
+            title='CLAN Aquascaping — Corporate Site and Calculators for Planted Aquarium Design',
+            summary='A multilingual site with five calculators and an AI content pipeline that replaces WordPress for CLAN Aquascaping Design, a planted aquarium design and custom aquarium studio.',
+            intro='<p><strong>CLAN Aquascaping Design</strong> designs planted aquariums (aquascapes) and builds custom aquariums in Istanbul. Its old WordPress/WooCommerce setup was replaced with a Next.js front end, a Fastify/Drizzle back end and a separate admin panel.</p>',
+            sections=[('Calculators for aquarists', '<p>Five tools give visitors real value: volume and weight, CO2-pH-KH balance, fertiliser dosing, lighting (PAR) and nutrient build-up.</p>'),
+                      ('AI-assisted content pipeline', '<p>Instagram posts are turned into blog drafts per language; publishing always requires human approval. Blog posts ship with an FAQ section and structured data.</p>'),
+                      ('Search and AI visibility', '<p>A TR/EN structure with separate URLs per language and hreflang; llms.txt, RSS, a sitemap and LocalBusiness/FAQPage/HowTo structured data make the site ready for AI search.</p>')],
+            features=['TR/EN multilingual structure with separate URLs per language', 'Corporate showcase, services and aquascape project portfolio', 'Five calculators: volume/weight, CO2-pH-KH, fertiliser, lighting (PAR), nutrient build-up', 'Instagram → blog draft AI pipeline (human-approved)', 'FAQ sections and FAQPage structured data on the blog', 'Admin panel: content, projects, services, blog and inbox'],
+            alt='CLAN Aquascaping gallery page with planted aquariums',
+            meta_title='CLAN Aquascaping — Aquarium Design Website and Calculators',
+            meta_description='Multilingual site for a planted aquarium design studio built with Next.js and Fastify: five calculators, an AI content pipeline and GEO/SEO foundations.'),
+        'de': dict(
+            title='CLAN Aquascaping — Firmenwebsite und Rechner für bepflanzte Aquarien',
+            summary='Eine mehrsprachige Website mit fünf Rechnern und KI-Content-Pipeline, die WordPress bei CLAN Aquascaping Design ersetzt — einem Studio für Aquascaping und Aquarien nach Maß.',
+            intro='<p><strong>CLAN Aquascaping Design</strong> gestaltet in Istanbul bepflanzte Aquarien (Aquascapes) und baut Aquarien nach Maß. Die alte WordPress/WooCommerce-Installation wurde durch ein Next.js-Frontend, ein Fastify/Drizzle-Backend und ein separates Admin-Panel ersetzt.</p>',
+            sections=[('Rechner für Aquarianer', '<p>Fünf Werkzeuge bieten echten Nutzen: Volumen und Gewicht, CO2-pH-KH-Gleichgewicht, Düngerdosierung, Beleuchtung (PAR) und Nährstoffanreicherung.</p>'),
+                      ('KI-gestützte Content-Pipeline', '<p>Instagram-Beiträge werden je Sprache zu Blog-Entwürfen; veröffentlicht wird immer erst nach menschlicher Freigabe. Blogartikel erscheinen mit FAQ-Bereich und strukturierten Daten.</p>'),
+                      ('Sichtbarkeit in Suche und KI', '<p>TR/EN-Struktur mit eigenen URLs je Sprache und hreflang; llms.txt, RSS, Sitemap und LocalBusiness/FAQPage/HowTo-Strukturdaten machen die Website bereit für KI-Suchen.</p>')],
+            features=['Mehrsprachig TR/EN mit eigenen URLs je Sprache', 'Firmenpräsentation, Leistungen und Aquascape-Projektportfolio', 'Fünf Rechner: Volumen/Gewicht, CO2-pH-KH, Dünger, Beleuchtung (PAR), Nährstoffe', 'KI-Pipeline Instagram → Blog-Entwurf (menschlich freigegeben)', 'FAQ-Bereiche und FAQPage-Strukturdaten im Blog', 'Admin-Panel: Inhalte, Projekte, Leistungen, Blog und Posteingang'],
+            alt='CLAN Aquascaping Galerieseite mit bepflanzten Aquarien',
+            meta_title='CLAN Aquascaping — Website und Rechner für Aquarien-Design',
+            meta_description='Mehrsprachige Website für ein Aquascaping-Studio mit Next.js und Fastify: fünf Rechner, KI-Content-Pipeline und GEO/SEO-Grundlagen.'),
+    }))
+
+P.append(dict(
+    key='goldmoodastro', dir='goldmoodastro', order=290, featured=0,
+    category='Danışmanlık Platformu / Mobil', client='GoldMoodAstro', url='https://goldmoodastro.com',
+    services=['Mobil Uygulama Geliştirme (React Native / Expo)', 'Backend Geliştirme', 'Yönetim Paneli', 'Mimari ve Sistem Tasarımı'],
+    techs=['React Native', 'Expo', 'TypeScript', 'Fastify', 'Drizzle ORM', 'MySQL', 'Bun', 'Zod', 'Agora SDK', 'Firebase FCM', 'Iyzipay', 'Cloudinary'],
+    slug='goldmoodastro-danisman-eslestirme-ve-canli-seans-platformu',
+    i18n={
+        'tr': dict(
+            title='GoldMoodAstro — Danışman Eşleştirme ve Canlı Seans Platformu',
+            summary='Astroloji, tarot ve ruhsal rehberlik alanında doğrulanmış danışmanlarla kullanıcıları buluşturan; uygulama içi sesli görüşme, randevu ve ödeme sistemi olan platform.',
+            intro='<p><strong>GoldMoodAstro</strong>, kullanıcıları astroloji, tarot ve ruhsal rehberlik alanında doğrulanmış danışmanlarla güvenli canlı seanslarda buluşturur. Web sitesi, mobil uygulama ve yönetim paneli tek arka uca bağlıdır.</p>',
+            sections=[('Danışman eşleştirme ve randevu', '<p>Danışman profilleri, uygun zaman dilimleri ve randevu akışı; kullanıcı ilgi alanına göre danışman seçer ve seansını planlar.</p>'),
+                      ('Uygulama içi sesli görüşme', '<p>Seanslar Agora altyapısıyla uygulama içinden sesli olarak yapılır; kullanıcı ve danışman arasında yazılı mesajlaşma da vardır.</p>'),
+                      ('Ödeme ve bildirimler', '<p>Ödemeler Iyzipay ile alınır; randevu ve seans hatırlatmaları Firebase anlık bildirimleriyle gönderilir. Platform yönetim panelinden yönetilir.</p>')],
+            features=['Danışman eşleştirme ve profil yönetimi', 'Randevu zaman dilimi sistemi', 'Agora ile uygulama içi sesli görüşme', 'Kullanıcı–danışman mesajlaşma', 'Iyzipay ödeme entegrasyonu', 'Firebase anlık bildirimler', 'Platform yönetim paneli'],
+            alt='GoldMoodAstro ana sayfası: modern astroloji ile yıldızlarla buluşun',
+            meta_title='GoldMoodAstro — Danışman Eşleştirme ve Canlı Seans Platformu',
+            meta_description='Doğrulanmış danışmanlarla canlı seans platformu: React Native mobil uygulama, Agora sesli görüşme, randevu, Iyzipay ödeme ve yönetim paneli.'),
+        'en': dict(
+            title='GoldMoodAstro — Consultant Matching and Live Session Platform',
+            summary='A platform that connects users with verified consultants in astrology, tarot and spiritual guidance, with in-app voice calls, booking and payments.',
+            intro='<p><strong>GoldMoodAstro</strong> connects users with verified consultants in astrology, tarot and spiritual guidance for safe live sessions. The website, mobile app and admin panel share one back end.</p>',
+            sections=[('Consultant matching and booking', '<p>Consultant profiles, available time slots and a booking flow; users pick a consultant by interest and schedule their session.</p>'),
+                      ('In-app voice calls', '<p>Sessions run as in-app voice calls on Agora; users and consultants can also exchange text messages.</p>'),
+                      ('Payments and notifications', '<p>Payments are taken with Iyzipay; booking and session reminders are sent as Firebase push notifications. The platform is managed from an admin panel.</p>')],
+            features=['Consultant matching and profile management', 'Appointment slot booking', 'In-app voice calls with Agora', 'User–consultant messaging', 'Iyzipay payment integration', 'Firebase push notifications', 'Platform admin panel'],
+            alt='GoldMoodAstro homepage: meet the stars with modern astrology',
+            meta_title='GoldMoodAstro — Consultant Matching and Live Session Platform',
+            meta_description='Live session platform with verified consultants: React Native mobile app, Agora voice calls, booking, Iyzipay payments and an admin panel.'),
+        'de': dict(
+            title='GoldMoodAstro — Plattform für Berater-Matching und Live-Sitzungen',
+            summary='Eine Plattform, die Nutzer mit geprüften Beraterinnen und Beratern für Astrologie, Tarot und spirituelle Begleitung verbindet — mit Sprachanrufen in der App, Terminbuchung und Zahlung.',
+            intro='<p><strong>GoldMoodAstro</strong> verbindet Nutzer mit geprüften Beraterinnen und Beratern für Astrologie, Tarot und spirituelle Begleitung in sicheren Live-Sitzungen. Website, mobile App und Admin-Panel teilen ein Backend.</p>',
+            sections=[('Berater-Matching und Terminbuchung', '<p>Beraterprofile, freie Zeitfenster und ein Buchungsablauf; Nutzer wählen nach Interesse und planen ihre Sitzung.</p>'),
+                      ('Sprachanrufe in der App', '<p>Sitzungen laufen als Sprachanrufe in der App über Agora; zusätzlich gibt es Textnachrichten zwischen Nutzer und Berater.</p>'),
+                      ('Zahlung und Benachrichtigungen', '<p>Zahlungen laufen über Iyzipay; Termin- und Sitzungserinnerungen kommen als Firebase-Push-Benachrichtigungen. Die Plattform wird über ein Admin-Panel verwaltet.</p>')],
+            features=['Berater-Matching und Profilverwaltung', 'Buchung von Terminfenstern', 'Sprachanrufe in der App mit Agora', 'Nachrichten zwischen Nutzer und Berater', 'Iyzipay-Zahlungsintegration', 'Firebase-Push-Benachrichtigungen', 'Admin-Panel für die Plattform'],
+            alt='GoldMoodAstro Startseite: den Sternen begegnen mit moderner Astrologie',
+            meta_title='GoldMoodAstro — Berater-Matching und Live-Sitzungen',
+            meta_description='Plattform für Live-Sitzungen mit geprüften Beratern: React-Native-App, Agora-Sprachanrufe, Terminbuchung, Iyzipay-Zahlungen und Admin-Panel.'),
+    }))
+
 # ---------------------------------------------------------------------------
 # Mevcut projeler: kapak 1600x900'e cevrilir (eski klasor adi -> ayni klasor)
 # ---------------------------------------------------------------------------
@@ -368,8 +453,8 @@ KATEGORI = {
     'web-ecommerce': ['konigsmassage', 'sportoonline', 'misset', 'gzltemizlik', 'hilalsever', 'paketjet', 'sultanolive',
                       'woody', 'seyfibaba', 'karbonkompozit', 'kiremitci-metal', 'ditcoeu', 'sultandefense', 'promats',
                       'kamanilan', 'ensotek', 'antalyadoner', 'gzlteknoloji', 'mezarisim', 'bayramozukoyu',
-                      'ensotek-com-tr', 'kuhlturm', 'auroraglobal'],
-    'custom-software': ['paspas', 'osgb', 'teklifrota', 'sportoflow', 'trackpulse'],
+                      'ensotek-com-tr', 'kuhlturm', 'auroraglobal', 'clanaquascaping'],
+    'custom-software': ['paspas', 'osgb', 'teklifrota', 'sportoflow', 'trackpulse', 'goldmoodastro'],
     'data-automation': ['amozon', 'marketpulse', 'socialpulse', 'tanitio', 'tarimiklim', 'ihracatradari'],
     'seo-geo': ['b2b-geo-seo', 'wiribu', 'geoserra'],
 }
@@ -377,7 +462,8 @@ KATEGORI_OF = {d: k for k, ds in KATEGORI.items() for d in ds}
 
 # Artik bize ait olmayan (CLAUDE.md "ARTIK BIZDE DEGIL", 2026-09-27) projeler yayindan alinir.
 # Kayit SILINMEZ; is_published=0 geri alinabilir.
-RAKIP = ['bereketfide', 'vistainsaat', 'genomai', 'haldefiyat']
+RAKIP = ['bereketfide', 'vistainsaat', 'genomai', 'haldefiyat',
+         'seyfibaba']  # Orhan 2026-10-01: Kuafor Tedarik (seyfibaba.com) listeden cikarildi
 
 
 import os
