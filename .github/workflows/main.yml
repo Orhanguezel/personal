@@ -45,13 +45,9 @@ jobs:
           bun x tsc --noEmit
           bun run build
 
-      - name: Backend quality gate
-        working-directory: backend
-        run: |
-          bun install --frozen-lockfile || bun install
-          bun x tsc --noEmit
-          bun run check
-          bun run build
+      # Backend kapisi CI'da YOK: backend `@vps/shared-backend` (workspace:*) ister ve o
+      # paket bu repoda degil, vps-guezel/packages altinda (git'te degil). Backend
+      # yerelde monorepo icinde derlenir: APPS=backend bash scripts/deploy-yerel.sh
 
   # DEPLOY BURADA YOK (2026-10-01). Eski `deploy` isi sunucuda
   # `rm -rf .next && bun run build` yapiyordu: 1 vCPU sunucuda build boyunca site
