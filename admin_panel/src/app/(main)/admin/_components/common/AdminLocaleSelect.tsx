@@ -110,11 +110,16 @@ export const AdminLocaleSelect: React.FC<AdminLocaleSelectProps> = ({
 
       <Select
         value={uiValue}
-        onValueChange={(v) => onChange(mapFromUiValue(v))}
+        onValueChange={(v) => {
+          // Radix's hidden form input can emit an empty value during initialization.
+          // Intentional empty selection uses emptySentinel, so this event is not a choice.
+          if (isDisabled || !v) return;
+          onChange(mapFromUiValue(v));
+        }}
         disabled={isDisabled}
       >
         <SelectTrigger>
-          <SelectValue placeholder="Locale seç" />
+          <SelectValue placeholder="Dil seçin" />
         </SelectTrigger>
         <SelectContent>
           {uiOptions.map((opt) => (
@@ -126,7 +131,7 @@ export const AdminLocaleSelect: React.FC<AdminLocaleSelectProps> = ({
       </Select>
 
       {!hasOptions && !loading ? (
-        <div className="text-xs text-muted-foreground">Locale seçenekleri bulunamadı.</div>
+        <div className="text-xs text-muted-foreground">Dil seçenekleri bulunamadı.</div>
       ) : null}
     </div>
   );
