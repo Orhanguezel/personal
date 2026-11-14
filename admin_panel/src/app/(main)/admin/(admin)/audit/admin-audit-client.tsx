@@ -418,7 +418,7 @@ export default function AdminAuditClient() {
     <div className="space-y-6">
       <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
         <div>
-          <h1 className="text-2xl font-semibold">Audit & Logs</h1>
+          <h1 className="text-2xl font-semibold">Denetim kayıtları</h1>
           <p className="text-sm text-muted-foreground">
             İstek logları, auth olayları ve günlük metrikleri tek ekrandan izleyin.
           </p>
@@ -432,10 +432,10 @@ export default function AdminAuditClient() {
       <Tabs value={tab} onValueChange={onTabChange}>
         <TabsList>
           <TabsTrigger value="requests">
-            <Activity className="mr-2 h-4 w-4" /> Request Logs
+            <Activity className="mr-2 h-4 w-4" /> İstek kayıtları
           </TabsTrigger>
           <TabsTrigger value="auth">
-            <UserCheck className="mr-2 h-4 w-4" /> Auth Events
+            <UserCheck className="mr-2 h-4 w-4" /> Oturum olayları
           </TabsTrigger>
           <TabsTrigger value="metrics">
             <ShieldCheck className="mr-2 h-4 w-4" /> Günlük Metrikler
@@ -457,11 +457,11 @@ export default function AdminAuditClient() {
                   <Input value={qText} onChange={(e) => setQText(e.target.value)} placeholder="/api/orders" />
                 </div>
                 <div className="space-y-2">
-                  <Label>Method</Label>
+                  <Label>HTTP yöntemi</Label>
                   <Input value={methodText} onChange={(e) => setMethodText(e.target.value)} placeholder="GET" />
                 </div>
                 <div className="space-y-2">
-                  <Label>Status</Label>
+                  <Label>Durum</Label>
                   <Input value={statusText} onChange={(e) => setStatusText(e.target.value)} placeholder="200" />
                 </div>
                 <div className="space-y-2">
@@ -521,7 +521,7 @@ export default function AdminAuditClient() {
                     <TableRow>
                       <TableHead>Tarih</TableHead>
                       <TableHead>İstek</TableHead>
-                      <TableHead>Status</TableHead>
+                      <TableHead>Durum</TableHead>
                       <TableHead>IP / User</TableHead>
                     </TableRow>
                   </TableHeader>

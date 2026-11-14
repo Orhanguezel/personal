@@ -237,7 +237,6 @@ export default function AdminReviewsClient() {
         patch: { is_active: !item.is_active },
       }).unwrap();
       toast.success(item.is_active ? 'Pasif yapıldı' : 'Aktif yapıldı');
-      refetch();
     } catch (err) {
       toast.error(getErrMsg(err));
     }
@@ -250,7 +249,6 @@ export default function AdminReviewsClient() {
         patch: { is_approved: !item.is_approved },
       }).unwrap();
       toast.success(item.is_approved ? 'Onay kaldırıldı' : 'Onaylandı');
-      refetch();
     } catch (err) {
       toast.error(getErrMsg(err));
     }
@@ -273,13 +271,12 @@ export default function AdminReviewsClient() {
       toast.success('Kayıt silindi');
       setDeleteDialogOpen(false);
       setItemToDelete(null);
-      refetch();
     } catch (err) {
       toast.error(getErrMsg(err));
     }
   };
 
-  const busy = isLoading;
+  const busy = isLoading || isFetching || localesLoading || !filters.locale;
 
   return (
     <>

@@ -130,9 +130,9 @@ export default function AdminSupportClient() {
     try {
       const updated = await updateTicket({ id: selected.id, body: patch }).unwrap();
       setSelected(updated);
-      toast.success('Ticket güncellendi.');
+      toast.success('Talep güncellendi.');
     } catch (err: any) {
-      toast.error(err?.data?.message || err?.message || 'Ticket güncellenemedi.');
+      toast.error(err?.data?.message || err?.message || 'Talep güncellenemedi.');
     }
   }
 
@@ -142,7 +142,7 @@ export default function AdminSupportClient() {
       const action = selected.status === 'closed' ? 'reopen' : 'close';
       const updated = await toggleTicket({ id: selected.id, action }).unwrap();
       setSelected(updated);
-      toast.success(action === 'close' ? 'Ticket kapatıldı.' : 'Ticket yeniden açıldı.');
+      toast.success(action === 'close' ? 'Talep kapatıldı.' : 'Talep yeniden açıldı.');
     } catch (err: any) {
       toast.error(err?.data?.message || err?.message || 'Durum değiştirilemedi.');
     }
@@ -154,9 +154,9 @@ export default function AdminSupportClient() {
     try {
       await deleteTicket(ticket.id).unwrap();
       if (selected?.id === ticket.id) setSelected(null);
-      toast.success('Ticket silindi.');
+      toast.success('Talep silindi.');
     } catch (err: any) {
-      toast.error(err?.data?.message || err?.message || 'Ticket silinemedi.');
+      toast.error(err?.data?.message || err?.message || 'Talep silinemedi.');
     }
   }
 
@@ -179,8 +179,8 @@ export default function AdminSupportClient() {
     <div className="space-y-6">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div className="space-y-1">
-          <h1 className="text-lg font-semibold">Support</h1>
-          <p className="text-sm text-muted-foreground">Ticket durumları, öncelikler ve yanıtlar.</p>
+          <h1 className="text-lg font-semibold">Destek talepleri</h1>
+          <p className="text-sm text-muted-foreground">Destek taleplerinin durumları, öncelikleri ve yanıtları.</p>
         </div>
 
         <Button type="button" variant="outline" size="sm" onClick={() => listQ.refetch()} disabled={busy}>
@@ -192,7 +192,7 @@ export default function AdminSupportClient() {
       <Card>
         <CardHeader className="gap-2">
           <CardTitle className="text-base">Filtreler</CardTitle>
-          <CardDescription>Ticket listesinde arama ve durum filtresi.</CardDescription>
+          <CardDescription>Destek taleplerinde arama ve durum filtresi.</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="grid gap-3 md:grid-cols-[1fr_190px_190px]">
@@ -252,7 +252,7 @@ export default function AdminSupportClient() {
 
       <Card>
         <CardHeader className="gap-2">
-          <CardTitle className="text-base">Tickets</CardTitle>
+          <CardTitle className="text-base">Talepler</CardTitle>
           <CardDescription>{rows.length} kayıt</CardDescription>
         </CardHeader>
         <CardContent>

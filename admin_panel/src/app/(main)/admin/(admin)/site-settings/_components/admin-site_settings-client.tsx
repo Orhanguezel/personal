@@ -11,7 +11,7 @@
 import * as React from 'react';
 import { toast } from 'sonner';
 import { Search, RefreshCcw } from 'lucide-react';
-import { useAdminTranslations } from '@/i18n/adminUi';
+import { useAdminT } from '@/app/(main)/admin/_components/common/useAdminT';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -179,7 +179,7 @@ export default function AdminSiteSettingsClient() {
 
   const [deleteSetting, { isLoading: isDeleting }] = useDeleteSiteSettingAdminMutation();
 
-  const t = useAdminTranslations(locale);
+  const t = useAdminT();
 
   React.useEffect(() => {
     if (!locale) setLocale(initialLocale);

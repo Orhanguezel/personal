@@ -137,7 +137,7 @@ export default function AdminEmailTemplatesDetailClient({ id }: { id: string }) 
   React.useEffect(() => {
     if (!isNew && existingItem) {
       // For edit mode, we might have translations
-      // Use the first translation or default to empty
+      // Load the selected translation; missing translations start empty.
       const locale = coerceLocale(selectedLocale, defaultLocaleFromDb);
       if (!locale) return;
       const firstTranslation = existingItem.translations?.find((item) => item.locale === locale);
@@ -168,17 +168,17 @@ export default function AdminEmailTemplatesDetailClient({ id }: { id: string }) 
 
     // Validation
     if (!formData.template_key.trim()) {
-      toast.error('Template Key gerekli');
+      toast.error('Şablon anahtarı gerekli');
       return;
     }
 
     if (!formData.template_name.trim()) {
-      toast.error('Template Name gerekli');
+      toast.error('Şablon adı gerekli');
       return;
     }
 
     if (!formData.subject.trim()) {
-      toast.error('Subject gerekli');
+      toast.error('Konu gerekli');
       return;
     }
 
@@ -367,12 +367,12 @@ export default function AdminEmailTemplatesDetailClient({ id }: { id: string }) 
             <CardTitle className="text-base">Şablon Bilgileri</CardTitle>
           </CardHeader>
           <CardContent className="space-y-6">
-            {/* Template Key */}
+            {/* Şablon anahtarı */}
             <div className="space-y-2">
               <Label htmlFor="template_key" className="text-sm">
                 <div className="flex items-center gap-2">
                   <Code2 className="size-4" />
-                  Template Key <span className="text-destructive">*</span>
+                  Şablon anahtarı <span className="text-destructive">*</span>
                 </div>
               </Label>
               <Input
@@ -390,10 +390,10 @@ export default function AdminEmailTemplatesDetailClient({ id }: { id: string }) 
               </p>
             </div>
 
-            {/* Template Name */}
+            {/* Şablon adı */}
             <div className="space-y-2">
               <Label htmlFor="template_name" className="text-sm">
-                Template Name <span className="text-destructive">*</span>
+                Şablon adı <span className="text-destructive">*</span>
               </Label>
               <Input
                 id="template_name"
@@ -412,7 +412,7 @@ export default function AdminEmailTemplatesDetailClient({ id }: { id: string }) 
               <Label htmlFor="subject" className="text-sm">
                 <div className="flex items-center gap-2">
                   <Mail className="size-4" />
-                  Subject <span className="text-destructive">*</span>
+                  Konu <span className="text-destructive">*</span>
                 </div>
               </Label>
               <Input
@@ -444,7 +444,7 @@ export default function AdminEmailTemplatesDetailClient({ id }: { id: string }) 
             {/* Content */}
             <div className="space-y-2">
               <Label htmlFor="content" className="text-sm">
-                HTML Content <span className="text-destructive">*</span>
+                HTML içeriği <span className="text-destructive">*</span>
               </Label>
               <Textarea
                 id="content"
@@ -479,7 +479,7 @@ export default function AdminEmailTemplatesDetailClient({ id }: { id: string }) 
             {/* Variables */}
             <div className="space-y-2">
               <Label htmlFor="variables" className="text-sm">
-                Variables
+                Değişkenler
               </Label>
               <Textarea
                 id="variables"

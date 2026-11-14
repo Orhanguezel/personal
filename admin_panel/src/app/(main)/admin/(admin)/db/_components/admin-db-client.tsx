@@ -50,7 +50,7 @@ export const AdminDbClient: React.FC = () => {
                       <p className="text-sm font-semibold">{t('admin.db.help.dbAdmin')}</p>
                       <ul className="space-y-2 text-sm text-muted-foreground">
                         <li>
-                          <span className="font-medium text-foreground">Full DB</span>:{' '}
+                          <span className="font-medium text-foreground">Tam veritabanı</span>:{' '}
                           {t('admin.db.help.fullDbDesc')}
                         </li>
                         <li>
@@ -80,7 +80,7 @@ export const AdminDbClient: React.FC = () => {
           {/* Full DB Operations */}
           <Card>
             <CardHeader>
-              <CardTitle className="text-base">Full DB</CardTitle>
+              <CardTitle className="text-base">Tam veritabanı</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <FullDbHeader />
@@ -91,7 +91,7 @@ export const AdminDbClient: React.FC = () => {
           {/* Snapshots */}
           <Card>
             <CardHeader>
-              <CardTitle className="text-base">Snapshots</CardTitle>
+              <CardTitle className="text-base">Anlık yedekler</CardTitle>
             </CardHeader>
             <CardContent>
               <SnapshotsPanel adminSkip={adminSkip} />
@@ -101,7 +101,7 @@ export const AdminDbClient: React.FC = () => {
           {/* Module Operations */}
           <Card>
             <CardHeader>
-              <CardTitle className="text-base">Module Export / Import</CardTitle>
+              <CardTitle className="text-base">Modül dışa aktarma / içe aktarma</CardTitle>
             </CardHeader>
             <CardContent>
               <ModuleTabs adminSkip={adminSkip} />

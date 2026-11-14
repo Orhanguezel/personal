@@ -13,7 +13,7 @@ import {
 } from '@/integrations/hooks';
 
 import type { SettingValue, SiteSetting } from '@/integrations/shared';
-import { useAdminTranslations } from '@/i18n/adminUi';
+import { useAdminT } from '@/app/(main)/admin/_components/common/useAdminT';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -86,7 +86,7 @@ function toMap(settings?: any) {
 }
 
 export const SmtpSettingsTab: React.FC<SmtpSettingsTabProps> = ({ locale }) => {
-  const t = useAdminTranslations(locale);
+  const t = useAdminT();
 
   const {
     data: settings,

@@ -100,8 +100,8 @@ export default function AdminChatClient() {
     <div className="space-y-6">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div className="space-y-1">
-          <h1 className="text-lg font-semibold">Chat</h1>
-          <p className="text-sm text-muted-foreground">Thread mesajlarını görüntüle ve admin yanıtı yaz.</p>
+          <h1 className="text-lg font-semibold">Sohbet</h1>
+          <p className="text-sm text-muted-foreground">Sohbet mesajlarını görüntüleyin ve yönetici yanıtı yazın.</p>
         </div>
 
         <Button type="button" variant="outline" size="sm" onClick={() => threadsQ.refetch()} disabled={busy}>
@@ -113,12 +113,12 @@ export default function AdminChatClient() {
       <Card>
         <CardHeader className="gap-2">
           <CardTitle className="text-base">Filtreler</CardTitle>
-          <CardDescription>Context tipine veya context ID’ye göre daralt.</CardDescription>
+          <CardDescription>Bağlam türüne veya kimliğine göre filtreleyin.</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="grid gap-3 md:grid-cols-[180px_1fr]">
             <div className="space-y-2">
-              <Label>Context</Label>
+              <Label>Bağlam</Label>
               <Select value={contextType} onValueChange={(value) => setContextType(value as ContextFilter)}>
                 <SelectTrigger>
                   <SelectValue />
@@ -132,7 +132,7 @@ export default function AdminChatClient() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="chat-context-id">Context ID</Label>
+              <Label htmlFor="chat-context-id">Bağlam kimliği</Label>
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
                 <Input
@@ -151,7 +151,7 @@ export default function AdminChatClient() {
       <div className="grid gap-4 xl:grid-cols-[360px_1fr]">
         <Card>
           <CardHeader className="gap-2">
-            <CardTitle className="text-base">Threads</CardTitle>
+            <CardTitle className="text-base">Sohbetler</CardTitle>
             <CardDescription>{threads.length} kayıt</CardDescription>
           </CardHeader>
           <CardContent className="space-y-2">
@@ -183,7 +183,7 @@ export default function AdminChatClient() {
                 );
               })
             ) : (
-              <div className="text-sm text-muted-foreground">Thread bulunamadı.</div>
+              <div className="text-sm text-muted-foreground">Sohbet bulunamadı.</div>
             )}
           </CardContent>
         </Card>
@@ -197,7 +197,7 @@ export default function AdminChatClient() {
             <CardDescription>
               {selected
                 ? `${selected.thread.context_type} / ${selected.thread.context_id}`
-                : 'Bir thread seçin.'}
+                : 'Bir sohbet seçin.'}
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">

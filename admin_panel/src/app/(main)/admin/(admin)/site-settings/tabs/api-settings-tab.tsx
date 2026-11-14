@@ -11,7 +11,7 @@
 import * as React from 'react';
 import { toast } from 'sonner';
 import { RefreshCcw } from 'lucide-react';
-import { useAdminTranslations } from '@/i18n/adminUi';
+import { useAdminT } from '@/app/(main)/admin/_components/common/useAdminT';
 
 import {
   useListSiteSettingsAdminQuery,
@@ -90,7 +90,7 @@ export const ApiSettingsTab: React.FC<ApiSettingsTabProps> = ({ locale }) => {
 
   const [form, setForm] = React.useState<ApiForm>(EMPTY_FORM);
 
-  const t = useAdminTranslations(locale);
+  const t = useAdminT();
 
   React.useEffect(() => {
     const map = toMap(settings);

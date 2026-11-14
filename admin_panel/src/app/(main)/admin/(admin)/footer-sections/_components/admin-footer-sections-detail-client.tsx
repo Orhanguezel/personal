@@ -252,11 +252,11 @@ export default function AdminFooterSectionsDetailClient({ id }: { id: string }) 
             <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
               <div className="space-y-1.5">
                 <CardTitle>
-                  {isNew ? 'Yeni Footer Section' : 'Footer Section Düzenle'}
+                  {isNew ? 'Yeni alt bilgi bölümü' : 'Alt bilgi bölümünü düzenle'}
                 </CardTitle>
                 <CardDescription>
                   {isNew
-                    ? 'Footer için yeni bir bölüm oluşturun'
+                    ? 'Alt bilgi için yeni bir bölüm oluşturun'
                     : 'Mevcut footer bölümünü düzenleyin'}
                 </CardDescription>
               </div>
@@ -389,7 +389,7 @@ export default function AdminFooterSectionsDetailClient({ id }: { id: string }) 
                 onChange={(e) =>
                   setFormData((prev) => ({ ...prev, description: e.target.value }))
                 }
-                placeholder="Footer bölümü için açıklama (opsiyonel)"
+                placeholder="Alt bilgi bölümü için açıklama (opsiyonel)"
                 disabled={busy}
                 rows={4}
               />

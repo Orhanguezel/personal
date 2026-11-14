@@ -10,7 +10,7 @@
 
 import * as React from 'react';
 import { toast } from 'sonner';
-import { useAdminTranslations } from '@/i18n/adminUi';
+import { useAdminT } from '@/app/(main)/admin/_components/common/useAdminT';
 
 import {
   useListSiteSettingsAdminQuery,
@@ -102,7 +102,7 @@ export const CloudinarySettingsTab: React.FC<CloudinarySettingsTabProps> = ({ lo
 
   const [form, setForm] = React.useState<StorageForm>(EMPTY_FORM);
 
-  const t = useAdminTranslations(locale);
+  const t = useAdminT();
 
   React.useEffect(() => {
     const map = toMap(settings);

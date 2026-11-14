@@ -13,7 +13,7 @@ import * as React from 'react';
 import Link from 'next/link';
 import { toast } from 'sonner';
 import { Search, RefreshCcw } from 'lucide-react';
-import { useAdminTranslations } from '@/i18n/adminUi';
+import { useAdminT } from '@/app/(main)/admin/_components/common/useAdminT';
 
 import {
   useListSiteSettingsAdminQuery,
@@ -162,7 +162,7 @@ export const GeneralSettingsTab: React.FC<GeneralSettingsTabProps> = ({ locale }
   const [updateSetting, { isLoading: isSaving }] = useUpdateSiteSettingAdminMutation();
   const [deleteSetting, { isLoading: isDeleting }] = useDeleteSiteSettingAdminMutation();
 
-  const t = useAdminTranslations(locale);
+  const t = useAdminT();
 
   // list global + locale
   const listArgsGlobal = React.useMemo(() => {

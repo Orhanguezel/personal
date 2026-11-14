@@ -658,12 +658,12 @@ export default function AdminStorageClient() {
                         </div>
                       )}
 
-                      <div className="flex-1 space-y-1">
-                        <h3 className="font-semibold">{item.name}</h3>
+                      <div className="min-w-0 flex-1 space-y-1">
+                        <h3 className="break-all font-semibold">{item.name}</h3>
                         <div className="flex flex-wrap gap-2">
                           <Badge variant="outline">{item.bucket}</Badge>
                           {item.folder && (
-                            <Badge variant="secondary">
+                            <Badge variant="secondary" className="max-w-full whitespace-normal break-all">
                               <Folder className="size-3" />
                               {item.folder}
                             </Badge>

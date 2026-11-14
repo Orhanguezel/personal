@@ -132,8 +132,8 @@ export const SnapshotsTable: React.FC<SnapshotsTableProps> = ({ items, loading, 
 
       <div className="card-body p-0">
         {/* ================= TABLE (xl+) ================= */}
-        <div className="d-none d-xl-block">
-          <div className="table-responsive">
+        <div className="hidden xl:block">
+          <div className="w-full overflow-x-auto">
             <table
               className="table table-hover table-sm mb-0 align-middle"
               style={{
@@ -264,7 +264,7 @@ export const SnapshotsTable: React.FC<SnapshotsTableProps> = ({ items, loading, 
         </div>
 
         {/* ================= CARDS (< xl) ================= */}
-        <div className="d-block d-xl-none">
+        <div className="block xl:hidden">
           {!hasData && !loading ? (
             <div className="px-3 py-3 text-center text-muted small">
               {t('admin.db.snapshots.noData')}
