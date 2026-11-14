@@ -191,8 +191,9 @@ export default function AdminProjectDetailClient({ id }: { id: string }) {
         repo_url: p.repo_url ?? '',
         category: p.category ?? '',
         client_name: p.client_name ?? '',
-        start_date: p.start_date ?? '',
-        complete_date: p.complete_date ?? '',
+        // API dates include a time; date inputs and the PATCH schema require YYYY-MM-DD.
+        start_date: p.start_date?.slice(0, 10) ?? '',
+        complete_date: p.complete_date?.slice(0, 10) ?? '',
         completion_time_label: p.completion_time_label ?? '',
         website_url: p.website_url ?? '',
         services: parseStringArray(p.services),

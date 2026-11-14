@@ -36,7 +36,10 @@ export const projectsAdminApi = baseApi.injectEndpoints({
     // GET /admin/projects/by-slug/:slug
     getProjectBySlugAdmin: b.query<Project, string>({
       query: (slug) => ({ url: `${BASE}/by-slug/${slug}` }),
-      providesTags: (_res, _e, slug) => [{ type: 'Projects' as const, id: `slug:${slug}` }],
+      providesTags: (res, _e, slug) => [
+        { type: 'Projects' as const, id: `slug:${slug}` },
+        ...(res?.id ? [{ type: 'Projects' as const, id: res.id }] : []),
+      ],
     }),
 
     // POST /admin/projects
