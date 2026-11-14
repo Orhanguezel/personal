@@ -6,7 +6,7 @@
 
 - Name: Orhan Güzel
 - Role: Full-Stack Developer & Founder
-- Germany location: Daimlerstraße 50, 41516 Grevenbroich, Nordrhein-Westfalen, Germany
+- Germany location: Stralsunder Straße 38, 41515 Grevenbroich, Nordrhein-Westfalen, Germany
 - Türkiye company: GZL Teknoloji ve Danışmanlık Hizmetleri Ltd. Şti., Cumhuriyet Mah. Hastahane Cad. 12/C Şahinler Sitesi D:14, Gemlik/Bursa, Türkiye
 - Education: IHK Aachen (Fachinformatiker Anwendungsentwicklung)
 - Experience: 15+ live production platforms; 12+ years in professional software development

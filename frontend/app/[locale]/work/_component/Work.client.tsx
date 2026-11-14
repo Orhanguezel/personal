@@ -2,18 +2,30 @@
 // FILE: frontend/app/[locale]/work/_component/Work.client.tsx
 // FIX — href now includes locale prefix via pathname
 // ---------------------------------------------------------------------
-'use client';
+"use client";
 
-import Image from 'next/image';
-import Link from 'next/link';
-import { useMemo, useState } from 'react';
+import Image from "next/image";
+import Link from "next/link";
+import { useMemo, useState } from "react";
 
-import { useGetSiteSettingByKeyQuery, useListProjectsPublicQuery } from '@/integrations/hooks';
-import type { Project } from '@/integrations/shared';
-import { normalizeStringArray, contentToSummary, normalizeUiProjectSettingValue, sanitizeHtml } from '@/integrations/shared';
-import { shouldUnoptimizeImage } from '@/utils/nextImage';
-import { CategoryFilter, parseCategoryOptions } from '@/components/content/CategoryFilter';
-import { useStaticSiteSetting } from '@/utils/staticSiteSettings';
+import {
+  useGetSiteSettingByKeyQuery,
+  useListProjectsPublicQuery,
+} from "@/integrations/hooks";
+import type { Project } from "@/integrations/shared";
+import {
+  normalizeStringArray,
+  contentToSummary,
+  normalizeUiProjectSettingValue,
+  parseProjectContent,
+  sanitizeHtml,
+} from "@/integrations/shared";
+import { shouldUnoptimizeImage } from "@/utils/nextImage";
+import {
+  CategoryFilter,
+  parseCategoryOptions,
+} from "@/components/content/CategoryFilter";
+import { useStaticSiteSetting } from "@/utils/staticSiteSettings";
 
 export default function WorkClient({
   locale,
@@ -23,20 +35,27 @@ export default function WorkClient({
   initialItems?: Project[];
 }) {
   const { data: uiSetting } = useGetSiteSettingByKeyQuery({
-    key: 'ui_project',
+    key: "ui_project",
+    locale,
+  });
+  const { value: staticUiSetting } = useStaticSiteSetting({
+    key: "ui_project",
     locale,
   });
 
-  const ui = useMemo(() => normalizeUiProjectSettingValue(uiSetting?.value), [uiSetting?.value]);
+  const ui = useMemo(
+    () => normalizeUiProjectSettingValue(uiSetting?.value ?? staticUiSetting),
+    [uiSetting?.value, staticUiSetting],
+  );
   const copy = ui.work;
 
   const hasServerList = initialItems.length > 0;
 
   const { data, isLoading, isFetching } = useListProjectsPublicQuery(
     {
-      orderBy: 'display_order',
-      orderDir: 'asc',
-      view: 'card',
+      orderBy: "display_order",
+      orderDir: "asc",
+      view: "card",
       limit: 200,
       locale,
     },
@@ -44,7 +63,10 @@ export default function WorkClient({
   );
 
   // KATEGORI SUZGECI — proje ve hizmetler ayni kategori kumesini kullanir.
-  const { value: categoriesSetting } = useStaticSiteSetting({ key: 'content_categories', locale });
+  const { value: categoriesSetting } = useStaticSiteSetting({
+    key: "content_categories",
+    locale,
+  });
   const categoryOptions = useMemo(
     () => parseCategoryOptions(categoriesSetting),
     [categoriesSetting],
@@ -55,7 +77,7 @@ export default function WorkClient({
     return acc;
   }, [categoryOptions]);
 
-  const [activeCategory, setActiveCategory] = useState('');
+  const [activeCategory, setActiveCategory] = useState("");
 
   const allItems = useMemo(
     () => (Array.isArray(data) && data.length ? data : initialItems),
@@ -65,7 +87,7 @@ export default function WorkClient({
   const categoryCounts = useMemo(() => {
     const acc: Record<string, number> = {};
     for (const p of allItems) {
-      const key = String(p.category ?? '').trim();
+      const key = String(p.category ?? "").trim();
       if (key) acc[key] = (acc[key] ?? 0) + 1;
     }
     return acc;
@@ -74,7 +96,9 @@ export default function WorkClient({
   const items = useMemo(
     () =>
       activeCategory
-        ? allItems.filter((p) => String(p.category ?? '').trim() === activeCategory)
+        ? allItems.filter(
+            (p) => String(p.category ?? "").trim() === activeCategory,
+          )
         : allItems,
     [allItems, activeCategory],
   );
@@ -85,16 +109,23 @@ export default function WorkClient({
         <div className="row">
           <div className="col-lg-8 mx-lg-auto">
             <div className="text-center">
-              <a href="#" className="btn btn-gradient d-inline-block text-uppercase">
+              <a
+                href="#"
+                className="btn btn-gradient d-inline-block text-uppercase"
+              >
                 {copy.badge}
               </a>
               <h3
                 className="ds-3 mt-3 mb-4 text-dark"
-                dangerouslySetInnerHTML={{ __html: sanitizeHtml(copy.title_html) }}
+                dangerouslySetInnerHTML={{
+                  __html: sanitizeHtml(copy.title_html),
+                }}
               />
               <p
                 className="text-300 fs-5"
-                dangerouslySetInnerHTML={{ __html: sanitizeHtml(copy.intro_html) }}
+                dangerouslySetInnerHTML={{
+                  __html: sanitizeHtml(copy.intro_html),
+                }}
               />
 
               <CategoryFilter
@@ -121,14 +152,20 @@ export default function WorkClient({
                         <div className="card__image-container zoom-img position-relative">
                           <div
                             className="card__image"
-                            style={{ width: '100%', height: 260, background: 'rgba(0,0,0,0.05)' }}
+                            style={{
+                              width: "100%",
+                              height: 260,
+                              background: "rgba(0,0,0,0.05)",
+                            }}
                           />
                         </div>
                         <div className="card__content px-md-4 px-3">
                           <div className="card__title d-md-flex align-items-center mb-0 mb-lg-2">
                             <div className="card_title_link">
                               <p className="text-primary-1 mb-0 mb-md-2">...</p>
-                              <h3 className="fw-semibold">{copy.loading_title}</h3>
+                              <h3 className="fw-semibold">
+                                {copy.loading_title}
+                              </h3>
                             </div>
                           </div>
                           <p className="text-300 mb-lg-auto mb-md-4 mb-3" />
@@ -142,10 +179,12 @@ export default function WorkClient({
                   {items.map((p, idx) => {
                     const href = `/${locale}/work/${p.slug}`; // ✅ LOCALE PREFIX
                     const summary = contentToSummary(p);
+                    const localizedContent = parseProjectContent(p.content);
                     const toolsArr = normalizeStringArray(p.techs);
 
-                    const img = p.featured_image ?? '/assets/imgs/work/img-1.webp';
-                    const alt = p.featured_image_alt ?? p.title ?? '';
+                    const img =
+                      p.featured_image ?? "/assets/imgs/work/img-1.webp";
+                    const alt = p.featured_image_alt ?? p.title ?? "";
 
                     return (
                       <div key={p.id} className="card-custom" data-index={idx}>
@@ -173,8 +212,15 @@ export default function WorkClient({
                           <div className="card__content px-md-4 px-3">
                             <div className="card__title d-md-flex align-items-center mb-0 mb-lg-2">
                               <Link href={href} className="card_title_link">
-                                <p className="text-primary-1 mb-0 mb-md-2">{categoryLabels[String(p.category ?? '').trim()] ?? p.category ?? ''}</p>
-                                <h3 className="fw-semibold">{p.title ?? ''}</h3>
+                                <p className="text-primary-1 mb-0 mb-md-2">
+                                  {localizedContent.localized_category ??
+                                    categoryLabels[
+                                      String(p.category ?? "").trim()
+                                    ] ??
+                                    p.category ??
+                                    ""}
+                                </p>
+                                <h3 className="fw-semibold">{p.title ?? ""}</h3>
                               </Link>
 
                               <Link
@@ -186,7 +232,9 @@ export default function WorkClient({
                             </div>
 
                             {summary ? (
-                              <p className="text-300 mb-lg-auto mb-md-4 mb-3">{summary}</p>
+                              <p className="text-300 mb-lg-auto mb-md-4 mb-3">
+                                {summary}
+                              </p>
                             ) : (
                               <p className="text-300 mb-lg-auto mb-md-4 mb-3" />
                             )}
@@ -196,7 +244,9 @@ export default function WorkClient({
                                 {copy.label_client}
                               </p>
                               <p className="mb-0 card__description text-300 fs-6 mb-0">
-                                {p.client_name ?? ''}
+                                {localizedContent.localized_client_name ??
+                                  p.client_name ??
+                                  ""}
                               </p>
                             </div>
 
@@ -205,7 +255,9 @@ export default function WorkClient({
                                 {copy.label_completion_time}
                               </p>
                               <p className="mb-0 card__description text-300 fs-6 mb-0">
-                                {p.completion_time_label ?? ''}
+                                {localizedContent.localized_completion_time ??
+                                  p.completion_time_label ??
+                                  ""}
                               </p>
                             </div>
 
@@ -214,13 +266,15 @@ export default function WorkClient({
                                 {copy.label_tools}
                               </p>
                               <p className="mb-0 card__description text-300 fs-6 mb-0">
-                                {toolsArr.join(', ')}
+                                {toolsArr.join(", ")}
                               </p>
                             </div>
 
                             {isFetching ? (
                               <div className="mt-2">
-                                <span className="text-300 fs-7">{copy.updating}</span>
+                                <span className="text-300 fs-7">
+                                  {copy.updating}
+                                </span>
                               </div>
                             ) : null}
                           </div>

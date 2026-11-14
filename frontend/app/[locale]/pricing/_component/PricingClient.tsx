@@ -59,7 +59,28 @@ function planGroupTitle(key: string, locale: string): string {
     amozon: 'Amozon',
     other: 'Other Packages',
   };
-  return (locale.startsWith('tr') ? tr : en)[key] || key;
+  const de: Record<string, string> = {
+    ecommerce: 'E-Commerce-Pakete',
+    'social-service': 'Social-Media-Management-Pakete',
+    care: 'Wartungs- und Supportpakete',
+    'social-platform': 'Social-Media-Plattform',
+    'export-radar': 'Exportradar',
+    geoserra: 'GeoSerra',
+    amozon: 'Amozon',
+    other: 'Weitere Pakete',
+  };
+  const dictionary = locale.startsWith('tr') ? tr : locale.startsWith('de') ? de : en;
+  return dictionary[key] || key;
+}
+
+function pricingUiLabel(locale: string, key: 'packages' | 'productDetails'): string {
+  const labels = {
+    tr: { packages: 'Paketler', productDetails: 'Ürün detaylarını incele' },
+    de: { packages: 'Pakete', productDetails: 'Produktdetails ansehen' },
+    en: { packages: 'Packages', productDetails: 'View product details' },
+  } as const;
+  const language = locale.startsWith('tr') ? 'tr' : locale.startsWith('de') ? 'de' : 'en';
+  return labels[language][key];
 }
 
 function productSlugForPlanGroup(key: string): string | null {
@@ -247,14 +268,16 @@ export default function PricingClient({
                   planGroups.map(([groupKey, groupPlans]) => (
                     <section className="pricing-plan-group mb-9" key={groupKey}>
                       <div className="text-center mb-5">
-                        <span className="text-uppercase text-primary-1 fs-7 fw-semibold">Paketler</span>
+                        <span className="text-uppercase text-primary-1 fs-7 fw-semibold">
+                          {pricingUiLabel(locale, 'packages')}
+                        </span>
                         <h2 className="text-dark mt-2 mb-0">{planGroupTitle(groupKey, locale)}</h2>
                         {productSlugForPlanGroup(groupKey) && (
                           <Link
                             href={`/${locale}${localizePath(locale, `/products/${productSlugForPlanGroup(groupKey)}`)}`}
                             className="d-inline-flex align-items-center gap-1 mt-3 text-primary-1 fw-semibold"
                           >
-                            {locale.startsWith('tr') ? 'Ürün detaylarını incele' : 'View product details'}
+                            {pricingUiLabel(locale, 'productDetails')}
                             <i className="ri-arrow-right-line" />
                           </Link>
                         )}

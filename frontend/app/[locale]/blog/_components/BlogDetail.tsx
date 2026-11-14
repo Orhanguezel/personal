@@ -170,12 +170,12 @@ export default function BlogDetail({ locale, slug, initialPost = null, initialHt
     [initialHtmlForSlug, rawHtml],
   );
 
-  const authorName = (post as any)?.author?.full_name || '—';
+  const authorName = post?.author?.full_name || copy.author_name;
   const dateStr = formatIsoDate((post as any)?.created_at);
 
   const { src: coverSrc, alt: coverAlt } = pickCover(post as any);
   const blogListHref = `/${safeLocale}/blog`;
-  const aboutHref = `/${safeLocale}#about`;
+  const aboutHref = copy.author_profile_href || `/${safeLocale}#about`;
 
   const showNotFound = !detailLoading && !post && detailError404;
   const showError = !detailLoading && !post && !detailError404 && detailErrorOther;
@@ -284,7 +284,13 @@ export default function BlogDetail({ locale, slug, initialPost = null, initialHt
               {!detailLoading && !showNotFound && !showError && post ? (
                 <div className="col-12 mt-6">
                   <div className="border-linear-3 rounded-4 p-lg-6 p-md-4 p-4">
-                    <h2 className="fs-6 text-uppercase text-300 mb-3">{copy.author_section_title}</h2>
+                    <h2 className="fs-6 text-uppercase text-300 mb-2">{copy.author_section_title}</h2>
+                    <p className="mb-1">
+                      <Link className="fw-bold text-dark" href={aboutHref}>
+                        {authorName}
+                      </Link>
+                    </p>
+                    <p className="text-300 fs-7 mb-3">{copy.author_job_title}</p>
                     <div
                       className="blog-prose text-300 fs-6 mb-0"
                       dangerouslySetInnerHTML={{ __html: sanitizeHtml(copy.author_bio_html) }}

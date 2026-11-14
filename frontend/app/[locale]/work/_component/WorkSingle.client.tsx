@@ -3,23 +3,27 @@
 // FINAL — WorkSingle (RTK), slug from params
 // FIX: uses Project type + normalizeProjectDetail from types (single source)
 // ---------------------------------------------------------------------
-'use client';
+"use client";
 
-import Image from 'next/image';
-import Link from 'next/link';
-import { useParams } from 'next/navigation';
-import { useMemo } from 'react';
+import Image from "next/image";
+import Link from "next/link";
+import { useParams } from "next/navigation";
+import { useMemo } from "react";
 
 import {
   useGetSiteSettingByKeyQuery,
   useGetProjectBySlugPublicQuery,
   useListProjectImagesPublicQuery,
-} from '@/integrations/hooks';
+} from "@/integrations/hooks";
 
-import type { Project, ProjectImage } from '@/integrations/shared';
-import { normalizeProjectDetail, normalizeUiProjectSettingValue, sanitizeHtml } from '@/integrations/shared';
-import { shouldUnoptimizeImage } from '@/utils/nextImage';
-import { useStaticSiteSetting } from '@/utils/staticSiteSettings';
+import type { Project, ProjectImage } from "@/integrations/shared";
+import {
+  normalizeProjectDetail,
+  normalizeUiProjectSettingValue,
+  sanitizeHtml,
+} from "@/integrations/shared";
+import { shouldUnoptimizeImage } from "@/utils/nextImage";
+import { useStaticSiteSetting } from "@/utils/staticSiteSettings";
 
 /**
  * SUNUCUDA ILK ICERIK (SSR) — bkz. ServiceDetailClient'taki ayni not.
@@ -34,15 +38,17 @@ export default function WorkSingleClient({
   initialProject?: unknown;
 }) {
   const params = useParams<{ slug?: string; locale?: string }>();
-  const slug = (params?.slug ?? '').trim();
+  const slug = (params?.slug ?? "").trim();
 
   const { data: uiSetting } = useGetSiteSettingByKeyQuery({
-    key: 'ui_project',
+    key: "ui_project",
+    locale,
+  });
+  const { value: staticUiSetting } = useStaticSiteSetting({
+    key: "ui_project",
     locale,
   });
 
-  // Derlemede uretilen kurulum ayari (public/ui): SSR ilk boyamada da dogru dilde etiket.
-  const { value: staticUiSetting } = useStaticSiteSetting({ key: 'ui_project', locale });
   const ui = useMemo(
     () => normalizeUiProjectSettingValue(uiSetting?.value ?? staticUiSetting),
     [uiSetting?.value, staticUiSetting],
@@ -55,7 +61,8 @@ export default function WorkSingleClient({
     error: detailError,
   } = useGetProjectBySlugPublicQuery({ slug, include: 'images', locale } as any, { skip: !slug||!!(initialProject as any)?._preview });
 
-  const detailRaw = detailFromQuery ?? (initialProject as typeof detailFromQuery);
+  const detailRaw =
+    detailFromQuery ?? (initialProject as typeof detailFromQuery);
 
   const detail = useMemo(() => {
     if (!detailRaw) return null;
@@ -70,13 +77,15 @@ export default function WorkSingleClient({
 
   const gallery = useMemo(() => {
     const isActive = (image: ProjectImage) =>
-      image.is_active === true || (image as unknown as { is_active?: number }).is_active === 1;
-    const fromImagesEndpoint = ((Array.isArray(images) ? images : []) as ProjectImage[]).filter(
-      isActive,
-    );
-    const fromDetail = (Array.isArray((detailRaw as any)?.images)
-      ? ((detailRaw as any).images as any[] as ProjectImage[])
-      : []
+      image.is_active === true ||
+      (image as unknown as { is_active?: number }).is_active === 1;
+    const fromImagesEndpoint = (
+      (Array.isArray(images) ? images : []) as ProjectImage[]
+    ).filter(isActive);
+    const fromDetail = (
+      Array.isArray((detailRaw as any)?.images)
+        ? ((detailRaw as any).images as any[] as ProjectImage[])
+        : []
     ).filter(isActive);
     return fromImagesEndpoint.length ? fromImagesEndpoint : fromDetail;
   }, [images, detailRaw]);
@@ -139,8 +148,12 @@ export default function WorkSingleClient({
 
                 {detail.canPurchase && detail.priceFormatted ? (
                   <div className="mt-5 border-linear-3 rounded-4 px-4 py-4 d-inline-block text-center">
-                    <p className="text-300 fs-7 text-uppercase mb-1">{copy.price_label}</p>
-                    <p className="ds-4 text-dark fw-bold mb-3">{detail.priceFormatted}</p>
+                    <p className="text-300 fs-7 text-uppercase mb-1">
+                      {copy.price_label}
+                    </p>
+                    <p className="ds-4 text-dark fw-bold mb-3">
+                      {detail.priceFormatted}
+                    </p>
                     <Link
                       href={`/${locale}/checkout?project=${encodeURIComponent(detail.id)}`}
                       className="btn btn-gradient d-inline-block text-uppercase"
@@ -210,23 +223,37 @@ export default function WorkSingleClient({
                 detail.caseStudy.approach ||
                 detail.caseStudy.outcome) ? (
                 <div className="mt-4 border-linear-3 rounded-4 p-lg-5 p-4">
-                  <h5 className="fs-5 fw-medium mb-3">{copy.case_study_title}</h5>
+                  <h5 className="fs-5 fw-medium mb-3">
+                    {copy.case_study_title}
+                  </h5>
                   {detail.caseStudy.challenge ? (
                     <>
-                      <p className="text-300 fs-7 text-uppercase mb-1">{copy.case_study_challenge_label}</p>
-                      <p className="text-300 mb-3">{detail.caseStudy.challenge}</p>
+                      <p className="text-300 fs-7 text-uppercase mb-1">
+                        {copy.case_study_challenge_label}
+                      </p>
+                      <p className="text-300 mb-3">
+                        {detail.caseStudy.challenge}
+                      </p>
                     </>
                   ) : null}
                   {detail.caseStudy.approach ? (
                     <>
-                      <p className="text-300 fs-7 text-uppercase mb-1">{copy.case_study_approach_label}</p>
-                      <p className="text-300 mb-3">{detail.caseStudy.approach}</p>
+                      <p className="text-300 fs-7 text-uppercase mb-1">
+                        {copy.case_study_approach_label}
+                      </p>
+                      <p className="text-300 mb-3">
+                        {detail.caseStudy.approach}
+                      </p>
                     </>
                   ) : null}
                   {detail.caseStudy.outcome ? (
                     <>
-                      <p className="text-300 fs-7 text-uppercase mb-1">{copy.case_study_outcome_label}</p>
-                      <p className="text-300 mb-0">{detail.caseStudy.outcome}</p>
+                      <p className="text-300 fs-7 text-uppercase mb-1">
+                        {copy.case_study_outcome_label}
+                      </p>
+                      <p className="text-300 mb-0">
+                        {detail.caseStudy.outcome}
+                      </p>
                     </>
                   ) : null}
                 </div>
@@ -235,13 +262,15 @@ export default function WorkSingleClient({
               {detail.toolsArr.length > 0 ? (
                 <>
                   <h5 className="fs-5 fw-medium mt-4">{copy.tools_label}</h5>
-                  <p className="text-300 mb-0">{detail.toolsArr.join(', ')}</p>
+                  <p className="text-300 mb-0">{detail.toolsArr.join(", ")}</p>
                 </>
               ) : null}
 
               {detail.content.key_features.length > 0 ? (
                 <>
-                  <h5 className="fs-5 fw-medium mt-4">{copy.key_features_label}</h5>
+                  <h5 className="fs-5 fw-medium mt-4">
+                    {copy.key_features_label}
+                  </h5>
                   <ul>
                     {detail.content.key_features.map((t, i) => (
                       <li key={i}>
@@ -256,7 +285,9 @@ export default function WorkSingleClient({
 
               {detail.content.technologies_used.length > 0 ? (
                 <>
-                  <h5 className="fs-5 fw-medium mt-4">{copy.technologies_used_label}</h5>
+                  <h5 className="fs-5 fw-medium mt-4">
+                    {copy.technologies_used_label}
+                  </h5>
                   <ul>
                     {detail.content.technologies_used.map((t, i) => (
                       <li key={i}>
@@ -271,7 +302,9 @@ export default function WorkSingleClient({
 
               {detail.content.design_highlights.length > 0 ? (
                 <>
-                  <h5 className="fs-5 fw-medium mt-4">{copy.design_highlights_label}</h5>
+                  <h5 className="fs-5 fw-medium mt-4">
+                    {copy.design_highlights_label}
+                  </h5>
                   <ul>
                     {detail.content.design_highlights.map((t, i) => (
                       <li key={i}>
@@ -290,7 +323,9 @@ export default function WorkSingleClient({
                   <h5 className="fs-5 fw-medium mt-4">{copy.details_label}</h5>
                   <div
                     className="text-300"
-                    dangerouslySetInnerHTML={{ __html: sanitizeHtml(detail.content.html) }}
+                    dangerouslySetInnerHTML={{
+                      __html: sanitizeHtml(detail.content.html),
+                    }}
                   />
                 </>
               ) : null}
@@ -307,8 +342,14 @@ export default function WorkSingleClient({
                           width={800}
                           height={600}
                           sizes="(max-width: 992px) 100vw, 33vw"
-                          style={{ width: '100%', height: 'auto', borderRadius: 12 }}
-                          unoptimized={shouldUnoptimizeImage(img.image_url ?? detail.cover)}
+                          style={{
+                            width: "100%",
+                            height: "auto",
+                            borderRadius: 12,
+                          }}
+                          unoptimized={shouldUnoptimizeImage(
+                            img.image_url ?? detail.cover,
+                          )}
                         />
                       </div>
                     ))}

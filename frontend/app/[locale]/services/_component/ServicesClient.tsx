@@ -25,6 +25,7 @@ import {
 } from '@/integrations/shared';
 import { shouldUnoptimizeImage } from '@/utils/nextImage';
 import { CategoryFilter, parseCategoryOptions } from '@/components/content/CategoryFilter';
+import { localizePath } from '@/i18n/routes';
 
 export default function ServicesClient({
   locale,
@@ -145,7 +146,9 @@ export default function ServicesClient({
               <div className="card-scroll mt-8">
                 <div className="cards">
                   {cards.map((c, idx) => {
-                    const href = c.slug ? `/${locale}/services/${encodeURIComponent(c.slug)}` : '#';
+                    const href = c.slug
+                      ? `/${locale}${localizePath(locale, `/services/${encodeURIComponent(c.slug)}`)}`
+                      : '#';
 
                     return (
                       <div key={c.id} className="card-custom" data-index={idx}>

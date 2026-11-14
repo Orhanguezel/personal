@@ -11,6 +11,7 @@ import {localizePath} from '@/i18n/routes';
 
 import type { Metadata } from 'next';
 import type { SeoAll, SeoPage } from '@/integrations/shared';
+import { localizeAnyPath } from '@/i18n/routes';
 
 import {
   joinUrl,
@@ -44,6 +45,20 @@ function normalizeCanonicalPathForAlternates(path: string | undefined): string |
   return t.startsWith('/') ? t : `/${t}`;
 }
 
+/** Convert an internal App Router path to the single public localized URL. */
+function localizeCanonicalPath(path: string | undefined): string | undefined {
+  const normalized = normalizeCanonicalPathForAlternates(path);
+  if (!normalized) return undefined;
+
+  const segments = normalized.split('/').filter(Boolean);
+  const locale = segments[0];
+  if (!(SITE_LOCALES as readonly string[]).includes(locale)) return normalized;
+
+  const internalSuffix = segments.length > 1 ? `/${segments.slice(1).join('/')}` : '/';
+  const localizedSuffix = localizeAnyPath(locale, internalSuffix);
+  return localizedSuffix === '/' ? `/${locale}` : `/${locale}${localizedSuffix}`;
+}
+
 function inferRouteLocaleFromPath(path: string | undefined): string | undefined {
   if (!path) return undefined;
   const first = path.split('/').filter(Boolean)[0];
@@ -54,6 +69,7 @@ function inferRouteLocaleFromPath(path: string | undefined): string | undefined 
 function buildHreflangLanguages(
   canonicalBase: string,
   pathWithLocale: string | undefined,
+  localizedPaths?: Partial<Record<(typeof SITE_LOCALES)[number], string>>,
 ): Record<string, string> | undefined {
   const p = normalizeCanonicalPathForAlternates(pathWithLocale);
   if (!p) return undefined;
@@ -63,9 +79,15 @@ function buildHreflangLanguages(
   const suffix = segments.length > 1 ? `/${segments.slice(1).join('/')}` : '';
   const languages: Record<string, string> = {};
   for (const loc of SITE_LOCALES) {
-    languages[loc] = joinUrl(canonicalBase, `/${loc}${suffix}`);
+    const explicitPath = localizeCanonicalPath(localizedPaths?.[loc]);
+    if (explicitPath) {
+      languages[loc] = joinUrl(canonicalBase, explicitPath);
+      continue;
+    }
+    const localizedSuffix = suffix ? localizeAnyPath(loc, suffix) : '';
+    languages[loc] = joinUrl(canonicalBase, `/${loc}${localizedSuffix}`);
   }
-  languages['x-default'] = joinUrl(canonicalBase, `/${DEFAULT_SITE_LOCALE}${suffix}`);
+  languages['x-default'] = languages[DEFAULT_SITE_LOCALE];
   return languages;
 }
 
@@ -86,9 +108,19 @@ function buildLegacyMetadata(args: {
   keywordsVars?: Record<string, string>;
 
   canonicalPath?: string;
+  localizedPaths?: Partial<Record<(typeof SITE_LOCALES)[number], string>>;
   ogType?: 'website' | 'article';
 }): Metadata {
-  const { seo, page, titleVars, descVars, keywordsVars, canonicalPath, ogType } = args;
+  const {
+    seo,
+    page,
+    titleVars,
+    descVars,
+    keywordsVars,
+    canonicalPath,
+    localizedPaths,
+    ogType,
+  } = args;
 
   const d = seo.defaults;
 
@@ -113,22 +145,22 @@ function buildLegacyMetadata(args: {
     asKeywords(page?.keywords) ??
     (page?.keywordsTemplate ? applyTemplate(page.keywordsTemplate, varsKw) : undefined);
 
-  const canonical =
-    page?.canonicalPath && safeText(page.canonicalPath).trim()
-      ? joinUrl(canonicalBase, page.canonicalPath)
-      : canonicalPath && safeText(canonicalPath).trim()
-        ? joinUrl(canonicalBase, canonicalPath)
-        : canonicalBase;
-
-  const pathForAlternates = normalizeCanonicalPathForAlternates(
+  const rawCanonicalPath =
     page?.canonicalPath && safeText(page.canonicalPath).trim()
       ? safeText(page.canonicalPath).trim()
       : canonicalPath && safeText(canonicalPath).trim()
         ? safeText(canonicalPath).trim()
-        : undefined,
-  );
+        : undefined;
+  const pathForAlternates = localizeCanonicalPath(rawCanonicalPath);
+  const canonical = pathForAlternates
+    ? joinUrl(canonicalBase, pathForAlternates)
+    : canonicalBase;
 
-  const hreflangLanguages = buildHreflangLanguages(canonicalBase, pathForAlternates);
+  const hreflangLanguages = buildHreflangLanguages(
+    canonicalBase,
+    pathForAlternates,
+    localizedPaths,
+  );
   const routeLocale = inferRouteLocaleFromPath(pathForAlternates);
   const primaryOgLocale = routeLocale
     ? OG_LOCALE_BY_ROUTE[routeLocale]

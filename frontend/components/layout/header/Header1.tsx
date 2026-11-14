@@ -11,6 +11,7 @@ import MobileMenu from "../MobileMenu";
 import OffCanvas from "../OffCanvas";
 import SiteLogo from "../SiteLogo";
 import { useSiteMedia } from "../siteAssets";
+import LocaleSwitcher from "../LocaleSwitcher";
 
 export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isOffCanvas, handleOffCanvas }: any) {
     const pathname = usePathname() || "/";
@@ -52,6 +53,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isOffC
                                 <Menu />
                             </div>
                         </div>
+                        <LocaleSwitcher />
                         <div className="navbar-social d-flex align-items-center pe-5 pe-lg-0 me-5 me-lg-0">
                             <div className="d-md-flex d-none gap-3">
                                 {socials.facebook ? (

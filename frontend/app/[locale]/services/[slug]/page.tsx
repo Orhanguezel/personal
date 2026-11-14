@@ -1,4 +1,3 @@
-import {localizePath} from '@/i18n/routes';
 // =============================================================
 // FILE: src/app/[locale]/services/[slug]/page.tsx
 // Service detail (server) — ServiceJsonLd + BreadcrumbJsonLd
@@ -11,9 +10,10 @@ import BreadcrumbJsonLd from '@/seo/BreadcrumbJsonLd';
 import ServiceJsonLd from '@/seo/ServiceJsonLd';
 import { mergeSeoPage } from '@/integrations/shared';
 import { normalizeLocaleParam, unwrapRouteParams } from '@/i18n/localeParam';
-import { getServiceSeoPageBySlug, getSeoAll, getSeoPage, SEO_PAGE_KEYS, buildMetadata } from '@/seo';
+import { getResourceLocalizedSlugsBySlug, getServiceSeoPageBySlug, getSeoAll, getSeoPage, SEO_PAGE_KEYS, buildMetadata } from '@/seo';
 import { getServicesListServer, getServiceDetailServer } from '@/utils/publicLists.server';
 import { safeGenerateStaticSlugParams } from '@/utils/safeGenerateStaticSlugParams';
+import { localizePath } from '@/i18n/routes';
 
 export async function generateStaticParams() {
   return safeGenerateStaticSlugParams({
@@ -37,6 +37,8 @@ export default async function ServiceDetailPage({
 
   const svc = await getServiceDetailServer({ locale: safeLocale, slug });
   const labels = BREADCRUMB_LABELS[safeLocale] ?? BREADCRUMB_LABELS.en;
+  const servicesPath = localizePath(safeLocale, '/services');
+  const servicePath = `${servicesPath}/${slug}`;
 
   // IKI MARKA, TEK KOD TABANI: saglayici adi sabit "Guezel Web Design" yaziliydi
   // ve gzlteknoloji.com'da YANLIS isletmeyi yapisal veriye gomuyordu.
@@ -49,9 +51,9 @@ export default async function ServiceDetailPage({
       <BreadcrumbJsonLd
         items={[
           { name: labels.home, url: `/${safeLocale}` },
-          { name: labels.services, url: `/${safeLocale}/services` },
+          { name: labels.services, url: `/${safeLocale}${servicesPath}` },
           ...(svc
-            ? [{ name: (svc as any).name || slug, url: `/${safeLocale}/services/${slug}` }]
+            ? [{ name: (svc as any).name || slug, url: `/${safeLocale}${servicePath}` }]
             : []),
         ]}
       />
@@ -61,7 +63,7 @@ export default async function ServiceDetailPage({
           description={(svc as any).summary || undefined}
           serviceType={(svc as any).name || undefined}
           providerName={providerName}
-          url={`/${safeLocale}/services/${slug}`}
+          url={`/${safeLocale}${servicePath}`}
         />
       )}
       <ServiceDetailClient locale={safeLocale} slug={slug} initialService={svc} />
@@ -87,9 +89,10 @@ export async function generateMetadata({
   const locale = normalizeLocaleParam(p?.locale);
   const slug = String(p?.slug ?? '').trim();
 
-  const [{ all, page }, contentSeo] = await Promise.all([
+  const [{ all, page }, contentSeo, localizedSlugs] = await Promise.all([
     getSeoPage(SEO_PAGE_KEYS.serviceDetail, { routeLocale: locale }),
     getServiceSeoPageBySlug(slug, locale),
+    getResourceLocalizedSlugsBySlug({ resource: 'services', slug, locale }),
   ]);
 
   const merged = mergeSeoPage(page, contentSeo);
@@ -98,6 +101,12 @@ export async function generateMetadata({
     seo: all,
     page: merged,
     canonicalPath: `/${locale}/services/${slug}`,
+    localizedPaths: Object.fromEntries(
+      Object.entries(localizedSlugs).map(([targetLocale, targetSlug]) => [
+        targetLocale,
+        `/${targetLocale}${localizePath(targetLocale, `/services/${targetSlug}`)}`,
+      ]),
+    ),
     ogType: 'article',
   });
 }

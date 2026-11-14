@@ -1,8 +1,8 @@
 .page { background: var(--tc-bg-1); color: var(--tc-neutral-100); }
 .hero { padding: 64px 0 72px; background: var(--tc-bg-3); border-bottom: 1px solid var(--tc-neutral-800); }
 .herogrid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); min-height: 560px; border: 1px solid var(--tc-neutral-800); }
-.herocopy { display: flex; flex-direction: column; justify-content: center; padding: clamp(36px, 6vw, 84px); background-image: linear-gradient(rgba(120,92,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(120,92,255,.04) 1px, transparent 1px); background-size: 42px 42px; }
-.herocopy h1 { max-width: 650px; margin: 0 0 24px; color: var(--tc-neutral-0); font-size: clamp(3rem, 5.2vw, 5.3rem); line-height: .98; letter-spacing: -.045em; }
+.herocopy { min-width: 0; overflow: hidden; display: flex; flex-direction: column; justify-content: center; padding: clamp(36px, 4vw, 64px); background-image: linear-gradient(rgba(120,92,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(120,92,255,.04) 1px, transparent 1px); background-size: 42px 42px; }
+.herocopy h1 { max-width: 100%; margin: 0 0 24px; color: var(--tc-neutral-0); font-size: clamp(2.65rem, 3vw, 3.75rem); line-height: 1; letter-spacing: -.04em; }
 .herocopy h1 strong, .herocopy h1 span { color: var(--tc-theme-primary-1); }
 .herocopy p { max-width: 600px; margin: 0 0 32px; color: var(--tc-neutral-300); font-size: 1.08rem; line-height: 1.7; }
 .ctas { display: flex; flex-wrap: wrap; gap: 12px; }
@@ -64,8 +64,8 @@
 /* Global hooks: this repo's Turbopack CSS-module convention only exports
    single-token local names. Structural hooks stay scoped by the gzl-home prefix. */
 :global(.gzl-home-herogrid) { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); min-height: 560px; border: 1px solid var(--tc-neutral-800); }
-:global(.gzl-home-herocopy) { display: flex; flex-direction: column; justify-content: center; padding: clamp(36px, 6vw, 84px); background-image: linear-gradient(rgba(120,92,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(120,92,255,.04) 1px, transparent 1px); background-size: 42px 42px; }
-:global(.gzl-home-herocopy) h1 { max-width: 650px; margin: 0 0 24px; color: var(--tc-neutral-0); font-size: clamp(3rem, 5.2vw, 5.3rem); line-height: .98; letter-spacing: -.045em; }
+:global(.gzl-home-herocopy) { min-width: 0; overflow: hidden; display: flex; flex-direction: column; justify-content: center; padding: clamp(36px, 4vw, 64px); background-image: linear-gradient(rgba(120,92,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(120,92,255,.04) 1px, transparent 1px); background-size: 42px 42px; }
+:global(.gzl-home-herocopy) h1 { max-width: 100%; margin: 0 0 24px; color: var(--tc-neutral-0); font-size: clamp(2.65rem, 3vw, 3.75rem); line-height: 1; letter-spacing: -.04em; }
 :global(.gzl-home-herocopy) h1 strong, :global(.gzl-home-herocopy) h1 span { color: var(--tc-theme-primary-1); }
 :global(.gzl-home-herocopy) p { max-width: 600px; margin: 0 0 32px; color: var(--tc-neutral-300); font-size: 1.08rem; line-height: 1.7; }
 :global(.gzl-home-ctas) { display: flex; flex-wrap: wrap; gap: 12px; }

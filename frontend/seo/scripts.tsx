@@ -8,6 +8,7 @@
 import React from 'react';
 import Script from 'next/script';
 import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
+import CookieConsent from '@/components/analytics/CookieConsent';
 
 import { getAnalyticsConfig } from './seo.server';
 
@@ -30,8 +31,9 @@ export async function GlobalScripts({ locale }: { locale?: string | null } = {})
 
       {/* Consent Mode v2 defaults (GDPR) — update after cookie banner grants */}
       {GA_ID || GTM_ID ? (
-        <Script id="consent-mode-default" strategy="afterInteractive">
+        <Script id="consent-mode-default" strategy="beforeInteractive">
           {`
+            window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('consent', 'default', {
               ad_storage: 'denied',
@@ -44,30 +46,14 @@ export async function GlobalScripts({ locale }: { locale?: string | null } = {})
         </Script>
       ) : null}
 
-      {/* Google Analytics (gtag) */}
-      {GA_ID ? <GoogleAnalytics gaId={GA_ID} /> : null}
+      {/* GTM varsa GA4 etiketi container tarafindan yonetilir; cift page_view yukleme. */}
+      {!GTM_ID && GA_ID ? <GoogleAnalytics gaId={GA_ID} /> : null}
 
       {/* Google Tag Manager */}
       {GTM_ID ? <GoogleTagManager gtmId={GTM_ID} /> : null}
 
-      {/* Meta Pixel (low priority) */}
-      {META_PIXEL_ID ? (
-        <Script id="meta-pixel" strategy="lazyOnload">
-
-          {`
-            !function(f,b,e,v,n,t,s)
-            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)}(window, document,'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '${META_PIXEL_ID}');
-            fbq('track', 'PageView');
-          `}
-        </Script>
-      ) : null}
+      {/* Meta Pixel yalnızca pazarlama onayından sonra CookieConsent tarafından yüklenir. */}
+      <CookieConsent locale={locale} metaPixelId={META_PIXEL_ID} />
     </>
   );
 }

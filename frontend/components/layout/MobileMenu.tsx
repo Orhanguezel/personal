@@ -16,6 +16,7 @@ import {
 } from '@/integrations/shared';
 import SiteLogo from './SiteLogo';
 import { useSiteMedia } from './siteAssets';
+import LocaleSwitcher from './LocaleSwitcher';
 
 type MobileMenuProps = {
   isMobileMenu: boolean;
@@ -178,6 +179,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: MobileMen
                 </ul>
               </nav>
             </div>
+            <LocaleSwitcher mobile />
           </PerfectScrollbar>
         </div>
       </div>

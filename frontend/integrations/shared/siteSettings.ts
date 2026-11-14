@@ -739,6 +739,9 @@ export type UiBlogCopy = {
     category_fallback: string;
     read_time: string;
     author_section_title: string;
+    author_name: string;
+    author_job_title: string;
+    author_profile_href: string;
     author_bio_html: string;
   };
 };
@@ -862,6 +865,19 @@ export function normalizeUiBlogSettingValue(value: unknown): UiBlogCopy {
       category_fallback: pick(detail, 'category_fallback', 'Blog', 'detail_category_fallback'),
       read_time: pick(detail, 'read_time', '3 min read', 'detail_read_time'),
       author_section_title: pick(detail, 'author_section_title', 'About the author', 'detail_author_section_title'),
+      author_name: pick(detail, 'author_name', 'Orhan Güzel', 'detail_author_name'),
+      author_job_title: pick(
+        detail,
+        'author_job_title',
+        'Full-Stack Developer and GEO/SEO Specialist',
+        'detail_author_job_title',
+      ),
+      author_profile_href: pick(
+        detail,
+        'author_profile_href',
+        '',
+        'detail_author_profile_href',
+      ),
       author_bio_html: pick(
         detail,
         'author_bio_html',

@@ -92,13 +92,14 @@ export function article(input: {
   url?: string;
   datePublished?: string;
   dateModified?: string;
-  author?: { name: string; url?: string };
+  author?: { id?: string; name: string; url?: string };
   publisher?: { '@id': string; name?: string };
 }): Thing {
   const authorBlock =
     input.author && input.author.name
       ? {
           '@type': 'Person',
+          ...(input.author.id ? { '@id': input.author.id } : {}),
           name: input.author.name,
           ...(input.author.url ? { url: input.author.url } : {}),
         }

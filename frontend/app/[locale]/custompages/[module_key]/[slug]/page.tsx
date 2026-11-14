@@ -17,7 +17,7 @@ import {
   sanitizeBlogHtml,
 } from '@/integrations/shared';
 import { buildMetadata } from '@/seo/metadata';
-import { getCustomPageSeoPageByModuleSlug } from '@/seo/customPages.server';
+import { getCustomPageLocalizedSlugsByModuleSlug, getCustomPageSeoPageByModuleSlug } from '@/seo/customPages.server';
 import { getSeoPage, SEO_PAGE_KEYS } from '@/seo';
 import { mergeSeoPage } from '@/integrations/shared';
 
@@ -30,7 +30,9 @@ async function fetchCustomPage(
   const sl = String(slug ?? '').trim();
   if (!mk || !sl) return null;
 
-  const url = new URL(`${BASE_URL}/custom-pages/by-slug/${encodeURIComponent(sl)}`);
+  const url = new URL(
+    `${BASE_URL}/custom-pages/by-module/${encodeURIComponent(mk)}/${encodeURIComponent(sl)}`,
+  );
   if (locale) url.searchParams.set('locale', locale);
 
   const res = await fetch(url.toString(), {
@@ -55,19 +57,14 @@ export default async function CustomPageDetail({
   const slug = String(p?.slug ?? '').trim();
 
   if (moduleKey === 'blog') permanentRedirect(`/${locale}/blog/${slug}`);
-  if (['legal', 'policy', 'privacy', 'terms', 'cookies'].includes(moduleKey)) {
+  if (['legal', 'privacy', 'terms', 'cookies'].includes(moduleKey)) {
     permanentRedirect(`/${locale}/legal/${slug}`);
   }
   if (['corporate', 'about', 'kurumsal'].includes(moduleKey)) {
     permanentRedirect(`/${locale}/corporate/${slug}`);
   }
 
-  let page = await fetchCustomPage(moduleKey, slug, locale);
-
-  // locale 404 fallback (try without locale)
-  if (!page) {
-    page = await fetchCustomPage(moduleKey, slug, null);
-  }
+  const page = await fetchCustomPage(moduleKey, slug, locale);
 
   if (!page) return notFound();
 
@@ -105,9 +102,10 @@ export async function generateMetadata({
   const moduleKey = String(p?.module_key ?? '').trim();
   const slug = String(p?.slug ?? '').trim();
 
-  const [{ all, page }, contentSeo] = await Promise.all([
+  const [{ all, page }, contentSeo, localizedSlugs] = await Promise.all([
     getSeoPage(SEO_PAGE_KEYS.customPageDetail, { routeLocale: locale }),
-    getCustomPageSeoPageByModuleSlug(moduleKey, slug),
+    getCustomPageSeoPageByModuleSlug(moduleKey, slug, locale),
+    getCustomPageLocalizedSlugsByModuleSlug(moduleKey, slug, locale),
   ]);
 
   const merged = mergeSeoPage(page, contentSeo);
@@ -116,6 +114,12 @@ export async function generateMetadata({
     seo: all,
     page: merged,
     canonicalPath: `/${locale}/custompages/${moduleKey}/${slug}`,
+    localizedPaths: Object.fromEntries(
+      Object.entries(localizedSlugs).map(([targetLocale, targetSlug]) => [
+        targetLocale,
+        `/${targetLocale}/custompages/${moduleKey}/${targetSlug}`,
+      ]),
+    ),
     ogType: 'article',
   });
 }

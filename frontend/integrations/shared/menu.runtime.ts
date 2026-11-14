@@ -8,6 +8,7 @@
 
 import { trimStr, isRemoteUrl } from '@/integrations/shared';
 import { normLocaleTag } from '@/i18n';
+import { localizeAnyPath } from '@/i18n/routes';
 
 export function readHtmlLang(): string {
   if (typeof document === 'undefined') return '';
@@ -51,9 +52,9 @@ export function withLocalePrefix(locale: string, rawUrl: unknown, fallback = 'de
   if (url.startsWith('#')) return `/${loc}/${url}`;
   if (url.startsWith('/#')) return `/${loc}${url}`;
 
-  if (url.startsWith('/')) return `/${loc}${url}`;
+  if (url.startsWith('/')) return `/${loc}${localizeAnyPath(loc, url)}`;
 
-  return `/${loc}/${url.replace(/^\/+/, '')}`;
+  return `/${loc}${localizeAnyPath(loc, `/${url.replace(/^\/+/, '')}`)}`;
 }
 
 export function splitHash(href: string): { path: string; hash: string } {

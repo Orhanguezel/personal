@@ -208,16 +208,16 @@ export async function getSiteJsonLdGraph(opts?: { routeLocale?: string | null })
     priceRange: '$$',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Daimlerstraße 50',
-      postalCode: '41516',
+      streetAddress: 'Stralsunder Straße 38',
+      postalCode: '41515',
       addressLocality: 'Grevenbroich',
       addressRegion: 'Nordrhein-Westfalen',
       addressCountry: 'DE',
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: 51.0876,
-      longitude: 6.5877,
+      latitude: 51.1056952,
+      longitude: 6.5790455,
     },
     areaServed: ['Germany', 'Europe'],
     openingHoursSpecification: [

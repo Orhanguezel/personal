@@ -17,7 +17,6 @@ import { useStaticSiteSetting } from '@/utils/staticSiteSettings';
 import { BASE_URL } from '@/integrations/apiBase';
 
 import ServiceCard from './ServiceCard';
-import { siteDefaultLocale } from '@/i18n/config';
 
 type CardVM = {
   key: string;
@@ -97,9 +96,7 @@ export default function Service1({ locale, initialData }: { locale: string; init
 
   const { data, isLoading, isFetching, isError } = useListServicesPublicQuery({
     locale,
-// default_locale = SITE varsayilani (bkz. i18n/config siteDefaultLocale):
-// istenen dilin kendisi gonderilirse eksik ceviriler bos/tiklanamaz doner.
-    default_locale: siteDefaultLocale(),
+    default_locale: locale,
     limit: 4,
     offset: 0,
     order: 'display_order.asc',

@@ -5,15 +5,15 @@
 // - getProjectSeoBySlug(slug)
 // =============================================================
 
-import type { SeoPage, ProjectSeoPick } from '@/integrations/shared';
-import { BASE_URL } from '@/integrations/apiBase';
+import type { SeoPage, ProjectSeoPick } from "@/integrations/shared";
+import { BASE_URL } from "@/integrations/apiBase";
 import {
   asText,
   fetchJsonNoStore,
   joinApi,
   pickSeoImages,
   buildSeoPageFromMeta,
-} from '@/integrations/shared';
+} from "@/integrations/shared";
 
 function pickSeo(j: Record<string, unknown>): ProjectSeoPick {
   const { image_effective_url, image_url } = pickSeoImages(j);
@@ -30,7 +30,9 @@ function pickSeo(j: Record<string, unknown>): ProjectSeoPick {
   };
 }
 
-export function toSeoPageFromProject(pick: ProjectSeoPick | null): SeoPage | null {
+export function toSeoPageFromProject(
+  pick: ProjectSeoPick | null,
+): SeoPage | null {
   if (!pick) return null;
   return buildSeoPageFromMeta({
     title: pick.title,
@@ -45,14 +47,17 @@ export async function getProjectSeoBySlug(
   slug: string,
   locale?: string,
 ): Promise<ProjectSeoPick | null> {
-  const sl = String(slug ?? '').trim();
+  const sl = String(slug ?? "").trim();
   if (!sl) return null;
 
-  // Dil verilmezse API varsayilan dili (tr) dondurur: en/de sayfada Turkce <title>.
-  const loc = String(locale ?? '').trim();
-  const url =
-    joinApi(BASE_URL, `/projects/by-slug/${encodeURIComponent(sl)}`) +
-    (loc ? `?locale=${encodeURIComponent(loc)}` : '');
+  const baseUrl = joinApi(
+    BASE_URL,
+    `/projects/by-slug/${encodeURIComponent(sl)}`,
+  );
+  const requestedLocale = String(locale ?? "").trim();
+  const url = requestedLocale
+    ? `${baseUrl}?locale=${encodeURIComponent(requestedLocale)}`
+    : baseUrl;
 
   const j = await fetchJsonNoStore(url);
   return j ? pickSeo(j) : null;

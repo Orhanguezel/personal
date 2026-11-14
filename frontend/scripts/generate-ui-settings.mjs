@@ -246,6 +246,8 @@ try {
   // gzlteknoloji.com'un ilk boyamasinda/kaynak kodunda cikiyordu.
   const homeRaw = base.ui_home;
   const home = typeof homeRaw === 'string' ? safeParse(homeRaw) : homeRaw;
+  const contactRaw = base.contact_info;
+  const contact = typeof contactRaw === 'string' ? safeParse(contactRaw) : contactRaw;
 
   const legalEntity = buildLegalEntity(brandRows.company_brand);
 
@@ -262,6 +264,7 @@ try {
     appleTouchIcon: firstUrl(base.site_apple_touch_icon),
     ogDefault: firstUrl(base.site_og_default_image),
     home: home && typeof home === 'object' ? home : null,
+    contactEmail: firstText(contact?.email, contact?.email_address, legalEntity?.email),
     legalEntity,
     legalLinks,
   };

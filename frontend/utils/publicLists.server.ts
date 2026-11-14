@@ -86,11 +86,6 @@ async function fetchList<T>(
  * Sitenin varsayilan dili gonderilince eksik ceviriler o dile duser: icerik
  * cevrilene kadar eksik degil, yalnizca kaynak dilde gorunur.
  */
-function siteDefaultLocale(): string {
-  const env = String(process.env.NEXT_PUBLIC_DEFAULT_LOCALE || '').trim().toLowerCase();
-  return env.split('-')[0] || 'de';
-}
-
 export async function getServicesListServer(args: {
   locale: string;
   limit?: number;
@@ -101,7 +96,7 @@ export async function getServicesListServer(args: {
     offset: args.offset ?? 0,
     order: 'display_order.asc',
     locale: args.locale,
-    default_locale: siteDefaultLocale(),
+    default_locale: args.locale,
   });
 
   return rows.map(normalizeService);
@@ -158,7 +153,7 @@ export async function getProductsListServer(args: {
     // yok sayiliyor, sira admin'deki "Sira" alanina uymuyordu (2026-10-01).
     order: 'order_num.asc',
     locale: args.locale,
-    default_locale: siteDefaultLocale(),
+    default_locale: args.locale,
   };
   if (args.category) params.category = args.category;
 
@@ -205,7 +200,7 @@ export async function getServiceDetailServer(args: {
   const preview=await previewFor('services',args.slug);if(preview)return {...normalizeService(preview),images:preview.images,_preview:true} as ServiceDto;
   const url = buildApiUrl(`/services/by-slug/${encodeURIComponent(args.slug)}`, {
     locale: args.locale,
-    default_locale: siteDefaultLocale(),
+    default_locale: args.locale,
   });
 
   try {
@@ -243,7 +238,13 @@ export async function getProjectDetailServer(args: {
 
     const data = (await res.json()) as unknown;
     if (!data || typeof data !== 'object') return null;
-    return data as Project;
+    const project = data as Project;
+    // `by-slug` endpointi yonetim onizlemesi icin taslak kayitlari da
+    // dondurebiliyor. Public SSR katmaninda yayin disi projeyi kesinlikle
+    // render etme; aksi halde listeden gizlenen taslak dogrudan URL ile
+    // goruntulenebiliyor ve arama motorlarinca indekslenebiliyor.
+    if (!project.is_published) return null;
+    return project;
   } catch {
     return null;
   }
@@ -365,7 +366,7 @@ export async function getResumeListServer(args: {
 }): Promise<ResumeGroupedResponse> {
   const url = buildApiUrl('/resume', {
     locale: args.locale,
-    default_locale: siteDefaultLocale(),
+    default_locale: args.locale,
     limit: args.limit ?? 50,
     offset: args.offset ?? 0,
     order: 'display_order.asc',

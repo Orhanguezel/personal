@@ -19,6 +19,7 @@ import {
 } from '@/integrations/shared';
 
 export type CustomPageSeoPick = {
+  id?: string | null;
   title?: string | null;
 
   meta_title?: string | null;
@@ -36,6 +37,7 @@ function pickSeo(j: Record<string, unknown>): CustomPageSeoPick {
   const { image_effective_url, image_url } = pickSeoImages(j);
 
   return {
+    id: asText(j.id),
     module_key: asText(j.module_key),
     slug: asText(j.slug),
 
@@ -47,6 +49,42 @@ function pickSeo(j: Record<string, unknown>): CustomPageSeoPick {
     image_url,
     alt: asText(j.alt),
   };
+}
+
+const PUBLIC_LOCALES = ['tr', 'en', 'de'] as const;
+
+/** Resolve locale-specific slugs through the shared DB row id. */
+export async function getCustomPageLocalizedSlugsByModuleSlug(
+  moduleKey: string,
+  slug: string,
+  locale: string,
+): Promise<Partial<Record<(typeof PUBLIC_LOCALES)[number], string>>> {
+  const current = await getCustomPageSeoByModuleSlug(moduleKey, slug, locale);
+  const id = asText(current?.id);
+  if (!id) return {};
+
+  const entries = await Promise.all(
+    PUBLIC_LOCALES.map(async (targetLocale) => {
+      const url = new URL(joinApi(BASE_URL, '/custom_pages'));
+      url.searchParams.set('module_key', moduleKey);
+      url.searchParams.set('locale', targetLocale);
+      url.searchParams.set('default_locale', targetLocale);
+      url.searchParams.set('limit', '100');
+
+      const res = await fetch(url.toString(), {
+        headers: { Accept: 'application/json' },
+        next: { revalidate: 60 },
+      });
+      if (!res.ok) return null;
+      const rows = (await res.json()) as unknown;
+      if (!Array.isArray(rows)) return null;
+      const sibling = rows.find((row) => row && typeof row === 'object' && asText((row as any).id) === id);
+      const siblingSlug = sibling && typeof sibling === 'object' ? asText((sibling as any).slug) : '';
+      return siblingSlug ? ([targetLocale, siblingSlug] as const) : null;
+    }),
+  );
+
+  return Object.fromEntries(entries.filter((entry): entry is NonNullable<typeof entry> => Boolean(entry)));
 }
 
 export function toSeoPageFromCustomPage(pick: CustomPageSeoPick | null): SeoPage | null {

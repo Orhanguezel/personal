@@ -119,7 +119,7 @@ export function fxDisclaimer(locale: string): string {
     return 'TL fiyatlar doğrudan, USD fiyatlar ise güncel döviz kuruyla gösterilir.';
   }
   if (base === 'de') {
-    return 'TRY prices are shown directly; USD prices are converted using current exchange rates.';
+    return 'TRY-Preise werden direkt angezeigt; USD-Preise werden zum aktuellen Wechselkurs umgerechnet.';
   }
   return 'TRY prices are shown directly; USD prices use current exchange rates.';
 }

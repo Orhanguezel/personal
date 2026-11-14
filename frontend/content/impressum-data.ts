@@ -30,8 +30,8 @@ export const impressumByLocale: Record<string, ImpressumSection> = {
 <p>
   Orhan Guezel<br />
   Freiberuflicher Webentwickler<br />
-  Daimlerstrasse 50<br />
-  41516 Grevenbroich<br />
+  Stralsunder Strasse 38<br />
+  41515 Grevenbroich<br />
   Deutschland
 </p>
 
@@ -81,8 +81,8 @@ Wir sind nicht verpflichtet und nicht bereit, an einem Streitbeilegungsverfahren
 <p>
   Orhan Guezel<br />
   Freelance Web Developer<br />
-  Daimlerstrasse 50<br />
-  41516 Grevenbroich<br />
+  Stralsunder Strasse 38<br />
+  41515 Grevenbroich<br />
   Germany
 </p>
 
@@ -132,8 +132,8 @@ We are neither obligated nor willing to participate in dispute resolution procee
 <p>
   Orhan Guezel<br />
   Serbest Web Gelistirici<br />
-  Daimlerstrasse 50<br />
-  41516 Grevenbroich<br />
+  Stralsunder Strasse 38<br />
+  41515 Grevenbroich<br />
   Almanya
 </p>
 

@@ -1,20 +1,30 @@
-import {localizePath} from '@/i18n/routes';
 // ---------------------------------------------------------------------
 // FILE: frontend/app/[locale]/work/[slug]/page.tsx
 // Work detail — BreadcrumbJsonLd + CreativeWork schema
 // ---------------------------------------------------------------------
-import Layout from '@/components/layout/Layout';
-import { normalizeLocaleParam, unwrapRouteParams } from '@/i18n/localeParam';
-import WorkSingleClient from '../_component/WorkSingle.client';
-import RelatedServices from './_components/RelatedServices';
-import { getProjectSeoPageBySlug, getSeoPage, SEO_PAGE_KEYS, buildMetadata } from '@/seo';
-import JsonLd from '@/seo/JsonLd';
-import BreadcrumbJsonLd from '@/seo/BreadcrumbJsonLd';
-import { joinUrl, mergeSeoPage, toAbsUrl } from '@/integrations/shared';
-import { getProjectsListServer, getProjectDetailServer } from '@/utils/publicLists.server';
-import { safeGenerateStaticSlugParams } from '@/utils/safeGenerateStaticSlugParams';
-import { creativeWork, graph } from '@/seo/jsonld';
-import { getSeoAll } from '@/seo/seo.server';
+import Layout from "@/components/layout/Layout";
+import { normalizeLocaleParam, unwrapRouteParams } from "@/i18n/localeParam";
+import WorkSingleClient from "../_component/WorkSingle.client";
+import RelatedServices from "./_components/RelatedServices";
+import {
+  getProjectSeoPageBySlug,
+  getSeoPage,
+  SEO_PAGE_KEYS,
+  buildMetadata,
+  getResourceLocalizedSlugsBySlug,
+} from "@/seo";
+import JsonLd from "@/seo/JsonLd";
+import BreadcrumbJsonLd from "@/seo/BreadcrumbJsonLd";
+import { joinUrl, mergeSeoPage, toAbsUrl } from "@/integrations/shared";
+import {
+  getProjectsListServer,
+  getProjectDetailServer,
+} from "@/utils/publicLists.server";
+import { safeGenerateStaticSlugParams } from "@/utils/safeGenerateStaticSlugParams";
+import { creativeWork, graph } from "@/seo/jsonld";
+import { getSeoAll } from "@/seo/seo.server";
+import { notFound } from "next/navigation";
+import { localizePath } from "@/i18n/routes";
 
 export async function generateStaticParams() {
   return safeGenerateStaticSlugParams({
@@ -23,9 +33,9 @@ export async function generateStaticParams() {
 }
 
 const BREADCRUMB_LABELS: Record<string, { home: string; work: string }> = {
-  de: { home: 'Startseite', work: 'Portfolio' },
-  en: { home: 'Home', work: 'Portfolio' },
-  tr: { home: 'Anasayfa', work: 'Projeler' },
+  de: { home: "Startseite", work: "Portfolio" },
+  en: { home: "Home", work: "Portfolio" },
+  tr: { home: "Anasayfa", work: "Projeler" },
 };
 
 function workDescription(project: {
@@ -33,11 +43,12 @@ function workDescription(project: {
   summary?: string | null;
   content?: unknown;
 }): string {
-  const sum = String(project.summary ?? '').trim();
+  const sum = String(project.summary ?? "").trim();
   if (sum) return sum.length > 5000 ? `${sum.slice(0, 4997)}...` : sum;
-  if (project.content && typeof project.content === 'object') {
+  if (project.content && typeof project.content === "object") {
     const d = (project.content as { description?: string }).description;
-    if (typeof d === 'string' && d.trim()) return d.length > 5000 ? `${d.slice(0, 4997)}...` : d;
+    if (typeof d === "string" && d.trim())
+      return d.length > 5000 ? `${d.slice(0, 4997)}...` : d;
   }
   return project.title;
 }
@@ -49,22 +60,30 @@ export default async function WorkSinglePage({
 }) {
   const p = await unwrapRouteParams(params);
   const safeLocale = normalizeLocaleParam(p?.locale);
-  const slug = String(p?.slug ?? '').trim();
+  const slug = String(p?.slug ?? "").trim();
 
   const [project, seoAll] = await Promise.all([
     getProjectDetailServer({ locale: safeLocale, slug }),
     getSeoAll({ routeLocale: safeLocale }),
   ]);
 
+  if (!project) notFound();
+
   const canonicalBase = seoAll.defaults.canonicalBase;
   const founderId = `${canonicalBase}/#founder`;
   const labels = BREADCRUMB_LABELS[safeLocale] ?? BREADCRUMB_LABELS.en;
+  const workPath = localizePath(safeLocale, "/work");
 
-  const pageUrl = joinUrl(canonicalBase, `/${safeLocale}${localizePath(safeLocale,`/work/${encodeURIComponent(slug)}`)}`);
+  const pageUrl = joinUrl(
+    canonicalBase,
+    `/${safeLocale}${workPath}/${encodeURIComponent(slug)}`,
+  );
   const rawCover = project?.featured_image?.trim();
-  const fallbackWork = '/assets/imgs/work/img-background.webp';
+  const fallbackWork = "/assets/imgs/work/img-background.webp";
   const absCover =
-    rawCover && rawCover !== fallbackWork ? toAbsUrl(canonicalBase, rawCover) : undefined;
+    rawCover && rawCover !== fallbackWork
+      ? toAbsUrl(canonicalBase, rawCover)
+      : undefined;
 
   const datePub = project?.start_date || project?.created_at;
 
@@ -75,7 +94,7 @@ export default async function WorkSinglePage({
           description: workDescription(project),
           url: pageUrl,
           image: absCover,
-          datePublished: typeof datePub === 'string' ? datePub : undefined,
+          datePublished: typeof datePub === "string" ? datePub : undefined,
           creatorId: founderId,
         }),
       ])
@@ -88,18 +107,24 @@ export default async function WorkSinglePage({
       <BreadcrumbJsonLd
         items={[
           { name: labels.home, url: `/${safeLocale}` },
-          { name: labels.work, url: `/${safeLocale}/work` },
+          { name: labels.work, url: `/${safeLocale}${workPath}` },
           { name: crumbTitle, url: pageUrl },
         ]}
       />
-      {creativeWorkJsonLd && <JsonLd data={creativeWorkJsonLd} id="creative-work" />}
+      {creativeWorkJsonLd && (
+        <JsonLd data={creativeWorkJsonLd} id="creative-work" />
+      )}
       <WorkSingleClient locale={safeLocale} initialProject={project} />
 
       {/* Proje -> ayni kategorideki hizmetler (kategori tek baglayici alan). */}
       <RelatedServices
         locale={safeLocale}
-        category={(project as { category?: string | null } | null)?.category ?? null}
-        serviceSlugs={(project as { services?: string[] | null } | null)?.services ?? null}
+        category={
+          (project as { category?: string | null } | null)?.category ?? null
+        }
+        serviceSlugs={
+          (project as { services?: string[] | null } | null)?.services ?? null
+        }
       />
     </Layout>
   );
@@ -112,11 +137,12 @@ export async function generateMetadata({
 }) {
   const p = await unwrapRouteParams(params);
   const locale = normalizeLocaleParam(p?.locale);
-  const slug = String(p?.slug ?? '').trim();
+  const slug = String(p?.slug ?? "").trim();
 
-  const [{ all, page }, contentSeo] = await Promise.all([
+  const [{ all, page }, contentSeo, localizedSlugs] = await Promise.all([
     getSeoPage(SEO_PAGE_KEYS.workDetail, { routeLocale: locale }),
     getProjectSeoPageBySlug(slug, locale),
+    getResourceLocalizedSlugsBySlug({ resource: "projects", slug, locale }),
   ]);
 
   const merged = mergeSeoPage(page, contentSeo);
@@ -125,6 +151,12 @@ export async function generateMetadata({
     seo: all,
     page: merged,
     canonicalPath: `/${locale}/work/${slug}`,
-    ogType: 'article',
+    localizedPaths: Object.fromEntries(
+      Object.entries(localizedSlugs).map(([targetLocale, targetSlug]) => [
+        targetLocale,
+        `/${targetLocale}${localizePath(targetLocale, `/work/${targetSlug}`)}`,
+      ]),
+    ),
+    ogType: "article",
   });
 }

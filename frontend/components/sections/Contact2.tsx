@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 import { useCreateContactMutation } from '@/integrations/hooks';
+import { trackGenerateLead } from '@/utils/analytics';
 import { useStaticSiteSetting } from '@/utils/staticSiteSettings';
 
 import {
@@ -106,6 +107,7 @@ export default function Contact2() {
 
     try {
       await createContact(payload).unwrap();
+      if (!website.trim()) trackGenerateLead('contact_form');
 
       setName('');
       setPhoneInput('');

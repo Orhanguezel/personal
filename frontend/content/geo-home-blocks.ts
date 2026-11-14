@@ -22,7 +22,7 @@ export const homeGeoBlocks: Record<string, HomeGeoBlocksCopy> = {
   de: {
     statsHeading: 'Zahlen, die für Klarheit im Projekt stehen',
     stats: [
-      { value: '11+', label: 'Referenzprojekte & Live-Systeme' },
+      { value: '30+', label: 'Verifizierte Live-Systeme' },
       { value: '9+', label: 'Langjährige Kundenbeziehungen' },
       { value: '3', label: 'Sprachen: DE / EN / TR' },
       { value: '5+', label: 'Jahre Fokus auf Next.js & React' },
@@ -71,7 +71,7 @@ export const homeGeoBlocks: Record<string, HomeGeoBlocksCopy> = {
   en: {
     statsHeading: 'Numbers that keep delivery predictable',
     stats: [
-      { value: '11+', label: 'Live projects & references' },
+      { value: '30+', label: 'Verified live systems' },
       { value: '9+', label: 'Long-term client relationships' },
       { value: '3', label: 'Languages: DE / EN / TR' },
       { value: '5+', label: 'Years focused on Next.js & React' },
@@ -120,7 +120,7 @@ export const homeGeoBlocks: Record<string, HomeGeoBlocksCopy> = {
   tr: {
     statsHeading: 'Teslimatı öngörülebilir kılan rakamlar',
     stats: [
-      { value: '11+', label: 'Canlı proje ve referans' },
+      { value: '30+', label: 'Doğrulanmış canlı sistem' },
       { value: '9+', label: 'Uzun soluklu müşteri ilişkisi' },
       { value: '3', label: 'Dil: DE / EN / TR' },
       { value: '5+', label: 'Next.js ve React odağı (yıl)' },

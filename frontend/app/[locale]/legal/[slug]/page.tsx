@@ -1,6 +1,6 @@
 import { CustomContentPage } from '@/components/content/CustomContentPage';
 import { normalizeLocaleParam, unwrapRouteParams } from '@/i18n/localeParam';
-import { getCustomPageSeoPageByModuleSlug, getSeoPage, SEO_PAGE_KEYS, buildMetadata } from '@/seo';
+import { getCustomPageLocalizedSlugsByModuleSlug, getCustomPageSeoPageByModuleSlug, getSeoPage, SEO_PAGE_KEYS, buildMetadata } from '@/seo';
 import { mergeSeoPage } from '@/integrations/shared';
 import { localizePath } from '@/i18n/routes';
 
@@ -13,9 +13,16 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const p = await unwrapRouteParams(params);
   const locale = normalizeLocaleParam(p.locale);
   const slug = String(p.slug);
-  const [{ all, page }, contentSeo] = await Promise.all([
+  const [{ all, page }, contentSeo, localizedSlugs] = await Promise.all([
     getSeoPage(SEO_PAGE_KEYS.customPageDetail, { routeLocale: locale }),
     getCustomPageSeoPageByModuleSlug('legal', slug, locale),
+    getCustomPageLocalizedSlugsByModuleSlug('legal', slug, locale),
   ]);
-  return buildMetadata({ seo: all, page: mergeSeoPage(page, contentSeo), canonicalPath: `/${locale}${localizePath(locale, `/legal/${slug}`)}`, ogType: 'website' });
+  return buildMetadata({
+    seo: all,
+    page: mergeSeoPage(page, contentSeo),
+    canonicalPath: `/${locale}${localizePath(locale, `/legal/${slug}`)}`,
+    localizedPaths: Object.fromEntries(Object.entries(localizedSlugs).map(([targetLocale, targetSlug]) => [targetLocale, `/${targetLocale}${localizePath(targetLocale, `/legal/${targetSlug}`)}`])),
+    ogType: 'website',
+  });
 }

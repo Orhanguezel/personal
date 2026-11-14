@@ -39,6 +39,26 @@ export function routeFromSegment(locale: string, segment: string): string | null
   return null;
 }
 
+/** Herhangi bir dildeki gorunen segmenti dosya sistemi rotasina cevirir. */
+export function routeFromAnySegment(segment: string): string | null {
+  for (const [route, byLocale] of Object.entries(ROUTE_SLUGS)) {
+    if (route === segment || Object.values(byLocale).includes(segment)) return route;
+  }
+  return null;
+}
+
+/**
+ * DB'den eski veya fallback dilde gelen bir yolu hedef dile kanoniklestirir.
+ * Ornek: localizeAnyPath('de', '/hizmetler/foo') -> '/leistungen/foo'
+ */
+export function localizeAnyPath(locale: string, path: string): string {
+  const clean = path.startsWith('/') ? path.slice(1) : path;
+  if (!clean) return '/';
+  const [first, ...rest] = clean.split('/');
+  const route = routeFromAnySegment(first) ?? first;
+  return '/' + [localizedSegment(locale, route), ...rest].join('/');
+}
+
 /**
  * `/services/foo` gibi bir yolu locale'e gore yerellestirir:
  *   localizePath('tr', '/services/foo') -> '/hizmetler/foo'

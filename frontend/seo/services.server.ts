@@ -50,11 +50,10 @@ export async function getServiceSeoBySlug(
   const sl = String(slug ?? '').trim();
   if (!sl) return null;
 
-  // Dil verilmezse API varsayilan dili (tr) dondurur: en/de sayfada Turkce <title>.
-  const loc = String(locale ?? '').trim();
-  const url =
-    joinApi(BASE_URL, `/services/by-slug/${encodeURIComponent(sl)}`) +
-    (loc ? `?locale=${encodeURIComponent(loc)}` : '');
+  const base = joinApi(BASE_URL, `/services/by-slug/${encodeURIComponent(sl)}`);
+  const url = locale
+    ? `${base}?locale=${encodeURIComponent(locale)}&default_locale=${encodeURIComponent(locale)}`
+    : base;
 
   const j = await fetchJsonNoStore(url);
   return j ? pickSeo(j) : null;

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import type { Project, ServiceDto, ProductDto, UiHomeCopy } from '@/integrations/shared';
 import { sanitizeHtml } from '@/integrations/shared';
 import { localizePath } from '@/i18n/routes';
+import brandGenerated from '@/config/brand.generated.json';
 import styles from './HomeLanding.module.css';
 
 const COPY = {
@@ -46,16 +47,20 @@ export default function HomeLanding({
   const lang = locale.startsWith('tr') ? 'tr' : locale.startsWith('de') ? 'de' : 'en';
   const copy = COPY[lang];
   const route = (path: string) => `/${locale}${localizePath(locale, path)}`;
+  const contactEmail = String(
+    (brandGenerated as { contactEmail?: string; legalEntity?: { email?: string } }).contactEmail ||
+    (brandGenerated as { legalEntity?: { email?: string } }).legalEntity?.email || '',
+  ).trim();
   const hero = ui.home1;
   const heroTitle = hero.title_html.replace(
     'GZL Teknoloji —',
     '<span class="gzl-home-brandline">GZL Teknoloji</span>',
   );
   const heroImage = hero.hero_image || '/assets/imgs/guezel-showcase/workspace_guezel_web_design.webp';
-  const preferredSlugs = ['geoserra', 'sosyal-medya-platformu', 'ihracat-radari'];
-  const featuredProducts = preferredSlugs
-    .map((slug) => products.find((product) => product.slug === slug))
-    .filter((product): product is ProductDto => Boolean(product));
+  const featuredProducts = products
+    .filter((product) => product.is_featured === 1)
+    .toSorted((a, b) => a.display_order - b.display_order)
+    .slice(0, 3);
 
   return (
     <main className={styles.page}>
@@ -146,7 +151,7 @@ export default function HomeLanding({
       <section id="contact" className={styles.contact}>
         <div className="container"><div className="gzl-home-contactinner">
           <div><h2>{copy.contactTitle}</h2><p>{copy.contactText}</p></div>
-          <a href="mailto:info@gzlteknoloji.com" className={styles.email}>info@gzlteknoloji.com</a>
+          {contactEmail ? <a href={`mailto:${contactEmail}`} className={styles.email}>{contactEmail}</a> : null}
           <Link href={route('/contact')} className="btn btn-primary">{copy.contact}</Link>
         </div></div>
       </section>

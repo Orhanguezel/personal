@@ -8,6 +8,7 @@ import BlogDetail from '../_components/BlogDetail';
 import { unwrapRouteParams, normalizeLocaleParam } from '@/i18n/localeParam';
 import {
   getCustomPageSeoPageByModuleSlug,
+  getCustomPageLocalizedSlugsByModuleSlug,
   getSeoPage,
   SEO_PAGE_KEYS,
   buildMetadata,
@@ -18,7 +19,7 @@ import { mergeSeoPage } from '@/integrations/shared';
 import { getBlogListServer, getBlogDetailServer } from '@/utils/publicLists.server';
 import { safeGenerateStaticSlugParams } from '@/utils/safeGenerateStaticSlugParams';
 import { getSeoAll } from '@/seo/seo.server';
-import { article, graph } from '@/seo/jsonld';
+import { article, graph, person } from '@/seo/jsonld';
 import type { CustomPageView } from '@/integrations/shared';
 import { extractHtmlFromPost, joinUrl, pickCover, sanitizeBlogHtml, toAbsUrl } from '@/integrations/shared';
 
@@ -56,7 +57,18 @@ export default async function BlogDetailPage({
 
   const canonicalBase = seoAll.defaults.canonicalBase;
   const orgId = `${canonicalBase}/#org`;
-  const founderId = `${canonicalBase}/#founder`;
+  const hasDeploymentBusiness = Boolean(seoAll.localBusiness);
+  const authorId = hasDeploymentBusiness
+    ? `${canonicalBase}/#orhan-guzel`
+    : `${canonicalBase}/#founder`;
+  const deploymentAuthorPaths: Record<string, string> = {
+    de: '/de/unternehmen/about-us',
+    en: '/en/corporate/about-us',
+    tr: '/tr/kurumsal/hakkimizda',
+  };
+  const authorProfileUrl = hasDeploymentBusiness
+    ? joinUrl(canonicalBase, deploymentAuthorPaths[locale] ?? deploymentAuthorPaths.en)
+    : joinUrl(canonicalBase, `/${locale}#about`);
   const labels = BREADCRUMB_LABELS[locale] ?? BREADCRUMB_LABELS.en;
 
   const articleUrl = joinUrl(canonicalBase, `/${locale}/blog/${encodeURIComponent(slug)}`);
@@ -67,6 +79,27 @@ export default async function BlogDetailPage({
 
   const articleJsonLd = post
     ? graph([
+        person({
+          id: authorId,
+          name: (post as any).author?.full_name || 'Orhan Güzel',
+          alternateName: 'Orhan Guzel',
+          jobTitle: hasDeploymentBusiness
+            ? 'Full-Stack Developer and GEO/SEO Specialist'
+            : 'Full-Stack Developer and Founder',
+          url: authorProfileUrl,
+          knowsAbout: [
+            'Next.js',
+            'React',
+            'TypeScript',
+            'Fastify',
+            'Laravel',
+            'MySQL',
+            'SaaS',
+            'Technical SEO',
+            'Generative Engine Optimization',
+          ],
+          worksForId: orgId,
+        }),
         article({
           headline: post.title || slug,
           description: articleDescriptionFromPost(post),
@@ -74,8 +107,9 @@ export default async function BlogDetailPage({
           datePublished: (post as any).created_at || undefined,
           dateModified: (post as any).updated_at || (post as any).created_at || undefined,
           author: {
+            id: authorId,
             name: (post as any).author?.full_name || 'Orhan Güzel',
-            url: founderId,
+            url: authorProfileUrl,
           },
           publisher: { '@id': orgId, name: seoAll.defaults.siteName },
           image: absImg,
@@ -108,9 +142,10 @@ export async function generateMetadata({
   const locale = normalizeLocaleParam(p?.locale);
   const slug = String(p?.slug ?? '').trim();
 
-  const [{ all, page }, contentSeo] = await Promise.all([
+  const [{ all, page }, contentSeo, localizedSlugs] = await Promise.all([
     getSeoPage(SEO_PAGE_KEYS.blogDetail, { routeLocale: locale }),
-    getCustomPageSeoPageByModuleSlug('blog', slug),
+    getCustomPageSeoPageByModuleSlug('blog', slug, locale),
+    getCustomPageLocalizedSlugsByModuleSlug('blog', slug, locale),
   ]);
 
   const merged = mergeSeoPage(page, contentSeo);
@@ -119,6 +154,12 @@ export async function generateMetadata({
     seo: all,
     page: merged,
     canonicalPath: `/${locale}/blog/${slug}`,
+    localizedPaths: Object.fromEntries(
+      Object.entries(localizedSlugs).map(([targetLocale, targetSlug]) => [
+        targetLocale,
+        `/${targetLocale}/blog/${targetSlug}`,
+      ]),
+    ),
     ogType: 'article',
   });
 }

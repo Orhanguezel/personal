@@ -7,7 +7,7 @@
 Guzel Web Design is a professional web development agency delivering end-to-end digital solutions. We specialize in modern, scalable architectures using Next.js, Fastify, Laravel, Flutter, and MySQL. Our services span from UI/UX design through backend architecture to deployment and maintenance. We serve clients across Germany, Europe and Türkiye in three languages: German, English, and Turkish.
 
 - Founder: Orhan Güzel — Full-Stack Developer
-- Germany location: Daimlerstraße 50, 41516 Grevenbroich, Nordrhein-Westfalen, Germany
+- Germany location: Stralsunder Straße 38, 41515 Grevenbroich, Nordrhein-Westfalen, Germany
 - Türkiye company: GZL Teknoloji ve Danışmanlık Hizmetleri Ltd. Şti., Cumhuriyet Mah. Hastahane Cad. 12/C Şahinler Sitesi D:14, Gemlik/Bursa, Türkiye
 - Education: IHK Aachen
 - Active live projects: 15+
@@ -52,7 +52,7 @@ This site is available in three languages:
 
 - Website: https://www.guezelwebdesign.com
 - Email: orhanguzell@gmail.com
-- Germany: Daimlerstraße 50, 41516 Grevenbroich, Nordrhein-Westfalen, Germany
+- Germany: Stralsunder Straße 38, 41515 Grevenbroich, Nordrhein-Westfalen, Germany
 - Türkiye: GZL Teknoloji ve Danışmanlık Hizmetleri Ltd. Şti., Gemlik/Bursa
 - GitHub: https://github.com/Orhanguezel
 - LinkedIn: https://linkedin.com/in/orhan-güzel-53b47b11a

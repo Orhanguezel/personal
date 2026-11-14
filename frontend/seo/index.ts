@@ -3,6 +3,7 @@
 export * from './BreadcrumbJsonLd';
 export * from './customPages.server';
 export * from './jsonld';
+export * from './localizedSlugs.server';
 export * from './JsonLd';
 export * from './metadata';
 export * from './projects.server';
