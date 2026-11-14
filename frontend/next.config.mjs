@@ -115,7 +115,7 @@ const nextConfig = {
       ''
     ).replace(/\/+$/, '');
     const uploads = origin
-      ? [{ source: '/uploads/:path*', destination: `${origin}/uploads/:path*` }]
+      ? [{ source: '/uploads/:path*', destination: `${origin}/uploads/:path*` },{source:'/media/shared/:path*',destination:`${origin}/media/shared/:path*`}]
       : [];
     return [...localized, ...uploads];
   },
@@ -143,6 +143,7 @@ const nextConfig = {
       ),
     )) {
       for (const [from, to] of Object.entries(MERGED_PROJECTS)) {
+        if(process.env.NEXT_PUBLIC_SHARED_CONTENT==='1')continue;
         out.push({
           source: `/${locale}/${byRoute}/${from}`,
           destination: `/${locale}/${byRoute}/${to}`,
@@ -158,6 +159,7 @@ const nextConfig = {
     }
 
     for (const [route, byLocale] of Object.entries(ROUTE_SLUGS)) {
+      if(process.env.NEXT_PUBLIC_SHARED_CONTENT==='1'&&['work','services','products','blog','faq','pricing'].includes(route))continue;
       for (const [locale, slug] of Object.entries(byLocale)) {
         if (slug === route) continue;
         out.push(

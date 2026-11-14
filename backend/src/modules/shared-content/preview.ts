@@ -1,3 +1,4 @@
+import { toDetail } from '@vps/shared-backend/modules/_shared';
 import { createHash, randomBytes } from 'node:crypto';
 import { site, workspaceSchema } from './config';
 import { getContentPool } from './routing';
@@ -40,7 +41,7 @@ export async function readPreview(token: string) {
   if (!parent || !translated)
     throw Object.assign(Error('preview_translation_missing'), { statusCode: 422 });
   // IDs in translations identify the translation; parent ID remains the public content ID.
-  const data: any = {
+  let data: any = {
     ...parent,
     ...translated,
     id: parent.id,
@@ -48,6 +49,7 @@ export async function readPreview(token: string) {
     [d.publishedField]: 1,
     _preview: true,
   };
+  if (d.kind === 'projects') data = { ...toDetail(data), _preview: true, is_published: 1 };
   if (d.commercial?.length) {
     const [offers]: any = await getContentPool().query(
       'SELECT offer FROM `' +

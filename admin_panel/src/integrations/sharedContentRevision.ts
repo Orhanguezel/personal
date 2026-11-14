@@ -17,10 +17,13 @@ export function contentRequest(args: any) {
   }
   return { ...req, headers };
 }
-export function rememberContent(args: any, data: any) {
+export function rememberContent(args: any, data: any, responseRevision?: string | null) {
   const url = typeof args === 'string' ? args : args.url;
   const m = String(url).match(route);
   if (!m) return;
+  const revision = Number(responseRevision);
+  if (m[2] && /^[a-f0-9-]{36}$/i.test(m[2]) && Number.isSafeInteger(revision) && revision > 0)
+    revisions.set(m[1] + ':' + m[2], revision);
   const walk = (v: any) => {
     if (!v || typeof v !== 'object') return;
     if (Array.isArray(v)) {

@@ -17,6 +17,8 @@ const kinds: Record<string, string> = {
   services: 'services',
   products: 'products',
   custompage: 'blog',
+  blog: 'blog',
+  skills: 'skill-counters',
   faqs: 'faqs',
   pricing: 'pricing',
   brands: 'brands',
@@ -210,11 +212,11 @@ export default function SharedContentBoundary({
                     r{r.revision} · {r.created_at}
                     <button
                       type="button"
-                      disabled={!writer || isLoading}
+                      disabled={!writer || isLoading || r.is_deleted===true || r.is_deleted===1}
                       className="underline"
                       onClick={() => act('restore', { target_revision: r.revision })}
                     >
-                      Taslak olarak geri yükle
+                      {r.is_deleted?'Silme kaydı':'Taslak olarak geri yükle'}
                     </button>
                   </li>
                 ))}

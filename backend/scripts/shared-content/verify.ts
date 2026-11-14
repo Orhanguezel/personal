@@ -52,6 +52,28 @@ for (const d of definitions) {
     );
     if (Number(row.n)) failures.push(ref.table + ': orphan references');
   }
+  for (const table of [d.table, ...d.children.map((ch) => ch.table)]) {
+    const [columns]: any = await c.query(
+      'SELECT COLUMN_NAME AS name FROM information_schema.columns WHERE table_schema=? AND table_name=?',
+      [workspaceSchema, table],
+    );
+    for (const { name } of columns.filter((col: any) => /(?:^|_)asset_id$/.test(col.name))) {
+      const [[missing]]: any = await c.query(
+        'SELECT COUNT(*) AS n FROM ' +
+          q(workspaceSchema, table) +
+          ' p LEFT JOIN ' +
+          q(workspaceSchema, 'storage_assets') +
+          ' a ON p.`' +
+          name +
+          '`=a.id WHERE p.`' +
+          name +
+          '` IS NOT NULL AND p.`' +
+          name +
+          "`<>'' AND a.id IS NULL",
+      );
+      if (Number(missing.n)) failures.push(table + '.' + name + ': missing editorial media');
+    }
+  }
   const [closed]: any = await c.query(
     'SELECT id FROM ' + q(workspaceSchema, d.table) + ' WHERE `' + d.publishedField + '`=0',
   );

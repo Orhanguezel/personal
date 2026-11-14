@@ -66,7 +66,7 @@ export default function Page() {
           <option value="">İçerik seçin</option>
           {entries.data?.map((r) => (
             <option key={r.id} value={r.id}>
-              {r.editor_title || r.code || r.client_name || r.organization || r.id} · r{r.revision}
+              {r.state==='deleted'?'Silinmiş · ':''}{r.editor_title || r.code || r.client_name || r.organization || r.id} · r{r.revision}
             </option>
           ))}
         </select>

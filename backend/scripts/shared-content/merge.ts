@@ -1,3 +1,4 @@
+import { selectEditorialMedia } from './editorial-media';
 import { digest } from '../../src/modules/shared-content/repository';
 import { createContentViews } from './views';
 import mysql from 'mysql2/promise';
@@ -150,6 +151,50 @@ for (const d of definitions)
       row[d.publishedField] = 0;
     }
   }
+const knownAssets = new Set((chosen.storage_assets || []).map((a) => a.id));
+for (const [table, rows] of Object.entries(chosen)) {
+  if (['storage_assets', 'storage_assets_i18n'].includes(table)) continue;
+  for (const row of rows)
+    for (const field of Object.keys(row)) {
+      if (/(?:^|_)asset_id$/.test(field) && row[field] && !knownAssets.has(row[field])) {
+        manifest.decisions.push({
+          table,
+          key: row.id,
+          field,
+          reason: 'existing_missing_asset_reference_removed',
+          sourceAssetId: row[field],
+          fallbackUrl: row.image_url || row.featured_image || null,
+        });
+        row[field] = null;
+      }
+    }
+}
+manifest.media = selectEditorialMedia(chosen);
+manifest.counts.storage_assets = chosen.storage_assets.length;
+manifest.counts.storage_assets_i18n = chosen.storage_assets_i18n.length;
+const historical = {
+  geoserra: 'geoserra-yapay-zeka-aramalari-icin-geo-seo-platformu',
+  'konig-massage': 'konig-energetik-randevulu-masaj-wellness-sitesi',
+  'konigs-massage-multi-tenant-randevu-platformu-metahub':
+    'konig-energetik-randevulu-masaj-wellness-sitesi',
+  'wiribu-de-lighthouse-100-100-geo-optimizasyonu':
+    'wiribu-de-lighthouse-100-100-geo-seo-optimizasyonu',
+};
+manifest.historicalAliases = [];
+for (const [from, to] of Object.entries(historical)) {
+  const row = (chosen.projects_i18n || []).find((r) => r.slug === to);
+  if (row)
+    for (const locale of ['tr', 'de', 'en'])
+      for (const sourceSite of ['gwd', 'gzl'])
+        manifest.historicalAliases.push({
+          site: sourceSite,
+          kind: 'projects',
+          locale,
+          slug: from,
+          id: row.project_id,
+        });
+  else manifest.decisions.push({ reason: 'retired_alias_target_missing', from, to });
+}
 manifest.pricingDecision = {
   mode: 'preserve-distinct-source-identities',
   gwd: sources.gwd.tables.pricing_plans.length,
@@ -163,6 +208,8 @@ manifest.decisionFingerprint = digest({
   counts: manifest.counts,
   decisions: manifest.decisions,
   pricingDecision: manifest.pricingDecision,
+  media: manifest.media,
+  historicalAliases: manifest.historicalAliases,
   offers: manifest.offers,
 });
 await writeFile(
@@ -196,6 +243,7 @@ try {
         "`.content_migrations WHERE name='initial-unification'",
     );
     if (applied[0]?.fingerprint === fixtureHash) {
+      await createContentViews(c, workspace, published, sources);
       await c.end();
       console.log(JSON.stringify({ alreadyApplied: true, fingerprint: fixtureHash }));
       process.exit(0);
@@ -236,6 +284,8 @@ for (const schema of [workspace, published]) {
       .filter((l: string) => !/^\s*CONSTRAINT .*FOREIGN KEY/.test(l))
       .join('\n')
       .replace(/,\n\)/g, '\n)');
+    if (table === 'project_images')
+      clean = clean.replace(/^(\s*`asset_id`[^\n]*?) NOT NULL(,?)$/m, '$1 DEFAULT NULL$2');
     await c.query(clean);
   }
 }
@@ -369,6 +419,25 @@ try {
       decisions: manifest.decisions.length,
     }),
   ]);
+  for (const decision of manifest.decisions)
+    await c.query('INSERT INTO content_audit (kind,entity_id,action,details) VALUES (?,?,?,?)', [
+      'migration',
+      decision.key || null,
+      'migration-decision',
+      JSON.stringify(decision),
+    ]);
+  for (const alias of manifest.historicalAliases) {
+    const [existing]: any = await c.query(
+      'SELECT entity_id FROM content_url_aliases WHERE site_id=? AND kind=? AND locale=? AND slug=?',
+      [alias.site, alias.kind, alias.locale, alias.slug],
+    );
+    if (existing[0] && existing[0].entity_id !== alias.id)
+      throw Error('Historical slug conflicts with a different content identity');
+    await c.query(
+      'INSERT IGNORE INTO content_url_aliases (site_id,kind,locale,slug,entity_id) VALUES (?,?,?,?,?)',
+      [alias.site, alias.kind, alias.locale, alias.slug, alias.id],
+    );
+  }
   await c.query('INSERT INTO content_migrations (name,fingerprint) VALUES (?,?)', [
     'initial-unification',
     fixtureHash,

@@ -8,7 +8,7 @@ backup=pathlib.Path('/var/backups/guezel-content-unify-20261114/nginx');backup.m
 old={f:f.read_text() for f in files};old_config=config.read_text() if config.exists() else None;old_snippet=snippet.read_text() if snippet.exists() else None
 try:
  if a.action=='enable':
-  config.write_text('map "$host:$request_method:$uri" $shared_editorial_write_frozen {\n default 0;\n ~^(www\\.|panel\\.)?(guezelwebdesign\\.com|gzlteknoloji\\.com):(POST|PUT|PATCH|DELETE):/api/(v1/)?(admin/(projects|services|products|custom[_-]pages|faqs|pricing|brands|resume-entries|skill-counters|skill-logos|categories|sub[_-]categories|storage|site_settings)|integrations/gzl-crm/projects|storage)(/|$) 1;\n}\n')
+  config.write_text('map "$host:$request_method:$uri" $shared_editorial_write_frozen {\n default 0;\n ~^(www\\.|panel\\.)?(guezelwebdesign\\.com|gzlteknoloji\\.com):(POST|PUT|PATCH|DELETE):/api/(v1/)?(admin/(shared-content|projects|services|products|custom[_-]pages|faqs|pricing|brands|resume-entries|skill-counters|skill-logos|categories|sub[_-]categories|storage|site_settings)|integrations/gzl-crm/projects|storage)(/|$) 1;\n}\n')
   snippet.write_text('if ($shared_editorial_write_frozen) { return 503; }\n')
   for f in files:
    dest=backup/f.name

@@ -11,6 +11,7 @@ export type ContentContext = {
   localCustom?: boolean;
   mixedCustom?: boolean;
   media?: boolean;
+  mediaLock?:PoolConnection;
   transaction?: boolean;
   before?: any;
   requestId?: string;
@@ -18,7 +19,8 @@ export type ContentContext = {
   replay?: boolean;
 };
 export const context = new AsyncLocalStorage<ContentContext>();
-let legacy: mysql.Pool | undefined, content: mysql.Pool | undefined;
+let legacy: mysql.Pool | undefined, content: mysql.Pool | undefined,mediaLocks:mysql.Pool|undefined;
+export function getMediaLockPool(){return mediaLocks??=mysql.createPool({...contentConfig,connectionLimit:1});}
 export function getLegacyPool() {
   return (legacy ??= mysql.createPool({
     host: process.env.DB_HOST || 'localhost',
@@ -133,5 +135,5 @@ export function getPool(): mysql.Pool {
 }
 export const db = drizzle(routedPool);
 export async function closeContentPools() {
-  await routedPool.end();
+  await routedPool.end();await mediaLocks?.end();mediaLocks=undefined;
 }

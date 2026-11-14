@@ -8,6 +8,7 @@ import {
   routedPool,
   type ContentContext,
   closeContentPools,
+  getMediaLockPool,
 } from './routing';
 import { definitions, definitionForPath, type ContentDefinition } from './definitions';
 import { digest, readAggregate, saveRevision, metadata } from './repository';
@@ -25,6 +26,7 @@ async function release(ctx: ContentContext, commit = false) {
     ctx.connection = undefined;
   }
 }
+async function releaseMedia(ctx:ContentContext){if(!ctx.mediaLock)return;try{await ctx.mediaLock.query("SELECT RELEASE_LOCK('shared_editorial_media')");}finally{ctx.mediaLock.release();ctx.mediaLock=undefined;}}
 export default fp(async (app) => {
   if (!enabled) return;
   app.addHook('onClose', async () => closeContentPools());
@@ -39,13 +41,18 @@ export default fp(async (app) => {
       kind: integration ? definitions.find((d) => d.kind === 'projects')! : definitionForPath(path),
       skip: path.includes('/admin/db') || path.includes('/shared-content/'),
       requestId: String(req.id),
-      media: /\/(?:admin\/)?storage(?:\/|$)/.test(path),
+      media: path.includes('/admin/storage') && req.headers['x-media-scope'] !== 'site',
     };
     context.run(scope, done);
   });
   app.addHook('preValidation', async (req, reply) => {
     const ctx = context.getStore();
     if (!ctx) return;
+    if (
+      req.headers['x-media-scope'] &&
+      !['site', 'editorial'].includes(String(req.headers['x-media-scope']))
+    )
+      throw Object.assign(Error('invalid_media_scope'), { statusCode: 400 });
     if (
       ctx.kind ||
       ctx.mixedCustom ||
@@ -171,6 +178,7 @@ export default fp(async (app) => {
   app.addHook('preHandler', (req, reply, done) => {
     const handle = async () => {
       const ctx = context.getStore();
+      if(ctx?.media&&!['GET','HEAD','OPTIONS'].includes(req.method)){const c=await getMediaLockPool().getConnection();ctx.mediaLock=c;const [[row]]:any=await c.query("SELECT GET_LOCK('shared_editorial_media',15) AS locked");if(Number(row.locked)!==1){await releaseMedia(ctx);throw Object.assign(Error('media_write_busy'),{statusCode:503});}return;}
       if (
         !ctx ||
         ctx.skip ||
@@ -277,6 +285,14 @@ export default fp(async (app) => {
   });
   app.addHook('onSend', async (req, reply, payload) => {
     const ctx = context.getStore();
+    if(ctx?.mediaLock)await releaseMedia(ctx);
+    if (
+      req.url.includes('/content/') ||
+      req.url.includes('/shared-content/') ||
+      ctx?.mixedCustom ||
+      req.url.includes('/skills')
+    )
+      reply.header('cache-control', 'private, no-store');
     if (!ctx || ctx.skip || ctx.replay) return payload;
     if (reply.statusCode >= 400) {
       await release(ctx);
@@ -289,6 +305,7 @@ export default fp(async (app) => {
       await release(ctx);
       return payload;
     }
+    if(ctx.media&&!['GET','HEAD','OPTIONS'].includes(req.method))await getContentPool().query('INSERT INTO '+q('content_audit')+' (kind,entity_id,action,actor_id,request_id,details) VALUES (?,?,?,?,?,?)',['media',(req.params as any)?.id||value?.id||value?.asset_id||null,'media-write',actor(req),String(req.id),JSON.stringify({method:req.method,scope:'editorial'})]);
     if (ctx.transaction && ctx.kind) {
       const id = String(
         (req.params as any)?.id ||
@@ -418,6 +435,6 @@ export default fp(async (app) => {
   });
   app.addHook('onError', async () => {
     const ctx = context.getStore();
-    if (ctx) await release(ctx);
+    if (ctx){await releaseMedia(ctx);await release(ctx);}
   });
 });

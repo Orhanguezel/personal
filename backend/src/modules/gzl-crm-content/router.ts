@@ -220,7 +220,7 @@ export async function registerGzlCrmContentIntegration(app: FastifyInstance) {
         await writeFile(storedPath, bytes, { flag: 'wx', mode: 0o644 }).then(()=>{storedNew=true;}).catch(async (error: NodeJS.ErrnoException) => {
           if (error.code !== 'EEXIST') throw error;
         });
-        const publicUrl = `/uploads/${relativePath}`;
+        const publicUrl = `${sharedEnabled?'/media/shared':'/uploads'}/${relativePath}`;
 
         await connection.beginTransaction();
         const result = await insertProject(connection, payload, {

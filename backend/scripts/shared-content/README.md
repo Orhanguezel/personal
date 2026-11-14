@@ -34,7 +34,7 @@ fiyatına veya otomatik kur dönüşümüne düşülmez. Fiyatı olmayan içerik
 Mevcut kaynakta proje/hizmet satın alma bayraklarının tamamı kapalıdır; göç bunları
 açmaz. Yerel `site_packages` tabloları her iki kaynakta da boştur.
 
-Medya, mevcut URL'ler korunarak ortak fiziksel köke kopyalanır. Aynı yolun farklı
+Yalnızca ortak içerikte referans verilen public medya ortak fiziksel köke kopyalanır. Yeni ortak URL öneki `/media/shared/` olur; eski `/uploads/` adresleri çalışır. Logo/favicon ve referanssız yerel medya kayıtları ülke deposunda kalır. Aynı yolun farklı
 hash'i göçü durdurur. Yeni yerel yüklemeler SHA-256 adını kullanır; eski dosya
 üzerine yazılmaz. Geçmiş bir revizyonun referans verdiği medya silinemez/yeniden
 adlandırılamaz. Siteye ait eski yükleme kökleri uyumluluk için yerinde kalır.
@@ -79,7 +79,7 @@ veri erişimi uyarlamaları açıkça `build-immutable.mjs` içinde listelenmiş
 5. Hazır `shared-content-merge.js` aracını root MySQL socket'iyle çalıştır;
    `--fixture`, `--manifest`, `--schema=dist/content-schema.sql`,
    `--crm-schema=dist/crm-imports.sql`, `--accept-manifest=<decisionFingerprint>`, `--write` ver. Fingerprint dry-run çıktısındaki eksiksiz dil/yayın/fiyat kararlarını sabitler. Bu derleme değildir.
-6. `media-plan.py --apply` doğrulanmış dosya birleşimini kopyalar.
+6. `media-plan.py --selection=<manifest> --apply` yalnızca manifestte seçilmiş editoryal dosyaları kopyalar.
 7. `provision.mjs --apply` ayrı writer/reader DB kullanıcılarını ve özel env'leri
    hazırlar; parola çıktıya basılmaz. Üretim env veya fixture repo'ya girmez.
 8. Hazır paketleri yalnızca `scripts/deploy-yerel.sh` ile backend, frontend,
@@ -115,3 +115,15 @@ kalır. Tek origin'in yanıtı iki sitenin başarılı olduğu anlamına gelmez.
 Token URL'ye yazılmaz; POST ile ülke sitesine iletilip HttpOnly cookie'ye alınır.
 Önizleme no-store/noindex'tir. Yayınlama değildir; dış sosyal/mail/ödeme gönderimi
 test edilmez. Ortak taslak kaydı LinkedIn kuyruğunda yan etki üretmez.
+
+
+## Başarısız yükleme temizliği
+
+`shared-media-gc.js` varsayılan olarak dry-run yapar. Yalnızca `content/<SHA256>.*`
+yolunda en az yedi gündür bekleyen, hiçbir medya kaydında veya immutable revizyonda
+referansı olmayan dosyalar adaydır. Eski site dosyaları bu kapsama girmez.
+`--apply` için editoryal yazma freeze'i ve `CONTENT_GC_FROZEN=1` birlikte gerekir;
+canlı yüklemeyle yarışarak dosya silinmez. Geri dönüş aracı ortak dosyaları eski
+ülke yükleme köklerinde `shared-editorial/` altına bağımsız kopyalar; ortak kaynağın
+kendisini veya geçmişini değiştirmez. Ülke teklifi bulunmayan ticari kayıtlar eski
+kodda ücretsiz görünecek şekilde açılmaz.

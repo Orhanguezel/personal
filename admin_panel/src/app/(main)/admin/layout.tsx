@@ -1,3 +1,4 @@
+import MediaScopeBoundary from '@/features/shared-content/MediaScopeBoundary';
 import SharedContentBoundary from '@/features/shared-content/SharedContentBoundary';
 // =============================================================
 // FILE: src/app/(main)/admin/layout.tsx
@@ -68,7 +69,7 @@ export default async function Layout({ children }: Readonly<{ children: ReactNod
             </div>
           </header>
 
-          <div className="h-full min-w-0 p-4 md:p-6"><SharedContentBoundary>{children}</SharedContentBoundary></div>
+          <div className="h-full min-w-0 p-4 md:p-6"><SharedContentBoundary><MediaScopeBoundary>{children}</MediaScopeBoundary></SharedContentBoundary></div>
         </SidebarInset>
       </SidebarProvider>
     </AdminAuthGate>

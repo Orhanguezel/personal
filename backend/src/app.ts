@@ -45,6 +45,7 @@ export async function createApp() {
       'Range',
       'If-Match',
       'Idempotency-Key',
+      'X-Media-Scope',
     ],
     exposedHeaders: ['x-total-count', 'content-range', 'range', 'x-content-revision', 'x-content-source', 'x-content-site'],
   });

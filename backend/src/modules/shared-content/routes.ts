@@ -176,7 +176,7 @@ export async function registerSharedContentAdmin(app: FastifyInstance) {
     const d = byKind.get(req.query.kind as ContentKind);
     if (!d) throw Object.assign(Error('invalid_content_kind'), { statusCode: 400 });
     const [rows]: any = await getContentPool().query(
-      'SELECT e.entity_id AS id,e.revision,e.published_revision,e.state,p.*' +
+      'SELECT p.*,e.entity_id AS id,e.revision,e.published_revision,e.state' +
         (d.translations
           ? ',t.`' +
             (['categories', 'subcategories', 'services'].includes(d.kind)
@@ -190,7 +190,7 @@ export async function registerSharedContentAdmin(app: FastifyInstance) {
           : '') +
         ' FROM ' +
         q('content_entries') +
-        ' e JOIN `' +
+        ' e LEFT JOIN `' +
         workspaceSchema +
         '`.`' +
         d.table +
@@ -207,6 +207,7 @@ export async function registerSharedContentAdmin(app: FastifyInstance) {
         ' WHERE e.kind=? ORDER BY e.updated_at DESC,e.entity_id LIMIT 500',
       [d.kind],
     );
+    for(const row of rows)if(row.state==='deleted'){const [history]:any=await getContentPool().query('SELECT payload FROM '+q('content_revisions')+' WHERE kind=? AND entity_id=? AND JSON_EXTRACT(payload,\'$.deleted\')=false ORDER BY revision DESC LIMIT 1',[d.kind,row.id]);if(history[0]&&d.translations){const payload=typeof history[0].payload==='string'?JSON.parse(history[0].payload):history[0].payload;const translated=(payload.tables[d.translations.table]||[]).find((t:any)=>t.locale==='tr')||payload.tables[d.translations.table]?.[0];row.editor_title=translated?.title||translated?.name||translated?.question||translated?.label||row.id;}}
     return rows;
   });
   app.get('/shared-content/entries/:kind/:id', async (req, reply) => {
@@ -218,12 +219,12 @@ export async function registerSharedContentAdmin(app: FastifyInstance) {
   app.get('/shared-content/entries/:kind/:id/revisions', async (req) => {
     const d = definition(req);
     const [rows] = await getContentPool().query(
-      'SELECT revision,hash,actor_id,created_at FROM ' +
+      'SELECT revision,hash,actor_id,created_at,JSON_EXTRACT(payload,\'$.deleted\') AS is_deleted FROM ' +
         q('content_revisions') +
         ' WHERE kind=? AND entity_id=? ORDER BY revision DESC LIMIT 100',
       [d.kind, (req.params as any).id],
     );
-    return rows;
+    return (rows as any[]).map(row=>({...row,is_deleted:row.is_deleted===true||row.is_deleted===1||row.is_deleted==='true'}));
   });
   app.post('/shared-content/entries/:kind/:id/approve', async (req: any) => {
     const d = definition(req),

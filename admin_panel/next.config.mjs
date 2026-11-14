@@ -56,7 +56,9 @@ const nextConfig = {
 
     const base = String(origin).replace(/\/+$/, '');
 
+    const media=(process.env.UPLOADS_PROXY_ORIGIN||base).replace(/\/+$/,'');
     return [
+      {source:'/media/shared/:path*',destination:`${media}/media/shared/:path*`},
       {
         source: '/api/:path*',
         destination: `${base}/api/:path*`,

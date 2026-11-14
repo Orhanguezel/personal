@@ -55,7 +55,7 @@ health_url() {
     gwd:backend) p=8044 ;& gzl:backend) p=${p:-8102}
       echo "http://127.0.0.1:$p/api/v1/health http://127.0.0.1:$p/api/v1/site_settings/site_favicon http://127.0.0.1:$p/api/v1/custom-pages?module_key=blog http://127.0.0.1:$p/api/v1/services?limit=1 http://127.0.0.1:$p/api/v1/projects?limit=1" ;;
   esac
-  if [ "$2" = backend ] && [ "${SHARED_CONTENT:-0}" = 1 ]; then
+  if [ "$2" = backend ] && [ "${SHARED_CONTENT:-1}" = 1 ]; then
     case "$1" in gwd) echo "http://127.0.0.1:8044/api/v1/content/health" ;; gzl) echo "http://127.0.0.1:8102/api/v1/content/health" ;; esac
   fi
 }
@@ -95,9 +95,11 @@ for app in $APPS; do
     scp -q "$HOST:$BASE/$td/$app/.env.production.local" "$WT/$app/.env.production.local" 2>/dev/null || rm -f "$WT/$app/.env.production.local"
     rm -rf "$WT/$app/.next"
     if [ "$app" = frontend ]; then
-      cmd=(env NEXT_PUBLIC_SHARED_CONTENT="${SHARED_CONTENT:-0}" API_BASE="$(api_base "$t")" bun run build:deploy)
+      backend_port=8044; [ "$t" = gzl ] && backend_port=8102
+      cmd=(env UPLOADS_PROXY_ORIGIN="http://127.0.0.1:$backend_port" NEXT_PUBLIC_SHARED_CONTENT="${SHARED_CONTENT:-1}" API_BASE="$(api_base "$t")" bun run build:deploy)
     else
-      cmd=(bun run build)
+      backend_port=8044; [ "$t" = gzl ] && backend_port=8102
+      cmd=(env UPLOADS_PROXY_ORIGIN="http://127.0.0.1:$backend_port" bun run build)
     fi
     if ! (cd "$WT/$app" && "${cmd[@]}" > "$LOGDIR/$t-$app.log" 2>&1); then
       tail -60 "$LOGDIR/$t-$app.log"; echo "HATA: $t $app derlemesi" >&2; exit 1

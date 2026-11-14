@@ -62,33 +62,48 @@ const result = await Bun.build({
           { filter: /\/packages\/shared-backend\/modules\/storage\/cloudinary.ts$/ },
           async (args) => {
             let source = await fs.readFile(args.path, 'utf8');
-            source = "import {createHash as contentHash} from 'node:crypto';\n" + source;
+            const scope = 'editorialContext.getStore()?.media===true';
+            source =
+              "import {createHash as contentHash} from 'node:crypto';\nimport {context as editorialContext} from " +
+              JSON.stringify(shim) +
+              ';\n' +
+              source;
             const changes = [
               [
-                'localRoot: settings?.localRoot ?? null,',
-                "localRoot: process.env.CONTENT_SHARED_ENABLED==='1'?process.env.CONTENT_MEDIA_ROOT:settings?.localRoot ?? null,",
+                'let root = cfg.localRoot || env.LOCAL_STORAGE_ROOT || fallbackRoot;',
+                `let root = ${scope}?process.env.CONTENT_MEDIA_ROOT:(cfg.localRoot || env.LOCAL_STORAGE_ROOT || fallbackRoot);`,
               ],
               [
                 'const folder = (opts.folder ?? cfg.defaultFolder ?? "").replace',
-                'const folder = process.env.CONTENT_SHARED_ENABLED===\'1\'?"content":(opts.folder ?? cfg.defaultFolder ?? "").replace',
+                `const folder = ${scope}?"content":(opts.folder ?? cfg.defaultFolder ?? "").replace`,
               ],
               [
                 'let baseName =\n    (opts.publicId',
-                "let baseName =\n    process.env.CONTENT_SHARED_ENABLED==='1'?contentHash('sha256').update(buffer).digest('hex'):(opts.publicId",
+                `let baseName =\n    ${scope}?contentHash('sha256').update(buffer).digest('hex'):(opts.publicId`,
               ],
               [
                 'await fs.writeFile(absFile, buffer);',
-                "await fs.writeFile(absFile, buffer, process.env.CONTENT_SHARED_ENABLED==='1'?{flag:'wx'}:{}).catch(error=>{if(process.env.CONTENT_SHARED_ENABLED==='1'&&error.code==='EEXIST')return;throw error;});",
+                `await fs.writeFile(absFile, buffer, ${scope}?{flag:'wx'}:{}).catch(error=>{if(${scope}&&error.code==='EEXIST')return;throw error;});`,
               ],
               [
                 '    etag: null,',
-                "    etag: process.env.CONTENT_SHARED_ENABLED==='1'?contentHash('sha256').update(buffer).digest('hex'):null,",
+                `    etag: ${scope}?contentHash('sha256').update(buffer).digest('hex'):null,`,
               ],
-              [
-                'root = fallbackRoot;',
-                "if(process.env.CONTENT_SHARED_ENABLED==='1')throw err;\n      root = fallbackRoot;",
-              ],
+              ['root = fallbackRoot;', `if(${scope})throw err;\n      root = fallbackRoot;`],
             ];
+            source = source.replaceAll(
+              'const root = cfg?.localRoot || env.LOCAL_STORAGE_ROOT || path.join(process.cwd(), "uploads");',
+              `const root = ${scope}?process.env.CONTENT_MEDIA_ROOT:(cfg?.localRoot || env.LOCAL_STORAGE_ROOT || path.join(process.cwd(), "uploads"));`,
+            );
+            source = source
+              .replaceAll(
+                'const baseUrlRaw = cfg.localBaseUrl || env.LOCAL_STORAGE_BASE_URL || "/uploads";',
+                `const baseUrlRaw = ${scope}?'/media/shared':(cfg.localBaseUrl || env.LOCAL_STORAGE_BASE_URL || "/uploads");`,
+              )
+              .replaceAll(
+                'const baseUrlRaw = cfg?.localBaseUrl || env.LOCAL_STORAGE_BASE_URL || "/uploads";',
+                `const baseUrlRaw = ${scope}?'/media/shared':(cfg?.localBaseUrl || env.LOCAL_STORAGE_BASE_URL || "/uploads");`,
+              );
             for (const [before, after] of changes) {
               if (!source.includes(before))
                 throw Error('Shared media adapter source changed: ' + before);
@@ -150,9 +165,14 @@ const result = await Bun.build({
         build.onLoad(
           { filter: /\/packages\/shared-backend\/modules\/storage\/helpers\/admin.helpers.ts$/ },
           async (args) => ({
-            contents: (await fs.readFile(args.path, 'utf8')).replace(
+            contents: (
+              'import {context as editorialContext} from ' +
+              JSON.stringify(shim) +
+              ';\n' +
+              (await fs.readFile(args.path, 'utf8'))
+            ).replace(
               'const path = input.folder ? `${input.folder}/${input.name}` : input.name;',
-              "const path = process.env.CONTENT_SHARED_ENABLED==='1'&&input.provider==='local'?input.upload.public_id:(input.folder ? `${input.folder}/${input.name}` : input.name);",
+              "const path = editorialContext.getStore()?.media===true&&input.provider==='local'?input.upload.public_id:(input.folder ? `${input.folder}/${input.name}` : input.name);",
             ),
             loader: 'ts',
           }),
@@ -230,6 +250,17 @@ if (!test) {
   });
   if (!verification.success) {
     for (const log of verification.logs) console.error(log);
+    process.exit(1);
+  }
+  const gc = await Bun.build({
+    entrypoints: [path.join(root, 'scripts/shared-content/media-gc.ts')],
+    outdir: path.join(root, 'dist'),
+    naming: 'shared-media-gc.js',
+    target: 'bun',
+    packages: 'external',
+  });
+  if (!gc.success) {
+    for (const log of gc.logs) console.error(log);
     process.exit(1);
   }
   const rollback = await Bun.build({

@@ -1,3 +1,6 @@
+import { readdir, mkdir, copyFile, readFile } from 'node:fs/promises';
+import path from 'node:path';
+import { createHash } from 'node:crypto';
 /** Materialize only the last public projection before returning to a legacy application.
  * The shared workspace, every draft revision, tombstone and audit record remain intact.
  */
@@ -27,6 +30,38 @@ const [entries]: any = await c.query(
   'SELECT * FROM `' + workspaceSchema + '`.content_entries ORDER BY kind,entity_id',
 );
 if (!entries.length) throw Error('Shared workspace must exist before rollback');
+const legacyMedia = (v: any): any => {
+  if (Array.isArray(v)) return v.map(legacyMedia);
+  if (v && typeof v === 'object')
+    return Object.fromEntries(Object.entries(v).map(([k, x]) => [k, legacyMedia(x)]));
+  return typeof v === 'string' ? v.replaceAll('/media/shared/', '/uploads/shared-editorial/') : v;
+};
+const mediaRoot =
+  process.env.MIGRATION_MEDIA_ROOT ||
+  process.env.CONTENT_MEDIA_ROOT ||
+  '/var/www/vps-guezel/shared-editorial/uploads';
+const sitesRoot = process.env.MIGRATION_SITE_ROOT || '/var/www/vps-guezel';
+async function copyMedia(source: string, target: string) {
+  for (const item of await readdir(source, { withFileTypes: true })) {
+    if (item.isSymbolicLink()) continue;
+    const from = path.join(source, item.name),
+      to = path.join(target, item.name);
+    if (item.isDirectory()) {
+      await mkdir(to, { recursive: true });
+      await copyMedia(from, to);
+    } else if (item.isFile()) {
+      try {
+        const before = await readFile(to),
+          after = await readFile(from);
+        if (!before.equals(after)) throw Error('Rollback media conflict: ' + item.name);
+      } catch (e: any) {
+        if (e.code !== 'ENOENT') throw e;
+        await mkdir(path.dirname(to), { recursive: true });
+        await copyFile(from, to);
+      }
+    }
+  }
+}
 const result: any = {
   applied: apply,
   workspacePreserved: true,
@@ -38,6 +73,15 @@ for (const [site, schema] of [
   ['gzl', 'gzlteknoloji_v2'],
 ]) {
   const changes: any[] = [];
+  if (apply)
+    await copyMedia(
+      mediaRoot,
+      path.join(
+        sitesRoot,
+        site === 'gwd' ? 'guezelwebdesign' : 'gzlteknoloji-site',
+        'backend/uploads/shared-editorial',
+      ),
+    );
   if (apply) await c.beginTransaction();
   try {
     if (apply) {
@@ -45,8 +89,16 @@ for (const [site, schema] of [
         const [rows]: any = await c.query(
           'SELECT * FROM `' + publishedSchema + '`.`' + table + '`',
         );
-        if (table === 'storage_assets') for (const row of rows) row.user_id = null;
-        await upsertRows(c, schema, table, rows);
+        if (table === 'storage_assets')
+          for (const row of rows) {
+            row.user_id = null;
+            const sharedPath = String(row.url || '').split('/media/shared/')[1];
+            if (sharedPath) {
+              row.path = 'shared-editorial/' + sharedPath;
+              row.provider_public_id = row.provider === 'local' ? row.path : row.provider_public_id;
+            }
+          }
+        await upsertRows(c, schema, table, legacyMedia(rows));
       }
     }
     for (const d of definitions)
@@ -93,10 +145,12 @@ for (const [site, schema] of [
             if (!(field in parent) || field === 'stock_quantity') continue;
             if (offer && field in offer) parent[field] = offer[field];
             else if (field === 'is_purchasable') parent[field] = 0;
-            else if (/price|amount/.test(field) && field !== 'price_unit') parent[field] = 0;
+            else if (/price|amount/.test(field) && field !== 'price_unit')
+              parent[field] = field === 'price_onetime' ? null : 0;
           }
           // No offer remains non-purchasable after rollback, regardless of legacy null handling.
           if (!offer && 'is_purchasable' in parent) parent.is_purchasable = 0;
+          if (!offer && ['pricing', 'products'].includes(d.kind)) parent[d.publishedField] = 0;
         }
         changes.push({
           kind: d.kind,
@@ -104,7 +158,35 @@ for (const [site, schema] of [
           live: !!parent[d.publishedField],
           hash: digest(a),
         });
-        if (apply) await applyAggregate(c, d, entry.entity_id, a, schema);
+        if (apply && d.kind === 'projects')
+          for (const image of a.tables.project_images || [])
+            if (!image.asset_id) {
+              const [original]: any = await c.query(
+                'SELECT asset_id FROM `' + schema + '`.project_images WHERE id=?',
+                [image.id],
+              );
+              if (original[0]?.asset_id) image.asset_id = original[0].asset_id;
+              else {
+                const [decisions]: any = await c.query(
+                  'SELECT details FROM `' +
+                    workspaceSchema +
+                    '`.content_audit WHERE action=? AND entity_id=?',
+                  ['migration-decision', image.id],
+                );
+                for (const raw of decisions) {
+                  const decision =
+                    typeof raw.details === 'string' ? JSON.parse(raw.details) : raw.details;
+                  if (
+                    decision.reason === 'existing_missing_asset_reference_removed' &&
+                    decision.field === 'asset_id'
+                  )
+                    image.asset_id = decision.sourceAssetId;
+                }
+                if (!image.asset_id)
+                  throw Error('Legacy gallery requires the preserved source asset identity');
+              }
+            }
+        if (apply) await applyAggregate(c, d, entry.entity_id, legacyMedia(a), schema);
       }
     if (apply) {
       await c.query(

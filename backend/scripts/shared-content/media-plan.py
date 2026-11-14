@@ -1,6 +1,6 @@
 """Inspect public editorial uploads; --apply copies the verified union without overwriting files."""
 import argparse, hashlib, json, pathlib, shutil
-p=argparse.ArgumentParser();p.add_argument('--apply',action='store_true');p.add_argument('--output',default='/tmp/shared-media-plan.json');args=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('--apply',action='store_true');p.add_argument('--selection');p.add_argument('--output',default='/tmp/shared-media-plan.json');args=p.parse_args()
 base=pathlib.Path('/var/www/vps-guezel');target=base/'shared-editorial/uploads';files={};conflicts=[]
 for site,directory in [('gwd','guezelwebdesign'),('gzl','gzlteknoloji-site')]:
  root=base/directory/'backend/uploads'
@@ -12,6 +12,10 @@ for site,directory in [('gwd','guezelwebdesign'),('gzl','gzlteknoloji-site')]:
    if files[rel]['sha256']!=digest:conflicts.append({'path':rel,'hashes':[files[rel]['sha256'],digest]})
    else:files[rel]['sites'].append(site)
   else:files[rel]=row
+if args.selection:
+ selected=set(json.loads(pathlib.Path(args.selection).read_text())['media']['paths']);missing=selected-set(files)
+ if missing:raise SystemExit('Referenced editorial files missing: '+str(len(missing)))
+ files={k:v for k,v in files.items() if k in selected}
 report={'files':list(files.values()),'conflicts':conflicts,'total_bytes':sum(f['bytes'] for f in files.values())}
 pathlib.Path(args.output).write_text(json.dumps(report,indent=2));pathlib.Path(args.output).chmod(0o600)
 if conflicts:raise SystemExit('Unresolved media path conflicts: '+str(len(conflicts)))

@@ -216,6 +216,12 @@ const baseQueryWithReauth: RBQ = async (args, api, extra) => {
   const path = typeof req === 'string' ? req : req.url || '';
   const cleanPath = extractPath(path);
 
+  if(cleanPath.startsWith('/admin/storage')){
+    const current=typeof window==='undefined'?'':window.location.pathname;
+    const own=typeof window!=='undefined'&&new URLSearchParams(window.location.search).get('media_scope')==='site';
+    const local=own||/^\/admin\/(site-settings|users|profiles|legal|corporate|menuitem|footer-sections|email-templates|reviews|support|contacts)(?:\/|$)/.test(current);
+    const next=typeof req==='string'?{url:req}:{...req};const headers=new Headers(next.headers as HeadersInit);headers.set('X-Media-Scope',local?'site':'editorial');req={...next,headers};
+  }
   if (typeof req !== 'string') {
     if (AUTH_SKIP_REAUTH.has(cleanPath)) {
       const orig = (req.headers as Record<string, string> | undefined) ?? {};
@@ -230,7 +236,7 @@ const baseQueryWithReauth: RBQ = async (args, api, extra) => {
   if (result.error?.status === 401 && !AUTH_SKIP_REAUTH.has(cleanPath)) {
     // Another request may already have renewed the session while this one was in flight.
     if (tokenStore.get() && tokenStore.get() !== requestToken) {
-      const retried=await coerceSerializableError(await rawBaseQuery(req, api, extra));rememberContent(req,retried.data);return retried;
+      const retried=await coerceSerializableError(await rawBaseQuery(req, api, extra));rememberContent(req,retried.data,retried.meta?.response?.headers.get('x-content-revision'));return retried;
     }
 
     refreshInFlight ??= Promise.resolve(rawBaseQuery(
@@ -272,7 +278,7 @@ const baseQueryWithReauth: RBQ = async (args, api, extra) => {
     }
   }
 
-  rememberContent(req,result.data);
+  rememberContent(req,result.data,result.meta?.response?.headers.get('x-content-revision'));
   return result;
 };
 
