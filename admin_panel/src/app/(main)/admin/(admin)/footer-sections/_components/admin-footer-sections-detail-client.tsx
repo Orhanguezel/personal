@@ -7,7 +7,7 @@
 // =============================================================
 
 import * as React from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { toast } from 'sonner';
 import { ArrowLeft, Save, Trash2, Loader2 } from 'lucide-react';
 
@@ -66,6 +66,8 @@ function getErrMsg(e: unknown): string {
 
 export default function AdminFooterSectionsDetailClient({ id }: { id: string }) {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const [selectedLocale, setSelectedLocale] = React.useState(searchParams.get('locale') || '');
   const isNew = id === 'new';
 
   // Locale management
@@ -82,17 +84,18 @@ export default function AdminFooterSectionsDetailClient({ id }: { id: string }) 
 
   // ✅ FIX: Initial locale with proper fallback
   const initialLocale = React.useMemo(() => {
-    return defaultLocaleFromDb || localeShortClientOr(typeof window !== 'undefined' ? navigator.language : 'de') || 'de';
-  }, [defaultLocaleFromDb]);
+    return coerceLocale(selectedLocale, defaultLocaleFromDb);
+  }, [selectedLocale, defaultLocaleFromDb, coerceLocale]);
 
   // RTK Query - only fetch if editing
   const {
     data: existingItem,
     isLoading: loadingItem,
+    isFetching: fetchingItem,
     error: loadError,
   } = useGetFooterSectionAdminQuery(
-    { id, locale: undefined },
-    { skip: isNew }
+    { id, locale: initialLocale },
+    { skip: isNew || localesLoading || !initialLocale }
   );
 
   const [createSection, { isLoading: isCreating }] = useCreateFooterSectionAdminMutation();
@@ -121,7 +124,7 @@ export default function AdminFooterSectionsDetailClient({ id }: { id: string }) 
         description: existingItem.description || '',
         is_active: existingItem.is_active,
         display_order: existingItem.display_order || 0,
-        locale: existingItem.locale || initialLocale,
+        locale: initialLocale || existingItem.locale,
       });
     }
   }, [existingItem, isNew, initialLocale]);
@@ -129,11 +132,11 @@ export default function AdminFooterSectionsDetailClient({ id }: { id: string }) 
   // Update default locale if needed
   React.useEffect(() => {
     if (isNew && defaultLocaleFromDb && !formData.locale) {
-      setFormData((prev) => ({ ...prev, locale: defaultLocaleFromDb }));
+      setFormData((prev) => ({ ...prev, locale: initialLocale }));
     }
-  }, [isNew, defaultLocaleFromDb, formData.locale]);
+  }, [isNew, defaultLocaleFromDb, formData.locale, initialLocale]);
 
-  const busy = isCreating || isUpdating || isDeleting || loadingItem;
+  const busy = isCreating || isUpdating || isDeleting || loadingItem || fetchingItem || localesLoading;
 
   const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -203,6 +206,7 @@ export default function AdminFooterSectionsDetailClient({ id }: { id: string }) 
 
   const handleLocaleChange = (locale: string) => {
     const coerced = coerceLocale(locale, defaultLocaleFromDb);
+    setSelectedLocale(coerced);
     setFormData((prev) => ({ ...prev, locale: coerced }));
   };
 

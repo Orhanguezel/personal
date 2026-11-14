@@ -206,7 +206,7 @@ export default function AdminFooterSectionsClient() {
   };
 
   const handleEdit = (item: FooterSectionDto) => {
-    router.push(`/admin/footer-sections/${item.id}`);
+    router.push(`/admin/footer-sections/${item.id}?locale=${encodeURIComponent(filters.locale)}`);
   };
 
   const handleDeleteClick = (item: FooterSectionDto) => {
@@ -243,7 +243,7 @@ export default function AdminFooterSectionsClient() {
                 </CardDescription>
               </div>
               <Button
-                onClick={() => router.push('/admin/footer-sections/new')}
+                onClick={() => router.push(`/admin/footer-sections/new?locale=${encodeURIComponent(filters.locale)}`)}
                 disabled={busy}
                 className="gap-2"
               >
