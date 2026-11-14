@@ -199,16 +199,10 @@ async function coerceSerializableError(result: Awaited<ReturnType<typeof rawBase
 /* ---------- Body tipine göre doğru Content-Type ---------- */
 function ensureProperHeaders(fa: FetchArgs): FetchArgs {
   const next: FetchArgs = { ...fa };
-  const hdr = (next.headers as Record<string, string>) ?? {};
-
-  if (isJsonLikeBody(next.body)) {
-    next.headers = { ...hdr, 'Content-Type': 'application/json' };
-  } else {
-    if (hdr['Content-Type']) {
-      const { ['Content-Type']: _omit, ...rest } = hdr;
-      next.headers = rest;
-    }
-  }
+  const headers=new Headers(next.headers as HeadersInit);
+  if(isJsonLikeBody(next.body))headers.set('Content-Type','application/json');
+  else headers.delete('Content-Type');
+  next.headers=headers;
   return next;
 }
 
@@ -236,7 +230,7 @@ const baseQueryWithReauth: RBQ = async (args, api, extra) => {
   if (result.error?.status === 401 && !AUTH_SKIP_REAUTH.has(cleanPath)) {
     // Another request may already have renewed the session while this one was in flight.
     if (tokenStore.get() && tokenStore.get() !== requestToken) {
-      return coerceSerializableError(await rawBaseQuery(req, api, extra));
+      const retried=await coerceSerializableError(await rawBaseQuery(req, api, extra));rememberContent(req,retried.data);return retried;
     }
 
     refreshInFlight ??= Promise.resolve(rawBaseQuery(

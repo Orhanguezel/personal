@@ -161,15 +161,16 @@ export default function AdminProjectDetailClient({ id }: { id: string }) {
   const canLoad = !isCreate && !!routeKey;
 
   const [editLocale,setEditLocale]=React.useState('tr');
-  const byIdQ = useGetProjectAdminQuery({id:routeKey,locale:editLocale}, {
-    skip: !canLoad || !looksLikeId,
-    refetchOnMountOrArgChange: true,
-  });
-  const bySlugQ = useGetProjectBySlugAdminQuery({slug:routeKey,locale:editLocale}, {
+  const bySlugQ = useGetProjectBySlugAdminQuery({slug:routeKey,locale:'tr'}, {
     skip: !canLoad || looksLikeId,
     refetchOnMountOrArgChange: true,
   });
-  const projectQ = looksLikeId ? byIdQ : bySlugQ;
+  const resolvedId=looksLikeId?routeKey:bySlugQ.data?.id;
+  const byIdQ = useGetProjectAdminQuery({id:resolvedId||'',locale:editLocale}, {
+    skip: !canLoad || !resolvedId,
+    refetchOnMountOrArgChange: true,
+  });
+  const projectQ = resolvedId ? byIdQ : bySlugQ;
   const [createProject, createState] = useCreateProjectAdminMutation();
   const [updateProject, updateState] = useUpdateProjectAdminMutation();
 
@@ -217,6 +218,7 @@ export default function AdminProjectDetailClient({ id }: { id: string }) {
   }, [projectQ.data, isCreate, defaultLocaleFromDb,editLocale]);
 
   async function onSave() {
+    if(projectQ.isFetching)return;
     if (!form.title.trim() || !form.slug.trim()) {
       toast.error(page?.required_error || '');
       return;

@@ -202,7 +202,7 @@ export async function getServiceDetailServer(args: {
   locale: string;
   slug: string;
 }): Promise<ServiceDto | null> {
-  const preview=await previewFor('services',args.slug);if(preview)return {...normalizeService(preview),_preview:true} as ServiceDto;
+  const preview=await previewFor('services',args.slug);if(preview)return {...normalizeService(preview),images:preview.images,_preview:true} as ServiceDto;
   const url = buildApiUrl(`/services/by-slug/${encodeURIComponent(args.slug)}`, {
     locale: args.locale,
     default_locale: siteDefaultLocale(),

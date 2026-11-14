@@ -68,6 +68,7 @@ git -C "$WT" clean -fdxq -e node_modules
 for app in $APPS; do
   # Bagimliliklar monorepo'daki kurulumdan gelir (yerelde test edilen surumler).
   [ -d "$REPO/$app/node_modules" ] && ln -sfn "$REPO/$app/node_modules" "$WT/$app/node_modules"
+  node "$REPO/scripts/runtime-versions.mjs" "$WT/$app" "$REPO/$app/runtime-versions.json"
   # origin/main'in bagimliliklari yerel kurulumdan farkliysa uyar; eksik paket derlemeyi zaten dusurur.
   if ! diff -q <(node -e "const p=require('$WT/$app/package.json');console.log(JSON.stringify([p.dependencies,p.devDependencies]))") \
                <(node -e "const p=require('$REPO/$app/package.json');console.log(JSON.stringify([p.dependencies,p.devDependencies]))") >/dev/null; then
@@ -116,6 +117,14 @@ if [ -n "${BUILD_ONLY:-}" ]; then echo "OK yalniz derleme: $STAGE"; exit 0; fi
 
 echo "==> [3/4] sunucuya gonderiliyor"
 ssh "$HOST" "df -h /"
+scp -q "$REPO/scripts/runtime-versions.mjs" "$HOST:/tmp/guezel-runtime-versions.mjs"
+for t in $TREES; do
+  td="$(tree_dir "$t")"
+  for app in $APPS; do
+    scp -q "$REPO/$app/runtime-versions.json" "$HOST:/tmp/$t-$app-runtime-versions.json"
+    ssh "$HOST" "/home/orhan/.local/node22/bin/node /tmp/guezel-runtime-versions.mjs $BASE/$td/$app /tmp/$t-$app-runtime-versions.json"
+  done
+done
 # Yerelde derleyen Next ile sunucuda calistiran Next ayni olmali; .next surumler arasi tasinmaz.
 for t in $TREES; do
   td="$(tree_dir "$t")"

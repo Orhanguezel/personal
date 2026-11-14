@@ -1,3 +1,4 @@
+import {localizePath} from '@/i18n/routes';
 // ---------------------------------------------------------------------
 // FILE: frontend/app/[locale]/work/[slug]/page.tsx
 // Work detail — BreadcrumbJsonLd + CreativeWork schema
@@ -59,7 +60,7 @@ export default async function WorkSinglePage({
   const founderId = `${canonicalBase}/#founder`;
   const labels = BREADCRUMB_LABELS[safeLocale] ?? BREADCRUMB_LABELS.en;
 
-  const pageUrl = joinUrl(canonicalBase, `/${safeLocale}/work/${encodeURIComponent(slug)}`);
+  const pageUrl = joinUrl(canonicalBase, `/${safeLocale}${localizePath(safeLocale,`/work/${encodeURIComponent(slug)}`)}`);
   const rawCover = project?.featured_image?.trim();
   const fallbackWork = '/assets/imgs/work/img-background.webp';
   const absCover =

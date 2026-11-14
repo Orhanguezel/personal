@@ -1,3 +1,4 @@
+import {localizePath} from '@/i18n/routes';
 // =============================================================
 // FILE: src/app/[locale]/services/[slug]/page.tsx
 // Service detail (server) — ServiceJsonLd + BreadcrumbJsonLd
