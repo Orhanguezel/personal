@@ -200,9 +200,9 @@ export async function registerSharedContentAdmin(app: FastifyInstance) {
             workspaceSchema +
             '`.`' +
             d.translations.table +
-            '` t ON t.`' +
+            '` t ON BINARY t.`' +
             d.translations.fk +
-            "`=p.id AND t.locale='tr'"
+            "`=BINARY p.id AND t.locale='tr'"
           : '') +
         ' WHERE e.kind=? ORDER BY e.updated_at DESC,e.entity_id LIMIT 500',
       [d.kind],
@@ -432,7 +432,7 @@ export async function registerSharedContentPublic(app: FastifyInstance) {
         publishedSchema +
         '`.`' +
         t.table +
-        '` t ON t.`' +
+        '` t ON BINARY t.`' +
         t.fk +
         '`=p.id AND t.locale=? WHERE p.`' +
         d.publishedField +

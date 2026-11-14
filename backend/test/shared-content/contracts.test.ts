@@ -453,3 +453,9 @@ test('legacy SQL imports cannot write separate editorial copies', async () => {
     expect(r.statusCode).toBe(423);
   }
 });
+
+test("every editorial index handles source collations and deleted entries", async () => {
+ for(const kind of ["projects","services","products","blog","faqs","pricing","brands","resume","skill-counters","skill-logos","categories","subcategories"]){
+ const r=await request("GET","/admin/shared-content/entries?kind="+kind);expect(r.statusCode).toBe(200);expect(Array.isArray(r.json())).toBe(true);
+ }
+});
