@@ -97,8 +97,16 @@ varsayılan olarak dry-run yapar. `--apply`, yalnızca son yayın projeksiyonunu
 uygular ve yerel stokları korur. Kullanıcı/sipariş/ödeme tablolarına yazmaz.
 Yeni taslaklar ve tüm revizyonlar ortak şemada kalır.
 
-Ardından iki backend env'sinde `CONTENT_SHARED_ENABLED=0` yap; gerekiyorsa altı
-uygulamanın tek `.prev` çıktısına dön ve PM2 restart/sayfa kabulünü yap. Ortak
+Ortak mod açıkken derlenmiş frontend'i, ortak modu kapalı backend ile eşleştirme.
+`/var/backups/guezel-content-unify-20261114/rollback-ui.tar.gz` iki ülke için
+`SHARED_CONTENT=0` ile **yerelde** hazırlanmış ön yüzleri içerir. Önce mevcut
+release'in güncel yedeğini al, rollback aracını çalıştır; sonra backend env'lerinde
+`CONTENT_SHARED_ENABLED=0` yap ve bu uyumlu ön yüz paketlerini aynı yerel deploy
+betiğiyle geçir. Arşivin `source-sha` ve `rollback-provenance.json` dosyaları derleme
+kaynağını sabitler. Yönetim paneli ortak modu durum API'sinden okur ve eski yerel
+formlara döner. PM2 restart ve iki origin'de sayfa kabulünü yap. Tek `.prev` yalnızca
+önceki uygulama sürümüdür; birden fazla hotfix sonrasında ilk legacy sürüm olduğu
+varsayılmaz. Ortak
 kaynağa tekrar geçiş mevcut çalışma alanının üzerine ilk göçü yeniden yazarak
 **yapılmaz**. Korunan revizyonlar üzerinden sürdürülür. Yeni içerik/medya dosyaları
 silinmez. Freeze'i kaldır ve iki origin'i yeniden doğrula.
@@ -127,3 +135,15 @@ canlı yüklemeyle yarışarak dosya silinmez. Geri dönüş aracı ortak dosyal
 ülke yükleme köklerinde `shared-editorial/` altına bağımsız kopyalar; ortak kaynağın
 kendisini veya geçmişini değiştirmez. Ülke teklifi bulunmayan ticari kayıtlar eski
 kodda ücretsiz görünecek şekilde açılmaz.
+
+
+## Yeni satışların ülke ve sipariş sınırı
+
+Proje/hizmet checkout okumaları aynı public ülke teklif görünümüne gider. Ülke
+teklifi, pozitif fiyat, para birimi ve satış izni olmadan yeni sipariş açılmaz.
+Yeni ortak kimlik ülkenin tarihsel FK tablosunda yoksa yalnızca kapalı bir referans
+satırı eklenir; mevcut yerel satır ve sipariş snapshot'ı değiştirilmez. Gerçek
+sipariş satırı güncel ortak başlık ile ülke tutarını snapshot olarak saklar.
+Checkout'taki `product` eski web paketidir: `site_packages` ve yerel teklif/provider
+bilgisini okur; editoryal `products` ile aynı tablo veya kimlik sayılmaz. Başlangıçta
+iki ülkede de web paketi sayısı sıfırdır. Bu çalışma ödeme veya satış izni açmaz.
