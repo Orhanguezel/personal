@@ -124,7 +124,7 @@ export default function AdminFooterSectionsDetailClient({ id }: { id: string }) 
         description: existingItem.description || '',
         is_active: existingItem.is_active,
         display_order: existingItem.display_order || 0,
-        locale: initialLocale || existingItem.locale,
+        locale: initialLocale || existingItem.locale || '',
       });
     }
   }, [existingItem, isNew, initialLocale]);
