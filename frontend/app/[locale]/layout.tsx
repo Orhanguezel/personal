@@ -10,7 +10,7 @@ export const dynamic = 'force-dynamic';
 
 import type { ReactNode } from 'react';
 import type { Metadata } from 'next';
-import { Urbanist, Playfair_Display, DM_Mono } from 'next/font/google';
+import '@/app/editorial-fonts.css';
 import { AppProviders } from '@/app/providers';
 import { unwrapRouteParams, normalizeLocaleParam } from '@/i18n/localeParam';
 import { getSeoAll } from '@/seo';
@@ -30,28 +30,7 @@ import '@/public/assets/fonts/remixicon/remixicon.css';
 import '@/public/assets/css/main.css';
 import '@/app/global.css';
 
-const urbanist = Urbanist({
-  weight: ['300', '400', '500', '600', '700'],
-  subsets: ['latin'],
-  variable: '--urbanist',
-  display: 'swap',
-});
-
-const playfairDisplay = Playfair_Display({
-  weight: ['400', '500', '600', '700'],
-  subsets: ['latin'],
-  variable: '--playpair',
-  display: 'swap',
-});
-
-const dmMono = DM_Mono({
-  weight: ['300', '400', '500'],
-  subsets: ['latin'],
-  variable: '--dmMono',
-  display: 'swap',
-});
-
-const fontVars = `${urbanist.variable} ${playfairDisplay.variable} ${dmMono.variable}`;
+const fontVars='font-editorial';
 
 export default async function LocaleLayout({
   children,
