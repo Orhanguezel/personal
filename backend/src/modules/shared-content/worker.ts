@@ -10,7 +10,7 @@ export async function deliverPending() {
     const [rows]: any = await getContentPool().query(
       'SELECT o.* FROM `' +
         workspaceSchema +
-        '`.content_outbox o WHERE delivered_at IS NULL ORDER BY id LIMIT 10',
+        '`.content_outbox o WHERE delivered_at IS NULL ORDER BY attempts,id LIMIT 10',
     );
     for (const row of rows) {
       const d = byKind.get(row.kind as ContentKind);
