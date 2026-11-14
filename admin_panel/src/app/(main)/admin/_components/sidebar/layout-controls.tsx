@@ -93,6 +93,7 @@ export function LayoutControls() {
   };
 
   const onAdminLocaleChange = (value: string) => {
+    document.documentElement.lang = value;
     setAdminLocale(value);
     persistPreference("admin_locale", value);
   };

@@ -81,43 +81,50 @@ export const siteSettingsAdminApi = extendedApi.injectEndpoints({
       }),
       transformResponse: (res: unknown): AdminSiteSetting =>
         normalizeAdminSiteSettingRow(res as SiteSettingRow) as AdminSiteSetting,
-      invalidatesTags: [{ type: 'SiteSettings', id: 'LIST' }],
+      invalidatesTags: ['SiteSettings'],
     }),
 
-    updateSiteSettingAdmin: b.mutation<AdminSiteSetting, { key: string; value: SettingValue }>({
-      query: ({ key, value }) => ({
+    updateSiteSettingAdmin: b.mutation<{ ok: true }, { key: string; value: SettingValue; locale?: string }>({
+      query: ({ key, value, locale }) => ({
         url: `${ADMIN_BASE}/${encodeURIComponent(key)}`,
         method: 'PUT',
+        ...(locale ? { params: { locale } } : {}),
         body: { value },
       }),
-      transformResponse: (res: unknown): AdminSiteSetting =>
-        normalizeAdminSiteSettingRow(res as SiteSettingRow) as AdminSiteSetting,
+      transformResponse: () => ({ ok: true as const }),
       invalidatesTags: (_r, _e, arg) => [
         { type: 'SiteSettings', id: arg.key },
         { type: 'SiteSettings', id: 'LIST' },
+        { type: 'SiteSettings', id: 'APP_LOCALES' },
+        { type: 'SiteSettings', id: 'DEFAULT_LOCALE' },
       ],
     }),
 
-    bulkUpsertSiteSettingsAdmin: b.mutation<AdminSiteSetting[], { items: UpsertSettingBody[] }>({
+    bulkUpsertSiteSettingsAdmin: b.mutation<{ ok: true }, { items: UpsertSettingBody[] }>({
       query: ({ items }) => ({
         url: `${ADMIN_BASE}/bulk-upsert`,
         method: 'POST',
         body: { items: items.map((i) => ({ key: i.key, value: i.value })) },
       }),
-      transformResponse: (res: unknown): AdminSiteSetting[] =>
-        Array.isArray(res) ? (res as SiteSettingRow[]).map(normalizeAdminSiteSettingRow) : [],
-      invalidatesTags: [{ type: 'SiteSettings', id: 'LIST' }],
+      transformResponse: () => ({ ok: true as const }),
+      invalidatesTags: ['SiteSettings'],
     }),
 
-    deleteSiteSettingAdmin: b.mutation<{ ok: true }, string>({
-      query: (key) => ({
-        url: `${ADMIN_BASE}/${encodeURIComponent(key)}`,
-        method: 'DELETE',
-      }),
+    deleteSiteSettingAdmin: b.mutation<{ ok: true }, string | { key: string; locale?: string }>({
+      query: (arg) => {
+        const { key, locale } = typeof arg === 'string' ? { key: arg } : arg;
+        return {
+          url: `${ADMIN_BASE}/${encodeURIComponent(key)}`,
+          method: 'DELETE',
+          ...(locale ? { params: { locale } } : {}),
+        };
+      },
       transformResponse: (): { ok: true } => ({ ok: true }),
       invalidatesTags: (_r, _e, key) => [
-        { type: 'SiteSettings', id: key },
+        { type: 'SiteSettings', id: typeof key === 'string' ? key : key.key },
         { type: 'SiteSettings', id: 'LIST' },
+        { type: 'SiteSettings', id: 'APP_LOCALES' },
+        { type: 'SiteSettings', id: 'DEFAULT_LOCALE' },
       ],
     }),
 
@@ -136,7 +143,7 @@ export const siteSettingsAdminApi = extendedApi.injectEndpoints({
         return { url: ADMIN_BASE, method: 'DELETE', params };
       },
       transformResponse: (): { ok: true } => ({ ok: true }),
-      invalidatesTags: [{ type: 'SiteSettings', id: 'LIST' }],
+      invalidatesTags: ['SiteSettings'],
     }),
   }),
   overrideExisting: true,

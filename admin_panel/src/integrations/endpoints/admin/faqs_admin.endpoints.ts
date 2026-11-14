@@ -22,6 +22,7 @@ export const faqsAdminApi = baseApi.injectEndpoints({
     /* LIST – GET /admin/faqs                                    */
     /* --------------------------------------------------------- */
     listFaqsAdmin: builder.query<FaqDto[], WithLocale<FaqListQueryParams> | void>({
+      providesTags: ['Faqs'],
       query: (params) => {
         const p = (params || {}) as WithLocale<FaqListQueryParams>;
         const { locale, ...rest } = p;
@@ -38,6 +39,7 @@ export const faqsAdminApi = baseApi.injectEndpoints({
     /* GET BY ID – GET /admin/faqs/:id                           */
     /* --------------------------------------------------------- */
     getFaqAdmin: builder.query<FaqDto, { id: string; locale?: string }>({
+      providesTags: ['Faqs'],
       query: ({ id, locale }) => ({
         url: `/admin/faqs/${encodeURIComponent(id)}`,
         method: 'GET',
@@ -49,6 +51,7 @@ export const faqsAdminApi = baseApi.injectEndpoints({
     /* GET BY SLUG – GET /admin/faqs/by-slug/:slug               */
     /* --------------------------------------------------------- */
     getFaqBySlugAdmin: builder.query<FaqDto, { slug: string; locale?: string }>({
+      providesTags: ['Faqs'],
       query: ({ slug, locale }) => ({
         url: `/admin/faqs/by-slug/${encodeURIComponent(slug)}`,
         method: 'GET',
@@ -60,6 +63,7 @@ export const faqsAdminApi = baseApi.injectEndpoints({
     /* CREATE – POST /admin/faqs                                 */
     /* --------------------------------------------------------- */
     createFaqAdmin: builder.mutation<FaqDto, FaqCreatePayload>({
+      invalidatesTags: ['Faqs'],
       query: (body) => ({
         url: '/admin/faqs',
         method: 'POST',
@@ -71,6 +75,7 @@ export const faqsAdminApi = baseApi.injectEndpoints({
     /* UPDATE (PATCH) – PATCH /admin/faqs/:id                    */
     /* --------------------------------------------------------- */
     updateFaqAdmin: builder.mutation<FaqDto, { id: string; patch: FaqUpdatePayload }>({
+      invalidatesTags: ['Faqs'],
       query: ({ id, patch }) => ({
         url: `/admin/faqs/${encodeURIComponent(id)}`,
         method: 'PATCH',
@@ -82,6 +87,7 @@ export const faqsAdminApi = baseApi.injectEndpoints({
     /* DELETE – DELETE /admin/faqs/:id                           */
     /* --------------------------------------------------------- */
     deleteFaqAdmin: builder.mutation<void, string>({
+      invalidatesTags: ['Faqs'],
       query: (id) => ({
         url: `/admin/faqs/${encodeURIComponent(id)}`,
         method: 'DELETE',

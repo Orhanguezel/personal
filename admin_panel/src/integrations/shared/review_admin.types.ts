@@ -21,6 +21,7 @@ export type AdminReviewListResponse = {
 
 export type AdminGetReviewParams = {
   id: string;
+  locale?: string;
 };
 
 export type AdminReviewCreatePayload = ReviewCreatePayload;

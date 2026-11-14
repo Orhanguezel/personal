@@ -141,7 +141,7 @@ export default function AdminReviewsClient() {
   }, [localeOptions]);
 
   const urlLocale = searchParams.get('locale') || '';
-  const initialLocale = urlLocale || defaultLocaleFromDb || localeShortClientOr(typeof window !== 'undefined' ? navigator.language : 'de') || '';
+  const initialLocale = urlLocale;
 
   const [filters, setFilters] = React.useState<Filters>({
     search: '',
@@ -151,6 +151,14 @@ export default function AdminReviewsClient() {
     maxRating: '',
     locale: initialLocale,
   });
+
+  React.useEffect(() => {
+    if (localesLoading || !localeOptions.length) return;
+    setFilters((prev) => {
+      const locale = coerceLocale(prev.locale, defaultLocaleFromDb);
+      return locale === prev.locale ? prev : { ...prev, locale };
+    });
+  }, [localesLoading, localeOptions, coerceLocale, defaultLocaleFromDb]);
 
   // Update URL when locale changes
   React.useEffect(() => {
@@ -193,7 +201,7 @@ export default function AdminReviewsClient() {
     isLoading,
     isFetching,
     refetch,
-  } = useListReviewsAdminQuery(queryParams);
+  } = useListReviewsAdminQuery(queryParams, { skip: localesLoading || !filters.locale });
 
   const [updateReview] = useUpdateReviewAdminMutation();
   const [deleteReview] = useDeleteReviewAdminMutation();
@@ -249,7 +257,7 @@ export default function AdminReviewsClient() {
   };
 
   const handleEdit = (item: AdminReviewDto) => {
-    router.push(`/admin/reviews/${item.id}`);
+    router.push(`/admin/reviews/${item.id}?locale=${encodeURIComponent(filters.locale)}`);
   };
 
   const handleDeleteClick = (item: AdminReviewDto) => {
@@ -281,13 +289,13 @@ export default function AdminReviewsClient() {
           <CardHeader>
             <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
               <div className="space-y-1.5">
-                <CardTitle>Reviews & Testimonials</CardTitle>
+                <CardTitle>Müşteri yorumları</CardTitle>
                 <CardDescription>
                   Müşteri yorumlarını ve değerlendirmelerini yönetin.
                 </CardDescription>
               </div>
               <Button
-                onClick={() => router.push('/admin/reviews/new')}
+                onClick={() => router.push(`/admin/reviews/new?locale=${encodeURIComponent(filters.locale)}`)}
                 disabled={busy}
                 className="gap-2"
               >
@@ -366,7 +374,7 @@ export default function AdminReviewsClient() {
               {/* Min Rating */}
               <div className="space-y-2">
                 <Label htmlFor="minRating" className="text-sm">
-                  Min. Rating
+                  En düşük puan
                 </Label>
                 <Input
                   id="minRating"
@@ -383,7 +391,7 @@ export default function AdminReviewsClient() {
               {/* Max Rating */}
               <div className="space-y-2">
                 <Label htmlFor="maxRating" className="text-sm">
-                  Max. Rating
+                  En yüksek puan
                 </Label>
                 <Input
                   id="maxRating"
@@ -445,8 +453,8 @@ export default function AdminReviewsClient() {
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>İsim & Email</TableHead>
-                  <TableHead className="w-32">Rating</TableHead>
+                  <TableHead>Ad ve e-posta</TableHead>
+                  <TableHead className="w-32">Puan</TableHead>
                   <TableHead>Yorum</TableHead>
                   <TableHead className="w-24 text-center">Onaylı</TableHead>
                   <TableHead className="w-24 text-center">Aktif</TableHead>

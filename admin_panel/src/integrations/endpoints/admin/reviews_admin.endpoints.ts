@@ -17,6 +17,7 @@ export const reviewsAdminApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     // -------- LIST (admin) --------
     listReviewsAdmin: build.query<AdminReviewListResponse, AdminReviewListQueryParams | undefined>({
+      providesTags: ['Reviews'],
       query: (params) => ({
         url: '/admin/reviews',
         method: 'GET',
@@ -34,7 +35,10 @@ export const reviewsAdminApi = baseApi.injectEndpoints({
 
     // -------- DETAIL (admin) --------
     getReviewAdmin: build.query<AdminReviewDto, AdminGetReviewParams>({
-      query: ({ id }) => ({
+      providesTags: ['Reviews'],
+      query: ({ id, locale }) => ({
+        params: locale ? { locale } : undefined,
+        headers: locale ? { 'Accept-Language': locale } : undefined,
         url: `/admin/reviews/${encodeURIComponent(id)}`,
         method: 'GET',
       }),
@@ -42,6 +46,7 @@ export const reviewsAdminApi = baseApi.injectEndpoints({
 
     // -------- CREATE (admin) --------
     createReviewAdmin: build.mutation<AdminReviewDto, AdminReviewCreatePayload>({
+      invalidatesTags: ['Reviews'],
       query: (body) => ({
         url: '/admin/reviews',
         method: 'POST',
@@ -54,6 +59,7 @@ export const reviewsAdminApi = baseApi.injectEndpoints({
       AdminReviewDto,
       { id: string; patch: AdminReviewUpdatePayload }
     >({
+      invalidatesTags: ['Reviews'],
       query: ({ id, patch }) => ({
         url: `/admin/reviews/${encodeURIComponent(id)}`,
         method: 'PATCH',
@@ -63,6 +69,7 @@ export const reviewsAdminApi = baseApi.injectEndpoints({
 
     // -------- DELETE (admin) --------
     deleteReviewAdmin: build.mutation<{ ok?: boolean }, { id: string }>({
+      invalidatesTags: ['Reviews'],
       query: ({ id }) => ({
         url: `/admin/reviews/${encodeURIComponent(id)}`,
         method: 'DELETE',

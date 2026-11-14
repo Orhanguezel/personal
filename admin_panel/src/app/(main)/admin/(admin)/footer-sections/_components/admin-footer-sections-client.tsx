@@ -237,9 +237,9 @@ export default function AdminFooterSectionsClient() {
           <CardHeader>
             <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
               <div className="space-y-1.5">
-                <CardTitle>Footer Sections</CardTitle>
+                <CardTitle>Alt bilgi bölümleri</CardTitle>
                 <CardDescription>
-                  Footer bölümlerini yönetin. Her bölüm footer'da bir kolon oluşturur.
+                  Sitenin alt bilgi bölümlerini yönetin. Her bölüm bir sütun oluşturur.
                 </CardDescription>
               </div>
               <Button

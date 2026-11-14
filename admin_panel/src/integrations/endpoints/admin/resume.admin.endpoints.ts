@@ -39,7 +39,10 @@ export const resumeAdminApi = baseApi.injectEndpoints({
         url: `${BASE}/by-slug/${slug}`,
         params: { ...(locale ? { locale } : {}), ...(default_locale ? { default_locale } : {}) },
       }),
-      providesTags: (_res, _e, arg) => [{ type: 'Resume' as const, id: `slug:${arg.slug}` }],
+      providesTags: (res, _e, arg) => [
+        { type: 'Resume' as const, id: `slug:${arg.slug}` },
+        ...(res?.id ? [{ type: 'Resume' as const, id: res.id }] : []),
+      ],
     }),
 
     createResumeAdmin: b.mutation<ResumeMerged, UpsertResumeInput>({

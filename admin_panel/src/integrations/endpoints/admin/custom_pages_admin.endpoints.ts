@@ -94,7 +94,10 @@ export const customPagesAdminApi = baseApi.injectEndpoints({
         params: cleanParams({ locale, default_locale }),
       }),
       transformResponse: (response: ApiCustomPage) => mapApiCustomPageToDto(response),
-      providesTags: (_result, _error, { slug }) => [{ type: 'CustomPageSlug' as const, id: slug }],
+      providesTags: (result, _error, { slug }) => [
+        { type: 'CustomPageSlug' as const, id: slug },
+        ...(result?.id ? [{ type: 'CustomPage' as const, id: result.id }] : []),
+      ],
     }),
 
     createCustomPageAdmin: build.mutation<CustomPageDto, CustomPageCreatePayload>({

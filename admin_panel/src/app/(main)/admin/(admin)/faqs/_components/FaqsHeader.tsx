@@ -67,9 +67,9 @@ export const FaqsHeader: React.FC<FaqsHeaderProps> = ({
       <div className="border-b p-3">
         <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
           <div className="min-w-0 flex-1">
-            <div className="text-sm font-semibold">FAQ</div>
+            <div className="text-sm font-semibold">Sıkça sorulan sorular</div>
             <div className="text-xs text-muted-foreground">
-              FAQ kayıtlarını dil, aktiflik ve arama kriterlerine göre yönetebilirsin.
+              Sıkça sorulan soruları dil, aktiflik ve arama kriterlerine göre yönetebilirsin.
             </div>
 
             <div className="mt-3 grid gap-2 md:grid-cols-12 md:items-end">
@@ -130,27 +130,27 @@ export const FaqsHeader: React.FC<FaqsHeaderProps> = ({
               </div>
 
               <div className="md:col-span-1">
-                <label className="mb-1 block text-xs text-muted-foreground">Sort</label>
+                <label className="mb-1 block text-xs text-muted-foreground">Sıralama alanı</label>
                 <select
                   className="w-full rounded-md border bg-background px-2 py-2 text-sm"
                   value={filters.sort}
                   onChange={(e) => onFiltersChange({ ...filters, sort: e.target.value as any })}
                 >
-                  <option value="updated_at">updated_at</option>
-                  <option value="created_at">created_at</option>
-                  <option value="display_order">display_order</option>
+                  <option value="updated_at">Güncelleme tarihi</option>
+                  <option value="created_at">Oluşturma tarihi</option>
+                  <option value="display_order">Görünüm sırası</option>
                 </select>
               </div>
 
               <div className="md:col-span-1">
-                <label className="mb-1 block text-xs text-muted-foreground">Dir</label>
+                <label className="mb-1 block text-xs text-muted-foreground">Sıralama yönü</label>
                 <select
                   className="w-full rounded-md border bg-background px-2 py-2 text-sm"
                   value={filters.orderDir}
                   onChange={(e) => onFiltersChange({ ...filters, orderDir: e.target.value as any })}
                 >
-                  <option value="desc">desc</option>
-                  <option value="asc">asc</option>
+                  <option value="desc">Azalan</option>
+                  <option value="asc">Artan</option>
                 </select>
               </div>
             </div>
@@ -179,7 +179,7 @@ export const FaqsHeader: React.FC<FaqsHeaderProps> = ({
                 href="/admin/faqs/new"
                 className="rounded-md bg-primary px-3 py-2 text-xs text-primary-foreground"
               >
-                Yeni FAQ
+                Yeni soru
               </Link>
             </div>
           </div>

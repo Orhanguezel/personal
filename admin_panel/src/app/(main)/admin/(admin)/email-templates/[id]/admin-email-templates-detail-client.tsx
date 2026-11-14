@@ -11,7 +11,7 @@
 // =============================================================
 
 import * as React from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { toast } from 'sonner';
 import { ArrowLeft, Save, Trash2, Loader2, Code2, Mail } from 'lucide-react';
 
@@ -98,6 +98,8 @@ function stringifyVariables(vars: string[] | null | undefined): string {
 
 export default function AdminEmailTemplatesDetailClient({ id }: { id: string }) {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const [selectedLocale, setSelectedLocale] = React.useState(searchParams.get('locale') || '');
   const isNew = id === 'new';
 
   // Locale management
@@ -125,10 +127,7 @@ export default function AdminEmailTemplatesDetailClient({ id }: { id: string }) 
     content: '',
     variables: '',
     is_active: true,
-    locale:
-      defaultLocaleFromDb ||
-      localeShortClientOr(typeof window !== 'undefined' ? navigator.language : 'de', 'de') ||
-      '',
+    locale: '',
   });
 
   // Delete dialog state
@@ -139,7 +138,9 @@ export default function AdminEmailTemplatesDetailClient({ id }: { id: string }) 
     if (!isNew && existingItem) {
       // For edit mode, we might have translations
       // Use the first translation or default to empty
-      const firstTranslation = existingItem.translations?.[0];
+      const locale = coerceLocale(selectedLocale, defaultLocaleFromDb);
+      if (!locale) return;
+      const firstTranslation = existingItem.translations?.find((item) => item.locale === locale);
 
       setFormData({
         template_key: existingItem.template_key || '',
@@ -148,23 +149,19 @@ export default function AdminEmailTemplatesDetailClient({ id }: { id: string }) 
         content: firstTranslation?.content || '',
         variables: stringifyVariables(existingItem.variables),
         is_active: existingItem.is_active,
-        locale:
-          firstTranslation?.locale ||
-          defaultLocaleFromDb ||
-          localeShortClientOr(typeof window !== 'undefined' ? navigator.language : 'de', 'de') ||
-          '',
+        locale,
       });
     }
-  }, [existingItem, isNew, defaultLocaleFromDb]);
+  }, [existingItem, isNew, defaultLocaleFromDb, selectedLocale, coerceLocale]);
 
   // Update default locale if needed
   React.useEffect(() => {
     if (isNew && defaultLocaleFromDb && !formData.locale) {
-      setFormData((prev) => ({ ...prev, locale: defaultLocaleFromDb }));
+      setFormData((prev) => ({ ...prev, locale: coerceLocale(selectedLocale, defaultLocaleFromDb) }));
     }
-  }, [isNew, defaultLocaleFromDb, formData.locale]);
+  }, [isNew, defaultLocaleFromDb, formData.locale, selectedLocale, coerceLocale]);
 
-  const busy = isCreating || isUpdating || isDeleting || loadingItem;
+  const busy = isCreating || isUpdating || isDeleting || loadingItem || localesLoading;
 
   const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -247,6 +244,7 @@ export default function AdminEmailTemplatesDetailClient({ id }: { id: string }) 
 
   const handleLocaleChange = (locale: string) => {
     const coerced = coerceLocale(locale, defaultLocaleFromDb);
+    setSelectedLocale(coerced);
     setFormData((prev) => ({ ...prev, locale: coerced }));
   };
 

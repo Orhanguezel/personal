@@ -19,7 +19,7 @@
           "loginSuccess": "Başarıyla giriş yapıldı.",
           "loginFailed": "Giriş başarısız. Lütfen bilgilerinizi kontrol edip tekrar deneyin.",
           "emailRequired": "Lütfen geçerli bir e-posta adresi girin.",
-          "passwordMinLength": "Şifre en az 6 karakter olmalıdır."
+          "passwordMinLength": "Şifre en az 8 karakter olmalıdır."
         },
         "register": {
           "title": "Kayıt Ol",
@@ -44,7 +44,7 @@
           "accountCreated": "Hesap oluşturuldu ve giriş yapıldı.",
           "registrationFailed": "Kayıt başarısız. Lütfen bilgilerinizi kontrol edip tekrar deneyin.",
           "emailRequired": "Lütfen geçerli bir e-posta adresi girin.",
-          "passwordMinLength": "Şifre en az 6 karakter olmalıdır.",
+          "passwordMinLength": "Şifre en az 8 karakter olmalıdır.",
           "passwordsNoMatch": "Şifreler eşleşmiyor.",
           "mustAcceptTerms": "Devam etmek için şartları kabul etmelisiniz."
         }
@@ -98,7 +98,8 @@
         "doesNotExist": "Yok",
         "note": "Not",
         "savedUrl": "Kayıtlı URL:",
-        "imageLoadFailed": "Görsel yüklenemedi"
+        "imageLoadFailed": "Görsel yüklenemedi",
+        "error": "İşlem başarısız oldu."
       },
       "sidebar": {
         "search": "Ara",
@@ -556,7 +557,12 @@
             "site_apple_touch_icon": "Apple Touch Icon",
             "site_app_icon_512": "App Icon 512x512",
             "site_og_default_image": "OG Default Image"
-          }
+          },
+          "deleteConfirm": "Bu görsel ayarını silmek istiyor musunuz?",
+          "deleteError": "Görsel silinemedi.",
+          "searchPlaceholder": "Görsel veya ayar ara…",
+          "updateError": "Görsel güncellenemedi.",
+          "updated": "Görsel güncellendi."
         },
         "api": {
           "title": "API & Entegrasyon Ayarları",
@@ -1098,6 +1104,243 @@
           "engineering_support": "Mühendislik",
           "production": "Üretim",
           "other": "Diğer"
+        }
+      },
+      "users": {
+        "roles": {
+          "admin": "Yönetici",
+          "moderator": "Moderatör",
+          "user": "Kullanıcı",
+          "all": "Tümü"
+        },
+        "list": {
+          "title": "Kullanıcılar",
+          "description": "Kullanıcı hesaplarını, durumlarını ve yetkilerini yönetin.",
+          "filters": {
+            "title": "Filtreler",
+            "description": "Ad, e-posta, rol ve hesap durumuna göre arayın.",
+            "searchLabel": "Ara",
+            "searchPlaceholder": "Ad veya e-posta…",
+            "roleLabel": "Rol",
+            "rolePlaceholder": "Rol seçin",
+            "onlyActive": "Yalnızca aktif hesaplar",
+            "searchButton": "Ara",
+            "refreshButton": "Yenile",
+            "resetButton": "Sıfırla"
+          },
+          "pagination": {
+            "limit": "Sayfa başına {limit} kayıt",
+            "offset": "Başlangıç: {offset}",
+            "previous": "Önceki",
+            "next": "Sonraki"
+          },
+          "table": {
+            "title": "Kullanıcı listesi",
+            "actions": "İşlemler",
+            "email": "E-posta",
+            "fullName": "Ad soyad",
+            "phone": "Telefon",
+            "role": "Rol",
+            "status": "Durum",
+            "statusActive": "Aktif",
+            "statusInactive": "Pasif",
+            "loadError": "Kullanıcılar yüklenemedi.",
+            "loading": "Yükleniyor…",
+            "noRecords": "Kullanıcı bulunamadı.",
+            "retryButton": "Tekrar dene",
+            "totalRecords": "{count} kayıt",
+            "unknownUser": "İsimsiz kullanıcı",
+            "viewButton": "İncele"
+          }
+        },
+        "detail": {
+          "title": "Kullanıcı detayı",
+          "unknownUser": "İsimsiz kullanıcı",
+          "statusActive": "Aktif",
+          "statusInactive": "Pasif",
+          "backButton": "Geri",
+          "loading": "Yükleniyor…",
+          "loadError": "Kullanıcı yüklenemedi.",
+          "retryButton": "Tekrar dene",
+          "errorFallback": "İşlem tamamlanamadı.",
+          "profile": {
+            "title": "Profil",
+            "description": "Kullanıcının iletişim bilgilerini düzenleyin.",
+            "emailLabel": "E-posta",
+            "fullNameLabel": "Ad soyad",
+            "phoneLabel": "Telefon",
+            "saveButton": "Profili kaydet",
+            "saved": "Profil güncellendi."
+          },
+          "password": {
+            "title": "Şifre",
+            "description": "Kullanıcı için yeni bir şifre belirleyin.",
+            "label": "Yeni şifre",
+            "placeholder": "Yeni şifreyi girin",
+            "minLengthError": "Şifre en az 8 karakter olmalıdır.",
+            "updateButton": "Şifreyi güncelle",
+            "updated": "Şifre güncellendi."
+          },
+          "roles": {
+            "title": "Yetkiler",
+            "description": "Kullanıcının erişim rolünü düzenleyin.",
+            "currentRole": "Mevcut rol:",
+            "admin": "Yönetici",
+            "moderator": "Moderatör",
+            "user": "Kullanıcı",
+            "saveButton": "Rolü kaydet",
+            "saved": "Rol güncellendi."
+          },
+          "status": {
+            "title": "Hesap durumu",
+            "description": "Kullanıcının sisteme erişimini yönetin.",
+            "active": "Aktif",
+            "inactive": "Pasif",
+            "activated": "Hesap etkinleştirildi.",
+            "deactivated": "Hesap devre dışı bırakıldı."
+          },
+          "delete": {
+            "title": "Kullanıcıyı sil",
+            "description": "Bu işlem kullanıcı hesabını siler.",
+            "button": "Kullanıcıyı sil",
+            "confirm": "Bu kullanıcıyı silmek istediğinizden emin misiniz?",
+            "deleted": "Kullanıcı silindi."
+          }
+        }
+      },
+      "userRoles": {
+        "title": "Kullanıcı rolleri",
+        "description": "Kullanıcıların yönetim yetkilerini inceleyin ve düzenleyin.",
+        "errorFallback": "Rol işlemi tamamlanamadı.",
+        "roles": {
+          "admin": "Yönetici",
+          "moderator": "Moderatör",
+          "user": "Kullanıcı"
+        },
+        "create": {
+          "title": "Rol ekle",
+          "description": "Bir kullanıcı seçip rol atayın.",
+          "userLabel": "Kullanıcı",
+          "userPlaceholder": "Kullanıcı seçin",
+          "roleLabel": "Rol",
+          "rolePlaceholder": "Rol seçin",
+          "addButton": "Rol ekle",
+          "added": "Rol eklendi.",
+          "alreadyExists": "Bu rol kullanıcıya zaten atanmış.",
+          "retryButton": "Tekrar dene",
+          "selectUser": "Bir kullanıcı seçin.",
+          "usersLoadError": "Kullanıcılar yüklenemedi.",
+          "usersLoading": "Kullanıcılar yükleniyor…"
+        },
+        "list": {
+          "title": "Atanmış roller",
+          "description": "Kullanıcı ve rol filtresiyle atamaları inceleyin.",
+          "all": "Tümü",
+          "limitLabel": "Kayıt sınırı",
+          "loadError": "Roller yüklenemedi.",
+          "noRecords": "Rol ataması bulunamadı.",
+          "note": "Rol değişiklikleri kullanıcının erişim yetkilerini etkiler.",
+          "refreshButton": "Yenile",
+          "retryButton": "Tekrar dene",
+          "roleFilterLabel": "Rol",
+          "userFilterLabel": "Kullanıcı"
+        },
+        "table": {
+          "actionColumn": "İşlemler",
+          "createdColumn": "Atanma tarihi",
+          "deleteButton": "Rolü kaldır",
+          "deleteConfirm": "{user} kullanıcısının {role} rolünü kaldırmak istiyor musunuz?",
+          "deleted": "Rol kaldırıldı.",
+          "loading": "Yükleniyor…",
+          "notFound": "Kayıt bulunamadı.",
+          "roleColumn": "Rol",
+          "userColumn": "Kullanıcı"
+        },
+        "user": {
+          "loading": "Yükleniyor…",
+          "notFound": "Kullanıcı bulunamadı",
+          "unknown": "İsimsiz kullanıcı"
+        }
+      },
+      "storage": {
+        "errorFallback": "Dosya işlemi tamamlanamadı.",
+        "list": {
+          "title": "Medya ve dosyalar",
+          "description": "Yüklenen görselleri ve dosyaları yönetin.",
+          "uploadButton": "Dosya yükle",
+          "searchLabel": "Ara",
+          "searchPlaceholder": "Dosya adı ara…",
+          "bucketLabel": "Depolama alanı",
+          "folderLabel": "Klasör",
+          "allOption": "Tümü",
+          "fileTypeLabel": "Dosya türü",
+          "imageType": "Görsel",
+          "audioType": "Ses",
+          "videoType": "Video",
+          "pdfType": "PDF",
+          "fileColumn": "Dosya",
+          "bucketColumn": "Depolama alanı",
+          "folderColumn": "Klasör",
+          "typeColumn": "Tür",
+          "sizeColumn": "Boyut",
+          "dateColumn": "Tarih",
+          "actionsColumn": "İşlemler",
+          "previewColumn": "Önizleme",
+          "rootFolder": "Ana klasör",
+          "refreshButton": "Yenile",
+          "loading": "Yükleniyor…",
+          "noFiles": "Dosya bulunamadı.",
+          "totalFiles": "Toplam {total} dosya",
+          "selectedCount": "{count} dosya seçildi",
+          "selectFileError": "Önce bir dosya seçin.",
+          "editButton": "Düzenle",
+          "deleteButton": "Sil",
+          "deleteSelected": "Seçilenleri sil ({count})",
+          "downloadTitle": "İndir",
+          "cancelButton": "Vazgeç",
+          "fileDeleted": "Dosya silindi.",
+          "filesDeleted": "{count} dosya silindi.",
+          "deleteConfirmTitle": "Dosyayı sil",
+          "deleteConfirmDescription": "{name} kalıcı olarak silinecek. Devam etmek istiyor musunuz?"
+        },
+        "detail": {
+          "uploadTitle": "Dosya yükle",
+          "uploadDescription": "Yüklenecek dosyayı ve hedef klasörü seçin.",
+          "editTitle": "Dosyayı düzenle",
+          "editDescription": "Dosyanın adını ve klasörünü düzenleyin.",
+          "backButton": "Geri",
+          "backToList": "Dosya listesine dön",
+          "cancelButton": "Vazgeç",
+          "deleteButton": "Dosyayı sil",
+          "deleting": "Siliniyor…",
+          "saveButton": "Kaydet",
+          "saving": "Kaydediliyor…",
+          "uploadButton": "Yükle",
+          "uploading": "Yükleniyor…",
+          "loadError": "Dosya yüklenemedi: {error}",
+          "bucketLabel": "Depolama alanı",
+          "bucketPlaceholder": "Depolama alanı",
+          "bucketReadonlyHelp": "Mevcut dosyanın depolama alanı değiştirilemez.",
+          "bucketRequiredError": "Depolama alanı zorunludur.",
+          "folderLabel": "Klasör",
+          "folderPlaceholder": "Klasör yolu",
+          "folderHelp": "Boş bırakırsanız ana klasör kullanılır.",
+          "fileLabel": "Dosya",
+          "required": "*",
+          "selectFileTitle": "Dosya seçin",
+          "selectFileError": "Yüklenecek dosyayı seçin.",
+          "selectedFile": "{name} ({size})",
+          "fileUploaded": "Dosya yüklendi.",
+          "recordUpdated": "Dosya bilgileri güncellendi.",
+          "fileInfoTitle": "Dosya bilgileri",
+          "fileNameLabel": "Dosya adı",
+          "fileNamePlaceholder": "Dosya adı",
+          "mimeLabel": "Dosya türü",
+          "sizeLabel": "Boyut",
+          "dimensionsLabel": "Genişlik × yükseklik",
+          "urlLabel": "Dosya adresi",
+          "openLink": "Dosyayı aç",
+          "previewTitle": "Önizleme"
         }
       }
     }

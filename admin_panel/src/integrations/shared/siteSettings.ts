@@ -21,6 +21,7 @@ export type SettingValue =
   | SettingValue[];
 
 export type SiteSettingRow = {
+  locale?: string;
   id?: string;
   key: string;
   value: unknown; // normalize edilip SettingValue'a dönüştürülecek
@@ -221,6 +222,7 @@ export function buildAdminSiteSettingsListParams(
   const q: Record<string, string | number> = {};
 
   if (p.q) q.q = p.q;
+  if (p.locale) q.locale = p.locale;
   if (p.group) q.group = p.group;
   if (p.keys?.length) q.keys = p.keys.join(',');
   if (p.prefix) q.prefix = p.prefix;

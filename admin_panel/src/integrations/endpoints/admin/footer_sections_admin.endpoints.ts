@@ -68,7 +68,10 @@ export const footerSectionsAdminApi = baseApi.injectEndpoints({
         method: 'GET',
       }),
       transformResponse: (response: ApiFooterSection) => normalizeFooterSection(response),
-      providesTags: (_r, _e, slug) => [{ type: 'FooterSectionsBySlug', id: slug }],
+      providesTags: (result, _e, slug) => [
+        { type: 'FooterSectionsBySlug' as const, id: slug },
+        ...(result?.id ? [{ type: 'FooterSections' as const, id: result.id }] : []),
+      ],
     }),
 
     createFooterSectionAdmin: build.mutation<FooterSectionDto, FooterSectionCreatePayload>({

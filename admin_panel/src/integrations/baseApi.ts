@@ -213,7 +213,10 @@ function ensureProperHeaders(fa: FetchArgs): FetchArgs {
 
 /* -------------------- 401 → refresh → retry -------------------- */
 
+let refreshInFlight: Promise<Awaited<ReturnType<typeof rawBaseQuery>>> | undefined;
+
 const baseQueryWithReauth: RBQ = async (args, api, extra) => {
+  const requestToken = tokenStore.get();
   let req: AnyArgs = normalizeUrlArg(args);
   const path = typeof req === 'string' ? req : req.url || '';
   const cleanPath = extractPath(path);
@@ -230,7 +233,12 @@ const baseQueryWithReauth: RBQ = async (args, api, extra) => {
   result = await coerceSerializableError(result);
 
   if (result.error?.status === 401 && !AUTH_SKIP_REAUTH.has(cleanPath)) {
-    const refreshRes = await rawBaseQuery(
+    // Another request may already have renewed the session while this one was in flight.
+    if (tokenStore.get() && tokenStore.get() !== requestToken) {
+      return coerceSerializableError(await rawBaseQuery(req, api, extra));
+    }
+
+    refreshInFlight ??= Promise.resolve(rawBaseQuery(
       {
         url: '/auth/token/refresh',
         method: 'POST',
@@ -238,7 +246,10 @@ const baseQueryWithReauth: RBQ = async (args, api, extra) => {
       },
       api,
       extra,
-    );
+    )).finally(() => {
+      refreshInFlight = undefined;
+    });
+    const refreshRes = await refreshInFlight;
 
     if (!refreshRes.error) {
       const access_token = (refreshRes.data as { access_token?: string } | undefined)?.access_token;

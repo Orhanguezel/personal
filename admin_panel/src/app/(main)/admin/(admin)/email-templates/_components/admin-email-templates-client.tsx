@@ -112,17 +112,21 @@ export default function AdminEmailTemplatesClient() {
   const { localeOptions, defaultLocaleFromDb, coerceLocale, loading: localesLoading } = useAdminLocales();
 
   const urlLocale = searchParams.get('locale') || '';
-  const initialLocale =
-    urlLocale ||
-    defaultLocaleFromDb ||
-    localeShortClientOr(typeof window !== 'undefined' ? navigator.language : 'de', 'de') ||
-    '';
+  const initialLocale = urlLocale;
 
   const [filters, setFilters] = React.useState<Filters>({
     search: '',
     activeFilter: 'all',
     locale: initialLocale,
   });
+
+  React.useEffect(() => {
+    if (localesLoading || !localeOptions.length) return;
+    setFilters((prev) => {
+      const locale = coerceLocale(prev.locale, defaultLocaleFromDb);
+      return locale === prev.locale ? prev : { ...prev, locale };
+    });
+  }, [localesLoading, localeOptions, coerceLocale, defaultLocaleFromDb]);
 
   // Update URL when locale changes
   React.useEffect(() => {
@@ -157,7 +161,7 @@ export default function AdminEmailTemplatesClient() {
     isLoading,
     isFetching,
     refetch,
-  } = useListEmailTemplatesAdminQuery(queryParams);
+  } = useListEmailTemplatesAdminQuery(queryParams, { skip: localesLoading || !filters.locale });
 
   const [updateTemplate] = useUpdateEmailTemplateAdminMutation();
   const [deleteTemplate] = useDeleteEmailTemplateAdminMutation();
@@ -195,7 +199,7 @@ export default function AdminEmailTemplatesClient() {
   };
 
   const handleEdit = (item: EmailTemplateAdminListItemDto) => {
-    router.push(`/admin/email-templates/${item.id}`);
+    router.push(`/admin/email-templates/${item.id}?locale=${encodeURIComponent(filters.locale)}`);
   };
 
   const handleDeleteClick = (item: EmailTemplateAdminListItemDto) => {
@@ -227,13 +231,13 @@ export default function AdminEmailTemplatesClient() {
           <CardHeader>
             <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
               <div className="space-y-1.5">
-                <CardTitle>Email Templates</CardTitle>
+                <CardTitle>E-posta şablonları</CardTitle>
                 <CardDescription>
-                  Email şablonlarını yönetin. Her şablon farklı dillerde içerik içerebilir.
+                  E-posta şablonlarını yönetin. Her şablon farklı dillerde içerik içerebilir.
                 </CardDescription>
               </div>
               <Button
-                onClick={() => router.push('/admin/email-templates/new')}
+                onClick={() => router.push(`/admin/email-templates/new?locale=${encodeURIComponent(filters.locale)}`)}
                 disabled={busy}
                 className="gap-2"
               >
@@ -330,9 +334,9 @@ export default function AdminEmailTemplatesClient() {
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Template Key</TableHead>
-                  <TableHead>Name & Subject</TableHead>
-                  <TableHead className="w-48">Variables</TableHead>
+                  <TableHead>Şablon anahtarı</TableHead>
+                  <TableHead>Ad ve konu</TableHead>
+                  <TableHead className="w-48">Değişkenler</TableHead>
                   <TableHead className="w-24 text-center">Aktif</TableHead>
                   <TableHead className="w-32">Locale</TableHead>
                   <TableHead className="w-44">Tarih</TableHead>
@@ -495,7 +499,7 @@ export default function AdminEmailTemplatesClient() {
                   {/* Variables */}
                   {item.detected_variables && item.detected_variables.length > 0 && (
                     <div className="space-y-2">
-                      <Label className="text-xs text-muted-foreground">Variables</Label>
+                      <Label className="text-xs text-muted-foreground">Değişkenler</Label>
                       <div className="flex flex-wrap gap-1">
                         {item.detected_variables.map((v) => (
                           <Badge key={v} variant="secondary" className="text-[10px]">

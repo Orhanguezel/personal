@@ -7,7 +7,7 @@
 // =============================================================
 
 import * as React from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { toast } from 'sonner';
 import { ArrowLeft, Save, Trash2, Loader2, Star } from 'lucide-react';
 
@@ -108,6 +108,8 @@ function RatingInput({ value, onChange, disabled }: { value: number; onChange: (
 
 export default function AdminReviewsDetailClient({ id }: { id: string }) {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const [selectedLocale, setSelectedLocale] = React.useState(searchParams.get('locale') || '');
   const isNew = id === 'new';
 
   // Locale management
@@ -126,10 +128,11 @@ export default function AdminReviewsDetailClient({ id }: { id: string }) {
   const {
     data: existingItem,
     isLoading: loadingItem,
+    isFetching: fetchingItem,
     error: loadError,
   } = useGetReviewAdminQuery(
-    { id },
-    { skip: isNew }
+    { id, locale: selectedLocale || defaultLocaleFromDb },
+    { skip: isNew || localesLoading, refetchOnMountOrArgChange: true }
   );
 
   const [createReview, { isLoading: isCreating }] = useCreateReviewAdminMutation();
@@ -138,8 +141,8 @@ export default function AdminReviewsDetailClient({ id }: { id: string }) {
 
   // ✅ FIX: Initial locale with proper fallback
   const initialLocale = React.useMemo(() => {
-    return defaultLocaleFromDb || localeShortClientOr(typeof window !== 'undefined' ? navigator.language : 'de') || 'de';
-  }, [defaultLocaleFromDb]);
+    return coerceLocale(selectedLocale, defaultLocaleFromDb);
+  }, [defaultLocaleFromDb, selectedLocale, coerceLocale]);
 
   // Form state
   const [formData, setFormData] = React.useState<FormData>({
@@ -185,7 +188,7 @@ export default function AdminReviewsDetailClient({ id }: { id: string }) {
         is_active: existingItem.is_active,
         is_approved: existingItem.is_approved,
         display_order: existingItem.display_order || 0,
-        locale: existingItem.locale_resolved || existingItem.submitted_locale || initialLocale,
+        locale: initialLocale || existingItem.locale_resolved || existingItem.submitted_locale || '',
       });
     }
   }, [existingItem, isNew, initialLocale]);
@@ -197,7 +200,7 @@ export default function AdminReviewsDetailClient({ id }: { id: string }) {
     }
   }, [isNew, defaultLocaleFromDb, formData.locale]);
 
-  const busy = isCreating || isUpdating || isDeleting || loadingItem;
+  const busy = isCreating || isUpdating || isDeleting || loadingItem || fetchingItem || localesLoading;
 
   const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -308,6 +311,7 @@ export default function AdminReviewsDetailClient({ id }: { id: string }) {
 
   const handleLocaleChange = (locale: string) => {
     const coerced = coerceLocale(locale, defaultLocaleFromDb);
+    setSelectedLocale(coerced);
     setFormData((prev) => ({ ...prev, locale: coerced }));
   };
 

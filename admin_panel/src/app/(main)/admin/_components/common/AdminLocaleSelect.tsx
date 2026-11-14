@@ -103,7 +103,7 @@ export const AdminLocaleSelect: React.FC<AdminLocaleSelectProps> = ({
         ) : (
           <Badge variant="secondary" className="gap-1">
             <Languages className="size-3.5" />
-            Locale
+            Dil
           </Badge>
         )}
       </div>

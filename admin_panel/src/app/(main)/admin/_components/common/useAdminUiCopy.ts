@@ -8,7 +8,8 @@
 import { useMemo } from 'react';
 
 import { normLocaleTag } from '@/i18n/localeUtils';
-import { useGetDefaultLocaleAdminQuery, useGetSiteSettingAdminByKeyQuery } from '@/integrations/hooks';
+import { usePreferencesStore } from '@/stores/preferences/preferences-provider';
+import { useGetSiteSettingAdminByKeyQuery } from '@/integrations/hooks';
 import type { AdminUiCopy } from '@/integrations/shared';
 import { normalizeAdminUiCopy } from '@/integrations/shared';
 
@@ -20,15 +21,11 @@ type UseAdminUiCopyResult = {
 };
 
 export function useAdminUiCopy(): UseAdminUiCopyResult {
-  const defaultLocaleQ = useGetDefaultLocaleAdminQuery();
-  const locale = useMemo(
-    () => normLocaleTag(defaultLocaleQ.data) || undefined,
-    [defaultLocaleQ.data],
-  );
+  const adminLocale = usePreferencesStore((s) => s.adminLocale);
+  const locale = normLocaleTag(adminLocale) || 'tr';
 
   const q = useGetSiteSettingAdminByKeyQuery(
-    { key: 'ui_admin', ...(locale ? { locale } : {}) },
-    { skip: defaultLocaleQ.isLoading },
+    { key: 'ui_admin', locale },
   );
 
   const copy = useMemo(() => {
@@ -38,8 +35,8 @@ export function useAdminUiCopy(): UseAdminUiCopyResult {
 
   return {
     copy,
-    loading: defaultLocaleQ.isLoading || q.isLoading,
+    loading: q.isLoading,
     fetching: q.isFetching,
-    error: q.error ?? defaultLocaleQ.error,
+    error: q.error,
   };
 }
