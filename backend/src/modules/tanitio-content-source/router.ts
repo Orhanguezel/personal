@@ -3,7 +3,8 @@ import type { FastifyInstance, FastifyRequest } from 'fastify';
 import type { RowDataPacket } from 'mysql2';
 import { z } from 'zod';
 import { env } from '@/core/env';
-import {routedPool as pool} from '../shared-content/routing';
+import {routedPool as pool,getContentPool} from '../shared-content/routing';
+import {enabled,workspaceSchema} from '../shared-content/config';
 
 // Adres kurulumdan gelir (marka kurali): ayni kod guezelwebdesign.com'da da kosar.
 const WEBSITE = String(env.FRONTEND_URL || '').replace(/\/+$/, '');
@@ -108,6 +109,8 @@ function page(total: number, q: Query, items: unknown[]) {
 }
 
 export async function registerTanitioContentSource(app: FastifyInstance) {
+  app.addHook('onSend',async(req,reply,payload)=>{if(!enabled||reply.statusCode>=400||typeof payload!=='string')return payload;let body:any;try{body=JSON.parse(payload)}catch{return payload}if(Array.isArray(body.items)&&body.items.length){const ids=body.items.map((i:any)=>i.id);const [rows]:any=await getContentPool().query('SELECT entity_id,published_revision FROM `'+workspaceSchema+'`.content_entries WHERE entity_id IN (?)',[ids]);const revisions=new Map(rows.map((r:any)=>[r.entity_id,Number(r.published_revision)]));for(const item of body.items)item.source_revision=revisions.get(item.id)||null;}reply.header('cache-control','no-store');return JSON.stringify(body);});
+
   app.addHook('onRequest', async (req, reply) => {
     if (!authorized(req)) {
       return reply.status(401).send({
@@ -121,7 +124,7 @@ export async function registerTanitioContentSource(app: FastifyInstance) {
       return reply.status(400).send({ error: { code: 'INVALID_QUERY', message: 'Sorgu parametreleri geçersiz.', details: error.flatten() } });
     }
     app.log.error(error);
-    return reply.status(500).send({ error: { code: 'CONTENT_SOURCE_ERROR', message: 'İçerik kaynağı okunamadı.' } });
+    return reply.status((error as any).statusCode===503?503:500).send({ error: { code: 'CONTENT_SOURCE_ERROR', message: 'İçerik kaynağı okunamadı.' } });
   });
 
   app.get('/contract', async () => {

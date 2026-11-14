@@ -19,7 +19,7 @@ export default fp(async(app)=>{
  });
  app.addHook('preValidation',async(req,reply)=>{
   const ctx=context.getStore();if(!ctx)return;
-  if(ctx.kind||ctx.mixedCustom||ctx.media||req.url.includes('/skills')||req.url.includes('/content/')||req.url.includes('/shared-content/')){try{await getContentPool().query('SELECT 1');}catch{throw Object.assign(Error('shared_content_unavailable'),{statusCode:503});}}
+  if(ctx.kind||ctx.mixedCustom||ctx.media||req.url.includes('/skills')||req.url.includes('/integrations/tanitio')||req.url.includes('/content/')||req.url.includes('/shared-content/')){try{await getContentPool().query('SELECT 1');}catch{throw Object.assign(Error('shared_content_unavailable'),{statusCode:503});}}
   if(ctx.skip)return;
   if(ctx.media&&!['GET','HEAD','OPTIONS'].includes(req.method)){
    if(!isWriter)throw Object.assign(Error('shared_content_read_only'),{statusCode:423});
