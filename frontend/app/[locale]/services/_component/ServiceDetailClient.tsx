@@ -126,7 +126,7 @@ export default function ServiceDetailClient({
     svc?.summary || (rawContent ? stripHtmlToText(rawContent).slice(0, 600) : '') || '';
 
   const gallery = useMemo(() => {
-    const rows = Array.isArray(imagesRaw) ? imagesRaw : (initialService as any)?.images||[];
+    const rows:unknown[] = Array.isArray(imagesRaw) ? imagesRaw : (initialService as any)?.images||[];
     // normalizeServiceImage zaten var demiştin; burada direkt kullanabilirsin
     // (imagesRaw zaten normalize geliyorsa bu map’i kaldır)
     return rows.map((r: any) => normalizeServiceImage(r));

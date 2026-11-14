@@ -6,4 +6,4 @@ export DB_HOST=127.0.0.1 DB_PORT=18346 DB_USER=site_test DB_PASSWORD=isolated-si
 export TANITIO_CONTENT_API_KEY=isolated-tanitio-key GZL_CRM_CONTENT_API_KEY=isolated-crm-key CONTENT_MEDIA_ROOT=/tmp/gwd-shared-media STORAGE_DRIVER=local
 mkdir -p /tmp/gwd-shared-media
 export JWT_SECRET=isolated-fixture-jwt-secret-only-20261114 COOKIE_SECRET=isolated-fixture-cookie-secret NODE_ENV=production LOG_ENABLED=1 LOG_LEVEL=error
-bun test "${TEST_FILE:-backend/test/shared-content/contracts.test.ts}"
+if [ "${TEST_SERVE:-0}" = 1 ]; then bun backend/test/shared-content/serve.ts; else bun test "${TEST_FILE:-backend/test/shared-content/contracts.test.ts}"; fi

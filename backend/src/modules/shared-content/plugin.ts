@@ -53,6 +53,18 @@ export default fp(async (app) => {
         throw Object.assign(Error('shared_content_unavailable'), { statusCode: 503 });
       }
     }
+    if (req.url.includes('/admin/db/') && !['GET', 'HEAD', 'OPTIONS'].includes(req.method)) {
+      const path = req.url.split('?')[0];
+      const module = String((req.body as any)?.module || '');
+      if (
+        /\/db\/import-(sql|url|file)$|\/snapshots\/[^/]+\/restore$/.test(path) ||
+        (path.endsWith('/db/import-module') &&
+          /project|service|product|custom|faq|pric|brand|resume|skill|categor|storage/i.test(
+            module,
+          ))
+      )
+        throw Object.assign(Error('shared_content_requires_migration_path'), { statusCode: 423 });
+    }
     if (ctx.skip) return;
     if (ctx.media && !['GET', 'HEAD', 'OPTIONS'].includes(req.method)) {
       if (!isWriter) throw Object.assign(Error('shared_content_read_only'), { statusCode: 423 });

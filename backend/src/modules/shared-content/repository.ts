@@ -276,7 +276,7 @@ export async function withdraw(
     [state, d.kind, id],
   );
   await c.query(
-    'INSERT INTO ' +
+    'INSERT IGNORE INTO ' +
       q(workspaceSchema, 'content_outbox') +
       " (kind,entity_id,revision,action) VALUES (?,?,?,'withdraw')",
     [d.kind, id, revision],
@@ -306,7 +306,15 @@ export async function publish(
   if (!e) throw Object.assign(Error('content_not_found'), { statusCode: 404 });
   if (Number(e.revision) !== expected)
     throw Object.assign(Error('revision_conflict'), { statusCode: 409 });
-  if (e.state === 'published' && Number(e.published_revision) === expected) return;
+  if (e.state === 'published' && Number(e.published_revision) === expected) {
+    await c.query(
+      'INSERT INTO ' +
+        q(workspaceSchema, 'content_outbox') +
+        ' (kind,entity_id,revision,action) VALUES (?,?,?,?) ON DUPLICATE KEY UPDATE delivered_at=NULL,last_error=NULL',
+      [d.kind, id, expected, 'publish'],
+    );
+    return;
+  }
   const a = await readAggregate(c, d, id);
   if (a.deleted) throw Object.assign(Error('content_deleted'), { statusCode: 409 });
   const [states] = await c.query(
@@ -361,7 +369,7 @@ export async function publish(
     [d.kind, id],
   );
   await c.query(
-    'INSERT INTO ' +
+    'INSERT IGNORE INTO ' +
       q(workspaceSchema, 'content_outbox') +
       " (kind,entity_id,revision,action) VALUES (?,?,?,'publish')",
     [d.kind, id, expected],

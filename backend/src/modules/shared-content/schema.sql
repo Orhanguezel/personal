@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS content_outbox (
  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY, kind VARCHAR(32) NOT NULL,entity_id VARCHAR(64) NOT NULL,
  revision BIGINT UNSIGNED NOT NULL, action VARCHAR(32) NOT NULL,payload JSON,
  attempts INT NOT NULL DEFAULT 0,last_error VARCHAR(300),created_at DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
- delivered_at DATETIME(3), KEY pending(delivered_at,id)
+ delivered_at DATETIME(3), KEY pending(delivered_at,id), UNIQUE KEY publication_revision(kind,entity_id,revision,action)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 CREATE TABLE IF NOT EXISTS content_delivery_receipts (
  site_id VARCHAR(16) NOT NULL,kind VARCHAR(32) NOT NULL,entity_id VARCHAR(64) NOT NULL,revision BIGINT UNSIGNED NOT NULL,
