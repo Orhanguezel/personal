@@ -27,7 +27,7 @@ ON DUPLICATE KEY UPDATE `value` = VALUES(`value`);
 
 -- ── 2) Iletisim kunyesi ─────────────────────────────────────────────────────
 INSERT INTO `site_settings` (`id`, `key`, `locale`, `value`) VALUES
-('ss-contact-info-gzl', 'contact_info', '*', '{"companyName":"GZL Danışmanlık Hizmetleri ve Teknoloji Ltd. Şti.","phone":"+49 172 384 6068","email":"info@gzlteknoloji.com","address":"Cumhuriyet Mah. Hastane Cad. Şahinler Sit. C Blok No:12-C İç Kapı No:14, Gemlik/Bursa","website":"https://gzlteknoloji.com"}')
+('ss-contact-info-gzl', 'contact_info', '*', '{"companyName":"GZL Danışmanlık Hizmetleri ve Teknoloji Ltd. Şti.","phone":"+49 172 384 6068","email":"info@gzlteknoloji.com","address":"Gemlik, Bursa","website":"https://gzlteknoloji.com"}')
 ON DUPLICATE KEY UPDATE `value` = VALUES(`value`);
 
 -- ── 3) Yapisal veri: legalName + telefon ────────────────────────────────────
