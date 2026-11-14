@@ -44,10 +44,16 @@ const result = await Bun.build({
         build.onLoad(
           { filter: /\/packages\/shared-backend\/modules\/projects\/admin.controller.ts$/ },
           async (args) => ({
-            contents: (await fs.readFile(args.path, 'utf8')).replace(
-              "if (process.env.LINKEDIN_ENABLED !== 'true' || !isPublished) return;",
-              "if (process.env.CONTENT_SHARED_ENABLED === '1' || process.env.LINKEDIN_ENABLED !== 'true' || !isPublished) return;",
-            ),
+            contents: (await fs.readFile(args.path, 'utf8'))
+              .replace(
+                "if (process.env.LINKEDIN_ENABLED !== 'true' || !isPublished) return;",
+                "if (process.env.CONTENT_SHARED_ENABLED === '1' || process.env.LINKEDIN_ENABLED !== 'true' || !isPublished) return;",
+              )
+              .replaceAll(
+                '((req as any).locale, DEFAULT_LOCALE,',
+                '((req as any).locale, (req as any).locale,',
+              )
+              .replaceAll('defaultLocale: DEFAULT_LOCALE,', 'defaultLocale: (req as any).locale,'),
             loader: 'ts',
           }),
         );

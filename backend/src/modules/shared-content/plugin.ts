@@ -1,7 +1,14 @@
 import fp from 'fastify-plugin';
 import { createHash } from 'node:crypto';
 import { enabled, isWriter, site, workspaceSchema, publishedSchema, editorOrigin } from './config';
-import { context, getContentPool, getLegacyPool, routedPool, type ContentContext } from './routing';
+import {
+  context,
+  getContentPool,
+  getLegacyPool,
+  routedPool,
+  type ContentContext,
+  closeContentPools,
+} from './routing';
 import { definitions, definitionForPath, type ContentDefinition } from './definitions';
 import { digest, readAggregate, saveRevision, metadata } from './repository';
 const q = (name: string) => '`' + workspaceSchema + '`.`' + name + '`';
@@ -20,6 +27,7 @@ async function release(ctx: ContentContext, commit = false) {
 }
 export default fp(async (app) => {
   if (!enabled) return;
+  app.addHook('onClose', async () => closeContentPools());
   // @fastify/mysql uses the promise pool; only allowlisted content table SQL is redirected.
   (app as any).mysql = routedPool;
   (app as any).db = routedPool;

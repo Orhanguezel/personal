@@ -12,9 +12,10 @@ async function main() {
   // Only bind to localhost unless explicitly overridden
   const host = (process.env.HOST ?? '127.0.0.1') as string;
 
+  let stopWorker=()=>{};app.addHook('onClose',async()=>stopWorker());
   await app.listen({ port: env.PORT, host });
 
-  const stopWorker=startContentWorker();app.addHook('onClose',async()=>stopWorker());
+  stopWorker=startContentWorker();
   app.log.info({ host, port: env.PORT }, 'api_listening');
 }
 

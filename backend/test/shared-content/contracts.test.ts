@@ -431,3 +431,25 @@ test('country offers reject stale writes independently of editorial revisions', 
   const offer = typeof actual.offer === 'string' ? JSON.parse(actual.offer) : actual.offer;
   expect(offer.price_onetime).toBe('123.45');
 });
+test('an explicit content language overrides the panel interface language', async () => {
+  const path = '/admin/projects/e3673f55-d45e-52f5-a6fd-ab659ab931e5';
+  const tr = await request('GET', path + '?locale=tr', undefined, { 'Accept-Language': 'de' });
+  expect(tr.statusCode).toBe(200);
+  expect(tr.json().title).toContain('Bitkili Akvaryum');
+  const en = await request('GET', path + '?locale=en', undefined, { 'Accept-Language': 'tr' });
+  expect(en.json().title).toContain('Corporate Site');
+  const identify = await request(
+    'GET',
+    '/admin/shared-content/identify?kind=projects&key=clan-aquascaping-bitkili-akvaryum-tasarim-sitesi',
+  );
+  expect(identify.json().id).toBe('e3673f55-d45e-52f5-a6fd-ab659ab931e5');
+});
+test('legacy SQL imports cannot write separate editorial copies', async () => {
+  for (const [path, body] of [
+    ['/admin/db/import-sql', { sql: 'UPDATE projects SET is_published=1' }],
+    ['/admin/db/import-module', { module: 'products', sql: 'UPDATE products SET is_active=1' }],
+  ]) {
+    const r = await request('POST', String(path), body);
+    expect(r.statusCode).toBe(423);
+  }
+});

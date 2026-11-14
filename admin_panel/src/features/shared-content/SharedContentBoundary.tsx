@@ -40,9 +40,13 @@ export default function SharedContentBoundary({
   const status = api.useSharedReadQuery('/admin/shared-content/status');
   const detail = api.useSharedReadQuery(
     `/admin/${kind === 'blog' ? 'custom_pages' : kind === 'pricing' ? 'pricing/plans' : kind === 'resume' ? 'resume-entries' : kind}/${key && !/^[a-f0-9-]{36}$/.test(key) ? 'by-slug/' : ''}${encodeURIComponent(key || '')}`,
+    { skip: !!idOverride || kind !== 'blog' || !key || key === 'new' || !status.data?.enabled },
+  );
+  const identify = api.useSharedReadQuery(
+    '/admin/shared-content/identify?' + new URLSearchParams({ kind: kind || '', key: key || '' }),
     { skip: !!idOverride || !kind || !key || key === 'new' || !status.data?.enabled },
   );
-  const id = idOverride || detail.data?.id;
+  const id = idOverride || identify.data?.id || detail.data?.id;
   const root = id ? `/admin/shared-content/entries/${kind}/${id}` : '';
   const meta = api.useSharedReadQuery(root, {
     skip: !root,

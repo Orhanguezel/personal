@@ -27,6 +27,8 @@ export async function createApp() {
     logger: buildLoggerConfig(),
   }) as FastifyInstance;
 
+  registerErrorHandlers(app);
+
   await app.register(cors, {
     origin: parseCorsOrigins(env.CORS_ORIGIN as any),
     credentials: true,
@@ -88,6 +90,5 @@ export async function createApp() {
   // All routes: shared (@vps/shared-backend) + project-specific
   await registerAllRoutes(app);
 
-  registerErrorHandlers(app);
   return app;
 }

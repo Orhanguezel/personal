@@ -153,6 +153,25 @@ export async function registerSharedContentAdmin(app: FastifyInstance) {
     );
     return { modules, pending_deliveries: Number(pending.total) };
   });
+  app.get('/shared-content/identify', async (req: any) => {
+    const d = byKind.get(req.query.kind as ContentKind),
+      key = String(req.query.key || '');
+    if (!d || !key || key.length > 255)
+      throw Object.assign(Error('invalid_content_key'), { statusCode: 400 });
+    const [direct]: any = await getContentPool().query(
+      'SELECT entity_id AS id FROM ' + q('content_entries') + ' WHERE kind=? AND entity_id=?',
+      [d.kind, key],
+    );
+    if (direct[0]) return direct[0];
+    const [aliases]: any = await getContentPool().query(
+      'SELECT entity_id AS id FROM ' +
+        q('content_url_aliases') +
+        " WHERE kind=? AND slug=? ORDER BY locale='tr' DESC,site_id LIMIT 1",
+      [d.kind, key],
+    );
+    if (!aliases[0]) throw Object.assign(Error('content_not_found'), { statusCode: 404 });
+    return aliases[0];
+  });
   app.get('/shared-content/entries', async (req: any) => {
     const d = byKind.get(req.query.kind as ContentKind);
     if (!d) throw Object.assign(Error('invalid_content_kind'), { statusCode: 400 });

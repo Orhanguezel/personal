@@ -47,3 +47,14 @@
     min-height: auto;
   }
 }
+
+/* Keep the theme control inside the German brand header at narrow widths. */
+@media (max-width: 767px) {
+  header .dark-light-switcher {
+    width: 44px !important;
+    min-width: 44px !important;
+    height: 44px !important;
+    flex: 0 0 44px;
+    padding: 0 !important;
+  }
+}

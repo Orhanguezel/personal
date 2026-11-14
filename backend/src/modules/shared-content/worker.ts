@@ -39,7 +39,7 @@ export async function deliverPending() {
   }
 }
 export function startContentWorker() {
-  if (!enabled || !isWriter) return () => {};
+  if (!enabled || !isWriter || process.env.CONTENT_WORKER_ENABLED === '0') return () => {};
   const timer = setInterval(() => void deliverPending(), 15000);
   timer.unref();
   void deliverPending();

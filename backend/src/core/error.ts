@@ -11,19 +11,21 @@ export function registerErrorHandlers(app: any) {
 
   // Genel hata yakalayıcı
   app.setErrorHandler((err: any, req: any, reply: any) => {
-    const status = err?.statusCode ?? err?.status ?? (err?.validation ? 400 : 500);
+    const unavailable = ['ECONNREFUSED', 'PROTOCOL_CONNECTION_LOST', 'ER_CON_COUNT_ERROR', 'ETIMEDOUT', 'ECONNRESET'].includes(err?.code || err?.cause?.code);
+    const status = unavailable ? 503 : err?.statusCode ?? err?.status ?? (err?.validation ? 400 : 500);
 
     const payload: Record<string, any> = {
       error: {
-        code: err?.validation
+        code: unavailable ? 'DATA_SOURCE_UNAVAILABLE' : err?.validation
           ? 'VALIDATION_ERROR'
           : err?.code ?? (status >= 500 ? 'INTERNAL_SERVER_ERROR' : 'BAD_REQUEST'),
-        message: err?.message ?? 'Server Error',
+        message: unavailable ? 'Veri kaynağı geçici olarak kullanılamıyor' : status >= 500 ? 'İşlem tamamlanamadı' : err?.message ?? 'Server Error',
       },
     };
 
     if (err?.validation) payload.error.details = err.validation;
     if (err?.errors) payload.error.details = err.errors;
+    if (err?.details) payload.error.details = err.details;
 
     if (process.env.NODE_ENV !== 'production' && err?.stack) {
       payload.error.stack = err.stack;
@@ -33,7 +35,7 @@ export function registerErrorHandlers(app: any) {
     const errno = err?.errno ?? err?.cause?.errno;
     const sqlState = err?.sqlState ?? err?.cause?.sqlState;
     const sqlMessage = err?.sqlMessage ?? err?.cause?.sqlMessage;
-    if (errno != null || sqlMessage) {
+    if (process.env.NODE_ENV !== 'production' && (errno != null || sqlMessage)) {
       payload.error.mysql = {
         ...(errno != null ? { errno: Number(errno) } : {}),
         ...(sqlState ? { sqlState: String(sqlState) } : {}),
