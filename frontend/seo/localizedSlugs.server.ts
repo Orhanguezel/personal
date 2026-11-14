@@ -12,6 +12,7 @@ export async function getResourceLocalizedSlugsBySlug(args: {
   slug: string;
   locale: string;
 }): Promise<LocalizedSlugs> {
+  if(process.env.NEXT_PUBLIC_SHARED_CONTENT==='1')return {}; // canonical/alternates use the common resolver in buildMetadata
   const detailUrl = new URL(
     joinApi(BASE_URL, `/${args.resource}/by-slug/${encodeURIComponent(args.slug)}`),
   );

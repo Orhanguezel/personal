@@ -148,7 +148,7 @@ for t in $TREES; do
     if [ "$app" = backend ]; then
       # Preserve legacy runtime tools in the candidate; the new entry is an immutable bundle.
       # rsync replaces files atomically, so hard-linked rollback files remain intact.
-      ssh "$HOST" "set -e; cd $dir; test ! -e .dist-upload-$SHA; cp -al dist .dist-upload-$SHA"
+      ssh "$HOST" "set -e; cd $dir; if [ ! -e .dist-upload-$SHA ]; then cp -al dist .dist-upload-$SHA; fi"
       rsync -a --compress "$STAGE/backend/dist/" "$HOST:$dir/.dist-upload-$SHA/"
     else
       "${RS[@]}" "$STAGE/$t/$app/.next/" "$HOST:$dir/.next-upload-$SHA/"
@@ -165,7 +165,9 @@ echo "==> [4/4] yayin gecisi (derlemesiz)"
 for t in $TREES; do
   td="$(tree_dir "$t")"
   for app in $APPS; do
-    dir="$BASE/$td/$app"; name="$(pm2_name "$t" "$app")"; url="$(health_url "$t" "$app")"
+    dir="$BASE/$td/$app"; name="$(pm2_name "$t" "$app")"; url="$(health_url "$t" "$app")"; url="${url//$'\n'/ }"
+    health_host=www.guezelwebdesign.com; [ "$t" = gzl ] && health_host=gzlteknoloji.com
+    if [ "$app" = admin_panel ]; then health_host="panel.${health_host#www.}"; fi
     if [ "$app" = backend ]; then cur=dist; up=".dist-upload-$SHA"; else cur=.next; up=".next-upload-$SHA"; fi
     ssh "$HOST" "set -e; cd $dir
       # Harici paket symlink'leri yerel makineyi gosterir; gecisten ONCE sunucuya bagla.
@@ -178,7 +180,7 @@ for t in $TREES; do
       for i in \$(seq 1 60); do
         ok=1
         for u in $url; do
-          r=\$(curl -s -b mh_access_token=saglik-kontrolu -w '\\n%{http_code}' \$u || true)
+          r=\$(curl -s --max-time 20 -H 'Host: $health_host' -b mh_access_token=saglik-kontrolu -w '\\n%{http_code}' \$u || true)
           c=\$(printf '%s' \"\$r\" | tail -1)
           [ \"\$c\" = 200 ] || { ok=0; bad=\"\$u \$c\"; break; }
           # 200 donup hata sayfasi basan render'lari da yakala.
@@ -196,5 +198,5 @@ for t in $TREES; do
   done
 done
 ssh "$HOST" "pm2 save >/dev/null"
-rm -rf "$STAGE"
+if [ "${KEEP_STAGE:-0}" != 1 ]; then rm -rf "$STAGE"; fi
 echo "OK yayinlandi: $SHA"

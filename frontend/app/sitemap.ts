@@ -49,7 +49,10 @@ async function fetchList<T>(
 
   const data = (await res.json()) as unknown;
 
-  if (Array.isArray(data)) return data as T[];
+  if (Array.isArray(data)) {
+    const limit=Number(params?.limit||100),offset=Number(params?.offset||0);
+    return data.length===limit?[...(data as T[]),...await fetchList<T>(path,{...params,offset:offset+limit})]:data as T[];
+  }
   if (data && typeof data === 'object' && Array.isArray((data as any).data)) {
     return (data as any).data as T[];
   }
@@ -101,10 +104,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   for (const locale of activeLocales) {
     const [services,projects,customPages,products]=await Promise.all([
-      fetchList<ListRow>('/services',{limit:1000,locale,default_locale:locale}),
-      fetchList<ListRow>('/projects',{limit:1000,locale,default_locale:locale}),
-      fetchList<ListRow>('/custom-pages',{limit:1000,locale,default_locale:locale}),
-      fetchList<ListRow>('/products',{limit:1000,locale,default_locale:locale}),
+      fetchList<ListRow>('/services',{limit:100,locale,default_locale:locale}),
+      fetchList<ListRow>('/projects',{limit:100,locale,default_locale:locale}),
+      fetchList<ListRow>('/custom-pages',{limit:100,locale,default_locale:locale}),
+      fetchList<ListRow>('/products',{limit:100,locale,default_locale:locale}),
     ]);
     for (const row of services) {
       const slug = String(row?.slug || '').trim();

@@ -73,7 +73,7 @@ export async function getCustomPageLocalizedSlugsByModuleSlug(
 
       const res = await fetch(url.toString(), {
         headers: { Accept: 'application/json' },
-        next: { revalidate: 60 },
+        cache: 'no-store',
       });
       if (!res.ok) return null;
       const rows = (await res.json()) as unknown;

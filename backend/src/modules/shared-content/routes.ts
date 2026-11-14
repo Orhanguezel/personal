@@ -436,7 +436,7 @@ export async function registerSharedContentPublic(app: FastifyInstance) {
         t.fk +
         '`=p.id AND t.locale=? WHERE p.`' +
         d.publishedField +
-        '`=1 AND (t.slug=? OR p.id IN (SELECT entity_id FROM ' +
+        '`=1 AND (t.slug=? OR BINARY p.id IN (SELECT BINARY entity_id FROM ' +
         q('content_url_aliases') +
         ' WHERE kind=? AND locale=? AND slug=?)) LIMIT 1',
       [locale, slug, kind, locale, slug],

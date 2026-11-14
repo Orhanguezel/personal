@@ -459,3 +459,10 @@ test("every editorial index handles source collations and deleted entries", asyn
  const r=await request("GET","/admin/shared-content/entries?kind="+kind);expect(r.statusCode).toBe(200);expect(Array.isArray(r.json())).toBe(true);
  }
 });
+
+test('public slug resolution honors mixed collations and closed records',async()=>{
+ for(const locale of ['tr','de','en']){
+ const r=await request('GET','/content/resolve?'+new URLSearchParams({kind:'projects',locale,slug:'gzlteknoloji'}));expect(r.statusCode).toBe(200);expect(r.json().alternates.tr).toContain('gzlteknoloji.com');
+ const closed=await request('GET','/content/resolve?'+new URLSearchParams({kind:'projects',locale,slug:'clan-aquascaping-bitkili-akvaryum-tasarim-sitesi'}));expect(closed.statusCode).toBe(404);
+ }
+});
