@@ -58,6 +58,13 @@ const result = await Bun.build({
             loader: 'ts',
           }),
         );
+        build.onLoad({filter:/\/packages\/shared-backend\/modules\/checkout\/controller.ts$/},async(args)=>{
+          let source=await fs.readFile(args.path,'utf8');
+          const before='await getProductById(locale as any, DEFAULT_LOCALE as any, b.product_id!)';
+          if(!source.includes(before)||!source.includes('const { id: orderId, order_number } = await createOrder({'))throw Error('Checkout adapter source changed');
+          source=source.replace(before,'await resolveCheckoutProduct(getProductById,locale as any,DEFAULT_LOCALE as any,b.product_id!)').replace('const { id: orderId, order_number } = await createOrder({',"await ensureCheckoutReference(b.sellable_type,b.service_id||b.project_id||'');\n    const { id: orderId, order_number } = await createOrder({");
+          return {contents:'import {resolveCheckoutProduct,ensureCheckoutReference} from '+JSON.stringify(path.join(root,'src/modules/shared-content/checkout.ts'))+';\n'+source,loader:'ts'};
+        });
         build.onLoad(
           { filter: /\/packages\/shared-backend\/modules\/storage\/cloudinary.ts$/ },
           async (args) => {
