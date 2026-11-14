@@ -20,7 +20,7 @@ export default function ContentPreviewBanner() {
       <button
         type="button"
         onClick={async () => {
-          await fetch('/__content/preview', { method: 'DELETE' });
+          await fetch('/content-preview', { method: 'DELETE' });
           location.reload();
         }}
       >

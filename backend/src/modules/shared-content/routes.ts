@@ -139,7 +139,7 @@ export async function registerSharedContentAdmin(app: FastifyInstance) {
     if (!m) throw Object.assign(Error('content_not_found'), { statusCode: 404 });
     return {
       token: await createPreview(d.kind, req.params.id, target, locale, actor(req)),
-      action: origins[target] + '/__content/preview',
+      action: origins[target] + '/content-preview',
     };
   });
   app.get('/shared-content/overview', async () => {

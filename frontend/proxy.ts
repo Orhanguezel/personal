@@ -18,7 +18,7 @@ const LOCALE_SET = new Set<string>(SUPPORTED_LOCALES);
 const RESERVED_FIRST_SEGMENTS = new Set([
   '_next',
   'api',
-  '__content',
+  'content-preview',
   'assets',
   'ui',
   'cv',
