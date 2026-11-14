@@ -144,7 +144,7 @@ export async function registerSharedContentAdmin(app: FastifyInstance) {
   });
   app.get('/shared-content/overview', async () => {
     const [modules] = await getContentPool().query(
-      "SELECT kind,COUNT(*) AS total,SUM(published_revision IS NOT NULL AND state NOT IN ('withdrawn','deleted')) AS live,SUM(revision<>COALESCE(published_revision,0)) AS pending FROM " +
+      "SELECT kind,COUNT(*) AS total,SUM(published_revision IS NOT NULL AND state NOT IN ('withdrawn','deleted')) AS live,SUM(state='draft') AS pending,SUM(state='withdrawn') AS withdrawn,SUM(state='deleted') AS deleted FROM " +
         q('content_entries') +
         ' GROUP BY kind',
     );
@@ -290,6 +290,8 @@ export async function registerSharedContentAdmin(app: FastifyInstance) {
         [req.params.id],
       );
       rev = await saveRevision(c, d, req.params.id, actor(req), String(req.id), before);
+      const [[current]]:any=await c.query('SELECT state FROM '+q('content_entries')+' WHERE kind=? AND entity_id=?',[d.kind,req.params.id]);
+      if(current.state!=='withdrawn')await withdraw(c,d,req.params.id,rev,actor(req),String(req.id));
     });
     const delivery =
       process.env.CONTENT_VERIFY_ORIGINS === '0'

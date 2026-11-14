@@ -80,7 +80,7 @@ export default function Page() {
         <table className="w-full text-left">
           <thead>
             <tr>
-              {['Modül', 'Toplam', 'Yayında', 'Bekleyen taslak'].map((h) => (
+              {['Modül', 'Toplam', 'Yayında', 'Taslak', 'Kaldırılan', 'Silinen'].map((h) => (
                 <th className="p-2" key={h}>
                   {h}
                 </th>
@@ -90,7 +90,7 @@ export default function Page() {
           <tbody>
             {q.data?.modules.map((m: any) => (
               <tr key={m.kind}>
-                {[names[m.kind] || m.kind, m.total, m.live, m.pending].map((v, i) => (
+                {[names[m.kind] || m.kind, m.total, m.live, m.pending, m.withdrawn, m.deleted].map((v, i) => (
                   <td className="border-t p-2" key={i}>
                     {v}
                   </td>
@@ -100,6 +100,7 @@ export default function Page() {
           </tbody>
         </table>
       </div>
+      <p className="text-sm">Yeni taslağı bulunan bir yayın, hem yayında hem taslak sayısına dahildir.</p>
       <p>Doğrulama bekleyen yayın işlemi: {q.data?.pending_deliveries ?? '—'}</p>
       <div className="grid gap-4 md:grid-cols-2">
         {profiles.data?.map((p) => (

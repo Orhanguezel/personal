@@ -466,3 +466,14 @@ test('public slug resolution honors mixed collations and closed records',async()
  const closed=await request('GET','/content/resolve?'+new URLSearchParams({kind:'projects',locale,slug:'clan-aquascaping-bitkili-akvaryum-tasarim-sitesi'}));expect(closed.statusCode).toBe(404);
  }
 });
+
+test('explicit withdrawal also records a never-published draft as withdrawn',async()=>{
+ const made=await request('POST','/admin/projects',{locale:'tr',title:'Withdrawal fixture',content:'<p>Isolated withdrawal fixture</p>',slug:'withdraw-'+crypto.randomUUID(),is_published:false},{'Idempotency-Key':crypto.randomUUID()});expect(made.statusCode).toBe(201);const project=made.json();
+ for(let i=0;i<2;i++){const r=await request('POST','/admin/shared-content/entries/projects/'+project.id+'/withdraw',{expected_revision:project._content_revision});expect(r.statusCode).toBe(200);expect(r.json().state).toBe('withdrawn');expect(r.json().live).toBe(false);}
+ const [[outbox]]:any=await c.query("SELECT COUNT(*) n FROM content_outbox WHERE entity_id=? AND action='withdraw'",[project.id]);expect(Number(outbox.n)).toBe(1);
+});
+
+test('overview distinguishes drafts from withdrawn and deleted content',async()=>{
+ const r=await request('GET','/admin/shared-content/overview');expect(r.statusCode).toBe(200);const project=r.json().modules.find((m:any)=>m.kind==='projects');
+ const [[counts]]:any=await c.query("SELECT SUM(state='draft') AS pending,SUM(state='withdrawn') AS withdrawn,SUM(state='deleted') AS deleted FROM content_entries WHERE kind='projects'");for(const key of ['pending','withdrawn','deleted'])expect(Number(project[key])).toBe(Number(counts[key]));
+});
