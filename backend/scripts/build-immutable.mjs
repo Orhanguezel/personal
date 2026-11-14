@@ -10,6 +10,7 @@ const result = await Bun.build({
   outdir: path.join(root, 'dist'),
   naming: test ? 'test-app.js' : 'index.js',
   target: 'bun',
+  define: { 'process.env.NODE_ENV': JSON.stringify('production') },
   packages: 'external',
   sourcemap: 'none',
   plugins: [
@@ -168,12 +169,37 @@ if (!result.success) {
   for (const log of result.logs) console.error(log);
   process.exit(1);
 }
+async function sourceFingerprint(dir) {
+  const h = createHash('sha256');
+  const visit = async (current) => {
+    for (const entry of (await fs.readdir(current, { withFileTypes: true })).sort((a, b) =>
+      a.name.localeCompare(b.name),
+    )) {
+      if (entry.name === 'node_modules' || entry.name.startsWith('.')) continue;
+      const filename = path.join(current, entry.name);
+      if (entry.isDirectory()) await visit(filename);
+      else if (/\.(ts|json)$/.test(entry.name)) {
+        h.update(path.relative(dir, filename) + '\0');
+        h.update(await fs.readFile(filename));
+      }
+    }
+  };
+  await visit(dir);
+  return h.digest('hex');
+}
+const sourceCommit = Bun.spawnSync(['git', '-C', root, 'rev-parse', 'HEAD'])
+  .stdout.toString()
+  .trim();
+const sharedSourceSha256 = await sourceFingerprint(shared);
 const bundle = await fs.readFile(path.join(root, 'dist', test ? 'test-app.js' : 'index.js'));
 await fs.writeFile(
   path.join(root, 'dist/content-build.json'),
   JSON.stringify(
     {
       builtAt: new Date().toISOString(),
+      sourceCommit,
+      sharedSourceSha256,
+      nodeEnv: 'production',
       sha256: createHash('sha256').update(bundle).digest('hex'),
       sharedBackendBundled: true,
     },

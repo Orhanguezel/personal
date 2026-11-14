@@ -388,6 +388,13 @@ export async function registerSharedContentAdmin(app: FastifyInstance) {
   });
 }
 export async function registerSharedContentPublic(app: FastifyInstance) {
+  app.get('/content/health', async () => {
+    if (!enabled) throw Object.assign(Error('shared_content_disabled'), { statusCode: 503 });
+    await getContentPool().query(
+      'SELECT 1 FROM `' + workspaceSchema + '`.content_migrations LIMIT 1',
+    );
+    return { enabled: true, site, source: 'shared-publication' };
+  });
   app.get('/content/preview', async (req: any, reply) => {
     const data = await readPreview(String(req.headers['x-content-preview'] || ''));
     reply.header('cache-control', 'private, no-store');

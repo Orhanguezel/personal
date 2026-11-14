@@ -55,6 +55,9 @@ health_url() {
     gwd:backend) p=8044 ;& gzl:backend) p=${p:-8102}
       echo "http://127.0.0.1:$p/api/v1/health http://127.0.0.1:$p/api/v1/site_settings/site_favicon http://127.0.0.1:$p/api/v1/custom-pages?module_key=blog http://127.0.0.1:$p/api/v1/services?limit=1 http://127.0.0.1:$p/api/v1/projects?limit=1" ;;
   esac
+  if [ "$2" = backend ] && [ "${SHARED_CONTENT:-0}" = 1 ]; then
+    case "$1" in gwd) echo "http://127.0.0.1:8044/api/v1/content/health" ;; gzl) echo "http://127.0.0.1:8102/api/v1/content/health" ;; esac
+  fi
 }
 
 DEPLOY_REF="${DEPLOY_REF:-origin/main}"
