@@ -470,13 +470,14 @@ export default function SiteSettingsDetailClient({ id }: { id: string }) {
 
   // init/repair selectedLocale
   React.useEffect(() => {
-    if (!localeOptions.length) return;
+    // The global option exists before the metadata arrives; it must not win over the URL.
+    if (isLocalesLoading || !localeRows || !localeOptions.length) return;
 
     setSelectedLocale((prev) => {
       if (prev && localeOptions.some((x) => x.value === prev)) return prev;
       return initialLocale || '';
     });
-  }, [localeOptions, initialLocale]);
+  }, [localeOptions, initialLocale, isLocalesLoading, localeRows]);
 
   // keep URL in sync
   React.useEffect(() => {

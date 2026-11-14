@@ -182,9 +182,10 @@ export default function AdminSiteSettingsClient() {
   const t = useAdminT();
 
   React.useEffect(() => {
+    if (localesQ.isLoading || defaultLocaleQ.isLoading) return;
     if (!locale) setLocale(initialLocale);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [initialLocale]);
+  }, [initialLocale, localesQ.isLoading, defaultLocaleQ.isLoading]);
 
   const headerLoading =
     localesQ.isFetching ||
