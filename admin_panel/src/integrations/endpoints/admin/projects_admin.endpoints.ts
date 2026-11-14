@@ -28,14 +28,14 @@ export const projectsAdminApi = baseApi.injectEndpoints({
     }),
 
     // GET /admin/projects/:id
-    getProjectAdmin: b.query<Project, string>({
-      query: (id) => ({ url: `${BASE}/${id}` }),
-      providesTags: (_res, _e, id) => [{ type: 'Projects' as const, id }],
+    getProjectAdmin: b.query<Project, string | {id:string;locale?:string}>({
+      query: (arg) => ({ url: `${BASE}/${typeof arg==='string'?arg:arg.id}`, params:typeof arg==='string'?{}:{locale:arg.locale,default_locale:arg.locale} }),
+      providesTags: (_res, _e, arg) => [{ type: 'Projects' as const, id:typeof arg==='string'?arg:arg.id }],
     }),
 
     // GET /admin/projects/by-slug/:slug
-    getProjectBySlugAdmin: b.query<Project, string>({
-      query: (slug) => ({ url: `${BASE}/by-slug/${slug}` }),
+    getProjectBySlugAdmin: b.query<Project, string | {slug:string;locale?:string}>({
+      query: (arg) => ({ url: `${BASE}/by-slug/${typeof arg==='string'?arg:arg.slug}`,params:typeof arg==='string'?{}:{locale:arg.locale,default_locale:arg.locale} }),
       providesTags: (res, _e, slug) => [
         { type: 'Projects' as const, id: `slug:${slug}` },
         ...(res?.id ? [{ type: 'Projects' as const, id: res.id }] : []),

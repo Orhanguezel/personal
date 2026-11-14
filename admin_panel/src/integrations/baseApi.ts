@@ -1,3 +1,4 @@
+import {contentRequest,rememberContent} from './sharedContentRevision';
 // =============================================================
 // FILE: src/integrations/baseApi.ts
 // Next.js FINAL (App Router compatible)
@@ -217,7 +218,7 @@ let refreshInFlight: Promise<Awaited<ReturnType<typeof rawBaseQuery>>> | undefin
 
 const baseQueryWithReauth: RBQ = async (args, api, extra) => {
   const requestToken = tokenStore.get();
-  let req: AnyArgs = normalizeUrlArg(args);
+  let req: AnyArgs = contentRequest(normalizeUrlArg(args));
   const path = typeof req === 'string' ? req : req.url || '';
   const cleanPath = extractPath(path);
 
@@ -258,7 +259,7 @@ const baseQueryWithReauth: RBQ = async (args, api, extra) => {
         tokenStore.set(access_token);
         safeSetLocalStorageItem('mh_access_token', access_token);
 
-        let retry: AnyArgs = normalizeUrlArg(args);
+        let retry: AnyArgs = req;
         if (typeof retry !== 'string') {
           retry = ensureProperHeaders(retry);
         }
@@ -277,6 +278,7 @@ const baseQueryWithReauth: RBQ = async (args, api, extra) => {
     }
   }
 
+  rememberContent(req,result.data);
   return result;
 };
 

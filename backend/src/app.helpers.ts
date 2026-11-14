@@ -21,6 +21,7 @@ export function parseCorsOrigins(v?: string | string[]): boolean | string[] {
 }
 
 export function pickUploadsRoot(rawFromSettings?: string | null): string {
+  if(process.env.CONTENT_SHARED_ENABLED==='1'&&process.env.CONTENT_MEDIA_ROOT){fs.mkdirSync(process.env.CONTENT_MEDIA_ROOT,{recursive:true});return process.env.CONTENT_MEDIA_ROOT;}
   const fallback = path.join(process.cwd(), 'uploads');
   const envRoot = env.LOCAL_STORAGE_ROOT && String(env.LOCAL_STORAGE_ROOT).trim();
   const candidate = envRoot || (rawFromSettings || '').trim() || fallback;

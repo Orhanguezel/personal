@@ -62,6 +62,12 @@ export function displayPriceForPlan(
   locale: string,
   rates: { TRY: number; EUR: number },
 ): { text: string; convertedFromUsd: boolean } {
+  if(process.env.NEXT_PUBLIC_SHARED_CONTENT==='1'){
+    const available=(plan as PricingPlan&{country_offer_available?:boolean}).country_offer_available;
+    if(available===false||plan.price_amount==null)return {text:locale==='tr'?'Teklif alın':locale==='de'?'Angebot anfragen':'Request a quote',convertedFromUsd:false};
+    const currency=String(plan.currency||'USD');const amount=Number(plan.price_amount);
+    return {text:new Intl.NumberFormat(locale==='tr'?'tr-TR':locale==='de'?'de-DE':'en-US',{style:'currency',currency,maximumFractionDigits:2}).format(amount),convertedFromUsd:false};
+  }
   const cur = String(plan.currency || 'USD').toUpperCase();
   if (cur !== 'USD') {
     const amount = parseUsdAmount(plan.price_amount);
@@ -104,6 +110,7 @@ export function unitLabelForLocale(unit: string | undefined, locale: string): st
 }
 
 export function fxDisclaimer(locale: string): string {
+  if(process.env.NEXT_PUBLIC_SHARED_CONTENT==='1')return '';
   const base = String(locale || 'en')
     .trim()
     .toLowerCase()

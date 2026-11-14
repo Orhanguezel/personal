@@ -75,7 +75,7 @@ export default function ServiceDetailClient({
     slug,
     locale,
     default_locale: locale,
-  });
+  },{skip:!!(initialService as any)?._preview});
 
   // Sunucudan gelen kayit ilk render'i besler; istemci yaniti gelince o kullanilir.
   const svc = (svcFromQuery ?? (initialService as typeof svcFromQuery)) || undefined;
@@ -94,7 +94,7 @@ export default function ServiceDetailClient({
     {
       // bazı projelerde "skipToken" kullanılır; sende barrel nasıl ise
       // bu options yoksa kaldırabilirsin
-      skip: !serviceId,
+      skip: !serviceId||!!(initialService as any)?._preview,
     } as any,
   );
 

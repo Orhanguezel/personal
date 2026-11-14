@@ -11,7 +11,7 @@ type ListRow = {
   module_key?: string | null;
 };
 
-const REVALIDATE_SECONDS = 3600;
+export const dynamic = 'force-dynamic';
 
 function buildApiUrl(
   path: string,
@@ -40,10 +40,11 @@ async function fetchList<T>(
   const url = buildApiUrl(path, params);
 
   const res = await fetch(url, {
-    next: { revalidate: REVALIDATE_SECONDS },
+    cache: 'no-store',
     headers: { Accept: 'application/json' },
   });
 
+  if (res.status>=500)throw Error('Content source unavailable');
   if (!res.ok) return [];
 
   const data = (await res.json()) as unknown;
@@ -64,15 +65,9 @@ function toDate(value: unknown): Date | undefined {
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const seo = await getSeoAll();
-  const { activeLocales } = await getRuntimeLocalesServer();
+  const runtime = await getRuntimeLocalesServer();
+  const activeLocales = process.env.NEXT_PUBLIC_SHARED_CONTENT==='1' ? (process.env.NEXT_PUBLIC_DEFAULT_LOCALE==='tr'?['tr']:['de','en']) : runtime.activeLocales;
   const base = seo.defaults.canonicalBase;
-
-  const [services, projects, customPages, products] = await Promise.all([
-    fetchList<ListRow>('/services', { limit: 1000, offset: 0 }),
-    fetchList<ListRow>('/projects', { limit: 1000, offset: 0 }),
-    fetchList<ListRow>('/custom-pages', { limit: 1000, offset: 0 }),
-    fetchList<ListRow>('/products', { limit: 1000, offset: 0 }),
-  ]);
 
   const now = new Date();
   const entries: MetadataRoute.Sitemap = [];
@@ -107,6 +102,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }
 
   for (const locale of activeLocales) {
+    const [services,projects,customPages,products]=await Promise.all([
+      fetchList<ListRow>('/services',{limit:1000,locale,default_locale:locale}),
+      fetchList<ListRow>('/projects',{limit:1000,locale,default_locale:locale}),
+      fetchList<ListRow>('/custom-pages',{limit:1000,locale,default_locale:locale}),
+      fetchList<ListRow>('/products',{limit:1000,locale,default_locale:locale}),
+    ]);
     for (const row of services) {
       const slug = String(row?.slug || '').trim();
       if (!slug) continue;

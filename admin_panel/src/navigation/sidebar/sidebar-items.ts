@@ -54,6 +54,7 @@ export interface NavGroup {
 }
 
 export type AdminNavItemKey =
+  | 'shared_content'
   | 'dashboard'
   | 'site_settings'
   | 'custom_pages'
@@ -108,6 +109,7 @@ export const adminNavConfig: AdminNavConfigGroup[] = [
     id: 2,
     key: 'content',
     items: [
+      { key: 'shared_content', url: '/admin/shared-content', icon: FileText },
       { key: 'site_settings', url: '/admin/site-settings', icon: Settings },
       { key: 'blog', url: '/admin/blog', icon: FileText },
       { key: 'legal', url: '/admin/legal', icon: Shield },
@@ -164,7 +166,8 @@ export type AdminNavCopy = {
 
 // Fallback titles for when translations are missing
 const FALLBACK_TITLES: Record<AdminNavItemKey, string> = {
-  dashboard: 'Dashboard',
+  shared_content:'Ortak yayın merkezi',
+  dashboard: 'Gösterge paneli',
   site_settings: 'Site Settings',
   custom_pages: 'Custom Pages',
   blog: 'Blog',

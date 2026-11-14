@@ -71,6 +71,7 @@ const emptyNav: AdminNavCopy = {
     system: '',
   },
   items: {
+    shared_content:'Ortak yayın merkezi',
     dashboard: '',
     site_settings: '',
     custom_pages: '',
@@ -132,6 +133,7 @@ export function normalizeAdminUiCopy(raw: unknown): AdminUiCopy {
   };
 
   const items: AdminNavCopy['items'] = {
+    shared_content:withDefault(itemsRaw.shared_content,'Ortak yayın merkezi'),
     dashboard: withDefault(itemsRaw.dashboard, (ADMIN_UI_DEFAULTS.nav.items as Record<string, string>).dashboard),
     site_settings: withDefault(itemsRaw.site_settings, (ADMIN_UI_DEFAULTS.nav.items as Record<string, string>).site_settings),
     custom_pages: withDefault(itemsRaw.custom_pages, (ADMIN_UI_DEFAULTS.nav.items as Record<string, string>).custom_pages),

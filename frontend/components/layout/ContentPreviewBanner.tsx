@@ -1,0 +1,2 @@
+'use client';
+export default function ContentPreviewBanner(){return <aside style={{position:'sticky',top:0,zIndex:9999,padding:'12px 20px',background:'#fff3cd',color:'#382b00',display:'flex',gap:20,justifyContent:'space-between'}}><strong>Taslak önizlemesi · Ziyaretçilere açık değildir</strong><button type="button" onClick={async()=>{await fetch('/__content/preview',{method:'DELETE'});location.reload();}}>Önizlemeyi kapat</button></aside>;}

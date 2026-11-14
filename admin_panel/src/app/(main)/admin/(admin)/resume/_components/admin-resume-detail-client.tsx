@@ -69,8 +69,9 @@ export default function AdminResumeDetailClient({ id }: { id: string }) {
   const isCreate = String(id) === 'new';
   const canLoad = !isCreate && isUuidLike(id);
 
+  const [editLocale,setEditLocale]=React.useState('tr');
   const resumeQ = useGetResumeAdminQuery(
-    { id, locale: undefined },
+    { id, locale: editLocale,default_locale:editLocale },
     { skip: !canLoad, refetchOnMountOrArgChange: true },
   );
 
@@ -94,7 +95,7 @@ export default function AdminResumeDetailClient({ id }: { id: string }) {
         organization: item.organization ?? '',
         score_value: item.score_value ?? '',
         score_scale: item.score_scale ?? 100,
-        locale: item.locale ?? '',
+        locale: editLocale,
         title: item.title ?? '',
         subtitle: item.subtitle ?? '',
         description: item.description ?? '',
@@ -103,7 +104,7 @@ export default function AdminResumeDetailClient({ id }: { id: string }) {
       });
     }
     if (isCreate) setForm({ ...emptyForm, locale: defaultLocaleFromDb || '' });
-  }, [resumeQ.data, isCreate, defaultLocaleFromDb]);
+  }, [resumeQ.data, isCreate, defaultLocaleFromDb,editLocale]);
 
   async function onSave() {
     if (!form.title.trim() || !form.slug.trim()) {
@@ -175,7 +176,7 @@ export default function AdminResumeDetailClient({ id }: { id: string }) {
           <CardContent className="grid gap-4 md:grid-cols-2">
             <AdminLocaleSelect
               value={form.locale || ''}
-              onChange={(v) => setForm((p) => ({ ...p, locale: v }))}
+              onChange={(v) => {setEditLocale(v);setForm((p) => ({ ...p, locale: v }));}}
               options={localeOptions}
               loading={localesLoading}
               label={page?.locale_label}

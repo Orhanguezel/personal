@@ -3,7 +3,7 @@ import type { FastifyInstance, FastifyRequest } from 'fastify';
 import type { RowDataPacket } from 'mysql2';
 import { z } from 'zod';
 import { env } from '@/core/env';
-import { pool } from '@/db/client';
+import {routedPool as pool} from '../shared-content/routing';
 
 // Adres kurulumdan gelir (marka kurali): ayni kod guezelwebdesign.com'da da kosar.
 const WEBSITE = String(env.FRONTEND_URL || '').replace(/\/+$/, '');
@@ -44,7 +44,7 @@ type SourceProfile = {
 };
 
 async function loadProfile(): Promise<SourceProfile> {
-  const [rows] = await pool.query<DbRow[]>(
+  const [rows] = await pool.query(
     "SELECT `value` FROM site_settings WHERE `key` = ? AND locale = '*' LIMIT 1",
     [PROFILE_KEY],
   );
@@ -146,8 +146,8 @@ export async function registerTanitioContentSource(app: FastifyInstance) {
     const args = [q.locale, ...extra.args];
     const clause = where.join(' AND ');
     const [countResult, rowsResult] = await Promise.all([
-      pool.query<DbRow[]>(`SELECT COUNT(*) total FROM custom_pages source JOIN custom_pages_i18n i ON i.page_id=source.id WHERE ${clause}`, args),
-      pool.query<DbRow[]>(`SELECT source.id,i.slug,i.title,COALESCE(i.summary,i.excerpt) excerpt,COALESCE(source.featured_image,source.image_url) image,i.tags,source.created_at,source.updated_at FROM custom_pages source JOIN custom_pages_i18n i ON i.page_id=source.id WHERE ${clause} ORDER BY source.updated_at DESC LIMIT ? OFFSET ?`, [...args, q.limit, q.offset]),
+      pool.query(`SELECT COUNT(*) total FROM custom_pages source JOIN custom_pages_i18n i ON i.page_id=source.id WHERE ${clause}`, args),
+      pool.query(`SELECT source.id,i.slug,i.title,COALESCE(i.summary,i.excerpt) excerpt,COALESCE(source.featured_image,source.image_url) image,i.tags,source.created_at,source.updated_at FROM custom_pages source JOIN custom_pages_i18n i ON i.page_id=source.id WHERE ${clause} ORDER BY source.updated_at DESC LIMIT ? OFFSET ?`, [...args, q.limit, q.offset]),
     ]);
     const total = Number(countResult[0][0]?.total ?? 0);
     const items = rowsResult[0].map((row) => ({
@@ -166,8 +166,8 @@ export async function registerTanitioContentSource(app: FastifyInstance) {
     const clause = where.join(' AND ');
     const order = q.sort === 'popular' ? 'source.featured DESC, source.display_order ASC' : 'source.updated_at DESC';
     const [countResult, rowsResult] = await Promise.all([
-      pool.query<DbRow[]>(`SELECT COUNT(*) total FROM services source JOIN services_i18n i ON i.service_id=source.id WHERE ${clause}`, args),
-      pool.query<DbRow[]>(`SELECT source.id,source.type,source.featured,source.price_onetime,source.currency,source.is_purchasable,source.featured_image,source.image_url,i.slug,i.name,i.summary,source.created_at,source.updated_at FROM services source JOIN services_i18n i ON i.service_id=source.id WHERE ${clause} ORDER BY ${order} LIMIT ? OFFSET ?`, [...args, q.limit, q.offset]),
+      pool.query(`SELECT COUNT(*) total FROM services source JOIN services_i18n i ON i.service_id=source.id WHERE ${clause}`, args),
+      pool.query(`SELECT source.id,source.type,source.featured,source.price_onetime,source.currency,source.is_purchasable,source.featured_image,source.image_url,i.slug,i.name,i.summary,source.created_at,source.updated_at FROM services source JOIN services_i18n i ON i.service_id=source.id WHERE ${clause} ORDER BY ${order} LIMIT ? OFFSET ?`, [...args, q.limit, q.offset]),
     ]);
     const total = Number(countResult[0][0]?.total ?? 0);
     const items = rowsResult[0].map((row) => ({
@@ -189,8 +189,8 @@ export async function registerTanitioContentSource(app: FastifyInstance) {
     const clause = where.join(' AND ');
     const order = q.sort === 'popular' ? 'source.is_featured DESC, source.display_order ASC' : 'source.updated_at DESC';
     const [countResult, rowsResult] = await Promise.all([
-      pool.query<DbRow[]>(`SELECT COUNT(*) total FROM projects source JOIN projects_i18n i ON i.project_id=source.id WHERE ${clause}`, args),
-      pool.query<DbRow[]>(`SELECT source.id,source.category,source.is_featured,source.featured_image,source.website_url,i.slug,i.title,i.summary,source.created_at,source.updated_at FROM projects source JOIN projects_i18n i ON i.project_id=source.id WHERE ${clause} ORDER BY ${order} LIMIT ? OFFSET ?`, [...args, q.limit, q.offset]),
+      pool.query(`SELECT COUNT(*) total FROM projects source JOIN projects_i18n i ON i.project_id=source.id WHERE ${clause}`, args),
+      pool.query(`SELECT source.id,source.category,source.is_featured,source.featured_image,source.website_url,i.slug,i.title,i.summary,source.created_at,source.updated_at FROM projects source JOIN projects_i18n i ON i.project_id=source.id WHERE ${clause} ORDER BY ${order} LIMIT ? OFFSET ?`, [...args, q.limit, q.offset]),
     ]);
     const total = Number(countResult[0][0]?.total ?? 0);
     const items = rowsResult[0].map((row) => ({
@@ -205,9 +205,9 @@ export async function registerTanitioContentSource(app: FastifyInstance) {
   app.get('/context', async () => {
     const [profile, [articles], [products], [projects]] = await Promise.all([
       loadProfile(),
-      pool.query<DbRow[]>("SELECT COUNT(*) total,MAX(updated_at) lastUpdated FROM custom_pages WHERE module_key='blog' AND is_published=1"),
-      pool.query<DbRow[]>('SELECT COUNT(*) total,MAX(updated_at) lastUpdated FROM services WHERE is_active=1'),
-      pool.query<DbRow[]>('SELECT COUNT(*) total,MAX(updated_at) lastUpdated FROM projects WHERE is_published=1'),
+      pool.query("SELECT COUNT(*) total,MAX(updated_at) lastUpdated FROM custom_pages WHERE module_key='blog' AND is_published=1"),
+      pool.query('SELECT COUNT(*) total,MAX(updated_at) lastUpdated FROM services WHERE is_active=1'),
+      pool.query('SELECT COUNT(*) total,MAX(updated_at) lastUpdated FROM projects WHERE is_published=1'),
     ]);
     return {
       tenant: profile.tenant ?? null, brand: profile.brand ?? null, website: WEBSITE,

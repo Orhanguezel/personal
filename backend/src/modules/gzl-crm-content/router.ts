@@ -1,3 +1,6 @@
+import {enabled as sharedEnabled,isWriter,workspaceSchema} from '../shared-content/config';
+import {saveRevision,publish} from '../shared-content/repository';
+import {definitions} from '../shared-content/definitions';
 import { createHash, randomUUID, timingSafeEqual } from 'node:crypto';
 import { mkdir, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
@@ -156,6 +159,7 @@ async function insertProject(
 export async function registerGzlCrmContentIntegration(app: FastifyInstance) {
   app.get('/capabilities', async (request, reply) => {
     if (!authorized(request)) return authFailure(reply);
+    if(sharedEnabled&&!isWriter)return reply.code(423).send({error:{code:'shared_content_read_only'}});
     return {
       contractVersion: '1.0',
       resources: { projects: { create: true, update: false, delete: false } },
@@ -184,6 +188,7 @@ export async function registerGzlCrmContentIntegration(app: FastifyInstance) {
     config: { rateLimit: { max: 30, timeWindow: '1 minute' } },
   }, async (request, reply) => {
     if (!authorized(request)) return authFailure(reply);
+    if(sharedEnabled&&!isWriter)return reply.code(423).send({error:{code:'shared_content_read_only'}});
 
     try {
       const { payload, image, bytes } = await readMultipart(request);
@@ -198,6 +203,7 @@ export async function registerGzlCrmContentIntegration(app: FastifyInstance) {
       const pool = app.mysql as unknown as PromisePool;
       const connection = await pool.getConnection();
       let storedPath: string | null = null;
+      let storedNew=false;
       try {
         const [existing] = await connection.query<ImportRow[]>(
           'SELECT project_id FROM gzl_crm_content_imports WHERE source_external_id = ? LIMIT 1',
@@ -211,7 +217,7 @@ export async function registerGzlCrmContentIntegration(app: FastifyInstance) {
         const relativePath = `integrations/gzl-crm/projects/${payload.externalId}/${sha256}.${imageExtension(mimeType)}`;
         storedPath = path.join(pickUploadsRoot(), ...relativePath.split('/'));
         await mkdir(path.dirname(storedPath), { recursive: true });
-        await writeFile(storedPath, bytes, { flag: 'wx', mode: 0o644 }).catch(async (error: NodeJS.ErrnoException) => {
+        await writeFile(storedPath, bytes, { flag: 'wx', mode: 0o644 }).then(()=>{storedNew=true;}).catch(async (error: NodeJS.ErrnoException) => {
           if (error.code !== 'EEXIST') throw error;
         });
         const publicUrl = `/uploads/${relativePath}`;
@@ -226,11 +232,13 @@ export async function registerGzlCrmContentIntegration(app: FastifyInstance) {
           bytes: bytes.length,
           sha256,
         });
+        if(sharedEnabled){const d=definitions.find(d=>d.kind==='projects')!;const rev=await saveRevision(connection,d,result.projectId,'gzl-crm',String(request.id));
+          if(result.published){await connection.query("UPDATE `"+workspaceSchema+"`.content_translation_states SET status='approved',source_revision=? WHERE kind='projects' AND entity_id=?",[rev,result.projectId]);await publish(connection as any,d,result.projectId,rev,'gzl-crm',String(request.id));}}
         await connection.commit();
         return reply.code(201).send({ id: result.projectId, externalId: payload.externalId, published: result.published, imageUrl: publicUrl });
       } catch (error) {
         await connection.rollback().catch(() => undefined);
-        if (storedPath) await rm(storedPath, { force: true }).catch(() => undefined);
+        if (storedPath&&storedNew) await rm(storedPath, { force: true }).catch(() => undefined);
         throw error;
       } finally {
         connection.release();

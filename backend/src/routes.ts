@@ -3,6 +3,7 @@ import { requireAuth } from '@vps/shared-backend/middleware/auth';
 import { requireAdmin } from '@vps/shared-backend/middleware/roles';
 import { registerSharedPublic, registerSharedAdmin, registerSeoRoutes } from './routes/shared';
 import { registerTanitioContentSource } from './modules/tanitio-content-source/router';
+import { registerSharedContentAdmin, registerSharedContentPublic } from './modules/shared-content/routes';
 import { registerGzlCrmContentIntegration } from './modules/gzl-crm-content/router';
 
 export async function registerAllRoutes(app: FastifyInstance) {
@@ -15,10 +16,12 @@ export async function registerAllRoutes(app: FastifyInstance) {
       adminApi.addHook('onRequest', requireAuth);
       adminApi.addHook('onRequest', requireAdmin);
       await registerSharedAdmin(adminApi);
+      await adminApi.register(registerSharedContentAdmin);
     }, { prefix: '/admin' });
 
     // Public routes
     await registerSharedPublic(api);
+    await api.register(registerSharedContentPublic);
     await api.register(registerTanitioContentSource, { prefix: '/integrations/tanitio' });
     await api.register(registerGzlCrmContentIntegration, { prefix: '/integrations/gzl-crm' });
   }

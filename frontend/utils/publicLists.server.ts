@@ -1,3 +1,4 @@
+import {previewFor} from './contentPreview.server';
 import { BASE_URL } from '@/integrations/apiBase';
 import type {
   ApiServicePublic,
@@ -56,10 +57,11 @@ async function fetchList<T>(
   const url = buildApiUrl(path, params);
 
   const res = await fetch(url, {
-    next: { revalidate: REVALIDATE_SECONDS },
+    cache: 'no-store',
     headers: { Accept: 'application/json' },
   });
 
+  if (res.status >= 500) throw new Error('Ortak içerik kaynağına erişilemiyor');
   if (!res.ok) return [];
 
   const data = (await res.json()) as unknown;
@@ -168,13 +170,14 @@ export async function getBlogDetailServer(args: {
   locale: string;
   slug: string;
 }): Promise<CustomPageView | null> {
+  const preview=await previewFor('blog',args.slug);if(preview)return normalizeCustomPage(preview);
   const url = buildApiUrl(`/custom-pages/by-slug/${encodeURIComponent(args.slug)}`, {
     locale: args.locale,
   });
 
   try {
     const res = await fetch(url, {
-      next: { revalidate: REVALIDATE_SECONDS },
+      cache: 'no-store',
       headers: { Accept: 'application/json' },
     });
 
@@ -199,6 +202,7 @@ export async function getServiceDetailServer(args: {
   locale: string;
   slug: string;
 }): Promise<ServiceDto | null> {
+  const preview=await previewFor('services',args.slug);if(preview)return {...normalizeService(preview),_preview:true} as ServiceDto;
   const url = buildApiUrl(`/services/by-slug/${encodeURIComponent(args.slug)}`, {
     locale: args.locale,
     default_locale: siteDefaultLocale(),
@@ -206,7 +210,7 @@ export async function getServiceDetailServer(args: {
 
   try {
     const res = await fetch(url, {
-      next: { revalidate: REVALIDATE_SECONDS },
+      cache: 'no-store',
       headers: { Accept: 'application/json' },
     });
 
@@ -224,13 +228,14 @@ export async function getProjectDetailServer(args: {
   locale: string;
   slug: string;
 }): Promise<Project | null> {
+  const preview=await previewFor('projects',args.slug);if(preview)return preview as Project;
   const url = buildApiUrl(`/projects/by-slug/${encodeURIComponent(args.slug)}`, {
     locale: args.locale,
   });
 
   try {
     const res = await fetch(url, {
-      next: { revalidate: REVALIDATE_SECONDS },
+      cache: 'no-store',
       headers: { Accept: 'application/json' },
     });
 
@@ -267,7 +272,7 @@ export async function getPricingPublicServer(args: {
 
   try {
     const res = await fetch(url, {
-      next: { revalidate: REVALIDATE_SECONDS },
+      cache: 'no-store',
       headers: { Accept: 'application/json' },
     });
     if (!res.ok) return null;
@@ -295,7 +300,7 @@ export async function getFaqsListServer(args: {
 
   try {
     const res = await fetch(url, {
-      next: { revalidate: REVALIDATE_SECONDS },
+      cache: 'no-store',
       headers: {
         Accept: 'application/json',
         'x-locale': args.locale,
@@ -332,10 +337,11 @@ export async function getReviewsListServer(args: {
 
   try {
     const res = await fetch(url, {
-      next: { revalidate: REVALIDATE_SECONDS },
+      cache: 'no-store',
       headers: { Accept: 'application/json' },
     });
-    if (!res.ok) return [];
+    if (res.status >= 500) throw new Error('Ortak içerik kaynağına erişilemiyor');
+  if (!res.ok) return [];
     const data = (await res.json()) as unknown;
     if (!Array.isArray(data)) return [];
     return data as ReviewDto[];
@@ -368,7 +374,7 @@ export async function getResumeListServer(args: {
 
   try {
     const res = await fetch(url, {
-      next: { revalidate: REVALIDATE_SECONDS },
+      cache: 'no-store',
       headers: { Accept: 'application/json' },
     });
     if (!res.ok) return emptyResumeGrouped(args.locale);
@@ -406,7 +412,7 @@ export async function getBrandsListServer(args: {
 
   try {
     const res = await fetch(url, {
-      next: { revalidate: REVALIDATE_SECONDS },
+      cache: 'no-store',
       headers: { Accept: 'application/json' },
     });
     if (!res.ok) return emptyBrandsGrouped(args.locale);

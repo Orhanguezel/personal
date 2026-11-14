@@ -57,13 +57,12 @@ health_url() {
   esac
 }
 
-echo "==> [1/4] origin/main cekiliyor"
-git -C "$REPO" fetch --quiet origin main
-SHA="$(git -C "$REPO" rev-parse --short=12 origin/main)"
-echo "    yayimlanacak: $SHA $(git -C "$REPO" log -1 --format=%s origin/main)"
-if [ ! -e "$WT/.git" ]; then
-  git -C "$REPO" worktree add --detach "$WT" origin/main >/dev/null
-fi
+DEPLOY_REF="${DEPLOY_REF:-origin/main}"
+if [ "$DEPLOY_REF" = origin/main ]; then git -C "$REPO" fetch --quiet origin main; fi
+SHA="$(git -C "$REPO" rev-parse --verify "$DEPLOY_REF^{commit}")"
+echo "==> [1/4] yayimlanacak: $SHA"
+if [ -z "${DEPLOY_ONLY:-}" ]; then
+if [ ! -e "$WT/.git" ]; then git -C "$REPO" worktree add --detach "$WT" "$SHA" >/dev/null; fi
 git -C "$WT" checkout --quiet --detach --force "$SHA"
 git -C "$WT" clean -fdxq -e node_modules
 for app in $APPS; do
@@ -81,7 +80,7 @@ LOGDIR="$WT/.deploy-logs"; mkdir -p "$LOGDIR" "$STAGE"
 for app in $APPS; do
   if [ "$app" = backend ]; then
     # Backend kurulumdan bagimsiz: bir kez derlenir, iki kuruluma da gider.
-    (cd "$WT/backend" && rm -rf dist && bun run build > "$LOGDIR/backend.log" 2>&1) \
+    (cd "$WT/backend" && rm -rf dist && bun run build:immutable > "$LOGDIR/backend.log" 2>&1) \
       || { tail -40 "$LOGDIR/backend.log"; echo "HATA: backend derlemesi" >&2; exit 1; }
     rm -rf "$STAGE/backend"; mkdir -p "$STAGE/backend"; mv "$WT/backend/dist" "$STAGE/backend/dist"
     echo "    backend derlendi"; continue
@@ -92,7 +91,7 @@ for app in $APPS; do
     scp -q "$HOST:$BASE/$td/$app/.env.production.local" "$WT/$app/.env.production.local" 2>/dev/null || rm -f "$WT/$app/.env.production.local"
     rm -rf "$WT/$app/.next"
     if [ "$app" = frontend ]; then
-      cmd=(env API_BASE="$(api_base "$t")" bun run build:deploy)
+      cmd=(env NEXT_PUBLIC_SHARED_CONTENT="${SHARED_CONTENT:-0}" API_BASE="$(api_base "$t")" bun run build:deploy)
     else
       cmd=(bun run build)
     fi
@@ -110,9 +109,13 @@ for app in $APPS; do
   done
 done
 
+printf '%s\n' "$SHA" > "$STAGE/source-sha"
+fi
+[ "$(cat "$STAGE/source-sha")" = "$SHA" ] || { echo "HATA: hazir paket SHA farkli" >&2; exit 1; }
 if [ -n "${BUILD_ONLY:-}" ]; then echo "OK yalniz derleme: $STAGE"; exit 0; fi
 
 echo "==> [3/4] sunucuya gonderiliyor"
+ssh "$HOST" "df -h /"
 # Yerelde derleyen Next ile sunucuda calistiran Next ayni olmali; .next surumler arasi tasinmaz.
 for t in $TREES; do
   td="$(tree_dir "$t")"
@@ -129,17 +132,10 @@ for t in $TREES; do
   for app in $APPS; do
     dir="$BASE/$td/$app"
     if [ "$app" = backend ]; then
-      # Canlida olup yeni ciktida OLMAYAN dosya = canliya commit'lenmemis kod gonderilmis.
-      # 2026-10-01: canli dist'te main'de olmayan modules/tanitio-content-source vardi;
-      # yayin onu sessizce silecekti. Once commit'lenmeli; bilerek silmek icin SILMEYE_IZIN=1.
-      silinecek="$(rsync -rcn --delete --out-format='%n' "$STAGE/backend/dist/" "$HOST:$dir/dist/" | sed -n 's/^deleting //p')"
-      if [ -n "$silinecek" ] && [ -z "${SILMEYE_IZIN:-}" ]; then
-        echo "HATA: $t backend canlida main'de olmayan dosyalar var; yayin bunlari silerdi:" >&2
-        printf '      %s\n' $silinecek >&2
-        echo "Once o kodu commit'le (ya da bilerek silmek icin SILMEYE_IZIN=1)." >&2
-        exit 1
-      fi
-      "${RS[@]}" "$STAGE/backend/dist/" "$HOST:$dir/.dist-upload-$SHA/"
+      # Preserve legacy runtime tools in the candidate; the new entry is an immutable bundle.
+      # rsync replaces files atomically, so hard-linked rollback files remain intact.
+      ssh "$HOST" "set -e; cd $dir; test ! -e .dist-upload-$SHA; cp -al dist .dist-upload-$SHA"
+      rsync -a --compress "$STAGE/backend/dist/" "$HOST:$dir/.dist-upload-$SHA/"
     else
       "${RS[@]}" "$STAGE/$t/$app/.next/" "$HOST:$dir/.next-upload-$SHA/"
       # public --delete OLMADAN: sunucuda yuklenmis dosyalar (uploads) durur.

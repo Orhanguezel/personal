@@ -5,6 +5,7 @@ import multipart from '@fastify/multipart';
 import rateLimit from '@fastify/rate-limit';
 import authPlugin from './plugins/authPlugin';
 import mysqlPlugin from '@/plugins/mysql';
+import sharedContentPlugin from '@/modules/shared-content/plugin';
 import staticUploads from './plugins/staticUploads';
 import { localeMiddleware } from '@/common/middleware/locale';
 import { requestLoggerPlugin } from '@vps/shared-backend/modules/audit/requestLogger.plugin';
@@ -40,8 +41,10 @@ export async function createApp() {
       'X-Locale',
       'x-skip-auth',
       'Range',
+      'If-Match',
+      'Idempotency-Key',
     ],
-    exposedHeaders: ['x-total-count', 'content-range', 'range'],
+    exposedHeaders: ['x-total-count', 'content-range', 'range', 'x-content-revision', 'x-content-source', 'x-content-site'],
   });
 
   const cookieSecret =
@@ -71,6 +74,7 @@ export async function createApp() {
 
   await app.register(authPlugin);
   await app.register(mysqlPlugin);
+  await app.register(sharedContentPlugin);
   await app.register(requestLoggerPlugin);
 
   await app.register(multipart, {

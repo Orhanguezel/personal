@@ -160,11 +160,12 @@ export default function AdminProjectDetailClient({ id }: { id: string }) {
   const looksLikeId = isUuidLike(routeKey);
   const canLoad = !isCreate && !!routeKey;
 
-  const byIdQ = useGetProjectAdminQuery(routeKey, {
+  const [editLocale,setEditLocale]=React.useState('tr');
+  const byIdQ = useGetProjectAdminQuery({id:routeKey,locale:editLocale}, {
     skip: !canLoad || !looksLikeId,
     refetchOnMountOrArgChange: true,
   });
-  const bySlugQ = useGetProjectBySlugAdminQuery(routeKey, {
+  const bySlugQ = useGetProjectBySlugAdminQuery({slug:routeKey,locale:editLocale}, {
     skip: !canLoad || looksLikeId,
     refetchOnMountOrArgChange: true,
   });
@@ -181,7 +182,7 @@ export default function AdminProjectDetailClient({ id }: { id: string }) {
       const p = projectQ.data as Project;
       setForm({
         id: p.id,
-        locale: p.locale ?? (p as Project & { locale_resolved?: string }).locale_resolved ?? '',
+        locale: editLocale,
         is_published: p.is_published,
         is_featured: p.is_featured,
         display_order: p.display_order,
@@ -213,7 +214,7 @@ export default function AdminProjectDetailClient({ id }: { id: string }) {
       });
     }
     if (isCreate) setForm({ ...emptyForm, locale: defaultLocaleFromDb || '' });
-  }, [projectQ.data, isCreate, defaultLocaleFromDb]);
+  }, [projectQ.data, isCreate, defaultLocaleFromDb,editLocale]);
 
   async function onSave() {
     if (!form.title.trim() || !form.slug.trim()) {
@@ -301,7 +302,7 @@ export default function AdminProjectDetailClient({ id }: { id: string }) {
           <CardContent className="grid gap-4 md:grid-cols-2">
             <AdminLocaleSelect
               value={form.locale || ''}
-              onChange={(v) => setForm((p) => ({ ...p, locale: v }))}
+              onChange={(v) => {setEditLocale(v);setForm((p) => ({ ...p, locale: v }));}}
               options={safeLocaleOptions}
               loading={localesLoading}
               label={page?.locale_label}

@@ -1,3 +1,4 @@
+import {startContentWorker} from './modules/shared-content/worker';
 // src/index.ts
 // src/index.ts
 import { createApp } from './app';
@@ -13,6 +14,7 @@ async function main() {
 
   await app.listen({ port: env.PORT, host });
 
+  const stopWorker=startContentWorker();app.addHook('onClose',async()=>stopWorker());
   app.log.info({ host, port: env.PORT }, 'api_listening');
 }
 

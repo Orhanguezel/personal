@@ -1,3 +1,6 @@
+import {cookies} from 'next/headers';
+import ContentPreviewBanner from '@/components/layout/ContentPreviewBanner';
+export const dynamic = 'force-dynamic';
 // =============================================================
 // FILE: frontend/app/[locale]/layout.tsx
 // FINAL — Locale segment wrapper (NOW ROOT LAYOUT for this segment)
@@ -73,7 +76,7 @@ export default async function LocaleLayout({
         <JsonLd data={siteJsonLd} id="site" />
         <GlobalScripts locale={locale} />
         <StaticSiteSettingsProvider value={uiSettings}>
-          <AppProviders>{children}</AppProviders>
+          <AppProviders>{(await cookies()).has('content_preview')&&<ContentPreviewBanner/>}{children}</AppProviders>
         </StaticSiteSettingsProvider>
       </body>
     </html>

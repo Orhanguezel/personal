@@ -1,3 +1,5 @@
+import {previewFor} from '@/utils/contentPreview.server';
+import {commonAlternates,commonEnabled} from '@/seo/sharedContent.server';
 // =============================================================
 // FILE: frontend/app/[locale]/products/[slug]/page.tsx
 // Product detail page (server)
@@ -12,11 +14,12 @@ import { BASE_URL } from '@/integrations/apiBase';
 import { normalizeProduct } from '@/integrations/shared/products.types';
 
 async function getProductBySlug(slug: string, locale: string) {
+  const preview=await previewFor('products',slug);if(preview)return normalizeProduct(preview);
   const base = String(BASE_URL || '').replace(/\/+$/, '');
   const url = `${base}/products/by-slug/${encodeURIComponent(slug)}?locale=${locale}&default_locale=${siteDefaultLocale()}`;
 
   const res = await fetch(url, {
-    next: { revalidate: 60 },
+    cache: 'no-store',
     headers: { Accept: 'application/json' },
   });
 
@@ -66,6 +69,7 @@ export async function generateMetadata({
 
   if (product?.seo_title || product?.title) {
     return {
+      alternates:commonEnabled?await commonAlternates(`/${locale}/products/${slug}`):undefined,
       title: product.seo_title || product.title,
       description: product.seo_description || product.subtitle || '',
     };

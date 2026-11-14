@@ -53,7 +53,7 @@ export default function WorkSingleClient({
     data: detailFromQuery,
     isLoading: isDetailLoading,
     error: detailError,
-  } = useGetProjectBySlugPublicQuery({ slug, include: 'images', locale } as any, { skip: !slug });
+  } = useGetProjectBySlugPublicQuery({ slug, include: 'images', locale } as any, { skip: !slug||!!(initialProject as any)?._preview });
 
   const detailRaw = detailFromQuery ?? (initialProject as typeof detailFromQuery);
 
@@ -65,7 +65,7 @@ export default function WorkSingleClient({
   const projectId = detail?.id ?? '';
   const { data: images, isLoading: isImagesLoading } = useListProjectImagesPublicQuery(
     projectId as any,
-    { skip: !projectId },
+    { skip: !projectId||!!(initialProject as any)?._preview },
   );
 
   const gallery = useMemo(() => {

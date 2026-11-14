@@ -1,3 +1,5 @@
+import {commonEnabled,commonAlternates} from './sharedContent.server';
+import {localizePath} from '@/i18n/routes';
 // =============================================================
 // FILE: src/seo/metadata.ts
 // FINAL — Next.js Metadata builder (STRICT + clean)
@@ -75,7 +77,7 @@ function normalizeOgImagePath(image: unknown): string | null {
     : raw;
 }
 
-export function buildMetadata(args: {
+function buildLegacyMetadata(args: {
   seo: SeoAll;
   page?: SeoPage | null;
 
@@ -179,4 +181,11 @@ export function buildMetadata(args: {
 
     ...(icons ? { icons } : {}),
   };
+}
+
+export async function buildMetadata(args:Parameters<typeof buildLegacyMetadata>[0]):Promise<Metadata>{
+ const p=args.canonicalPath?.split('/').filter(Boolean);if(p?.length){args={...args,canonicalPath:'/'+p[0]+localizePath(p[0],'/'+p.slice(1).join('/'))};}
+ const result=buildLegacyMetadata(args);
+ if(commonEnabled&&args.canonicalPath){const alternates=await commonAlternates(args.canonicalPath);if(alternates){result.alternates=alternates;if(result.openGraph)result.openGraph={...result.openGraph,url:alternates.canonical};}}
+ return result;
 }

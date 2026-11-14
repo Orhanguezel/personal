@@ -1,3 +1,4 @@
+import SharedContentBoundary from '@/features/shared-content/SharedContentBoundary';
 // =============================================================
 // FILE: src/app/(main)/admin/layout.tsx
 // FINAL — Admin Layout (NO SSR fetch) — Auth gate via RTK client guard
@@ -67,7 +68,7 @@ export default async function Layout({ children }: Readonly<{ children: ReactNod
             </div>
           </header>
 
-          <div className="h-full min-w-0 p-4 md:p-6">{children}</div>
+          <div className="h-full min-w-0 p-4 md:p-6"><SharedContentBoundary>{children}</SharedContentBoundary></div>
         </SidebarInset>
       </SidebarProvider>
     </AdminAuthGate>

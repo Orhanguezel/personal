@@ -1,0 +1,10 @@
+import { schemaName } from './definitions';
+export const enabled=process.env.CONTENT_SHARED_ENABLED==='1';
+export const site=(process.env.CONTENT_SITE_ID||process.env.DEPLOY_PROFILE||'gwd') as 'gwd'|'gzl';
+if(enabled&&!['gwd','gzl'].includes(site))throw Error('CONTENT_SITE_ID is required');
+export const workspaceSchema=schemaName(process.env.CONTENT_WORKSPACE_DB||'gzl_shared_content');
+export const publishedSchema=schemaName(process.env.CONTENT_PUBLISHED_DB||'gzl_shared_public');
+export const isWriter=enabled&&process.env.CONTENT_WRITER==='1';
+export const editorOrigin='https://panel.guezelwebdesign.com';
+export const contentConfig={host:process.env.CONTENT_DB_HOST||process.env.DB_HOST||'localhost',port:Number(process.env.CONTENT_DB_PORT||process.env.DB_PORT||3306),user:process.env.CONTENT_DB_USER||'',password:process.env.CONTENT_DB_PASSWORD||'',database:workspaceSchema,connectionLimit:3,connectTimeout:2500,dateStrings:true,timezone:'Z',charset:'utf8mb4_unicode_ci'};
+if(enabled&&(!contentConfig.user||!contentConfig.password))throw Error('Shared content credentials are required');
