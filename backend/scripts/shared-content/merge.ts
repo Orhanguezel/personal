@@ -158,6 +158,13 @@ manifest.pricingDecision = {
   automaticCurrencyConversion: false,
   missingCountryOffer: 'quote-only',
 };
+manifest.decisionFingerprint = digest({
+  source: fixture.sites,
+  counts: manifest.counts,
+  decisions: manifest.decisions,
+  pricingDecision: manifest.pricingDecision,
+  offers: manifest.offers,
+});
 await writeFile(
   String(args.manifest || '/tmp/gwd-shared-merge-manifest.json'),
   JSON.stringify(manifest, null, 2),
@@ -168,6 +175,7 @@ if (!args.write) {
   console.log(
     JSON.stringify({
       dryRun: true,
+      decisionFingerprint: manifest.decisionFingerprint,
       counts: manifest.counts,
       decisions: manifest.decisions.length,
       conflicts: 0,
@@ -201,6 +209,14 @@ if (args['views-only']) {
   await createContentViews(c, workspace, published, sources);
   await c.end();
   process.exit(0);
+}
+if (args['accept-manifest'] !== manifest.decisionFingerprint) {
+  await c.end();
+  throw Error(
+    'Migration requires --accept-manifest=' +
+      manifest.decisionFingerprint +
+      ' after review of the complete language, publication and country-price decisions',
+  );
 }
 for (const schema of [workspace, published]) {
   await c.query(

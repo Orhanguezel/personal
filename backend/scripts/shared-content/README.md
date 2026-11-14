@@ -78,7 +78,7 @@ veri erişimi uyarlamaları açıkça `build-immutable.mjs` içinde listelenmiş
 4. `export.mjs` ile son kaynağı tekrar al; dry-run/manifest ve medya planını yenile.
 5. Hazır `shared-content-merge.js` aracını root MySQL socket'iyle çalıştır;
    `--fixture`, `--manifest`, `--schema=dist/content-schema.sql`,
-   `--crm-schema=dist/crm-imports.sql`, `--write` ver. Bu derleme değildir.
+   `--crm-schema=dist/crm-imports.sql`, `--accept-manifest=<decisionFingerprint>`, `--write` ver. Fingerprint dry-run çıktısındaki eksiksiz dil/yayın/fiyat kararlarını sabitler. Bu derleme değildir.
 6. `media-plan.py --apply` doğrulanmış dosya birleşimini kopyalar.
 7. `provision.mjs --apply` ayrı writer/reader DB kullanıcılarını ve özel env'leri
    hazırlar; parola çıktıya basılmaz. Üretim env veya fixture repo'ya girmez.

@@ -12,6 +12,7 @@ export function buildLoggerConfig(): FastifyServerOptions['logger'] {
     redact: {
       paths: [
         'req.headers.authorization',
+        'req.headers["x-content-preview"]',
         'req.headers.cookie',
         'req.headers["set-cookie"]',
         'res.headers["set-cookie"]',
